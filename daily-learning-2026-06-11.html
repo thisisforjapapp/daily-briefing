@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — June 11, 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #0f0f13;
+  --surface: #181820;
+  --surface2: #1e1e28;
+  --border: #2a2a38;
+  --text: #e0ddd4;
+  --muted: #888;
+  --accent: #7eb8f7;
+  --accent-dim: #3a6a9a;
+  --amber: #d4893a;
+  --amber-bg: #1e1808;
+  --amber-border: #5a3a10;
+  --green: #5aab6a;
+  --green-bg: #0e1a10;
+  --green-border: #2a6a35;
+  --steel: #7aafc8;
+  --steel-bg: #0e1520;
+  --steel-border: #2a4a65;
+  --red: #e07060;
+  --nav-width: 185px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif HK", "Source Han Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Sticky top ── */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-bar {
+  padding: .22rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.back-bar a {
+  display: inline-block;
+  font-size: .72rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .15rem .65rem;
+  transition: color .2s, border-color .2s;
+}
+.back-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+
+.sticky-top .site-header {
+  padding: .45rem 1.2rem;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sticky-top h1 { font-size: .97rem; font-weight: 700; letter-spacing: .02em; }
+.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; }
+
+.toc-bar {
+  display: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: .28rem .8rem;
+  gap: .4rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  scrollbar-width: none;
+}
+.toc-bar::-webkit-scrollbar { display: none; }
+.toc-bar a {
+  display: inline-block;
+  font-size: .68rem;
+  padding: .18rem .6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  margin-right: .3rem;
+  transition: color .2s, border-color .2s;
+}
+.toc-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+
+/* ── Layout ── */
+.page-body {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ── Left nav ── */
+.left-nav {
+  width: var(--nav-width);
+  flex-shrink: 0;
+  padding: 1.5rem .8rem 2rem;
+}
+.left-nav-inner {
+  position: sticky;
+  top: 3.5rem;
+}
+.left-nav h3 {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav a {
+  display: block;
+  font-size: .72rem;
+  padding: .32rem .6rem;
+  border-radius: 8px;
+  color: var(--muted);
+  margin-bottom: .15rem;
+  border: 1px solid transparent;
+  transition: all .2s;
+  line-height: 1.35;
+}
+.left-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); text-decoration: none; }
+
+/* ── Content ── */
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+
+.card-label {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: .35rem;
+}
+
+.card h2 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* Amber cards */
+.card.amber { border-color: var(--amber-border); background: var(--amber-bg); }
+.card.amber h2 { color: var(--amber); }
+.card.amber .card-label { color: #b8782a; }
+
+/* Green card */
+.card.green { border-color: var(--green-border); background: var(--green-bg); }
+.card.green h2 { color: var(--green); }
+.card.green .card-label { color: #4a8a5a; }
+
+/* Steel card */
+.card.steel { border-color: var(--steel-border); background: var(--steel-bg); }
+.card.steel h2 { color: var(--steel); }
+.card.steel .card-label { color: #5a8aaa; }
+
+/* Intro boxes */
+.intro-box {
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1.1rem;
+  font-size: .88rem;
+  line-height: 1.6;
+  border-left: 4px solid;
+}
+.intro-box.amber { background: #261a06; border-color: var(--amber); }
+.intro-box.accent { background: #101828; border-color: var(--accent); }
+
+/* Image block */
+.card-img-wrap {
+  margin: 1rem 0;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-img-wrap img {
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.card-img-wrap .emoji-fallback { font-size: 4rem; }
+.img-caption {
+  font-size: .65rem;
+  color: var(--muted);
+  margin-top: .4rem;
+}
+
+/* Details/summary */
+details {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin: .8rem 0;
+}
+.card.amber details { background: #1a1000; border-color: var(--amber-border); }
+.card.steel details { background: #0a1018; border-color: var(--steel-border); }
+.card.green details { background: #0a1208; border-color: var(--green-border); }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--accent);
+  padding: .1rem 0;
+  list-style: none;
+  user-select: none;
+}
+.card.amber details summary { color: var(--amber); }
+.card.steel details summary { color: var(--steel); }
+.card.green details summary { color: var(--green); }
+
+details[open] summary { margin-bottom: .5rem; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶ "; font-size: .75em; }
+details[open] summary::before { content: "▼ "; }
+
+.retrieval-prompt {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: .8rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+}
+.card.amber .retrieval-prompt { border-left-color: var(--amber); }
+.card.steel .retrieval-prompt { border-left-color: var(--steel); }
+.card.green .retrieval-prompt { border-left-color: var(--green); }
+
+.takeaway {
+  background: var(--surface2);
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
+  padding: .7rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+  font-style: italic;
+}
+.card.amber .takeaway { border-left-color: var(--amber); }
+.card.steel .takeaway { border-left-color: var(--steel); }
+
+.source { font-size: .72rem; color: var(--muted); margin-top: .8rem; }
+
+/* Political econ structure */
+.pe-block {
+  margin: .6rem 0;
+  padding: .6rem .9rem;
+  background: var(--surface2);
+  border-radius: 6px;
+  font-size: .9rem;
+}
+.pe-label {
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--steel);
+  margin-bottom: .2rem;
+}
+
+/* Yesterday's Spark */
+.spark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.spark-card h2 { font-size: 1rem; color: var(--accent); margin-bottom: .8rem; }
+.spark-item {
+  font-size: .88rem;
+  padding: .55rem .8rem;
+  border-left: 3px solid var(--accent-dim);
+  margin-bottom: .6rem;
+  background: var(--surface2);
+  border-radius: 0 6px 6px 0;
+  font-style: italic;
+}
+
+/* Connection */
+.connection-card {
+  background: var(--surface2);
+  border: 1px solid var(--accent-dim);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+}
+.connection-card h3 { color: var(--accent); margin-bottom: .6rem; font-size: .95rem; }
+
+/* Floating toolbar */
+.fab-toolbar {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  z-index: 300;
+}
+.fab-btn {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .5rem .9rem;
+  font-size: .75rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+.fab-btn:hover { background: var(--accent-dim); border-color: var(--accent); }
+
+/* Footer */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+footer h4 { color: var(--text); font-size: .85rem; margin-bottom: .5rem; }
+
+p { margin-bottom: .9rem; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .left-nav { display: none; }
+  .toc-bar { display: flex; }
+  .content { padding: 1rem 1rem 4rem; }
+  .card { padding: 1.2rem 1.2rem; }
+  .fab-toolbar { bottom: 1rem; right: .8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP -->
+<div class="sticky-top">
+  <div class="back-bar"><a href="index.html">← All Briefings</a></div>
+  <div class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">Wednesday, June 11, 2026 &nbsp;·&nbsp; ~20 min read</span>
+  </div>
+  <div class="toc-bar">
+    <a href="#spark">🔁 Yesterday</a>
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">🏯 東方史</a>
+    <a href="#card-3">🏛 W.History</a>
+    <a href="#card-4">☯ 東方哲</a>
+    <a href="#card-5">💭 W.Phil</a>
+    <a href="#card-6">🧠 Psych</a>
+    <a href="#card-7">🫀 Physio</a>
+    <a href="#card-8">🥗 Health</a>
+    <a href="#card-9">🏋 Sports</a>
+    <a href="#card-10">📈 Invest</a>
+    <a href="#card-11">🏛 PolEcon</a>
+  </div>
+</div>
+
+<div class="page-body">
+
+<!-- LEFT NAV -->
+<nav class="left-nav">
+  <div class="left-nav-inner">
+    <h3>Today's Topics</h3>
+    <a href="#spark">🔁 Yesterday's Spark</a>
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">🏯 Eastern History</a>
+    <a href="#card-3">🏛 Western History</a>
+    <a href="#card-4">☯ Eastern Philosophy</a>
+    <a href="#card-5">💭 Western Philosophy</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">🫀 Physiology</a>
+    <a href="#card-8">🥗 Health</a>
+    <a href="#card-9">🏋 Sports Science</a>
+    <a href="#card-10">📈 Investing</a>
+    <a href="#card-11">🏛 Political Econ</a>
+    <a href="#connection">🔗 Connection</a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="content">
+
+<!-- YESTERDAY'S SPARK -->
+<section class="spark-card" id="spark">
+  <h2>🔁 Yesterday's Spark — Can You Answer These?</h2>
+  <div class="spark-item">What role did dark matter play in the formation of the Cosmic Web, and why couldn't ordinary matter alone have produced the same structure?</div>
+  <div class="spark-item">Name two specific ways — one economic, one cultural or religious — in which the Black Death destabilised the medieval social order.</div>
+  <div class="spark-item">Why, according to Dunning and Kruger, do unskilled people overestimate their performance — and why do highly skilled people underestimate theirs?</div>
+</section>
+
+<!-- CARD 1: ASTRONOMY -->
+<article class="card" id="card-1">
+  <div class="card-label">Card 1 · Astronomy &amp; Cosmos</div>
+  <h2>The Universe's Most Extreme Objects: Inside Neutron Stars and the Spinning Lighthouses That Reveal Them</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    A teaspoon of neutron star material weighs about as much as a mountain — what physical process could possibly compress matter to that density, and what is the only force preventing it from collapsing further into a black hole?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-1">
+    <div class="emoji-fallback">🌟</div>
+  </div>
+
+  <p>When a massive star — between roughly 8 and 20 solar masses — exhausts its nuclear fuel, gravity wins catastrophically. In milliseconds, the iron core collapses: protons and electrons are forced together to form neutrons in a process called neutronisation (中子化). The result is a neutron star (中子星): an object roughly 20 km across but containing 1.4 times the Sun's mass. The density exceeds 10<sup>17</sup> kg/m³ — comparable to the density of an atomic nucleus scaled to the size of a city. At this scale, neutron degeneracy pressure (中子縮並壓) — a quantum mechanical phenomenon governed by the Pauli exclusion principle (泡利不相容原理), which forbids two neutrons from occupying the same quantum state — is the only force preventing total collapse into a black hole.</p>
+
+  <p>Some neutron stars are detected as pulsars (脈衝星) — rotating beacons emitting tight beams of radio waves or X-rays from their magnetic poles (磁極). As the collapsing core shrinks from ~1 million km to ~10 km, conservation of angular momentum (角動量守恆) spins it up dramatically, yielding rotation rates of up to 716 times per second for millisecond pulsars (毫秒脈衝星). The Crab Nebula (蟹狀星雲) pulsar PSR B0531+21, remnant of a supernova (超新星) recorded by Chinese astronomers in 1054 CE, spins 30 times per second and powers the entire nebula with its rotational energy. Millisecond pulsars are so stable they rival atomic clocks; the North American Nanohertz Observatory for Gravitational Waves (NANOGrav) uses arrays of them to detect gravitational waves (引力波) from supermassive black hole mergers billions of light-years away.</p>
+
+  <p>The most exotic subset is magnetars (磁星) — neutron stars with magnetic fields 10<sup>15</sup> times stronger than Earth's. Magnetars occasionally release starquakes that produce soft gamma-repeater (SGR) bursts of staggering energy. On December 27, 2004, SGR 1806-20 released, in 0.2 seconds, more energy than the Sun emits in 250,000 years. Had it been 10 light-years away rather than 50,000, it could have damaged Earth's ozone layer (臭氧層). NASA's NICER (Neutron star Interior Composition Explorer, 中子星內部組成探測器) instrument aboard the ISS is currently mapping neutron star surfaces to probe the equation of state of nuclear-dense matter — a regime no particle accelerator on Earth can replicate.</p>
+
+  <div class="takeaway">💡 Pulsars are nature's most stable clocks — so precise that arrays of them can detect gravitational waves from billion-solar-mass black holes merging billions of light-years away.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What physical mechanism prevents a neutron star from collapsing into a black hole, and why does a stellar core spin so much faster after collapse?
+    <details>
+      <summary>Check your answer</summary>
+      Neutron degeneracy pressure — a quantum effect from the Pauli exclusion principle — halts further collapse. Conservation of angular momentum: as the core radius shrinks by a factor of ~50,000, rotational speed increases proportionally to the square of that factor.
+    </details>
+  </div>
+
+  <p class="source">📚 NASA NICER mission overview; Hessels et al. (2006), "A Radio Pulsar Spinning at 716 Hz," <em>Science</em>, 311; NANOGrav Collaboration (2023), <em>Astrophysical Journal Letters</em>.</p>
+</article>
+
+<!-- CARD 2: EASTERN HISTORY (Chinese, full TC) -->
+<article class="card amber" id="card-2">
+  <div class="card-label">Card 2 · 東方歷史</div>
+  <h2>征服已知世界的邊緣——蒙古帝國西征如何重塑歐亞大陸</h2>
+
+  <details>
+    <summary>🤔 讀前預測</summary>
+    蒙古騎兵人數遠少於他們所征服的城市與帝國，為何能屢戰屢勝？他們的優勢僅在於騎兵速度嗎？
+  </details>
+
+  <div class="card-img-wrap" id="img-card-2">
+    <div class="emoji-fallback">🏯</div>
+  </div>
+
+  <div class="intro-box amber">
+    <strong>核心人物：</strong>成吉思汗（鐵木真）、拔都汗、名將速不台<br>
+    <strong>事件：</strong>蒙古帝國西征（1219–1242年）<br>
+    <strong>背景：</strong>花剌子模帝國總督奧特拉爾殺害蒙古商隊，引發史上規模最大的報復性軍事行動之一；蒙古帝國此時正處於急速擴張的巔峰期。
+  </div>
+
+  <p>1218年，花剌子模帝國（Khwarezmian Empire）總督奧特拉爾將成吉思汗派遣的四百五十名商人全數處決，並沒收貨物。這不僅是外交奇恥大辱，更直接威脅蒙古帝國賴以運作的絲路商業利益。成吉思汗的回應是動員逾二十萬大軍，於1219年兵分四路發動西征。他採取分進合擊戰術，同時包圍多個重鎮。撒馬爾罕（Samarkand）與布哈拉（Bukhara）這兩座中亞文明重心相繼淪陷；玉龍赤傑（Urgench，今土庫曼斯坦境內）因頑強抵抗，城破後蒙古軍掘開阿姆河堤壩以水淹城，繁華大城就此從地圖上消失。</p>
+
+  <p>蒙古軍的戰略優勢並非單純靠騎兵衝鋒，而是情報、工程技術與心理戰的精密結合。他們主動吸納漢族、波斯、契丹工匠，操作拋石機與燃燒彈等攻城器械；廣泛運用細作在敵城散播恐慌；並以「降者免死、拒者屠城」的明確政策系統性瓦解守軍抵抗意志。成吉思汗身後，拔都汗（Batu Khan）與速不台（Subutai）繼續西進——1241年，蒙古軍在勒格尼茨（Legnica）全殲波蘭騎士聯軍，再於莫希（Mohi）擊潰匈牙利主力，前鋒甚至抵達亞得里亞海沿岸。歐洲幾乎無力組織有效防線，但窩闊台大汗的猝逝迫使大軍回師，西歐自此倖免。</p>
+
+  <p>蒙古征服帶來的破壞難以估量。波斯史家拉施德丁（Rashid al-Din）記載，呼羅珊（Khurasan）地區人口銳減逾八成，精密的灌溉系統遭到徹底摧毀，農業文明需數代方能恢復。然而同一個帝國框架，在鼎盛期卻孕育了「蒙古和平」（Pax Mongolica）——絲綢之路重新暢通，馬可波羅東行中國正是受惠於此。十三世紀的大規模毀滅與十四世紀的貿易繁榮並存於同一歷史段落，提醒我們：任何帝國的遺產都難以用單一尺度衡量。</p>
+
+  <div class="takeaway">💡 蒙古人以少勝多的核心，不是蠻力，而是情報、工程與心理戰的系統整合——每一次屠城，都是精心計算的戰略威懾，而非純粹的暴力宣洩。</div>
+
+  <div class="retrieval-prompt">
+    <em>讀後回想：</em>蒙古軍攻城時依賴哪三種核心手段？奧特拉爾事件為何成為西征的導火索，而非單純的邊境衝突？
+    <details>
+      <summary>查看答案</summary>
+      三種手段：（一）吸納工匠操作攻城器械；（二）情報收集與心理恐嚇（細作散播恐慌）；（三）「降者免死」政策系統性瓦解抵抗。奧特拉爾事件不僅是外交侮辱，更直接侵害蒙古保護絲路商貿的核心利益，並殺害了成吉思汗的直屬商業代表，性質等同宣戰。
+    </details>
+  </div>
+
+  <p class="source">📚 《元史》；Timothy May, <em>The Mongol Conquests in World History</em> (Reaktion Books, 2012)；Peter Jackson, <em>The Mongols and the Islamic World</em> (Yale UP, 2017)。</p>
+</article>
+
+<!-- CARD 3: WESTERN HISTORY -->
+<article class="card" id="card-3">
+  <div class="card-label">Card 3 · Western History</div>
+  <h2>The Printing Press, a Monk's Theses, and the Fracturing of Christendom: The Protestant Reformation</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    Martin Luther (馬丁·路德) was not the first person to criticise the Catholic Church — reformers had come before him and been burned at the stake. What made 1517 different from all previous attempts?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-3">
+    <div class="emoji-fallback">📜</div>
+  </div>
+
+  <div class="intro-box accent">
+    <strong>Key figure:</strong> Martin Luther (馬丁·路德), Augustinian friar, 1483–1546<br>
+    <strong>Event:</strong> Publication of the 95 Theses, October 31, 1517, Wittenberg (威登堡)<br>
+    <strong>Context:</strong> The Holy Roman Empire (神聖羅馬帝國) is funding the construction of St. Peter's Basilica (聖伯多祿大殿) through the sale of indulgences (贖罪券); a theology professor objects, and the Gutenberg printing press (古騰堡印刷機) turns a local academic dispute into a continent-wide revolution within weeks.
+  </div>
+
+  <p>Johann Tetzel (約翰·泰澤爾), a Dominican friar, was touring Saxony with a practised sales pitch: buy an indulgence and reduce your loved ones' time in Purgatory (煉獄). Half the proceeds financed St. Peter's construction; the other half repaid the debts of Archbishop Albert of Mainz (美因茨大主教亞爾伯特), who had borrowed from the Fugger banking house (富格爾銀行) to purchase his bishopric. Luther, horrified by parishioners substituting purchased certificates for genuine repentance, drafted 95 academic propositions challenging the theological basis of indulgences. Critically, he targeted not merely abuses but the underlying claim of papal authority (教皇權威) to grant remission of divine punishment — a structural attack, not a surface complaint.</p>
+
+  <p>What made 1517 transformative was distribution. Within two weeks, Luther's Latin theses were translated into German; within a month, pamphlets circulated across the Empire. One contemporary estimate suggests 300,000 copies of Luther's writings spread between 1517 and 1520 — an unprecedented information event made possible by Gutenberg's press, invented ~1450. Earlier reformers like Jan Hus (胡斯) had made similar arguments and been executed at the Council of Constance (康斯坦茨會議) in 1415. Luther had a printing press. At the Diet of Worms (沃爾姆斯帝國議會) in 1521, summoned to recant before Emperor Charles V (皇帝查理五世), his refusal elevated him into a symbol of German national resistance to Roman authority. German princes seeking to seize Church lands found theological legitimacy in Luther's challenge to Rome.</p>
+
+  <p>The political and social aftermath was catastrophic and transformative in equal measure. The Reformation shattered the institutional unity of Western Christianity permanently, spawning Lutheranism (路德教派), Calvinism (加爾文主義), Anglicanism (英國國教), and dozens of radical sects. The Wars of Religion (宗教戰爭) — culminating in the Thirty Years' War (三十年戰爭, 1618–1648) — killed perhaps 8 million people. Yet the same upheaval accelerated vernacular literacy: Luther's German Bible (路德德文聖經) standardised written German. The Peace of Augsburg (奧格斯堡和約, 1555) established the principle of <em>cuius regio, eius religio</em> — the ruler's faith determines the state's faith — an early formulation of territorial sovereignty (領土主權) that would shape the modern state system.</p>
+
+  <div class="takeaway">💡 The Reformation shows that technology transforms the social reach of ideas: Luther's arguments were not new, but the printing press made them impossible to suppress — distribution is sometimes the revolution.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What specific political-economic incentive gave German princes reason to support Luther's challenge to Rome, independent of their theological convictions?
+    <details>
+      <summary>Check your answer</summary>
+      German princes stood to gain by seizing vast Church landholdings if Rome's authority could be challenged; Luther's theological arguments provided legitimacy for appropriating ecclesiastical property and ending financial transfers (taxes, fees) to Rome, enriching territorial rulers at the Church's expense.
+    </details>
+  </div>
+
+  <p class="source">📚 Diarmaid MacCulloch, <em>The Reformation: A History</em> (Penguin, 2004); Britannica, "Martin Luther"; Andrew Pettegree, <em>Brand Luther</em> (Penguin Press, 2015).</p>
+</article>
+
+<!-- CARD 4: EASTERN PHILOSOPHY (Full TC) -->
+<article class="card amber" id="card-4">
+  <div class="card-label">Card 4 · 東方哲學</div>
+  <h2>以法治國還是以術馭人？韓非子的政治哲學與秦帝國的崛起</h2>
+
+  <details>
+    <summary>🤔 讀前預測</summary>
+    儒家強調道德教化可以改善人性，法家卻認為道德根本不可靠。假設法家是對的——一個不信任任何臣下的君主，如何在不依靠個人美德的情況下維持穩定的統治？
+  </details>
+
+  <div class="card-img-wrap" id="img-card-4">
+    <div class="emoji-fallback">⚖️</div>
+  </div>
+
+  <div class="intro-box amber">
+    <strong>核心思想家：</strong>韓非子（約前280–前233年），韓國貴族，師承荀子<br>
+    <strong>核心概念：</strong>法（公開法律）、術（秘密權術）、勢（君位威權）<br>
+    <strong>歷史背景：</strong>戰國末期七雄爭霸，舊貴族道德秩序崩潰；秦國率先以法家改革為藍本建立軍功制度，最終統一天下。
+  </div>
+
+  <p>韓非子師承儒家大師荀子，卻得出截然相反的結論。荀子雖主張「性惡論」，仍相信禮法教化能夠糾正人性；韓非子的出發點更為徹底：即使父子、夫妻、君臣之間，也以利益計算為核心，信任是例外而非常態。他在《韓非子》中提出「法、術、勢」三位一體的治國論：「法」是公開明文的法律，讓臣民清晰知道賞罰標準；「術」是君主秘密考核臣下的手段，防止臣下結黨欺君；「勢」是君位本身賦予的威權，使人服從的是職位而非個人美德。三者缺一不可——只有法而無術，臣下可欺；只有術而無法，賞罰無據；只有勢而無法術，威權難以持續。這是中國政治思想史上最徹底的非道德化政治論述。</p>
+
+  <p>韓非子的政治洞察部分源於切身的悲劇。他曾多次向韓王進諫改革，均遭忽視；後被秦王嬴政（即秦始皇）仰慕其才學而召見，卻因同窗師兄弟李斯（同樣師承荀子）的妒忌而遭誣陷下獄，最終被迫服毒自殺，時年約四十七歲。然而他的思想在秦國得到最充分的實踐。商鞅（前395–前338年）早已在秦國推行法家改革：廢除井田制、實行軍功授爵、建立連坐法——將秦國從西陲小國改造為高效的軍國主義戰爭機器。韓非子為這套實踐提供了系統性的哲學基礎。秦始皇讀到《韓非子》時，據《史記》記載，曾感嘆：「嗟乎，寡人得見此人與之游，死不恨矣！」</p>
+
+  <p>法家的歷史遺產至今仍有深刻爭議。秦朝以法家哲學統一六國，但嚴刑峻法與極端中央集權亦使王朝僅歷十五年便覆滅。漢代以後，儒家在表面上取代法家成為官方意識形態，但歷代實際統治呈現「陽儒陰法」的雙重結構：以儒家話語建立道德合法性，以法家手段維持政治控制。學者蕭公權將此稱為「儒表法裡」。這一結構在中國政治文化中延續逾兩千年。現代行政學者指出，韓非子對「委託-代理問題」（即上位者如何防止下屬欺騙）的分析，在形式上與當代制度經濟學若合符節——思想的穿透力遠超其時代。</p>
+
+  <div class="takeaway">💡 韓非子的核心洞見不在於主張殘暴，而在於揭示：有效的制度設計必須假設人會自利——道德說教永遠無法取代結構性的激勵機制。</div>
+
+  <div class="retrieval-prompt">
+    <em>讀後回想：</em>韓非子「法、術、勢」三者分別指什麼？為何他認為單靠其中一項不足以維持有效統治？
+    <details>
+      <summary>查看答案</summary>
+      法＝公開法律（讓臣民清楚賞罰標準）；術＝君主秘密考核臣下的手段（防止欺騙與結黨）；勢＝君位本身的威權（服從的是職位，非個人美德）。三者缺一不可：無術則臣可欺君；無法則賞罰無據；無勢則威令不行。
+    </details>
+  </div>
+
+  <p class="source">📚 《韓非子》（先秦典籍）；蕭公權《中國政治思想史》（聯經出版，1982）；Burton Watson, <em>Han Fei Tzu: Basic Writings</em> (Columbia UP, 1964)。</p>
+</article>
+
+<!-- CARD 5: WESTERN PHILOSOPHY -->
+<article class="card" id="card-5">
+  <div class="card-label">Card 5 · Western Philosophy</div>
+  <h2>What Does It Mean to Flourish? Aristotle's Answer to the Question Modern Ethics Forgot</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    Most ethical frameworks ask "What should I do?" — Aristotle (亞里士多德) asked a fundamentally different question. What was it, and why does that difference reshape the entire enterprise of ethics?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-5">
+    <div class="emoji-fallback">🏛</div>
+  </div>
+
+  <div class="intro-box accent">
+    <strong>Key figure:</strong> Aristotle (亞里士多德), 384–322 BCE, student of Plato (柏拉圖), tutor of Alexander the Great (亞歷山大大帝)<br>
+    <strong>Core text:</strong> <em>Nicomachean Ethics</em> (尼各馬可倫理學), ~350 BCE<br>
+    <strong>Context:</strong> The Sophists (智者學派) argued morality is culturally relative; Plato grounded ethics in abstract Forms (理型). Aristotle rejected both, constructing an empirical account of the good life rooted in observable human nature and social practice — philosophy as biology applied to character.
+  </div>
+
+  <p>Aristotle begins the <em>Nicomachean Ethics</em> with a disarmingly plain claim: every human action aims at some good. The question is what the <em>highest</em> good is — the one we pursue for its own sake rather than as a means to something further. His answer is <em>eudaimonia</em> (幸福/繁盛, usually translated "happiness" but better rendered as "flourishing"). Crucially, eudaimonia is not a feeling or a mental state but an <em>activity</em> — the active exercise of distinctively human faculties in accordance with virtue (德性/<em>aretē</em>, 卓越). This immediately separates Aristotle from hedonists (享樂主義者): a pleasant but passive life does not count as flourishing. It also separates him from those who equate happiness with wealth or honour, which are at best instruments — Aristotle observes that we always want to know <em>what</em> the wealth or honour is for.</p>
+
+  <p>The mechanism of virtue, for Aristotle, is habit (習慣). We become courageous (勇敢) by doing courageous acts; just (公正) by doing just acts — not by contemplating rules or calculating consequences. Each virtue is a <em>mean</em> (中道) between two vices: courage falls between cowardice (怯懦) and recklessness (魯莽); generosity (慷慨) between miserliness (吝嗇) and profligacy (揮霍). The mean is not an arithmetic midpoint but the amount appropriate to the person and circumstance — which is why applying Aristotle's ethics demands <em>phronesis</em> (實踐智慧/practical wisdom), an irreducible practical judgment cultivated only through experience. No algorithm can substitute for it. This is a deliberate feature, not a bug: Aristotle thought moral maturity was developmental, not downloadable.</p>
+
+  <p>The most sustained challenge came from Kant (康德) and the utilitarian (功利主義) tradition, who argued virtue ethics was too vague and too culturally parochial to serve as a universal guide — Aristotle himself thought slaves and women could not fully flourish, revealing the framework's dependence on contingent social assumptions. The 20th-century revival led by Philippa Foot (菲利帕·富特) and Alasdair MacIntyre (麥金太爾) in <em>After Virtue</em> (1981) countered that both deontological (義務論的) and consequentialist (結果主義的) ethics had stripped morality of its narrative and communal context, leaving it unable to explain why any particular rule or outcome should matter to the person choosing. Aristotle's virtue ethics, for all its limitations, kept the question of <em>who you are becoming</em> at the centre — a question neither Kant nor Mill can fully answer.</p>
+
+  <div class="takeaway">💡 Aristotle's core move: you cannot decide how to act in isolation from asking what kind of person you are becoming — ethical reasoning is character formation first, rule-following second.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What does Aristotle mean by the "doctrine of the mean," and why does applying it require practical wisdom rather than a rule or formula?
+    <details>
+      <summary>Check your answer</summary>
+      Each virtue is the appropriate middle point between two extremes of excess and deficiency. Practical wisdom (phronesis) is required because the "correct amount" depends entirely on the person, situation, and stakes — no formula can substitute for experienced contextual judgment, which is why virtue is developed through practice rather than instruction.
+    </details>
+  </div>
+
+  <p class="source">📚 Aristotle, <em>Nicomachean Ethics</em>, trans. Ross (Oxford UP); Stanford Encyclopedia of Philosophy, "Aristotle's Ethics" (rev. 2022); Alasdair MacIntyre, <em>After Virtue</em> (Notre Dame UP, 1981).</p>
+</article>
+
+<!-- CARD 6: PSYCHOLOGY -->
+<article class="card" id="card-6">
+  <div class="card-label">Card 6 · Psychology</div>
+  <h2>Why Smart People Go Along With the Crowd Even When They Know Better — Asch's Conformity Experiments</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    In Asch's famous line experiment, participants could clearly see the correct answer — yet many agreed with the obviously wrong majority anyway. Does this mean they were lying, or does the group judgment somehow change what they actually perceive?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-6">
+    <div class="emoji-fallback">👥</div>
+  </div>
+
+  <p>In 1951, Solomon Asch (所羅門·阿希) ran an experiment elegant in its simplicity. A participant sat with several peers — all secret confederates (研究助手/臥底) — and was asked to match line lengths on cards. The correct answer was visually obvious. But when all confederates unanimously chose the wrong line, 75% of real participants conformed on at least one trial across 12 rounds; roughly 32% of all individual responses were incorrect. Asch identified two distinct mechanisms: <em>normative influence</em> (規範性影響) — going along to avoid social disapproval while privately knowing the group is wrong — and <em>informational influence</em> (信息性影響) — genuinely updating one's belief because the group's confident consensus seems like better evidence. Both operate simultaneously in natural social settings, and disentangling them is harder than Asch originally assumed.</p>
+
+  <p>The conditions modulating conformity turned out to be highly specific. Unanimity matters far more than group size — even a single dissenter (異見者), regardless of whether they supported the participant's own correct answer, reduced conformity rates by approximately 80%. The social pressure appears to be about isolation, not numerical weight of opinion. Serge Moscovici (莫斯科維奇) demonstrated the complementary phenomenon of <em>minority influence</em> (少數影響): a consistent, confident minority can shift majority views over time, though the mechanism is slower and more deliberative. Most striking was a neuroimaging follow-up by Berns et al. (2005, <em>Biological Psychiatry</em>): conformity activated regions associated with <em>perception and mental rotation</em>, not social cognition or decision-making — suggesting that at least some conformity reflects genuine perceptual updating, not merely surface compliance.</p>
+
+  <p>The applied stakes run deep. Medical teams diagnosing ambiguous cases, investment committees assessing risk, and juries deliberating on guilt all rely on group judgment — and all are vulnerable to Asch dynamics. The person who speaks first, or most confidently, tends to anchor the group; subsequent contributors face implicit pressure to align rather than deviate. Structured countermeasures are evidence-based: anonymous pre-voting before discussion, rotating devil's advocate (魔鬼代言人) roles, and pre-mortem analysis (假設失敗分析 — asking "if this decision is wrong, why?") each break unanimity before it consolidates. Cross-cultural replications show meaningfully lower conformity in some individualistic cultures and higher in some collectivist ones, suggesting the baseline social cost of nonconformity is a variable, not a constant.</p>
+
+  <div class="takeaway">💡 Breaking unanimity early is the single most powerful intervention against groupthink — even one confident dissenter, on any side, reduces conformity by ~80%.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What is the difference between normative and informational conformity, and what did the Berns et al. neuroimaging study suggest about which kind was more prevalent than Asch assumed?
+    <details>
+      <summary>Check your answer</summary>
+      Normative = conforming to avoid social rejection while privately knowing the group is wrong. Informational = genuinely updating beliefs because the group seems like better evidence. Berns et al. found conformity activating perceptual (not social) brain regions, suggesting more informational (genuine belief change) conformity than originally assumed — meaning people may actually see things differently under group pressure, not just report differently.
+    </details>
+  </div>
+
+  <p class="source">📚 Asch, S.E. (1951/1956). <em>Social Psychology</em> (Prentice Hall); Berns et al. (2005). "Neurobiological Correlates of Social Conformity and Independence," <em>Biological Psychiatry</em>, 58(3); Moscovici et al. (1969). <em>Journal of Experimental Social Psychology</em>.</p>
+</article>
+
+<!-- CARD 7: PHYSIOLOGY -->
+<article class="card" id="card-7">
+  <div class="card-label">Card 7 · Physiology</div>
+  <h2>The Second Brain: How Your Gut and Its Microbiome Actually Communicate with Your Mind</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    The gut contains roughly 500 million neurons — comparable to an entire cat's nervous system. If the vagus nerve (迷走神經) carries signals between gut and brain, in which direction do most signals travel, and what does that imply about the relationship?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-7">
+    <div class="emoji-fallback">🦠</div>
+  </div>
+
+  <p>The enteric nervous system (腸道神經系統, ENS) — often called the "second brain" — is a self-contained network of approximately 500 million neurons lining the gastrointestinal tract (消化道), capable of regulating digestion largely without instructions from the central nervous system (CNS, 中樞神經系統). The primary bidirectional communication channel between gut and brain is the vagus nerve (迷走神經), and here lies a counterintuitive fact: roughly 80–90% of its signalling travels <em>upward</em> — from gut to brain (afferent), not top-down. The gut microbiome (腸道微生物群) — ~38 trillion bacteria, archaea, and fungi residing primarily in the colon — are active participants: they produce approximately 90% of the body's serotonin (血清素) and substantial quantities of dopamine (多巴胺) precursors, directly influencing mood, motivation, and anxiety.</p>
+
+  <p>The causal evidence comes primarily from germ-free mouse studies. Mice raised without any gut bacteria show exaggerated stress responses via HPA axis hyperactivity (下視丘-垂體-腎上腺軸過度活化), reduced BDNF (腦源性神經營養因子/brain-derived neurotrophic factor) in the hippocampus (海馬體), and impaired spatial memory. When these mice are subsequently colonised with bacteria from socially dominant animals, their behaviour shifts toward dominance patterns — demonstrating directional causality. Human studies are necessarily correlational but consistent: a 2019 meta-analysis in <em>Nature Microbiology</em> (Valles-Colomer et al.) found that the bacterial species <em>Coprococcus</em> and <em>Dialister</em> were significantly depleted in depressed patients across multiple independent populations, independent of antidepressant use — pointing toward specific microbial pathways in mood regulation.</p>
+
+  <p>The practical frontier is psychobiotics (精神益生菌 — specific microorganisms with mental health benefits), but evidence remains nascent and strain-specific. The more robust finding concerns dietary patterns: fibre diversity drives microbiome diversity, and microbiome diversity correlates with mental health resilience across multiple outcomes. The mechanism involves short-chain fatty acids (短鏈脂肪酸, SCFAs) — produced when bacteria ferment dietary fibre (膳食纖維) — which cross the blood-brain barrier (血腦屏障) and modulate neuroinflammation (神經炎症) and BDNF expression. Ultra-processed food consumption reduces both fibre and microbial diversity. The gut-brain axis (腸腦軸) is not a metaphor — it is a bidirectional endocrine and neural highway whose primary traffic, counterintuitively, runs from the gut upward.</p>
+
+  <div class="takeaway">💡 Your gut talks to your brain far more than your brain talks to your gut — dietary diversity is currently the most evidence-backed lever for supporting this system.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What direction does most vagus nerve communication between gut and brain travel, and what share of the body's serotonin originates in the gut?
+    <details>
+      <summary>Check your answer</summary>
+      ~80–90% of vagus nerve signals travel upward (afferent: gut → brain), not top-down. Approximately 90% of the body's serotonin is produced in the gut, primarily by enterochromaffin cells stimulated in part by microbiome metabolites — not in the brain, as often assumed.
+    </details>
+  </div>
+
+  <p class="source">📚 Cryan et al. (2019). "The Microbiota-Gut-Brain Axis," <em>Physiological Reviews</em>, 99(4); Valles-Colomer et al. (2019). "The neuroactive potential of the human gut microbiota," <em>Nature Microbiology</em>, 4.</p>
+</article>
+
+<!-- CARD 8: HEALTH -->
+<article class="card" id="card-8">
+  <div class="card-label">Card 8 · Health</div>
+  <h2>Fermented Food vs. High-Fibre Diet: What a Landmark Stanford Trial Actually Found About Your Gut</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    Two popular strategies for improving gut health — eating more fermented foods and eating more fibre — work through different mechanisms. Which produces faster changes to microbiome diversity, and which group showed <em>no significant change</em> in a major 2021 randomised trial?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-8">
+    <div class="emoji-fallback">🥗</div>
+  </div>
+
+  <p>A landmark 2021 randomised controlled trial at Stanford (Wastyk et al., <em>Cell</em>) directly compared a high-fermented-food diet against a high-fibre diet in 36 healthy adults over 10 weeks. The fermented food group — consuming yoghurt (優格), kimchi (韓國泡菜), kombucha (康普茶), kefir (克菲爾), and fermented cottage cheese — showed significantly <em>increased</em> microbiome diversity and <em>decreased</em> immune activation: 19 inflammatory proteins including IL-6 and IL-12p70 fell substantially. The high-fibre group — dramatically increasing vegetables, legumes, and whole grains — showed virtually <em>no change</em> in microbiome diversity, despite strong dietary compliance. This result challenged the widespread assumption that "eat more fibre = better microbiome," and made headlines in nutritional science precisely because it contradicted prevailing advice.</p>
+
+  <p>The mechanism explains the paradox. Fermented foods introduce live microorganisms (probiotics, 益生菌) that can transiently colonise the gut and produce metabolites including short-chain fatty acids (短鏈脂肪酸) and bacteriocins (細菌素) that inhibit pathogenic bacteria. Their effect is relatively rapid but may be transient. High-fibre foods function as prebiotics (益生元) — feeding existing bacteria — but their microbiome impact depends entirely on which species are already present. A gut already rich in fibre-fermenting bacteria such as <em>Bifidobacterium</em> (雙歧桿菌) and <em>Faecalibacterium prausnitzii</em> responds robustly to added fibre. A depleted, low-diversity gut may simply lack the microbial workforce to process it — additional fibre slides through without benefit. This explains why probiotic and fibre supplement studies show such inconsistent results across populations.</p>
+
+  <p>The practical interpretation requires nuance. For most people eating a typical Western diet low in fermented foods, adding fermented variety may produce rapid, measurable immune and diversity benefits — the Stanford trial's fermented food participants consumed an average of 6.3 servings per day by week 10. For people already consuming fermented foods, building fibre <em>variety</em> — targeting 30+ distinct plant species per week, as Tim Spector's ZOE research advocates — appears to produce sustained microbiome shifts. The "Fermented vs. Fibre" framing is somewhat false: the most microbiome-supportive diet combines both, with fermented foods acting as a microbial catalyst and diverse fibre as the sustaining substrate. The single worst dietary pattern for microbiome health remains the displacement of whole foods by ultra-processed substitutes (超加工食品).</p>
+
+  <div class="takeaway">💡 If starting from a low-diversity gut, add fermented foods first for rapid change — then build fibre variety (aim for 30+ plant species per week) to sustain and expand the gains.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> In the Wastyk et al. (2021) Stanford study, which group showed increased microbiome diversity, and what mechanistic explanation accounts for why the other group showed no change despite dietary compliance?
+    <details>
+      <summary>Check your answer</summary>
+      The fermented food group showed increased diversity and reduced inflammatory markers. The high-fibre group showed no diversity change because a gut microbiome lacking species capable of fermenting the introduced fibres cannot increase diversity from them — the microbiome needs the right "workforce" before fibre can act as a substrate for growth.
+    </details>
+  </div>
+
+  <p class="source">📚 Wastyk et al. (2021). "Gut-microbiota-targeted diets modulate human immune status," <em>Cell</em>, 184(16), 4137–4153; Spector, T. (2021). <em>Spoon-Fed: Why Almost Everything We've Been Told About Food Is Wrong</em> (Jonathan Cape).</p>
+</article>
+
+<!-- CARD 9: SPORTS SCIENCE -->
+<article class="card" id="card-9">
+  <div class="card-label">Card 9 · Sports Science</div>
+  <h2>The 'Anabolic Window' Is Mostly a Myth — When Protein Timing Actually Matters</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    Gym culture has long insisted you must consume protein within 30–60 minutes of a workout or the gains are lost. What does the controlled research actually say about the duration of the post-exercise "window" — and when does timing genuinely matter?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-9">
+    <div class="emoji-fallback">🏋</div>
+  </div>
+
+  <p>The "anabolic window" (合成代謝窗口) — the notion that protein consumed immediately post-training dramatically outperforms protein consumed hours later — dominated gym culture for decades. The primary evidence base was largely from <em>fasted</em> training studies: participants who hadn't eaten for hours before exercise were protein-depleted, so post-workout feeding showed strong benefits. A 2013 meta-analysis by Aragon &amp; Schoenfeld in the <em>Journal of the International Society of Sports Nutrition</em>, reviewing 23 controlled studies, found that when total daily protein intake was equated across groups, peri-workout timing effects were negligible to small. The reason: resistance training (阻力訓練) elevates muscle protein synthesis (MPS, 肌肉蛋白質合成) not for 1–2 hours but for up to 24–48 hours post-exercise, providing a substantially wider anabolic period than the "window" metaphor implies.</p>
+
+  <p>The actual trigger for MPS during this 24–48 hour window is leucine (亮氨酸) — the key branched-chain amino acid (支鏈胺基酸) that activates the mTOR pathway (哺乳動物雷帕黴素靶蛋白通路), the master signalling cascade for muscle building. As long as adequate leucine (roughly 2.5–3 g per meal, equivalent to ~25–40 g of quality protein) reaches the muscle during this elevated-sensitivity window, MPS will be triggered. The practical implication is that <em>protein distribution across the day</em> matters more than exact post-workout timing: 3–5 meals each containing ~0.4 g/kg body weight outperforms the same total in 1–2 large doses (Areta et al., 2013, <em>Journal of Physiology</em>). Each meal triggers a discrete MPS bout; spacing prevents the refractory period that follows a large single dose.</p>
+
+  <p>Important exceptions exist. If you train in a genuine fasted state — morning training without any prior breakfast — post-workout protein within 1–2 hours does matter, because you are legitimately protein-depleted. Pre-sleep casein protein (酪蛋白 — slow-digesting, providing sustained overnight amino acid release) has been shown to enhance overnight MPS in multiple trials (Res et al., 2012, <em>Medicine &amp; Science in Sports &amp; Exercise</em>). And total daily protein remains the dominant variable: current evidence supports 1.6–2.2 g/kg body weight daily for muscle hypertrophy (肌肉肥大), with a ceiling above which additional protein provides no further benefit (Morton et al., 2018, <em>British Journal of Sports Medicine</em>). The rushed post-workout shake is optional for most; getting to 1.6–2.2 g/kg across the day is not.</p>
+
+  <div class="takeaway">💡 Total daily protein (~1.6–2.2 g/kg) spread across 3–5 meals matters far more than the exact post-workout window — unless you're training in a prolonged fasted state, in which case timing becomes genuinely important.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> Why does the "anabolic window" matter less than gym culture assumes, and under what specific condition does post-workout protein timing become genuinely important?
+    <details>
+      <summary>Check your answer</summary>
+      Resistance training elevates MPS for 24–48 hours (not 1–2 hours), and leucine from any feeding during this window can trigger MPS — so precise post-workout timing is not critical if you've eaten before training. Post-workout timing becomes important when training fasted (e.g., morning sessions without breakfast), because the body is genuinely amino-acid depleted and needs replenishment sooner.
+    </details>
+  </div>
+
+  <p class="source">📚 Aragon &amp; Schoenfeld (2013). "Nutrient timing revisited," <em>JISSN</em>, 10:5; Areta et al. (2013). <em>Journal of Physiology</em>, 591(12); Morton et al. (2018). <em>British Journal of Sports Medicine</em>, 52(6).</p>
+</article>
+
+<!-- CARD 10: INVESTING -->
+<article class="card green" id="card-10">
+  <div class="card-label">Card 10 · Investing &amp; Economic Thinking</div>
+  <h2>The Man Who Taught Buffett Everything: Benjamin Graham, Mr. Market, and the Logic of Buying Dollars for Fifty Cents</h2>
+
+  <details>
+    <summary>🤔 Predict Before You Read</summary>
+    Why would it ever be rational to buy a stock trading <em>below</em> the company's liquidation value — a company worth more dead than alive? What does this pricing anomaly reveal about how markets actually work?
+  </details>
+
+  <div class="card-img-wrap" id="img-card-10">
+    <div class="emoji-fallback">📈</div>
+  </div>
+
+  <p>Benjamin Graham (班傑明·葛拉漢), who taught Warren Buffett (沃倫·巴菲特) at Columbia Business School in the 1940s, started from a premise that sounds almost insulting in its simplicity: a stock is not a ticker symbol or a price chart — it is a fractional ownership stake in a real operating business. Markets are not efficient information processors; they are, as Graham famously wrote, "voting machines" (投票機) in the short run and "weighing machines" (磅重機) in the long run. <em>The Intelligent Investor</em> (聰明的投資者, 1949) introduced his central allegory: Mr. Market (市場先生), an emotionally unstable business partner who offers to buy your shares or sell you his every single day at a price determined by his mood. On fearful days the offer price falls far below reasonable intrinsic value (內在價值); on euphoric days it soars far above. The investor's only task is to exploit these mood swings — not to mistake them for information.</p>
+
+  <p>Graham's operational concept was the <em>margin of safety</em> (安全邊際): only purchase a security when its market price is substantially below a conservative, independently calculated estimate of what the underlying business is worth. For common stocks in the 1930s, he used <em>net current asset value</em> (NCAV, 淨流動資產值) as his floor — essentially current assets minus all liabilities, representing what a company would be worth if immediately liquidated. In the aftermath of the 1929 crash (1929年股災), thousands of solvent companies traded below NCAV — the market, paralysed by fear, was pricing them as worthless. Graham and his partner systematically bought these companies and generated exceptional returns through the 1930s. The counterintuitive logic: maximum opportunity arrives when fear is highest and news is worst — precisely when emotional Mr. Market is offering his biggest discounts.</p>
+
+  <p>Graham's framework had an acknowledged limitation: it worked brilliantly for "cigar butts" (煙蒂股) — beaten-down companies with one last puff of value — but not for compounding businesses. Buffett's evolution, influenced also by Philip Fisher (菲利普·費雪), was to recognise that a competitively dominant company (one with an "economic moat," 護城河 — durable structural advantages protecting returns on capital) compounds intrinsic value over time, making initial price cheapness less critical than business quality. Yet the deeper structure Graham provided is unchanged in Buffett's approach: anchor decisions in business fundamentals (基本面), treat market prices as opportunities rather than verdicts, and maintain a margin of safety as insurance against errors of analysis. Every major market dislocation since — 1987, 2000, 2008, 2020 — has re-validated the basic insight: price and intrinsic value diverge dramatically and predictably during periods of collective emotion.</p>
+
+  <div class="takeaway">💡 Margin of safety is not pessimism — it is the recognition that you don't need to be right about the future; you need to be protected when you're wrong.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> Explain the "Mr. Market" allegory and what rational response it implies. What is the key difference between Graham's NCAV approach and Buffett's "moat" approach?
+    <details>
+      <summary>Check your answer</summary>
+      Mr. Market is an emotionally volatile partner offering daily buy/sell prices disconnected from fundamental business value — the rational investor trades against his emotions, exploiting discounts when he's fearful and selling when he's euphoric. Graham's NCAV: buy assets priced below liquidation value (cheap, possibly deteriorating businesses). Buffett's moat: buy businesses with durable competitive advantages that compound intrinsic value over time — a shift from price cheapness to business quality and earnings power.
+    </details>
+  </div>
+
+  <p class="source">📚 Graham, B. (1949/2006). <em>The Intelligent Investor</em> (HarperBusiness); Buffett, W. (1984). "The Superinvestors of Graham-and-Doddsville," <em>Hermes</em> (Columbia Business School); Graham &amp; Dodd (1934). <em>Security Analysis</em> (McGraw-Hill).</p>
+</article>
+
+<!-- CARD 11: POLITICAL ECONOMICS -->
+<article class="card steel" id="card-11">
+  <div class="card-label">Card 11 · Political Economics — Theory in the Wild</div>
+  <h2>Comparative Advantage Meets Industrial Policy: When Free-Trade Theory Collides with Strategic Supply Chains</h2>
+
+  <div class="card-img-wrap" id="img-card-11">
+    <div class="emoji-fallback">🏭</div>
+  </div>
+
+  <div class="pe-block">
+    <div class="pe-label">① Event</div>
+    From 2024 onward, the United States and European Union imposed sweeping tariffs (關稅) on Chinese-manufactured goods — including duties exceeding 100% on electric vehicles (電動車) and targeted restrictions on semiconductors (半導體) — citing national security and strategic-industry concerns. Japan, South Korea, and the EU simultaneously launched large-scale domestic industrial policy (產業政策) subsidies targeting chip fabrication, battery supply chains, and clean energy manufacturing.
+  </div>
+
+  <div class="pe-block">
+    <div class="pe-label">② Theory</div>
+    <strong>Comparative Advantage (比較優勢)</strong>, articulated by David Ricardo (大衛·李嘉圖) in <em>Principles of Political Economy and Taxation</em> (1817), holds that countries should specialise in goods they produce at the <em>lowest opportunity cost</em> and trade freely — even if one country is more efficient at producing everything. The gains from specialisation and exchange are mathematically demonstrable and, Ricardo argued, universal: protectionism reduces aggregate welfare by displacing lower-cost foreign production with higher-cost domestic production.
+  </div>
+
+  <div class="pe-block">
+    <div class="pe-label">③ Anomaly</div>
+    Ricardo's model assumes <em>static</em> production functions, no externalities, and freely mobile factors of production. In semiconductor fabrication and battery manufacturing, all three assumptions fail. Learning-by-doing (邊做邊學) means that the cost of producing chips falls sharply as cumulative volume rises — so the country that starts first captures permanent cost advantages. Network effects and standards lock-in create winner-take-all dynamics. Capital and skilled labour are highly immobile across national borders. The real-world outcome: Taiwan's TSMC (台積電) controls ~90% of advanced chip production not because Taiwan has comparative advantage in abstract factor endowments, but because decades of cumulative learning created an essentially irreproducible capability gap.
+  </div>
+
+  <div class="pe-block">
+    <div class="pe-label">④ Challenger</div>
+    <strong>Strategic Trade Theory (戰略貿易理論)</strong> — developed by Paul Krugman (保羅·克魯格曼) and James Brander in the 1980s — argues that in industries with increasing returns to scale and oligopolistic market structure, government subsidies can shift learning curves and economic rents (經濟租) to domestic firms, raising national welfare even if aggregate global welfare falls. The theoretical case is now largely accepted by mainstream economists. The <em>empirical</em> dispute — which industries warrant intervention, at what fiscal cost, and without triggering retaliatory spirals — remains unresolved. The semiconductor and EV cases are live experiments.
+  </div>
+
+  <div class="takeaway">💡 Ricardo's comparative advantage is correct in a world of constant returns and mobile factors — but modern technology supply chains are built on learning curves, not endowments.</div>
+
+  <div class="retrieval-prompt">
+    <em>Answer this without looking back:</em> What is Ricardo's core claim in comparative advantage theory, and what three assumptions does strategic trade theory argue are violated in technology industries?
+    <details>
+      <summary>Check your answer</summary>
+      Ricardo: countries should specialise in what they produce at lowest opportunity cost — free trade maximises global welfare regardless of absolute efficiency differences. Violated assumptions: (1) static production possibilities — learning-by-doing changes cost curves over time; (2) no externalities — network effects and standards create winner-take-all dynamics; (3) factor mobility — capital and skilled labour don't easily shift across industries or borders.
+    </details>
+  </div>
+
+  <p class="source">📚 Ricardo, D. (1817). <em>Principles of Political Economy and Taxation</em>; Krugman, P. (1984). "Import Protection as Export Promotion," in Kierzkowski (ed.), <em>Monopolistic Competition and International Trade</em> (Oxford UP); Brander &amp; Spencer (1983). <em>Journal of International Economics</em>, 18.</p>
+</article>
+
+<!-- CONNECTION OF THE DAY -->
+<section class="connection-card" id="connection">
+  <h3>🔗 Connection of the Day: Card 3 (Protestant Reformation) × Card 6 (Social Conformity)</h3>
+  <p>Asch's research showed that a single dissenter reduces group conformity by ~80% — not because one person has superior arguments, but because they shatter the <em>unanimity</em> that generates social pressure. Luther operated exactly this mechanism at civilisational scale. Reformers before him (Jan Hus, John Wycliffe) made essentially identical arguments and were silenced — because Rome's authority appeared unanimous and unchallengeable. What Luther added was not new theology but a new distribution technology: the printing press broke the Church's monopoly on information, created a counter-consensus almost overnight, and made it socially safe to dissent. One monk plus one technology effectively destroyed the unanimity condition that had kept the Church's authority intact for a thousand years.</p>
+  <p><strong>So what:</strong> In any domain — medical teams, financial committees, creative teams — the highest-leverage intervention is not finding a better argument but <em>breaking the appearance of consensus</em> early. Anonymous pre-voting, devil's advocate roles, or a single confident dissenter who speaks first can unlock perspectives that would otherwise remain silent. The mechanism works whether the "printing press" is a chat channel, a pre-meeting survey, or simply a culture where pushback is normalised.</p>
+</section>
+
+</main>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <h4>All Sources</h4>
+  <p>
+    1. NASA NICER; Hessels et al. (2006) <em>Science</em> 311; NANOGrav Collaboration (2023) <em>ApJL</em> &nbsp;|&nbsp;
+    2. Timothy May, <em>The Mongol Conquests in World History</em> (2012); Peter Jackson, <em>The Mongols and the Islamic World</em> (Yale UP, 2017) &nbsp;|&nbsp;
+    3. MacCulloch, <em>The Reformation</em> (Penguin, 2004); Pettegree, <em>Brand Luther</em> (2015) &nbsp;|&nbsp;
+    4. 《韓非子》; 蕭公權《中國政治思想史》; Watson, <em>Han Fei Tzu</em> (Columbia UP, 1964) &nbsp;|&nbsp;
+    5. Aristotle, <em>Nicomachean Ethics</em> (Oxford UP); SEP "Aristotle's Ethics" (2022); MacIntyre, <em>After Virtue</em> (1981) &nbsp;|&nbsp;
+    6. Asch (1956); Berns et al. (2005) <em>Biological Psychiatry</em>; Moscovici et al. (1969) &nbsp;|&nbsp;
+    7. Cryan et al. (2019) <em>Physiological Reviews</em>; Valles-Colomer et al. (2019) <em>Nature Microbiology</em> &nbsp;|&nbsp;
+    8. Wastyk et al. (2021) <em>Cell</em> 184(16); Spector (2021) <em>Spoon-Fed</em> &nbsp;|&nbsp;
+    9. Aragon &amp; Schoenfeld (2013) <em>JISSN</em>; Areta et al. (2013) <em>J Physiology</em>; Morton et al. (2018) <em>BJSM</em> &nbsp;|&nbsp;
+    10. Graham (1949/2006) <em>The Intelligent Investor</em>; Buffett (1984) "Superinvestors" &nbsp;|&nbsp;
+    11. Ricardo (1817); Krugman (1984); Brander &amp; Spencer (1983) <em>JIE</em>
+  </p>
+
+  <details style="margin-top:1rem;">
+    <summary style="color: var(--muted); font-size:.78rem;">📋 Do-Not-Repeat Log (click to expand)</summary>
+    <div style="margin-top:.6rem; overflow-x:auto;">
+      <table style="font-size:.72rem; border-collapse:collapse; width:100%;">
+        <tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:.3rem .5rem;">Topic</th><th style="text-align:left;padding:.3rem .5rem;">Subject</th><th style="text-align:left;padding:.3rem .5rem;">Angle</th><th style="text-align:left;padding:.3rem .5rem;">Date</th></tr>
+        <tr><td style="padding:.25rem .5rem;">Astronomy</td><td>WASP-39b / JWST</td><td>CO₂ detection / transmission spectroscopy</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern History 🇯🇵</td><td>關原之戰</td><td>Tokugawa vs Ishida; sankin-kōtai</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western History</td><td>Encyclopédie</td><td>Diderot; craft knowledge as politics</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern Philosophy</td><td>王陽明心學</td><td>知行合一; 龍場悟道</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western Philosophy</td><td>Heraclitus</td><td>Flux; Logos; vs Parmenides</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Psychology 🎯</td><td>Loss Aversion</td><td>Prospect Theory; endowment effect</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Physiology</td><td>DOMS</td><td>Micro-tears; lactic acid myth</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Health</td><td>Sugar Industry / Fat</td><td>SRF 1967; JAMA IM 2016</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Sports Science</td><td>Progressive Overload</td><td>Delorme 1945; Schoenfeld 2017</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Investing</td><td>South Sea Bubble</td><td>1720; Newton's loss; Shiller narratives</td><td>2026-06-08</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Astronomy</td><td>Sgr A* / EHT</td><td>First Milky Way BH image; VLBI</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern History</td><td>鄭和下西洋</td><td>Treasure ships; 朝貢體系</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western History</td><td>Fall of Constantinople</td><td>1453; Urban's cannon; Greek scholars west</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern Philosophy</td><td>老子《道德經》</td><td>無為; 柔弱勝剛強</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western Philosophy</td><td>Plato's Forms</td><td>Cave allegory; Third Man objection</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Psychology</td><td>Cognitive Dissonance</td><td>Festinger 1957; post-commitment rationalisation</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Physiology</td><td>Fight-or-Flight</td><td>HPA axis; vagal brake; chronic stress</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Health</td><td>Sleep &amp; Memory</td><td>Glymphatic system; SWS; Walker</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Sports Science</td><td>Periodisation</td><td>Selye GAS; linear vs undulating</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Investing</td><td>Dot-com Bubble</td><td>Pets.com; narrative epidemic; NASDAQ -78%</td><td>2026-06-09</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Astronomy</td><td>Cosmic Web</td><td>IllustrisTNG; dark matter filaments</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern History</td><td>武則天</td><td>武周政權; 科舉擴張; 神龍政變</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western History</td><td>Black Death</td><td>Labour scarcity → serfdom collapse</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Eastern Philosophy</td><td>孟子性善論</td><td>四端之心; 孺子入井; 荀子對比</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Western Philosophy</td><td>Hume — Induction</td><td>Hume's fork; Popper; Russell's turkey</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Psychology</td><td>Dunning-Kruger</td><td>Metacognitive deficit; Gignac reanalysis</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Physiology</td><td>VO2 max trainability</td><td>HERITAGE study; high/low responders</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Health</td><td>Static stretching</td><td>Simic 2013; Golgi tendon inhibition</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Sports Science</td><td>Zone 2 training</td><td>Mitochondrial biogenesis; 80/20 model</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Investing</td><td>Jack Bogle / Index Fund</td><td>Cost matters hypothesis; SPIVA 90%</td><td>2026-06-10</td></tr>
+        <tr><td style="padding:.25rem .5rem;">Political Economics</td><td>Resource Curse</td><td>Dutch Disease; Norway vs Nigeria</td><td>2026-06-10</td></tr>
+        <tr style="border-top:2px solid var(--steel-border);"><td style="padding:.25rem .5rem;"><strong>Astronomy</strong></td><td>Neutron Stars &amp; Pulsars</td><td>Degeneracy pressure; magnetars; NANOGrav</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Eastern History</strong></td><td>蒙古帝國西征</td><td>奧特拉爾事件; 攻城戰術; Pax Mongolica</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Western History</strong></td><td>Protestant Reformation</td><td>Luther; printing press; cuius regio</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Eastern Philosophy</strong></td><td>韓非子與法家</td><td>法術勢; 陽儒陰法; 委託代理問題</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Western Philosophy</strong></td><td>Aristotle's Virtue Ethics</td><td>Eudaimonia; doctrine of the mean; phronesis</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Psychology</strong></td><td>Social Conformity (Asch)</td><td>Normative vs informational; Berns neuroimaging</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Physiology</strong></td><td>Gut-Brain Axis</td><td>ENS; vagus nerve direction; serotonin in gut</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Health</strong></td><td>Fermented Food vs Fibre</td><td>Wastyk 2021 Stanford RCT; microbiome diversity</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Sports Science</strong></td><td>Protein Timing / Anabolic Window</td><td>Aragon &amp; Schoenfeld 2013; 24–48hr MPS window</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Investing</strong></td><td>Benjamin Graham / Intrinsic Value</td><td>Mr. Market; NCAV; margin of safety</td><td>2026-06-11</td></tr>
+        <tr><td style="padding:.25rem .5rem;"><strong>Political Economics</strong></td><td>Comparative Advantage vs Strategic Trade</td><td>Ricardo; Krugman; semiconductor learning curves</td><td>2026-06-11</td></tr>
+      </table>
+    </div>
+    <p style="margin-top:.8rem; font-size:.72rem;">
+      <strong>Rotation Trackers:</strong><br>
+      Last Japan entry (Eastern History): 2026-06-08 — 關原之戰. Next due: 2026-06-13 to 2026-06-15.<br>
+      Last Behavioral Econ entry (Psychology): 2026-06-08 — Loss Aversion / Prospect Theory. Next due: 2026-06-13 to 2026-06-15.
+    </p>
+  </details>
+</footer>
+
+<!-- FLOATING TOOLBAR -->
+<div class="fab-toolbar">
+  <button class="fab-btn" onclick="window.print()">📄 Export PDF</button>
+  <button class="fab-btn" id="btn-save">📥 Save for Phone</button>
+  <button class="fab-btn" id="btn-send">📱 Send to Phone</button>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+// ── Wikipedia Image Loader ──
+window._imageMap = {};
+
+const imgCandidates = {
+  'card-1': ['Neutron star', 'Pulsar', 'Magnetar'],
+  'card-2': ['Mongol Empire', 'Mongol invasion of Central Asia', 'Battle of Mohi'],
+  'card-3': ['Protestant Reformation', 'Martin Luther', 'Ninety-five Theses'],
+  'card-4': ['Han Fei', 'Legalism (Chinese philosophy)', 'Shang Yang'],
+  'card-5': ['Nicomachean Ethics', 'Virtue ethics', 'Aristotle'],
+  'card-6': ['Asch conformity experiments', 'Solomon Asch', 'Conformity'],
+  'card-7': ['Gut–brain axis', 'Enteric nervous system', 'Gut microbiota'],
+  'card-8': ['Gut microbiota', 'Fermentation in food processing', 'Prebiotic (nutrition)'],
+  'card-9': ['Muscle hypertrophy', 'Resistance training', 'Leucine'],
+  'card-10': ['Benjamin Graham', 'The Intelligent Investor', 'Value investing'],
+  'card-11': ['Comparative advantage', 'Strategic trade theory', 'Semiconductor industry']
+};
+
+async function loadWikiImage(cardId, candidates) {
+  const wrap = document.getElementById('img-' + cardId);
+  if (!wrap) return;
+  for (const title of candidates) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const resp = await fetch(url);
+      if (!resp.ok) continue;
+      const d = await resp.json();
+      const src = (d.originalimage || d.thumbnail || {}).source;
+      if (!src) continue;
+      window._imageMap[cardId] = src;
+      wrap.innerHTML =
+        '<img src="' + src + '" alt="' + title + '" loading="lazy">' +
+        '<div class="img-caption">' + (d.title || title) + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia</a></div>';
+      return;
+    } catch(e) { /* try next */ }
+  }
+  // fallback: keep emoji
+}
+
+Object.keys(imgCandidates).forEach(id => loadWikiImage(id, imgCandidates[id]));
+
+// ── Save for Phone ──
+document.getElementById('btn-save').addEventListener('click', function() {
+  const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'daily-learning-2026-06-11.html';
+  a.click();
+});
+
+// ── Send to Phone (mailto fallback) ──
+document.getElementById('btn-send').addEventListener('click', function() {
+  const subject = encodeURIComponent("Edward's Daily Learning — June 11, 2026");
+  const body = encodeURIComponent("Today's briefing is attached / available locally. Open daily-learning-2026-06-11.html on your phone.");
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+});
+</script>
+
+</body>
+</html>
