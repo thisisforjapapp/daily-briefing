@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward's Daily Learning — June 3, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,300&display=swap');
+
+  :root {
+    --bg: #0f0f13;
+    --surface: #16161d;
+    --card: #1c1c26;
+    --card-hover: #22222e;
+    --border: #2e2e3e;
+    --text: #ddd8cc;
+    --text-muted: #8a8490;
+    --accent: #7eb8d4;
+    --accent2: #c8a96e;
+    --amber: #c8a96e;
+    --amber-soft: rgba(200,169,110,0.12);
+    --amber-border: rgba(200,169,110,0.35);
+    --blue-soft: rgba(126,184,212,0.10);
+    --blue-border: rgba(126,184,212,0.3);
+    --serif: 'Source Serif 4', 'Noto Serif HK', 'Source Han Serif', 'Noto Serif TC', serif;
+    --display: 'Playfair Display', 'Noto Serif HK', serif;
+    --cjk-stack: 'Noto Serif HK', 'Source Han Serif', 'Noto Serif TC', 'Ming', 'PMingLiU', serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.78;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0a0a10 0%, #12121c 60%, #181825 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3.2rem 2rem 2.8rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 60% at 50% -10%, rgba(126,184,212,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .date-label {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.7rem;
+  }
+  header h1 {
+    font-family: var(--display);
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #f0ece2;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    font-style: italic;
+    font-family: var(--serif);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  /* ── YESTERDAY'S SPARK ── */
+  .spark-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 2.8rem;
+  }
+  .spark-section h2 {
+    font-family: var(--display);
+    font-size: 1rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  .spark-section details {
+    margin-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.6rem;
+  }
+  .spark-section details:last-child { border-bottom: none; margin-bottom: 0; }
+  .spark-section summary {
+    cursor: pointer;
+    color: var(--text);
+    font-size: 0.91rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+  .spark-section summary::before { content: '▶'; font-size: 0.6rem; color: var(--accent); }
+  .spark-section details[open] summary::before { content: '▼'; }
+  .spark-section details p {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    padding-left: 1rem;
+    font-style: italic;
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2.2rem;
+    transition: border-color 0.2s;
+  }
+  .card:hover { border-color: rgba(126,184,212,0.25); }
+  .card.eastern {
+    border-color: var(--amber-border);
+    background: linear-gradient(135deg, #1e1a10 0%, #1c1c26 100%);
+  }
+  .card.eastern:hover { border-color: rgba(200,169,110,0.5); }
+
+  .card-header {
+    padding: 1.4rem 1.8rem 0;
+  }
+  .topic-label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.18rem 0.65rem;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+    background: var(--blue-soft);
+    color: var(--accent);
+    border: 1px solid var(--blue-border);
+  }
+  .eastern .topic-label {
+    background: var(--amber-soft);
+    color: var(--amber);
+    border-color: var(--amber-border);
+  }
+  .card-header h2 {
+    font-family: var(--display);
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    font-weight: 700;
+    color: #f0ece2;
+    line-height: 1.35;
+    margin-bottom: 0;
+  }
+  .eastern .card-header h2 { color: #f5e8c8; }
+
+  .linkage-note {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-style: italic;
+    padding: 0.5rem 1.8rem 0;
+    opacity: 0.75;
+  }
+
+  /* ── IMAGE ── */
+  .card-image {
+    margin: 1rem 1.8rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #0d0d14;
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-image img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    display: block;
+  }
+  .card-image figcaption {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+    padding: 0.45rem 0.8rem;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+  }
+  .card-image figcaption a { color: var(--accent); text-decoration: none; }
+  .card-image figcaption a:hover { text-decoration: underline; }
+  .emoji-fallback {
+    font-size: 4.5rem;
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* ── BODY ── */
+  .card-body {
+    padding: 0.2rem 1.8rem 1.6rem;
+    font-size: 0.96rem;
+  }
+  .card-body p {
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  .card-body p:last-of-type { margin-bottom: 0; }
+
+  /* CJK cards */
+  .eastern .card-body {
+    font-family: var(--cjk-stack);
+    font-size: 0.97rem;
+    line-height: 1.9;
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .callout {
+    background: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    padding: 0.8rem 1.1rem;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+  }
+  .eastern .callout { border-left-color: var(--amber); }
+  .callout strong { color: var(--accent); }
+  .eastern .callout strong { color: var(--amber); }
+  .callout.try {
+    border-left-color: #7ecfa0;
+    margin-top: 0.6rem;
+  }
+  .callout.try strong { color: #7ecfa0; }
+
+  /* ── SOURCE ── */
+  .source-line {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 1.2rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+  }
+  .source-line a { color: var(--text-muted); text-decoration: underline dotted; }
+
+  /* ── CONNECTION ── */
+  .connection {
+    text-align: center;
+    padding: 1.5rem 1.8rem;
+    background: linear-gradient(135deg, #16161d, #1c1c26);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 2.4rem;
+  }
+  .connection h3 {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 0.5rem;
+  }
+  .connection p {
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 2.2rem 2rem;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  footer h3 {
+    font-family: var(--display);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+  footer ul {
+    list-style: none;
+    padding: 0;
+  }
+  footer li {
+    font-size: 0.77rem;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    padding-left: 1rem;
+    position: relative;
+  }
+  footer li::before { content: '→'; position: absolute; left: 0; color: var(--border); }
+  footer a { color: var(--text-muted); text-decoration: underline dotted; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 540px) {
+    .card-body, .card-header, .card-image, .linkage-note { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .card-image { margin-left: 1.2rem; margin-right: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="date-label">Wednesday · June 3, 2026</div>
+  <h1>Edward's Daily Learning</h1>
+  <p>Curiosity &amp; Application Edition · Nine worlds, one morning</p>
+</header>
+
+<div class="container">
+
+  <!-- ══════════════ YESTERDAY'S SPARK ══════════════ -->
+  <section class="spark-section">
+    <h2>🔁 Yesterday's Spark — Quick Recalls</h2>
+    <details>
+      <summary>What makes the James Webb Space Telescope fundamentally different from Hubble?</summary>
+      <p>JWST primarily sees in infrared rather than visible light — it can peer through dust clouds opaque to Hubble, and its position 1.5 million km from Earth keeps it cold enough to detect the faint heat of distant galaxies formed just after the Big Bang.</p>
+    </details>
+    <details>
+      <summary>What was the Silk Road really trading beyond silk?</summary>
+      <p>Glassware, spices, horses, religion, disease, musical instruments, and ideas — Buddhism, Christianity and Islam all spread along its routes; so did the Black Death's precursor bacteria. Silk was really just the headline act.</p>
+    </details>
+    <details>
+      <summary>Why does the placebo effect work even when patients know it's a placebo?</summary>
+      <p>"Open-label" placebos still trigger measurable relief — expectation alone activates real endorphin pathways and autonomic responses. The ritual of taking medicine may matter as much as the medicine itself.</p>
+    </details>
+  </section>
+
+  <!-- ══════════════ 1. ASTRONOMY ══════════════ -->
+  <article class="card" id="astronomy">
+    <div class="card-header">
+      <span class="topic-label">Astronomy &amp; Cosmos</span>
+      <h2>Saturn Was Never Speeding Up. Its Own Northern Lights Were Lying to Us.</h2>
+    </div>
+
+    <figure class="card-image" id="astro-fig">
+      <img id="astro-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="astro-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>For forty years, Saturn made scientists look foolish. Measurements from Voyager 1 in 1980 clocked its spin at roughly 10 hours and 40 minutes. When NASA's Cassini spacecraft swung into orbit in 2004, it found the planet appeared to be rotating at a <em>different</em> speed — which should be impossible. Planets don't just change how fast they spin. A growing and embarrassing question hung in the air: had our instruments been wrong all along, or had we misunderstood something fundamental about how giant worlds work?</p>
+
+      <p>The answer arrived in March 2026, published in the <em>Journal of Geophysical Research: Space Physics</em> by a team at Northumbria University — and it is deeply strange. Saturn was never changing its spin at all. What was changing was its <em>aurora</em>. Like Earth's northern lights but on a planetary scale, Saturn's auroral glow actively heats the upper atmosphere, generating powerful winds. Those winds, in turn, create electrical currents that loop back to power the aurora again — a self-sustaining feedback cycle, like a machine that fuels itself. It was this atmospheric weather system that was producing the fluctuating radio signals scientists had been using as a proxy for rotation rate. The planet was steady all along; its own light show had been sending a false signal.</p>
+
+      <p>The team used JWST's Near Infrared Spectrograph, training it on Saturn's northern polar region for a full Saturnian "day" without interruption. Using a molecule called trihydrogen cation (H₃⁺) as a natural atmospheric thermometer, they mapped heat and particle density in the auroral zone with unprecedented precision — the kind of detail previous instruments simply couldn't achieve. The result: a complex, asymmetric structure of hot and cold zones offset from each other in exactly the way needed to drive those wind-powered currents.</p>
+
+      <p>The lesson is quietly humbling. We spent four decades arguing about a planet's spin rate when the real story was happening in its atmosphere. JWST didn't just answer the question — it revealed that the question itself had been slightly wrong the whole time.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> The tools we use to measure something can introduce illusions. Saturn's spin mystery wasn't a mystery about its core — it was a mystery about atmospheric physics that had been misread as something deeper.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Next time a measurement surprises you, ask: could the <em>instrument</em> or <em>method</em> of measuring be the thing that's behaving oddly?
+      </div>
+      <p class="source-line">Source: Stallard et al. (2026), "JWST/NIRSpec Reveals the Atmospheric Driver of Saturn's Variable Magnetospheric Rotation Rate," <em>Journal of Geophysical Research: Space Physics</em>, DOI: 10.1029/2025JA034578. Reported via <a href="https://phys.org/news/2026-03-jwst-decades-mystery-saturn.html" target="_blank" rel="noopener">Phys.org</a>.</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 2. EASTERN HISTORY ══════════════ -->
+  <article class="card eastern" id="eastern-history">
+    <div class="card-header">
+      <span class="topic-label">東方歷史</span>
+      <h2>鎖國的算盤：德川幕府關閉日本大門，其實是為了對付日本人</h2>
+    </div>
+
+    <figure class="card-image" id="eh-fig">
+      <img id="eh-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="eh-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>一六○○年前後的日本，是一個令幕府寢食難安的世界。百年戰國剛剛落幕，遍地武士失業、藩主各懷鬼胎，而更令德川家康及其後繼者夜不能寐的，是基督教。葡萄牙傳教士與商人早在十六世紀中葉便踏足九州，帶來的不只是火槍與生絲，還有一套有別於儒家、佛教的忠誠體系——效忠羅馬教皇，而非幕府將軍。到了一六○○年，日本各地基督徒估計已達三十至四十萬人，其中不乏大名及其家臣。對一個剛剛統一的政權而言，這是一顆隨時引爆的炸彈。</p>
+
+      <p>真正的導火線並非宗教，而是政治信號。一六二二年，幕府在長崎處決了五十五名傳教士與信徒，史稱「元和大殉教」。一六三七至一六三八年，以基督徒為骨幹的農民在島原半島揭竿而起，約三萬七千人在原城壟守死戰，最後幾乎全部遭到屠殺。對幕府而言，這次叛亂清晰地顯示：外來宗教可以把日本人從臣民變成革命者。翌年，第三代將軍德川家光頒佈完整的「鎖國令」，嚴禁日本人出海，驅逐葡萄牙人，只留下荷蘭東印度公司的商人——條件是他們必須蜷居在長崎港外一個人工小島「出島」之上，與外界完全隔絕。</p>
+
+      <p>鎖國的邏輯往往被誤解為閉關自守。事實上，幕府仍透過出島與荷蘭人交易火槍、望遠鏡、醫學典籍，透過對馬藩與朝鮮維持官方往來，透過薩摩藩管治琉球王國。出島這個小小的扇形人工島，是一道精心設計的單向閥：讓商品進出，但把思想與信仰隔絕在外。幕府官員每年審閱荷蘭人帶來的西方書籍，稱之為「蘭學」，從中汲取科學知識，同時禁絕基督教文字。</p>
+
+      <p>這段歷史在今天有一個意想不到的迴響：現代日本語言裡有大量源自荷蘭語的外來詞，例如「ビール」（啤酒，bier）、「ゴム」（橡膠，gom）、「ランドセル」（書包，ransel），全都是出島那條細縫滲進來的痕跡。鎖國鎖住了人，卻鎖不住詞語。</p>
+
+      <div class="callout">
+        <strong>💡 重點：</strong>「鎖國」的本質是精確的政治外科手術——並非與世界脫鉤，而是以受控方式管理接觸，以確保外來影響無法威脅內部秩序。
+      </div>
+      <div class="callout try">
+        <strong>🧠 今日一想：</strong>你生活中有沒有某個「出島」——一個讓部分外界進入、但保持控制的邊界？
+      </div>
+      <p class="source-line">資料來源：Conrad Totman, <em>A History of Japan</em>（Blackwell, 2000）；George Sansom, <em>A History of Japan 1615–1867</em>（Stanford UP, 1963）；Britannica, "Sakoku"。</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 3. WESTERN HISTORY ══════════════ -->
+  <article class="card" id="western-history">
+    <div class="card-header">
+      <span class="topic-label">Western History</span>
+      <h2>The Banned Book That Sold 20,000 Copies in a Year — and Helped Start a Revolution</h2>
+    </div>
+
+    <figure class="card-image" id="wh-fig">
+      <img id="wh-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="wh-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>Voltaire (伏爾泰) had reasons to be angry that were almost comically comprehensive. By 1758, the man born François-Marie Arouet had already been imprisoned in the Bastille (巴士底獄) twice, exiled to England to avoid a second stint, and banished from Paris by King Louis XV (路易十五). He had watched the 1755 Lisbon earthquake (里斯本大地震) kill sixty thousand people while intellectuals debated whether God had arranged it for a reason. He had watched an English admiral, John Byng, executed by firing squad less for military failure than for political convenience. He had seen the Seven Years' War (七年戰爭) detonate across Europe, turning philosophy's confident talk of progress into ash and smoke. He decided to respond the only way he knew how: with a comic novella so savage it would get him in trouble all over again.</p>
+
+      <p>That novella was <em>Candide</em>, published in 1759. The story follows an impossibly naive young man who is tutored by a philosopher named Pangloss — an obvious parody of Gottfried Leibniz (萊布尼茲) — who insists, no matter what catastrophe occurs, that "all is for the best in this best of all possible worlds." Candide is expelled from his home, beaten, enslaved, witnesses massacres, earthquakes, and inquisitions, and watches Pangloss remain intellectually serene through all of it. Voltaire knew the censors were coming, so he published it anonymously and had his Swiss publishers smuggle copies into Geneva before the official launch. Within weeks, authorities in Geneva, Paris, and Rome had all banned it. Within a year, it had sold somewhere between twenty and thirty thousand copies — extraordinary for 1759.</p>
+
+      <p>What makes the story remarkable is not the satire, but the ending. After every horror, Candide doesn't conclude that the world is evil, or that God is a monster, or that revolution is the answer. He ends up tending a small garden with a handful of battered companions, concluding only that "we must cultivate our garden." It is an almost anti-climactic resolution — deliberately so. Voltaire was not offering a utopia. He was saying: stop theorising about the best of all possible worlds and start fixing the one in front of you.</p>
+
+      <p>The coda to the story is that Candide helped build exactly the revolutionary mentality Voltaire claimed to distrust. Its mockery of the Church, the aristocracy, and blind optimism seeped into French intellectual culture over the next three decades and provided vocabulary for the generation that stormed the Bastille in 1789 — the same prison Voltaire had himself once occupied.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> The most dangerous political act is often comedy. Satire creates shared laughter around things people privately believe but cannot say aloud — and in doing so, it fractures the taboo that protects them.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Consider what modern satirists are mocking that future historians might identify as the real grievances of our era.
+      </div>
+      <p class="source-line">Source: Britannica, "Candide" (2024); EBSCO Research Starters, "Voltaire Satirizes Optimism in Candide"; Online Library of Liberty, Roger Donway, "Candide: Published in Exile, Denounced, Banned, and a Classic" (2023).</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 4. EASTERN PHILOSOPHY ══════════════ -->
+  <article class="card eastern" id="eastern-philosophy">
+    <div class="card-header">
+      <span class="topic-label">東方哲學</span>
+      <h2>愛是可以計算的嗎？墨子的「兼愛」，與儒家那場兩千年的爭論</h2>
+    </div>
+
+    <figure class="card-image" id="ep-fig">
+      <img id="ep-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="ep-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>為甚麼墨子要提出「兼愛」？要理解這個問題，必須先想像春秋戰國時代的中國：諸侯紛爭，戰禍連年，城池攻伐，百姓流離。墨子（約前四七○至前三九○年）出身工匠，不是貴族，所見所聞是普通人在戰爭中的苦難。他看著儒家大力提倡「仁」，卻注意到儒家的仁是有等差的——愛父親多過愛陌生人，愛本國多過愛他國。在墨子眼中，這種「別愛」正是戰爭與不公的根源：因為你愛自己的國多過別人的國，所以才會去攻打別人的國。</p>
+
+      <p>墨子的解答是「兼愛」（jiān ài）——無差別的、普遍的愛。他的論證帶有一種驚人的功利主義氣質：你希望別人怎樣對待你的父母，你就應該先去照顧別人的父母。這不是感情上的命令，而是互惠的邏輯。墨子甚至設計了一個思想實驗：假如你要出遠門，把家人托付給兩個朋友，一個奉行兼愛、一個奉行別愛，你會選哪一個？答案顯而易見——而他認為，每一個人在實踐中都已經認可了兼愛的優越性，只是沒有意識到這一點。</p>
+
+      <p>儒家對此的反駁同樣犀利。孟子斥墨子的兼愛為「無父」——若你以同等之愛待素昧平生的路人與自己的父親，那父子之情、人倫之本蕩然無存，與禽獸何異？這場爭論觸及了一個至今仍未解決的道德問題：愛應該是平等的、可計算的，還是有等差的、有層次的？效益主義哲學家後來為墨子背書，而儒家的直覺則更接近我們日常對親情的感受。</p>
+
+      <p>墨家另一個鮮為人知的面向，是他們的「非攻」（反對侵略戰爭）落實到了行動層面：墨子本人精通防禦工程，曾帶領弟子趕赴被圍城池，協助守城——不是為了任何一個君主，而是為了阻止戰爭本身。這在先秦諸子中幾乎是獨一無二的：這是一個既有哲學又有工具箱的學派。</p>
+
+      <div class="callout">
+        <strong>💡 重點：</strong>墨子的問題今天依然有效——當你面對「幫助熟人還是幫助更需要幫助的陌生人」的抉擇，你是墨家還是儒家？
+      </div>
+      <div class="callout try">
+        <strong>🧠 今日一想：</strong>回想上週，你有沒有因為「關係親疏」而影響了一個道德判斷？那是「別愛」在起作用。
+      </div>
+      <p class="source-line">資料來源：Stanford Encyclopedia of Philosophy, "Mohism"（2020年更新）；A.C. Graham, <em>Disputers of the Tao</em>（Open Court, 1989）；Britannica, "Mozi"。</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 5. WESTERN PHILOSOPHY ══════════════ -->
+  <article class="card" id="western-philosophy">
+    <div class="card-header">
+      <span class="topic-label">Western Philosophy</span>
+      <h2>The Stoics' Secret Weapon: Negative Visualisation, and Why They Rehearsed Disaster for Breakfast</h2>
+    </div>
+
+    <figure class="card-image" id="wp-fig">
+      <img id="wp-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="wp-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>Stoicism (斯多葛主義) was born from a crisis. Around 300 BCE, a Phoenician merchant named Zeno (芝諾) survived a shipwreck near Athens and, having lost his fortune and cargo, wandered into a bookshop where he read a dialogue of Socrates (蘇格拉底). He was so struck by the account that he asked the bookseller where he might find men who lived like that. The bookseller pointed to a philosopher walking by — and Zeno followed him. The school Zeno eventually founded took its name from the <em>stoa poikilē</em>, the "painted porch" in Athens where he lectured. A man ruined by chance, who concluded that security must lie in something chance cannot touch, set up shop in a public colonnade and began teaching that the only thing truly within human control is the will — what the Stoics called the <em>hegemonikon</em>, the ruling faculty of the mind.</p>
+
+      <p>The counterintuitive technique Stoicism is most famous for among modern practitioners is what the Roman Stoic Seneca (塞內卡) called <em>praemeditatio malorum</em> — the premeditation of evils. Each morning, Seneca wrote, a wise person ought to imagine what bad things might happen that day: the meeting that could go badly, the friend who might disappoint, the unexpected loss. This is not pessimism. The Stoics argued that most human suffering comes not from events themselves, but from the gap between expectation and reality. If you have already imagined, calmly, the worst that could plausibly happen, the event — if it occurs — no longer lands as a shock. And if it doesn't occur, you feel a quiet gratitude for having been spared it. The emperor Marcus Aurelius (馬可·奧勒留) practised this daily, filling his private journal — now published as <em>Meditations</em> — with frank rehearsals of mortality and failure.</p>
+
+      <p>The critics of Stoicism — then and now — point out that it can shade into emotional detachment. Epicurus (伊比鳩魯), the rival school's founder, accused the Stoics of confusing strength with numbness. The Stoic counter-argument was that they were not eliminating emotion but distinguishing between the emotions reason can endorse — joy, caution, considered desire — and the "passions" that hijack rational action, like rage, grief, and obsessive fear. The point was not to stop caring about others, but to stop deriving your sense of security from things you cannot control.</p>
+
+      <p>What is unusual is how precisely modern cognitive behavioural therapy (認知行為治療) has re-invented these tools. The CBT technique of imagining the realistic worst case to reduce catastrophising is, structurally, almost identical to <em>praemeditatio malorum</em>. The Stoics got there two thousand years earlier — and Zeno got there because a shipwreck taught him that an unexamined attachment to fortune is its own kind of vulnerability.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> Deliberately imagining a bad outcome before it happens is not pessimism — it is an inoculation. The mind suffers less from events it has already calmly rehearsed.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Spend two minutes this morning imagining one thing that might go wrong today — and notice whether it makes the actual day feel lighter, not heavier.
+      </div>
+      <p class="source-line">Source: Stanford Encyclopedia of Philosophy, "Stoicism" (2023); Britannica, "Stoicism"; Marcus Aurelius, <em>Meditations</em>; Seneca, <em>Letters to Lucilius</em>.</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 6. PSYCHOLOGY ══════════════ -->
+  <article class="card" id="psychology">
+    <div class="card-header">
+      <span class="topic-label">Psychology</span>
+      <h2>Why the First Number in Any Negotiation Has an Almost Unfair Amount of Power</h2>
+    </div>
+
+    <figure class="card-image" id="psy-fig">
+      <img id="psy-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="psy-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>In 1974, psychologists Amos Tversky (阿莫斯·特沃斯基) and Daniel Kahneman (丹尼爾·卡尼曼) ran a deceptively simple experiment. They spun a wheel that landed on a number — say, 65 — and then asked participants to estimate what percentage of African nations were in the United Nations. People who saw a high spin number gave consistently higher estimates than people who saw a low spin number. A <em>random wheel</em> had altered their sense of a factual quantity. They called this the anchoring effect (定錨效應): the first number we encounter in any decision-making context becomes a reference point — an anchor — that drags all subsequent judgments toward it, even when we intellectually know it is irrelevant or arbitrary.</p>
+
+      <p>In salary negotiations and commercial deals, the effect is stark. Research consistently shows that the party who names the first number achieves a better outcome on average — not because they have more information, but because they've set the anchor. If you ask for £70,000 and the other party was thinking £55,000, the final settlement tends to shift upward toward your number. The brain treats that first figure as a baseline and makes adjustments from it — but crucially, those adjustments are almost always insufficient. We end up closer to the anchor than any neutral analysis would justify. Harvard Law School's Program on Negotiation found that a "bolstering range" (e.g., "I'm looking for £70,000 to £75,000") works even better than a single number: it stretches the anchor upward while signalling flexibility, reducing pushback.</p>
+
+      <p>The limits of this research are important to note. The anchoring effect is weakest when: the recipient knows nothing about the domain (an extreme anchor just signals bad faith), when the recipient has done thorough independent research before entering the conversation, or when they are explicitly aware of and primed to resist anchoring. Expert negotiators — experienced lawyers, traders, professional buyers — are somewhat less susceptible, though not immune. And the effect can backfire if an anchor is so extreme it destroys credibility and causes the other party to disengage entirely.</p>
+
+      <p>The practical upshot runs in both directions. If you are negotiating — for a salary, a car, a freelance rate — naming your number first and setting it high (but credibly) gives you a structural advantage. If someone anchors on you with a number that feels low, the evidence-based move is not to immediately counter but to <em>reject the anchor explicitly</em> before offering an alternative: "Let me set that aside and share what my research shows." This breaks the gravitational pull before it fully forms.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> In any negotiation, whoever sets the first number controls the centre of gravity of the conversation. Name your number first — and name it higher than you expect.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Next time someone asks "what were you thinking price-wise?" — answer confidently first, not vaguely. Vagueness invites their anchor in.
+      </div>
+      <p class="source-line">Source: Tversky &amp; Kahneman (1974), "Judgment under Uncertainty: Heuristics and Biases," <em>Science</em> 185:1124–1131; Program on Negotiation, Harvard Law School, "Anchoring Bias in Negotiation" (2026); Galinsky (2001) cited in Cal State Scholarworks review.</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 7. PHYSIOLOGY ══════════════ -->
+  <article class="card" id="physiology">
+    <div class="card-header">
+      <span class="topic-label">Physiology</span>
+      <h2>Goosebumps: An Ancient Survival Reflex That Now Activates at Beethoven</h2>
+    </div>
+
+    <figure class="card-image" id="phy-fig">
+      <img id="phy-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="phy-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>Imagine a cat facing a dog. Its back arches, the fur along its spine erupts upward, and it suddenly looks fifty percent larger than it did a moment ago. This is piloerection (立毛反應) — the contraction of tiny muscles called <em>arrector pili</em> that sit at the base of each hair follicle, pulling the hair shaft upright and raising the surrounding skin into a bump. For mammals with thick coats, it serves two purposes: it traps a layer of air against the skin for insulation in the cold, and it makes the animal look larger and more threatening to predators or rivals. Every goosebump you have ever felt is this very mechanism, inherited from hairy ancestors and running, slightly pointlessly, on your relatively bare skin.</p>
+
+      <p>The reflex is controlled by the sympathetic branch of the autonomic nervous system — the branch responsible for the "fight or flight" response. When your brain perceives cold, fear, or sudden stress, it releases adrenaline (epinephrine / 腎上腺素), which triggers the arrector pili to contract. The entire process happens without any conscious input. What makes humans unusual is that we get goosebumps from purely <em>emotional</em> stimuli — music, an inspiring speech, a memory, a moment of awe — that have nothing to do with physical threat or temperature. A 2011 study in <em>Biological Psychology</em> measured both subjective "chills" and visible piloerection in participants listening to music, confirming that emotional experiences reliably trigger the same ancient reflex as a predator at the tree line.</p>
+
+      <p>Why? The current hypothesis, supported by neuroimaging work, is that these emotional responses involve the amygdala (杏仁核) and activate dopamine reward pathways — the same circuits that make music pleasurable. The physical sensation may be a kind of overflow: when emotional arousal exceeds a threshold, the sympathetic system fires, producing the whole body response. It may also be a social signal — goosebumps visible on someone's arms have long been readable as a marker of genuine emotional response, which humans may have evolved to display and detect in others.</p>
+
+      <p>One 2022 study identified a rare population who get goosebumps from music <em>more intensely than average</em> — they show thicker neural connections between auditory and emotional processing regions of the brain. The researchers at the University of Southern California called this phenomenon "music-evoked skin conductance response," and it correlates with personality traits associated with emotional openness. Your most reliable goosebumps may actually be telling you something about how your brain is wired.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> Goosebumps from music or beauty are not a malfunction — they're your mammalian alarm system co-opted by the brain's reward circuit, signalling that something emotionally significant is happening.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Notice the next time you get goosebumps from something non-threatening. What was it? Music? A memory? A sentence? Pay attention — your nervous system is flagging it as meaningful.
+      </div>
+      <p class="source-line">Source: Grewe et al. (2011), <em>Biological Psychology</em>, "Chills and shivers in music listening"; Nusbaum &amp; Silvia (2011) on openness and music; Live Science, "What causes goose bumps" (2022); Popular Science, "Why you get goosebumps" (2025).</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 8. HEALTH ══════════════ -->
+  <article class="card" id="health">
+    <div class="card-header">
+      <span class="topic-label">Health</span>
+      <h2>The Knuckle Cracker's Vindication: What 60 Years of Cracking One Hand Proved</h2>
+    </div>
+
+    <figure class="card-image" id="hth-fig">
+      <img id="hth-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="hth-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>In 1998, a physician named Donald Unger won the Ig Nobel Prize — a satirical award for research that "first makes you laugh, then makes you think" — for what may be the most committed self-experiment in medical history. For sixty years, Unger had cracked the knuckles of his left hand at least twice daily, while deliberately refraining from cracking his right. At the end of six decades, he examined both hands and found no arthritis in either. He published his findings and formally challenged the claim his mother had repeated throughout his childhood: "Stop that, you'll get arthritis." She was wrong. Science had his back.</p>
+
+      <p>The popping sound from a knuckle comes not from bone scraping against bone, but from a much more mundane event: a cavitation bubble (空泡效應) forming and collapsing rapidly in the synovial fluid (滑液) that lubricates the joint. When you pull the joint apart slightly, dissolved gases in the fluid rapidly form a gas-filled cavity. The collapse of that bubble creates the characteristic pop. The process is entirely mechanical and entirely harmless to the cartilage. A study published in the <em>Journal of the American Board of Family Medicine</em> examined 300 participants over age 50, comparing long-term habitual knuckle-crackers against non-crackers, and found no statistical difference in arthritis rates after controlling for age, occupation, and other risk factors.</p>
+
+      <p>The one genuine caveat: very aggressive, habitual cracking over decades may slightly reduce grip strength and cause mild soft tissue irritation. A 1990 paper found a small association between habitual cracking and minor swelling in habitual crackers — but no arthritis. And interestingly, in the same study, non-crackers actually showed marginally higher inflammation rates, possibly because the gentle joint mobilisation involved in cracking improves local circulation slightly.</p>
+
+      <p>The myth persists for the same reason many health myths do: it feels intuitively plausible, it's passed down by authority figures, and the timing of consequences is so distant that no one updates their belief. Arthritis takes decades to develop; by the time it appears, the cracking habit is a convenient culprit. This is a classic case of confusing correlation with causation — both cracking and arthritis are more common with age, but the former doesn't cause the latter.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> Cracking your knuckles does not cause arthritis. The noise is a gas bubble, not joint damage. You can stop feeling guilty — though perhaps mind your audience.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> Think of one health "fact" you were told as a child that you've never actually verified. Chances are at least one of them has already been debunked.
+      </div>
+      <p class="source-line">Source: Unger (1998), <em>Arthritis &amp; Rheumatism</em> (Ig Nobel Prize); deWeber et al., "Knuckle cracking and hand osteoarthritis," <em>Journal of the American Board of Family Medicine</em> (2011); News-Medical.net, "Mythbusting: Does Knuckle Cracking Really Lead to Arthritis?" (2025).</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ 9. SPORTS SCIENCE ══════════════ -->
+  <article class="card" id="sports-science">
+    <div class="card-header">
+      <span class="topic-label">Sports Science</span>
+      <h2>Progressive Overload: The One Principle That Explains Why Your Body Adapts at All</h2>
+    </div>
+
+    <figure class="card-image" id="ss-fig">
+      <img id="ss-img" src="" alt="Loading…" style="min-height:180px;">
+      <figcaption id="ss-cap">Loading image…</figcaption>
+    </figure>
+
+    <div class="card-body">
+      <p>In 1945, an army captain named Dr. Thomas DeLorme was tasked with rehabilitating soldiers whose muscles had wasted away during long hospitalisations. He noticed something that should have been obvious but had never been formalised: muscles only grow stronger when asked to do more than they currently can. If you always lift the same weight for the same reps, your body sees no reason to change — it's already equipped for the task. DeLorme's insight was to systematically increase the load week by week, a principle he called progressive resistance training. It worked spectacularly. What he had documented was the body's fundamental adaptation logic, now known as progressive overload (漸進式超負荷).</p>
+
+      <p>The mechanism is grounded in three physiological signals. First is <em>mechanical tension</em> — the sheer force of a heavy load pulling on muscle fibres, which activates satellite cells and protein synthesis pathways. Second is <em>metabolic stress</em> — the buildup of lactate and hydrogen ions during high-rep sets, which triggers hormone responses favouring growth. Third is <em>muscle damage</em> — microtears in the muscle that are repaired slightly thicker and stronger than before, particularly relevant in eccentric movements (the "lowering" phase of a lift). Research published in <em>Physiological Reviews</em> by the American Physiological Society confirmed that mechanical overload is the dominant driver across all three, with an 8–16 week progressive programme typically yielding a 5–20% increase in muscle volume in younger to middle-aged adults.</p>
+
+      <p>Where most gym-goers go wrong is conflating "harder" with "heavier." Progressive overload can be applied in multiple dimensions: add weight, add reps, add sets, reduce rest time, slow the tempo, or increase the range of motion. A 2026 study in <em>Medicine &amp; Science in Sports &amp; Exercise</em> (published by the American College of Sports Medicine) confirmed that muscle growth is significantly more pronounced when overload is structured and progressive, compared with training at a constant load — though untrained beginners can grow muscle even without perfect progression, simply because any load is novel to their system.</p>
+
+      <p>The practical implication is that a training log is not optional — it's the tool that makes progressive overload possible. Without tracking last week's weights and reps, you cannot reliably add to them. The body has no sense of ambition; it only responds to stimulus. Your job is to ensure the stimulus keeps moving slightly past what it already knows how to handle.</p>
+
+      <div class="callout">
+        <strong>💡 Takeaway:</strong> Muscle is built by consistent, incremental challenge — not by any single heroic session. Track your numbers. Add one rep or a small amount of weight each week. The compound effect over months is dramatic.
+      </div>
+      <div class="callout try">
+        <strong>🧠 Try this:</strong> After your next workout, write down exactly what you did — sets, reps, weight. Aim to beat at least one of those numbers next session.
+      </div>
+      <p class="source-line">Source: Nunes et al. (2022), "Progressive Overload Affects the Magnitude of Muscle Hypertrophy," <em>Medicine &amp; Science in Sports &amp; Exercise</em> (ACSM), PubMed PMID 41718594; Wackerhage et al. (2019), "Stimuli and sensors that initiate skeletal muscle hypertrophy," <em>Physiological Reviews</em>.</p>
+    </div>
+  </article>
+
+  <!-- ══════════════ CONNECTION OF THE DAY ══════════════ -->
+  <div class="connection">
+    <h3>🔗 Connection of the Day</h3>
+    <p>Today's <strong>Saturn story</strong> and today's <strong>Stoicism entry</strong> share a hidden thread: both are about discovering that what you <em>thought</em> you were measuring was actually something else entirely — Saturn's spin turned out to be atmospheric weather, and the Stoics argued that what we call "suffering" is mostly our <em>judgment</em> about events, not the events themselves.</p>
+  </div>
+
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <h3>Sources &amp; References</h3>
+  <ul>
+    <li>Astronomy: Stallard et al. (2026), Journal of Geophysical Research: Space Physics, DOI: 10.1029/2025JA034578 · phys.org</li>
+    <li>Eastern History: Conrad Totman, <em>A History of Japan</em> (Blackwell, 2000); George Sansom, <em>A History of Japan 1615–1867</em> (Stanford UP, 1963); Britannica "Sakoku"</li>
+    <li>Western History: Britannica "Candide" (2024); EBSCO Research Starters, "Voltaire Satirizes Optimism in Candide"; oll.libertyfund.org, Donway (2023)</li>
+    <li>Eastern Philosophy: Stanford Encyclopedia of Philosophy, "Mohism" (2020); A.C. Graham, <em>Disputers of the Tao</em> (Open Court, 1989); Britannica "Mozi"</li>
+    <li>Western Philosophy: Stanford Encyclopedia of Philosophy, "Stoicism" (2023); Britannica "Stoicism"; Marcus Aurelius, <em>Meditations</em></li>
+    <li>Psychology: Tversky &amp; Kahneman (1974), Science 185:1124–1131; Harvard Law School Program on Negotiation (2026)</li>
+    <li>Physiology: Grewe et al. (2011), Biological Psychology; Live Science (2022); Popular Science (2025)</li>
+    <li>Health: deWeber et al., Journal of the American Board of Family Medicine (2011); News-Medical.net (2025); Unger (1998) Arthritis &amp; Rheumatism</li>
+    <li>Sports Science: Nunes et al. (2022/2026 ACSM), PubMed PMID 41718594; Wackerhage et al., Physiological Reviews (2019)</li>
+  </ul>
+</footer>
+
+<!-- ══════════════ IMAGE LOADING SCRIPT ══════════════ -->
+<script>
+async function loadImage(imgEl, capEl, candidates, emoji) {
+  for (const title of candidates) {
+    try {
+      const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`);
+      if (!r.ok) continue;
+      const d = await r.json();
+      const src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
+      if (src) {
+        imgEl.src = src;
+        imgEl.alt = d.title;
+        capEl.innerHTML = `${d.title} — <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(title)}" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a>`;
+        return;
+      }
+    } catch(e) {}
+  }
+  // All failed: show emoji fallback
+  const div = document.createElement('div');
+  div.className = 'emoji-fallback';
+  div.textContent = emoji;
+  imgEl.replaceWith(div);
+  capEl.textContent = '';
+}
+
+// Astronomy — Saturn
+loadImage(
+  document.getElementById('astro-img'),
+  document.getElementById('astro-cap'),
+  ['Saturn', 'Saturn aurora', 'Rings of Saturn'],
+  '🪐'
+);
+
+// Eastern History — Sakoku / Dejima
+loadImage(
+  document.getElementById('eh-img'),
+  document.getElementById('eh-cap'),
+  ['Sakoku', 'Dejima', 'Edo period'],
+  '⛩️'
+);
+
+// Western History — Candide / Voltaire
+loadImage(
+  document.getElementById('wh-img'),
+  document.getElementById('wh-cap'),
+  ['Candide', 'Voltaire', 'Age of Enlightenment'],
+  '📖'
+);
+
+// Eastern Philosophy — Mozi
+loadImage(
+  document.getElementById('ep-img'),
+  document.getElementById('ep-cap'),
+  ['Mozi', 'Mohism', 'Hundred Schools of Thought'],
+  '☯️'
+);
+
+// Western Philosophy — Stoicism
+loadImage(
+  document.getElementById('wp-img'),
+  document.getElementById('wp-cap'),
+  ['Stoicism', 'Marcus Aurelius', 'Zeno of Citium'],
+  '🏛️'
+);
+
+// Psychology — anchoring
+loadImage(
+  document.getElementById('psy-img'),
+  document.getElementById('psy-cap'),
+  ['Anchoring (psychology)', 'Daniel Kahneman', 'Cognitive bias'],
+  '⚓'
+);
+
+// Physiology — goosebumps
+loadImage(
+  document.getElementById('phy-img'),
+  document.getElementById('phy-cap'),
+  ['Goose bumps', 'Piloerection', 'Arrector pili muscle'],
+  '🦢'
+);
+
+// Health — knuckle cracking
+loadImage(
+  document.getElementById('hth-img'),
+  document.getElementById('hth-cap'),
+  ['Knuckle cracking', 'Synovial joint', 'Osteoarthritis'],
+  '✊'
+);
+
+// Sports Science — progressive overload
+loadImage(
+  document.getElementById('ss-img'),
+  document.getElementById('ss-cap'),
+  ['Progressive overload', 'Muscle hypertrophy', 'Strength training'],
+  '🏋️'
+);
+</script>
+</body>
+</html>

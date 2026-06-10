@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward's Daily Learning — 2 June 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@300;400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --bg: #0f0f13;
+    --card: #1a1a22;
+    --card-border: #2e2e3e;
+    --text: #e4e4f0;
+    --muted: #8888aa;
+    --accent: #7c9ef8;
+    --accent2: #a78bfa;
+    --amber: #fbbf24;
+    --amber-dark: #1e1810;
+    --amber-card: #201c10;
+    --amber-border: #7a5c14;
+    --green: #34d399;
+    --red: #f87171;
+    --serif: 'Noto Serif HK', 'Noto Serif', 'Source Han Serif HK', 'Source Han Serif', Georgia, serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    line-height: 1.8;
+    font-size: 17px;
+  }
+
+  header {
+    background: linear-gradient(135deg, #12122a 0%, #1a1235 100%);
+    border-bottom: 1px solid var(--card-border);
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+  }
+  header h1 { font-size: 1.1rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  header h2 { font-size: 2rem; color: var(--text); font-weight: 700; }
+  header .date { color: var(--accent); margin-top: 0.3rem; font-size: 0.95rem; }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.2rem 4rem; }
+
+  /* Yesterday's Spark */
+  .spark-box {
+    background: #14141e;
+    border: 1px solid var(--card-border);
+    border-left: 4px solid var(--accent2);
+    border-radius: 12px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 2.5rem;
+  }
+  .spark-box h3 { color: var(--accent2); font-size: 1rem; letter-spacing: 0.08em; margin-bottom: 1rem; }
+  details { margin-bottom: 0.6rem; }
+  summary {
+    cursor: pointer;
+    color: var(--text);
+    padding: 0.5rem 0.8rem;
+    background: #1e1e2c;
+    border-radius: 8px;
+    list-style: none;
+    font-size: 0.95rem;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "▶ "; color: var(--accent2); font-size: 0.7rem; }
+  details[open] summary::before { content: "▼ "; }
+  details p { padding: 0.7rem 1rem; color: var(--muted); font-size: 0.93rem; background: #161622; border-radius: 0 0 8px 8px; }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+  .card.eastern {
+    background: var(--amber-card);
+    border-color: var(--amber-border);
+  }
+  .card.eastern::before {
+    background: linear-gradient(90deg, var(--amber), #f59e0b);
+  }
+
+  .topic-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .card.eastern .topic-label { color: var(--amber); }
+
+  .card h2 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    line-height: 1.35;
+  }
+
+  /* Image */
+  .img-wrap {
+    width: 100%;
+    background: #111118;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.2rem;
+    max-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-wrap img {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: contain;
+    display: block;
+  }
+  .emoji-fallback {
+    font-size: 5rem;
+    padding: 2rem;
+    text-align: center;
+  }
+  .img-caption {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .img-caption a { color: var(--accent); text-decoration: none; }
+  .card.eastern .img-caption a { color: var(--amber); }
+
+  /* Body text */
+  .card p { margin-bottom: 1rem; color: #d0d0e0; }
+  .card.eastern p { color: #e8dfc0; }
+
+  .why-box {
+    background: #0e0e18;
+    border-left: 3px solid var(--accent2);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    color: #bbb8d8;
+  }
+  .card.eastern .why-box {
+    background: #16120a;
+    border-left-color: var(--amber);
+    color: #d4c090;
+    font-style: normal;
+  }
+  .why-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .card.eastern .why-label { color: var(--amber); }
+
+  /* Takeaway / Try */
+  .takeaway {
+    background: #0e1820;
+    border: 1px solid #1e3a50;
+    border-radius: 10px;
+    padding: 0.9rem 1.2rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .card.eastern .takeaway { background: #130e04; border-color: #5a4010; }
+  .takeaway .t-label { font-size: 0.78rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem; }
+  .card.eastern .takeaway .t-label { color: var(--amber); }
+  .takeaway p { margin: 0; color: var(--text); font-weight: 600; }
+  .card.eastern .takeaway p { color: #fde68a; }
+
+  .try-box {
+    background: #0e180e;
+    border: 1px solid #1e441e;
+    border-radius: 10px;
+    padding: 0.7rem 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .card.eastern .try-box { background: #100e04; border-color: #4a3808; }
+  .try-box .t-label { font-size: 0.78rem; color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.3rem; }
+  .card.eastern .try-box .t-label { color: #fcd34d; }
+  .try-box p { margin: 0; color: #b8e8b8; font-style: italic; }
+  .card.eastern .try-box p { color: #fde68a; font-style: italic; }
+
+  .source {
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--card-border);
+    padding-top: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  .card.eastern .source { border-top-color: var(--amber-border); }
+  .source a { color: var(--accent); text-decoration: none; }
+  .card.eastern .source a { color: var(--amber); }
+
+  /* Connection */
+  .connection {
+    text-align: center;
+    background: linear-gradient(135deg, #161224, #121820);
+    border: 1px solid #2e2e4e;
+    border-radius: 14px;
+    padding: 1.4rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--accent2);
+    font-size: 1.05rem;
+  }
+  .connection span { color: var(--muted); font-size: 0.82rem; display: block; margin-bottom: 0.4rem; font-style: normal; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    padding: 2rem 1rem;
+    border-top: 1px solid var(--card-border);
+    line-height: 1.9;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Edward's Daily Learning</h1>
+  <h2>Curiosity &amp; Application Edition</h2>
+  <div class="date">Tuesday, 2 June 2026 &nbsp;·&nbsp; v2-Lite</div>
+</header>
+
+<div class="container">
+
+<!-- YESTERDAY'S SPARK -->
+<div class="spark-box">
+  <h3>🔁 Yesterday's Spark</h3>
+  <details>
+    <summary>A rogue planet with no star to call home was confirmed for the first time — what's it called?</summary>
+    <p>KMT-2024-BLG-0792 — roughly Saturn-sized, floating alone ~10,000 light-years away. No sun. No warmth. Just drift.</p>
+  </details>
+  <details>
+    <summary>Which philosopher founded a school on a painted porch — and what did he teach there?</summary>
+    <p>Zeno of Citium, around 300 BCE, lectured on the Stoa Poikilê in Athens — giving Stoicism its name and its core idea: virtue, not luck, is what matters.</p>
+  </details>
+  <details>
+    <summary>What happens in your gut when you're nervous before a big moment?</summary>
+    <p>Your brain triggers a fight-or-flight response; blood drains from your digestive system and peristalsis halts — creating that hollow, fluttery feeling we call butterflies.</p>
+  </details>
+</div>
+
+<!-- CARD 1: ASTRONOMY -->
+<div class="card" id="astronomy">
+  <div class="topic-label">🔭 Astronomy &amp; Cosmos</div>
+  <h2>The Lightest World We've Ever Seen Up Close</h2>
+
+  <div class="img-wrap">
+    <img id="img-astro" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-astro"></div>
+
+  <p>Imagine trying to spot a firefly hovering next to a lighthouse, ten kilometres away. That, roughly, is the challenge of directly photographing a planet orbiting another star. For decades, only gas giants many times heavier than Jupiter (木星) were photogenic enough. Then, in April 2026, astronomers did something that felt almost impossible.</p>
+
+  <p>Using the James Webb Space Telescope (韋伯太空望遠鏡) and its French-built coronagraph (遮星儀) — a device that masks the blinding glare of a central star — a team led by Anne-Marie Lagrange captured the first direct image of <em>TWA 7b</em>, a planet orbiting a young star about 100 light-years away. The planet's mass is roughly 0.3 times that of Jupiter — comparable to Saturn (土星) — making it the lightest exoplanet (系外行星) ever directly photographed. Its surface temperature hovers around 47 °C, and it sits inside a ring-shaped gap in a dusty debris disc around its star, exactly where gravitational carving by a planet was long suspected.</p>
+
+  <p>Think of the debris disc as a vinyl record. For years, astronomers saw the grooves but not the needle. TWA 7b is the needle. The coronagraph blocks the star's light, leaving the faint planetary glow — like putting your hand over a lamp to see a moth circling it.</p>
+
+  <p>This matters because JWST is now sensitive enough to photograph planets roughly 30 times the mass of Earth. The gap between "gas giants only" and "Earth-like worlds" is closing. Within a decade, we may have the first direct portrait of a world that actually looks like ours.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>The universe's smallest secrets yield only to the most precisely engineered blind spots — sometimes you have to block out the brightest thing to see what matters.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Remember this</div>
+    <p>Tonight, if you can see a bright star, know that hidden beside it — invisible to your eye — may be a whole world.</p>
+  </div>
+  <div class="source">📚 Source: Lagrange et al., <em>Nature Astronomy</em>, April 2026; NASA JWST mission page — <a href="https://science.nasa.gov/mission/webb/" target="_blank">science.nasa.gov</a></div>
+</div>
+
+<!-- CARD 2: EASTERN HISTORY (Traditional Chinese) -->
+<div class="card eastern" id="eastern-history">
+  <div class="topic-label">🏯 東方歷史</div>
+  <h2>安祿山之亂：一場幾乎終結大唐的宴席</h2>
+
+  <div class="img-wrap">
+    <img id="img-eh" alt="載入中…" />
+  </div>
+  <div class="img-caption" id="cap-eh"></div>
+
+  <div class="why-box">
+    <span class="why-label">「為何如此？」</span>
+    唐玄宗李隆基晚年沉迷楊貴妃，朝政漸委宰相李林甫及楊國忠。兩人為鞏固自身權位，刻意壓制漢人武將仕途，轉而提拔邊疆胡人節度使，以「外人難入中央」為制衡工具。此舉令安祿山坐擁三鎮兵權卻無法循正途晉升文官之列，既有野心，又感前途受阻。加之楊國忠屢次在朝廷公開羞辱安祿山，令其積怨日深。755年，安祿山起兵，名為「清君側」，實為個人政治仇怨與龐大軍事資源交匯之必然爆發。
+  </div>
+
+  <p>天寶十四載（755年）十一月，范陽城內，一場盛宴正在進行。席間，安祿山突然宣佈起兵，麾下十八萬大軍即日南下。消息傳至長安，唐玄宗起初不信——他親手提拔、賜予厚祿的邊疆大將，怎會反叛？</p>
+
+  <p>安祿山之亂（又稱「安史之亂」）歷時八年（755–763），動員兵力之巨、蹂躪版圖之廣，令人瞠目。長安、洛陽相繼失陷，玄宗倉皇出走蜀地，途經馬嵬驛，禁軍譁變，逼殺楊國忠並要求賜死楊貴妃。大唐從此元氣大傷：戰亂造成的人口損失，學者估計高達三千萬至五千萬，相當於帝國人口的三分之一。</p>
+
+  <p>叛亂雖終被平定，但代價極為慘烈。朝廷不得不借助回紇騎兵，事後更無力剷除各地藩鎮，形成尾大不掉之局。此後唐朝雖又延續一百四十年，卻再未能恢復盛唐氣象。安史之亂是中國歷史的分水嶺——它終結了以長安為中心的世界主義帝國夢，並埋下最終分裂的根源。</p>
+
+  <p>這段歷史提醒我們：帝國的崩潰，往往不始於外敵，而源自內部的權力排擠與用人失策。</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 要點</div>
+    <p>壓制正途晉升、以外人制衡內部，看似穩固權位，實則埋下更大的動盪。</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 今日一想</div>
+    <p>下次見到組織壓制某人晉升，留意他們下一步的動作。</p>
+  </div>
+  <div class="source">📚 資料來源：《舊唐書》；Benn, Charles. <em>China's Golden Age: Everyday Life in the Tang Dynasty</em>. Oxford University Press, 2002；司馬光《資治通鑑》卷二一六。</div>
+</div>
+
+<!-- CARD 3: WESTERN HISTORY -->
+<div class="card" id="western-history">
+  <div class="topic-label">🏛 Western History</div>
+  <h2>The Fortress That Fell in 24 Hours</h2>
+
+  <div class="img-wrap">
+    <img id="img-wh" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-wh"></div>
+
+  <div class="why-box">
+    <span class="why-label">Why did they do it?</span>
+    Hitler's high command knew that a direct infantry assault on Fort Eben-Emael (埃本-埃馬爾要塞), the world's largest fortress guarding Belgium's border, would cost thousands of lives and weeks of delay. General Kurt Student, head of Germany's fledgling paratroop (空降部隊) forces, lobbied relentlessly for an audacious glider-borne strike — partly to prove the military value of his new branch, and partly because the only viable approach was from the air. The operation was driven by institutional ambition as much as tactical logic.
+  </div>
+
+  <p>On the morning of 10 May 1940, eighty-five German soldiers landed silently on the roof of Fort Eben-Emael in engineered gliders — not from below, where the fortress's 1,200 defenders were pointing their guns, but directly on top of it. They used a newly classified weapon: hollow-charge explosives (空心裝藥炸彈) that could burn through armoured cupolas like a hot wire through butter. Within ten minutes, all the fort's main gun turrets were silenced.</p>
+
+  <p>Eben-Emael had been built between 1931 and 1935 to dominate the approaches to Belgium. It was considered impregnable — the planners had imagined every threat except paratroopers landing on the roof. The garrison, confused and unable to coordinate resistance, surrendered after just 24 hours. The 85 attackers suffered 6 dead.</p>
+
+  <p>The operation forced a complete rethink of fortress design worldwide and proved that vertical attack (attacking from above) had permanently changed land warfare. Every modern military base since then has had to consider the sky as a potential angle of vulnerability. Hitler was so pleased he awarded the Iron Cross to every man involved before the campaign in France had even concluded.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>Every defence is built against the last threat — the decisive blow usually comes from the direction no one is watching.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>Think of one assumption in your own life or work that nobody questions — and ask: what if that's the roof?</p>
+  </div>
+  <div class="source">📚 Source: Mrazek, James E. <em>The Fall of Eben Emael</em>. Presidio Press, 1991; Beevor, Antony. <em>The Second World War</em>. Little, Brown, 2012.</div>
+</div>
+
+<!-- CARD 4: EASTERN PHILOSOPHY (Traditional Chinese) -->
+<div class="card eastern" id="eastern-philosophy">
+  <div class="topic-label">☯ 東方哲學</div>
+  <h2>莊子的蝴蝶夢：我究竟是誰？</h2>
+
+  <div class="img-wrap">
+    <img id="img-ep" alt="載入中…" />
+  </div>
+  <div class="img-caption" id="cap-ep"></div>
+
+  <div class="why-box">
+    <span class="why-label">背景</span>
+    莊子（約公元前369–286年）生於戰國中期，諸侯混戰、禮崩樂壞。儒家高舉「仁義」，試圖以道德規範重建秩序；法家則主張嚴刑峻法。莊子身處宋國，一個夾縫中的小國，見盡廟堂爭鬥與民間疾苦，深感儒、法兩家皆以「人定勝天」為前提，強加人為框架於自然秩序之上。他的哲學，正是對這種自大的反動——與其爭論哪套規則最好，不如先問：你憑什麼確定你所見的世界是真實的？
+  </div>
+
+  <p>莊子有一個最著名的故事，短得出奇，卻令人久久不能忘懷：「昔者莊周夢為胡蝶，栩栩然胡蝶也……俄然覺，則蘧蘧然周也。不知周之夢為胡蝶與，胡蝶之夢為周與？」他不是在說夢境好看，他是在認真問：如果你無法從內部分辨夢與醒，你怎麼能確定此刻是真實？</p>
+
+  <p>這個問題，在莊子的時代是哲學挑釁，在今天則近乎科學命題。神經科學家告訴我們，大腦對外界的感知，始終只是一個「最佳猜測」——它接收不完整的信號，然後腦補出一個連貫的故事。我們所謂的「現實」，本質上是一個精心建構的詮釋。莊子早在兩千三百年前，憑直覺觸碰到了這個問題。</p>
+
+  <p>莊子並非要你陷入虛無，而是要你放輕「我的立場絕對正確」這種執念。他的道家（道家）主張「齊物論」——萬物在道的層面是平等的，你的判斷標準不過是你的座標，而非宇宙的真理。應用到日常：下次你堅信自己完全正確時，試想一下——你現在是蝴蝶，還是莊周？</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 要點</div>
+    <p>你所確信的「現實」，不過是你大腦最順手的一個詮釋版本——保持謙遜，是智慧的起點。</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 今日一想</div>
+    <p>今天有沒有一件你「絕對確定」的事？試著想出一個相反的可能性。</p>
+  </div>
+  <div class="source">📚 資料來源：《莊子·齊物論》；Stanford Encyclopedia of Philosophy, "Zhuangzi" — <a href="https://plato.stanford.edu/entries/zhuangzi/" target="_blank">plato.stanford.edu</a></div>
+</div>
+
+<!-- CARD 5: WESTERN PHILOSOPHY -->
+<div class="card" id="western-philosophy">
+  <div class="topic-label">🏺 Western Philosophy</div>
+  <h2>Stoicism: Born in a Shipwreck, Perfected in a Palace and a Prison</h2>
+
+  <div class="img-wrap">
+    <img id="img-wp" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-wp"></div>
+
+  <p><strong>Background:</strong> Around 300 BCE, Athens (雅典) was no longer the confident city-state that had produced Socrates (蘇格拉底) and Plato (柏拉圖). Alexander the Great (亞歷山大大帝) had died, his empire had shattered into warring kingdoms, and the old civic certainties — the idea that a good man lived and died for his city — no longer held. People needed a philosophy that could work anywhere: in victory or defeat, in palaces or prisons. Stoicism was the answer.</p>
+
+  <p>The story begins with a merchant named Zeno of Citium (芝諾) who survived a shipwreck and, stranded in Athens with nothing, wandered into a bookshop. He picked up a record of Socrates's conversations and was so captivated that he asked the bookseller where he could find men like that. The bookseller pointed to a passing Cynic (犬儒學派) philosopher: "Follow him." Zeno did, and eventually founded his own school — lecturing on a painted porch (<em>stoa poikilê</em>, 有畫廊廊) in the Agora (雅典市集廣場). The school took its name from the furniture, not the founder.</p>
+
+  <p>The central Stoic insight is elegantly simple: divide everything in life into two columns — what you control, and what you don't. Your judgements, choices, and reactions belong in column one. Everything else — wealth, reputation, other people's opinions, even your own health — belongs in column two. Suffering, the Stoics argued, comes almost entirely from confusing the two. Epictetus (愛比克泰德), a former slave who became one of history's greatest Stoic teachers, and Marcus Aurelius (馬可·奧勒留), a Roman Emperor (羅馬皇帝) — opposite ends of the social scale — both reached the same conclusion through the same framework.</p>
+
+  <p>That framework has outlived the Roman Empire (羅馬帝國), shaped early Christian ethics, and is now a backbone of modern Cognitive Behavioural Therapy (認知行為治療, CBT). When a CBT therapist asks "Can you control this, or just your response to it?" — they are channelling Zeno's porch.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>Next time something upsets you, ask: is this in column one (my control) or column two (not my control)? Act on column one; release column two.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>Write one thing stressing you out today. Label it: "mine to control" or "not mine to control." Act accordingly.</p>
+  </div>
+  <div class="source">📚 Source: <a href="https://plato.stanford.edu/entries/stoicism/" target="_blank">Stanford Encyclopedia of Philosophy — Stoicism</a>; Britannica, "Stoicism" (updated April 2026).</div>
+</div>
+
+<!-- CARD 6: PSYCHOLOGY -->
+<div class="card" id="psychology">
+  <div class="topic-label">🧠 Psychology</div>
+  <h2>The Secret of Being Instantly Likeable: Mirror, Don't Mimic</h2>
+
+  <div class="img-wrap">
+    <img id="img-psy" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-psy"></div>
+
+  <p>A waitress at a restaurant in the Netherlands ran an experiment that changed how scientists think about rapport. Half the time, she simply took orders. The other half, she subtly repeated back what customers said, word for word — "So you'd like the salmon, extra lemon?" — before leaving. The mirroring group tipped, on average, 68% more. The study, from Radboud University Nijmegen (奈梅亨大學), has since been replicated in job interviews, sales, and dating contexts.</p>
+
+  <p>The technique is called <em>isopraxism</em> (同步行為) — or, more plainly, mirroring. It works on gesture, posture, speech rhythm, and language. When you subtly echo someone's body language — leaning when they lean, using their vocabulary back to them — they unconsciously register you as "like me." And we are wired, deep in our evolutionary history, to trust people who resemble us. This isn't manipulation; done genuinely, it is a form of attention and empathy made physical.</p>
+
+  <p>The critical limit: mirroring must be subtle and natural. Deliberate, obvious mimicry reads as mockery and destroys rapport instantly. Think of it as tuning a radio station — gentle alignment, not crude imitation. Also worth noting: mirroring works less reliably across large cultural gaps, where gestures and norms differ significantly.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>Subtly reflect someone's posture, pace, and word choice, and they will feel understood without knowing why.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>In your next conversation, quietly match the other person's speaking pace — slower if they're slow, energised if they're energised — and notice the shift in warmth.</p>
+  </div>
+  <div class="source">📚 Source: van Baaren, R.B. et al. (2003). "Mimicry and Prosocial Behavior." <em>Psychological Science</em>, 14(1), 71–74; summarised at <a href="https://www.novalead.co.uk/the-power-of-isopraxism/" target="_blank">novalead.co.uk</a>.</div>
+</div>
+
+<!-- CARD 7: PHYSIOLOGY -->
+<div class="card" id="physiology">
+  <div class="topic-label">🫀 Physiology</div>
+  <h2>Butterflies Are Real — And Your Gut Has a Second Brain</h2>
+
+  <div class="img-wrap">
+    <img id="img-phy" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-phy"></div>
+
+  <p>Before a job interview, a first date, or a penalty shootout, something strange happens in your abdomen. A fluttery, hollow, almost nauseating sensation appears from nowhere. You've done nothing physically demanding. So why does your stomach feel like it's falling?</p>
+
+  <p>The moment your brain perceives a threat — real or social, physical or imagined — it fires signals to the <em>amygdala</em> (杏仁核), your brain's alarm centre. The adrenal glands (腎上腺) above your kidneys flood the bloodstream with adrenaline (腎上腺素) and noradrenaline (去甲腎上腺素). Your body immediately redirects blood away from digestion and toward your muscles, lungs, and heart. The rhythmic contractions of your gut — called <em>peristalsis</em> (腸蠕動) — are abruptly halted. The <em>vagus nerve</em> (迷走神經), a long cable running from your brainstem to your gut, then relays that sudden digestive stillness back up to your brain. The result: that distinctive, swooping, hollow sensation we call butterflies.</p>
+
+  <p>Here's what makes this truly remarkable: your gut contains approximately 100 million neurons (神經元) — more than your spinal cord. Scientists call it the <em>enteric nervous system</em> (腸道神經系統) or "the second brain." It operates largely independently, produces 90% of your body's serotonin (血清素), and communicates constantly with your brain via the gut-brain axis (腸腦軸). When people say "gut feeling," they are, in a very literal neurological sense, correct.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>Butterflies aren't weakness — they're your body mobilising. The same physiological arousal that makes you nervous also sharpens your focus. The feeling is the fuel.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>Next time you get butterflies, try saying to yourself: "I'm excited" instead of "I'm nervous" — research shows this reframe actually improves performance.</p>
+  </div>
+  <div class="source">📚 Source: <a href="https://theconversation.com/why-do-i-get-butterflies-in-my-stomach-269489" target="_blank">The Conversation</a> (Jan 2026); Gershon, Michael D. <em>The Second Brain</em>. HarperCollins, 1998.</div>
+</div>
+
+<!-- CARD 8: HEALTH -->
+<div class="card" id="health">
+  <div class="topic-label">💊 Health</div>
+  <h2>The 8-Glasses Rule: Where Did It Come From, and Should You Follow It?</h2>
+
+  <div class="img-wrap">
+    <img id="img-hlt" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-hlt"></div>
+
+  <p>At some point in your life, someone probably told you to drink eight glasses of water a day. It's one of the most confidently repeated pieces of health advice on earth. The number feels scientific. It sounds precise. And it is, according to a growing body of evidence, largely made up.</p>
+
+  <p>The "8×8" rule (eight 8-ounce glasses, roughly 2 litres) is most commonly traced to a 1945 US Food and Nutrition Board recommendation — but that document actually said most of the required water would come from food. Somewhere along the way, the "from food" caveat was dropped and the number took on a life of its own. Dr. Heinz Valtin, a kidney physiologist (腎臟生理學家) at Dartmouth Medical School, spent years searching for clinical evidence supporting 8×8. In a 2002 review published in the <em>American Journal of Physiology</em>, he found essentially none for healthy adults in temperate climates. Brigham and Women's Hospital (布萊根婦女醫院) physicians echo this: for people without kidney stones or specific medical conditions, there is no evidence that drinking that precise volume improves health.</p>
+
+  <p>The real answer is more nuanced: your needs depend on body size, activity level, climate, diet (fruits and vegetables contribute significant water), and health status. The most reliable guide remains one of the oldest: thirst. Your body's thirst mechanism (口渴機制) is exquisitely calibrated — unless you're elderly (where thirst sensitivity can decline) or exercising intensely in heat, it tells you what you need with remarkable accuracy.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>Drink when you're thirsty, eat water-rich foods, and check that your urine is pale yellow — that's all most healthy people need.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>Today, drink only when you're actually thirsty — and notice whether you feel any different from a "force-8-glasses" day.</p>
+  </div>
+  <div class="source">📚 Source: Valtin, H. (2002). "'Drink at least eight glasses of water a day.' Really?" <em>American Journal of Physiology</em>, 283(5), R993–R1004; Brigham and Women's Hospital <a href="https://magazine.brighamandwomens.org/departments/common-health-myth-debunked-by-science" target="_blank">myth-busting review</a>.</div>
+</div>
+
+<!-- CARD 9: SPORTS SCIENCE -->
+<div class="card" id="sports-science">
+  <div class="topic-label">🏋️ Sports Science</div>
+  <h2>Progressive Overload: The Only Gym Principle You Actually Need</h2>
+
+  <div class="img-wrap">
+    <img id="img-ss" alt="Loading…" />
+  </div>
+  <div class="img-caption" id="cap-ss"></div>
+
+  <p>Here's a gym truth that most people never fully absorb: your body does not change because you exercise. It changes because you force it to adapt to something slightly harder than it faced before. Do the same workout for months, and you'll maintain — but you won't grow. This principle has a name: <em>progressive overload</em> (漸進式超負荷).</p>
+
+  <p>The concept was formalised by Thomas DeLorme (托馬斯·德洛姆), an American physician rehabilitating WWII soldiers in the 1940s, who noticed that gradually increasing resistance produced far superior recovery of muscle than fixed-weight protocols. A meta-analysis in <em>Frontiers in Physiology</em> found that individuals following progressive overload routines saw up to a 40% greater strength increase compared to those doing non-progressive training. The adaptation isn't just muscular — it's neurological (神經適應). Your nervous system becomes more efficient at recruiting muscle fibres, improving strength and coordination simultaneously.</p>
+
+  <p>You don't need to add weight every single session. Progressive overload can mean: more reps at the same weight, less rest between sets, a slower tempo on the way down (eccentric phase, 離心期), or a greater range of motion. The key is that something in your training is deliberately harder than last time. Keep a simple log — even notes on your phone — because memory alone rarely tracks progress accurately.</p>
+
+  <div class="takeaway">
+    <div class="t-label">💡 Takeaway</div>
+    <p>If you did exactly the same workout as last week, your body has no reason to change. Add one more rep, one more kilogram, or one fewer second of rest — that small nudge is the entire game.</p>
+  </div>
+  <div class="try-box">
+    <div class="t-label">🧠 Try this</div>
+    <p>Next workout, write down your sets and reps. Next session, beat at least one number — by even one rep.</p>
+  </div>
+  <div class="source">📚 Source: DeLorme, T.L. &amp; Watkins, A.L. (1948). <em>Techniques of Progressive Resistance Exercise</em>. Archives of Physical Medicine; meta-analysis summary via <a href="https://sweat440.com/progressive-overload-programming/" target="_blank">Frontiers in Physiology / Sweat440</a>.</div>
+</div>
+
+<!-- CONNECTION OF THE DAY -->
+<div class="connection">
+  <span>✨ Connection of the Day</span>
+  The Stoics taught that you can't control outcomes, only effort — and Sports Science's progressive overload says the same thing: control the input (one more rep, one more kilogram), release the result.
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>Sources</strong><br>
+  Astronomy: NASA JWST / <em>Nature Astronomy</em>, Lagrange et al. (2026) &nbsp;|&nbsp;
+  Eastern History: 《舊唐書》; Benn (2002) Oxford UP &nbsp;|&nbsp;
+  Western History: Mrazek (1991); Beevor (2012) &nbsp;|&nbsp;
+  Eastern Philosophy: 《莊子·齊物論》; Stanford Encyclopedia of Philosophy &nbsp;|&nbsp;
+  Western Philosophy: Stanford Encyclopedia of Philosophy; Britannica (2026) &nbsp;|&nbsp;
+  Psychology: van Baaren et al. <em>Psychological Science</em> (2003) &nbsp;|&nbsp;
+  Physiology: The Conversation (Jan 2026); Gershon (1998) &nbsp;|&nbsp;
+  Health: Valtin, <em>Am. J. Physiology</em> (2002); Brigham and Women's Hospital &nbsp;|&nbsp;
+  Sports Science: DeLorme &amp; Watkins (1948); <em>Frontiers in Physiology</em><br><br>
+  <em>Edward's Daily Learning — 2 June 2026 &nbsp;·&nbsp; For personal educational use only.</em>
+</footer>
+
+<script>
+async function loadTopicImage(imgEl, captionEl, candidates, emojiFallback) {
+  for (const title of candidates) {
+    try {
+      const r = await fetch(
+        `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`
+      );
+      if (!r.ok) continue;
+      const d = await r.json();
+      const src = (d.originalimage && d.originalimage.source) ||
+                  (d.thumbnail && d.thumbnail.source);
+      if (src) {
+        imgEl.src = src;
+        imgEl.alt = d.title;
+        captionEl.innerHTML =
+          `${d.title} — <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(title)}" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a>`;
+        return;
+      }
+    } catch (e) { /* try next */ }
+  }
+  // fallback query API
+  for (const title of candidates) {
+    try {
+      const r = await fetch(
+        `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original&format=json&origin=*&titles=${encodeURIComponent(title)}`
+      );
+      if (!r.ok) continue;
+      const d = await r.json();
+      const pages = d.query && d.query.pages;
+      if (pages) {
+        const page = Object.values(pages)[0];
+        if (page && page.original && page.original.source) {
+          imgEl.src = page.original.source;
+          imgEl.alt = title;
+          captionEl.innerHTML = `${title} — <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(title)}" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a>`;
+          return;
+        }
+      }
+    } catch(e) {}
+  }
+  const wrap = imgEl.closest('.img-wrap');
+  if (wrap) {
+    const div = document.createElement('div');
+    div.className = 'emoji-fallback';
+    div.textContent = emojiFallback;
+    wrap.replaceWith(div);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadTopicImage(
+    document.getElementById('img-astro'),
+    document.getElementById('cap-astro'),
+    ['TWA 7', 'Debris disk', 'Exoplanet'],
+    '🔭'
+  );
+  loadTopicImage(
+    document.getElementById('img-eh'),
+    document.getElementById('cap-eh'),
+    ['An Lushan Rebellion', 'Tang dynasty', 'An Lushan'],
+    '🏯'
+  );
+  loadTopicImage(
+    document.getElementById('img-wh'),
+    document.getElementById('cap-wh'),
+    ['Battle of Fort Eben-Emael', 'Fort Eben-Emael', 'German paratroopers World War II'],
+    '🏰'
+  );
+  loadTopicImage(
+    document.getElementById('img-ep'),
+    document.getElementById('cap-ep'),
+    ['Zhuangzi', 'Zhuang Zhou', 'Taoism'],
+    '☯'
+  );
+  loadTopicImage(
+    document.getElementById('img-wp'),
+    document.getElementById('cap-wp'),
+    ['Zeno of Citium', 'Stoicism', 'Marcus Aurelius'],
+    '🏛'
+  );
+  loadTopicImage(
+    document.getElementById('img-psy'),
+    document.getElementById('cap-psy'),
+    ['Mirroring (psychology)', 'Body language', 'Rapport'],
+    '🤝'
+  );
+  loadTopicImage(
+    document.getElementById('img-phy'),
+    document.getElementById('cap-phy'),
+    ['Enteric nervous system', 'Vagus nerve', 'Gut-brain axis'],
+    '🦋'
+  );
+  loadTopicImage(
+    document.getElementById('img-hlt'),
+    document.getElementById('cap-hlt'),
+    ['Drinking water', 'Dehydration', 'Water'],
+    '💧'
+  );
+  loadTopicImage(
+    document.getElementById('img-ss'),
+    document.getElementById('cap-ss'),
+    ['Progressive overload', 'Weight training', 'Strength training'],
+    '🏋️'
+  );
+});
+</script>
+</body>
+</html>

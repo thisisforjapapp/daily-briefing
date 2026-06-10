@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 9 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+:root{
+  --bg:#0f0f0f;--surface:#191919;--surface2:#222;--border:#2e2e2e;
+  --text:#e8e6e0;--muted:#888;--accent:#7eb8d4;
+  --amber:#d4952a;--amber-bg:rgba(212,149,42,.08);--amber-bd:rgba(212,149,42,.4);
+  --green:#5aaa6e;--green-bg:rgba(90,170,110,.08);--green-bd:rgba(90,170,110,.35);
+  --blue:#6ba3c8;--blue-bg:rgba(107,163,200,.08);--blue-bd:rgba(107,163,200,.35);
+  --r:12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif','Noto Serif HK','Source Han Serif',Georgia,serif;font-size:17px;line-height:1.78;padding-bottom:120px;overflow-x:hidden;}
+a{color:var(--accent);}
+
+/* ── HEADER ── */
+.site-header{background:linear-gradient(135deg,#1a1a2e,#16213e);border-bottom:1px solid var(--border);padding:2rem 1.5rem 1.4rem;text-align:center;}
+.site-header h1{font-size:1.55rem;letter-spacing:.02em;color:#fff;}
+.site-header .meta{color:var(--muted);font-size:.87rem;margin-top:.35rem;}
+
+/* ── MOBILE TOC BAR (< 900px) ── */
+.toc-bar{position:-webkit-sticky;position:sticky;top:0;z-index:100;background:rgba(15,15,15,.98);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:.55rem .8rem;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar a{display:inline-block;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--muted);font-size:.76rem;padding:.22rem .7rem;margin-right:.35rem;text-decoration:none;transition:all .18s;}
+.toc-bar a:hover,.toc-bar a.active{background:var(--accent);color:#000;border-color:var(--accent);}
+
+/* ── PAGE LAYOUT ── */
+.page-layout{display:flex;max-width:1080px;margin:0 auto;padding:0 1rem;}
+
+/* ── LEFT NAV (≥ 900px) ── */
+.left-nav{width:185px;flex-shrink:0;padding-top:2rem;}
+.left-nav-inner{position:sticky;top:1rem;padding-right:.75rem;}
+.left-nav a{display:block;color:var(--muted);font-size:.78rem;padding:.38rem .7rem;border-radius:8px;text-decoration:none;margin-bottom:.2rem;border:1px solid transparent;transition:all .18s;line-height:1.35;}
+.left-nav a:hover{background:var(--surface2);color:var(--text);}
+.left-nav a.active{background:var(--surface2);border-color:var(--border);color:var(--accent);}
+
+/* ── CONTENT COLUMN ── */
+.content-col{flex:1;min-width:0;padding:0 0 0 1.5rem;}
+
+/* ── CARD ── */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.75rem 1.5rem;margin:2rem 0;scroll-margin-top:52px;}
+.card.amber{border-color:var(--amber-bd);}
+.card.green{border-color:var(--green-bd);}
+.card.blue{border-color:var(--blue-bd);}
+.card-label{font-size:.73rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.blue .card-label{color:var(--blue);}
+.card h2{font-size:1.3rem;line-height:1.35;margin-bottom:1.1rem;}
+
+/* ── PREDICT ── */
+details.predict summary{cursor:pointer;color:var(--accent);font-size:.87rem;font-weight:700;list-style:none;}
+details.predict summary::before{content:"🤔 ";}
+details.predict p{margin-top:.55rem;font-style:italic;color:var(--muted);padding-left:1rem;border-left:2px solid var(--border);}
+
+/* ── IMAGE ── */
+.card-img{margin:1.1rem 0;text-align:center;background:#111;border-radius:8px;overflow:hidden;min-height:55px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.card-img img{max-width:100%;max-height:300px;object-fit:contain;display:block;}
+.card-img .emoji{font-size:3.5rem;padding:1.2rem;}
+.card-img .cap{font-size:.7rem;color:var(--muted);padding:.25rem .5rem;}
+
+/* ── INTRO BOX ── */
+.intro-box{border-radius:8px;padding:.9rem 1rem;margin-bottom:1.1rem;font-size:.91rem;line-height:1.7;}
+.intro-box.amber{background:var(--amber-bg);border-left:3px solid var(--amber);}
+.intro-box.accent{background:rgba(126,184,212,.07);border-left:3px solid var(--accent);}
+
+/* ── BODY ── */
+.card p{margin-bottom:1rem;}
+.card p:last-of-type{margin-bottom:0;}
+
+/* ── POLITICAL ECON STRUCTURE ── */
+.pe-block{margin-bottom:.85rem;}
+.pe-label{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:.25rem;}
+.pe-block p{margin-bottom:0;font-size:.94rem;}
+
+/* ── TAKEAWAY ── */
+.takeaway{background:var(--surface2);border-radius:8px;padding:.8rem .95rem;margin:1.1rem 0;font-size:.91rem;border-left:3px solid var(--accent);}
+.card.amber .takeaway{border-left-color:var(--amber);}
+.card.green .takeaway{border-left-color:var(--green);}
+.card.blue .takeaway{border-left-color:var(--blue);}
+.takeaway::before{content:"💡 ";}
+
+/* ── RETRIEVAL ── */
+.retrieval{margin:1.1rem 0 .4rem;}
+.ret-head{font-weight:700;font-size:.87rem;color:var(--accent);margin-bottom:.4rem;}
+.ret-head::before{content:"🧠 ";}
+.ret-q{font-style:italic;color:var(--muted);margin:.4rem 0;padding-left:1rem;border-left:2px solid var(--border);font-size:.93rem;}
+.retrieval details summary{cursor:pointer;font-size:.81rem;color:var(--muted);}
+.retrieval details div{background:var(--surface2);border-radius:6px;padding:.65rem;margin-top:.35rem;font-size:.87rem;}
+
+/* ── SOURCE ── */
+.card-source{font-size:.76rem;color:var(--muted);margin-top:.9rem;border-top:1px solid var(--border);padding-top:.55rem;}
+
+/* ── SPARK ── */
+.spark{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;margin:1.5rem 0 2rem;scroll-margin-top:52px;}
+.spark h2{font-size:1.05rem;margin-bottom:.9rem;}
+.spark ol{list-style:none;padding:0;}
+.spark li{margin-bottom:1.1rem;font-style:italic;color:var(--muted);font-size:.93rem;}
+.spark li details{margin-top:.4rem;}
+.spark li details summary{cursor:pointer;color:var(--accent);font-style:normal;font-size:.82rem;}
+.spark li details div{background:var(--surface2);border-radius:6px;padding:.65rem;margin-top:.35rem;color:var(--text);font-style:normal;font-size:.87rem;}
+
+/* ── CONNECTION ── */
+.connection{background:linear-gradient(135deg,rgba(126,184,212,.06),rgba(90,170,110,.06));border:1px solid var(--border);border-radius:var(--r);padding:1.4rem;margin:2rem 0;}
+.connection h3{font-size:.98rem;margin-bottom:.7rem;}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:1.8rem 1.5rem;font-size:.8rem;color:var(--muted);margin-top:2.5rem;}
+.site-footer h4{color:var(--text);margin-bottom:.7rem;font-size:.88rem;}
+.site-footer ol{padding-left:1.1rem;}
+.site-footer li{margin-bottom:.3rem;}
+details.log-d summary{cursor:pointer;color:var(--accent);margin-top:1.3rem;}
+details.log-d table{width:100%;border-collapse:collapse;margin-top:.7rem;font-size:.76rem;}
+details.log-d td,details.log-d th{padding:.3rem .45rem;border:1px solid var(--border);text-align:left;}
+details.log-d th{color:var(--accent);}
+
+/* ── TOOLBAR ── */
+.toolbar{position:fixed;bottom:1.4rem;right:1rem;display:flex;flex-direction:column;gap:.4rem;z-index:200;}
+.toolbar button{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.45rem .75rem;font-size:.76rem;cursor:pointer;font-family:inherit;transition:all .18s;white-space:nowrap;}
+.toolbar button:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+
+/* ── RESPONSIVE ── */
+@media(min-width:900px){.toc-bar{display:none;}}
+@media(max-width:899px){
+  .left-nav{display:none;}
+  .content-col{padding:0;}
+  .page-layout{padding:0 .75rem;}
+  body{font-size:15.5px;}
+  .card{padding:1.2rem 1rem;}
+  .card h2{font-size:1.12rem;}
+  .card-img img{max-height:200px;}
+  .toolbar{bottom:.9rem;right:.5rem;}
+  .toolbar button{font-size:.72rem;padding:.38rem .6rem;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>Edward's Daily Learning</h1>
+  <div class="meta">Tuesday, 9 June 2026 &nbsp;·&nbsp; Est. reading time: <strong>~35 min</strong></div>
+</header>
+
+<!-- MOBILE TOC BAR -->
+<nav class="toc-bar" id="toc-bar">
+  <a href="#card-1">🔭 Cosmos</a>
+  <a href="#card-2">🏯 Eastern History</a>
+  <a href="#card-3">⚔️ Western History</a>
+  <a href="#card-4">☯️ Eastern Philosophy</a>
+  <a href="#card-5">🏛️ Western Philosophy</a>
+  <a href="#card-6">🧠 Psychology</a>
+  <a href="#card-7">💪 Physiology</a>
+  <a href="#card-8">🏥 Health</a>
+  <a href="#card-9">🏋️ Sports Science</a>
+  <a href="#card-10">📈 Investing</a>
+  <a href="#card-11">🏛 Pol. Economics</a>
+</nav>
+
+<div class="page-layout">
+
+  <!-- LEFT NAV (desktop) -->
+  <nav class="left-nav" aria-label="Card navigation">
+    <div class="left-nav-inner" id="left-nav">
+      <a href="#card-1" data-card="1">🔭 Cosmos</a>
+      <a href="#card-2" data-card="2">🏯 Eastern History</a>
+      <a href="#card-3" data-card="3">⚔️ Western History</a>
+      <a href="#card-4" data-card="4">☯️ Eastern Philosophy</a>
+      <a href="#card-5" data-card="5">🏛️ Western Philosophy</a>
+      <a href="#card-6" data-card="6">🧠 Psychology</a>
+      <a href="#card-7" data-card="7">💪 Physiology</a>
+      <a href="#card-8" data-card="8">🏥 Health</a>
+      <a href="#card-9" data-card="9">🏋️ Sports Science</a>
+      <a href="#card-10" data-card="10">📈 Investing</a>
+      <a href="#card-11" data-card="11">🏛 Pol. Economics</a>
+    </div>
+  </nav>
+
+  <div class="content-col">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark">
+      <h2>🔁 Yesterday's Spark — Recall Round</h2>
+      <ol>
+        <li>Why was JWST's detection of CO₂ on WASP-39b a turning point, even though WASP-39b is uninhabitable?
+          <details><summary>▶ Reveal</summary><div>It proved that transmission spectroscopy (透射光譜法) with JWST can unambiguously characterise exoplanet atmospheres from 700 light-years away — the same technique that will hunt for biosignatures on potentially habitable worlds.</div></details>
+        </li>
+        <li>What made the <em>Encyclopédie</em>'s treatment of artisan crafts politically radical beyond anything it explicitly argued?
+          <details><summary>▶ Reveal</summary><div>By treating craft knowledge with the same rigour as philosophy or theology, it implied that knowledge originates in human labour and reason — not divine authority or aristocratic patronage. The structure of the book was the argument.</div></details>
+        </li>
+        <li>Why does DOMS peak at 24–72 hours, and why is lactic acid ruled out?
+          <details><summary>▶ Reveal</summary><div>DOMS reflects a staged inflammatory response to myofibril micro-tears; lactic acid clears within 30–60 minutes of stopping exercise — far too quickly to explain delayed-onset soreness.</div></details>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ══ CARD 1 — ASTRONOMY ══ -->
+    <article class="card" id="card-1">
+      <div class="card-label">Astronomy &amp; Cosmos</div>
+      <h2>The Shadow at the Heart of the Milky Way</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>Scientists had photographed the universe for over a century. Why did it take until 2022 to image the black hole at the centre of our own galaxy — just 26,000 light-years away?</p>
+      </details>
+      <div class="card-img" id="img-1"><div class="emoji">🔭</div></div>
+
+      <p>On 12 May 2022, the Event Horizon Telescope (事件視界望遠鏡, EHT) Collaboration released a blurry orange ring with a dark central void: Sagittarius A* (人馬座A*), the supermassive black hole (超大質量黑洞) at the Milky Way's centre, four million solar masses, 26,000 light-years away. The image looked deceptively simple. Behind it lay a virtual telescope the diameter of Earth, eight years of data, and five petabytes of computation.</p>
+
+      <p>The EHT exploits Very Long Baseline Interferometry (甚長基線干涉測量, VLBI) — synchronising radio dishes across continents into a single instrument. Getting Sgr A* proved harder than the EHT's 2019 image of M87* (室女座A超大質量黑洞) by an order of magnitude. The problem: Sgr A* is ~1,500× less massive than M87*, so plasma (電漿) whips around it in minutes, not days — the image flickered like a candle flame. New algorithms averaged thousands of reconstructed snapshots into a stable composite, while interstellar scattering between us and the galactic centre required separate modelling to strip away.</p>
+
+      <p>What the shadow confirms is visceral: the bright ring is superheated plasma bent into a near-perfect circle by gravitational lensing (重力透鏡效應). The dark centre is the event horizon (事件視界) — photons swallowed forever. The ring's slight brightness asymmetry reveals the near-side plasma Doppler-boosted (都卜勒增強) toward us. General relativity (廣義相對論) predicts the shadow diameter to within a few percent; Sgr A* matches precisely. Every black hole image that confirms Einstein (愛因斯坦) also narrows the window for anything that might replace him.</p>
+
+      <div class="takeaway">The EHT turned the entire planet into a telescope, then outpaced a flickering plasma storm with algorithms. Every pixel was a computation, not a photon.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> Why was imaging Sgr A* harder than imaging M87*, even though Sgr A* is much closer to Earth?</p>
+        <details><summary>Check your answer</summary><div>Sgr A* is ~1,500× less massive than M87*, so orbiting plasma completes a circuit in minutes rather than days — the image flickers constantly on human timescales. The EHT had to average thousands of snapshots rather than treat the source as static. Additional interstellar scattering between Earth and the galactic centre added noise absent in M87*.</div></details>
+      </div>
+      <div class="card-source">Event Horizon Telescope Collaboration (2022). <em>Astrophysical Journal Letters</em>, 930, L12–L17. NASA EHT press release, 12 May 2022.</div>
+    </article>
+
+    <!-- ══ CARD 2 — EASTERN HISTORY (繁中) ══ -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">Eastern History</div>
+      <h2>鄭和下西洋：被遺忘的帝國海路</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>明朝曾擁有全球最龐大的艦隊，遠航至非洲東岸。然而這一切在數十年間幾近銷聲匿跡。為什麼一個擁有如此航海實力的帝國，最終選擇放棄海洋？</p>
+      </details>
+      <div class="card-img" id="img-2"><div class="emoji">⛵</div></div>
+      <div class="intro-box amber">
+        <strong>關鍵人物：</strong>鄭和（本名馬和，回族宦官）；永樂帝朱棣。<strong>核心事件：</strong>1405至1433年，七次大規模遠洋航行，艦隊最遠抵達東非海岸（今肯亞）。<strong>大局背景：</strong>朱棣以「靖難之役」奪位，正統性存疑，迫切需要以外交與聲威鞏固帝位。鄭和的下西洋，既是外交投射，也是朝貢體系的軍事展示。
+      </div>
+      <p>1405年，鄭和率領的艦隊從南京出發，規模令人瞠目：最大的「寶船」估計長逾120至150米，整個艦隊多達兩萬七千餘人。船隊攜帶絲綢、瓷器與金銀，沿途宣示大明威儀，收取各地朝貢，帶回長頸鹿、象牙，乃至非洲使節進京覲見。這不是殖民，而是一套以「天下」為框架的外交體系——天子居中，四方來朝。鄭和每抵一處港口，隨行的官員便在當地豎立石碑，刻上永樂帝的賜封，港口市場即時活絡，香料、木材、珍珠隨船返航。</p>
+      <p>永樂帝駕崩後，繼位的洪熙帝深受儒家文人官僚影響，斥航海為「好大喜功」，耗費國帑。宣德帝雖允最後一次（第七次）航行，但其後下令封存寶船圖紙，禁止建造大型海船。理由是多方面的：鄭和所帶回的「朝貢」在經濟上得不償失，北方蒙古威脅需要陸路資源，而儒家的「重農抑商」思想從根本上排斥海外貿易的政治正當性。更具體的是，一場1449年的土木堡之變令皇帝被瓦剌俘虜——陸上邊防的危機徹底壓倒了海洋雄心。</p>
+      <p>歷史的弔詭在於：鄭和最後一次航行結束後不到70年，葡萄牙人達伽馬繞過好望角抵達印度，歐洲殖民時代正式開幕。學者費正清指出，中國並非「不能」維持海洋霸權，而是制度性地「選擇了不要」——朝廷文官以意識形態否決了技術上可行的路線。這一選擇的代價，在此後四百年中緩緩浮現。</p>
+      <div class="takeaway">最強的艦隊不一定帶來最持久的影響力——若掌舵者認為海洋不值得，船隻終究爛在港口。制度的想像力，往往比技術更決定命運。</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> 鄭和下西洋的三項主要動機是什麼？明廷決定停止航海的核心原因又是什麼？</p>
+        <details><summary>查看答案</summary><div>三項動機：（一）鞏固永樂帝的政治正統性；（二）擴大以「天下」為框架的朝貢體系；（三）宣示大明威儀及獲取異域貢品。停止原因：儒臣認為航海耗資龐大而回報有限；北方蒙古邊防壓力（尤其1449年土木堡之變後）更迫切；「重農抑商」思想使海外擴張喪失制度支持，寶船圖紙終被封存。</div></details>
+      </div>
+      <div class="card-source">資料來源：Dreyer, E.L. <em>Zheng He: China and the Oceans in the Early Ming Dynasty</em> (2007)；《明史·鄭和傳》；Fairbank, J.K. <em>The Chinese World Order</em> (1968)。</div>
+    </article>
+
+    <!-- ══ CARD 3 — WESTERN HISTORY ══ -->
+    <article class="card" id="card-3">
+      <div class="card-label">Western History</div>
+      <h2>Constantinople, 1453: The Day a World Ended — and Another Began</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>The fall of one city in 1453 is credited with triggering the Italian Renaissance (文藝復興) and the Age of Exploration (大航海時代). How can the death of one empire directly birth another civilisation's golden age?</p>
+      </details>
+      <div class="card-img" id="img-3"><div class="emoji">🏰</div></div>
+      <div class="intro-box accent">
+        <strong>Key figures:</strong> Sultan Mehmed II (蘇丹穆罕默德二世, "the Conqueror"), aged 21; Emperor Constantine XI Palaiologos (君士坦丁十一世), last Byzantine (拜占庭) ruler. <strong>Event:</strong> Ottoman (鄂圖曼) siege and capture of Constantinople (君士坦丁堡) on 29 May 1453, ending the Eastern Roman Empire after 1,123 years. <strong>Big picture:</strong> Mehmed had unified Anatolia (安那托利亞) and the Balkans (巴爾幹); Constantinople — controlling Black Sea (黑海) trade — was the strategic and symbolic prize. The city had been weakened by the Black Death (黑死病), civil wars, and the catastrophic Fourth Crusade (第四次十字軍東征) sack of 1204.
+      </div>
+      <p>What made 1453 different from the dozen sieges that had failed before was technology and betrayal of opportunity. A Hungarian engineer named Urban had offered his services to Constantine XI, been turned away for lack of funds, and promptly sold them to Mehmed instead. Urban's bombard — a cannon so large it required sixty oxen to move — fired 1,200-pound stone balls that shattered the Theodosian Walls (狄奧多西城牆) that had defended the city for a millennium. The Ottomans also solved a tactical puzzle by hauling warships overland on greased logs to bypass the chain blocking the Golden Horn (金角灣) harbour. Constantine XI died in the final breach, reportedly casting off his imperial regalia to fight as an ordinary soldier.</p>
+      <p>The immediate consequences cascaded fast. Greek scholars who had been trickling westward for decades now fled en masse, carrying manuscripts of Plato (柏拉圖), Aristotle (亞里士多德), Euclid (歐幾里德), and Ptolemy (托勒密) that Western Europe had largely lost after Rome's fall. Florence (佛羅倫斯), already buzzing with Medici (美第奇家族) patronage, became the chief destination. The rediscovery of classical texts — cross-fertilised with Byzantine commentary and Islamic scholarship — directly accelerated Renaissance humanism (人文主義). Meanwhile, Ottoman (鄂圖曼) control of overland Silk Road (絲綢之路) routes pushed Genoese (熱那亞) and then Portuguese (葡萄牙) merchants to seek oceanic alternatives. Columbus (哥倫布) sailed west in 1492; Vasco da Gama (達伽馬) rounded Africa in 1498.</p>
+      <p>Mehmed moved his capital to Constantinople, renamed it Istanbul, and declared himself heir to both Roman imperial tradition and Islamic caliphate (哈里發) — a fusion identity that shaped Ottoman statecraft for 450 years. He commissioned a census, guaranteed religious freedom to Greek Christians and Jews, and brought in foreign scholars. The conquest was, in his framing, not destruction but translation — one empire continuing under a new name. Whether the Greeks in the ruins agreed is another matter entirely.</p>
+      <div class="takeaway">History's pivots are rarely neat: Constantinople's fall ended one world, scattered its scholars into another, and pushed merchants to find new oceans — each thread connecting to what we call "modernity."</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> Name two specific mechanisms — one military/economic, one cultural — by which the fall of Constantinople contributed to the European Renaissance and the Age of Exploration.</p>
+        <details><summary>Check your answer</summary><div>Military/economic: Ottoman control of overland trade routes forced European merchants (especially Genoese and Portuguese) to seek oceanic alternatives, directly motivating the voyages of da Gama and Columbus. Cultural: Byzantine Greek scholars fled west carrying ancient manuscripts (Plato, Aristotle, Ptolemy) largely absent from Western Europe since Rome's fall; their arrival in Florence infused Renaissance humanism with classical texts and commentary.</div></details>
+      </div>
+      <div class="card-source">Runciman, S. <em>The Fall of Constantinople 1453</em> (Cambridge University Press, 1965); Encyclopædia Britannica, "Fall of Constantinople."</div>
+    </article>
+
+    <!-- ══ CARD 4 — EASTERN PHILOSOPHY (繁中) ══ -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">Eastern Philosophy</div>
+      <h2>老子的弔詭：無為之治，柔弱勝剛強</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>「不行動」如何能成為一種治國哲學？在諸侯爭霸的亂世，有人卻主張領袖應效法水的柔順。這種思想從何而來，又有何深意？</p>
+      </details>
+      <div class="card-img" id="img-4"><div class="emoji">☯️</div></div>
+      <div class="intro-box amber">
+        <strong>核心人物：</strong>老子（生卒年不詳，約公元前6至4世紀），傳為周朝守藏室之史官，《道德經》作者。<strong>核心學說：</strong>「道」（萬物根源與運行法則）、「無為」（順應自然而不強為）、「德」（內在的自然本性）。<strong>時代背景：</strong>春秋末至戰國時期，禮崩樂壞，儒家主張「仁義禮」，法家主張「法術勢」。老子卻反其道而行，主張一切問題皆源於「有為」——人為的干預、強制的秩序、對自然的違逆。
+      </div>
+      <p>《道德經》共八十一章，僅五千餘字，卻是中國哲學史上被翻譯最多次的典籍之一。老子的核心命題看似悖論：「為學日益，為道日損。損之又損，以至於無為。無為而無不為。」學習知識要日積月累，而體悟「道」卻是日益減損——減去人為的成見、欲望、強制。無為並非「甚麼都不做」，而是行事順應事物的自然本性，如水順勢而流。「天下莫柔弱於水，而攻堅強者莫之能勝。」水無固定形狀，卻能穿石裂山。</p>
+      <p>老子的政治哲學最具爭議性。他嚮往「小國寡民」，鄰國相望、雞犬相聞，人民卻「老死不相往來」。這不是退步，而是批判：「大道廢，有仁義；智慧出，有大偽；六親不和，有孝慈；國家昏亂，有忠臣。」愈是高喊某種德行，愈說明該德行已不自然。這一批判直指儒家：若人人本性純良，何需禮義教化？老子認為正是「有為之治」製造了它聲稱要解決的問題。</p>
+      <p>老子對後世的影響深遠而隱蔽。道教以其為宗，但歷史上的老子思想常被扭曲為神仙術數。在哲學層面，王弼（魏晉）以玄學詮釋《道德經》，影響及宋明理學。在藝術上，「留白」美學、山水畫中「虛」與「實」的張力，皆是「道」的視覺語言。在當代管理學中，「以退為進」的領導哲學亦被援引——儘管老子本人對任何形式的「管理術」大概都會搖頭。</p>
+      <div class="takeaway">老子最難理解之處，正是他最重要的主張：最有力量的行動，往往是不行動；最深刻的智慧，是知道何時退讓。</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em>「無為」在老子哲學中的真正含義是什麼？它如何與「甚麼都不做」區別？老子又如何以「水」說明這一概念？</p>
+        <details><summary>查看答案</summary><div>「無為」並非消極不作為，而是行事順應事物自然本性，不施加人為強制或干擾——如水無固定形狀，不強行開路，卻持續流向低處，最終穿透最堅硬的岩石。其力量在於不抵抗自然規律，而是順勢借力，與儒家「積極為善、主動教化」形成根本對比。</div></details>
+      </div>
+      <div class="card-source">《道德經》（王弼注本）；Stanford Encyclopedia of Philosophy, "Laozi" (2018)；陳鼓應：《老子今注今譯》（2003年增訂版）。</div>
+    </article>
+
+    <!-- ══ CARD 5 — WESTERN PHILOSOPHY ══ -->
+    <article class="card" id="card-5">
+      <div class="card-label">Western Philosophy</div>
+      <h2>Plato's Cave: Why the Real World Might Be a Shadow Show</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>If everything you've ever seen or measured is just a pale copy of a more perfect reality — what would that mean for science? For ethics? Can your senses be trusted at all?</p>
+      </details>
+      <div class="card-img" id="img-5"><div class="emoji">🏛️</div></div>
+      <div class="intro-box accent">
+        <strong>Key figures:</strong> Plato (柏拉圖, c. 428–348 BCE), student of Socrates (蘇格拉底), teacher of Aristotle (亞里士多德). <strong>Idea at stake:</strong> The Theory of Forms (理型論) — behind every material object lies a perfect, unchanging, non-physical archetype more real than any particular instance. <strong>The rival:</strong> The Sophists (詭辯學派) claimed knowledge is relative — Protagoras's (普羅塔戈拉斯) "Man is the measure of all things." Plato built his entire metaphysics (形而上學) as a rebuttal: if knowledge is possible at all, its objects must be stable and universal, not fleeting and personal.
+      </div>
+      <p>Plato's most vivid illustration appears in Book VII of the <em>Republic</em> (理想國): prisoners chained in a cave since birth, seeing only shadows cast on the wall by objects passing before a fire behind them. The shadows are all they know; they mistake them for reality. One prisoner escapes, climbs into sunlight, and is at first blinded. As his eyes adjust he perceives the actual objects, then the sky, finally the Sun itself — the source of all light. Returning to warn the others, he can no longer see the shadows clearly and is mocked. The Sun maps to the Form of the Good (善的理型) — the supreme Form from which all other Forms (理型) derive their intelligibility and existence.</p>
+      <p>Why posit Forms at all? The argument begins with mathematics (數學). A perfect circle exists nowhere in the physical world — every drawn circle is flawed — yet geometers reason about the perfect circle with certainty and arrive at universal truths. Where does this perfect circle "exist"? Not in matter. Plato generalised: Justice (正義), Beauty (美), Equality (平等) — we apply these concepts to many different things, suggesting we measure particulars against a shared standard. That standard must exist independently of any particular just act or beautiful sunset. His Forms are eternal, unchanging, accessible only through reason (νοῦς, 理性), not the senses — a claim that placed philosophers (哲學家) at the top of his ideal city-state (城邦).</p>
+      <p>Aristotle (亞里士多德) attacked the theory from inside the Academy (學園), raising the "Third Man" problem: if a man and the Form of Man both share "being human," don't we need a third Form to explain that — and then a fourth, ad infinitum? The regress never terminates. Aristotle's solution was to relocate Forms inside particulars as immanent universals (內在共相) — "humanness" exists in actual humans, not a separate realm. The debate echoes forward into medieval scholasticism (士林哲學), Kant's (康德) transcendental idealism (先驗觀念論), and contemporary philosophy of mathematics (數學哲學): do numbers exist independently of minds? Most mathematicians silently hold a Platonist view — they discover theorems, they don't invent them.</p>
+      <div class="takeaway">Plato's Forms are either his greatest excess or his most profound insight. But the question is unavoidable: is mathematics discovered or invented? If discovered, you're already a closet Platonist.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> What is the "Third Man" objection to Plato's Theory of Forms, who raised it, and why does it threaten to undermine the theory?</p>
+        <details><summary>Check your answer</summary><div>Raised by Aristotle (developed also in Plato's own <em>Parmenides</em>): if a particular man and the Form of Man are both "human," there must be a third Form explaining what they share — then a fourth for that grouping, and so on infinitely. The Forms were posited to explain resemblance among particulars, but each Form requires another Form to explain its own resemblance to those particulars — a vicious regress that undermines the explanatory purpose of Forms entirely.</div></details>
+      </div>
+      <div class="card-source">Plato, <em>Republic</em>, Book VII (trans. Grube/Reeve); Stanford Encyclopedia of Philosophy, "Plato's Middle Period Metaphysics and Epistemology" (2022); Aristotle, <em>Metaphysics</em>, Book I.</div>
+    </article>
+
+    <!-- ══ CARD 6 — PSYCHOLOGY ══ -->
+    <article class="card" id="card-6">
+      <div class="card-label">Psychology</div>
+      <h2>The Lie We Tell Ourselves: Cognitive Dissonance and the Mind's Self-Repair System</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>You've just made a bad decision — bought something overpriced, or argued a position you later doubted. Research suggests your brain will automatically edit your memory of that decision to feel justified. How, and why?</p>
+      </details>
+      <div class="card-img" id="img-6"><div class="emoji">🧠</div></div>
+      <p>In 1954, social psychologist Leon Festinger (費斯廷格) infiltrated a doomsday cult that believed the world would end on 21 December — and aliens would rescue true believers. When the date passed uneventfully, the most committed members didn't abandon their beliefs; they doubled down, announcing that their faith had saved the world. Festinger called the discomfort of holding conflicting cognitions (認知) — "the world ends tonight" + "the world did not end" — <em>cognitive dissonance</em> (認知失調). His 1957 theory: the mind is driven to reduce this discomfort, usually by changing the less-entrenched belief, adding justifying cognitions, or downplaying conflicting evidence. The cult chose the third path — a pattern since replicated in political psychology, medical decision-making, and consumer behaviour.</p>
+      <p>His most elegant lab demonstration came with Festinger &amp; Carlsmith (1959). Participants spent an hour on excruciatingly boring tasks — rotating pegs, filling trays — then were paid $1 or $20 to tell a waiting stranger the tasks were interesting. Afterwards, the $1 group rated the task significantly more enjoyable than the $20 group. The paradox: those who lied for a trivial reward had no external justification to hide behind, so their minds quietly revised their actual experience of the task. Those paid $20 had a sufficient external justification — the lie was about the money — so their attitudes stayed intact. The cheaper the justification, the more we edit ourselves. This is why expensive purchases often feel justified immediately after; why people who endure painful initiations rate their group more highly than those who joined easily.</p>
+      <p>The limits matter too. Dissonance reduction is strongest when the behaviour was freely chosen, public, and irreversible — the classic lab setup maximises all three. In real life, people sometimes tolerate sustained dissonance rather than revise deeply held beliefs (political ideology, religious faith), especially when a social group reinforces the original position. And individual differences in "need for cognition" (認知需求) modulate how strongly people seek consistency. The practical implication: before adding to a losing position — a bad investment, a failing relationship, a wrong diagnosis — ask whether you're acting on new information or on the urge to make a prior commitment feel correct. The $1 group rated the boring task as fun for exactly the same reason.</p>
+      <div class="takeaway">The more something cost you — money, pain, public commitment — the harder your mind works to convince you it was worth it. That's not irrationality; it's the brain's consistency-maintenance system. Naming it is the first step to overriding it.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> In Festinger &amp; Carlsmith's experiment, why did the $1 group rate the boring task as more enjoyable than the $20 group — even though both lied about it?</p>
+        <details><summary>Check your answer</summary><div>The $20 group had sufficient external justification (the money) for lying, so their attitude toward the task didn't need to change. The $1 group had insufficient external justification, creating dissonance between "I lied" and "I'm an honest person." To resolve it, their minds revised their attitude toward the task itself — deciding it must have been somewhat interesting — thereby making the lie feel less like a lie.</div></details>
+      </div>
+      <div class="card-source">Festinger, L. <em>A Theory of Cognitive Dissonance</em> (1957, Stanford University Press); Festinger, L. &amp; Carlsmith, J.M. (1959). "Cognitive consequences of forced compliance." <em>Journal of Abnormal and Social Psychology</em>, 58(2), 203–210.</div>
+    </article>
+
+    <!-- ══ CARD 7 — PHYSIOLOGY ══ -->
+    <article class="card" id="card-7">
+      <div class="card-label">Physiology · Axis A: Decode Everyday Body Experiences</div>
+      <h2>Fight, Flight — and the Body That Won't Stand Down</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>Your stress response evolved to handle tigers and rival tribes. Today you trigger the same cascade sitting in traffic or reading a work email. What exactly happens — and why can't the body tell the difference?</p>
+      </details>
+      <div class="card-img" id="img-7"><div class="emoji">⚡</div></div>
+      <p>The fight-or-flight response (應激反應) was named by American physiologist Walter Cannon (坎農) in 1915, but its architecture predates consciousness. The trigger is the amygdala (杏仁核) — the brain's threat-detection centre — which can fire a full-body alarm before the prefrontal cortex (前額葉皮質) has registered what it saw. The amygdala signals the hypothalamus (下丘腦), which activates two parallel tracks: the sympathetic nervous system (交感神經系統) dumps adrenaline (腎上腺素, epinephrine) and noradrenaline (去甲腎上腺素) within seconds; the HPA axis (下丘腦-腦垂體-腎上腺軸, hypothalamic-pituitary-adrenal axis) releases cortisol (皮質醇) over minutes to sustain and broaden the response. Heart rate soars, blood diverts from gut to large muscle groups, pupils dilate, pain sensitivity drops, and clotting factors increase.</p>
+      <p>The precision is extraordinary. Blood viscosity actually increases (pre-clotting against wounds), glucose floods the bloodstream from liver glycogen (肝醣), and the immune system briefly upregulates. Even digestion pauses — the gut (消化道) literally suspends its work, which is why chronic stress causes IBS (腸易激綜合症) and peptic ulcers (消化性潰瘍). The vagal brake (迷走神經煞車) — the parasympathetic (副交感神經) counterweight — should dampen the response once the threat passes, restoring heart rate variability (心率變異性, HRV). In a healthy acute stress response, cortisol spikes then clears within 30–60 minutes: predator appears, you sprint, you survive.</p>
+      <p>The modern problem is chronicity. The brain cannot distinguish a charging lion from a looming deadline — both fire the same cascade. But the deadline doesn't resolve in 60 seconds; it lasts weeks. Chronically elevated cortisol suppresses immune function, progressively shrinks the hippocampus (海馬體, the memory-consolidation centre), raises blood pressure, disrupts sleep architecture (睡眠結構), and shifts metabolism toward visceral fat (內臟脂肪) accumulation. Sapolsky's landmark research on baboons showed that low-ranking animals with chronically activated stress axes developed measurably worse cardiovascular health — even when diet and exercise were equivalent. The same mechanism built to preserve life, at the wrong dose and cadence, quietly erodes it.</p>
+      <div class="takeaway">Stress is a dose problem, not an on/off switch. A sharp spike followed by full recovery builds resilience; a low unresolved hum for months breaks the system. Recovery isn't laziness — it's physiology.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> Name the two parallel physiological tracks activated during fight-or-flight, the hormones each releases, and their approximate timescales.</p>
+        <details><summary>Check your answer</summary><div>Track 1: the sympathetic nervous system — releases adrenaline (epinephrine) and noradrenaline directly from the adrenal medulla (腎上腺髓質), acting within seconds. Track 2: the HPA axis — releases cortisol from the adrenal cortex (腎上腺皮質), acting over minutes to sustain the response. The sympathetic response is fast and sharp; the HPA response is slower but prolonged, affecting metabolism, immune function, and cognition.</div></details>
+      </div>
+      <div class="card-source">Cannon, W.B. <em>Bodily Changes in Pain, Hunger, Fear and Rage</em> (1915); Sapolsky, R.M. <em>Why Zebras Don't Get Ulcers</em> (3rd ed., 2004); McEwen, B.S. (2005). "Stressed or stressed out." <em>Journal of Psychiatry &amp; Neuroscience</em>, 30(5).</div>
+    </article>
+
+    <!-- ══ CARD 8 — HEALTH ══ -->
+    <article class="card" id="card-8">
+      <div class="card-label">Health</div>
+      <h2>Sleep Is Not Rest — It's Active Maintenance (and Missing It Is Expensive)</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>Most people treat sleep as downtime — passive recovery. The evidence says the opposite: sleep is when the most metabolically expensive work of the brain happens. What is the brain actually doing while you're unconscious?</p>
+      </details>
+      <div class="card-img" id="img-8"><div class="emoji">😴</div></div>
+      <p>The brain burns nearly as much glucose (葡萄糖) asleep as awake — and the work it performs is unavailable during waking hours. Sleep cycles through four stages roughly every 90 minutes: three stages of non-REM sleep (非快速眼動睡眠, NREM) — light, deeper, and slow-wave (慢波睡眠, SWS) — and one stage of REM (快速眼動睡眠). SWS is when the hippocampus (海馬體) replays the day's memories and transfers them to the cortex (大腦皮質) for long-term storage — sleep-dependent memory consolidation (睡眠記憶鞏固). Deprive a rat of SWS after learning a maze and it loses the maze. Human studies replicate this across procedural (motor), declarative (factual), and emotional memory (情緒記憶).</p>
+      <p>In 2013, Maiken Nedergaard's team at the University of Rochester published a landmark finding in <em>Science</em>: the brain has a dedicated waste-clearance network — the glymphatic system (類淋巴系統) — almost exclusively active during deep sleep. Cerebrospinal fluid (腦脊液, CSF) is pumped through channels between glial cells (神經膠質細胞), flushing out metabolic waste including amyloid-beta (β-澱粉樣蛋白) and tau proteins (濤蛋白) — the very proteins that accumulate in Alzheimer's disease (阿茲海默症). Glymphatic activity increases tenfold during deep NREM versus waking. This reframed chronic sleep deprivation (長期睡眠不足) not just as a performance impairment but as a potential contributor to neurodegeneration — the brain, denied its nightly wash cycle, slowly fouls its own pipes.</p>
+      <p>Public health messaging has struggled with the non-linearity of sleep debt (睡眠債). Losing one hour per night for a week (six hours instead of seven) produces reaction-time and immune deficits equivalent to a full night of total deprivation — but subjective sleepiness (主觀睏倦感) adapts downward, meaning people feel "fine" while performing poorly. Cohen et al. (Carnegie Mellon, 2009) documented that sleeping fewer than six hours per night tripled cold infection risk in a controlled viral-exposure study. The mechanisms run through cortisol elevation (皮質醇升高), reduced natural killer cell (自然殺手細胞) activity, and suppressed cytokine (細胞激素) response. Sleep is not a lifestyle choice — it is the foundational maintenance cycle without which nearly every other health behaviour underperforms.</p>
+      <div class="takeaway">You cannot exercise, eat, or supplement your way out of chronic sleep deprivation. Sleep is the system that makes the other systems work — shortchanging it doesn't save time; it mortgages your biology.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> What is the glymphatic system, when is it most active, and what does its discovery imply about chronic sleep deprivation?</p>
+        <details><summary>Check your answer</summary><div>The glymphatic system is a brain-wide waste-clearance network that pumps cerebrospinal fluid through glial channels to flush metabolic waste including amyloid-beta and tau proteins linked to Alzheimer's. It is almost exclusively active during deep NREM (slow-wave) sleep, increasing tenfold versus waking. Implication: chronic sleep deprivation may allow neurotoxic proteins to accumulate progressively, potentially contributing to long-term neurodegenerative disease risk beyond the well-documented short-term cognitive and immune impairments.</div></details>
+      </div>
+      <div class="card-source">Xie, L. et al. (2013). "Sleep drives metabolite clearance from the adult brain." <em>Science</em>, 342(6156), 373–377; Walker, M. <em>Why We Sleep</em> (2017); Cohen, S. et al. (2009). <em>Archives of Internal Medicine</em>, 169(1), 62–67.</div>
+    </article>
+
+    <!-- ══ CARD 9 — SPORTS SCIENCE ══ -->
+    <article class="card" id="card-9">
+      <div class="card-label">Sports Science</div>
+      <h2>Periodisation: Why Training in Cycles Beats Training in Straight Lines</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>If the goal is to get stronger, why would a coach deliberately plan weeks of reduced load? Shouldn't the optimum always be to push harder? What does the science say about stress, recovery, and long-term adaptation?</p>
+      </details>
+      <div class="card-img" id="img-9"><div class="emoji">🏋️</div></div>
+      <p>The theoretical foundation of periodisation (周期訓練法) comes from stress biology. In the 1950s, endocrinologist Hans Selye (塞利耶) described the General Adaptation Syndrome (一般適應綜合症, GAS): any stressor triggers a three-phase response — alarm (alarm reaction, 警覺反應), adaptation (resistance phase, 抵抗期), and breakdown (exhaustion, 衰竭期) if stress continues without recovery. Adaptation requires both stress and recovery: one without the other produces neither strength nor rest, just damage. Romanian coach Tudor Bompa (龐帕) applied GAS to athletic training in the 1960s, creating the first systematic periodisation models used by Soviet (蘇聯) and Eastern European Olympic programmes — and still the conceptual core of virtually every professional strength programme today.</p>
+      <p>Linear periodisation (線性周期化) is the simplest model: sequential blocks of increasing intensity and decreasing volume — hypertrophy (肌肉肥大) block, strength (力量) block, power (爆發力) block — peaking for competition. The logic: you cannot maximally develop all fitness qualities simultaneously; the body's adaptive resources are finite, and training for maximum strength, endurance, speed, and hypertrophy at once produces interference effects (干擾效應). A more advanced variant — undulating (波動) or non-linear periodisation — varies volume and intensity within the week itself. Rhea et al. (2002, <em>Journal of Strength and Conditioning Research</em>) found undulating periodisation produced greater strength gains than linear models over 12 weeks for intermediate lifters, likely because the varying stimuli prevent rapid neural accommodation (神經適應).</p>
+      <p>The most neglected element is the deload (減量期): a planned week of reduced volume (typically 40–60% of normal) every 4–8 weeks. Most amateur athletes treat it as weakness; the evidence treats it as necessity. During a deload, the body supercompensates (超量恢復) — connective tissue (結締組織), tendons (肌腱), and the central nervous system (中樞神經系統, CNS) catch up with muscular adaptations that have been outpacing them. Skipping deloads is a primary driver of overtraining syndrome (過度訓練症候群): persistent fatigue, mood disruption, elevated resting heart rate, and paradoxically declining performance despite increasing effort. If you've trained hard for six weeks and feel stale, your body isn't asking for more motivation — it's asking for a deload.</p>
+      <div class="takeaway">Rest is part of the programme, not an interruption of it. Adaptation happens during recovery, not during the session. Plan your deloads; don't wait until you're broken.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> What are the three phases of Selye's General Adaptation Syndrome, and how did Bompa apply this model to athletic periodisation?</p>
+        <details><summary>Check your answer</summary><div>Selye's three phases: (1) Alarm reaction — initial disruption of homeostasis (體內平衡), performance dips; (2) Resistance/adaptation — the body rebuilds stronger than baseline if recovery is provided; (3) Exhaustion — breakdown if stress continues without adequate recovery. Bompa applied this by structuring training into discrete blocks (macrocycles, mesocycles, microcycles) that alternate increasing stress with planned recovery, ensuring athletes spend time in the adaptation phase rather than accumulating fatigue toward exhaustion — timing peak performance to competition.</div></details>
+      </div>
+      <div class="card-source">Bompa, T. &amp; Haff, G.G. <em>Periodization: Theory and Methodology of Training</em> (5th ed., 2009); Selye, H. <em>The Stress of Life</em> (1956); Rhea, M.R. et al. (2002). <em>Journal of Strength and Conditioning Research</em>, 16(2), 250–255.</div>
+    </article>
+
+    <!-- ══ CARD 10 — INVESTING ══ -->
+    <article class="card green" id="card-10">
+      <div class="card-label">Investing &amp; Economic Thinking · Economic History</div>
+      <h2>The Dot-com Bubble: When a Story Became Worth More Than a Business</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>In 1999, investors poured billions into companies with no revenue and no profits — and considered it rational. What structural mechanisms (beyond simple greed) allowed this to happen, and what separated survivors from wreckage?</p>
+      </details>
+      <div class="card-img" id="img-10"><div class="emoji">💹</div></div>
+      <p>The dot-com bubble (科網泡沫) inflated across 1995–2000 and burst across 2000–2002, destroying roughly $5 trillion in market capitalisation (市值) and reshaping capitalism's relationship with technology for a generation. Its origin was legitimate: the commercial internet was genuinely transformative, and early movers like Amazon (亞馬遜, 1995) and eBay (1995) were building real businesses. But the signal was rapidly overwhelmed by narrative. The prevailing logic — articulated by consulting firms, investment banks, and business schools — was that internet companies operated under "new economy" rules where traditional metrics (earnings, cash flow, return on equity (股本回報率)) were obsolete. What mattered were "eyeballs" (user traffic), "first-mover advantage" (先行者優勢), and network effects (網絡效應). Valuation models built on projected user bases rather than revenues became standard Wall Street (華爾街) practice.</p>
+      <p>The structural fuel was institutional. The 1997 Tax Relief Act had expanded Individual Retirement Accounts (個人退休帳戶, IRA), directing retail savings into equities. Investment banks (投資銀行) relaxed underwriting (承銷) standards to capture IPO (首次公開招股) fee volume: Pets.com, founded August 1998, raised $82.5 million in its February 2000 IPO despite a dollar-lost-per-dollar-sold business model. It filed for bankruptcy nine months later — the era's defining joke. Analysts who issued "sell" ratings faced client pressure and career risk; investment banking divisions pressured research. Alan Greenspan's (格林斯潘) famous "irrational exuberance" (非理性繁榮) warning — delivered in December 1996 — came four full years before the peak. The NASDAQ (納斯達克) Composite rose 400% between 1995 and March 2000, then fell 78% by October 2002.</p>
+      <p>What separates survivors from wreckage is instructive for any cycle. Amazon fell 94% — from $107 to $6 — yet recovered because it had a genuine distribution moat, relentless reinvestment culture, and a CEO (首席執行官) willing to sustain years of losses for infrastructure. Google (谷歌, founded 1998, IPO 2004) was built on a revenue model (search advertising (搜尋廣告)) that actually worked before going public. The losers shared a pattern: high customer acquisition costs (客戶獲取成本), no pricing power (定價能力), commodity products, and a model assuming perpetual venture subsidy. Robert Shiller (席勒), in <em>Irrational Exuberance</em> (2000 — published one month before the peak), identified the mechanism: narrative epidemics (敘事傳染), where compelling stories spread faster than disconfirming data, and price becomes self-confirming until it suddenly isn't. The lesson: distinguish between a transformative technology and a profitable business built on it — they are not the same thing.</p>
+      <div class="takeaway">Every bubble is a story with genuine truth at its core, overlaid with leverage, FOMO (錯失恐懼), and bad incentives. The discipline: at this price, does the story have to be <em>perfectly</em> true for you to make money? If yes, walk away.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> Beyond investor irrationality, name three structural or institutional factors that allowed the dot-com bubble to inflate as large as it did.</p>
+        <details><summary>Check your answer</summary><div>Any three of: (1) investment banks relaxing IPO underwriting standards for fee revenue; (2) conflicts of interest between investment banking and equity research divisions suppressing "sell" ratings; (3) retail capital inflows via expanded IRAs directing savings into equities; (4) "new economy" valuation frameworks that explicitly discarded earnings-based metrics in favour of user-growth projections; (5) Shiller's reflexive narrative epidemic — rising prices attracted capital, driving prices higher, a self-confirming loop until it wasn't.</div></details>
+      </div>
+      <div class="card-source">Shiller, R.J. <em>Irrational Exuberance</em> (2000); Cassidy, J. <em>dot.con</em> (2002); Greenspan, A. Federal Reserve speech, 5 Dec 1996; NASDAQ Composite historical data.</div>
+    </article>
+
+    <!-- ══ CARD 11 — POLITICAL ECONOMICS ══ -->
+    <article class="card blue" id="card-11">
+      <div class="card-label">Political Economics · Theory in the Wild</div>
+      <h2>The Phillips Curve Meets Stagflation: When the Trade-off Disappeared</h2>
+      <details class="predict"><summary>Predict Before You Read</summary>
+        <p>For decades, economists told governments there was a reliable trade-off: accept higher inflation (通脹) and get lower unemployment (失業率), or vice versa. Then the 1970s arrived. What happened — and has the trade-off ever fully recovered?</p>
+      </details>
+      <div class="card-img" id="img-11"><div class="emoji">📊</div></div>
+
+      <div class="pe-block">
+        <div class="pe-label">① Event</div>
+        <p>Between 1973 and 1975, the United States simultaneously saw unemployment (失業率) rise from 4.9% to 8.5% and consumer price inflation (消費物價通脹) peak at 12.3%. In the UK (英國), the figures were worse. A combination theoretically ruled out by the dominant macroeconomic model of the time had arrived — and it had a name: stagflation (滯脹).</p>
+      </div>
+      <div class="pe-block">
+        <div class="pe-label">② Theory</div>
+        <p>The Phillips Curve (菲利普斯曲線), named after A.W. Phillips (菲利普斯, LSE, 1958): an empirically derived inverse relationship between unemployment and wage inflation (工資通脹). When unemployment falls, employers bid up wages, raising prices; when unemployment rises, the reverse. The curve implied a stable, exploitable trade-off (權衡取捨) — governments could "choose" their preferred point on the curve. By the late 1960s it was embedded in Keynesian (凱因斯主義) macro models worldwide.</p>
+      </div>
+      <div class="pe-block">
+        <div class="pe-label">③ Anomaly</div>
+        <p>Stagflation (滯脹) broke the curve: both unemployment and inflation rose simultaneously — the curve didn't just flatten, it inverted. The OPEC (石油輸出國組織) oil shock of 1973 provided the trigger (a supply-side shock the demand-focused model couldn't handle), but the anomaly had been theoretically predicted years before the shock hit.</p>
+      </div>
+      <div class="pe-block">
+        <div class="pe-label">④ Challenger</div>
+        <p>In 1968, Milton Friedman (弗里德曼) and Edmund Phelps (費爾普斯) independently argued the curve was only short-run: workers adapt their inflation expectations (通脹預期), shifting the curve outward. Any exploitable trade-off disappears long-run — there is only a Natural Rate of Unemployment (自然失業率, NAIRU). This became orthodoxy — but remains contested: the 2010s saw historically low US unemployment without triggering predicted inflation; 2021–23 saw a sharp inflation spike without the classic unemployment trade-off dynamics. <strong>Open question: the Phillips Curve keeps being declared dead and keeps returning in modified form.</strong></p>
+      </div>
+
+      <div class="takeaway">The Phillips Curve is one of economics' most-killed and least-dead ideas. Each death produces a more sophisticated successor — from static curve to expectations-augmented to New Keynesian (新凱因斯主義) — but the core tension between inflation and unemployment remains unresolved.</div>
+      <div class="retrieval">
+        <div class="ret-head">Retrieval Prompt</div>
+        <p class="ret-q"><em>Answer this without looking back:</em> What was Friedman's core argument against the original Phillips Curve, and what did he claim happened to the trade-off in the long run?</p>
+        <details><summary>Check your answer</summary><div>Friedman argued the original Phillips Curve was short-run only: workers and firms adapt their expectations to ongoing inflation, shifting the curve outward. Any reduction in unemployment below the natural rate (NAIRU) achieved by expansionary policy is temporary — once expectations adjust, unemployment returns to its natural rate while inflation is permanently higher. In the long run, the Phillips Curve is vertical at the natural rate, and there is no exploitable trade-off between inflation and unemployment.</div></details>
+      </div>
+      <div class="card-source">Phillips, A.W. (1958). "The Relation between Unemployment and the Rate of Change of Money Wage Rates in the United Kingdom." <em>Economica</em>, 25(100); Friedman, M. (1968). "The Role of Monetary Policy." <em>American Economic Review</em>, 58(1); Phelps, E. (1968). <em>Economica</em>, 35(139).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection">
+      <h3>🔗 Connection of the Day</h3>
+      <p><strong>Cognitive Dissonance (Psychology) × Dot-com Bubble (Investing):</strong> Festinger's $1 group and Pets.com investors are the same phenomenon at different scales — once capital was publicly committed, minds revised downward the salience of contrary evidence (negative cash flows, zero revenue models), generating post-commitment rationalisation that sustained the bubble past every rational exit point.</p>
+      <p style="margin-top:.7rem">📌 <strong>So what:</strong> Before adding to a losing position, ask whether you're responding to new information or to the dissonance-reduction urge to make a prior expensive decision feel correct — the $1 group rated boring peg-rotation as fun for exactly the same reason Pets.com bulls called losses "investments in growth."</p>
+    </section>
+
+  </div><!-- /content-col -->
+</div><!-- /page-layout -->
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div style="max-width:1080px;margin:0 auto;padding:0 1rem;">
+    <h4>📚 Sources</h4>
+    <ol>
+      <li>Event Horizon Telescope Collaboration (2022). <em>Astrophysical Journal Letters</em>, 930, L12–L17.</li>
+      <li>Dreyer, E.L. <em>Zheng He: China and the Oceans in the Early Ming Dynasty</em> (2007); 《明史·鄭和傳》.</li>
+      <li>Runciman, S. <em>The Fall of Constantinople 1453</em> (Cambridge University Press, 1965).</li>
+      <li>Stanford Encyclopedia of Philosophy, "Laozi" (2018); 陳鼓應《老子今注今譯》(2003).</li>
+      <li>Stanford Encyclopedia of Philosophy, "Plato's Middle Period Metaphysics" (2022).</li>
+      <li>Festinger, L. &amp; Carlsmith, J.M. (1959). <em>Journal of Abnormal and Social Psychology</em>, 58(2).</li>
+      <li>Sapolsky, R.M. <em>Why Zebras Don't Get Ulcers</em> (3rd ed., 2004).</li>
+      <li>Xie, L. et al. (2013). <em>Science</em>, 342(6156); Walker, M. <em>Why We Sleep</em> (2017).</li>
+      <li>Bompa, T. &amp; Haff, G.G. <em>Periodization</em> (5th ed., 2009); Rhea, M.R. et al. (2002). <em>JSCR</em>, 16(2).</li>
+      <li>Shiller, R.J. <em>Irrational Exuberance</em> (2000); Greenspan Federal Reserve speech, Dec 1996.</li>
+      <li>Phillips, A.W. (1958). <em>Economica</em>, 25(100); Friedman, M. (1968). <em>American Economic Review</em>, 58(1).</li>
+    </ol>
+    <details class="log-d">
+      <summary>📋 Do-Not-Repeat Log</summary>
+      <table>
+        <tr><th>Topic</th><th>Subject</th><th>Angle</th><th>Date</th></tr>
+        <tr><td>Eastern History</td><td>安史之亂</td><td>— (do not use)</td><td>—</td></tr>
+        <tr><td>Eastern Philosophy</td><td>莊周夢蝶</td><td>— (do not use)</td><td>—</td></tr>
+        <tr><td>Astronomy</td><td>WASP-39b/JWST</td><td>CO₂ transmission spectroscopy</td><td>2026-06-08</td></tr>
+        <tr><td>Eastern History 🇯🇵 (Sengoku)</td><td>關原之戰</td><td>Tokugawa vs Ishida; sankin-kōtai</td><td>2026-06-08</td></tr>
+        <tr><td>Western History</td><td>Encyclopédie</td><td>Diderot; craft knowledge as radical politics</td><td>2026-06-08</td></tr>
+        <tr><td>Eastern Philosophy</td><td>王陽明心學</td><td>知行合一; 龍場悟道</td><td>2026-06-08</td></tr>
+        <tr><td>Western Philosophy</td><td>Heraclitus</td><td>Flux; Logos; vs Parmenides</td><td>2026-06-08</td></tr>
+        <tr><td>Psychology 🎯 BehavEcon</td><td>Loss Aversion</td><td>Kahneman &amp; Tversky; Prospect Theory</td><td>2026-06-08</td></tr>
+        <tr><td>Physiology</td><td>DOMS</td><td>Micro-tears; inflammatory cascade; titin</td><td>2026-06-08</td></tr>
+        <tr><td>Health</td><td>Sugar Industry/Dietary Fat</td><td>SRF 1967; low-fat guidelines distortion</td><td>2026-06-08</td></tr>
+        <tr><td>Sports Science</td><td>Progressive Overload</td><td>Delorme; mechanisms beyond weight; junk volume</td><td>2026-06-08</td></tr>
+        <tr><td>Investing · Econ History</td><td>South Sea Bubble</td><td>1720; instalment leverage; Shiller narrative</td><td>2026-06-08</td></tr>
+        <tr><td>Astronomy</td><td>Sgr A* / EHT</td><td>First MW black hole image; VLBI; flickering vs M87*</td><td>2026-06-09</td></tr>
+        <tr><td>Eastern History (non-Japan)</td><td>鄭和下西洋</td><td>Yongle; treasure ships; why stopped; Fairbank</td><td>2026-06-09</td></tr>
+        <tr><td>Western History</td><td>Fall of Constantinople</td><td>1453; Urban's cannon; scholars west; Exploration link</td><td>2026-06-09</td></tr>
+        <tr><td>Eastern Philosophy</td><td>老子《道德經》</td><td>無為; 道; 柔弱勝剛強; critique of Confucianism</td><td>2026-06-09</td></tr>
+        <tr><td>Western Philosophy</td><td>Plato's Theory of Forms</td><td>Cave allegory; Third Man objection; Aristotle's immanent universals</td><td>2026-06-09</td></tr>
+        <tr><td>Psychology</td><td>Cognitive Dissonance</td><td>Festinger 1957; $1/$20; post-commitment rationalisation</td><td>2026-06-09</td></tr>
+        <tr><td>Physiology · Axis A</td><td>Fight-or-Flight</td><td>HPA axis; cortisol; vagal brake; chronic stress pathology</td><td>2026-06-09</td></tr>
+        <tr><td>Health</td><td>Sleep &amp; Memory Consolidation</td><td>Glymphatic system; amyloid; sleep debt non-linearity</td><td>2026-06-09</td></tr>
+        <tr><td>Sports Science</td><td>Periodisation</td><td>Selye GAS; Bompa; deload; undulating vs linear</td><td>2026-06-09</td></tr>
+        <tr><td>Investing · Econ History</td><td>Dot-com Bubble</td><td>Pets.com; narrative epidemic; Shiller; what survived</td><td>2026-06-09</td></tr>
+        <tr><td>Pol. Economics</td><td>Phillips Curve / Stagflation</td><td>Friedman expectations; NAIRU; open question</td><td>2026-06-09</td></tr>
+      </table>
+    </details>
+  </div>
+</footer>
+
+<!-- STICKY TOOLBAR -->
+<div class="toolbar">
+  <button onclick="window.print()">📄 Export PDF</button>
+  <button onclick="saveForPhone(this)">📥 Save for Phone</button>
+  <button onclick="sendToPhone(this)">📱 Send to Phone</button>
+</div>
+
+<!-- SEND TO PHONE MODAL -->
+<div id="stp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;align-items:center;justify-content:center;">
+  <div style="background:#1e1e1e;border:1px solid #333;border-radius:14px;padding:2rem 1.75rem;max-width:360px;width:90%;text-align:center;position:relative;">
+    <button onclick="document.getElementById('stp-modal').style.display='none'" style="position:absolute;top:.75rem;right:.9rem;background:none;border:none;color:#888;font-size:1.3rem;cursor:pointer;">✕</button>
+    <div style="font-size:1rem;font-weight:700;color:#e8e6e0;margin-bottom:.5rem;">📱 Send to Phone</div>
+    <div id="stp-qr" style="margin:1rem auto;width:200px;height:200px;background:#fff;border-radius:8px;display:flex;align-items:center;justify-content:center;"></div>
+    <div id="stp-url" style="font-size:.72rem;color:#888;word-break:break-all;margin-top:.5rem;"></div>
+    <div style="font-size:.78rem;color:#aaa;margin-top:1rem;line-height:1.6;">
+      Scan on your phone (same Wi-Fi).<br>
+      <span id="stp-hint"></span>
+    </div>
+    <div style="margin-top:1.2rem;display:flex;gap:.6rem;justify-content:center;">
+      <button onclick="saveForPhone();document.getElementById('stp-modal').style.display='none'" style="background:#2a2a2a;border:1px solid #444;color:#e0e0e0;padding:.45rem .9rem;border-radius:8px;cursor:pointer;font-size:.8rem;">📥 Download &amp; AirDrop</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── IMAGE LOADING ──
+const imgs = {
+  'img-1':['Sagittarius A*','Event Horizon Telescope','Milky Way galactic center'],
+  'img-2':['Zheng He','Ming dynasty treasure ship','Yongle Emperor'],
+  'img-3':['Fall of Constantinople','Mehmed II','Siege of Constantinople 1453'],
+  'img-4':['Laozi','Tao Te Ching manuscript','Chinese philosophy'],
+  'img-5':['Plato','Allegory of the Cave','Ancient Greek philosophy'],
+  'img-6':['Leon Festinger','Cognitive dissonance','Social psychology experiment'],
+  'img-7':['Adrenal gland anatomy','Sympathetic nervous system','Walter Cannon physiologist'],
+  'img-8':['Sleep stages diagram','REM sleep','Glymphatic system brain'],
+  'img-9':['Periodization training','Hans Selye','General adaptation syndrome'],
+  'img-10':['Dot-com bubble','NASDAQ composite 2000','Technology stock market'],
+  'img-11':['Phillips curve economics','Stagflation 1970s','Milton Friedman']
+};
+window._imageMap={};
+async function loadImg(id,titles){
+  const w=document.getElementById(id);if(!w)return;
+  for(const t of titles){
+    try{
+      const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(t)}`);
+      if(!r.ok)continue;
+      const d=await r.json();
+      const src=(d.originalimage||d.thumbnail||{}).source;
+      if(!src)continue;
+      const img=document.createElement('img');img.src=src;img.alt=t;
+      const cap=document.createElement('div');cap.className='cap';
+      cap.innerHTML=`${d.title} — <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(t)}" target="_blank" rel="noopener">Wikipedia</a> / Wikimedia Commons`;
+      w.innerHTML='';w.appendChild(img);w.appendChild(cap);
+      window._imageMap[id]=src;return;
+    }catch(e){continue;}
+  }
+}
+Object.entries(imgs).forEach(([id,t])=>loadImg(id,t));
+
+// ── ACTIVE NAV HIGHLIGHT ──
+const cards=document.querySelectorAll('.card');
+const navLinks={};
+document.querySelectorAll('.left-nav a, .toc-bar a').forEach(a=>{
+  const m=a.href.match(/#(card-\d+)$/);
+  if(m){if(!navLinks[m[1]])navLinks[m[1]]=[];navLinks[m[1]].push(a);}
+});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    const links=navLinks[e.target.id];
+    if(links)links.forEach(l=>l.classList.toggle('active',e.isIntersecting));
+  });
+},{threshold:.2,rootMargin:'-60px 0px -60% 0px'});
+cards.forEach(c=>obs.observe(c));
+
+// ── INLINE IMAGES AS BASE64 (for offline saving) ──
+async function inlineImages(){
+  const imgEls=[...document.querySelectorAll('.card-img img')];
+  const origSrcs=imgEls.map(i=>i.getAttribute('src')||'');
+  for(const img of imgEls){
+    const src=img.getAttribute('src');
+    if(!src||src.startsWith('data:'))continue;
+    try{
+      const resp=await fetch(src,{mode:'cors'});
+      if(!resp.ok)continue;
+      const blob=await resp.blob();
+      const b64=await new Promise((res,rej)=>{
+        const r=new FileReader();
+        r.onloadend=()=>res(r.result);
+        r.onerror=rej;
+        r.readAsDataURL(blob);
+      });
+      img.setAttribute('src',b64);
+    }catch(e){/* skip if CORS fails */}
+  }
+  return {imgEls,origSrcs};
+}
+
+function restoreImages({imgEls,origSrcs}){
+  imgEls.forEach((img,i)=>{ if(origSrcs[i]) img.setAttribute('src',origSrcs[i]); });
+}
+
+// ── SAVE FOR PHONE ──
+async function saveForPhone(btn){
+  const orig=btn.textContent;
+  btn.textContent='⏳ Inlining images…';btn.disabled=true;
+  const snapshot=await inlineImages();
+  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='daily-learning-2026-06-09-offline.html';
+  a.click();
+  restoreImages(snapshot);
+  btn.textContent=orig;btn.disabled=false;
+}
+
+// ── SEND TO PHONE ──
+async function sendToPhone(btn){
+  const orig=btn?btn.textContent:'';
+  if(btn){btn.textContent='⏳ Preparing…';btn.disabled=true;}
+  const snapshot=await inlineImages();
+  const html=document.documentElement.outerHTML;
+  restoreImages(snapshot);
+  const blob=new Blob([html],{type:'text/html'});
+  const file=new File([blob],'daily-learning-2026-06-09.html',{type:'text/html'});
+  if(btn){btn.textContent=orig;btn.disabled=false;}
+  // Try Web Share API first (AirDrop on macOS/iOS, share sheet on Android)
+  if(navigator.share && navigator.canShare && navigator.canShare({files:[file]})){
+    try{ await navigator.share({title:"Edward's Daily Learning — 9 June 2026",files:[file]}); return; }
+    catch(e){ if(e.name==='AbortError')return; }
+  }
+  // Fallback: LAN QR code modal
+  showQRModal();
+}
+
+function showQRModal(){
+  const modal=document.getElementById('stp-modal');
+  modal.style.display='flex';
+  const urlDiv=document.getElementById('stp-url');
+  const hintDiv=document.getElementById('stp-hint');
+  const qrDiv=document.getElementById('stp-qr');
+  // Try to detect LAN via RTCPeerConnection
+  const pc=new RTCPeerConnection({iceServers:[]});
+  pc.createDataChannel('');
+  pc.createOffer().then(o=>pc.setLocalDescription(o));
+  let found=false;
+  pc.onicecandidate=e=>{
+    if(found||!e||!e.candidate)return;
+    const m=e.candidate.candidate.match(/([0-9]{1,3}(?:\.[0-9]{1,3}){3})/);
+    if(m&&!m[1].startsWith('127.')&&!m[1].startsWith('169.')){
+      found=true;pc.close();
+      const url=`http://${m[1]}:8765/daily-learning-2026-06-09.html`;
+      urlDiv.textContent=url;
+      hintDiv.textContent='Or: Files app → iCloud Drive → Daily learning → Curiosity → Output';
+      renderQR(qrDiv,url);
+    }
+  };
+  setTimeout(()=>{
+    if(!found){
+      qrDiv.innerHTML='<div style="font-size:.8rem;color:#666;padding:1rem;">Start a local server to generate QR code</div>';
+      urlDiv.textContent='';
+      hintDiv.innerHTML='Files app → iCloud Drive → <em>Daily learning/Curiosity/Output</em><br>or use 📥 Download &amp; AirDrop below';
+    }
+  },2000);
+}
+
+function renderQR(el,text){
+  // Inline QR using qrcode-generator
+  const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+  s.onload=()=>{
+    el.innerHTML='';
+    new QRCode(el,{text,width:190,height:190,colorDark:'#000',colorLight:'#fff',correctLevel:QRCode.CorrectLevel.M});
+  };
+  document.head.appendChild(s);
+}
+</script>
+</body>
+</html>

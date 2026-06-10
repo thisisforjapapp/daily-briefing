@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edward's Daily Learning — 7 June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=Noto+Serif+HK:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:           #0c0c12;
+  --bg-card:      #111119;
+  --text:         #e8e2d8;
+  --text-muted:   #8a8492;
+  --text-dim:     #50505e;
+  --gold:         #c4a96b;
+  --gold-dim:     #7a6840;
+
+  --east-bg:      #141008;
+  --east-border:  #c0882a;
+  --east-accent:  #e8a030;
+  --east-text:    #f0ce90;
+  --east-box:     #1c1508;
+
+  --west-box:     #0f1520;
+  --west-border:  #3d5f9a;
+  --west-accent:  #6d90c8;
+
+  --inv-bg:       #0a160f;
+  --inv-border:   #3a8f58;
+  --inv-accent:   #56b474;
+  --inv-box:      #0d1e12;
+
+  --border:       rgba(255,255,255,0.07);
+  --border-md:    rgba(255,255,255,0.12);
+  --radius:       14px;
+  --shadow:       0 8px 40px rgba(0,0,0,0.55);
+
+  --serif:        'Noto Serif', 'Noto Serif HK', 'Source Han Serif TC', Georgia, serif;
+  --display:      'Playfair Display', 'Noto Serif HK', Georgia, serif;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 16.5px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── subtle grain overlay ── */
+body::before {
+  content:'';
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.025;
+}
+body > * { position:relative; z-index:1; }
+
+/* ── HEADER ── */
+.site-header {
+  text-align:center;
+  padding: 72px 24px 56px;
+  border-bottom: 1px solid var(--border);
+  position:relative; overflow:hidden;
+}
+.site-header::after {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(196,169,107,0.09), transparent);
+  pointer-events:none;
+}
+.eyebrow {
+  font-size: 10.5px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.site-title {
+  font-family: var(--display);
+  font-size: clamp(30px, 6vw, 58px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+.site-date {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--text-muted);
+}
+
+/* ── TOPIC NAV ── */
+.topic-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 26px 24px;
+  border-bottom: 1px solid var(--border);
+}
+.pill {
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 100px;
+  border: 1px solid var(--border-md);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.pill:hover         { color: var(--gold);       border-color: var(--gold-dim);  background: rgba(196,169,107,0.06); }
+.pill.east:hover    { color: var(--east-accent); border-color: var(--east-border); background: rgba(192,136,42,0.08); }
+.pill.invest:hover  { color: var(--inv-accent);  border-color: var(--inv-border);  background: rgba(58,143,88,0.08); }
+
+/* ── LAYOUT ── */
+.page { max-width: 840px; margin: 0 auto; padding: 0 24px 80px; }
+
+/* ── YESTERDAY'S SPARK ── */
+.spark {
+  margin: 60px 0;
+  padding: 34px 38px;
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  position:relative; overflow:hidden;
+}
+.spark::before {
+  content:'';
+  position:absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+}
+.spark-label { font-size:10.5px; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.spark-heading { font-family:var(--display); font-size:20px; font-style:italic; color:var(--text); margin-bottom:22px; }
+.spark-item {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-left: 2px solid var(--border-md);
+  font-size: 14.5px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.spark-item:last-child { margin-bottom: 0; }
+.spark-item strong { color: var(--text); display:block; margin-bottom:3px; }
+
+/* ── DIVIDER ── */
+.divider {
+  font-size: 10.5px; letter-spacing:0.25em; text-transform:uppercase;
+  color: var(--text-dim); text-align:center; margin: 10px 0 44px;
+  display:flex; align-items:center; gap:14px;
+}
+.divider::before,.divider::after { content:''; flex:1; height:1px; background:var(--border); }
+
+/* ── CARD ── */
+.card {
+  margin-bottom: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: box-shadow 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+.card.visible { opacity:1; transform:translateY(0); }
+.card:hover { box-shadow: var(--shadow); }
+
+/* colored top stripe per card */
+.card::before {
+  content:''; display:block; height:3px;
+  background: linear-gradient(90deg, var(--card-accent, var(--gold-dim)), transparent 80%);
+}
+
+.card.east  { background: var(--east-bg); border-color: rgba(192,136,42,0.18); --card-accent: var(--east-border); }
+.card.invest{ background: var(--inv-bg);  border-color: rgba(58,143,88,0.18);  --card-accent: var(--inv-border);  }
+
+/* ── CARD HEADER ── */
+.card-header {
+  padding: 26px 36px 20px;
+  display:flex; align-items:flex-start; gap:18px;
+  border-bottom: 1px solid var(--border);
+}
+.card.east   .card-header { border-bottom-color: rgba(192,136,42,0.14); }
+.card.invest .card-header { border-bottom-color: rgba(58,143,88,0.14);  }
+
+.card-num {
+  font-family: var(--display);
+  font-size: 12px; letter-spacing:0.12em;
+  color: var(--gold); padding-top:5px; flex-shrink:0; white-space:nowrap;
+}
+.card.east   .card-num { color: var(--east-accent); }
+.card.invest .card-num { color: var(--inv-accent);  }
+
+.card-head { flex:1; }
+.card-topic {
+  font-size: 10px; letter-spacing:0.22em; text-transform:uppercase;
+  color: var(--text-dim); margin-bottom:7px;
+}
+.card.east   .card-topic { color: rgba(232,160,48,0.5); }
+.card.invest .card-topic { color: rgba(86,180,116,0.5); }
+
+.card-title {
+  font-family: var(--display);
+  font-size: clamp(17px, 2.8vw, 23px);
+  font-weight: 700; letter-spacing:-0.015em; line-height:1.25;
+  color: var(--text);
+}
+.card.east   .card-title { color: var(--east-text); }
+.card.invest .card-title { color: #9cdcb4; }
+
+/* ── CARD BODY ── */
+.card-body { padding: 28px 36px 34px; }
+
+/* ── PREDICT ── */
+.predict {
+  margin-bottom: 22px;
+  border: 1px solid var(--border-md);
+  border-radius: 8px; overflow:hidden;
+}
+.predict summary {
+  padding: 12px 18px;
+  cursor:pointer; list-style:none;
+  display:flex; align-items:center; gap:9px;
+  font-size: 13px; color: var(--text-muted);
+  background: rgba(255,255,255,0.02);
+  transition: background 0.2s; user-select:none;
+}
+.predict summary::-webkit-details-marker { display:none; }
+.predict summary:hover { background: rgba(255,255,255,0.04); }
+.predict[open] summary { border-bottom:1px solid var(--border); color:var(--text); }
+.predict-q {
+  padding: 15px 18px;
+  font-style:italic; font-size:15px; color:var(--text);
+  background: rgba(255,255,255,0.01); line-height:1.75;
+}
+
+/* ── IMAGE ── */
+.img-wrap { margin-bottom:24px; text-align:center; }
+.img-wrap img {
+  max-width:100%; max-height:320px;
+  object-fit:contain; border-radius:6px;
+  background: #181820;
+}
+.img-cap { font-size:11.5px; color:var(--text-dim); margin-top:7px; font-style:italic; }
+.img-cap a { color:var(--text-dim); text-decoration:underline; opacity:0.65; }
+.img-emoji { font-size:72px; display:block; padding:20px 0; filter:grayscale(0.25); }
+
+/* ── INTRO BOX ── */
+.intro {
+  margin-bottom: 22px;
+  padding: 18px 22px;
+  border-radius: 8px; border-left:3px solid;
+  font-size: 14.5px; line-height:1.75;
+}
+.intro.east   { background:var(--east-box); border-color:var(--east-border); color:rgba(240,206,144,0.9); }
+.intro.west   { background:var(--west-box); border-color:var(--west-border); color:rgba(160,184,220,0.9); }
+.intro-tag { font-size:9.5px; letter-spacing:0.22em; text-transform:uppercase; opacity:0.6; margin-bottom:10px; }
+
+/* ── BODY PARAGRAPHS ── */
+.p { margin-bottom:17px; font-size:16px; line-height:1.87; color:var(--text); }
+.p:last-of-type { margin-bottom:0; }
+.card.east   .p { color: #d4c09a; }
+.card.invest .p { color: #bcd8c8; }
+
+/* ── TAKEAWAY ── */
+.takeaway {
+  margin-top:22px; padding:15px 20px;
+  border-radius:8px; border:1px solid rgba(196,169,107,0.18);
+  background: rgba(196,169,107,0.05);
+  font-style:italic; font-size:14.5px; color:var(--gold);
+}
+.takeaway::before { content:'💡  '; font-style:normal; }
+.card.east   .takeaway { border-color:rgba(192,136,42,0.25); background:rgba(192,136,42,0.06); color:var(--east-accent); }
+.card.invest .takeaway { border-color:rgba(58,143,88,0.25);  background:rgba(58,143,88,0.06);  color:var(--inv-accent);  }
+
+/* ── RETRIEVAL ── */
+.retrieval { margin-top:22px; }
+.retrieval-q { font-size:13.5px; color:var(--text-muted); margin-bottom:9px; line-height:1.7; }
+.retrieval-q strong { display:block; color:var(--text); font-size:14.5px; margin-bottom:3px; }
+.ans {
+  border:1px solid var(--border-md); border-radius:7px; overflow:hidden;
+}
+.ans summary {
+  padding:10px 16px; cursor:pointer; list-style:none;
+  font-size:12.5px; letter-spacing:0.05em; color:var(--text-muted);
+  display:flex; align-items:center; gap:7px;
+  background:rgba(255,255,255,0.02);
+  transition:background 0.2s; user-select:none;
+}
+.ans summary::-webkit-details-marker { display:none; }
+.ans summary:hover { background:rgba(255,255,255,0.04); }
+.ans[open] summary { border-bottom:1px solid var(--border); }
+.ans-body {
+  padding:14px 16px; font-size:14px; color:var(--text);
+  line-height:1.72; background:rgba(255,255,255,0.01);
+}
+
+/* ── SOURCE ── */
+.source {
+  margin-top:20px; padding-top:15px;
+  border-top:1px solid var(--border);
+  font-size:11.5px; color:var(--text-dim); font-style:italic; line-height:1.65;
+}
+
+/* ── CONNECTION ── */
+.connection {
+  margin: 8px 0 50px;
+  padding:32px 36px;
+  border:1px solid var(--border-md); border-radius:var(--radius);
+  background: linear-gradient(135deg, #111119, #11161c);
+  position:relative; overflow:hidden;
+}
+.connection::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 80% at 95% 50%, rgba(86,180,116,0.07), transparent),
+    radial-gradient(ellipse 55% 80% at 5%  50%, rgba(109,144,200,0.07), transparent);
+}
+.conn-label { font-size:10.5px; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-dim); margin-bottom:16px; }
+.conn-link {
+  font-family:var(--display); font-style:italic;
+  font-size:17px; color:var(--text); line-height:1.55; margin-bottom:14px;
+}
+.conn-sowhat {
+  font-size:14.5px; color:var(--text-muted);
+  padding-left:18px; border-left:2px solid var(--inv-border);
+  line-height:1.75;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top:1px solid var(--border);
+  padding:50px 24px 60px;
+  max-width:840px; margin:0 auto;
+}
+.footer-label { font-size:10.5px; letter-spacing:0.25em; text-transform:uppercase; color:var(--text-dim); margin-bottom:22px; }
+.sources { list-style:none; display:grid; gap:9px; }
+.sources li {
+  font-size:11.5px; color:var(--text-dim); font-style:italic;
+  padding-left:18px; position:relative; line-height:1.65;
+}
+.sources li::before { content:'—'; position:absolute; left:0; opacity:0.45; }
+.top-link {
+  display:block; text-align:center; margin-top:44px;
+  font-size:11.5px; letter-spacing:0.18em; color:var(--text-dim);
+  text-decoration:none; text-transform:uppercase; transition:color 0.2s;
+}
+.top-link:hover { color:var(--gold); }
+
+/* ── CJK ── */
+.cjk {
+  font-family:'Noto Serif HK','Source Han Serif TC','Noto Serif',serif;
+  line-height:2.05;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px) {
+  .card-header { flex-direction:column; gap:6px; padding:20px 20px 16px; }
+  .card-body   { padding:20px; }
+  .spark       { padding:24px 20px; }
+  .connection  { padding:24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<a id="top"></a>
+
+<!-- ══ HEADER ══ -->
+<header class="site-header">
+  <div class="eyebrow">Edward's Daily Learning</div>
+  <h1 class="site-title">Curiosity &amp; Application</h1>
+  <div class="site-date">Sunday, 7 June 2026 &nbsp;·&nbsp; 10 Topics</div>
+</header>
+
+<!-- ══ TOPIC NAV ══ -->
+<nav class="topic-nav">
+  <a class="pill"        href="#c1">🔭 Astronomy</a>
+  <a class="pill east"   href="#c2">📜 東洋歷史</a>
+  <a class="pill"        href="#c3">🏛 Western History</a>
+  <a class="pill east"   href="#c4">☯ 東方哲學</a>
+  <a class="pill"        href="#c5">🧠 W. Philosophy</a>
+  <a class="pill"        href="#c6">🔬 Psychology</a>
+  <a class="pill"        href="#c7">🫀 Physiology</a>
+  <a class="pill"        href="#c8">🥗 Health</a>
+  <a class="pill"        href="#c9">🏋 Sports Science</a>
+  <a class="pill invest" href="#c10">📈 Investing</a>
+</nav>
+
+<div class="page">
+
+<!-- ══ YESTERDAY'S SPARK ══ -->
+<section class="spark">
+  <div class="spark-label">🔁 Yesterday's Spark</div>
+  <div class="spark-heading">Three things worth carrying into today…</div>
+
+  <div class="spark-item">
+    <strong>Decision fatigue</strong>
+    After hours of choosing, willpower depletes. Judges grant fewer paroles by afternoon — not because of justice, but biology.
+    <details style="margin-top:9px;">
+      <summary style="cursor:pointer;font-size:12.5px;color:var(--gold);list-style:none;user-select:none;">▸ Why it happens</summary>
+      <div style="padding:10px 0;font-size:13.5px;color:var(--text);line-height:1.7;">Executive function draws on a limited daily pool. As it depletes, the brain defaults to the safest, most conservative option — or no decision at all. Scheduling your hardest choices in the morning isn't self-help mythology; it's neuroscience.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <strong>Why three great conquerors wanted Samarkand</strong>
+    Alexander, Genghis Khan, and Timur all fought for the same Central Asian city — because whoever held it taxed the entire Silk Road.
+    <details style="margin-top:9px;">
+      <summary style="cursor:pointer;font-size:12.5px;color:var(--gold);list-style:none;user-select:none;">▸ The deeper lesson</summary>
+      <div style="padding:10px 0;font-size:13.5px;color:var(--text);line-height:1.7;">Control the chokepoint, not the territory. The same logic applies to semiconductor fab capacity, submarine cable landing points, and strategic ports today. The geography of power changes form; its logic doesn't.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <strong>The anabolic window is much wider than the gym thinks</strong>
+    The supposed 30-minute post-workout protein "window" is actually 4–6 hours. Total daily intake matters far more than precise timing.
+    <details style="margin-top:9px;">
+      <summary style="cursor:pointer;font-size:12.5px;color:var(--gold);list-style:none;user-select:none;">▸ What to actually do</summary>
+      <div style="padding:10px 0;font-size:13.5px;color:var(--text);line-height:1.7;">Target 1.6–2.2 g of protein per kg of bodyweight daily, spread across 3–4 meals. A post-workout shake is useful but not magical — what happens across the whole day is what drives muscle adaptation.</div>
+    </details>
+  </div>
+</section>
+
+<div class="divider">Today's Ten</div>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 1 — ASTRONOMY
+════════════════════════════════════════════ -->
+<article class="card" id="c1">
+  <div class="card-header">
+    <div class="card-num">01 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🔭 Astronomy &amp; Cosmos</div>
+      <h2 class="card-title">The Star That (Almost) Died: Betelgeuse's Great Dimming</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">You notice a bright, familiar star in Orion fading dramatically over several months in 2019. Before invoking "supernova," what three alternative hypotheses would a careful astronomer consider — and how might you distinguish between them?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Betelgeuse", "Betelgeuse dimming event", "Red supergiant star"]' id="img-c1">
+      <span class="img-emoji">🌟</span>
+    </div>
+
+    <p class="p">In late 2019 astronomers and amateur observers noticed something alarming: Betelgeuse (獵戶座α星), the red supergiant (紅超巨星) that marks Orion's right shoulder and is one of the brightest stars in the night sky, had grown visibly dimmer. By February 2020 it had faded to roughly 40% of its usual brightness — its lowest recorded luminosity in 150 years of modern photometry. Social media erupted with a single word: <em>supernova.</em> Was the spectacular death of a nearby star imminent?</p>
+
+    <p class="p">Astronomer Miguel Montargès and a team at the European Southern Observatory (歐洲南方天文台) turned the Very Large Telescope's (VLT) adaptive optics system on Betelgeuse and found the star's southern hemisphere had darkened dramatically. Working methodically through competing hypotheses, their 2021 paper in <em>Nature</em> identified two causes acting in concert. First: a surface mass ejection had hurled a plume of superheated gas outward, which cooled as it moved away from the star, condensed into dust, and temporarily blocked a portion of its light. Second: a convective cooling event in the southern region lowered local surface temperature, dimming that hemisphere further. Neither cause was a dying star — it was more like a stellar sneeze, accompanied by a cold.</p>
+
+    <p class="p">Betelgeuse will eventually go supernova — likely within the next 100,000 years — and when it does, it will be visible in daylight and bright enough to cast shadows at night. The Great Dimming was not that moment, but it was genuinely scientifically novel: surface mass ejections of this scale hadn't been directly imaged before. It was also a reminder of how science works at its best — dramatic observation, systematic hypothesis testing, and a surprisingly mundane answer that revealed an entirely new class of stellar behaviour. We've been watching Betelgeuse for centuries; it still managed to do something we'd never seen.</p>
+
+    <div class="takeaway">Even a star 700 light-years away can produce genuine surprises. Betelgeuse's Great Dimming wasn't a death — it was a cough — and we only understood it by looking harder.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> What were the two physical causes of Betelgeuse's Great Dimming, and why did they rule out an imminent supernova?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">A surface mass ejection created a dust cloud that blocked starlight, and a convective cooling event darkened the southern hemisphere. Both are normal stellar processes — supernova involves total stellar collapse, not localised cooling or ejection events.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Montargès, M. et al. (2021). "A dusty veil shading Betelgeuse during its Great Dimming." <em>Nature</em>, 594, 365–368. doi:10.1038/s41586-021-03546-8</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 2 — EASTERN HISTORY (Traditional Chinese)
+════════════════════════════════════════════ -->
+<article class="card east" id="c2">
+  <div class="card-header">
+    <div class="card-num">02 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">📜 東洋歷史 — 江戶日本 · 蘭學</div>
+      <h2 class="card-title cjk">鎖國中的知識之窗：杉田玄白與《解體新書》</h2>
+    </div>
+  </div>
+  <div class="card-body cjk">
+
+    <details class="predict">
+      <summary>🤔 <strong>讀前預測</strong> — 點擊作答</summary>
+      <div class="predict-q">若你身處一個幾乎完全封閉的國度，唯一對外的窗口是一座人工小島上的外國商館，你會如何在不觸犯法律的前提下，悄悄吸收外來的科學知識？面對語言完全陌生的外文書籍，你會從哪裡起步？</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Kaitai Shinsho", "Sugita Genpaku", "Rangaku"]' id="img-c2">
+      <span class="img-emoji">📖</span>
+    </div>
+
+    <div class="intro east">
+      <div class="intro-tag">背景概覽</div>
+      <strong>關鍵人物：</strong>杉田玄白（1733–1817），江戶時代藩醫、蘭學先驅，著有回憶錄《蘭學事始》<br><br>
+      <strong>焦點事件：</strong>1771年在江戶小塚原刑場親歷解剖，深受震撼，隨後歷時三年餘翻譯荷蘭解剖學巨著，1774年出版日本首部西洋解剖學譯著《解體新書》<br><br>
+      <strong>大局背景：</strong>德川幕府自1639年起推行嚴格鎖國政策，全面封閉對外往來，唯一例外是長崎港口外的人工小島出島，荷蘭東印度公司商館在此維持有限的貿易與知識交流
+    </div>
+
+    <p class="p">十八世紀中葉，鎖國令將日本與外界幾乎徹底隔絕已逾百年。然而，人對知識的渴求，從來不是政令可以壓制的。在這片看似封閉的土地上，一批醫生與學者透過出島這扇極為狹窄的窗口，拼湊出另一個文明的輪廓——這種借道荷蘭吸收西洋學問的風氣，後世稱為「蘭學」。一個核心問題始終困擾著他們：日本沿用的中國醫典所描繪的人體臟腑，是否準確？</p>
+
+    <p class="p">1771年三月，藩醫杉田玄白與同僚前野良澤、中川淳庵一行，親赴江戶小塚原刑場，觀看一名死刑犯的屍體解剖。他們隨身攜帶一本荷蘭語解剖學圖譜《Ontleedkundige Tafelen》，逐頁核對書中人體圖版與眼前真實的器官。比對的結果令他們震驚——荷蘭書中的解剖圖，其精確程度遠遠超越他們一生所依賴的中國醫典。那一刻，杉田玄白當場立誓：無論如何，必須將此書譯成日文。問題是，他幾乎完全不懂荷蘭語，前野良澤略通一些，其餘全憑一本殘缺的荷蘭語字典與出島通譯偶爾的協助。就這樣，幾人憑著超乎尋常的執念，歷時逾三年，完成翻譯。1774年，《解體新書》正式刊行——日本有史以來第一部直接從西洋語言翻譯的科學著作，附有精細的人體解剖圖。杉田玄白晚年在《蘭學事始》中感慨：「吾等當年何其愚鈍，然正因不知困難之大，才能一往無前。」</p>
+
+    <p class="p">《解體新書》的意義遠超醫學本身。它標誌著日本知識界一個隱秘而深遠的轉捩點：西洋科學不再只是遠方的奇技，而是可以被日本人系統學習、消化、應用的知識體系。此後，天文、物理、化學、兵器等學問陸續透過蘭學管道傳入，培育出一批既通漢學又懂西洋科技的知識人。當1868年明治維新的浪潮席捲而來，日本之所以能在短短數十年間完成工業化躍升，正是因為杉田玄白那一代人，已悄悄為轉型備好了思想土壤。</p>
+
+    <div class="takeaway">知識的傳播往往不靠大道，而靠縫隙。鎖國高牆封不住求知的心——而那些在縫隙中苦讀的人，最終改變了整個民族的命運。</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 記憶測試 — 不要回看：</strong>《解體新書》的翻譯與出版，對日本後來的明治維新具有怎樣的歷史意義？</div>
+      <details class="ans">
+        <summary>▸ 核對答案</summary>
+        <div class="ans-body">《解體新書》開啟並推動了蘭學風氣，令日本知識界系統接觸西洋科學方法。這批蘭學者所積累的知識與人才，成為明治時代引進西方技術、推行「文明開化」的重要思想基礎。</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Sugita Genpaku, <em>Rangaku Kotohajime（蘭學事始）</em>, 1815；英譯本 tr. Matsumoto Ryōzō & Kato Tomio，日本學士院，1969。沼田次郎《蘭學の歴史》，吉川弘文館，1967。</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 3 — WESTERN HISTORY
+════════════════════════════════════════════ -->
+<article class="card" id="c3">
+  <div class="card-header">
+    <div class="card-num">03 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🏛 History — Western</div>
+      <h2 class="card-title">The Merchants Who Humbled Kings: The Hanseatic League</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">Before strong nation-states and reliable legal systems existed, how could merchants scattered across hundreds of different cities protect their trade routes and enforce contracts with rulers who had every incentive to break them?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Hanseatic League", "Lübeck", "Treaty of Stralsund (1370)"]' id="img-c3">
+      <span class="img-emoji">⚓</span>
+    </div>
+
+    <div class="intro west">
+      <div class="intro-tag">Context at a Glance</div>
+      <strong>Key actors:</strong> Merchant guilds and city councils of Hamburg (漢堡), Lübeck (呂貝克), Bruges (布魯日), Danzig (格但斯克), and up to 200 member cities at peak<br><br>
+      <strong>Event:</strong> Formation and zenith of the Hanseatic League (漢薩同盟), c. 1241–1669<br><br>
+      <strong>Big picture:</strong> Weak medieval monarchies created a power vacuum in Baltic and North Sea trade. Merchants self-organised into history's most successful pre-modern trade federation — and eventually dictated terms of royal succession to a king.
+    </div>
+
+    <p class="p">The Baltic coast in the 12th century was a frontier of enormous wealth and chronic danger. It was rich in herring (the medieval world's primary preserved protein), Norwegian cod, Polish grain, Russian furs, and Scandinavian timber — commodities that could make cities wealthy and armies mobile. But the region was legally anarchic: pirates prowled the sea lanes, foreign rulers could seize cargo on a whim, and a merchant from Hamburg had no legal standing in a Flemish port. Into this vacuum stepped the German merchant cities, who discovered a simple but revolutionary insight: alone, any one of them could be expelled, taxed arbitrarily, or robbed; together, they controlled a market no coastal ruler could afford to lose access to. Collective economic punishment was more powerful than any single sword.</p>
+
+    <p class="p">The League's founding traces to 1241, when Hamburg and Lübeck signed a treaty to jointly police the overland salt road from Lüneburg — a seemingly mundane agreement about protecting salt carters that became the nucleus of a trading empire. By the 14th century the Hanseatic League had grown to include up to 200 member cities, with permanent Kontore (trading offices) in London's Steelyard, Bruges, Bergen (卑爾根), and Novgorod (諾夫哥羅德). The League's moment of peak political power came when King Valdemar IV of Denmark seized the island of Gotland in 1361, disrupting Hanseatic shipping. The merchants declared war — and won. The 1370 Treaty of Stralsund (施特拉爾松德條約) did not merely restore trading rights. It granted the Hanse the right to approve or veto the succession of the Danish throne. A cartel of merchants had written a clause into the terms of royal inheritance.</p>
+
+    <p class="p">The Hanseatic League pioneered commercial institutions that prefigure modern capitalism: standardised weights and measures, shared maritime law, correspondent banking across cities, and mutual cargo insurance. Its slow decline after the 15th century came not from military defeat but from obsolescence — the rise of integrated nation-states like England and the Dutch Republic (荷蘭共和國), with their own navies and legal systems, made the League's stateless model uncompetitive. Its last formal diet (Hansetag) was held in 1669. But its legacy persists: Hamburg remains one of Europe's great port cities; Lufthansa takes its name from Luft (air) + Hansa (fellowship). More than this, the Hanseatic League demonstrated a logic that would later drive the European Union (歐盟): shared economic rules and mutual market access create political power more durably than shared armies.</p>
+
+    <div class="takeaway">Collective economic action can be more durable than military force. The Hanseatic League humbled a king not with swords but with the credible threat of losing their market.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> What specific historical event demonstrated that the Hanseatic League wielded power equal to or greater than a European monarch?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">The 1370 Treaty of Stralsund, in which the League — after militarily defeating Denmark — won the right to approve or veto the succession of the Danish throne. A merchant coalition was dictating the terms of royal inheritance.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Dollinger, Philippe. <em>The German Hansa.</em> Stanford University Press, 1970. Britannica: "Hanseatic League." Prak, Maarten. <em>Citizens Without Nations.</em> Cambridge University Press, 2018.</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 4 — EASTERN PHILOSOPHY (Traditional Chinese)
+════════════════════════════════════════════ -->
+<article class="card east" id="c4">
+  <div class="card-header">
+    <div class="card-num">04 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">☯ 東方哲學 — 陽明心學</div>
+      <h2 class="card-title cjk">知而不行，只是未知：王陽明與知行合一</h2>
+    </div>
+  </div>
+  <div class="card-body cjk">
+
+    <details class="predict">
+      <summary>🤔 <strong>讀前預測</strong> — 點擊作答</summary>
+      <div class="predict-q">一個人可以真正「知道」吸煙有害健康，卻每天仍然繼續吸嗎？王陽明的答案是否定的——在讀下去之前，你認為他的理由會是什麼？</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Wang Yangming", "Yangmingism", "Neo-Confucianism"]' id="img-c4">
+      <span class="img-emoji">🎋</span>
+    </div>
+
+    <div class="intro east">
+      <div class="intro-tag">背景概覽</div>
+      <strong>關鍵人物：</strong>王陽明（本名王守仁，1472–1529），明代哲學家、軍事家，集心學之大成<br><br>
+      <strong>核心學說：</strong>知行合一，出自其弟子整理的語錄與書信集《傳習錄》<br><br>
+      <strong>歷史背景：</strong>程朱理學主宰科舉與士人思想逾三百年。王陽明此說，是對朱熹「格物窮理」這一正統路徑的根本性挑戰，在當時無異於知識界的異端革命
+    </div>
+
+    <p class="p">明代中期，程朱理學以朱熹之說為正宗，主宰士人思想逾三百年。朱熹的核心路徑「格物窮理」，主張學者應廣泛研究萬事萬物之理，由外而內，積累知識，待某日豁然貫通，方能致知達德。王陽明年輕時誠摯信奉這一路徑，曾與友人相約，在庭院竹林前端坐冥想，逐日「格」竹子的本質之理。七天後，他不但一無所悟，反而心力交瘁、病倒在床。這次失敗，種下了他日後思想革命的種子：若聖人之道如此遙不可及，問題是否根本不在自身的愚鈍，而在方法本身？</p>
+
+    <p class="p">1506年，王陽明因仗義上疏替官員申冤，觸怒當權宦官劉瑾，遭廷杖四十大板，隨後被貶謫至貴州龍場——一個偏僻荒蠻、瘴氣橫行之地。正是在這極度艱苦的流亡歲月中，他在某個深夜豁然大悟，後世稱此為「龍場悟道」。他意識到：聖人之學，不在格外物，而在反求諸己——心即是理，吾性自足，無需外求。由此，他提出震動儒學界的命題：「知行合一」。他在《傳習錄》中寫道：「知是行之始，行是知之成。」真正的知，必然包含行；若知而不行，那只是尚未真知，是一種未完成的、自欺欺人的知識狀態。知與行，不是先後兩件事，而是同一精神活動不可分割的兩個面向。</p>
+
+    <p class="p">王陽明以孝順為例解說此說：若你「知道」孝順父母是對的，卻逢機會便找藉口推遲，那你其實並未真正明白孝順。真知必自然流露為行動，正如一個真正懂得火燙的人，絕不會把手伸入火焰。這思想的影響跨越國界與世代：江戶時代，日本儒者中江藤樹與熊澤蕃山將陽明學引入日本，深刻影響了幕末志士的精神氣質，包括吉田松陰——他以「知行合一」鞭策自己和學生，最終投身推翻幕府的歷史洪流，成為明治維新的思想先驅之一。</p>
+
+    <div class="takeaway">「知而不行，只是未知。」下次發現自己「知道」應該做某事卻遲遲不做，王陽明的診斷是：你其實還未真正明白它。</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 記憶測試 — 不要回看：</strong>王陽明「知行合一」與朱熹「格物窮理」的根本分歧在哪裡？</div>
+      <details class="ans">
+        <summary>▸ 核對答案</summary>
+        <div class="ans-body">朱熹主張知識來自研究外在萬物，知在行先；王陽明則認為心即是理，真正的知必然包含行，知行是同一精神活動不可分割的兩面，毋須向外格物，反求諸己即可。</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Wing-tsit Chan, <em>Instructions for Practical Living and Other Neo-Confucian Writings by Wang Yang-ming</em>, Columbia University Press, 1963；黃宗羲《明儒學案》；Julia Ching, <em>To Acquire Wisdom: The Way of Wang Yang-ming</em>, Columbia University Press, 1976。</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 5 — WESTERN PHILOSOPHY
+════════════════════════════════════════════ -->
+<article class="card" id="c5">
+  <div class="card-header">
+    <div class="card-num">05 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🧠 Philosophy — Western</div>
+      <h2 class="card-title">The Crack at Science's Foundation: Hume's Problem of Induction</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">Can you ever be 100% <em>certain</em> that the sun will rise tomorrow? Not just confident — genuinely certain? What would you actually need, philosophically, to <em>prove</em> it?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["David Hume", "Problem of induction", "Black swan theory"]' id="img-c5">
+      <span class="img-emoji">🦢</span>
+    </div>
+
+    <div class="intro west">
+      <div class="intro-tag">Context at a Glance</div>
+      <strong>Key figures:</strong> David Hume (休謨) (1711–1776); Immanuel Kant (康德) (1724–1804), who responded; Karl Popper (波普爾) (1902–1994), who built on it<br><br>
+      <strong>Idea at stake:</strong> Can we ever logically justify inferring that the future will resemble the past? Hume's answer — "no" — has never been conclusively refuted<br><br>
+      <strong>Big picture:</strong> The Newtonian revolution had made inductive science feel like a machine for producing certain truth. Hume showed, with devastating simplicity, that it had no logical fuel.
+    </div>
+
+    <p class="p">By the early 18th century, Newton's mechanics had produced spectacular results and the scientific method — observe patterns, infer universal laws — felt unstoppable. Into this optimism David Hume, a Scottish philosopher writing in Edinburgh, introduced a philosophical problem that has never been fully answered. His argument was deceptively compact: every inductive inference — the move from "it has always been this way" to "it will always be this way" — is logically unjustified. Repetition, however extensive, cannot logically produce necessity. You cannot derive a guarantee from a pattern.</p>
+
+    <p class="p">Hume's most vivid illustration is now one of philosophy's most famous thought experiments. Every swan Europeans had ever observed was white. They concluded "all swans are white" — until 1697, when Dutch explorers reached Australia and found black swans (黑天鵝). The generalisation collapsed not from faulty reasoning but from limited observation. The problem goes deeper still: even if you had observed the sun rising every morning for a billion years, those observations alone give you no logical guarantee of tomorrow's sunrise. All you actually have is psychological habit and expectation — what Hume called "custom" — dressed in the clothing of rational inference. He published this in <em>A Treatise of Human Nature</em> (人性論) in 1739–40, which, he later admitted with characteristic wryness, "fell dead-born from the press." When a more readable <em>Enquiry Concerning Human Understanding</em> (人類理解研究) restated the argument in 1748, Kant read it and declared it had woken him from his "dogmatic slumber" — prompting the entire critical philosophy of the <em>Critique of Pure Reason.</em></p>
+
+    <p class="p">Hume's problem has never been definitively solved. Kant's response — that the mind imposes causal structure on experience as a prior condition of perception — sidesteps rather than dissolves the puzzle. Karl Popper's falsificationism (可否證主義) offered the most influential working response: science doesn't prove theories true through induction; it only shows them not-yet-disproven. This is precisely why science speaks of "evidence supporting a theory," never of "proof." For the practically minded: the next time someone argues that a strategy "has worked for 20 years," Hume is quietly reminding you that past performance is not just legally but philosophically incapable of guaranteeing future results.</p>
+
+    <div class="takeaway">Induction is the engine of all human learning — and Hume showed it has no logical fuel. We run on well-dressed habit. That turns out to be fine — but it should make us humble.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> Why did Hume argue that inductive reasoning — inferring that the future will resemble the past — is logically unjustified?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">Repetition of past events creates psychological habit and expectation, but never logical necessity. No matter how many times something has occurred, you cannot logically derive that it <em>must</em> occur again — the inference always exceeds the evidence, however large the sample.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Hume, David. <em>An Enquiry Concerning Human Understanding</em> (1748). Stroud, Barry. <em>Hume.</em> Routledge, 1977. Stanford Encyclopedia of Philosophy: "The Problem of Induction" (Vickers, 2023). Popper, Karl. <em>The Logic of Scientific Discovery,</em> 1959.</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 6 — PSYCHOLOGY
+════════════════════════════════════════════ -->
+<article class="card" id="c6">
+  <div class="card-header">
+    <div class="card-num">06 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🔬 Psychology</div>
+      <h2 class="card-title">The If-Then Plan That Actually Works: Implementation Intentions</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">You've resolved to exercise regularly, eat more carefully, and reply to emails promptly. What is the single biggest structural reason you'll fail — and what would need to change about the <em>form</em> of your intention, not just its content?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Implementation intention", "Peter Gollwitzer", "Goal setting"]' id="img-c6">
+      <span class="img-emoji">🎯</span>
+    </div>
+
+    <p class="p">Most people fail at their goals not because they lack motivation, but because they lack a bridge between wanting and doing. Goals are set in the abstract — "I will exercise more," "I will eat better" — and then handed off to a future self expected to figure out the when, where, and how under real-time cognitive pressure. Psychologist Peter Gollwitzer (University of Konstanz, 康斯坦茨大學) named this the intention-behaviour gap (意圖與行為落差) and spent decades diagnosing it. His key insight: the gap isn't motivational — it's structural.</p>
+
+    <p class="p">In a landmark 1997 study (Gollwitzer &amp; Brandstätter), participants were asked to write a report over the Christmas holiday. One group simply committed to completing it. A second group additionally specified <em>when, where, and how</em> they would write: "If it is Christmas Eve afternoon, I will sit at my bedroom desk and write the report." Result: 71% of the if-then planners completed the report, versus only 32% of those who'd formed a goal intention alone. Gollwitzer named this technique "implementation intentions" (執行意圖). A subsequent 2006 meta-analysis (Gollwitzer &amp; Sheeran), covering 94 independent studies spanning exercise, diet adherence, study behaviour, medical appointment-keeping, and clinical interventions, found a medium-to-large effect size. The technique worked even when motivation was held equal between groups — it's the structure of the plan, not the strength of the desire, that drives the difference.</p>
+
+    <p class="p">The mechanism is well-understood: the if-then structure pre-loads a specific behavioural response to a specific situational cue, delegating the decision from effortful conscious deliberation to near-automatic execution. When the trigger fires ("it's 6 PM Monday"), the response ("I go to the gym") activates with far less friction, bypassing the internal negotiation that most failed intentions live and die in. Caveats: implementation intentions work best for approach goals (doing something) rather than avoidance goals (not doing something), and they amplify existing motivation rather than substitute for absent motivation — if you genuinely don't want the goal, if-then plans won't manufacture the wanting.</p>
+
+    <div class="takeaway">Don't just set goals — set triggers. "I will [behaviour] when [specific situation]" roughly doubles or triples follow-through compared to abstract intention alone.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> Why do implementation intentions improve goal achievement even when motivation is held constant between groups?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">The if-then structure pre-loads a specific behavioural response to a specific situational cue, converting effortful real-time decision-making into near-automatic response. It eliminates the internal negotiation where most intentions collapse — the decision is made before the moment arrives.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Gollwitzer, P.M. &amp; Brandstätter, V. (1997). "Implementation intentions and effective goal pursuit." <em>Journal of Personality and Social Psychology,</em> 73(1), 186–199. Gollwitzer, P.M. &amp; Sheeran, P. (2006). "Implementation intentions and goal achievement: A meta-analysis of effects and processes." <em>Advances in Experimental Social Psychology,</em> 38, 69–119.</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 7 — PHYSIOLOGY
+════════════════════════════════════════════ -->
+<article class="card" id="c7">
+  <div class="card-header">
+    <div class="card-num">07 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🫀 Physiology</div>
+      <h2 class="card-title">Your Body's Involuntary Confession: The Science of Blushing</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">Blushing is involuntary, makes social situations more awkward, and draws exactly the attention you want to avoid — yet every human population on Earth does it. From an evolutionary standpoint, why would natural selection preserve a reflex that seems to punish us?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Blushing", "Sympathetic nervous system", "Adrenergic receptor"]' id="img-c7">
+      <span class="img-emoji">😳</span>
+    </div>
+
+    <p class="p">Charles Darwin (達爾文) called blushing "the most peculiar and most human of all expressions." He was right on both counts: no other animal is known to blush, and the reflex appears designed to betray us at the worst possible moments. Try to suppress it consciously, and it intensifies. Yet natural selection preserved it across every human population without exception. That single fact is a clue: blushing must be doing something useful, even if it feels mortifying in the moment.</p>
+
+    <p class="p">The mechanism is specific and counterintuitive. When you experience embarrassment, your sympathetic nervous system (交感神經系統) releases adrenaline (腎上腺素). In most tissues, adrenaline causes vasoconstriction — the classic fight-or-flight response that directs blood toward muscles. But the small veins of the face contain an unusually high density of β₂-adrenergic receptors (β₂腎上腺素受體), which respond to adrenaline by <em>dilating</em> rather than constricting. Blood floods into the superficial facial capillaries, producing visible redness. The cruel feedback loop follows directly: noticing you're blushing triggers further embarrassment, which releases more adrenaline, which deepens the blush. This is why deliberately willing yourself to stop guarantees you won't.</p>
+
+    <p class="p">So why did evolution preserve this apparently self-defeating signal? A 2009 study by de Jong et al., published in <em>Emotion,</em> found that observers rated blushing individuals as significantly more trustworthy and likeable following a social transgression than those who didn't blush — even when the transgression was identical. Evolutionary psychologists propose that blushing evolved as an honest signal of embarrassment, remorse, or awareness of violated norms — crucially, one that cannot be produced on demand or faked voluntarily. In social primates, the ability to distinguish genuine remorse from performed remorse is critical for managing norm violations and maintaining group trust. The blush is not a weakness: it's an automatic reputation-repair mechanism that the group reads as evidence of conscience, paying a small social cost in the moment for credibility over time.</p>
+
+    <div class="takeaway">Blushing is your body's involuntary proof of social conscience. Research confirms that people find you more trustworthy for it — even as it feels like betrayal.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> Why do facial blood vessels dilate in response to adrenaline during embarrassment, even though adrenaline normally causes vasoconstriction?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">Facial veins contain a high density of β₂-adrenergic receptors, which respond to adrenaline with vasodilation rather than vasoconstriction — a unique anatomical property not shared by most blood vessels elsewhere in the body. This is why the blush is involuntary and impossible to suppress consciously.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 de Jong, P.J. et al. (2009). "Blushing-fearful individuals are seen as more attractive, reasonable, and likeable." <em>Emotion,</em> 9(2), 197–205. Leary, M.R. et al. (1992). "Blushing as a display of social affect." <em>JPSP,</em> 62(3), 446. Mellander, S. et al. (1982). Cutaneous adrenergic receptor responses, <em>Acta Physiologica Scandinavica.</em></div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 8 — HEALTH
+════════════════════════════════════════════ -->
+<article class="card" id="c8">
+  <div class="card-header">
+    <div class="card-num">08 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🥗 Health</div>
+      <h2 class="card-title">"Most Important Meal of the Day" — Marketing Dressed as Medicine</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">Where did "breakfast is the most important meal of the day" actually originate — clinical nutrition research, government dietary guidelines, or somewhere quite different? And does the science support it?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Breakfast", "Intermittent fasting", "Kellogg Company"]' id="img-c8">
+      <span class="img-emoji">🥣</span>
+    </div>
+
+    <p class="p">"Breakfast is the most important meal of the day" is one of the most durable nutritional beliefs in modern culture — and one of the few that traces directly to a marketing campaign rather than to scientific consensus. The slogan was popularised largely by John Harvey Kellogg (家樂氏創始人), a physician and health reformer who promoted breakfast cereals as a moral and physiological necessity in the early 20th century, then amplified through decades of cereal industry advertising. Repeated by enough respectable voices, a commercial claim acquires the authority of medical fact. Most people assume the recommendation came from a study. It didn't.</p>
+
+    <p class="p">The actual science is considerably more nuanced. A landmark 2014 randomised controlled trial by Dhurandhar et al., published in the <em>American Journal of Clinical Nutrition,</em> assigned non-habitual breakfast eaters either to eat breakfast or continue skipping it during a weight-loss programme. Result: breakfast consumption had no significant effect on weight loss. Non-breakfast-eaters assigned to eat it tended to consume more total daily calories with no compensatory metabolic advantage — a net increase, not a benefit. A 2019 meta-analysis by Sievert et al. in the <em>British Medical Journal,</em> pooling 13 randomised trials, confirmed the pattern: breakfast eaters consumed on average 260 more daily calories than skippers, with no observed weight compensation. The critical variable throughout is habit: for those <em>accustomed</em> to breakfast, skipping often triggers overeating later; for habitual skippers, there is no metabolic penalty.</p>
+
+    <p class="p">Nuances matter. Children — particularly from food-insecure backgrounds — show genuine cognitive and academic benefits from school breakfast programmes (Hoyland et al., 2009, <em>Nutrition Bulletin</em>). Athletes with morning training sessions need pre-workout fuel for performance. And emerging research on time-restricted eating and circadian biology (Sutton et al., 2018, <em>Cell Metabolism</em>) suggests that <em>when</em> you eat relative to your body clock does influence metabolic outcomes — though optimal timing is highly individual. The real lesson isn't "skip breakfast" — it's that there is no universal prescription. Eat according to your genuine hunger, your activity level, and your established habits; not according to a slogan written to sell cereal in 1917.</p>
+
+    <div class="takeaway">Eat when genuinely hungry; match intake to activity and established patterns. "Breakfast is the most important meal" is marketing, not medicine.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> What did the 2014 Dhurandhar et al. randomised trial find about breakfast and weight loss in non-habitual breakfast eaters?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">Breakfast had no significant effect on weight loss. Non-habitual breakfast eaters assigned to eat it consumed more total daily calories with no metabolic compensation — suggesting the standard advice does not apply uniformly across individuals.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Dhurandhar, E.J. et al. (2014). "The effectiveness of breakfast recommendations on weight loss." <em>AJCN,</em> 100(2), 507–513. Sievert, K. et al. (2019). <em>BMJ,</em> 364:l42. Hoyland, A. et al. (2009). <em>Nutrition Bulletin,</em> 34(3), 317–347.</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 9 — SPORTS SCIENCE
+════════════════════════════════════════════ -->
+<article class="card" id="c9">
+  <div class="card-header">
+    <div class="card-num">09 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">🏋 Sports Science</div>
+      <h2 class="card-title">How Long Should You Rest Between Sets? The Answer Contradicts the Gym</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">Standard gym advice recommends 60–90 seconds between sets for muscle growth. Does science confirm this, contradict it, or is the answer more conditional than the advice suggests?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Strength training", "Muscle hypertrophy", "Phosphocreatine"]' id="img-c9">
+      <span class="img-emoji">🏋️</span>
+    </div>
+
+    <p class="p">Walk into any gym and you'll encounter a confident prescription: rest 60–90 seconds between sets for hypertrophy (肌肉肥大), and 3–5 minutes for maximal strength. The hypertrophy recommendation grew from the hypothesis that shorter rest maximises metabolic stress (代謝壓力) and acute hormonal response — both theorised drivers of muscle growth. It also had a practical appeal: shorter rests mean shorter sessions. For years this was gym orthodoxy. Then a pivotal 2016 study put it directly to the test.</p>
+
+    <p class="p">Schoenfeld et al. (2016), published in the <em>Journal of Strength and Conditioning Research,</em> assigned 21 resistance-trained men to either 1-minute or 3-minute rest intervals across an identical 8-week programme with equal exercise volume. The results were unambiguous: the 3-minute rest group demonstrated significantly greater gains in quadriceps thickness (肌四頭肌: +12.7% vs +7.3%), biceps thickness, and 1-rep maximum strength across all lifts measured. The mechanism traces to phosphocreatine (磷酸肌酸) resynthesis: the ATP-PCr energy system, which fuels intense efforts of 10–30 seconds, requires approximately 2–3 minutes to fully replenish. Begin the next set after only 60 seconds and you start on a partially depleted energy system — you lift lighter, the mechanical stimulus is weaker, and the adaptive signal to the muscle is blunted.</p>
+
+    <p class="p">This doesn't mean you should always rest 3 minutes. The moderating factor is training volume: if shorter rests allow you to add more total sets to your session, you can partially compensate for reduced per-set load through sheer volume — a valid alternative strategy for some goals. Practical guidance from the NSCA position stand: target 2–3 minutes for compound lifts (squat, deadlift, bench press, overhead press); 90 seconds to 2 minutes for isolation exercises (curls, extensions). Metabolic and circuit-style training, which targets cardiovascular adaptation and caloric expenditure, operates on different goals where shorter rests are entirely appropriate. The key is knowing what you're actually training for — and matching your rest strategy to that objective, not to tradition.</p>
+
+    <div class="takeaway">For muscle growth, rest longer than gym mythology suggests. 2–3 minutes between compound sets outperforms the rushed 60-second interval — and the physiology is clear on why.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> What physiological mechanism explains why 3-minute rest intervals produce significantly greater muscle gains than 1-minute intervals?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">Longer rest allows more complete replenishment of phosphocreatine (PCr), the primary energy currency for intense short-duration efforts. With fuller PCr stores, subsequent sets can be performed at higher loads — the primary mechanical stimulus driving hypertrophic adaptation.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Schoenfeld, B.J. et al. (2016). "Longer interset rest periods enhance muscle strength and hypertrophy in resistance-trained men." <em>JSCR,</em> 30(7), 1805–1812. NSCA Position Statement on Resistance Training, 2016.</div>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════
+     CARD 10 — INVESTING
+════════════════════════════════════════════ -->
+<article class="card invest" id="c10">
+  <div class="card-header">
+    <div class="card-num">10 / 10</div>
+    <div class="card-head">
+      <div class="card-topic">📈 Investing &amp; Economic Thinking</div>
+      <h2 class="card-title">Why Investors Sell Their Winners and Ride Their Losers: The Disposition Effect</h2>
+    </div>
+  </div>
+  <div class="card-body">
+
+    <details class="predict">
+      <summary>🤔 <strong>Predict Before You Read</strong> — tap to commit</summary>
+      <div class="predict-q">You hold two positions: one is up 30%, one is down 30%. Which are you more likely to sell — and which one, cold-bloodedly, should you sell? Do your instincts and the rational answer agree?</div>
+    </details>
+
+    <div class="img-wrap" data-wiki='["Disposition effect", "Prospect theory", "Behavioral finance"]' id="img-c10">
+      <span class="img-emoji">📊</span>
+    </div>
+
+    <p class="p">One of the most consistent and costly biases in investing is the disposition effect (處置效應): the systematic tendency to sell winning positions too early and hold losing positions too long. It is the opposite of what rational profit-maximisation prescribes. It was first formally identified by Hersh Shefrin and Meir Statman in a landmark 1985 paper in the <em>Journal of Finance</em> — and it has been replicated across asset classes, markets, and experience levels ever since.</p>
+
+    <p class="p">The theoretical root lies in Kahneman and Tversky's (1979) Prospect Theory (前景理論): people are risk-averse in the domain of gains (preferring a certain gain over gambling for a larger one) and risk-seeking in the domain of losses (preferring a gamble over a certain loss). Applied to portfolio decisions: a rising stock creates pressure to lock in the gain before it evaporates; a falling stock creates reluctance to crystallise the loss and make it "real." Terrance Odean (加州大學伯克萊分校) tested this on 10,000 real brokerage accounts from 1987 to 1993, published in the <em>Journal of Finance</em> in 1998. His finding was damning: investors sold their winning stocks 50% more frequently than their losing stocks. More damning still: the stocks they chose to sell subsequently outperformed the stocks they chose to hold by an average of 3.4 percentage points annually. The impulse to realise gains was methodically transferring their best holdings out of their portfolios.</p>
+
+    <p class="p">The disposition effect interacts with taxes in a particularly expensive way. In most jurisdictions, rational tax strategy calls for <em>holding</em> winners (letting gains compound tax-deferred) and <em>selling</em> losers (harvesting losses to offset gains). The disposition effect has investors doing precisely the reverse — a double blow. Institutional investors show a weaker but still present disposition effect, suggesting this isn't purely a naivety problem but a feature of how minds process prospective gains and losses under uncertainty. The most effective countermeasure is pre-committed mechanical exit rules — "if a position drops 15% below my thesis, I exit; if it reaches target, I take partial profits" — which convert emotional real-time decisions into pre-decided policies. This is, notably, the direct practical application of today's psychology card: implementation intentions applied to investing.</p>
+
+    <div class="takeaway">The positions you're most comfortable selling and most comfortable holding are probably the wrong ones. Write your exit rules before the emotion arrives.</div>
+
+    <div class="retrieval">
+      <div class="retrieval-q"><strong>🧠 Retrieval Prompt — answer without looking back:</strong> What did Odean's (1998) analysis of 10,000 brokerage accounts find about stocks investors sold versus those they held?</div>
+      <details class="ans">
+        <summary>▸ Check your answer</summary>
+        <div class="ans-body">The stocks investors chose to sell subsequently outperformed the stocks they chose to hold by approximately 3.4 percentage points annually — proving that the impulse to "realise gains" systematically removed their best-performing assets from their portfolios.</div>
+      </details>
+    </div>
+
+    <div class="source">📎 Shefrin, H. &amp; Statman, M. (1985). "The disposition to sell winners too early and ride losers too long." <em>Journal of Finance,</em> 40(3), 777–790. Odean, T. (1998). "Are investors reluctant to realize their losses?" <em>Journal of Finance,</em> 53(5), 1775–1798. Kahneman, D. &amp; Tversky, A. (1979). "Prospect theory." <em>Econometrica,</em> 47(2), 263–292.</div>
+  </div>
+</article>
+
+
+<!-- ══ CONNECTION OF THE DAY ══ -->
+<section class="connection">
+  <div class="conn-label">🔗 Connection of the Day</div>
+  <div class="conn-link">
+    <strong>Psychology (Card 6) × Investing (Card 10):</strong> Implementation intentions and the disposition effect share a single root — the mind's consistent failure to translate rational knowledge into consistent action at the decisive moment.
+  </div>
+  <div class="conn-sowhat">
+    📌 <strong>So what:</strong> Before your next portfolio review, write one specific if-then rule in advance: <em>"If a position falls 15% below my entry thesis, I will exit — not average down."</em> The pre-commitment structure of the plan defeats the emotional hesitation that the disposition effect thrives on — converting a reactive feeling into a previously decided policy.
+  </div>
+</section>
+
+</div><!-- .page -->
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-label">📚 All Sources</div>
+  <ul class="sources">
+    <li><strong>Astronomy —</strong> Montargès, M. et al. (2021). "A dusty veil shading Betelgeuse during its Great Dimming." <em>Nature,</em> 594, 365–368.</li>
+    <li><strong>Eastern History —</strong> Sugita Genpaku, <em>Rangaku Kotohajime,</em> 1815; tr. Matsumoto &amp; Kato, Japan Academy, 1969. 沼田次郎《蘭學の歴史》，吉川弘文館，1967。</li>
+    <li><strong>Western History —</strong> Dollinger, Philippe. <em>The German Hansa.</em> Stanford University Press, 1970. Britannica: "Hanseatic League." Prak, Maarten. <em>Citizens Without Nations.</em> Cambridge, 2018.</li>
+    <li><strong>Eastern Philosophy —</strong> Wing-tsit Chan. <em>Instructions for Practical Living…</em> Columbia University Press, 1963. 黃宗羲《明儒學案》。Julia Ching, <em>To Acquire Wisdom,</em> Columbia, 1976.</li>
+    <li><strong>Western Philosophy —</strong> Hume, D. <em>An Enquiry Concerning Human Understanding</em> (1748). Stanford Encyclopedia of Philosophy: "The Problem of Induction" (Vickers, 2023). Popper, K. <em>The Logic of Scientific Discovery,</em> 1959.</li>
+    <li><strong>Psychology —</strong> Gollwitzer &amp; Brandstätter (1997). <em>JPSP,</em> 73(1), 186–199. Gollwitzer &amp; Sheeran (2006). <em>Advances in Experimental Social Psychology,</em> 38, 69–119.</li>
+    <li><strong>Physiology —</strong> de Jong, P.J. et al. (2009). <em>Emotion,</em> 9(2), 197–205. Leary, M.R. et al. (1992). <em>JPSP,</em> 62(3), 446.</li>
+    <li><strong>Health —</strong> Dhurandhar, E.J. et al. (2014). <em>AJCN,</em> 100(2), 507–513. Sievert, K. et al. (2019). <em>BMJ,</em> 364:l42. Hoyland, A. et al. (2009). <em>Nutrition Bulletin,</em> 34(3).</li>
+    <li><strong>Sports Science —</strong> Schoenfeld, B.J. et al. (2016). <em>JSCR,</em> 30(7), 1805–1812. NSCA Position Statement on Resistance Training, 2016.</li>
+    <li><strong>Investing —</strong> Shefrin &amp; Statman (1985). <em>Journal of Finance,</em> 40(3), 777–790. Odean (1998). <em>Journal of Finance,</em> 53(5), 1775–1798. Kahneman &amp; Tversky (1979). <em>Econometrica,</em> 47(2), 263–292.</li>
+  </ul>
+  <a class="top-link" href="#top">↑ Back to top</a>
+</footer>
+
+
+<script>
+// ── WIKIPEDIA IMAGE LOADER ──────────────────
+async function fetchWikiImg(titles) {
+  for (const t of titles) {
+    const enc = encodeURIComponent(t);
+    // Method 1: REST summary
+    try {
+      const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${enc}`);
+      if (r.ok) {
+        const d = await r.json();
+        const src = (d.originalimage || d.thumbnail || {}).source;
+        if (src) return { src, label: d.title, url: `https://en.wikipedia.org/wiki/${enc}` };
+      }
+    } catch(_) {}
+    // Method 2: Query API
+    try {
+      const r = await fetch(`https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&piprop=original|thumbnail&pithumbsize=700&format=json&origin=*&titles=${enc}`);
+      if (r.ok) {
+        const d = await r.json();
+        const pg = Object.values((d.query || {}).pages || {})[0];
+        const src = (pg && (pg.original || pg.thumbnail) || {}).source;
+        if (src) return { src, label: pg.title, url: `https://en.wikipedia.org/wiki/${enc}` };
+      }
+    } catch(_) {}
+  }
+  return null;
+}
+
+async function loadAllImages() {
+  const blocks = document.querySelectorAll('.img-wrap[data-wiki]');
+  for (const b of blocks) {
+    const titles = JSON.parse(b.getAttribute('data-wiki'));
+    const res = await fetchWikiImg(titles);
+    if (res) {
+      b.innerHTML =
+        `<img src="${res.src}" alt="${res.label}" loading="lazy" style="max-width:100%;max-height:300px;object-fit:contain;border-radius:6px;background:#181820;" onerror="this.style.display='none'">` +
+        `<div class="img-cap"><a href="${res.url}" target="_blank" rel="noopener">📷 ${res.label} — Wikipedia / Wikimedia Commons</a></div>`;
+    }
+  }
+}
+
+// ── CARD REVEAL ON SCROLL ───────────────────
+function revealCards() {
+  const cards = document.querySelectorAll('.card');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  cards.forEach(c => io.observe(c));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadAllImages();
+  revealCards();
+});
+</script>
+</body>
+</html>
