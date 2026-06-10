@@ -252,6 +252,13 @@
 .sticky-top header h1{font-size:.78rem !important;margin-bottom:.12rem !important;}
 .sticky-top header h2{font-size:1rem !important;margin-bottom:.1rem !important;}
 .sticky-top header .date{font-size:.72rem !important;}
+
+.toc-bar{background:rgba(15,15,15,.98);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--border);padding:.28rem .8rem;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar a{display:inline-block;font-size:.75rem;padding:.28rem .65rem;border-radius:20px;border:1px solid #2e2e2e;color:#999;text-decoration:none;margin-right:.35rem;transition:all .18s;white-space:nowrap;}
+.toc-bar a:hover,.toc-bar a.active{color:#e8e6e0;border-color:#7eb8d4;background:rgba(126,184,212,.12);}
+.toc-bar a.east{border-color:#a0734a55;color:#c4935a;}
+.toc-bar a.east:hover,.toc-bar a.east.active{background:rgba(160,115,74,.15);border-color:#c4935a;}
 </style>
 </head>
 <body>
@@ -263,6 +270,7 @@
   <h2>Curiosity &amp; Application Edition</h2>
   <div class="date">Tuesday, 2 June 2026 &nbsp;·&nbsp; v2-Lite</div>
 </header>
+<nav class="toc-bar"><a href="#astronomy".strip()>🔭 Astronomy</a><a href="#eastern-history" class="east".strip()>📜 Eastern History</a><a href="#western-history".strip()>🏛️ Western History</a><a href="#eastern-philosophy" class="east".strip()>☯️ E. Philosophy</a><a href="#western-philosophy".strip()>🧠 W. Philosophy</a><a href="#psychology".strip()>🧪 Psychology</a><a href="#physiology".strip()>💪 Physiology</a><a href="#health".strip()>❤️ Health</a><a href="#sports-science".strip()>🏋️ Sports</a></nav>
 </div><!-- /sticky-top -->
 
 <div class="container">
@@ -675,6 +683,25 @@ document.addEventListener('DOMContentLoaded', () => {
     '🏋️'
   );
 });
+</script>
+<script>
+// Nav highlight
+(function(){
+  var pills = document.querySelectorAll('.toc-bar a[href^="#"]');
+  if(!pills.length) return;
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        pills.forEach(function(p){p.classList.remove('active');});
+        var active = document.querySelector('.toc-bar a[href="#'+e.target.id+'"]');
+        if(active) active.classList.add('active');
+      }
+    });
+  },{threshold:0.25,rootMargin:'-52px 0px -60% 0px'});
+  document.querySelectorAll('[id]').forEach(function(el){
+    if(document.querySelector('.toc-bar a[href="#'+el.id+'"]')) obs.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
