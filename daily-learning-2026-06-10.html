@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — Wednesday, 10 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#202020;--border:#2e2e2e;--text:#e8e6e0;--muted:#777;--accent:#7eb8d4;--amber:#c4935a;--amber-bg:rgba(160,115,74,.10);--green:#6aab7e;--green-bg:rgba(106,171,126,.10);--blue:#7ea8d4;--blue-bg:rgba(126,168,212,.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:"Noto Serif HK","Noto Serif",Georgia,serif;font-size:16px;line-height:1.75;}
+
+/* ── Sticky top ── */
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);}
+.back-bar{padding:.22rem 1rem;border-bottom:1px solid var(--border);}
+.back-bar a{display:inline-flex;align-items:center;gap:.3rem;color:#666;font-size:.8rem;text-decoration:none;padding:.22rem .65rem;border:1px solid #2e2e2e;border-radius:20px;transition:all .18s;}
+.back-bar a:hover{color:var(--accent);border-color:var(--accent);}
+.site-header{background:linear-gradient(135deg,#1a1a2e,#16213e);border-bottom:1px solid var(--border);padding:1.4rem 1.5rem;text-align:center;}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top .site-header h1{font-size:.97rem;letter-spacing:.01em;color:#fff;}
+.sticky-top .site-header .meta{font-size:.72rem;color:var(--muted);margin-top:0;opacity:.85;}
+.site-header h1{font-size:1.55rem;color:#fff;}
+.site-header .meta{font-size:.85rem;color:var(--muted);margin-top:.3rem;}
+.toc-bar{background:rgba(15,15,15,.98);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:.28rem .8rem;overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar a{display:inline-block;font-size:.75rem;padding:.26rem .62rem;border-radius:20px;border:1px solid #2e2e2e;color:#999;text-decoration:none;margin-right:.3rem;transition:all .18s;white-space:nowrap;}
+.toc-bar a:hover,.toc-bar a.active{color:var(--text);border-color:var(--accent);background:rgba(126,184,212,.1);}
+.toc-bar a.east{border-color:#a0734a55;color:var(--amber);}
+.toc-bar a.east:hover,.toc-bar a.east.active{background:var(--amber-bg);border-color:var(--amber);}
+.toc-bar a.invest{color:var(--green);}
+.toc-bar a.poliecon{color:var(--blue);}
+
+/* ── Layout ── */
+.page-layout{display:flex;min-height:100vh;}
+.left-nav{width:185px;flex-shrink:0;padding:1.2rem .8rem 4rem;border-right:1px solid var(--border);}
+.left-nav a{display:block;font-size:.78rem;padding:.38rem .7rem;border-radius:8px;color:var(--muted);text-decoration:none;margin-bottom:.25rem;border:1px solid transparent;transition:all .18s;line-height:1.35;}
+.left-nav a:hover,.left-nav a.active{color:var(--text);background:var(--surface);border-color:var(--border);}
+.left-nav a.east{color:var(--amber);}
+.left-nav a.invest{color:var(--green);}
+.left-nav a.poliecon{color:var(--blue);}
+.content-col{flex:1;min-width:0;padding:0 1.5rem 6rem;max-width:860px;}
+@media(max-width:899px){.page-layout{display:block;}.left-nav{display:none;}.content-col{padding:0 1rem 5rem;}}
+
+/* ── Spark ── */
+.spark-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.6rem;margin:1.6rem 0;}
+.spark-section h2{font-size:1rem;color:var(--accent);margin-bottom:1rem;letter-spacing:.04em;}
+.spark-q{margin-bottom:.9rem;font-size:.92rem;color:var(--muted);border-left:2px solid var(--border);padding-left:.85rem;}
+.spark-q details summary{cursor:pointer;color:var(--accent);font-size:.82rem;margin-top:.3rem;}
+.spark-q details{margin-top:.2rem;}
+.spark-q details p{font-size:.85rem;color:var(--text);padding:.5rem .7rem;background:var(--surface2);border-radius:6px;margin-top:.3rem;}
+
+/* ── Cards ── */
+.card{border:1px solid var(--border);border-radius:14px;background:var(--surface);margin:1.6rem 0;overflow:hidden;scroll-margin-top:52px;}
+.card-header{padding:1.1rem 1.4rem .7rem;border-bottom:1px solid var(--border);}
+.topic-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.45rem;}
+.card-title{font-size:1.22rem;font-weight:700;color:#fff;line-height:1.3;}
+.card.amber .card-header{background:var(--amber-bg);border-bottom-color:rgba(196,147,90,.2);}
+.card.amber .topic-label{color:var(--amber);}
+.card.green .card-header{background:var(--green-bg);}
+.card.green .topic-label{color:var(--green);}
+.card.blue .card-header{background:var(--blue-bg);}
+.card.blue .topic-label{color:var(--blue);}
+.card-body{padding:1.1rem 1.4rem 1.3rem;}
+.card-body p{margin-bottom:.95rem;font-size:.95rem;line-height:1.78;}
+.card-body p:last-child{margin-bottom:0;}
+
+/* Predict box */
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;margin-bottom:1rem;}
+.predict-box summary{cursor:pointer;font-size:.85rem;color:var(--accent);font-weight:700;list-style:none;}
+.predict-box summary::before{content:"🤔 ";}
+
+/* Intro box */
+.intro-box{border-left:3px solid var(--amber);background:var(--amber-bg);border-radius:0 8px 8px 0;padding:.85rem 1.1rem;margin-bottom:1.1rem;font-size:.88rem;line-height:1.65;}
+.intro-box.west{border-left-color:var(--accent);background:rgba(126,184,212,.07);}
+
+/* Image */
+.card-img-wrap{text-align:center;margin:0 0 1rem;background:#111;border-radius:8px;overflow:hidden;min-height:60px;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;display:block;margin:0 auto;}
+.img-caption{font-size:.72rem;color:var(--muted);padding:.4rem .6rem;text-align:center;}
+@media(max-width:899px){.card-img-wrap img{max-height:180px;}}
+
+/* Takeaway */
+.takeaway{background:rgba(126,184,212,.07);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.7rem 1rem;margin:1rem 0;font-size:.9rem;}
+.card.amber .takeaway{border-left-color:var(--amber);background:var(--amber-bg);}
+.card.green .takeaway{border-left-color:var(--green);background:var(--green-bg);}
+.card.blue .takeaway{border-left-color:var(--blue);background:var(--blue-bg);}
+
+/* Retrieval */
+.retrieval{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;margin:1rem 0;font-size:.88rem;}
+.retrieval summary{cursor:pointer;color:var(--accent);font-size:.85rem;margin-top:.4rem;}
+.retrieval details p{padding:.5rem .6rem;background:var(--bg);border-radius:6px;margin-top:.4rem;font-size:.86rem;color:var(--text);}
+
+/* Source */
+.source{font-size:.78rem;color:var(--muted);margin-top:.7rem;border-top:1px solid var(--border);padding-top:.6rem;}
+
+/* Poliecon card */
+.pe-section{margin-bottom:.85rem;}
+.pe-label{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.72;}
+
+/* Connection */
+.connection{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;margin:1.6rem 0;}
+.connection h2{font-size:1rem;color:var(--accent);margin-bottom:.7rem;}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:2rem 1.5rem;font-size:.8rem;color:var(--muted);}
+footer h3{color:var(--text);font-size:.9rem;margin-bottom:.7rem;}
+footer a{color:var(--accent);text-decoration:none;}
+footer details summary{cursor:pointer;color:var(--accent);}
+
+/* Toolbar */
+.toolbar{position:fixed;bottom:1.4rem;right:1.4rem;display:flex;flex-direction:column;gap:.5rem;z-index:300;}
+.toolbar button{background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:.55rem .9rem;font-size:.78rem;cursor:pointer;transition:all .18s;white-space:nowrap;font-family:inherit;}
+.toolbar button:hover{border-color:var(--accent);color:var(--accent);}
+@media(max-width:600px){.toolbar{bottom:.8rem;right:.8rem;}.toolbar button{font-size:.72rem;padding:.45rem .7rem;}}
+
+/* Details global */
+details summary{cursor:pointer;}
+
+/* QR modal */
+.qr-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:500;align-items:center;justify-content:center;}
+.qr-modal.open{display:flex;}
+.qr-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;text-align:center;max-width:320px;width:90%;}
+.qr-box h3{margin-bottom:1rem;font-size:1rem;}
+.qr-box p{font-size:.85rem;color:var(--muted);margin-top:.8rem;}
+.qr-box button{margin-top:1rem;padding:.5rem 1.2rem;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:8px;cursor:pointer;font-family:inherit;}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+<div class="back-bar"><a href="index.html">← All Briefings</a></div>
+<header class="site-header">
+  <h1>📖 Edward's Daily Learning</h1>
+  <div class="meta">Wednesday, 10 June 2026 &nbsp;·&nbsp; ~55 min read</div>
+</header>
+<nav class="toc-bar" id="toc-bar">
+<a href="#card-1">🔭 Astro</a><a href="#card-2" class="east">📜 E.History</a><a href="#card-3">🏛️ W.History</a><a href="#card-4" class="east">☯️ E.Phil</a><a href="#card-5">🧠 W.Phil</a><a href="#card-6">🧪 Psych</a><a href="#card-7">💪 Physio</a><a href="#card-8">❤️ Health</a><a href="#card-9">🏋️ Sports</a><a href="#card-10" class="invest">📈 Invest</a><a href="#card-11" class="poliecon">🏛 PolEcon</a>
+</nav>
+</div>
+
+<div class="page-layout">
+<nav class="left-nav" id="left-nav">
+<a href="#card-1">🔭 Astronomy</a>
+<a href="#card-2" class="east">📜 Eastern History</a>
+<a href="#card-3">🏛️ Western History</a>
+<a href="#card-4" class="east">☯️ Eastern Philosophy</a>
+<a href="#card-5">🧠 Western Philosophy</a>
+<a href="#card-6">🧪 Psychology</a>
+<a href="#card-7">💪 Physiology</a>
+<a href="#card-8">❤️ Health</a>
+<a href="#card-9">🏋️ Sports Science</a>
+<a href="#card-10" class="invest">📈 Investing</a>
+<a href="#card-11" class="poliecon">🏛 Political Econ</a>
+</nav>
+
+<div class="content-col">
+
+<!-- YESTERDAY'S SPARK -->
+<section class="spark-section">
+<h2>🔁 Yesterday's Spark — Quick Recalls</h2>
+<div class="spark-q">
+  <p>Why was imaging Sgr A* harder than imaging M87*, even though Sgr A* is much closer to Earth?</p>
+  <details><summary>Check your answer</summary><p>Sgr A* is roughly 1,500× less massive than M87*, so material orbits it in minutes rather than days — the image flickered faster than the EHT's exposure time, requiring sophisticated time-averaging algorithms to reconstruct a stable picture.</p></details>
+</div>
+<div class="spark-q">
+  <p>In Festinger &amp; Carlsmith's experiment, why did the $1 group rate the boring task as more enjoyable than the $20 group — even though both lied about it?</p>
+  <details><summary>Check your answer</summary><p>The $1 group had insufficient external justification for lying, so they reduced dissonance by genuinely convincing themselves the task was interesting. The $20 group had enough external justification and felt no need to change their internal belief.</p></details>
+</div>
+<div class="spark-q">
+  <p>What was Friedman's core argument against the original Phillips Curve, and what did he claim happened to the trade-off in the long run?</p>
+  <details><summary>Check your answer</summary><p>Friedman argued workers care about real wages, not nominal ones — once they adjust expectations to rising inflation, the unemployment–inflation trade-off disappears. In the long run the Phillips Curve is vertical at the "natural rate" of unemployment, meaning sustained inflation cannot permanently lower unemployment.</p></details>
+</div>
+</section>
+
+<!-- CARD 1: ASTRONOMY -->
+<article class="card" id="card-1">
+<div class="card-header">
+  <div class="topic-label">Astronomy &amp; Cosmos</div>
+  <div class="card-title">The Cosmic Web: How Dark Matter Knits the Universe Together</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: If you removed all the stars and galaxies from the universe, would anything remain?</summary><p>Yes — an invisible scaffolding of dark matter filaments called the Cosmic Web, whose gravitational skeleton determined where every galaxy ever formed.</p></details>
+
+<div class="card-img-wrap" id="img-card-1"><span style="font-size:3rem;padding:1.5rem;display:block">🌌</span></div>
+<div class="img-caption" id="cap-card-1"></div>
+
+<p>Zoom out far enough and the universe stops looking random. What appears is a vast three-dimensional lattice — enormous filaments of matter hundreds of millions of light-years long, braided into sheets, converging at dense nodes, and separated by near-empty voids (空洞). This structure, called the Cosmic Web (宇宙大尺度結構), was first predicted theoretically in the 1970s by Yakov Zel'dovich (澤爾多維奇) and confirmed observationally by the 2dF Galaxy Redshift Survey in the early 2000s. But the scaffolding holding it all together is invisible: dark matter (暗物質), which comprises roughly 27% of the universe's total energy content.</p>
+
+<p>Dark matter doesn't interact with light — it cannot be seen, only inferred through its gravitational effects. In the first billion years after the Big Bang (大爆炸), tiny quantum fluctuations seeded regions of slightly higher density. Dark matter collapsed into these regions first, forming filaments and halos that acted like cosmic drainage channels — ordinary matter (gas, dust, eventually stars) flowed along them, pooling at intersections into what we call galaxy clusters (星系團). The IllustrisTNG simulation (MIT/Harvard, 2018) reproduced this web with stunning fidelity, confirming that without dark matter's early gravitational head-start, no galaxy — including our own Milky Way — would have formed at all.</p>
+
+<p>Recently, astronomers achieved the first direct image of a Cosmic Web filament in visible light. A 2020 paper in <em>Science</em> (Umehata et al.) captured a filament 15 million light-years long connecting galaxy protoclusters in the early universe, illuminated by powerful quasar (類星體) radiation. And NASA's James Webb Space Telescope (韋伯太空望遠鏡) is now mapping the web at unprecedented depth, probing whether the voids are truly empty or harbour ghostly populations of low-luminosity dwarf galaxies — a question whose answer could rewrite our understanding of how structure grows in the cosmos.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> The universe's large-scale structure isn't random — it's a predictable consequence of dark matter physics operating over billions of years. Every galaxy is where it is because gravity, not chance, put it there.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> What role did dark matter play in the formation of the Cosmic Web, and why couldn't ordinary matter alone have produced the same structure?
+  <details><summary>Check your answer</summary><p>Dark matter collapsed under gravity first (being unaffected by radiation pressure that slowed ordinary matter), forming filaments and halos. Ordinary matter then flowed along this pre-existing scaffold. Without dark matter's early gravitational head-start, density fluctuations would have been too smooth to collapse into galaxies within the universe's current age.</p></details>
+</div>
+<div class="source">📚 Umehata et al. (2019), <em>Science</em> 366, 97–100; IllustrisTNG: Springel et al. (2018), <em>MNRAS</em> 475; NASA JWST Science Overview, nasa.gov.</div>
+</div>
+</article>
+
+<!-- CARD 2: EASTERN HISTORY -->
+<article class="card amber" id="card-2">
+<div class="card-header">
+  <div class="topic-label">歷史 — 東方</div>
+  <div class="card-title">天下唯一女皇：武則天如何統治大唐</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>歷史上，一位女性要奪得皇位需要克服什麼？她的統治究竟是功是過？</summary><p>武則天透過擊敗宗室、整頓科舉、拉攏寒門，建立了一套屬於自己的政治聯盟，最終以「周」代「唐」，成為中國歷史上唯一的女皇帝。</p></details>
+
+<div class="card-img-wrap" id="img-card-2"><span style="font-size:3rem;padding:1.5rem;display:block">👑</span></div>
+<div class="img-caption" id="cap-card-2"></div>
+
+<div class="intro-box">
+  <strong>核心人物：</strong>武則天（624–705年）<br>
+  <strong>事件焦點：</strong>由唐太宗才人晉升至一代女皇，建立武周政權（690–705年）<br>
+  <strong>大局背景：</strong>唐高宗體弱多病，朝廷實權旁落，舊貴族與新興寒士之間的張力日益尖銳
+</div>
+
+<p>武則天入宮時不過十四歲，以才人身份侍奉唐太宗。太宗駕崩後，按制她應剃度為尼，卻被太子李治（即高宗）召回宮中，651年再度入宮，655年廢王皇后，立為皇后。此後二十年，她以「二聖」之名與高宗並稱，實際主導朝政——批閱奏章、召見大臣、決定外交，而高宗的頭風與眼疾使他愈加依賴她的判斷。這段時期，武則天展示了她最核心的政治本能：她從不正面衝撞禮教，而是借制度之名行鞏固之實。</p>
+
+<p>高宗於683年駕崩後，武則天相繼廢立中宗、睿宗兩子，690年改國號為「周」，正式登基稱帝，史稱武周。她最重要的改革是對科舉制度（科舉制）的擴張與深化——廣開殿試、親自主持，使出身貧寒的士人得以繞過世家門閥，直接進入朝廷核心。這不僅動搖了關隴貴族集團長達百年的壟斷，更為盛唐的行政效率奠定了基礎。她同時大力推廣佛教，命人在洛陽龍門石窟鑿刻盧舍那大佛，據說以她本人為造像原型，藉宗教為自己的統治賦予神聖色彩。</p>
+
+<p>武則天在位期間，唐朝（以武周之名）疆域穩定，農業生產回升，文官體制更趨完善。然而她的手段同樣冷酷：酷吏政治（酷吏之治）盛行，告密之風盛行，異見者動輒滅族。705年，她病重在床，宰相張柬之等人發動神龍政變，逼她退位，李唐復辟。武則天在位十五年，以八十二歲高齡辭世，留下無字碑——或謙遜，或自信，後人各有解讀。她的遺產至今爭議未息：是破壞禮教秩序的篡位者，還是打破階級壁壘的改革先驅？</p>
+
+<div class="takeaway">💡 <strong>一句話帶走：</strong>武則天的成功不在於打破制度，而在於比任何人都更懂得如何運用制度——這才是她留給歷史最深的一課。</div>
+
+<div class="retrieval">
+  <strong>🧠 記憶提問</strong><br>
+  <em>不看答案，試試回答：</em>武則天如何透過科舉制度鞏固自己的政治基礎？她的改革對唐代貴族結構有何衝擊？
+  <details><summary>查看答案</summary><p>武則天大幅擴展科舉規模、親自主持殿試，讓寒門士人得以繞過世家門閥直接入朝，建立起只效忠於她個人的新型官僚網絡，從根本上削弱了關隴貴族集團對政治的世襲控制。</p></details>
+</div>
+<div class="source">📚 資料來源：司馬光《資治通鑑》卷204–207；N. Harry Rothschild, <em>Wu Zhao: China's Only Female Emperor</em>, Longman, 2015；Patricia Ebrey, <em>Cambridge Illustrated History of China</em>, Cambridge University Press.</div>
+</div>
+</article>
+
+<!-- CARD 3: WESTERN HISTORY -->
+<article class="card" id="card-3">
+<div class="card-header">
+  <div class="topic-label">History — Western</div>
+  <div class="card-title">The Black Death's Unexpected Gift: How Plague Built the Modern Worker</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: If a third of Europe died in four years, what do you think happened to the wages of those who survived?</summary><p>They rose dramatically — labour scarcity gave ordinary workers bargaining power for the first time in centuries, fracturing the feudal order.</p></details>
+
+<div class="card-img-wrap" id="img-card-3"><span style="font-size:3rem;padding:1.5rem;display:block">⚰️</span></div>
+<div class="img-caption" id="cap-card-3"></div>
+
+<div class="intro-box west">
+  <strong>Key figures:</strong> Giovanni Boccaccio (薄伽丘); Pope Clement VI; flagellant (鞭打派) movement leaders<br>
+  <strong>Event:</strong> The Black Death (黑死病) sweeps Europe 1347–1351, killing 30–60% of the population<br>
+  <strong>Big picture:</strong> Medieval feudalism (封建制度) was already under stress; the plague delivered the blow that broke it
+</div>
+
+<p>In October 1347, twelve Genoese (熱那亞) trading ships docked at Messina, Sicily (西西里). Most sailors aboard were dead; those still alive were covered in black boils oozing blood and pus. The harbour authorities ordered the ships out immediately — but it was already too late. Within four years, the <em>Yersinia pestis</em> bacterium (鼠疫桿菌) had killed an estimated 25 million people across Europe, perhaps one in every three. In some cities — Florence (佛羅倫斯), Venice (威尼斯), Hamburg (漢堡) — mortality reached 60%. Giovanni Boccaccio, writing in Florence as the plague raged, described corpses piling in the streets and social order dissolving: "One citizen avoided another, hardly any neighbour troubled about others."</p>
+
+<p>The economic consequences were as revolutionary as the death toll. Feudal peasants (農奴) had been legally bound to land for generations, paid subsistence wages, with no right to leave their lord's estate. The plague changed the arithmetic overnight: suddenly, half the labour force was gone and the other half was indispensable. Surviving peasants began demanding — and getting — higher wages and the right to move. In England, alarmed landlords pushed through the Statute of Labourers (1351), which tried to freeze wages at pre-plague levels. It was almost entirely ignored. The Peasants' Revolt (英國農民起義) of 1381 drew directly on the new sense of leverage the plague had given common people. Similar uprisings erupted across France, Flanders (法蘭德斯), and Italy.</p>
+
+<p>The plague also scrambled cultural and intellectual life. The Church's (天主教會) credibility suffered as prayer demonstrably failed to stop the dying; flagellant groups marched through towns flogging themselves in public penance, and Jews were massacred across the Rhine Valley on the false claim they had poisoned wells — even after Pope Clement VI issued a bull explicitly stating they were not to blame. Yet from the wreckage came Renaissance (文藝復興) humanism: Boccaccio's <em>Decameron</em>, written during the plague, placed human pleasure and wit at the centre of literature in a way medieval theology never had. The historian William McNeill argued the Black Death was the single greatest accelerant of European modernity — not despite its horror, but partly because of it.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> Catastrophe doesn't only destroy — it can demolish structures that needed demolishing. The Black Death ended serfdom more effectively than any reform movement had managed in three centuries.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> Name two specific ways — one economic, one cultural or religious — in which the Black Death destabilised the medieval social order.
+  <details><summary>Check your answer</summary><p>Economic: labour scarcity gave peasants bargaining power, raising wages and weakening serfdom despite legal attempts (Statute of Labourers) to suppress this. Cultural/religious: the Church's failure to prevent mass death undermined its moral authority, fuelling flagellant movements, Jewish persecution, and ultimately a turn toward humanist thought.</p></details>
+</div>
+<div class="source">📚 Ole Benedictow, <em>The Black Death 1346–1353: The Complete History</em>, Boydell Press; William McNeill, <em>Plagues and Peoples</em>, Anchor Books; Barbara Tuchman, <em>A Distant Mirror</em>, Knopf.</div>
+</div>
+</article>
+
+
+<!-- CARD 4: EASTERN PHILOSOPHY -->
+<article class="card amber" id="card-4">
+<div class="card-header">
+  <div class="topic-label">哲學 — 東方</div>
+  <div class="card-title">人性本善？孟子的四端之心與兩千年爭論</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>你相信人天生是善良的嗎？如果是，為何世上仍有那麼多惡行？</summary><p>孟子認為惡行源於環境腐蝕和欲望遮蔽，而非人性本質——就像牛山之木被砍伐後顯得光禿，並不代表山上從來沒有樹。</p></details>
+
+<div class="card-img-wrap" id="img-card-4"><span style="font-size:3rem;padding:1.5rem;display:block">☯️</span></div>
+<div class="img-caption" id="cap-card-4"></div>
+
+<div class="intro-box">
+  <strong>核心人物：</strong>孟子（約前372–前289年），名軻，字子輿，儒家亞聖<br>
+  <strong>思想焦點：</strong>性善論（人性本善說）與四端之心（仁義禮智的道德萌芽）<br>
+  <strong>大局背景：</strong>戰國中期，列國征伐不休，各家學說競逐——性善論既是孟子的人性論，也是他仁政主張的哲學根基
+</div>
+
+<p>孟子最著名的思想實驗只有一個場景：一個小孩正要掉進井裡。孟子問：任何一個正常人，看到這一幕的第一反應是什麼？答案是驚恐，是本能衝上去施救——不是為了博取孩子父母的感謝，不是為了博得鄉鄰的讚美，而是出於一種即時的、無條件的惻隱之心。孟子認為，這個反應就是人性善的鐵證。他由此提出「四端說」：惻隱之心（仁之端）、羞惡之心（義之端）、辭讓之心（禮之端）、是非之心（智之端）——這四種道德萌芽，是每個人生來就有的，如同四肢一般自然。</p>
+
+<p>然而性善論在儒家內部並非鐵板一塊。與孟子同時代的荀子正面駁斥，主張「人之性惡，其善者偽也」——善是後天學習和禮制約束的結果，而非天生。這場爭論影響深遠：孟子路線強調道德教化、君主自我修養；荀子路線更強調外在制度與法律的必要性，並直接啟發了法家思想。歷史上，孟子的性善論在宋明理學（宋明理學）中獲得壓倒性的官方認可，成為科舉考試的正統立場，荀子卻從此地位下滑，至今仍在中文哲學課上享有盛名，卻鮮少出現在廟宇神龕之側。</p>
+
+<p>孟子的論證有一個精妙之處：他並非聲稱人不會做壞事，而是聲稱做壞事不是人的「本質」。他以「牛山之喻」說明：牛山的草木被反覆砍伐、牛羊踐踏，最終一片荒蕪——但這不代表山上本來就沒有樹，而是環境將它摧毀了。同樣，人在惡劣環境、物質匱乏或政治暴力下做出惡行，是被「放其良心」（喪失善心），而非天性如此。這一框架為後世儒家教育哲學提供了核心依據：人可以被教化，因為善的種子早已存在，只待澆灌。</p>
+
+<div class="takeaway">💡 <strong>一句話帶走：</strong>孟子不是天真的樂觀主義者——他深知惡行的存在，只是堅持惡不是起點，而是偏離。「求則得之，舍則失之。」</div>
+
+<div class="retrieval">
+  <strong>🧠 記憶提問</strong><br>
+  <em>不看答案，試試回答：</em>孟子的「四端」是什麼？荀子如何反駁性善論，這場爭論對後世儒家與法家各有何影響？
+  <details><summary>查看答案</summary><p>四端：惻隱（仁）、羞惡（義）、辭讓（禮）、是非（智）。荀子主張人性本惡，善是後天禮義約束的產物；這一立場啟發了韓非等法家思想家強調制度與獎懲的重要性。孟子的性善論則成為宋明理學的正統，主導了儒家教育哲學一千餘年。</p></details>
+</div>
+<div class="source">📚 資料來源：《孟子》〈公孫丑上〉、〈告子上〉；Bryan Van Norden, <em>Mengzi: With Selections from Traditional Commentaries</em>, Hackett, 2008；Stanford Encyclopedia of Philosophy, "Mengzi".</div>
+</div>
+</article>
+
+<!-- CARD 5: WESTERN PHILOSOPHY -->
+<article class="card" id="card-5">
+<div class="card-header">
+  <div class="topic-label">Philosophy — Western</div>
+  <div class="card-title">Hume's Guillotine: Why the Sun Might Not Rise Tomorrow</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: You've seen the sun rise every morning of your life. Is that a good reason to be certain it will rise tomorrow?</summary><p>David Hume would say no — and his argument for why still has no fully satisfying answer.</p></details>
+
+<div class="card-img-wrap" id="img-card-5"><span style="font-size:3rem;padding:1.5rem;display:block">🌅</span></div>
+<div class="img-caption" id="cap-card-5"></div>
+
+<div class="intro-box west">
+  <strong>Key figure:</strong> David Hume (大衛·休謨, 1711–1776), Scottish empiricist (蘇格蘭經驗主義者)<br>
+  <strong>The problem:</strong> The Problem of Induction (歸納問題) — why past regularity doesn't logically guarantee future regularity<br>
+  <strong>Rival view:</strong> Rationalists (理性主義者) like Leibniz (萊布尼茲) argued reason alone could secure knowledge; Hume demolished this for empirical claims
+</div>
+
+<p>David Hume published <em>A Treatise of Human Nature</em> (人性論) in 1739, aged just 28, and was disappointed to find it "fell dead-born from the press." Yet the argument at its core — what we now call the Problem of Induction (歸納問題) — would eventually keep Immanuel Kant (康德) up at night and shape the philosophy of science for the next three centuries. The problem is disarmingly simple: all our knowledge of the external world comes from experience, and experience only ever tells us what <em>has</em> happened — never what <em>must</em> happen. When we say "fire always produces heat," we are making an inductive leap: generalising from past cases to a universal law. But no number of past cases logically entails the next case. There is no contradiction in imagining a world where the next fire produces cold.</p>
+
+<p>Hume identified two kinds of knowledge: <em>relations of ideas</em> (觀念關係) — like mathematics, where "2+2=4" is necessarily true by definition — and <em>matters of fact</em> (事實問題) — like "the sun rose this morning," which is contingent and could in principle be otherwise. Scientific laws, he argued, belong entirely to the second category. We believe in causation (因果關係) not because we ever see a causal connection itself — we only ever see one event followed by another — but because repeated conjunction (聯結) creates a mental habit of expectation. "Cause and effect" is not in the world; it's a projection of our psychology onto the world. This is sometimes called "Hume's fork" (休謨的兩叉): the clean division between analytic truths and empirical ones, with no logical bridge between them.</p>
+
+<p>The problem rattled philosophy so severely that Kant famously said Hume "awakened him from his dogmatic slumber." Kant's response was to argue that causation is a category the mind imposes on experience — not discovered in nature but built into how we perceive. Karl Popper (波普爾) took a different route in the 20th century: since induction can never prove a theory, science advances not by confirming theories but by trying to falsify (否證) them — one black swan refutes a million white ones. Bertrand Russell (羅素) illustrated Hume's problem with a turkey who is fed every morning at 9am and concludes this will continue forever — right up until Christmas. The Problem of Induction remains technically unsolved: every proposed solution either assumes what it sets out to prove (induction validates induction) or retreats to pragmatism (it works well enough in practice).</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> Next time you feel certain about a pattern — in markets, in relationships, in data — ask yourself: am I reasoning, or am I just a turkey expecting breakfast?</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> What is Hume's distinction between "relations of ideas" and "matters of fact," and why does it make all scientific knowledge uncertain in principle?
+  <details><summary>Check your answer</summary><p>Relations of ideas are necessarily true by definition (maths, logic); matters of fact are empirical and could be otherwise. Scientific laws are matters of fact — justified only by past observation. Since no number of past cases logically entails the next, all empirical generalisations remain uncertain in principle, no matter how well they've held so far.</p></details>
+</div>
+<div class="source">📚 David Hume, <em>A Treatise of Human Nature</em> (1739), Book I; <em>Enquiry Concerning Human Understanding</em> (1748); Stanford Encyclopedia of Philosophy, "The Problem of Induction"; Karl Popper, <em>The Logic of Scientific Discovery</em>, Routledge.</div>
+</div>
+</article>
+
+<!-- CARD 6: PSYCHOLOGY -->
+<article class="card" id="card-6">
+<div class="card-header">
+  <div class="topic-label">Psychology</div>
+  <div class="card-title">The Dunning-Kruger Effect: What the Actual Study Found (vs. the Meme)</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: Does incompetence make people think they're brilliant? The real answer is more interesting — and more unsettling — than the internet version.</summary><p>The original finding is subtler: unskilled people modestly overestimate themselves, while highly skilled people systematically underestimate how much better they are than average.</p></details>
+
+<div class="card-img-wrap" id="img-card-6"><span style="font-size:3rem;padding:1.5rem;display:block">🧠</span></div>
+<div class="img-caption" id="cap-card-6"></div>
+
+<p>In 1999, psychologists David Dunning (大衛·鄧寧) and Justin Kruger (賈斯汀·克魯格) published a paper in the <em>Journal of Personality and Social Psychology</em> titled "Unskilled and Unaware of It." They asked Cornell undergraduates to complete tests on logical reasoning (邏輯推理), grammar, and humour detection, then asked each participant to estimate their own score and where they ranked among peers. The result: participants who scored in the bottom quartile (底四分之一) estimated they'd performed at roughly the 62nd percentile — a substantial overestimate. But here's what the internet version almost always omits: experts underestimated themselves too. Those who scored in the top quartile guessed they'd ranked around the 68th percentile, when they'd actually scored at the 86th. The bias runs in both directions.</p>
+
+<p>The underlying mechanism, Dunning and Kruger argued, is metacognitive (後設認知的): the skills needed to recognise a good answer are largely the same skills needed to produce one. If you lack the knowledge to solve a problem well, you also lack the knowledge to realise your solution is poor. This is distinct from mere overconfidence (過度自信) — it's a specific blindspot created by the very gap in competence. Experts, meanwhile, underestimate themselves partly because they assume tasks that feel easy to them must feel easy to everyone — a version of the false consensus effect (假共識效應). They've forgotten what it felt like not to know what they now know.</p>
+
+<p>The study has limits worth noting. A 2020 reanalysis by Gilles Gignac and Marcin Zajenkowski found the overestimation by low performers shrinks substantially when you control for statistical regression to the mean — some of the "Dunning-Kruger effect" may be a mathematical artefact. A 2017 cross-cultural study found the pattern is weaker in East Asian samples, where cultural norms favour modesty and self-criticism. What survives scrutiny is this: unskilled people are modestly overconfident, skilled people are modestly underconfident, and the biggest practical danger is not the incompetent person — it's the moderately competent person who has learned just enough to feel certain.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> If you feel absolutely sure you understand something, that certainty is more likely to reflect partial knowledge than mastery. True expertise usually comes with an acute sense of how much remains unknown.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> Why, according to Dunning and Kruger, do unskilled people overestimate their performance — and why do highly skilled people underestimate theirs?
+  <details><summary>Check your answer</summary><p>Unskilled people lack the metacognitive ability to recognise good performance — the same skills needed to do well are needed to evaluate doing well, so incompetence creates a blind spot. Skilled people underestimate because tasks that are easy for them feel like they should be easy for everyone (false consensus), and they've lost awareness of how difficult those tasks once were.</p></details>
+</div>
+<div class="source">📚 Kruger &amp; Dunning (1999), <em>Journal of Personality and Social Psychology</em>, 77(6); Gignac &amp; Zajenkowski (2020), <em>Intelligence</em>, 80; Atir et al. (2015), <em>Psychological Science</em>.</div>
+</div>
+</article>
+
+<!-- CARD 7: PHYSIOLOGY -->
+<article class="card" id="card-7">
+<div class="card-header">
+  <div class="topic-label">Physiology — Hidden Biology of Human Variation</div>
+  <div class="card-title">Why Two People Can Train Identically and One Gets Twice the Fitness Gain</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: If two people follow the exact same 12-week aerobic training programme, what determines how much each person improves?</summary><p>A surprising proportion is explained by biological differences in how the heart, muscles, and blood vessels respond to the same training stimulus.</p></details>
+
+<div class="card-img-wrap" id="img-card-7"><span style="font-size:3rem;padding:1.5rem;display:block">❤️</span></div>
+<div class="img-caption" id="cap-card-7"></div>
+
+<p>The HERITAGE Family Study (1995–2001), one of the largest exercise response studies ever conducted, put 481 sedentary adults through an identical 20-week aerobic training programme and measured changes in VO2 max (最大攝氧量) — the gold standard of cardiovascular fitness. The results were startling: some participants improved VO2 max by less than 5%; others improved by over 40%, following the same protocol. The "high responders" (高反應者) and "low responders" weren't random — families clustered together, suggesting a strong heritable component. Researchers estimated roughly 47% of trainability variance is genetically influenced. But "genetic" here doesn't mean "fixed" — it means the biological machinery that responds to exercise varies, and understanding it tells you how to train smarter.</p>
+
+<p>Three physiological systems drive VO2 max: cardiac output (心輸出量) — how much blood the heart pumps per minute; oxygen extraction (氧氣攝取率) — how efficiently muscles pull oxygen from blood; and capillarisation (微血管密度) — the density of tiny vessels delivering oxygen to muscle fibres. High responders tend to show disproportionate cardiac adaptation: their left ventricle (左心室) enlarges more with training, increasing stroke volume (每搏輸出量). A 2019 study in the <em>Journal of Physiology</em> found that high responders also show greater upregulation of PGC-1α (過氧化物酶體增殖物活化受體γ共激活因子1α), a master regulator of mitochondrial biogenesis (線粒體生成) — they literally grow more mitochondria (線粒體) per training session. Low responders don't lack effort; they lack the biological signal cascade that converts effort into adaptation.</p>
+
+<p>The practical implication: training age (訓練年齡) and programme selection can partially compensate for low-responder physiology. Low responders often benefit from higher training volume and longer durations before adaptation kicks in — they need a bigger stimulus to trigger the same cascade. High-intensity interval training (高強度間歇訓練, HIIT) appears to be more equalising than moderate continuous exercise for low responders, possibly because the extreme metabolic stress activates alternative signalling pathways. The emerging science of "exercise pharmacology" (運動藥理學) is exploring whether compounds like resveratrol (白藜蘆醇) or AMPK activators can nudge low responders' cellular machinery — but for now, the most evidence-based lever is simply more volume, more consistently applied.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> If you're training hard and not seeing results others get, you may not be doing something wrong — you may be a low responder who needs a larger dose. More volume, longer timeline, same destination.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> Name the three physiological systems that determine VO2 max, and explain why high responders improve more from the same training stimulus.
+  <details><summary>Check your answer</summary><p>Cardiac output (blood pumped per minute), oxygen extraction (efficiency of muscle oxygen use), and capillarisation (blood vessel density). High responders show greater cardiac structural adaptation (larger left ventricle, higher stroke volume) and stronger upregulation of PGC-1α, driving more mitochondrial biogenesis per training session.</p></details>
+</div>
+<div class="source">📚 Bouchard et al., HERITAGE Family Study, <em>Journal of Applied Physiology</em> (1999); Sarzynski et al. (2017), <em>PLOS ONE</em>; Seiler (2019), <em>Journal of Physiology</em>.</div>
+</div>
+</article>
+
+
+<!-- CARD 8: HEALTH -->
+<article class="card" id="card-8">
+<div class="card-header">
+  <div class="topic-label">Health</div>
+  <div class="card-title">Static Stretching Before Exercise: The Evidence Changed — Did Your Warmup?</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: Should you hold a stretch for 30 seconds before a run or a gym session?</summary><p>The evidence now says no — and the mechanism explains why holding a stretch before exercise can actually make you weaker and slower for the next 30 minutes.</p></details>
+
+<div class="card-img-wrap" id="img-card-8"><span style="font-size:3rem;padding:1.5rem;display:block">🧘</span></div>
+<div class="img-caption" id="cap-card-8"></div>
+
+<p>For decades, the standard pre-exercise advice was simple: hold a stretch for 20–30 seconds per muscle group before you train. This is called static stretching (靜態伸展), and it's what most people learned in school PE. A major 2013 meta-analysis (統合分析) in the <em>Scandinavian Journal of Medicine &amp; Science in Sports</em>, pooling 104 studies, found that static stretching performed immediately before exercise reduces muscle strength (肌肉力量) by an average of 5.5%, power (爆發力) by 2.8%, and explosive performance by 2.9%. These aren't trivial effects: for a competitive sprinter, a 3% reduction in power is the difference between a medal and a miss. For a recreational lifter, it's the difference between a personal best and a mediocre session.</p>
+
+<p>The mechanism matters. When you hold a muscle in a lengthened position for 30+ seconds, you trigger the Golgi tendon organ (高基腱器官) — a sensory receptor that responds by inhibiting motor neuron (運動神經元) firing to protect the muscle from tearing. This is the muscle's protective "slack" response. It also temporarily reduces the stiffness of the musculotendinous junction (肌腱連接處), which sounds like a good thing but actually reduces the ability of the muscle-tendon unit to store and release elastic energy — the spring-like mechanism that powers explosive movements. The effect dissipates within 15–30 minutes, which is why post-exercise stretching (after the session) carries none of these penalties and retains the flexibility benefits.</p>
+
+<p>What works instead? Dynamic warm-up (動態熱身) — controlled movements through a full range of motion without holding the end position — increases core temperature (核心體溫), heart rate, synovial fluid (滑液) production in joints, and neural activation (神經激活) without the inhibitory effects. Studies show dynamic warm-up improves sprint performance by 1–4% compared to static stretching. The optimal pre-exercise routine: 5–10 minutes of light cardio to raise temperature, followed by dynamic movements specific to what you're about to do (leg swings before running; shoulder circles and hip rotations before lifting). Save static stretching for after the session, or for a dedicated flexibility session — where it genuinely builds long-term range of motion without the performance cost.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> Swap your pre-workout static stretches for dynamic warm-up movements. Save the long holds for after training. You'll perform better immediately and still build flexibility over time.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> What physiological mechanism explains why static stretching reduces strength and power immediately before exercise?
+  <details><summary>Check your answer</summary><p>Holding a muscle stretched activates the Golgi tendon organ, which inhibits motor neuron firing (protective "slack" response) and reduces musculotendinous stiffness — impairing the muscle-tendon unit's ability to store and release elastic energy. This effect lasts up to 30 minutes.</p></details>
+</div>
+<div class="source">📚 Simic et al. (2013), <em>Scandinavian Journal of Medicine &amp; Science in Sports</em>, 23(2); McMillian et al. (2006), <em>Journal of Strength and Conditioning Research</em>; Behm &amp; Chaouachi (2011), <em>European Journal of Applied Physiology</em>.</div>
+</div>
+</article>
+
+<!-- CARD 9: SPORTS SCIENCE -->
+<article class="card" id="card-9">
+<div class="card-header">
+  <div class="topic-label">Sports Science</div>
+  <div class="card-title">Zone 2 Training: The Slow Work That Builds the Fastest Engine</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: Elite endurance athletes spend about 80% of their training at a pace they could hold a conversation at. Why would going slow make you faster?</summary><p>Because Zone 2 builds the mitochondrial infrastructure that all higher-intensity effort runs on — it's not slow training, it's foundational training.</p></details>
+
+<div class="card-img-wrap" id="img-card-9"><span style="font-size:3rem;padding:1.5rem;display:block">🚴</span></div>
+<div class="img-caption" id="cap-card-9"></div>
+
+<p>Zone 2 training (第二區訓練) sits at a specific metabolic crossroads: hard enough to stress the aerobic system, easy enough that the body primarily burns fat (脂肪) rather than glycogen (肝醣), and comfortable enough to sustain for 45–90 minutes. The defining physiological marker is the first lactate threshold (乳酸閾值一) — the intensity at which blood lactate begins to rise above baseline (roughly 2 mmol/L). Below this intensity, lactate is produced and cleared at equal rates; above it, it begins to accumulate. In practice, Zone 2 feels like a "conversational pace" — you can speak in full sentences but wouldn't want to sing. Heart rate typically sits at 60–75% of maximum (最大心率).</p>
+
+<p>What makes Zone 2 special is its specific cellular effect: it is the primary stimulus for mitochondrial biogenesis (線粒體生成) and mitochondrial efficiency (線粒體效率) in slow-twitch type I muscle fibres (慢肌纖維). A landmark paper by Iñigo San Millán and George Brooks (2018, <em>Cancers</em>) showed that lactate is not merely a waste product but a fuel molecule — and the capacity to shuttle and oxidise lactate across mitochondria is a key marker of metabolic health. Zone 2 training builds this shuttle capacity. Elite cyclists and runners show mitochondrial densities 2–3× higher than sedentary individuals; this is primarily a Zone 2 adaptation, not a high-intensity one. The 80/20 principle (polarised training model, 極化訓練模式) — 80% easy, 20% hard — is backed by research from Stephen Seiler showing it outperforms "moderate intensity" training for long-term endurance development.</p>
+
+<p>For recreational athletes, the most common mistake is training in the "grey zone" — too hard to be Zone 2, too easy to be truly high-intensity — which gives moderate stress without the specific adaptations of either. A practical test: if you cannot maintain a conversation, you've left Zone 2. Effective implementation means resisting the ego. At Zone 2, many people feel embarrassingly slow; new runners sometimes find they must walk to stay in zone. The payoff becomes apparent after 8–12 weeks: improved fat oxidation (脂肪氧化率) at all intensities, lower lactate at the same speed, and a higher "ceiling" for high-intensity work because the aerobic base supporting it has grown.</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> If most of your training feels moderately hard, you're probably in the grey zone. Try making your easy days genuinely easy — conversational pace, 45–60 min — and watch your hard days get harder and your recovery get faster.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> Why is Zone 2 the primary stimulus for mitochondrial biogenesis, and what does the 80/20 polarised training model prescribe?
+  <details><summary>Check your answer</summary><p>Zone 2 sits just below the first lactate threshold, maximally stressing the aerobic oxidative system in slow-twitch fibres without recruiting glycolytic pathways — this specific stress triggers mitochondrial biogenesis and efficiency gains. The 80/20 model prescribes 80% of training volume at easy Zone 2 intensity and 20% at genuinely high intensity, avoiding the moderate "grey zone" that gives neither adaptation optimally.</p></details>
+</div>
+<div class="source">📚 San Millán &amp; Brooks (2018), <em>Cancers</em>, 10(4); Seiler &amp; Kjerland (2006), <em>Scandinavian Journal of Medicine &amp; Science in Sports</em>; Plews et al. (2014), <em>International Journal of Sports Physiology and Performance</em>.</div>
+</div>
+</article>
+
+<!-- CARD 10: INVESTING -->
+<article class="card green" id="card-10">
+<div class="card-header">
+  <div class="topic-label">Investing &amp; Economic Thinking</div>
+  <div class="card-title">Jack Bogle's Quiet Revolution: How One Man Made Wall Street's (華爾街) Fee Machine Obsolete</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: If most professional fund managers underperform a simple market index over 15 years, why do people pay them?</summary><p>Partly narrative, partly inertia — and one man spent his life systematically dismantling both.</p></details>
+
+<div class="card-img-wrap" id="img-card-10"><span style="font-size:3rem;padding:1.5rem;display:block">📈</span></div>
+<div class="img-caption" id="cap-card-10"></div>
+
+<p>In 1975, John "Jack" Bogle (約翰·柏格) launched the first index mutual fund (指數共同基金) available to ordinary investors, through a company he called Vanguard (先鋒集團). The idea was almost embarrassingly simple: instead of paying a manager to pick winning stocks, just buy every stock in a market index proportionally, hold them, and charge the lowest possible fee. Wall Street hated it. Rival firms called it "Bogle's Folly"; a former Fidelity (富達) chairman dismissed it as "un-American" because it settled for average returns. In its first year, Bogle's S&amp;P 500 (標準普爾500指數) index fund raised $11 million — far short of its $150 million target. Nobody wanted it. Bogle pressed on anyway.</p>
+
+<p>The mathematics behind his case were — and remain — devastating. The arithmetic of active management (主動管理) is a zero-sum game before costs: for every portfolio that beats the market, another must underperform it by exactly the same amount. After costs — management fees (管理費) averaging 1–1.5% annually for actively managed funds versus 0.03–0.05% for index funds — the aggregate active manager must underperform the index by precisely the amount of the fee drag. Bogle called this the "cost matters hypothesis (成本決定論)," and a long-run S&amp;P SPIVA (標準普爾指數對比主動基金表現) report consistently shows that over 15-year periods, roughly 90% of actively managed large-cap US funds underperform their benchmark index after fees. The compounding effect is staggering: a $10,000 investment growing at 7% annually for 30 years reaches $76,000; the same investment paying 1.5% in annual fees reaches only $51,000. The fee alone costs you $25,000 — one-third of your final wealth.</p>
+
+<p>By the time Bogle died in 2019, Vanguard managed over $5 trillion in assets and had single-handedly pushed the fund industry's average expense ratio (費用率) down from 1.08% in 1975 to 0.45% — saving ordinary investors an estimated $1 trillion in cumulative fees. The index fund revolution (指數基金革命) changed not just personal finance but market structure: as passive funds grew to hold 40%+ of US equity markets, academics began asking whether markets can remain informationally efficient (信息效率) if fewer and fewer active managers are doing the price-discovery work. That question is genuinely open. But for the individual investor, Bogle's answer was clear: "Don't look for the needle in the haystack — just buy the haystack."</p>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> The single most evidence-backed investing decision most people can make is also the least exciting: a low-cost, broad market index fund, held for decades. Bogle's legacy is that boring is now a strategy.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> Explain Bogle's "cost matters hypothesis" — why must the aggregate of all active managers underperform an index fund after fees, as a matter of arithmetic?
+  <details><summary>Check your answer</summary><p>Active management is zero-sum before costs — for every manager beating the market, another underperforms by the same amount, so the average active manager matches the market gross of fees. After deducting management fees (typically 1–1.5% annually vs 0.03% for index funds), the average active manager must underperform the index by exactly the fee amount. Over decades, this compounding fee drag eliminates a significant portion of final wealth.</p></details>
+</div>
+<div class="source">📚 John Bogle, <em>The Little Book of Common Sense Investing</em>, Wiley; S&amp;P SPIVA US Scorecard (2023); Sharpe, W. (1991) "The Arithmetic of Active Management," <em>Financial Analysts Journal</em>.</div>
+</div>
+</article>
+
+<!-- CARD 11: POLITICAL ECONOMICS -->
+<article class="card blue" id="card-11">
+<div class="card-header">
+  <div class="topic-label">Political Economics — Theory in the Wild</div>
+  <div class="card-title">The Resource Curse: Why Oil Wealth Often Produces Poverty</div>
+</div>
+<div class="card-body">
+<details class="predict-box"><summary>Before you read: If your country discovered a massive oil reserve, would you expect it to become richer over the next 50 years?</summary><p>History suggests the answer is often no — and the mechanism is more institutional than economic.</p></details>
+
+<div class="card-img-wrap" id="img-card-11"><span style="font-size:3rem;padding:1.5rem;display:block">🛢️</span></div>
+<div class="img-caption" id="cap-card-11"></div>
+
+<div class="pe-section">
+<div class="pe-label">① EVENT</div>
+<div class="pe-body">Nigeria has earned over $1 trillion in oil revenues since the 1970s. Its GDP per capita today, adjusted for inflation, is lower than at independence in 1960. Venezuela, once Latin America's wealthiest nation, collapsed into hyperinflation and mass emigration despite holding the world's largest proven oil reserves (石油儲量). The Netherlands, by contrast, experienced a near-deindustrialisation of its manufacturing sector after discovering North Sea natural gas in the 1960s — the original case that gave the phenomenon its name.</div>
+</div>
+
+<div class="pe-section">
+<div class="pe-label">② THEORY</div>
+<div class="pe-body">The Resource Curse (資源詛咒), formalised by economists Richard Auty (1993) and Jeffrey Sachs &amp; Andrew Warner (1995), predicts that resource-abundant countries systematically underperform resource-scarce ones in long-run economic growth. Two mechanisms are proposed: (a) <em>Dutch Disease</em> (荷蘭病) — resource export revenues strengthen the exchange rate (匯率), making non-resource exports uncompetitive and hollowing out manufacturing; (b) <em>institutional degradation</em> — resource windfalls allow governments to fund patronage (恩庇政治) without taxation, removing the fiscal contract that historically pressures states toward accountability.</div>
+</div>
+
+<div class="pe-section">
+<div class="pe-label">③ ANOMALY</div>
+<div class="pe-body">Norway (挪威), Botswana (博茨瓦納), and Chile (智利) are resource-rich and have thrived. Norway's sovereign wealth fund (主權財富基金) now exceeds $1.7 trillion. This directly refutes any deterministic version of the curse — the same oil that impoverished Nigeria enriched Norway. Meanwhile, resource-scarce countries like Japan (日本) and South Korea (南韓) industrialised spectacularly, complicating the direction of causation entirely.</div>
+</div>
+
+<div class="pe-section">
+<div class="pe-label">④ CHALLENGER</div>
+<div class="pe-body">Institutional quality (制度質量), not resource wealth per se, is the likely causal variable (Mehlum, Moene &amp; Torvik, 2006, <em>Economic Journal</em>). Countries with strong property rights, rule of law, and pre-existing democratic accountability convert resource wealth into investment; those without convert it into rent-seeking (尋租行為) and conflict. This reframes the curse as a pre-existing institutional condition revealed, not created, by resource discovery — still an open question, as reverse causality remains hard to rule out.</div>
+</div>
+
+<div class="takeaway">💡 <strong>Takeaway:</strong> Natural resources are neither a gift nor a curse — they are an amplifier. They make good institutions better and bad institutions worse.</div>
+
+<div class="retrieval">
+  <strong>🧠 Retrieval Prompt</strong><br>
+  <em>Answer this without looking back:</em> What are the two core mechanisms of the Resource Curse theory, and what does the contrasting example of Norway suggest about the actual causal variable?
+  <details><summary>Check your answer</summary><p>Dutch Disease (resource exports raise exchange rates, crowding out manufacturing) and institutional degradation (resource revenue allows patronage without taxation, reducing state accountability). Norway's success suggests institutional quality — rule of law, property rights, democratic accountability — is the actual causal variable: resources amplify existing institutions rather than independently determining outcomes.</p></details>
+</div>
+<div class="source">📚 Auty, R. (1993) <em>Sustaining Development in Mineral Economies</em>, Routledge; Sachs &amp; Warner (1995) NBER Working Paper 5398; Mehlum, Moene &amp; Torvik (2006), <em>Economic Journal</em>, 116(508).</div>
+</div>
+</article>
+
+<!-- CONNECTION OF THE DAY -->
+<div class="connection">
+<h2>🔗 Connection of the Day</h2>
+<p><strong>Cards 6 &amp; 10 — Dunning-Kruger meets Index Investing:</strong> The Dunning-Kruger effect helps explain why active fund management persists despite overwhelming evidence against it. Moderately competent investors — those who know enough to feel confident picking stocks — are precisely the most dangerous: skilled enough to construct a narrative, not skilled enough to know how hard the game truly is. Bogle's index fund is, in a sense, the institutional solution to collective metacognitive failure: a rule that removes human judgment from the equation precisely because human judgment is systematically overconfident at the individual level.</p>
+<p><em>So what:</em> Whenever you feel strongly tempted to "do something" with your investments — rotate sectors, time the market, pick the obvious winner — that certainty is likely Dunning-Kruger talking. The evidence-based response is the one that feels embarrassingly passive.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+<h3>📚 All Sources</h3>
+<ul style="list-style:none;line-height:2;">
+<li>1. Umehata et al. (2019), <em>Science</em> 366; IllustrisTNG: Springel et al. (2018), <em>MNRAS</em> 475; NASA JWST Science Overview</li>
+<li>2. 司馬光《資治通鑑》；N.H. Rothschild, <em>Wu Zhao: China's Only Female Emperor</em>, Longman 2015；Patricia Ebrey, <em>Cambridge Illustrated History of China</em></li>
+<li>3. Ole Benedictow, <em>The Black Death 1346–1353</em>, Boydell Press；William McNeill, <em>Plagues and Peoples</em>；Barbara Tuchman, <em>A Distant Mirror</em>, Knopf</li>
+<li>4. 《孟子》〈公孫丑上〉〈告子上〉；Bryan Van Norden, <em>Mengzi</em>, Hackett 2008；SEP "Mengzi"</li>
+<li>5. Hume, <em>A Treatise of Human Nature</em> (1739)；<em>Enquiry Concerning Human Understanding</em> (1748)；SEP "Problem of Induction"；Popper, <em>Logic of Scientific Discovery</em></li>
+<li>6. Kruger &amp; Dunning (1999), <em>JPSP</em> 77(6)；Gignac &amp; Zajenkowski (2020), <em>Intelligence</em> 80</li>
+<li>7. Bouchard et al., HERITAGE Family Study, <em>JAP</em> (1999)；Sarzynski et al. (2017), <em>PLOS ONE</em></li>
+<li>8. Simic et al. (2013), <em>SJMSS</em> 23(2)；McMillian et al. (2006), <em>JSCR</em></li>
+<li>9. San Millán &amp; Brooks (2018), <em>Cancers</em> 10(4)；Seiler &amp; Kjerland (2006), <em>SJMSS</em></li>
+<li>10. Bogle, <em>Little Book of Common Sense Investing</em>；S&amp;P SPIVA (2023)；Sharpe (1991), <em>FAJ</em></li>
+<li>11. Auty (1993)；Sachs &amp; Warner (1995) NBER WP5398；Mehlum et al. (2006), <em>Economic Journal</em></li>
+</ul>
+
+<details style="margin-top:1.5rem;">
+<summary style="cursor:pointer;color:var(--accent);font-size:.85rem;">📋 Do-Not-Repeat Log (today's additions)</summary>
+<div style="margin-top:.8rem;font-size:.8rem;line-height:1.9;color:var(--muted);">
+<p>10 Jun 2026 additions: Cosmic Web / dark matter structure (Astronomy) · 武則天 / 科舉 / 武周 (Eastern History) · Black Death / feudal labour (Western History) · 孟子 / 性善論 / 四端 (Eastern Philosophy) · Hume's Problem of Induction (Western Philosophy) · Dunning-Kruger Effect (Psychology) · VO2 max trainability / HERITAGE study (Physiology) · Static stretching pre-exercise myth (Health) · Zone 2 / polarised training (Sports Science) · Jack Bogle / index fund revolution (Investing) · Resource Curse / Dutch Disease (Political Economics)</p>
+</div>
+</details>
+</footer>
+
+</div><!-- /content-col -->
+</div><!-- /page-layout -->
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+<button onclick="exportPDF()">📄 Export PDF</button>
+<button onclick="saveForPhone(this)">📥 Save for Phone</button>
+<button onclick="sendToPhone(this)">📱 Send to Phone</button>
+</div>
+
+<!-- QR MODAL -->
+<div class="qr-modal" id="qr-modal">
+<div class="qr-box">
+<h3>📱 Open on Phone</h3>
+<div id="qr-canvas"></div>
+<p id="qr-url" style="word-break:break-all;font-size:.78rem;margin-top:.5rem;"></p>
+<button onclick="document.getElementById('qr-modal').classList.remove('open')">Close</button>
+</div>
+</div>
+
+<script>
+// ── Image loading ──────────────────────────────────────────
+window._imageMap = {};
+const _candidates = {
+  'card-1': ['Cosmic web','Large-scale structure of the universe','Dark matter'],
+  'card-2': ['Wu Zetian','Tang dynasty','Chinese empress'],
+  'card-3': ['Black Death','Bubonic plague','Medieval plague'],
+  'card-4': ['Mencius','Confucianism','Chinese philosophy'],
+  'card-5': ['David Hume','Problem of induction','Scottish philosophy'],
+  'card-6': ['Dunning–Kruger effect','Metacognition','Cognitive bias'],
+  'card-7': ['VO2 max','Mitochondrion','Aerobic exercise'],
+  'card-8': ['Stretching','Muscle physiology','Warm-up'],
+  'card-9': ['Zone 2 training','Endurance training','Mitochondria'],
+  'card-10':['John C. Bogle','Vanguard Group','Index fund'],
+  'card-11':['Resource curse','Dutch disease','Oil wealth'],
+};
+async function loadImages(){
+  for(const [id,titles] of Object.entries(_candidates)){
+    for(const t of titles){
+      try{
+        const r=await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(t)}`);
+        if(!r.ok) continue;
+        const d=await r.json();
+        const url=(d.originalimage||d.thumbnail||{}).source;
+        if(!url) continue;
+        window._imageMap[id]=url;
+        const wrap=document.getElementById('img-'+id);
+        if(wrap){
+          wrap.innerHTML=`<img src="${url}" alt="${t}" loading="lazy">`;
+          const cap=document.getElementById('cap-'+id);
+          if(cap) cap.innerHTML=`${t} — <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(t)}" target="_blank" rel="noopener" style="color:var(--accent)">Wikipedia / Wikimedia Commons</a>`;
+        }
+        break;
+      }catch(e){}
+    }
+  }
+}
+loadImages();
+
+// ── Nav highlight ──────────────────────────────────────────
+(function(){
+  const pills=[...document.querySelectorAll('.toc-bar a, .left-nav a')];
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        pills.forEach(p=>p.classList.remove('active'));
+        document.querySelectorAll(`a[href="#${e.target.id}"]`).forEach(p=>p.classList.add('active'));
+      }
+    });
+  },{threshold:0.2,rootMargin:'-52px 0px -55% 0px'});
+  document.querySelectorAll('.card').forEach(c=>obs.observe(c));
+})();
+
+// ── Inline images for offline ──────────────────────────────
+async function inlineImages(){
+  const imgs=document.querySelectorAll('.card-img-wrap img');
+  await Promise.allSettled([...imgs].map(img=>new Promise(res=>{
+    if(!img.src||img.src.startsWith('data:')) return res();
+    fetch(img.src,{mode:'cors'}).then(r=>r.blob()).then(b=>{
+      const rd=new FileReader();
+      rd.onload=e=>{img.src=e.target.result;res();};
+      rd.readAsDataURL(b);
+    }).catch(res);
+  })));
+}
+
+// ── Save for Phone ─────────────────────────────────────────
+async function saveForPhone(btn){
+  const orig=btn.textContent;
+  btn.textContent='⏳ Preparing…';btn.disabled=true;
+  await inlineImages();
+  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='daily-learning-2026-06-10.html';
+  a.click();
+  btn.textContent=orig;btn.disabled=false;
+}
+
+// ── Send to Phone ──────────────────────────────────────────
+async function sendToPhone(btn){
+  const orig=btn.textContent;
+  btn.textContent='⏳ Preparing…';btn.disabled=true;
+  await inlineImages();
+  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+  const file=new File([blob],'daily-learning-2026-06-10.html',{type:'text/html'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){
+    try{await navigator.share({files:[file],title:"Daily Learning 10 Jun"});btn.textContent=orig;btn.disabled=false;return;}catch(e){}
+  }
+  // QR fallback
+  btn.textContent=orig;btn.disabled=false;
+  showQR();
+}
+
+function showQR(){
+  const modal=document.getElementById('qr-modal');
+  modal.classList.add('open');
+  const urlEl=document.getElementById('qr-url');
+  const canvas=document.getElementById('qr-canvas');
+  canvas.innerHTML='';
+  // Detect LAN IP via WebRTC
+  try{
+    const pc=new RTCPeerConnection({iceServers:[]});
+    pc.createDataChannel('');
+    pc.createOffer().then(o=>pc.setLocalDescription(o));
+    pc.onicecandidate=e=>{
+      if(!e.candidate) return;
+      const m=e.candidate.candidate.match(/(\d+\.\d+\.\d+\.\d+)/);
+      if(m&&!m[1].startsWith('127.')){
+        const url=`http://${m[1]}:8765/daily-learning-2026-06-10.html`;
+        urlEl.textContent=url;
+        if(typeof QRCode!=='undefined') new QRCode(canvas,{text:url,width:200,height:200});
+        pc.close();
+      }
+    };
+  }catch(e){urlEl.textContent='Start the local server and scan the QR from there.';}
+}
+
+// Load QRCode lib lazily
+document.getElementById('qr-modal').addEventListener('click',function once(){
+  if(typeof QRCode==='undefined'){
+    const s=document.createElement('script');
+    s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';
+    document.head.appendChild(s);
+  }
+  this.removeEventListener('click',once);
+});
+
+// ── Export PDF ─────────────────────────────────────────────
+function exportPDF(){window.print();}
+</script>
+</body>
+</html>
