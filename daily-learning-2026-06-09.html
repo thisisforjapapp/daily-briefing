@@ -124,10 +124,6 @@ details.log-d td,details.log-d th{padding:.3rem .45rem;border:1px solid var(--bo
 details.log-d th{color:var(--accent);}
 
 /* ── TOOLBAR ── */
-.toolbar{position:fixed;bottom:1.4rem;right:1rem;display:flex;flex-direction:column;gap:.4rem;z-index:200;}
-.toolbar button{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.45rem .75rem;font-size:.76rem;cursor:pointer;font-family:inherit;transition:all .18s;white-space:nowrap;}
-.toolbar button:hover{background:var(--accent);color:#000;border-color:var(--accent);}
-
 /* ── RESPONSIVE ── */
 @media(min-width:900px){.toc-bar{display:none;}}
 @media(max-width:899px){
@@ -148,12 +144,18 @@ details.log-d th{color:var(--accent);}
 .sticky-top h1{font-size:.97rem !important;letter-spacing:.01em;}
 .sticky-top .meta{font-size:.72rem;margin-top:0 !important;opacity:.75;}
 .sticky-top .toc-bar{padding:.28rem .8rem !important;}
+
+/* ── Header toolbar ── */
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border,#2a2a38);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted,#888);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text,#e0ddd4);border-color:var(--accent-dim,#3a6a9a);}
 </style>
 </head>
 <body>
 
 <div class="sticky-top">
-<div class="back-bar"><a href="index.html">← All Briefings</a></div>
+<div class="back-bar"><a href="index.html">← All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="(function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([document.documentElement.outerHTML],{type:'text/html'}));a.download=location.pathname.split('/').pop()||'briefing.html';a.click();})()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="window.location.href='mailto:thisisforjapapp@gmail.com?subject='+encodeURIComponent(document.title)+'&body='+encodeURIComponent('Your daily briefing.')">&#x1F4F1;&nbsp;Send</button></div></div>
 <header class="site-header">
   <h1>Edward's Daily Learning</h1>
   <div class="meta">Tuesday, 9 June 2026 &nbsp;·&nbsp; Est. reading time: <strong>~35 min</strong></div>
@@ -522,12 +524,7 @@ details.log-d th{color:var(--accent);}
   </div>
 </footer>
 
-<!-- STICKY TOOLBAR -->
-<div class="toolbar">
-  <button onclick="window.print()">📄 Export PDF</button>
-  <button onclick="saveForPhone(this)">📥 Save for Phone</button>
-  <button onclick="sendToPhone(this)">📱 Send to Phone</button>
-</div>
+
 
 <!-- SEND TO PHONE MODAL -->
 <div id="stp-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:1000;align-items:center;justify-content:center;">
