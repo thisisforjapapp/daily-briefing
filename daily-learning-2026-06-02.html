@@ -270,7 +270,7 @@
 <body>
 
 <div class="sticky-top">
-<div class="back-bar"><a href="index.html">← All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="(function(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([document.documentElement.outerHTML],{type:'text/html'}));a.download=location.pathname.split('/').pop()||'briefing.html';a.click();})()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="window.location.href='mailto:thisisforjapapp@gmail.com?subject='+encodeURIComponent(document.title)+'&body='+encodeURIComponent('Your daily briefing.')">&#x1F4F1;&nbsp;Send</button></div></div>
+<div class="back-bar"><a href="index.html">← All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button></div></div>
 <header>
   <h1>Edward's Daily Learning</h1>
   <h2>Curiosity &amp; Application Edition</h2>
@@ -709,5 +709,44 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 </script>
+
+<script>
+/* ── Toolbar: Save & Share ── */
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'briefing.html';
+  // On desktop: blob download
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) {
+    // Fallback: open the GitHub Pages URL so user can bookmark/save
+    window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank');
+  }
+}
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'index.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  // Web Share API → native sheet on iOS/Android (AirDrop, Messages, Notes…)
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url })
+      .catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){
+      alert('Link copied — paste it on your phone!');
+    });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl)
+      + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+
 </body>
 </html>
