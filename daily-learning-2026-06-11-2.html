@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 11 June 2026 (2nd Edition)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&display=swap');
+
+:root {
+  --bg: #0f0f13;
+  --surface: #17171e;
+  --surface2: #1f1f2a;
+  --border: #2c2c3a;
+  --text: #e2e0d8;
+  --muted: #8a8899;
+  --accent: #6c8ebf;
+  --accent-hover: #8aaee0;
+  --amber: #c9922a;
+  --amber-bg: #1e180d;
+  --amber-border: #5a3e10;
+  --green: #4a9e6b;
+  --green-bg: #0e1a12;
+  --green-border: #2a5e3a;
+  --steel: #5a85b0;
+  --steel-bg: #0e1520;
+  --steel-border: #2a4a70;
+  --card-radius: 14px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif HK", "Source Han Serif", serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+/* ── STICKY TOP ── */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-bar {
+  padding: .22rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  border-bottom: 1px solid var(--border);
+}
+.back-bar a {
+  font-size: .78rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .15rem .7rem;
+  transition: color .2s, border-color .2s;
+}
+.back-bar a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+.badge-2nd {
+  font-size: .68rem;
+  background: var(--amber);
+  color: #000;
+  border-radius: 20px;
+  padding: .1rem .55rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.sticky-top .site-header {
+  padding: .45rem 1.2rem;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sticky-top h1 { font-size: .97rem; font-weight: 700; color: var(--text); }
+.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; color: var(--muted); }
+
+.sticky-top .toc-bar {
+  padding: .28rem .8rem;
+  display: flex;
+  gap: .4rem;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+.sticky-top .toc-bar::-webkit-scrollbar { display: none; }
+.toc-bar a {
+  font-size: .72rem;
+  white-space: nowrap;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .15rem .65rem;
+  color: var(--muted);
+  transition: color .2s, border-color .2s;
+}
+.toc-bar a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+
+/* ── LAYOUT ── */
+.page-wrap {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* left nav */
+.left-nav {
+  display: none;
+}
+@media (min-width: 900px) {
+  .left-nav {
+    display: block;
+    width: 180px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 110px;
+    align-self: flex-start;
+    padding: 1.5rem .5rem 1.5rem 0;
+  }
+  .left-nav a {
+    display: block;
+    font-size: .74rem;
+    color: var(--muted);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: .3rem .7rem;
+    margin-bottom: .25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .left-nav a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(108,142,191,.07);
+    text-decoration: none;
+  }
+  .left-nav .nav-label {
+    font-size: .65rem;
+    color: var(--muted);
+    opacity: .55;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: .3rem .7rem .1rem;
+  }
+  .content-col { padding-left: 1.5rem; }
+}
+
+.content-col { flex: 1; min-width: 0; padding-top: 1.5rem; padding-bottom: 4rem; }
+
+/* hide toc-bar on desktop */
+@media (min-width: 900px) {
+  .sticky-top .toc-bar { display: none; }
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.6rem;
+  scroll-margin-top: 52px;
+}
+@media (max-width: 600px) {
+  .card { padding: 1.1rem 1rem; }
+}
+.card.amber-card { border-left: 4px solid var(--amber); background: #111108; }
+.card.green-card  { border-left: 4px solid var(--green);  background: var(--green-bg); }
+.card.steel-card  { border-left: 4px solid var(--steel);  background: var(--steel-bg); }
+
+.card-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  margin-bottom: .5rem;
+}
+.card h2 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: .9rem;
+  color: var(--text);
+}
+.card p { margin-bottom: .85rem; font-size: .97rem; }
+
+details { margin: .7rem 0; }
+details summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: .9rem;
+  user-select: none;
+  padding: .3rem 0;
+}
+details[open] summary { margin-bottom: .4rem; }
+details > *:not(summary) { padding-left: .8rem; font-size: .9rem; color: var(--text); opacity: .9; }
+
+.card-img-wrap {
+  width: 100%;
+  min-height: 180px;
+  max-height: 260px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: .9rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface2);
+  position: relative;
+}
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  max-height: 260px;
+}
+.card-img-wrap .emoji-fallback {
+  font-size: 4rem;
+  opacity: .35;
+}
+.img-caption {
+  font-size: .68rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -.5rem;
+  margin-bottom: .9rem;
+  opacity: .7;
+}
+
+.intro-box {
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  margin: .8rem 0 1rem;
+  font-size: .9rem;
+  line-height: 1.65;
+}
+.intro-box.amber {
+  background: var(--amber-bg);
+  border-left: 4px solid var(--amber);
+  color: #d9c9a8;
+}
+.intro-box.accent {
+  background: #111b28;
+  border-left: 4px solid var(--accent);
+  color: #bcc8d9;
+}
+
+.takeaway {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: .7rem 1rem;
+  font-size: .9rem;
+  margin: 1rem 0 .8rem;
+  color: var(--text);
+}
+.amber-card .takeaway { border-left-color: var(--amber); }
+.green-card  .takeaway { border-left-color: var(--green); }
+.steel-card  .takeaway { border-left-color: var(--steel); }
+
+.retrieval-prompt {
+  background: #13131a;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  font-size: .88rem;
+  margin: .8rem 0;
+}
+.retrieval-prompt em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+.source {
+  font-size: .78rem;
+  color: var(--muted);
+  margin-top: .6rem;
+  border-top: 1px solid var(--border);
+  padding-top: .5rem;
+}
+
+/* ── YESTERDAY'S SPARK ── */
+.spark-section {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  border-radius: var(--card-radius);
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 1.6rem;
+}
+.spark-section h2 {
+  font-size: 1rem;
+  color: var(--amber);
+  margin-bottom: .8rem;
+}
+.spark-item {
+  margin-bottom: .55rem;
+  font-size: .87rem;
+}
+.spark-item em { color: var(--accent); font-style: normal; }
+
+/* ── CONNECTION OF THE DAY ── */
+.connection-box {
+  background: #111820;
+  border: 1px solid var(--steel-border);
+  border-left: 4px solid var(--steel);
+  border-radius: var(--card-radius);
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.6rem;
+}
+.connection-box h2 { font-size: 1rem; color: var(--steel); margin-bottom: .5rem; }
+.connection-box p { font-size: .92rem; }
+
+/* ── EVENT / THEORY / ANOMALY / CHALLENGER ── */
+.etac { display: grid; gap: .6rem; margin: .8rem 0; }
+.etac-item { border-radius: 8px; padding: .7rem 1rem; font-size: .88rem; }
+.etac-event     { background: #1a1210; border-left: 3px solid #c0512a; }
+.etac-theory    { background: #0f1820; border-left: 3px solid #4a80c0; }
+.etac-anomaly   { background: #171212; border-left: 3px solid #b04444; }
+.etac-challenger{ background: #0f1a10; border-left: 3px solid #4a9e6b; }
+.etac-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; opacity: .6; display: block; margin-bottom: .25rem; }
+
+/* ── TOOLBAR ── */
+.toolbar {
+  position: fixed;
+  bottom: 1.2rem;
+  right: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  z-index: 300;
+}
+.toolbar button {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: .8rem;
+  padding: .45rem .85rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .2s, border-color .2s;
+  white-space: nowrap;
+}
+.toolbar button:hover { background: var(--surface); border-color: var(--accent); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0 1.5rem;
+  font-size: .8rem;
+  color: var(--muted);
+}
+footer h3 { font-size: .88rem; margin-bottom: .5rem; color: var(--text); }
+footer p { margin-bottom: .4rem; }
+
+/* ── SECTION DIVIDER ── */
+.section-label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  opacity: .5;
+  margin: 2rem 0 .8rem;
+  padding-bottom: .3rem;
+  border-bottom: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<!-- STICKY TOP -->
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">← All Briefings</a>
+    <span class="badge-2nd">2nd Edition</span>
+  </div>
+  <header class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">11 June 2026 · 2nd Edition · ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a href="#spark">⚡ Spark</a>
+    <a href="#card-1">1 · Cosmos</a>
+    <a href="#card-2">2 · 東史</a>
+    <a href="#card-3">3 · W.History</a>
+    <a href="#card-4">4 · 東哲</a>
+    <a href="#card-5">5 · W.Phil</a>
+    <a href="#card-6">6 · Psych</a>
+    <a href="#card-7">7 · Physio</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sport</a>
+    <a href="#card-10">10 · Invest</a>
+    <a href="#card-11">11 · PolEcon</a>
+  </nav>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+
+  <!-- LEFT NAV (desktop) -->
+  <nav class="left-nav" aria-label="Card navigation">
+    <div class="nav-label">Today</div>
+    <a href="#spark">⚡ Yesterday's Spark</a>
+    <a href="#card-1">1 · Astronomy</a>
+    <a href="#card-2">2 · 東方歷史</a>
+    <a href="#card-3">3 · Western History</a>
+    <a href="#card-4">4 · 東方哲學</a>
+    <a href="#card-5">5 · Western Phil.</a>
+    <a href="#card-6">6 · Psychology</a>
+    <a href="#card-7">7 · Physiology</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sports Science</a>
+    <a href="#card-10">10 · Investing</a>
+    <a href="#card-11">11 · Pol. Economics</a>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content-col">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>🔁 Yesterday's Spark — Review Before You Read</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:.9rem;">From the 11 June 2026 (1st Edition) — answer without looking back, then expand to check.</p>
+
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 1 · Astronomy:</em> What physical mechanism prevents a neutron star from collapsing into a black hole, and why does a stellar core spin so much faster after collapse?</summary>
+          Neutron degeneracy pressure — the Pauli exclusion principle forbids two neutrons from occupying the same quantum state, creating an outward pressure even without fusion. Angular momentum is conserved: as the collapsing stellar core shrinks from ~Sun-size to ~20km, its rotation rate increases enormously (like a spinning figure skater pulling in their arms).
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 2 · 東方歷史:</em> 蒙古軍攻城時依賴哪三種核心手段？奧特拉爾事件為何成為西征的導火索？</summary>
+          三種手段：（一）吸納工匠操作攻城器械（拋石機、燃燒彈）；（二）情報收集與心理恐嚇（細作散播恐慌）；（三）「降者免死、拒者屠城」政策系統性瓦解抵抗。奧特拉爾事件殺害了成吉思汗的直屬商業代表並侵害絲路利益，性質等同宣戰。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 3 · Western History:</em> What specific political-economic incentive gave German princes reason to support Luther's challenge to Rome?</summary>
+          Protestant princes could seize Church properties and lands within their territories — removing a major economic and political rival. Beyond theology, the Reformation offered a legal basis for territorial consolidation and ending the flow of tax revenues to Rome.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 4 · 東方哲學:</em> 韓非子「法、術、勢」三者分別指什麼？為何單靠其中一項不足？</summary>
+          法＝公開法律（賞罰標準）；術＝君主秘密考核臣下（防止欺騙結黨）；勢＝君位本身的威權（服從的是職位）。無術則臣可欺君；無法則賞罰無據；無勢則威令不行。三者缺一不可。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 5 · Western Philosophy:</em> What does Aristotle mean by the "doctrine of the mean," and why does it require practical wisdom rather than a formula?</summary>
+          The virtuous action lies between two extremes (excess and deficiency) — but the mean is relative to the person and situation, not a fixed midpoint. Practical wisdom (phronesis) is required to perceive what the mean demands in each unique circumstance; no rule can substitute for trained moral perception.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 6 · Psychology:</em> What is the difference between normative and informational conformity, and what did the Berns neuroimaging study suggest?</summary>
+          Normative conformity = going along to be accepted (social pressure, no genuine belief change). Informational conformity = genuinely updating beliefs because others seem to know something you don't. Berns (2005) found that conforming participants showed activity in visual/spatial processing areas, suggesting their perception itself changed — not just their public response.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 7 · Physiology:</em> What direction does most vagus nerve communication between gut and brain travel, and what share of the body's serotonin originates in the gut?</summary>
+          ~80–90% of vagus nerve signals travel from gut to brain (afferent), not brain to gut. Approximately 90% of the body's serotonin is produced in the gut (by enterochromaffin cells), not the brain — though it cannot cross the blood-brain barrier.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 8 · Health:</em> In the Wastyk et al. Stanford RCT, which group showed increased microbiome diversity, and why did the high-fibre group not show the same change?</summary>
+          The fermented food group showed increased microbiome diversity and reduced inflammatory markers. The high-fibre group showed no significant diversity increase, likely because their existing microbiome lacked the specific bacteria needed to degrade the new fibre substrates — the microbial community couldn't respond without those founding species.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 9 · Sports Science:</em> Why does the "anabolic window" matter less than gym culture assumes, and when does it genuinely matter?</summary>
+          Muscle protein synthesis (MPS) remains elevated for 24–48 hours post-exercise, so total daily protein intake matters far more than the exact timing. The exception: fasted training — if you train without eating beforehand, post-workout protein timing becomes genuinely important since there is no pre-workout protein substrate to carry over.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 10 · Investing:</em> Explain the "Mr. Market" allegory. What is the key difference between Graham's NCAV and Buffett's moat approach?</summary>
+          Mr. Market is an emotional business partner who offers to buy or sell your share each day at a wildly varying price — the rational response is to exploit his irrationality, not be guided by it. Graham's NCAV (net current asset value) focused on statistical cheapness (assets minus all liabilities > market cap); Buffett's moat approach pays more for durable competitive advantages and compounding earnings power.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 11 · Political Economics:</em> What is Ricardo's core claim in comparative advantage, and what three assumptions does strategic trade theory argue are violated in technology industries?</summary>
+          Comparative advantage: each country should specialise in goods it produces at lowest opportunity cost, even if another country is better at everything in absolute terms. Strategic trade theory argues that in technology industries: (1) constant returns to scale don't hold (large economies of scale exist); (2) markets are not perfectly competitive (oligopolies dominate); (3) learning-by-doing creates dynamic advantages that initial conditions can lock in permanently.
+        </details>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 1: ASTRONOMY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-1">
+      <div class="card-label">Card 1 · Astronomy &amp; Cosmos</div>
+      <h2>The Universe Is Speeding Up — And Nobody Knows Why: Dark Energy and the Accelerating Cosmos</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Two separate teams of astronomers in the 1990s set out to measure how much the universe's expansion was <em>slowing down</em>. What did they find instead — and why did it initially make them suspect a mistake?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-1">
+        <div class="emoji-fallback">🌌</div>
+      </div>
+      <p class="img-caption" id="cap-card-1"></p>
+
+      <p>In 1998, two rival teams — Saul Perlmutter's (珀爾馬特) Supernova Cosmology Project and Brian Schmidt (施密特) and Adam Riess's (里斯) High-Z Supernova Search Team — were racing to measure the deceleration rate of the universe. Both were using Type Ia supernovae (Ia型超新星) as "standard candles" (標準燭光): these stellar explosions reliably reach the same peak luminosity (roughly five billion times the Sun), so any dimness beyond what distance alone explains reveals the universe's expansion history. The teams expected to confirm that gravity was gradually braking the Big Bang's momentum. Instead, both independently found the same impossible-seeming result: distant supernovae were dimmer than they should have been — the universe was not slowing down. It was <em>accelerating</em>.</p>
+
+      <p>The force driving this acceleration was immediately named dark energy (暗能量) — a placeholder for something that acts as a repulsive pressure pervading all of space. The leading candidate is Einstein's (愛因斯坦) cosmological constant (宇宙常數, Λ), which he had introduced in 1917 to produce a static universe and later called his "greatest blunder" when Hubble's (哈勃) observations showed the universe was expanding. Reinstated by the 1998 results, Λ represents a constant energy density inherent to empty space itself. The ΛCDM model (Λ冷暗物質模型) — now the standard cosmological framework — describes a universe composed of roughly 68% dark energy, 27% cold dark matter (冷暗物質), and only 5% ordinary baryonic matter. Everything we can see, touch, or measure is a thin scum on a vast dark ocean.</p>
+
+      <p>Despite decades of effort, dark energy remains deeply mysterious. Its equation of state — the ratio of pressure to energy density (w) — is consistent with w = −1 (a true cosmological constant), but theories disagree on why the vacuum should have this particular energy value. Quantum field theory predicts a vacuum energy roughly 10<sup>120</sup> times larger than observed — perhaps the worst mismatch in all of physics, known as the cosmological constant problem (宇宙常數問題). Alternatives such as quintessence (第五元素) propose a dynamic scalar field whose density evolves over time. The Vera C. Rubin Observatory (魯賓天文台) and ESA's Euclid (歐幾里得) space telescope, both now gathering data, aim to measure w with sufficient precision to distinguish a true constant from a slowly varying field. Perlmutter, Schmidt, and Riess shared the 2011 Nobel Prize in Physics for the discovery that upended the expected fate of the cosmos.</p>
+
+      <div class="takeaway">💡 The most important cosmological discovery of the 20th century was made by teams trying to confirm what they expected — and being rigorous enough to trust data that contradicted them.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> Why are Type Ia supernovae reliable as standard candles, and what does finding them dimmer than expected imply about the universe's expansion?
+        <details>
+          <summary>Check your answer</summary>
+          Type Ia supernovae reach a consistent peak luminosity because they result from white dwarfs accreting matter to a fixed mass threshold (Chandrasekhar limit), so any deviation from expected brightness reflects distance error or changes in expansion history. Dimmer-than-expected supernovae mean they are farther away than a decelerating universe would place them — implying the expansion is accelerating, not slowing.
+        </details>
+      </div>
+
+      <p class="source">📚 Riess et al. (1998), <em>Astronomical Journal</em> 116:1009; Perlmutter et al. (1999), <em>The Astrophysical Journal</em> 517:565; Nobel Committee for Physics, Prize Announcement (2011).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 2: EASTERN HISTORY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber-card" id="card-2">
+      <div class="card-label">Card 2 · 東方歷史</div>
+      <h2>世界第一張紙幣、百萬人口的夜市、海上貿易霸權：宋朝的商業革命</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        宋朝軍事積弱，長期向北方政權納貢稱臣，為何卻能孕育出中國歷史上最繁榮的商業社會？軍事弱國與商業強國之間，究竟有何深層關聯？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-2">
+        <div class="emoji-fallback">🏮</div>
+      </div>
+      <p class="img-caption" id="cap-card-2"></p>
+
+      <div class="intro-box amber">
+        <strong>核心背景：</strong>宋太祖趙匡胤（927–976年）以「杯酒釋兵權」解除武將威脅，確立重文輕武的國策<br>
+        <strong>關鍵地點：</strong>汴京（今開封）、泉州、廣州——前者百萬人口的北方都城，後兩者是海上絲路的出入口<br>
+        <strong>大背景：</strong>北宋失去北方牧馬地，無力維持龐大騎兵，轉而以商稅、市舶稅支撐財政，催生了中國歷史上最徹底的商業化轉型。
+      </div>
+
+      <p>宋朝的商業革命，始於一個財政困境的解方。失去燕雲十六州後，北宋既無天險可守，又缺乏牧馬地以組建騎兵，軍事上長期處於守勢，每年向遼、金、西夏輸送大量歲幣。然而這一壓力卻意外催生了一套以商業稅收補充財政的模式：朝廷主動廢除唐代嚴格的「坊市制度」——傳統上，商業活動被限制在特定坊市內、限定時段交易。北宋中期以後，汴京的店舖可直接臨街開設，夜市通宵達旦，《東京夢華錄》描述的十七世紀北方都市繁華絕非文學誇張：當時汴京人口估計逾百萬，是同期倫敦的五倍以上。</p>
+
+      <p>宋朝最具革命性的金融創新是交子（jiāozi）——世界最早有記錄的紙幣，北宋真宗年間由四川商人聯合發行，後被朝廷收歸官辦。其出現有其必然性：鐵錢沉重，四川商人攜帶千貫銅錢已是難事，以紙質憑證代替金屬貨幣作遠距結算，是市場自發的解決方案。與此同時，活字印刷術（畢昇，約1040年）大幅降低帳簿、合約、商業文書的製作成本，使複雜的商業關係得以文字固化。指南針（羅盤）技術成熟後，中國海商得以在視野不及陸標的深海航行，泉州與廣州的市舶司每年徵收的市舶稅一度佔宋廷歲入兩成以上。</p>
+
+      <p>歷史學家羅伯特·哈特韋爾（Robert Hartwell）和伊懋可（Mark Elvin）等人將宋代視為中國「近代化」最接近突破口的時代——人口重心南移至長江流域、佃農制度逐漸取代人身依附的農奴關係、城市識字率顯著提升。伊懋可在其「高水平均衡陷阱」（High-Level Equilibrium Trap）理論中提出，宋代技術雖先進，卻因廉價勞動力充裕而未有壓力進一步發展機械生產。明清兩代將部分宋代商業成就拱手讓予歐洲海商，但宋朝商業革命留下的制度遺產——紙幣、契約文化、都市消費主義——已深刻重塑此後中國的經濟基因。</p>
+
+      <div class="takeaway">💡 宋朝的教訓：軍事弱勢有時反而是商業創新的催化劑——無法以武力索取資源，便只能學會用制度和市場去創造財富。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>交子（紙幣）為何在宋代四川首先出現？宋朝廢除坊市制度對城市商業形態帶來了什麼具體改變？
+        <details>
+          <summary>查看答案</summary>
+          四川鐵錢沉重，遠距貿易需要輕便的結算工具，商人自發以紙質憑證代替金屬貨幣。廢除坊市制度後，店舖可臨街開設、全天候交易，夜市成為可能，商業活動不再被限定在封閉坊市內，城市公共空間與商業空間首次大規模融合。
+        </details>
+      </div>
+
+      <p class="source">📚 Robert Hartwell, "Markets, Technology and the Structure of Enterprise in the Development of the Eleventh-Century Iron and Steel Industry" (1966)；Mark Elvin, <em>The Pattern of the Chinese Past</em> (Stanford UP, 1973)；《東京夢華錄》（孟元老，約1147年）。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 3: WESTERN HISTORY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-3">
+      <div class="card-label">Card 3 · Western History</div>
+      <h2>The Only Successful Slave Revolt That Built a Nation: The Haitian Revolution</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Saint-Domingue (modern Haiti) was in 1789 the most profitable colony in the world — generating more revenue for France than all of Britain's Caribbean colonies combined. How did the French Revolution's Declaration of the Rights of Man create an explosive contradiction in this slave society?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-3">
+        <div class="emoji-fallback">⚔️</div>
+      </div>
+      <p class="img-caption" id="cap-card-3"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figures:</strong> Toussaint Louverture (杜桑·盧維杜爾), Jean-Jacques Dessalines (德薩利納), Henri Christophe (克里斯托夫)<br>
+        <strong>Event:</strong> The Haitian Revolution (海地革命), 1791–1804 — the only successful slave revolt in recorded history to produce an independent state<br>
+        <strong>Context:</strong> Saint-Domingue was France's jewel colony, producing 40% of Europe's sugar and 60% of its coffee on the labour of 500,000 enslaved Africans — outnumbering the free population 10 to 1.
+      </div>
+
+      <p>The French Revolution (法國大革命) planted a seed it could not control. When the Declaration of the Rights of Man (人權宣言, 1789) proclaimed universal liberty, free people of colour in Saint-Domingue — some wealthy, some slave-owners themselves — immediately petitioned Paris for equal rights. The white planter class refused. In August 1791, a ceremony at Bois Caïman ignited what would become thirteen years of complex, multi-sided warfare. The initial uprising was not a single coordinated army but hundreds of simultaneous revolts; within weeks, the colony's northern plain was ablaze, with over a thousand sugar plantations destroyed. Into this chaos rose Toussaint Louverture (杜桑·盧維杜爾) — a formerly enslaved man who had been freed years earlier, and who possessed a strategic genius that left Napoleon's (拿破崙) generals baffled. Toussaint played the French, Spanish, and British occupying forces against each other with remarkable skill, using guerrilla warfare, diplomacy, and calculated switching of allegiances to protect his growing army.</p>
+
+      <p>By 1801 Toussaint had consolidated control of the entire island and issued a constitution naming himself Governor-for-Life — a near-independent state in all but name. Napoleon, alarmed by the prospect of a free Black republic undermining his plans to rebuild a French American empire, sent his brother-in-law Charles Leclerc (勒克萊爾) with 20,000 troops. Toussaint was captured not by battlefield defeat but by treachery: he was lured into negotiations under a guarantee of safe conduct, then arrested and transported to a French fortress prison in the Jura mountains, where he died in April 1803 of cold and neglect. His last reported words: "In overthrowing me, you have done no more than cut down the trunk of the tree of Black liberty in Saint-Domingue. It will spring back from the roots, for they are numerous and deep." He was right. Yellow fever (黃熱病) devastated the French army — Leclerc himself died — and Jean-Jacques Dessalines (德薩利納) led the final campaign, defeating the remnants at the Battle of Vertières in November 1803.</p>
+
+      <p>On 1 January 1804, Dessalines declared independence and named the new nation Haiti — the indigenous Arawak word for "mountainous land" — erasing the colonial name entirely. The consequences reverberated across the Atlantic world. Napoleon, needing funds after losing his Caribbean anchor, sold the Louisiana Territory (路易斯安那領地) to the United States for $15 million — doubling the young republic's size. Haiti was forced to pay France an indemnity (賠款) of 150 million francs (later reduced to 90 million) as compensation for the "lost property" of its former enslavers — a debt not fully paid off until 1947, which historians have identified as a major structural cause of Haiti's subsequent poverty. Yet Haiti's symbolic impact was immediate and global: slaveholders from Virginia to São Paulo regarded it with terror; abolitionists (廢奴主義者) pointed to it as proof that enslaved people would and could fight for freedom. The historian Laurent Dubois called it "a transformation that shook the Atlantic world to its foundations."</p>
+
+      <div class="takeaway">💡 The Haitian Revolution proves that colonised and enslaved people were not passive recipients of European history — and that the most radical test of Enlightenment principles came not from Paris salons but from a Caribbean sugar island.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> How was Toussaint Louverture defeated, and what happened to the Louisiana Territory as a direct consequence of Haiti's independence?
+        <details>
+          <summary>Check your answer</summary>
+          Toussaint was not defeated militarily — he was captured by deception, arrested under a false guarantee of safe conduct during negotiations, and died in a French prison. Napoleon, losing his Caribbean ambitions after Haiti's revolution devastated his forces, sold the Louisiana Territory to the United States in 1803, doubling the young republic's land area.
+        </details>
+      </div>
+
+      <p class="source">📚 Laurent Dubois, <em>Avengers of the New World: The Story of the Haitian Revolution</em> (Harvard UP, 2004); C.L.R. James, <em>The Black Jacobins</em> (1938, Penguin Modern Classics ed.); Marlene Daut, "The First Free Black Nation" — <em>Smithsonian Magazine</em> (2020).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 4: EASTERN PHILOSOPHY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber-card" id="card-4">
+      <div class="card-label">Card 4 · 東方哲學</div>
+      <h2>禮是甚麼？不是繁文縟節，而是人類馴化自身的唯一技術——荀子的性惡論與禮治</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        孟子說人性本善，荀子卻主張人性本惡。這場爭論不只是抽象神學：如果孟子對，教育的目的是喚醒；如果荀子對，教育的目的是改造。兩者在實踐上會有何根本差異？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-4">
+        <div class="emoji-fallback">📿</div>
+      </div>
+      <p class="img-caption" id="cap-card-4"></p>
+
+      <div class="intro-box amber">
+        <strong>核心思想家：</strong>荀子（約前313–前238年），趙國人，遊歷各國，三任稷下學宮祭酒<br>
+        <strong>核心文本：</strong>《荀子》三十二篇，尤以〈性惡〉、〈禮論〉、〈勸學〉最具代表性<br>
+        <strong>歷史背景：</strong>戰國末期，禮樂崩壞、諸侯混戰；荀子親眼目睹秦國以法家手段富強，卻堅持儒家禮治有更深厚的社會整合功能，試圖在承認人性之惡的前提下重建道德秩序。
+      </div>
+
+      <p>荀子的出發點是一個解剖式的直視：「人之性惡，其善者偽也。」這裡的「偽」字並非「虛偽」，而是「人為」、「刻意為之」的意思。荀子的論證是：人生而好利，好聲色，惡勞苦——放任這些本性，必然產生爭奪、混亂、社會瓦解。他用一個精準的比喻說明這一點：「木直中繩，輮以為輪，其曲中規」——筆直的木材，經過蒸煮彎曲，可以製成車輪；人性雖本惡，但通過禮法的塑造，同樣可以成就君子。這與孟子「四端之心」的路線截然相反：孟子認為善的種子已在人內，需要澆灌；荀子認為根本沒有那顆種子，必須從外部植入。兩者對「教育」的理解，因此在哲學根源上就已分道揚鑣。</p>
+
+      <p>荀子對「禮」的理解遠超一般人想像的儀式規矩。在他看來，禮是歷代聖王積累的「欲望管理技術」——它劃定邊界、分配資源、協調競爭，使人類社會在有限資源下得以維持秩序。他在〈禮論〉中寫道：「禮者，所以正身也」——禮的功能在於校正人身，就如同繩墨之於工匠、水平之於土木。這一理解暗含了一個重要洞見：制度設計比道德說教更可靠。君子之所以重要，不是因為君子有超凡的內在美德，而是因為君子深刻理解並能運用禮的結構性力量。這讓荀子的思想在儒家內部顯得格外清醒，也讓他的兩名弟子——韓非子與李斯——走上了更徹底的法家路線：若禮是人為設計的秩序工具，那麼法律不也是如此？</p>
+
+      <p>荀子在中國思想史上長期處於尷尬地位。宋代理學家以孟子為正統，將荀子「性惡論」視為異端；朱熹甚至說「荀卿全是申韓」（完全與法家同路）。然而近現代學者逐漸重新評價荀子的貢獻：他是儒家思想中最嚴謹的自然主義者，明確反對鬼神祭祀（「君子以為文，百姓以為神」），主張天道無意志可言，人類必須自力更生去認識並利用自然規律。日本明治維新的思想家吉田松陰（Yoshida Shōin）深受荀子的社會改造論影響；二十世紀法學學者亦指出，荀子關於禮法作為社會契約的論述，是中國最早的「制度主義」思想雛形。</p>
+
+      <div class="takeaway">💡 荀子的核心洞見：承認人性的陰暗面，才能設計出真正有效的社會秩序——自欺欺人地假設人性本善，只會建造在沙上的道德大廈。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>荀子「性惡論」中的「偽」字是什麼意思？荀子如何理解「禮」的社會功能——它與孟子的善性教育路線有何根本差別？
+        <details>
+          <summary>查看答案</summary>
+          「偽」是「人為」、「刻意塑造」之意，非虛偽。荀子認為禮是歷代聖王設計的欲望管理制度，通過劃定邊界、分配資源來防止爭奪與混亂——這是外部的結構性工具。孟子路線是喚醒內在已有的善性；荀子路線是用禮法從外部改造根本無善的人性。前者依賴內省，後者依賴制度設計。
+        </details>
+      </div>
+
+      <p class="source">📚 《荀子》（先秦典籍）；Eric Hutton, <em>Xunzi: The Complete Text</em> (Princeton UP, 2014)；Bryan Van Norden, <em>Introduction to Classical Chinese Philosophy</em> (Hackett, 2011)；馮友蘭《中國哲學史》（商務印書館，1934）。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-5">
+      <div class="card-label">Card 5 · Western Philosophy</div>
+      <h2>Can You Trust Your Own Mind? Descartes' Method of Doubt and the Birth of Modern Philosophy</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        René Descartes (笛卡兒) wanted to rebuild all human knowledge from scratch on foundations that were truly certain. He began by trying to doubt absolutely everything. What — if anything — survived that radical doubt?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-5">
+        <div class="emoji-fallback">🧠</div>
+      </div>
+      <p class="img-caption" id="cap-card-5"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figure:</strong> René Descartes (笛卡兒, 1596–1650) — mathematician (inventor of Cartesian coordinates), natural philosopher, and the man who asked whether we can trust our own senses<br>
+        <strong>Problem:</strong> The Scientific Revolution had demolished Aristotelian (亞里士多德式) authority; the Reformation had shattered religious certainty; Descartes wanted to find a new, unshakeable foundation for knowledge<br>
+        <strong>Rival View:</strong> The Scholastic tradition grounded knowledge in Aristotle and Church authority — Descartes wanted to start entirely fresh.
+      </div>
+
+      <p>Writing in a warm room in Bavaria in 1619 (and published as <em>Meditations on First Philosophy</em> in 1641), Descartes (笛卡兒) applied systematic doubt as a philosophical method. Could he trust his senses? No — the senses deceive (the stick looks bent in water). Could he trust mathematical reasoning? No — perhaps an evil demon (malin génie, 惡魔) of supreme power was continuously deceiving him, making 2+2 appear to be 4 when it is not. Could he trust that he was even awake? No — dreams feel entirely real while dreaming. Stripping away every belief that admitted even a theoretical possibility of doubt, Descartes arrived at one bedrock that the very act of doubting could not undermine: the fact that he was doubting proved there was a thinking thing doing the doubting. <em>Je pense, donc je suis</em> — "I think, therefore I am" (我思故我在) — was reformulated in the <em>Meditations</em> as "Cogito, ergo sum." The existence of a thinking self was the one claim immune to the evil demon's deceit, because even a perfectly deceived mind must exist to be deceived.</p>
+
+      <p>From this single certainty, Descartes attempted to rebuild knowledge. He argued that clear and distinct (清晰明確) perceptions — the self-evidently true ideas like the cogito — must be reliable, and used this principle to argue for God's existence as a guarantor of his faculties. But critics immediately identified what is known as the "Cartesian circle" (笛卡兒循環): Descartes uses clear and distinct perception to prove God's existence, then uses God's existence to guarantee that clear and distinct perceptions are reliable. The argument is circular. More fundamentally, Descartes' method led him to a sharp mind-body dualism (心身二元論): the mind (res cogitans, 思維實體) and body (res extensa, 延展實體) are entirely distinct substances. The body is a machine governed by mechanical laws; the mind is non-physical. This solved the problem of free will — a non-physical mind is not determined by physical causation — but created the infamous "problem of interaction": how does a non-physical mind move a physical body?</p>
+
+      <p>The cogito and its problems rippled through the next four centuries. Pierre Gassendi (伽桑狄) argued that "I think" already smuggles in the assumption that there is an "I" doing the thinking — the observation should be "there is thinking happening." Georg Lichtenberg (利希滕貝格) made the same point: the most the cogito justifies is "there is a thought," not "there is a permanent thinking self." This challenge would resurface in Hume's (休謨) bundle theory of the self and in Buddhist philosophy's (佛教哲學) denial of a permanent self. Yet Descartes' lasting contribution was methodological: by demanding that knowledge justify itself from first principles rather than inherit authority from tradition, he set the template for epistemology (認識論) as a rigorous discipline — and for science as a self-correcting practice that does not rest on the pronouncements of any authority.</p>
+
+      <div class="takeaway">💡 Descartes' deepest gift to modernity was not the cogito itself but the demand behind it: every belief must earn its place through justification, not merely inherit it through authority.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is the "Cartesian circle," and why does it undermine Descartes' attempt to rebuild knowledge from the cogito?
+        <details>
+          <summary>Check your answer</summary>
+          The Cartesian circle: Descartes uses the principle that "clear and distinct perceptions are reliable" to prove God exists; then uses God's existence to guarantee that clear and distinct perceptions are reliable. The argument is circular — each claim depends on the other, so neither provides the independent foundation Descartes needs.
+        </details>
+      </div>
+
+      <p class="source">📚 Descartes, <em>Meditations on First Philosophy</em> (1641); Stanford Encyclopedia of Philosophy: "Descartes' Epistemology" (Markie, 2023); Anthony Kenny, <em>Descartes: A Study of His Philosophy</em> (Random House, 1968).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 6: PSYCHOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-6">
+      <div class="card-label">Card 6 · Psychology</div>
+      <h2>When Giving Up Feels Rational: Learned Helplessness and Why Your Brain Stops Trying</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Dogs exposed to electric shocks they could not escape later failed to escape shocks that were easily avoidable — even when they only needed to jump a low barrier. A 2016 revision of the original theory suggested the original explanation was exactly backwards. What was inverted?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-6">
+        <div class="emoji-fallback">🐕</div>
+      </div>
+      <p class="img-caption" id="cap-card-6"></p>
+
+      <p>In 1967, Martin Seligman (塞利格曼) and Steven Maier at the University of Pennsylvania ran a triadic experiment with dogs. One group received escapable shocks — pressing a panel stopped the shock. A second group received inescapable shocks at the same intensity and timing (yoked to the first group), so their responses had no effect. A control group received no shocks. When all three groups were later placed in a shuttle box where jumping a low barrier stopped the shock, the control and escapable-shock groups quickly learned to escape. The inescapable-shock dogs, however, mostly lay down and whimpered — passively accepting pain they could now easily avoid. Seligman labelled this learned helplessness (習得性無助): the animals had learned that their actions had no effect on outcomes, and this expectation of uncontrollability transferred to new situations where control was actually available.</p>
+
+      <p>The human implications were quickly recognised. Seligman and colleagues drew links to depression (抑鬱症) — depressed individuals often show the same passivity and expectation that effort is futile. The model was refined in 1978 by Abramson, Seligman, and Teasdale, who added attribution theory (歸因理論): helplessness becomes most entrenched when people attribute bad outcomes to causes that are internal ("it's my fault"), stable ("it will always be this way"), and global ("it affects everything I do"). This reformulation explained why identical objective situations produce helplessness in some people but not others. It also pointed directly toward cognitive therapy (認知治療) as an antidote: identifying and challenging faulty attributions. Carol Dweck's (德韋克) growth mindset (成長型思維) research in children maps almost precisely onto this framework — children taught that failure reflects effort rather than fixed ability show dramatically reduced helplessness responses after setbacks.</p>
+
+      <p>A significant revision arrived in 2016 when Maier himself, reviewing fifty years of neuroscience, proposed that the original theory had the causal direction backwards. The original model assumed that helplessness was <em>learned</em> — the default was active response. But Maier's revised account, based on work with the dorsal raphe nucleus (背縫核) and the medial prefrontal cortex (內側前額葉皮質), proposed the opposite: passive resignation to uncontrollable stress is the brain's <em>default response</em>. What must actually be learned is controllability — the prefrontal cortex actively inhibits the stress-passivity circuit when it detects that responses matter. This inverts the story: helplessness isn't acquired; agency is. A key practical implication follows: small experiences of genuine control — even trivial ones — are neurologically significant because they strengthen the prefrontal circuitry that suppresses resignation. The therapeutic lesson shifts from "unlearn passivity" to "accumulate experiences of agency."</p>
+
+      <div class="takeaway">💡 The revised insight: agency isn't the default — it has to be built. Small, genuine wins matter not just psychologically but neurologically, because they literally train the circuits that overcome resignation.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What did the 2016 revision to learned helplessness theory suggest about which state — helplessness or agency — is the brain's default, and what are the practical implications?
+        <details>
+          <summary>Check your answer</summary>
+          Maier's 2016 revision proposed that passive resignation is the brain's default stress response, and that a sense of control must be actively learned (via the medial prefrontal cortex suppressing the dorsal raphe nucleus). The practical implication: accumulating small genuine experiences of control is neurologically important — it trains the circuits that override default passivity.
+        </details>
+      </div>
+
+      <p class="source">📚 Seligman &amp; Maier (1967), <em>Journal of Experimental Psychology</em> 74(1):1–9; Abramson, Seligman &amp; Teasdale (1978), <em>Journal of Abnormal Psychology</em> 87(1); Maier &amp; Seligman (2016), <em>Psychological Review</em> 123(4):349–367.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 7: PHYSIOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-7">
+      <div class="card-label">Card 7 · Physiology</div>
+      <h2>The Sugar Crash Is Real — Here's the Molecular Story Behind Every Blood Glucose Spike</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        After you eat a carbohydrate-rich meal, what sequence of molecular events moves glucose from your blood into your muscle cells — and why does a short walk after eating have a measurable effect on blood sugar independent of insulin?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-7">
+        <div class="emoji-fallback">🫀</div>
+      </div>
+      <p class="img-caption" id="cap-card-7"></p>
+
+      <p>When you eat a meal containing carbohydrates, digestion breaks them down to glucose (葡萄糖), which is absorbed from the small intestine into the bloodstream. Blood glucose (血糖) rises, and pancreatic beta cells (胰臟β細胞) in the islets of Langerhans (蘭格漢斯島) detect this through a glucose sensor (GLUT2 transporter and glucokinase). They respond by releasing insulin (胰島素) — a peptide hormone — into the portal circulation. Insulin binds to insulin receptors (胰島素受體) on the surface of muscle and fat cells, triggering a signalling cascade (via IRS-1, PI3K, and Akt) that causes a specialised glucose transporter called GLUT4 (葡萄糖轉運蛋白4) to migrate from intracellular storage vesicles to the cell membrane. With GLUT4 now exposed on the surface, glucose flows into muscle cells along its concentration gradient. Blood glucose falls, and the beta cells reduce insulin output. Excess glucose is polymerised into glycogen (糖原) — stored in the liver (~70–100g capacity) and skeletal muscle (~300–500g) — and any surplus beyond glycogen capacity is converted to fatty acids via de novo lipogenesis (新脂肪生成).</p>
+
+      <p>Insulin's role extends beyond glucose transport. It simultaneously inhibits lipolysis (脂肪分解) — suppressing the release of fatty acids from adipose tissue — and promotes protein synthesis, making it a broadly anabolic hormone. Its antagonist is glucagon (升糖素), released from pancreatic alpha cells (α細胞) when blood glucose falls, which stimulates glycogenolysis (糖原分解) and gluconeogenesis (糖質新生) in the liver to restore circulating glucose. In healthy individuals, this counterregulatory system maintains blood glucose within a remarkably tight range (~4–7 mmol/L) through the day. Insulin resistance (胰島素阻抗) disrupts this feedback: lipid accumulation in muscle cells (from a high-fat diet or excess calories) causes IRS-1 serine phosphorylation, blocking the signalling cascade so that GLUT4 fails to translocate adequately. The pancreas compensates by secreting more insulin — initially maintaining glucose control, but progressively exhausting beta cell capacity, a trajectory toward Type 2 diabetes (二型糖尿病).</p>
+
+      <p>Here is why a post-meal walk works by a different mechanism from insulin: skeletal muscle contraction activates AMP-activated protein kinase (AMPK, 腺苷一磷酸活化蛋白激酶), which independently triggers GLUT4 translocation — a parallel pathway that bypasses the insulin receptor entirely. This is why exercise lowers blood glucose even in people with severe insulin resistance. Just 10–15 minutes of light walking after a meal reduces the postprandial glucose (餐後血糖) peak by roughly 20–30% in multiple studies. For people managing insulin resistance, this mechanism offers a low-cost, low-effort intervention that operates at the molecular level regardless of metabolic status. Understanding the two pathways — insulin-mediated and contraction-mediated GLUT4 translocation — clarifies why combining dietary management with physical activity is not just additive but mechanistically synergistic.</p>
+
+      <div class="takeaway">💡 A short walk after eating isn't just burning calories — it's activating a completely separate molecular pathway that moves glucose into muscle cells independent of insulin, which is why it works even when insulin signalling is impaired.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is GLUT4, and why does muscle contraction lower blood glucose via a different mechanism than insulin — making it useful even in insulin-resistant individuals?
+        <details>
+          <summary>Check your answer</summary>
+          GLUT4 is a glucose transporter that normally sits inside muscle cells and must migrate to the cell surface to allow glucose entry. Insulin triggers this migration via a receptor-signalling cascade (IRS-1→PI3K→Akt). Muscle contraction triggers the same GLUT4 migration via AMPK — a completely separate pathway that doesn't require insulin receptors. In insulin-resistant individuals, the insulin pathway is impaired but the contraction pathway remains functional, so exercise still lowers blood glucose effectively.
+        </details>
+      </div>
+
+      <p class="source">📚 Saltiel &amp; Kahn (2001), "Insulin signalling and the regulation of glucose and lipid metabolism," <em>Nature</em> 414:799–806; Richter &amp; Hargreaves (2013), "Exercise, GLUT4, and Skeletal Muscle Glucose Uptake," <em>Physiological Reviews</em> 93(3):993–1017; NIH National Institute of Diabetes and Digestive and Kidney Diseases.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 8: HEALTH -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-8">
+      <div class="card-label">Card 8 · Health</div>
+      <h2>Caffeine Doesn't Give You Energy — It Borrows It From Tomorrow</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Most people believe caffeine gives them energy. Pharmacologically, this is incorrect — caffeine does not generate energy or alertness. What does it actually do, and what accumulates in your brain while caffeine is blocking it?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-8">
+        <div class="emoji-fallback">☕</div>
+      </div>
+      <p class="img-caption" id="cap-card-8"></p>
+
+      <p>Caffeine (咖啡因) is not a stimulant in the direct sense of generating alertness — it is an adenosine receptor antagonist (腺苷受體拮抗劑). Adenosine (腺苷) is a neuromodulator that accumulates in the brain from the moment you wake up, binding progressively to adenosine receptors (A1 and A2A receptors) and creating the feeling of sleepiness — the technical term is sleep pressure (睡眠壓力) or sleep drive. Caffeine molecules are structurally similar enough to adenosine to fit those same receptors but without activating them — a molecular impersonator that blocks the sleepiness signal without clearing the adenosine itself. The alertness you feel from caffeine is not energy creation; it is the temporary suppression of the signal telling you that you are tired. Meanwhile, adenosine continues to build up behind the blockade. When caffeine is eventually metabolised — with a half-life of approximately 5–7 hours depending on your genetics (CYP1A2 gene, CYP1A2基因) — the accumulated adenosine floods back onto its receptors all at once. This explains the "caffeine crash" (咖啡因崩潰): it is not a caffeine effect but an adenosine rebound.</p>
+
+      <p>The half-life issue has practical consequences that are routinely underestimated. If you consume 200mg of caffeine at noon, approximately 100mg remains active at 6pm, and ~50mg at midnight. Light sleep (睡眠淺) and reduced slow-wave sleep (慢波睡眠) documented in sleep studies are dose-dependent effects of caffeine present in the bloodstream at bedtime, even if you feel no subjective alertness. A landmark study by Landolt et al. (1995) demonstrated that 200mg of caffeine consumed six hours before sleep measurably reduced the depth of slow-wave sleep — the phase most critical for physical recovery and memory consolidation — even in regular caffeine consumers who felt unaffected. Chronic use also causes receptor upregulation (受體上調): the brain manufactures more adenosine receptors in response to repeated blockade, meaning that regular caffeine users are effectively more tired at baseline than non-users when not medicated, and require caffeine just to reach the alertness level non-users experience unassisted.</p>
+
+      <p>Given these mechanics, timing matters more than most people realise. A key finding from research on cortisol (皮質醇) rhythms: cortisol peaks naturally in the first 30–90 minutes after waking, producing genuine alertness via the cortisol awakening response (皮質醇覺醒反應). Consuming caffeine during this window does not amplify alertness but may blunt the cortisol peak and accelerate tolerance development. Delaying the first caffeine dose by 90–120 minutes after waking allows cortisol to do its natural job and reserves the adenosine-blocking effect for when sleep pressure genuinely begins to build. Similarly, a caffeine cut-off by early afternoon (around 2pm for most people) ensures that the half-life decay clears the drug to negligible levels before the critical slow-wave sleep window begins. These are not lifestyle preferences — they follow directly from the pharmacokinetics of the molecule.</p>
+
+      <div class="takeaway">💡 Caffeine doesn't create energy — it delays the bill. The more precisely you understand its half-life, the more you can use it strategically rather than reactively.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> Why does a "caffeine crash" occur, and what does receptor upregulation mean for chronic daily caffeine users?
+        <details>
+          <summary>Check your answer</summary>
+          The crash occurs because caffeine blocks adenosine receptors without clearing adenosine — so when caffeine is metabolised, the accumulated adenosine floods the receptors all at once. Receptor upregulation means the brain grows extra adenosine receptors in response to chronic blockade; regular users are therefore more tired at their baseline (uncaffeinated) state than non-users, requiring caffeine just to reach normal alertness levels.
+        </details>
+      </div>
+
+      <p class="source">📚 Fredholm et al. (1999), "Actions of Caffeine in the Brain," <em>Pharmacological Reviews</em> 51(1):83–133; Landolt et al. (1995), "Caffeine intake (200 mg) in the morning affects human sleep and EEG power spectra at night," <em>Brain Research</em> 675:67–74; Walker, <em>Why We Sleep</em> (Scribner, 2017), Ch. 7.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-9">
+      <div class="card-label">Card 9 · Sports Science</div>
+      <h2>Sleep Is a Performance-Enhancing Drug That Is Completely Legal: The Science of Sleep and Athletic Output</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        An extended sleep study on elite Stanford basketball players found improvements in sprint speed, free-throw accuracy, and reaction time simply by adding more sleep. What is the exact mechanism linking sleep to physical performance — and why does sleep deprivation produce reaction-time impairment comparable to significant alcohol consumption?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-9">
+        <div class="emoji-fallback">🏀</div>
+      </div>
+      <p class="img-caption" id="cap-card-9"></p>
+
+      <p>In 2011, Cheri Mah (馬切里) and colleagues at Stanford University conducted a landmark study on the men's varsity basketball team. After a two-week baseline period in which players averaged 6.7 hours of sleep per night, participants extended their sleep to a target of 10 hours nightly for 5–7 weeks. The results were striking: sprint times improved by 0.7 seconds (a 9% improvement over a 282-foot court), free-throw accuracy improved by 9.2%, three-point shooting improved by 9.9%, and subjective measures of fatigue and mood improved substantially. No training variable changed — the only manipulation was sleep duration. Mah's subsequent work replicated these effects in swimmers, football players, and tennis players, consistently finding that sleep extension (睡眠延長) of even one to two hours produced measurable athletic gains that would be difficult to replicate through any training intervention of equal simplicity.</p>
+
+      <p>The mechanisms are multiple and well-documented. During slow-wave sleep (SWS, 慢波睡眠), the anterior pituitary gland (腦垂體前葉) releases the majority of its daily growth hormone (生長激素) output — the primary driver of muscle protein synthesis (肌肉蛋白質合成) and connective tissue repair. REM sleep (快速眼動睡眠) consolidates procedural and motor memories: neural circuits encoding fine motor skills (投籃姿勢, swing mechanics, footwork) are replayed and strengthened during REM. Heart rate variability (心率變異性, HRV) — the most reliable objective marker of recovery readiness — falls substantially with even partial sleep deprivation (sleeping 6 vs. 8 hours), indicating the autonomic nervous system (自律神經系統) remains stressed. Most dramatically, research by Van Dongen et al. (2003) showed that 17–19 hours of continuous wakefulness produces reaction time (反應時間) and cognitive performance equivalent to a blood alcohol level (血液酒精濃度) of 0.05–0.08% — with the additional problem that sleep-deprived individuals consistently underestimate their own impairment.</p>
+
+      <p>Injury risk is perhaps the most compelling argument for elite athletes. A 2014 study by Milewski et al. in the <em>Journal of Pediatric Orthopaedics</em> tracked 112 student athletes over 2.5 years: those sleeping fewer than 8 hours per night were 1.7 times more likely to sustain an injury than those sleeping 8 or more. The mechanism likely involves both slowed reaction time (less ability to protect joints during sudden movements) and impaired tissue repair (connective tissue does not fully recover between sessions). The practical implications are clear: the highest-return intervention for most athletes — amateur or elite — is not an additional training session but protecting sleep. Roger Federer and LeBron James famously sleep 10–12 hours; Usain Bolt made sleep a documented component of his training regime. The irony is that the culture of sport often treats shortened sleep as evidence of dedication, when it is more accurately described as unrecognised underperformance.</p>
+
+      <div class="takeaway">💡 Sleep is not passive recovery — it is the phase during which the adaptation from training actually occurs. Cutting sleep cuts the gains.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What specifically happens during slow-wave sleep and REM sleep that is directly relevant to athletic performance — and what does 17–19 hours of wakefulness do to reaction time?
+        <details>
+          <summary>Check your answer</summary>
+          Slow-wave sleep: the anterior pituitary releases most of its daily growth hormone, driving muscle repair and protein synthesis. REM sleep: motor skill memories are replayed and consolidated, strengthening the neural circuits for fine athletic movements. 17–19 hours of wakefulness produces reaction time and cognitive impairment equivalent to a blood alcohol level of 0.05–0.08% — and sleep-deprived people systematically underestimate how impaired they are.
+        </details>
+      </div>
+
+      <p class="source">📚 Mah et al. (2011), "The Effects of Sleep Extension on the Athletic Performance of Collegiate Basketball Players," <em>Sleep</em> 34(7):943–950; Van Dongen et al. (2003), <em>Sleep</em> 26(2):117–126; Milewski et al. (2014), <em>Journal of Pediatric Orthopaedics</em> 34(2):129–133.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 10: INVESTING -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card green-card" id="card-10">
+      <div class="card-label">Card 10 · Investing &amp; Economic Thinking</div>
+      <h2>How AAA Became Junk: The 2008 Financial Crisis and the Rating Agency Problem</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        The 2008 financial crisis was widely blamed on greed and recklessness. But there was a specific, structural incentive problem that made the system almost mechanically prone to failure — one involving the people paid to assess risk. What was it?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-10">
+        <div class="emoji-fallback">📉</div>
+      </div>
+      <p class="img-caption" id="cap-card-10"></p>
+
+      <p>To understand 2008, begin with the securitisation (資產證券化) machine. US banks would originate mortgages (按揭貸款) — including "subprime" (次級) loans extended to borrowers with weak credit — then bundle hundreds or thousands of mortgages into mortgage-backed securities (MBS, 按揭抵押證券). These were sold to investors worldwide. To package MBS into collateralised debt obligations (CDOs, 擔保債務憑證), banks sliced the cash flows into tranches (份額) ordered by priority: senior tranches got paid first (low return, supposedly low risk); equity tranches absorbed losses first (high return, high risk). The theory was that pooling thousands of uncorrelated mortgages diversified away idiosyncratic default risk. The fatal flaw: US house prices had never fallen nationally in modern memory, so correlation assumptions were anchored to a world that was about to end. When the housing market turned, all the mortgages fell together — the diversification was illusory.</p>
+
+      <p>The rating agency problem was structural and devastating. Moody's (穆迪), S&P (標準普爾), and Fitch (惠譽) operated under an "issuer-pays" model (發行人付費模式): the banks creating the CDOs paid the agencies to rate them. This created an obvious conflict of interest (利益衝突): agencies competed for the banks' business by being willing to assign favourable ratings. An internal S&P email from 2007, later disclosed in Congressional hearings, read: "We rate every deal... It could be structured by cows and we would rate it." Senior CDO tranches assembled from BBB-rated MBS tranches received AAA ratings — the same rating as US Treasury bonds — based on Gaussian copula (高斯聯繫函數) correlation models that assumed mortgage defaults were largely independent events. David Li's (李祥林) copula formula, published in 2000 in the <em>Journal of Fixed Income</em>, was elegant and convenient, but it required historical correlation data that didn't include a nationwide housing collapse. The models were not fraudulent in intent — they were wrong about the world.</p>
+
+      <p>The leverage (槓桿) amplified the fragility into a systemic crisis (系統性危機). Lehman Brothers (雷曼兄弟) was leveraged approximately 30:1 at the time of its collapse in September 2008 — meaning a 3.3% decline in the value of its assets was sufficient to wipe out its equity entirely. AIG (美國國際集團) had sold credit default swaps (CDS, 信用違約互換) — essentially insurance contracts on CDO default — without holding the capital reserves a conventional insurer would require, because CDS were classified as derivatives, not insurance, and thus escaped regulation. When CDOs began defaulting, AIG owed trillions it could not pay, threatening every major financial institution that had bought its "insurance." The Federal Reserve (聯邦儲備) effectively nationalised AIG to prevent cascading counterparty failures. The key systemic lesson: individual institutions each assessed their own risk as manageable, but the aggregate of their interconnected positions created a fragility visible only at the system level — and no single regulator was watching that level.</p>
+
+      <div class="takeaway">💡 The 2008 crisis was not a failure of greed alone — it was a failure of incentive design (rating agencies paid by issuers), model overconfidence (correlation assumptions), and regulatory arbitrage (CDS escaping insurance rules). Fixing one without the others changes nothing.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What was the "issuer-pays" conflict of interest in the rating agency model, and why was the Gaussian copula model's central assumption wrong about mortgage default correlations?
+        <details>
+          <summary>Check your answer</summary>
+          The issuer-pays model: banks creating CDOs paid rating agencies to rate them, creating an incentive for agencies to compete on leniency to win business. The copula assumption: it modelled mortgage defaults as largely uncorrelated (independent) events, based on historical data from an era without a nationwide housing price decline. When housing prices fell simultaneously across the US, defaults were highly correlated — the diversification the model predicted simply didn't materialise.
+        </details>
+      </div>
+
+      <p class="source">📚 Financial Crisis Inquiry Commission, <em>The Financial Crisis Inquiry Report</em> (US GPO, 2011); Lewis, <em>The Big Short</em> (W.W. Norton, 2010); Felix Salmon, "Recipe for Disaster: The Formula That Killed Wall Street," <em>Wired</em> (March 2009); Gorton &amp; Metrick (2012), "Securitized banking and the run on repo," <em>Journal of Financial Economics</em> 104(3).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card steel-card" id="card-11">
+      <div class="card-label">Card 11 · Political Economics — Theory in the Wild</div>
+      <h2>You Can Only Pick Two: Mundell's Impossible Trinity and the Global Trilemma</h2>
+
+      <div class="etac">
+        <div class="etac-item etac-event">
+          <span class="etac-label">① Event</span>
+          On 16 September 1992 — "Black Wednesday" (黑色星期三) — the UK government raised interest rates to 15% in a single day, then abandoned the attempt and withdrew sterling from the European Exchange Rate Mechanism (ERM, 歐洲匯率機制). George Soros (索羅斯) had shorted the pound so aggressively that his Quantum Fund earned an estimated $1 billion; the UK Treasury lost roughly £3.3 billion. Britain had simultaneously tried to maintain a fixed exchange rate (pegged to the Deutschmark), keep capital flows freely open across its financial markets, and set interest rates to address its own post-reunification recession. Soros recognised this as a structurally impossible triangle and bet against it.
+        </div>
+        <div class="etac-item etac-theory">
+          <span class="etac-label">② Theory</span>
+          Robert Mundell (孟德爾, 1963) and J. Marcus Fleming's Impossible Trinity (不可能三角，又稱三元悖論) states that an open economy cannot simultaneously achieve: (1) a fixed exchange rate (固定匯率), (2) free capital movement (資本自由流動), and (3) an independent monetary policy (獨立貨幣政策). Any two are achievable together, but the third must be sacrificed. The logic is mechanical: if you fix your exchange rate and allow free capital flows, any attempt to set an interest rate different from the anchor currency triggers unlimited arbitrage capital flows that overwhelm your foreign reserve capacity. The UK had chosen all three — and the market enforced the constraint.
+        </div>
+        <div class="etac-item etac-anomaly">
+          <span class="etac-label">③ Anomaly</span>
+          China appears to violate the trilemma. For decades, China has maintained a tightly managed (near-fixed) exchange rate, exercised independent monetary policy, and imposed capital controls — formally choosing corners 1 and 3 while restricting corner 2. Yet capital controls have been porous: Chinese residents and firms have moved hundreds of billions abroad through trade invoice manipulation, underground banking, and outright evasion. In 2015–2016, China experienced a $1 trillion capital outflow despite its controls, forcing the PBOC to defend the renminbi (人民幣) and nearly triggering a crisis. The controls created the appearance of trilemma compliance but not the reality — suggesting the trilemma may operate on a spectrum rather than as a binary.
+        </div>
+        <div class="etac-item etac-challenger">
+          <span class="etac-label">④ Challenger</span>
+          Hélène Rey (雷伊, 2015, Jackson Hole symposium) proposed a more radical revision: the Global Financial Cycle (全球金融周期), driven primarily by US Federal Reserve (聯邦儲備) policy, transmits volatility to all countries regardless of their exchange rate regime. Even freely floating exchange rate countries lose monetary independence when global risk appetite shifts. She argued the real choice is a "dilemma" — not a trilemma: the only way to preserve monetary sovereignty is capital controls, full stop. Maurice Obstfeld (2015) disputes this, arguing the trilemma retains validity with nuances. The question of whether the global dollar system has effectively collapsed the trilemma into a dilemma remains among the most consequential open debates in international macroeconomics.
+        </div>
+      </div>
+
+      <div class="takeaway">💡 The Impossible Trinity is elegant but the world is messy: the real question for any economy is not which two corners to choose but how effectively capital controls can be enforced — and Soros taught Britain that the answer can be tested in real time.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> State Mundell's Impossible Trinity. Why, mechanically, is it impossible to maintain all three simultaneously — and what did Hélène Rey's "dilemma" revision argue?
+        <details>
+          <summary>Check your answer</summary>
+          A country cannot simultaneously have: (1) fixed exchange rate, (2) free capital flows, and (3) independent monetary policy. The mechanism: if you fix your exchange rate and allow free capital, any interest rate different from your anchor currency creates unlimited arbitrage that will exhaust your reserves. Rey's revision: the global financial cycle (driven by the US Fed) imposes monetary conditions on all countries regardless of exchange rate regime — even floating-rate countries lose independence, so the true choice is a dilemma (capital controls vs. no monetary sovereignty), not a trilemma.
+        </details>
+      </div>
+
+      <p class="source">📚 Mundell (1963), "Capital Mobility and Stabilization Policy under Fixed and Flexible Exchange Rates," <em>Canadian Journal of Economics</em> 29(4); Rey (2015), "Dilemma not Trilemma: The Global Financial Cycle and Monetary Policy Independence," NBER Working Paper 21162; Obstfeld (2015), "Trilemmas and Tradeoffs," BIS Working Papers 480.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CONNECTION OF THE DAY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="connection-box">
+      <h2>🔗 Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 — Learned Helplessness and the 2008 Crisis:</strong> Both are fundamentally stories about what happens when feedback loops are broken. Seligman's dogs stopped trying because their actions had no effect on outcomes. Rating agencies stopped applying rigorous standards because the consequences of lax ratings accrued to future investors, not to the agencies themselves — a structural uncoupling of action from consequence. The revised learned helplessness model says agency must be actively reinforced by genuine cause-and-effect experience; the lesson of 2008 is that financial systems need the same: institutions must face the consequences of their risk assessments, or the feedback loop that enforces honest evaluation simply disappears.</p>
+      <p style="margin-top:.5rem;font-size:.88rem;color:var(--steel);"><strong>So what:</strong> Before delegating any important assessment to a third party, ask whether they bear any cost if they are wrong. If the answer is no, their rating is an opinion, not accountability.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>📚 All Sources</h3>
+      <p>1. Riess et al. (1998), AJ 116:1009; Perlmutter et al. (1999), ApJ 517:565; Nobel Committee (2011).</p>
+      <p>2. Robert Hartwell (1966); Mark Elvin, <em>The Pattern of the Chinese Past</em> (Stanford UP, 1973); 《東京夢華錄》。</p>
+      <p>3. Laurent Dubois, <em>Avengers of the New World</em> (Harvard UP, 2004); C.L.R. James, <em>The Black Jacobins</em> (1938).</p>
+      <p>4. 《荀子》；Eric Hutton, <em>Xunzi: The Complete Text</em> (Princeton UP, 2014)；馮友蘭《中國哲學史》。</p>
+      <p>5. Descartes, <em>Meditations on First Philosophy</em> (1641); SEP "Descartes' Epistemology" (2023).</p>
+      <p>6. Seligman &amp; Maier (1967), J Exp Psych 74(1); Maier &amp; Seligman (2016), Psych Review 123(4).</p>
+      <p>7. Saltiel &amp; Kahn (2001), Nature 414:799; Richter &amp; Hargreaves (2013), Physiol Rev 93(3).</p>
+      <p>8. Fredholm et al. (1999), Pharmacol Rev 51(1); Landolt et al. (1995), Brain Research 675; Walker (2017).</p>
+      <p>9. Mah et al. (2011), Sleep 34(7); Van Dongen et al. (2003), Sleep 26(2); Milewski et al. (2014), J Ped Ortho 34(2).</p>
+      <p>10. Financial Crisis Inquiry Report (2011); Lewis, <em>The Big Short</em> (2010); Gorton &amp; Metrick (2012), JFE 104(3).</p>
+      <p>11. Mundell (1963), Can J Econ 29(4); Rey (2015), NBER WP 21162; Obstfeld (2015), BIS WP 480.</p>
+
+      <details style="margin-top:1.2rem;">
+        <summary style="cursor:pointer;color:var(--muted);font-size:.8rem;">📋 Do-Not-Repeat Log (collapsed)</summary>
+        <p style="margin-top:.5rem;font-size:.75rem;opacity:.7;">
+          See do-not-repeat-log.md for full history. Today (2026-06-11, 2nd Edition) added: Dark Energy &amp; Accelerating Universe · 宋朝商業革命 · Haitian Revolution · 荀子性惡論與禮治 · Descartes Cogito &amp; Mind-Body Dualism · Learned Helplessness (Seligman/Maier) · Insulin &amp; Blood Glucose / GLUT4 · Caffeine as adenosine antagonist · Sleep &amp; Athletic Performance (Mah 2011) · 2008 Financial Crisis / CDOs / Rating Agency Problem · Impossible Trinity (Mundell) / Rey's Dilemma.
+        </p>
+      </details>
+    </footer>
+
+  </main>
+</div>
+
+<!-- TOOLBAR -->
+<div class="toolbar">
+  <button onclick="window.print()">📄 Export PDF</button>
+  <button onclick="saveForPhone()">📥 Save for Phone</button>
+  <button onclick="sendToPhone()">📱 Send to Phone</button>
+</div>
+
+<!-- IMAGE JS -->
+<script>
+window._imageMap = {};
+var cards = {
+  'card-1': ['Dark energy','Accelerating expansion of the universe','Type Ia supernova'],
+  'card-2': ['Song dynasty','Jiaozi (currency)','Song dynasty coinage'],
+  'card-3': ['Haitian Revolution','Toussaint Louverture','Jean-Jacques Dessalines'],
+  'card-4': ['Xun Kuang','Xunzi (book)','Confucianism'],
+  'card-5': ['René Descartes','Cogito, ergo sum','Mind–body problem'],
+  'card-6': ['Learned helplessness','Martin Seligman','Positive psychology'],
+  'card-7': ['Insulin','GLUT4','Blood sugar regulation'],
+  'card-8': ['Caffeine','Adenosine receptor','Coffee'],
+  'card-9': ['Sleep deprivation','Sports science','Human performance'],
+  'card-10': ['Subprime mortgage crisis','Collateralized debt obligation','2007–2008 financial crisis'],
+  'card-11': ['Impossible trinity','Robert Mundell','Black Wednesday']
+};
+
+function loadImage(cardId, titles, idx) {
+  if (idx >= titles.length) return;
+  var title = titles[idx];
+  var url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+  fetch(url).then(function(r){ return r.json(); }).then(function(d){
+    var src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
+    if (src) {
+      var wrap = document.getElementById('img-' + cardId);
+      var ef = wrap && wrap.querySelector('.emoji-fallback');
+      if (ef) ef.style.display = 'none';
+      var img = document.createElement('img');
+      img.src = src;
+      img.alt = title;
+      if (wrap) wrap.appendChild(img);
+      window._imageMap[cardId] = src;
+      var cap = document.getElementById('cap-' + cardId);
+      if (cap) cap.innerHTML = title + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a>';
+    } else {
+      loadImage(cardId, titles, idx + 1);
+    }
+  }).catch(function(){ loadImage(cardId, titles, idx + 1); });
+}
+
+Object.keys(cards).forEach(function(id){ loadImage(id, cards[id], 0); });
+
+function saveForPhone() {
+  var blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'daily-learning-2026-06-11-2.html';
+  a.click();
+}
+function sendToPhone() {
+  var fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({title: ttl, text: "Edward's Daily Learning", url: url}).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){ alert('Link copied — paste it on your phone!'); });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl) + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+
+</body>
+</html>
