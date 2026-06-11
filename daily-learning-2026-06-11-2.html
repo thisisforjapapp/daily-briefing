@@ -343,29 +343,6 @@ footer h4 { color: var(--text); font-size: .85rem; margin-bottom: .5rem; }
 
 p { margin-bottom: .9rem; }
 
-/* ── Floating toolbar ── */
-.fab-toolbar {
-  position: fixed;
-  bottom: 1.2rem;
-  right: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: .45rem;
-  z-index: 300;
-}
-.fab-btn {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: var(--text);
-  font-size: .8rem;
-  padding: .45rem .85rem;
-  cursor: pointer;
-  font-family: inherit;
-  transition: background .2s, border-color .2s;
-  white-space: nowrap;
-}
-.fab-btn:hover { background: var(--surface); border-color: var(--accent); }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -373,8 +350,13 @@ p { margin-bottom: .9rem; }
   .toc-bar { display: flex; }
   .content { padding: 1rem 1rem 4rem; }
   .card { padding: 1.2rem 1.2rem; }
-  .fab-toolbar { bottom: 1rem; right: .8rem; }
 }
+
+/* ── Header toolbar ── */
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border,#2a2a38);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted,#888);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text,#e0ddd4);border-color:var(--accent-dim,#3a6a9a);}
 </style>
 </head>
 <body>
@@ -382,10 +364,7 @@ p { margin-bottom: .9rem; }
 
 <!-- STICKY TOP -->
 <div class="sticky-top">
-  <div class="back-bar">
-    <a href="index.html">← All Briefings</a>
-    <span class="badge-2nd">2nd Edition</span>
-  </div>
+  <div class="back-bar"><a href="index.html">← All Briefings</a><span class="badge-2nd" style="margin-left:.4rem;">2nd Edition</span><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button></div></div>
   <header class="site-header">
     <h1>Edward's Daily Learning</h1>
     <span class="meta">11 June 2026 · 2nd Edition · ~25 min read</span>
@@ -961,12 +940,6 @@ p { margin-bottom: .9rem; }
 </div>
 
 <!-- TOOLBAR -->
-<!-- FLOATING TOOLBAR -->
-<div class="fab-toolbar">
-  <button class="fab-btn" onclick="window.print()">📄 Export PDF</button>
-  <button class="fab-btn" id="btn-save">📥 Save for Phone</button>
-  <button class="fab-btn" id="btn-send">📱 Send to Phone</button>
-</div>
 
 <script>
 window._imageMap = {};
@@ -1005,25 +978,36 @@ async function loadWikiImage(cardId, candidates) {
 }
 Object.keys(imgCandidates).forEach(id => loadWikiImage(id, imgCandidates[id]));
 
-document.getElementById('btn-save').addEventListener('click', function() {
-  const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'daily-learning-2026-06-11-2.html';
-  a.click();
-});
-document.getElementById('btn-send').addEventListener('click', function() {
-  const fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
-  const url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
-  const ttl = document.title;
-  if (navigator.share) {
-    navigator.share({title: ttl, text: "Edward's Daily Learning", url: url}).catch(()=>{});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(() => alert('Link copied — paste it on your phone!'));
-  } else {
-    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl) + '&body=' + encodeURIComponent(url);
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) {
+    window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank');
   }
-});
+}
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){
+      alert('Link copied — paste it on your phone!');
+    });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl)
+      + '&body=' + encodeURIComponent(url);
+  }
+}
 </script>
 </body>
 </html>
