@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Edward's Daily Learning — 11 June 2026 (2nd Edition)</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;500;700&display=swap');
 
 :root {
   --bg: #0f0f13;
-  --surface: #17171e;
-  --surface2: #1f1f2a;
-  --border: #2c2c3a;
-  --text: #e2e0d8;
-  --muted: #8a8899;
-  --accent: #6c8ebf;
-  --accent-hover: #8aaee0;
-  --amber: #c9922a;
-  --amber-bg: #1e180d;
-  --amber-border: #5a3e10;
-  --green: #4a9e6b;
-  --green-bg: #0e1a12;
-  --green-border: #2a5e3a;
-  --steel: #5a85b0;
+  --surface: #181820;
+  --surface2: #1e1e28;
+  --border: #2a2a38;
+  --text: #e0ddd4;
+  --muted: #888;
+  --accent: #7eb8f7;
+  --accent-dim: #3a6a9a;
+  --amber: #d4893a;
+  --amber-bg: #1e1808;
+  --amber-border: #5a3a10;
+  --green: #5aab6a;
+  --green-bg: #0e1a10;
+  --green-border: #2a6a35;
+  --steel: #7aafc8;
   --steel-bg: #0e1520;
-  --steel-border: #2a4a70;
-  --card-radius: 14px;
+  --steel-border: #2a4a65;
+  --nav-width: 185px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,15 +33,15 @@
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Noto Serif HK", "Source Han Serif", serif;
-  font-size: 1rem;
+  font-family: "Noto Serif HK", "Source Han Serif", Georgia, serif;
+  font-size: 16px;
   line-height: 1.75;
 }
 
 a { color: var(--accent); text-decoration: none; }
-a:hover { color: var(--accent-hover); text-decoration: underline; }
+a:hover { text-decoration: underline; }
 
-/* ── STICKY TOP ── */
+/* ── Sticky top ── */
 .sticky-top {
   position: -webkit-sticky;
   position: sticky;
@@ -53,29 +53,29 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 
 .back-bar {
   padding: .22rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: .5rem;
-  border-bottom: 1px solid var(--border);
 }
 .back-bar a {
-  font-size: .78rem;
+  display: inline-block;
+  font-size: .72rem;
   color: var(--muted);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: .15rem .7rem;
+  padding: .15rem .65rem;
   transition: color .2s, border-color .2s;
 }
-.back-bar a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
-
+.back-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
 .badge-2nd {
-  font-size: .68rem;
+  font-size: .65rem;
   background: var(--amber);
   color: #000;
   border-radius: 20px;
   padding: .1rem .55rem;
   font-weight: 700;
-  letter-spacing: .02em;
 }
 
 .sticky-top .site-header {
@@ -86,255 +86,265 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
   gap: 1rem;
   flex-wrap: wrap;
 }
-.sticky-top h1 { font-size: .97rem; font-weight: 700; color: var(--text); }
-.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; color: var(--muted); }
+.sticky-top h1 { font-size: .97rem; font-weight: 700; letter-spacing: .02em; }
+.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; }
 
-.sticky-top .toc-bar {
-  padding: .28rem .8rem;
-  display: flex;
-  gap: .4rem;
+.toc-bar {
+  display: none;
   overflow-x: auto;
-  flex-wrap: nowrap;
+  white-space: nowrap;
+  padding: .28rem .8rem;
+  gap: .4rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
   scrollbar-width: none;
 }
-.sticky-top .toc-bar::-webkit-scrollbar { display: none; }
+.toc-bar::-webkit-scrollbar { display: none; }
 .toc-bar a {
-  font-size: .72rem;
-  white-space: nowrap;
+  display: inline-block;
+  font-size: .68rem;
+  padding: .18rem .6rem;
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: .15rem .65rem;
+  border-radius: 12px;
   color: var(--muted);
+  margin-right: .3rem;
   transition: color .2s, border-color .2s;
 }
-.toc-bar a:hover { color: var(--accent); border-color: var(--accent); text-decoration: none; }
+.toc-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
 
-/* ── LAYOUT ── */
-.page-wrap {
+/* ── Layout ── */
+.page-body {
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-/* left nav */
 .left-nav {
-  display: none;
+  width: var(--nav-width);
+  flex-shrink: 0;
+  padding: 1.5rem .8rem 2rem;
 }
-@media (min-width: 900px) {
-  .left-nav {
-    display: block;
-    width: 180px;
-    flex-shrink: 0;
-    position: sticky;
-    top: 110px;
-    align-self: flex-start;
-    padding: 1.5rem .5rem 1.5rem 0;
-  }
-  .left-nav a {
-    display: block;
-    font-size: .74rem;
-    color: var(--muted);
-    border: 1px solid transparent;
-    border-radius: 20px;
-    padding: .3rem .7rem;
-    margin-bottom: .25rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: color .2s, border-color .2s, background .2s;
-  }
-  .left-nav a:hover {
-    color: var(--accent);
-    border-color: var(--accent);
-    background: rgba(108,142,191,.07);
-    text-decoration: none;
-  }
-  .left-nav .nav-label {
-    font-size: .65rem;
-    color: var(--muted);
-    opacity: .55;
-    text-transform: uppercase;
-    letter-spacing: .06em;
-    padding: .3rem .7rem .1rem;
-  }
-  .content-col { padding-left: 1.5rem; }
+.left-nav-inner {
+  position: sticky;
+  top: 3.5rem;
+}
+.left-nav h3 {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav a {
+  display: block;
+  font-size: .72rem;
+  padding: .32rem .6rem;
+  border-radius: 8px;
+  color: var(--muted);
+  margin-bottom: .15rem;
+  border: 1px solid transparent;
+  transition: all .2s;
+  line-height: 1.35;
+}
+.left-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); text-decoration: none; }
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 1.5rem 4rem;
 }
 
-.content-col { flex: 1; min-width: 0; padding-top: 1.5rem; padding-bottom: 4rem; }
-
-/* hide toc-bar on desktop */
-@media (min-width: 900px) {
-  .sticky-top .toc-bar { display: none; }
-}
-
-/* ── CARDS ── */
+/* ── Cards ── */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: var(--card-radius);
+  border-radius: 12px;
   padding: 1.6rem 1.8rem;
-  margin-bottom: 1.6rem;
+  margin-bottom: 2rem;
   scroll-margin-top: 52px;
 }
-@media (max-width: 600px) {
-  .card { padding: 1.1rem 1rem; }
-}
-.card.amber-card { border-left: 4px solid var(--amber); background: #111108; }
-.card.green-card  { border-left: 4px solid var(--green);  background: var(--green-bg); }
-.card.steel-card  { border-left: 4px solid var(--steel);  background: var(--steel-bg); }
-
 .card-label {
-  font-size: .7rem;
+  font-size: .68rem;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .12em;
   color: var(--muted);
-  margin-bottom: .5rem;
+  margin-bottom: .35rem;
 }
 .card h2 {
-  font-size: 1.18rem;
+  font-size: 1.22rem;
   font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: .9rem;
-  color: var(--text);
-}
-.card p { margin-bottom: .85rem; font-size: .97rem; }
-
-details { margin: .7rem 0; }
-details summary {
-  cursor: pointer;
+  line-height: 1.35;
+  margin-bottom: 1rem;
   color: var(--accent);
-  font-size: .9rem;
-  user-select: none;
-  padding: .3rem 0;
-}
-details[open] summary { margin-bottom: .4rem; }
-details > *:not(summary) { padding-left: .8rem; font-size: .9rem; color: var(--text); opacity: .9; }
-
-.card-img-wrap {
-  width: 100%;
-  min-height: 180px;
-  max-height: 260px;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: .9rem 0 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--surface2);
-  position: relative;
-}
-.card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  max-height: 260px;
-}
-.card-img-wrap .emoji-fallback {
-  font-size: 4rem;
-  opacity: .35;
-}
-.img-caption {
-  font-size: .68rem;
-  color: var(--muted);
-  text-align: center;
-  margin-top: -.5rem;
-  margin-bottom: .9rem;
-  opacity: .7;
 }
 
+/* Amber cards (Eastern History & Eastern Philosophy) */
+.card.amber { border-color: var(--amber-border); background: var(--amber-bg); }
+.card.amber h2 { color: var(--amber); }
+.card.amber .card-label { color: #b8782a; }
+
+/* Green card (Investing) */
+.card.green { border-color: var(--green-border); background: var(--green-bg); }
+.card.green h2 { color: var(--green); }
+.card.green .card-label { color: #4a8a5a; }
+
+/* Steel card (Political Economics) */
+.card.steel { border-color: var(--steel-border); background: var(--steel-bg); }
+.card.steel h2 { color: var(--steel); }
+.card.steel .card-label { color: #5a8aaa; }
+
+/* Intro boxes */
 .intro-box {
   border-radius: 8px;
   padding: .9rem 1.1rem;
-  margin: .8rem 0 1rem;
-  font-size: .9rem;
-  line-height: 1.65;
+  margin-bottom: 1.1rem;
+  font-size: .88rem;
+  line-height: 1.6;
+  border-left: 4px solid;
 }
-.intro-box.amber {
-  background: var(--amber-bg);
-  border-left: 4px solid var(--amber);
-  color: #d9c9a8;
+.intro-box.amber { background: #261a06; border-color: var(--amber); }
+.intro-box.accent { background: #101828; border-color: var(--accent); }
+
+/* Image block */
+.card-img-wrap {
+  margin: 1rem 0;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.intro-box.accent {
-  background: #111b28;
-  border-left: 4px solid var(--accent);
-  color: #bcc8d9;
+.card-img-wrap img {
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 6px;
 }
+.card-img-wrap .emoji-fallback { font-size: 4rem; }
+.img-caption {
+  font-size: .65rem;
+  color: var(--muted);
+  margin-top: .4rem;
+}
+
+/* Details/summary */
+details {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin: .8rem 0;
+}
+.card.amber details { background: #1a1000; border-color: var(--amber-border); }
+.card.steel details { background: #0a1018; border-color: var(--steel-border); }
+.card.green details { background: #0a1208; border-color: var(--green-border); }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--accent);
+  padding: .1rem 0;
+  list-style: none;
+  user-select: none;
+}
+.card.amber details summary { color: var(--amber); }
+.card.steel details summary { color: var(--steel); }
+.card.green details summary { color: var(--green); }
+details[open] summary { margin-bottom: .5rem; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶ "; font-size: .75em; }
+details[open] summary::before { content: "▼ "; }
+
+.retrieval-prompt {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: .8rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+}
+.card.amber .retrieval-prompt { border-left-color: var(--amber); }
+.card.steel .retrieval-prompt { border-left-color: var(--steel); }
+.card.green .retrieval-prompt { border-left-color: var(--green); }
+.retrieval-prompt em { color: var(--accent); font-style: normal; font-weight: 600; }
+.card.amber .retrieval-prompt em { color: var(--amber); }
+.card.steel .retrieval-prompt em { color: var(--steel); }
 
 .takeaway {
   background: var(--surface2);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 8px 8px 0;
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
   padding: .7rem 1rem;
-  font-size: .9rem;
-  margin: 1rem 0 .8rem;
-  color: var(--text);
-}
-.amber-card .takeaway { border-left-color: var(--amber); }
-.green-card  .takeaway { border-left-color: var(--green); }
-.steel-card  .takeaway { border-left-color: var(--steel); }
-
-.retrieval-prompt {
-  background: #13131a;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: .8rem 1rem;
+  margin: 1rem 0;
   font-size: .88rem;
-  margin: .8rem 0;
+  font-style: italic;
 }
-.retrieval-prompt em { color: var(--accent); font-style: normal; font-weight: 600; }
+.card.amber .takeaway { border-left-color: var(--amber); }
+.card.steel .takeaway { border-left-color: var(--steel); }
 
-.source {
-  font-size: .78rem;
-  color: var(--muted);
-  margin-top: .6rem;
-  border-top: 1px solid var(--border);
-  padding-top: .5rem;
-}
+.source { font-size: .72rem; color: var(--muted); margin-top: .8rem; }
 
-/* ── YESTERDAY'S SPARK ── */
-.spark-section {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--amber);
-  border-radius: var(--card-radius);
-  padding: 1.3rem 1.6rem;
-  margin-bottom: 1.6rem;
-}
-.spark-section h2 {
-  font-size: 1rem;
-  color: var(--amber);
-  margin-bottom: .8rem;
-}
-.spark-item {
-  margin-bottom: .55rem;
-  font-size: .87rem;
-}
-.spark-item em { color: var(--accent); font-style: normal; }
-
-/* ── CONNECTION OF THE DAY ── */
-.connection-box {
-  background: #111820;
-  border: 1px solid var(--steel-border);
-  border-left: 4px solid var(--steel);
-  border-radius: var(--card-radius);
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 1.6rem;
-}
-.connection-box h2 { font-size: 1rem; color: var(--steel); margin-bottom: .5rem; }
-.connection-box p { font-size: .92rem; }
-
-/* ── EVENT / THEORY / ANOMALY / CHALLENGER ── */
+/* Political econ EVENT/THEORY/ANOMALY/CHALLENGER blocks */
 .etac { display: grid; gap: .6rem; margin: .8rem 0; }
 .etac-item { border-radius: 8px; padding: .7rem 1rem; font-size: .88rem; }
 .etac-event     { background: #1a1210; border-left: 3px solid #c0512a; }
-.etac-theory    { background: #0f1820; border-left: 3px solid #4a80c0; }
+.etac-theory    { background: #0f1820; border-left: 3px solid var(--steel); }
 .etac-anomaly   { background: #171212; border-left: 3px solid #b04444; }
-.etac-challenger{ background: #0f1a10; border-left: 3px solid #4a9e6b; }
-.etac-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .07em; opacity: .6; display: block; margin-bottom: .25rem; }
+.etac-challenger{ background: #0f1a10; border-left: 3px solid var(--green); }
+.etac-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--steel); display: block; margin-bottom: .25rem; }
+.etac-event .etac-label { color: #c0512a; }
+.etac-anomaly .etac-label { color: #b04444; }
+.etac-challenger .etac-label { color: var(--green); }
 
-/* ── TOOLBAR ── */
-.toolbar {
+/* Yesterday's Spark */
+.spark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.spark-card h2 { font-size: 1rem; color: var(--amber); margin-bottom: .8rem; }
+.spark-item {
+  font-size: .88rem;
+  padding: .55rem .8rem;
+  border-left: 3px solid var(--accent-dim);
+  margin-bottom: .6rem;
+  background: var(--surface2);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Connection */
+.connection-card {
+  background: var(--surface2);
+  border: 1px solid var(--steel-border);
+  border-left: 4px solid var(--steel);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+}
+.connection-card h3 { color: var(--steel); margin-bottom: .6rem; font-size: .95rem; }
+
+/* Footer */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+footer h4 { color: var(--text); font-size: .85rem; margin-bottom: .5rem; }
+
+p { margin-bottom: .9rem; }
+
+/* ── Floating toolbar ── */
+.fab-toolbar {
   position: fixed;
   bottom: 1.2rem;
   right: 1.2rem;
@@ -343,7 +353,7 @@ details > *:not(summary) { padding-left: .8rem; font-size: .9rem; color: var(--t
   gap: .45rem;
   z-index: 300;
 }
-.toolbar button {
+.fab-btn {
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -355,32 +365,20 @@ details > *:not(summary) { padding-left: .8rem; font-size: .9rem; color: var(--t
   transition: background .2s, border-color .2s;
   white-space: nowrap;
 }
-.toolbar button:hover { background: var(--surface); border-color: var(--accent); }
+.fab-btn:hover { background: var(--surface); border-color: var(--accent); }
 
-/* ── FOOTER ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 2rem 0 1.5rem;
-  font-size: .8rem;
-  color: var(--muted);
-}
-footer h3 { font-size: .88rem; margin-bottom: .5rem; color: var(--text); }
-footer p { margin-bottom: .4rem; }
-
-/* ── SECTION DIVIDER ── */
-.section-label {
-  font-size: .7rem;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  color: var(--muted);
-  opacity: .5;
-  margin: 2rem 0 .8rem;
-  padding-bottom: .3rem;
-  border-bottom: 1px solid var(--border);
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .left-nav { display: none; }
+  .toc-bar { display: flex; }
+  .content { padding: 1rem 1rem 4rem; }
+  .card { padding: 1.2rem 1.2rem; }
+  .fab-toolbar { bottom: 1rem; right: .8rem; }
 }
 </style>
 </head>
 <body>
+
 
 <!-- STICKY TOP -->
 <div class="sticky-top">
@@ -409,7 +407,7 @@ footer p { margin-bottom: .4rem; }
 </div>
 
 <!-- PAGE WRAP -->
-<div class="page-wrap">
+<div class="page-body">
 
   <!-- LEFT NAV (desktop) -->
   <nav class="left-nav" aria-label="Card navigation">
@@ -429,10 +427,10 @@ footer p { margin-bottom: .4rem; }
   </nav>
 
   <!-- CONTENT -->
-  <main class="content-col">
+  <main class="content">
 
     <!-- YESTERDAY'S SPARK -->
-    <section class="spark-section" id="spark">
+    <section class="spark-card" id="spark">
       <h2>🔁 Yesterday's Spark — Review Before You Read</h2>
       <p style="font-size:.82rem;color:var(--muted);margin-bottom:.9rem;">From the 11 June 2026 (1st Edition) — answer without looking back, then expand to check.</p>
 
@@ -543,7 +541,7 @@ footer p { margin-bottom: .4rem; }
     <!-- ═══════════════════════════════════════════════ -->
     <!-- CARD 2: EASTERN HISTORY (Chinese) -->
     <!-- ═══════════════════════════════════════════════ -->
-    <article class="card amber-card" id="card-2">
+    <article class="card amber" id="card-2">
       <div class="card-label">Card 2 · 東方歷史</div>
       <h2>世界第一張紙幣、百萬人口的夜市、海上貿易霸權：宋朝的商業革命</h2>
 
@@ -627,7 +625,7 @@ footer p { margin-bottom: .4rem; }
     <!-- ═══════════════════════════════════════════════ -->
     <!-- CARD 4: EASTERN PHILOSOPHY (Chinese) -->
     <!-- ═══════════════════════════════════════════════ -->
-    <article class="card amber-card" id="card-4">
+    <article class="card amber" id="card-4">
       <div class="card-label">Card 4 · 東方哲學</div>
       <h2>禮是甚麼？不是繁文縟節，而是人類馴化自身的唯一技術——荀子的性惡論與禮治</h2>
 
@@ -855,7 +853,7 @@ footer p { margin-bottom: .4rem; }
     <!-- ═══════════════════════════════════════════════ -->
     <!-- CARD 10: INVESTING -->
     <!-- ═══════════════════════════════════════════════ -->
-    <article class="card green-card" id="card-10">
+    <article class="card green" id="card-10">
       <div class="card-label">Card 10 · Investing &amp; Economic Thinking</div>
       <h2>How AAA Became Junk: The 2008 Financial Crisis and the Rating Agency Problem</h2>
 
@@ -891,7 +889,7 @@ footer p { margin-bottom: .4rem; }
     <!-- ═══════════════════════════════════════════════ -->
     <!-- CARD 11: POLITICAL ECONOMICS -->
     <!-- ═══════════════════════════════════════════════ -->
-    <article class="card steel-card" id="card-11">
+    <article class="card steel" id="card-11">
       <div class="card-label">Card 11 · Political Economics — Theory in the Wild</div>
       <h2>You Can Only Pick Two: Mundell's Impossible Trinity and the Global Trilemma</h2>
 
@@ -930,8 +928,8 @@ footer p { margin-bottom: .4rem; }
     <!-- ═══════════════════════════════════════════════ -->
     <!-- CONNECTION OF THE DAY -->
     <!-- ═══════════════════════════════════════════════ -->
-    <div class="connection-box">
-      <h2>🔗 Connection of the Day</h2>
+    <div class="connection-card">
+      <h3>🔗 Connection of the Day</h3>
       <p><strong>Cards 6 &amp; 10 — Learned Helplessness and the 2008 Crisis:</strong> Both are fundamentally stories about what happens when feedback loops are broken. Seligman's dogs stopped trying because their actions had no effect on outcomes. Rating agencies stopped applying rigorous standards because the consequences of lax ratings accrued to future investors, not to the agencies themselves — a structural uncoupling of action from consequence. The revised learned helplessness model says agency must be actively reinforced by genuine cause-and-effect experience; the lesson of 2008 is that financial systems need the same: institutions must face the consequences of their risk assessments, or the feedback loop that enforces honest evaluation simply disappears.</p>
       <p style="margin-top:.5rem;font-size:.88rem;color:var(--steel);"><strong>So what:</strong> Before delegating any important assessment to a third party, ask whether they bear any cost if they are wrong. If the answer is no, their rating is an opinion, not accountability.</p>
     </div>
@@ -963,17 +961,17 @@ footer p { margin-bottom: .4rem; }
 </div>
 
 <!-- TOOLBAR -->
-<div class="toolbar">
-  <button onclick="window.print()">📄 Export PDF</button>
-  <button onclick="saveForPhone()">📥 Save for Phone</button>
-  <button onclick="sendToPhone()">📱 Send to Phone</button>
+<!-- FLOATING TOOLBAR -->
+<div class="fab-toolbar">
+  <button class="fab-btn" onclick="window.print()">📄 Export PDF</button>
+  <button class="fab-btn" id="btn-save">📥 Save for Phone</button>
+  <button class="fab-btn" id="btn-send">📱 Send to Phone</button>
 </div>
 
-<!-- IMAGE JS -->
 <script>
 window._imageMap = {};
-var cards = {
-  'card-1': ['Dark energy','Accelerating expansion of the universe','Type Ia supernova'],
+const imgCandidates = {
+'card-1': ['Dark energy','Accelerating expansion of the universe','Type Ia supernova'],
   'card-2': ['Song dynasty','Jiaozi (currency)','Song dynasty coinage'],
   'card-3': ['Haitian Revolution','Toussaint Louverture','Jean-Jacques Dessalines'],
   'card-4': ['Xun Kuang','Xunzi (book)','Confucianism'],
@@ -986,51 +984,46 @@ var cards = {
   'card-11': ['Impossible trinity','Robert Mundell','Black Wednesday']
 };
 
-function loadImage(cardId, titles, idx) {
-  if (idx >= titles.length) return;
-  var title = titles[idx];
-  var url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
-  fetch(url).then(function(r){ return r.json(); }).then(function(d){
-    var src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
-    if (src) {
-      var wrap = document.getElementById('img-' + cardId);
-      var ef = wrap && wrap.querySelector('.emoji-fallback');
-      if (ef) ef.style.display = 'none';
-      var img = document.createElement('img');
-      img.src = src;
-      img.alt = title;
-      if (wrap) wrap.appendChild(img);
+async function loadWikiImage(cardId, candidates) {
+  const wrap = document.getElementById('img-' + cardId);
+  if (!wrap) return;
+  for (const title of candidates) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const resp = await fetch(url);
+      if (!resp.ok) continue;
+      const d = await resp.json();
+      const src = (d.originalimage || d.thumbnail || {}).source;
+      if (!src) continue;
       window._imageMap[cardId] = src;
-      var cap = document.getElementById('cap-' + cardId);
-      if (cap) cap.innerHTML = title + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a>';
-    } else {
-      loadImage(cardId, titles, idx + 1);
-    }
-  }).catch(function(){ loadImage(cardId, titles, idx + 1); });
+      wrap.innerHTML =
+        '<img src="' + src + '" alt="' + title.replace(/"/g,"'") + '" loading="lazy">' +
+        '<div class="img-caption">' + (d.title || title) + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia</a></div>';
+      return;
+    } catch(e) { /* try next */ }
+  }
 }
+Object.keys(imgCandidates).forEach(id => loadWikiImage(id, imgCandidates[id]));
 
-Object.keys(cards).forEach(function(id){ loadImage(id, cards[id], 0); });
-
-function saveForPhone() {
-  var blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
-  var a = document.createElement('a');
+document.getElementById('btn-save').addEventListener('click', function() {
+  const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+  const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'daily-learning-2026-06-11-2.html';
   a.click();
-}
-function sendToPhone() {
-  var fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
-  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
-  var ttl = document.title;
+});
+document.getElementById('btn-send').addEventListener('click', function() {
+  const fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-11-2.html';
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  const ttl = document.title;
   if (navigator.share) {
-    navigator.share({title: ttl, text: "Edward's Daily Learning", url: url}).catch(function(){});
+    navigator.share({title: ttl, text: "Edward's Daily Learning", url: url}).catch(()=>{});
   } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(url).then(function(){ alert('Link copied — paste it on your phone!'); });
+    navigator.clipboard.writeText(url).then(() => alert('Link copied — paste it on your phone!'));
   } else {
     window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl) + '&body=' + encodeURIComponent(url);
   }
-}
+});
 </script>
-
 </body>
 </html>
