@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 12 June 2026 (2nd Edition)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #0f0f13;
+  --surface: #181820;
+  --surface2: #1e1e28;
+  --border: #2a2a38;
+  --text: #e0ddd4;
+  --muted: #888;
+  --accent: #7eb8f7;
+  --accent-dim: #3a6a9a;
+  --amber: #d4893a;
+  --amber-bg: #1e1808;
+  --amber-border: #5a3a10;
+  --green: #5aab6a;
+  --green-bg: #0e1a10;
+  --green-border: #2a6a35;
+  --steel: #7aafc8;
+  --steel-bg: #0e1520;
+  --steel-border: #2a4a65;
+  --nav-width: 185px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif HK", "Source Han Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Sticky top ── */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-bar {
+  padding: .22rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.back-bar a {
+  display: inline-block;
+  font-size: .72rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .15rem .65rem;
+  transition: color .2s, border-color .2s;
+}
+.back-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+.badge-2nd {
+  font-size: .65rem;
+  background: var(--amber);
+  color: #000;
+  border-radius: 20px;
+  padding: .1rem .55rem;
+  font-weight: 700;
+}
+
+.sticky-top .site-header {
+  padding: .45rem 1.2rem;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sticky-top h1 { font-size: .97rem; font-weight: 700; letter-spacing: .02em; }
+.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; }
+
+.toc-bar {
+  display: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: .28rem .8rem;
+  gap: .4rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  scrollbar-width: none;
+}
+.toc-bar::-webkit-scrollbar { display: none; }
+.toc-bar a {
+  display: inline-block;
+  font-size: .68rem;
+  padding: .18rem .6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  margin-right: .3rem;
+  transition: color .2s, border-color .2s;
+}
+.toc-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+
+/* ── Layout ── */
+.page-body {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-nav {
+  width: var(--nav-width);
+  flex-shrink: 0;
+  padding: 1.5rem .8rem 2rem;
+}
+.left-nav-inner {
+  position: sticky;
+  top: 3.5rem;
+}
+.left-nav h3 {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav .nav-label {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav a {
+  display: block;
+  font-size: .72rem;
+  padding: .32rem .6rem;
+  border-radius: 8px;
+  color: var(--muted);
+  margin-bottom: .15rem;
+  border: 1px solid transparent;
+  transition: all .2s;
+  line-height: 1.35;
+}
+.left-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); text-decoration: none; }
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.card-label {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: .35rem;
+}
+.card h2 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* Amber cards (Eastern History & Eastern Philosophy) */
+.card.amber { border-color: var(--amber-border); background: var(--amber-bg); }
+.card.amber h2 { color: var(--amber); }
+.card.amber .card-label { color: #b8782a; }
+
+/* Green card (Investing) */
+.card.green { border-color: var(--green-border); background: var(--green-bg); }
+.card.green h2 { color: var(--green); }
+.card.green .card-label { color: #4a8a5a; }
+
+/* Steel card (Political Economics) */
+.card.steel { border-color: var(--steel-border); background: var(--steel-bg); }
+.card.steel h2 { color: var(--steel); }
+.card.steel .card-label { color: #5a8aaa; }
+
+/* Intro boxes */
+.intro-box {
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1.1rem;
+  font-size: .88rem;
+  line-height: 1.6;
+  border-left: 4px solid;
+}
+.intro-box.amber { background: #261a06; border-color: var(--amber); }
+.intro-box.accent { background: #101828; border-color: var(--accent); }
+
+/* Image block */
+.card-img-wrap {
+  margin: 1rem 0;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-img-wrap img {
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.card-img-wrap .emoji-fallback { font-size: 4rem; }
+.img-caption {
+  font-size: .65rem;
+  color: var(--muted);
+  margin-top: .4rem;
+}
+
+/* Details/summary */
+details {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin: .8rem 0;
+}
+.card.amber details { background: #1a1000; border-color: var(--amber-border); }
+.card.steel details { background: #0a1018; border-color: var(--steel-border); }
+.card.green details { background: #0a1208; border-color: var(--green-border); }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--accent);
+  padding: .1rem 0;
+  list-style: none;
+  user-select: none;
+}
+.card.amber details summary { color: var(--amber); }
+.card.steel details summary { color: var(--steel); }
+.card.green details summary { color: var(--green); }
+details[open] summary { margin-bottom: .5rem; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶ "; font-size: .75em; }
+details[open] summary::before { content: "▼ "; }
+
+.retrieval-prompt {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: .8rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+}
+.card.amber .retrieval-prompt { border-left-color: var(--amber); }
+.card.steel .retrieval-prompt { border-left-color: var(--steel); }
+.card.green .retrieval-prompt { border-left-color: var(--green); }
+.retrieval-prompt em { color: var(--accent); font-style: normal; font-weight: 600; }
+.card.amber .retrieval-prompt em { color: var(--amber); }
+.card.steel .retrieval-prompt em { color: var(--steel); }
+
+.takeaway {
+  background: var(--surface2);
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
+  padding: .7rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+  font-style: italic;
+}
+.card.amber .takeaway { border-left-color: var(--amber); }
+.card.steel .takeaway { border-left-color: var(--steel); }
+
+.source { font-size: .72rem; color: var(--muted); margin-top: .8rem; }
+
+/* Political econ EVENT/THEORY/ANOMALY/CHALLENGER blocks */
+.etac { display: grid; gap: .6rem; margin: .8rem 0; }
+.etac-item { border-radius: 8px; padding: .7rem 1rem; font-size: .88rem; }
+.etac-event     { background: #1a1210; border-left: 3px solid #c0512a; }
+.etac-theory    { background: #0f1820; border-left: 3px solid var(--steel); }
+.etac-anomaly   { background: #171212; border-left: 3px solid #b04444; }
+.etac-challenger{ background: #0f1a10; border-left: 3px solid var(--green); }
+.etac-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--steel); display: block; margin-bottom: .25rem; }
+.etac-event .etac-label { color: #c0512a; }
+.etac-anomaly .etac-label { color: #b04444; }
+.etac-challenger .etac-label { color: var(--green); }
+
+/* Yesterday's Spark */
+.spark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.spark-card h2 { font-size: 1rem; color: var(--amber); margin-bottom: .8rem; }
+.spark-item {
+  font-size: .88rem;
+  padding: .55rem .8rem;
+  border-left: 3px solid var(--accent-dim);
+  margin-bottom: .6rem;
+  background: var(--surface2);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Connection */
+.connection-card {
+  background: var(--surface2);
+  border: 1px solid var(--steel-border);
+  border-left: 4px solid var(--steel);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+}
+.connection-card h3 { color: var(--steel); margin-bottom: .6rem; font-size: .95rem; }
+
+/* Footer */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+footer h3, footer h4 { color: var(--text); font-size: .85rem; margin-bottom: .5rem; }
+
+p { margin-bottom: .9rem; }
+
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .left-nav { display: none; }
+  .toc-bar { display: flex; }
+  .content { padding: 1rem 1rem 4rem; }
+  .card { padding: 1.2rem 1.2rem; }
+}
+
+/* ── Header toolbar ── */
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border,#2a2a38);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted,#888);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text,#e0ddd4);border-color:var(--accent-dim,#3a6a9a);}
+</style>
+</head>
+<body>
+
+
+<!-- STICKY TOP -->
+<div class="sticky-top">
+  <div class="back-bar"><a href="index.html">← All Briefings</a><span class="badge-2nd">2nd Edition</span><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button></div></div>
+  <header class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">12 June 2026 · 2nd Edition · ~26 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a href="#spark">⚡ Spark</a>
+    <a href="#card-1">1 · Cosmos</a>
+    <a href="#card-2">2 · 東史</a>
+    <a href="#card-3">3 · W.History</a>
+    <a href="#card-4">4 · 東哲</a>
+    <a href="#card-5">5 · W.Phil</a>
+    <a href="#card-6">6 · Psych</a>
+    <a href="#card-7">7 · Physio</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sport</a>
+    <a href="#card-10">10 · Invest</a>
+    <a href="#card-11">11 · PolEcon</a>
+  </nav>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-body">
+
+  <!-- LEFT NAV (desktop) -->
+  <nav class="left-nav" aria-label="Card navigation">
+    <div class="left-nav-inner">
+    <div class="nav-label">Today · 2nd Ed.</div>
+    <a href="#spark">⚡ Yesterday's Spark</a>
+    <a href="#card-1">1 · Astronomy</a>
+    <a href="#card-2">2 · 東方歷史</a>
+    <a href="#card-3">3 · Western History</a>
+    <a href="#card-4">4 · 東方哲學</a>
+    <a href="#card-5">5 · Western Phil.</a>
+    <a href="#card-6">6 · Psychology</a>
+    <a href="#card-7">7 · Physiology</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sports Science</a>
+    <a href="#card-10">10 · Investing</a>
+    <a href="#card-11">11 · Pol. Economics</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-card" id="spark">
+      <h2>🔁 Yesterday's Spark — Review Before You Read</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:.9rem;">From the 11 June 2026 (2nd Edition) — answer without looking back, then expand to check.</p>
+
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 1 · Astronomy:</em> Why are Type Ia supernovae reliable as standard candles, and what does finding them dimmer than expected imply about the universe's expansion?</summary>
+          Type Ia supernovae reach a consistent peak luminosity because they result from white dwarfs accreting matter to a fixed mass threshold (Chandrasekhar limit), so deviations from expected brightness reflect distance or expansion history. Dimmer-than-expected supernovae mean they are farther away than a decelerating universe would place them — implying the expansion is accelerating.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 2 · 東方歷史:</em> 交子（紙幣）為何在宋代四川首先出現？宋朝廢除坊市制度對城市商業形態帶來了什麼具體改變？</summary>
+          四川鐵錢沉重，遠距貿易需要輕便的結算工具，商人自發以紙質憑證代替金屬貨幣。廢除坊市制度後，店舖可臨街開設、全天候交易，夜市成為可能，商業活動不再被限定在封閉坊市內，城市公共空間與商業空間首次大規模融合。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 3 · Western History:</em> How was Toussaint Louverture defeated, and what happened to the Louisiana Territory as a direct consequence of Haiti's independence?</summary>
+          Toussaint was not defeated militarily — he was captured by deception during negotiations under a false guarantee of safe conduct, and died in a French prison. Napoleon, losing his Caribbean ambitions, sold the Louisiana Territory to the United States in 1803, doubling the young republic's land area.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 4 · 東方哲學:</em> 荀子「性惡論」中的「偽」字是什麼意思？荀子如何理解「禮」的社會功能——它與孟子的善性教育路線有何根本差別？</summary>
+          「偽」是「人為」、「刻意塑造」之意，非虛偽。荀子認為禮是歷代聖王設計的欲望管理制度，通過劃定邊界、分配資源防止爭奪混亂——這是外部結構性工具。孟子路線是喚醒內在已有的善性；荀子路線是用禮法從外部改造根本無善的人性。前者依賴內省，後者依賴制度設計。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 5 · Western Philosophy:</em> What is the "Cartesian circle," and why does it undermine Descartes' attempt to rebuild knowledge from the cogito?</summary>
+          Descartes uses clear and distinct perception to prove God exists, then uses God's non-deceiving nature to guarantee that clear and distinct perceptions are true — an apparent circularity (the criterion is justified by what it is supposed to justify). It threatens the whole reconstruction because the foundation depends on a premise the foundation is meant to secure.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 6 · Psychology:</em> What did the 2016 revision to learned helplessness theory suggest about which state — helplessness or agency — is the brain's default, and what are the practical implications?</summary>
+          Maier &amp; Seligman (2016) argued that passivity in the face of aversive events is the brain's <em>default</em> response (mediated by the dorsal raphe nucleus); what is actually learned is <em>control</em> — the prefrontal cortex detecting that one's actions matter. Implication: agency must be actively trained, not assumed.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 7 · Physiology:</em> What is GLUT4, and why does muscle contraction lower blood glucose via a different mechanism than insulin — making it useful even in insulin-resistant individuals?</summary>
+          GLUT4 is the glucose transporter that moves glucose into muscle and fat cells. Insulin triggers GLUT4 translocation via the IRS-1/PI3K/Akt cascade. Muscle contraction triggers the same translocation through a separate AMPK-mediated pathway, so exercise lowers blood glucose even when the insulin pathway is impaired.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 8 · Health:</em> Why does a "caffeine crash" occur, and what does receptor upregulation mean for chronic daily caffeine users?</summary>
+          Caffeine blocks adenosine receptors but adenosine keeps accumulating behind the blockade; when caffeine clears, the backlog floods the now-available receptors, producing a crash. With chronic use the brain upregulates (makes more) adenosine receptors, so baseline alertness drops and more caffeine is needed for the same effect — tolerance.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 9 · Sports Science:</em> What specifically happens during slow-wave sleep and REM sleep that is directly relevant to athletic performance — and what does 17–19 hours of wakefulness do to reaction time?</summary>
+          Slow-wave sleep releases the bulk of growth hormone (tissue repair); REM consolidates motor learning. Van Dongen-type data show that 17–19 hours of wakefulness degrades reaction time and cognition to a level comparable to a blood-alcohol concentration of roughly 0.05%.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 10 · Investing:</em> What was the "issuer-pays" conflict of interest in the rating agency model, and why was the Gaussian copula model's central assumption wrong about mortgage default correlations?</summary>
+          Issuers (not investors) paid the rating agencies, so agencies competed for business by offering favourable ratings. David Li's Gaussian copula assumed mortgage default correlations could be inferred from credit-default-swap prices and were low and stable; in a nationwide downturn defaults became highly correlated, so "diversified" AAA tranches failed together.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 11 · Political Economics:</em> State Mundell's Impossible Trinity. Why, mechanically, is it impossible to maintain all three simultaneously — and what did Hélène Rey's "dilemma" revision argue?</summary>
+          A country cannot simultaneously have a fixed exchange rate, free capital flows, and independent monetary policy. Mechanism: with a fixed rate and free capital, any interest rate differing from the anchor currency triggers unlimited arbitrage that exhausts reserves. Rey argued the global financial cycle (driven by the US Fed) strips monetary independence even from floating-rate countries, so the real choice is a dilemma — capital controls or no sovereignty.
+        </details>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 1: ASTRONOMY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-1">
+      <div class="card-label">Card 1 · Astronomy &amp; Cosmos</div>
+      <h2>Millisecond Flashes from the Far Universe — and the Magnetar That Cracked the Case</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        A single fast radio burst can release, in about a thousandth of a second, as much energy as the Sun pours out in days — and most come from billions of light-years away. For thirteen years nobody knew what produced them. What kind of object could possibly do this, and how did one flash from <em>inside</em> our own galaxy finally settle the argument?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-1">
+        <div class="emoji-fallback">📡</div>
+      </div>
+      <p class="img-caption" id="cap-card-1"></p>
+
+      <p>In 2007, astronomers re-examining old data from the Parkes radio telescope (帕克斯射電望遠鏡) found a single, blindingly bright spike of radio waves lasting just five milliseconds — the "Lorimer burst." It looked too brief and too powerful to be anything ordinary, and it appeared to come from far outside our galaxy. Over the following decade, more of these fast radio bursts (快速電波爆發, FRBs) turned up. Their defining clue is dispersion (色散): radio waves of different frequencies arrive slightly staggered in time, because they have ploughed through clouds of free electrons in space, and lower frequencies are slowed more. The size of that stagger — the dispersion measure (色散量度) — implied these flashes had travelled across vast cosmic distances. Some bursts repeated; most flared once and were never seen again, fuelling a zoo of theories from colliding neutron stars to, only half-jokingly, alien transmitters.</p>
+
+      <p>The breakthrough came in April 2020, and from an unexpectedly local source. A magnetar (磁星) in our own Milky Way — SGR 1935+2154, a young neutron star (中子星) with a magnetic field trillions of times stronger than Earth's — emitted an FRB-like burst, catalogued as FRB 200428. It was caught simultaneously by the Canadian CHIME (CHIME 射電望遠鏡) and the US STARE2 instruments, and it lined up precisely with a flare of X-rays from the same object. For the first time, an FRB-like signal had been pinned to a known, identifiable source. The verdict was clear: at least some fast radio bursts are produced by magnetars, whose catastrophic magnetic eruptions can briefly outshine anything else in the radio sky.</p>
+
+      <p>Solving the "what" turned FRBs into a powerful new tool. Because the dispersion measure records exactly how much ionised gas a burst crossed on its journey, a burst whose home galaxy has been pinpointed becomes a cosmic dipstick for the thin matter between galaxies. In 2020, J.-P. Macquart and colleagues used just a handful of such localised FRBs to weigh the diffuse intergalactic gas — and in doing so resolved the long-standing "missing baryons" problem (遺失重子問題). For decades, censuses of stars, gas, and galaxies could account for only about half of the ordinary (baryonic) matter the Big Bang theory predicts should exist; the rest was suspected to be lurking, too faint to see, in the wispy intergalactic medium. FRBs, by registering every electron they passed, finally found it. A flash too quick for the eye had become a way to weigh the invisible.</p>
+
+      <div class="takeaway">💡 A signal lasting a thousandth of a second became a cosmic ruler: by recording the gas it crosses, a fast radio burst now lets astronomers weigh the ordinary matter strung invisibly between galaxies.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> How did the 2020 burst from the magnetar SGR 1935+2154 advance the FRB mystery, and what does an FRB's "dispersion measure" let astronomers measure?
+        <details>
+          <summary>Check your answer</summary>
+          It was the first FRB-like burst traced to a known object — a Galactic magnetar — proving that magnetars can produce at least some fast radio bursts. The dispersion measure (the frequency-dependent arrival delay caused by intervening ionised gas) scales with distance and the amount of plasma crossed, so localised FRBs let astronomers tally the diffuse intergalactic baryons and resolve the "missing baryons" problem.
+        </details>
+      </div>
+
+      <p class="source">📚 Lorimer et al. (2007), <em>Science</em> 318:777; Bochenek et al. &amp; CHIME/FRB Collaboration (2020), <em>Nature</em> 587 (SGR 1935+2154); Macquart et al. (2020), <em>Nature</em> 581:391 (missing baryons).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 2: EASTERN HISTORY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">Card 2 · 東方歷史</div>
+      <h2>一場為了救國而撕裂整個士大夫階層的改革——王安石變法</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        北宋表面富庶，國庫卻年年見絀，邊患不止。宰相王安石推出一系列激進新法，誓要「富國強兵」，結果引爆了延續數十年的「新舊黨爭」，連蘇軾、司馬光都成了他的死敵。一位以清廉剛正著稱的改革家，為何最終令整個朝廷分裂？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-2">
+        <div class="emoji-fallback">📜</div>
+      </div>
+      <p class="img-caption" id="cap-card-2"></p>
+
+      <div class="intro-box amber">
+        <strong>核心人物：</strong>王安石（1021–1086），江西臨川人，宋神宗朝宰相，「唐宋八大家」之一；反對派領袖為司馬光、蘇軾<br>
+        <strong>關鍵事件：</strong>熙寧變法（始於1069年），推行青苗法、募役法、市易法、保甲法、方田均稅法等一系列新政<br>
+        <strong>大背景：</strong>北宋積弊已深，「冗官、冗兵、冗費」三冗拖垮財政，對外又須向遼、西夏繳納歲幣求和；年輕的神宗急於擺脫積貧積弱之局，遂起用王安石。
+      </div>
+
+      <p>北宋立國重文輕武，以「歲幣」換取邊境苟安，又行募兵制供養近百萬軍隊，戰力卻每況愈下；官僚機構臃腫冗濫，國家入不敷出。神宗即位時不過二十歲，胸懷大志，決心革除積弊，於是起用素有改革抱負的王安石。王安石以一句驚世之語表明心跡：「天變不足畏，祖宗不足法，人言不足恤」——自然災異不必畏懼、祖宗成法不必固守、流言非議不必顧慮。這種敢於打破成規的氣魄，正是他推行新政的精神底色，卻也注定樹敵無數。</p>
+
+      <p>新法的核心，是用國家力量重新分配資源、抑制兼併、充實國庫。最具爭議的「青苗法」，由官府在青黃不接之際向農民低息貸款，本意是既抑制民間高利貸的盤剝，又為國庫增收利息；「募役法」容許百姓繳錢代替服徭役，由官府僱人應役；「方田均稅法」重新丈量田畝、按實核稅，打擊豪強隱田逃稅；「保甲法」則把農戶編組訓練為民兵，寓兵於農。這套設計環環相扣，若理想地運作，確能富國強兵。問題在於——它需要一支既清廉又能幹的龐大官僚隊伍去落實。</p>
+
+      <p>現實卻殘酷得多。地方官為追逐政績與利息指標，竟強制攤派青苗錢，不問農民是否需要、是否願借，催逼之下，本欲取代高利貸的善政，反而淪為官辦的高利貸。司馬光、蘇軾等人猛烈抨擊新法「擾民」，朝廷由此分裂為「新黨」與「舊黨」，黨爭傾軋數十年不息。神宗一死，司馬光執政，盡廢新法；其後新舊兩黨輪番上台、彼此清算，朝政在內耗中虛耗元氣。論者多認為，這場曠日持久的黨爭嚴重削弱了北宋應對內憂外患的能力，是日後靖康之難的遠因之一。一場本為救國的改革，竟成了亡國的伏筆——這正是制度史上最沉重的弔詭。</p>
+
+      <div class="takeaway">💡 王安石變法的教訓：再縝密、再善意的制度設計，若缺乏稱職的執行者與容許試錯、修正的政治環境，也可能在落地時走樣變質，甚至撕裂它本想拯救的國家。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>王安石「青苗法」的原意是什麼？為何它在實際推行中招致激烈反對？
+        <details>
+          <summary>查看答案</summary>
+          青苗法原意是由官府在青黃不接時向農民低息貸款，既抑制民間高利貸的盤剝，又為國庫增收利息。但實際推行時，地方官為追求政績與利息指標，竟強制攤派、不問農民意願，在利率與催逼之下反成另一種官辦高利貸，加重百姓負擔，因而招致司馬光、蘇軾等人猛烈抨擊，並引發新舊黨爭。
+        </details>
+      </div>
+
+      <p class="source">📚 脫脫等《宋史·王安石傳》；李燾《續資治通鑑長編》；鄧廣銘《北宋政治改革家王安石》（人民出版社）；Peter K. Bol 關於宋代士大夫政治的研究。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 3: WESTERN HISTORY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-3">
+      <div class="card-label">Card 3 · Western History</div>
+      <h2>The War That Killed a Third of Germany — and Invented the Modern State</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        A single act of protest in Prague in 1618 — flinging royal officials out of a high castle window — spiralled into thirty years of war that may have killed a third of central Europe's population. How did a religious quarrel become a continental bloodbath, and why do political scientists trace the very idea of "sovereignty" to the way it ended?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-3">
+        <div class="emoji-fallback">⚔️</div>
+      </div>
+      <p class="img-caption" id="cap-card-3"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figures:</strong> Emperor Ferdinand II (斐迪南二世), King Gustavus Adolphus (古斯塔夫二世) of Sweden, Cardinal Richelieu (黎塞留) of France<br>
+        <strong>Event:</strong> The Thirty Years' War (三十年戰爭), 1618–1648, ending in the Peace of Westphalia (西發里亞和約)<br>
+        <strong>Context:</strong> The Holy Roman Empire (神聖羅馬帝國) was a patchwork of hundreds of Catholic and Protestant states held in fragile balance after the Reformation (宗教改革).
+      </div>
+
+      <p>The spark was the Defenestration of Prague (布拉格擲窗事件) in 1618, when Bohemian Protestants hurled two Catholic imperial governors out of a castle window (they survived, landing — depending on who tells it — in a dung heap or by divine grace). Behind it lay a deeper fear: the staunchly Catholic Habsburg heir, soon Emperor Ferdinand II (斐迪南二世), seemed determined to roll back Protestantism across his lands. What began as a Bohemian revolt drew in Denmark, then Sweden, then France, each for its own mix of faith and power. The most revealing intervention was France's: Cardinal Richelieu (黎塞留), a Catholic prince of the Church, bankrolled the <em>Protestant</em> side — because his true aim was to weaken the rival Habsburgs encircling France. Religion was the banner; raw state interest, or realpolitik (現實政治), was often the real driver.</p>
+
+      <p>For ordinary people, the war was an almost unimaginable catastrophe. Armies were largely mercenaries who "lived off the land" — meaning they plundered, burned, and starved the regions they passed through. The sack of Magdeburg (馬德堡) in 1631 saw perhaps 20,000 inhabitants killed and the city torched, a byword for atrocity for generations. Marauding troops spread famine and plague far faster than battle did. Across the German lands the population is estimated to have fallen by around 20%, and in the worst-hit territories by a third or more — a demographic wound that took a century to heal. This was not a war of decisive battles so much as a slow, grinding ruin of farms, towns, and trade.</p>
+
+      <p>Exhaustion, more than victory, finally produced the Peace of Westphalia (西發里亞和約) in 1648. Its terms reshaped politics permanently: each ruler was confirmed in the right to determine the religion of his own territory and to govern it without outside interference. From this emerged the principle later called Westphalian sovereignty (西發里亞主權) — the idea that the world is divided into territorial states, each supreme within its own borders, none entitled to dictate the internal affairs of another. It is an imperfect and much-contested principle, but it remains the basic grammar of international order, from the United Nations Charter to modern debates over intervention. The modern state system was not designed by philosophers; it was the weary compromise that ended Europe's most ruinous war.</p>
+
+      <div class="takeaway">💡 The map of sovereign states wasn't drawn up as an ideal — it was the exhausted settlement after a war so devastating that "let each ruler govern his own realm" became the only road left to peace.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What set off the Thirty Years' War, and what principle established at the Peace of Westphalia still underpins international order?
+        <details>
+          <summary>Check your answer</summary>
+          It began with the 1618 Defenestration of Prague, as Bohemian Protestants resisted the Catholic Habsburg emperor's attempt to roll back Protestantism — drawing in Denmark, Sweden, and France over thirty years. The 1648 Peace of Westphalia established territorial sovereignty: each state controls its own internal affairs (including religion) free from outside interference, the foundational principle of the modern state system.
+        </details>
+      </div>
+
+      <p class="source">📚 Peter H. Wilson, <em>Europe's Tragedy: A History of the Thirty Years War</em> (Allen Lane, 2009); C. V. Wedgwood, <em>The Thirty Years War</em> (1938); Britannica, "Peace of Westphalia."</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 4: EASTERN PHILOSOPHY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">Card 4 · 東方哲學</div>
+      <h2>「本來無一物」——一個舂米的雜役，如何改寫了中國佛教：六祖慧能與頓悟</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        禪宗五祖弘忍要選繼承人，命弟子各作一偈以見修為。博學的上座神秀寫下：「身是菩提樹，心如明鏡台，時時勤拂拭，勿使惹塵埃。」一個在廚房舂米、據說不識字的雜役慧能，卻作出一首截然相反的偈，竟因此奪得衣缽。兩偈之差，究竟差在哪裏？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-4">
+        <div class="emoji-fallback">☸️</div>
+      </div>
+      <p class="img-caption" id="cap-card-4"></p>
+
+      <div class="intro-box amber">
+        <strong>核心人物：</strong>六祖慧能（638–713），禪宗南宗的創立者；其思想對手為神秀（北宗）；師承五祖弘忍<br>
+        <strong>核心文本：</strong>《六祖壇經》——唯一一部由中國僧人所述、卻被尊稱為「經」的佛典<br>
+        <strong>歷史背景：</strong>唐代佛教義學日趨繁瑣，注疏浩繁；禪宗反其道而行，標舉「不立文字、直指人心、見性成佛」，要把修行從經院思辨拉回當下的心地工夫。
+      </div>
+
+      <p>神秀的偈代表「漸修」：心本如明鏡，但會沾染塵埃（煩惱），故須「時時勤拂拭」，循序漸進地下工夫，方能保持清淨。這是一條穩健、可操作的修行路。慧能聽後，卻請人代書另一偈：「菩提本無樹，明鏡亦非台，本來無一物，何處惹塵埃。」其意截然不同——自性本空、本自清淨，根本沒有一面實在的「鏡」可供沾塵，也就無塵可拭；既然如此，覺悟不在日積月累的擦拭，而在一念之間直見本性，這便是「頓悟」。弘忍深夜為慧能講《金剛經》，傳以衣缽，命他連夜南下隱遁，以免遭忌。</p>
+
+      <p>由此引發了禪宗史上著名的「南頓北漸」之爭。慧能南下嶺南，隱居十餘年後始出，開創主張「頓悟」的南宗；神秀則北上兩京，貴為三帝國師，其「漸修」一系的北宗一度顯赫朝野。表面看，神秀聲勢遠勝。但慧能的弟子神會北上，於滑台大會公開力爭南宗為禪門正統，痛斥北宗「師承是傍，法門是漸」。經過數十年的論爭與政治消長，南宗「頓悟」法門最終後來居上，成為中國禪宗的主流，「南能北秀」的格局以南宗的全面勝出告終。</p>
+
+      <p>慧能思想最深遠之處，在於把覺悟徹底「生活化」。南宗禪講「平常心是道」「擔水砍柴，無非妙道」——修行不必遠離塵世、苦行枯坐，行住坐臥、日用勞作之間，當下這顆心若能不執不迷，便是道場。這一精神不僅重塑了中國佛教，更滲入宋明理學、文人畫與茶道的審美；東傳日本後，發展為臨濟、曹洞兩大禪宗宗派，深刻形塑了武士的精神世界與「侘寂」美學。一個標榜「不立文字」、由一位不識字者開創的法門，反而催生出中國佛教史上最具創造力、最富生命力的傳統。</p>
+
+      <div class="takeaway">💡 慧能的啟示：真正的覺悟，未必在於不斷「擦拭」外在的修為與成就，而在於認清本心當下即已圓滿——有時候，放下「必須努力修正自己」的執念，本身就是答案。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>神秀「漸修」偈與慧能「頓悟」偈的根本分歧在哪裏？為何說慧能把修行「帶回了日常生活」？
+        <details>
+          <summary>查看答案</summary>
+          神秀主張「心如明鏡台，時時勤拂拭」，是循序漸進、不斷去除煩惱塵埃的漸修；慧能主張「本來無一物」，自性本自清淨、根本無塵可拭，故能一念之間直見本性而頓悟。慧能南宗強調「平常心是道」「擔水砍柴無非妙道」，把覺悟從繁瑣義學與出世苦行中解放出來，融入日常勞作與生活，故說他把修行帶回了日常。
+        </details>
+      </div>
+
+      <p class="source">📚 《六祖壇經》；Philip B. Yampolsky, <em>The Platform Sutra of the Sixth Patriarch</em>（Columbia University Press, 1967）；印順《中國禪宗史》（正聞出版社）。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-5">
+      <div class="card-label">Card 5 · Western Philosophy</div>
+      <h2>Who Decided "Good" Means "Meek"? Nietzsche's Dangerous History of Morality</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Nietzsche (尼采) asked a question almost no one had dared: where did our very ideas of "good" and "evil" actually come from? His answer — that the meaning of "good" was once flipped upside-down by the resentment of the powerless — made him one of history's most explosive and most misread thinkers. What was the "transvaluation" he described?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-5">
+        <div class="emoji-fallback">⚒️</div>
+      </div>
+      <p class="img-caption" id="cap-card-5"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figure:</strong> Friedrich Nietzsche (尼采, 1844–1900), a German classical philologist who became one of philosophy's great iconoclasts<br>
+        <strong>Key Text:</strong> <em>On the Genealogy of Morality</em> (道德系譜學, 1887), with <em>Beyond Good and Evil</em> (善惡的彼岸, 1886)<br>
+        <strong>The Problem:</strong> Earlier philosophers asked <em>which</em> actions are good. Nietzsche asked the prior, historical question — how did the concepts "good" and "evil" come to mean what they now do?
+      </div>
+
+      <p>Nietzsche begins not with rules but with history. Originally, he argues, "good" was simply the self-affirming label of the strong, noble, life-embracing aristocrat — the powerful person describing his own vitality, confidence, and excellence — while "bad" merely meant the common, the weak, the lowly. He calls this "master morality" (主人道德): values flow outward from strength and self-celebration, not from any external commandment. Crucially, in this scheme "good" and "bad" are not yet moral opposites loaded with guilt; they are more like "noble" and "base." This, Nietzsche claims, was the original grammar of value among warrior aristocracies — and it is the world that Greek and other heroic literatures still half-remember.</p>
+
+      <p>Then came what he provocatively calls the "slave revolt in morals." The powerless — he points especially to priestly castes — could not defeat the strong on the battlefield, so they triumphed by a feat of psychology. Driven by <em>ressentiment</em> (積怨) — a deep, creative resentment that cannot discharge itself in action and turns inward — they performed a great inversion: the traits of the strong (pride, dominance, assertiveness) were rebranded as "evil" (惡), while the conditions of the weak (humility, meekness, patience, obedience) were exalted as "good." This is "slave morality" (奴隸道德), and Nietzsche argues it became the root of much conventional Western morality. When he declares "God is dead" (上帝已死), he means the religious scaffolding that long propped up this value system is collapsing — leaving modern people with inherited morals whose foundations have quietly crumbled.</p>
+
+      <p>It is vital to grasp what Nietzsche is <em>not</em> saying. He is not issuing a licence for cruelty, nor cheering tyrants — he is diagnosing the hidden history of values and asking whether they still serve life. His remedy is a "transvaluation of all values" (價值的重估) and the creation of new, life-affirming values by an individual he calls the Übermensch (超人) — one who legislates meaning for himself rather than inheriting it. Tragically, after his mental collapse his sister edited his notes and his name was later seized upon by Nazi propagandists — a grotesque distortion, since Nietzsche openly despised antisemitism, nationalism, and the herd politics they embodied. His enduring provocation is humbler and sharper than the caricature: morality has a history, and the values we treat as self-evident may secretly serve psychological needs we would rather not examine.</p>
+
+      <div class="takeaway">💡 Nietzsche's real challenge isn't "be ruthless" — it's "notice that your deepest moral certainties have a history, and ask whose needs they were built to serve."</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is the difference between "master" and "slave" morality in Nietzsche's account, and what role does <em>ressentiment</em> play?
+        <details>
+          <summary>Check your answer</summary>
+          Master morality calls "good" whatever is strong, noble, and life-affirming, with "bad" meaning merely the weak or base. Slave morality, born of <em>ressentiment</em> among the powerless who could not win by force, inverts this: it brands the strong "evil" and elevates meekness, humility, and patience as "good." Nietzsche presents this "slave revolt in morals" as a historical reversal — the transvaluation that shaped much conventional morality.
+        </details>
+      </div>
+
+      <p class="source">📚 Friedrich Nietzsche, <em>On the Genealogy of Morality</em> (1887); <em>Beyond Good and Evil</em> (1886); Stanford Encyclopedia of Philosophy, "Nietzsche's Moral and Political Philosophy."</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 6: PSYCHOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-6">
+      <div class="card-label">Card 6 · Psychology</div>
+      <h2>The Memory That Never Happened: How a Single Word Can Rewrite What You Saw</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Two groups watch the same film of a car crash. One is asked how fast the cars were going when they "smashed"; the other, when they "hit." A week later, both are asked whether they saw any broken glass — there was none in the film. Will the wording of that single earlier question change what they "remember"?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-6">
+        <div class="emoji-fallback">🧠</div>
+      </div>
+      <p class="img-caption" id="cap-card-6"></p>
+
+      <p>In 1974, Elizabeth Loftus (羅芙托斯) and John Palmer ran a now-classic experiment. Participants watched films of traffic accidents, then estimated the cars' speed. The only thing that changed between groups was one verb. Asked how fast the cars were going when they "smashed" into each other, people estimated about 40.8 mph; asked when they "hit" each other, about 34.0 mph — the same footage, a faster "memory," conjured by a single loaded word. A week later came the real twist: participants who had heard "smashed" were more than twice as likely to "remember" seeing broken glass (about 32% versus 14% for the "hit" group), even though there had been no broken glass at all. The wording hadn't just biased a guess; it had edited the memory itself.</p>
+
+      <p>This is the misinformation effect (錯誤信息效應), and it overturns the intuitive view of memory as a video recording. Memory is reconstructive: each time we recall an event, we rebuild it from fragments — and any information encountered <em>after</em> the event (a leading question, a news report, another witness's account, even our own retelling) can be woven seamlessly into the reconstruction. Loftus later went further, showing in her "lost in the mall" studies that entirely false memories — being lost in a shopping mall as a child, an event that never happened — could be implanted in roughly a quarter of participants through nothing more than suggestion and repetition. The recollections felt vivid and real to those who held them.</p>
+
+      <p>The stakes are not academic. Mistaken eyewitness identification is the single largest contributing factor in wrongful convictions later overturned by DNA evidence — present in a large majority of such cases catalogued by the Innocence Project (清白計劃). This research has reshaped how police are trained to question witnesses (using open, non-leading prompts) and how courts weigh confident testimony. In everyday life the lesson is humbling: confidence is not accuracy. A memory can feel detailed, certain, and emotionally vivid, and still be partly — or wholly — invented. Be especially wary of memories rehearsed many times or shaped by others' versions of the same event.</p>
+
+      <div class="takeaway">💡 Confidence is not accuracy. Your memory is a story you re-tell — and quietly re-edit — each time, so even a vivid, certain recollection can be partly invented.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What did changing one verb ("smashed" vs "hit") do in Loftus &amp; Palmer's study, and what does this reveal about how memory works?
+        <details>
+          <summary>Check your answer</summary>
+          "Smashed" raised speed estimates (≈40.8 vs 34.0 mph) and, a week later, made participants more than twice as likely to falsely recall broken glass that was never there. This shows memory is reconstructive: post-event information — even a single suggestive word — gets integrated into the recollection, so memories can be distorted or even implanted (the misinformation effect).
+        </details>
+      </div>
+
+      <p class="source">📚 Loftus &amp; Palmer (1974), "Reconstruction of Automobile Destruction," <em>Journal of Verbal Learning and Verbal Behavior</em> 13:585; Loftus &amp; Pickrell (1995), "The Formation of False Memories" ("lost in the mall"); Innocence Project, eyewitness misidentification data.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 7: PHYSIOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-7">
+      <div class="card-label">Card 7 · Physiology</div>
+      <h2>Why a Heart Attack Hurts in Your Arm: The Body's Crossed Wires</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        During a heart attack, many people feel pain not in the chest but down the left arm, into the jaw, or between the shoulder blades. It is the heart that is starved of oxygen — so why does the brain point to the shoulder? The answer is a wiring shortcut laid down before you were even born.
+      </details>
+
+      <div class="card-img-wrap" id="img-card-7">
+        <div class="emoji-fallback">🫀</div>
+      </div>
+      <p class="img-caption" id="cap-card-7"></p>
+
+      <p>Start with a puzzle. Your skin is densely mapped for pain: prick a fingertip and you know instantly, to the millimetre, where it hurts. Your internal organs are almost the opposite. They have relatively few, sparsely distributed pain fibres, and the brain has no detailed map of them — which is why visceral pain (內臟痛) tends to feel vague, deep, and hard to pinpoint. Stranger still, organ distress often seems to come from somewhere else entirely: a diaphragm irritated by blood or infection can produce pain at the tip of the shoulder; a troubled kidney can ache down into the groin; and a heart short of oxygen frequently announces itself in the left arm and jaw. This misdirection is called referred pain (牽涉痛).</p>
+
+      <p>The mechanism is a kind of crossed wiring in the spinal cord, known as viscerosomatic convergence (內臟–軀體匯聚). Pain signals from an internal organ and pain signals from a particular patch of skin (a dermatome, 皮節) often travel into the <em>same</em> segment of the spinal cord and converge onto the <em>same</em> second-order neurons in the dorsal horn (背角). From there a single shared pathway carries the alarm up to the brain. Because the brain receives vastly more lifetime input from skin than from any organ, it has learned to read that pathway as "this is coming from the skin." When the heart fires its distress signal up a line it shares with the chest and inner arm, the brain makes its best, well-practised guess — and locates the pain on the body surface. The heart's sensory nerves enter the cord at roughly the T1–T5 segments, the very segments that serve the chest, inner left arm, and jaw.</p>
+
+      <p>This is not a random glitch but a by-product of how we are built. During embryonic development, an organ and the skin region to which its pain refers arise from the same body segment, so their nerves end up sharing spinal real estate. Far from being a mere curiosity, clinicians use these referral patterns as diagnostic clues: pain at the right lower abdomen's McBurney's point hints at appendicitis; left-shoulder pain after abdominal trauma (Kehr's sign) can signal blood irritating the diaphragm from a ruptured spleen. And the heart's pattern can be lifesaving to recognise — arm, jaw, neck, or upper-back pain, sometimes with no chest pain at all (more common in women, older adults, and people with diabetes), can be the heart's borrowed cry for help.</p>
+
+      <div class="takeaway">💡 Your brain keeps no precise map of your organs, so it reads their distress on the better-mapped skin that shares the same spinal wiring — which is exactly why arm or jaw pain can be a warning sent from the heart.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is "viscerosomatic convergence," and why does cardiac pain so often appear in the left arm and jaw?
+        <details>
+          <summary>Check your answer</summary>
+          Pain fibres from an internal organ and from a region of skin converge on the same spinal-cord neurons in the same segment. The brain, accustomed to abundant skin input, misreads the organ's signal as coming from that skin area. The heart's sensory nerves enter the cord around segments T1–T5 — the same segments serving the chest, inner left arm, and jaw — so cardiac distress is "referred" there.
+        </details>
+      </div>
+
+      <p class="source">📚 Guyton &amp; Hall, <em>Textbook of Medical Physiology</em> (referred pain &amp; visceral sensation); R. D. Foreman (1999), "Mechanisms of cardiac pain," <em>Annual Review of Physiology</em> 61:143; Britannica, "Referred pain."</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 8: HEALTH -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-8">
+      <div class="card-label">Card 8 · Health</div>
+      <h2>When "Healthy" Antioxidant Pills Caused Cancer: The Beta-Carotene Reversal</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Beta-carotene — the pigment that makes carrots orange and a potent antioxidant — looked, in survey after survey, like a cancer-fighting wonder. So researchers ran two giant trials handing smokers high-dose beta-carotene pills, fully expecting to prevent lung cancer. The result stunned everyone and ran the opposite way. What happened?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-8">
+        <div class="emoji-fallback">🥕</div>
+      </div>
+      <p class="img-caption" id="cap-card-8"></p>
+
+      <p>The hypothesis was beautifully reasonable. Large observational studies had repeatedly found that people who ate more fruit and vegetables — foods rich in beta-carotene (β-胡蘿蔔素) — had lower rates of lung and other cancers. Antioxidants (抗氧化劑) neutralise reactive free radicals (自由基) that can damage DNA, and beta-carotene is a particularly effective one. The logic seemed airtight: if the nutrient in the food is protective, a concentrated pill should protect even more, and could help those at highest risk — above all, smokers. So in the late 1980s and early 1990s, two large randomised trials set out to prove it.</p>
+
+      <p>The results were a shock. Finland's ATBC trial (ATBC 試驗) gave about 29,000 male smokers 20 mg of beta-carotene daily — and the supplement group developed roughly 18% <em>more</em> lung cancer, not less. The US CARET trial (CARET 試驗) tested beta-carotene plus vitamin A in smokers and asbestos-exposed workers; it found about 28% more lung cancer and around 17% higher overall mortality in the supplement group, and was halted early on safety grounds. A nutrient that was protective inside food had become harmful as an isolated, high-dose pill. The leading explanation is that in the high-oxygen, smoke-damaged environment of a smoker's lung, mega-dose beta-carotene can flip from antioxidant to <em>pro-oxidant</em>, and may disrupt normal cell signalling — the opposite of the intended effect.</p>
+
+      <p>The deeper lesson reaches well beyond one pigment. A nutrient in a carrot is not the same as the same nutrient in a capsule: whole foods deliver a whole matrix of compounds at modest, balanced doses, in a context evolution has tuned. "Antioxidant equals healthy" is also too simple — the body deliberately <em>uses</em> some oxidation, from the immune system's bursts of reactive oxygen to the very signals that drive adaptation to exercise; flooding it with mega-dose antioxidants can blunt these. Large Cochrane reviews of antioxidant supplements (beta-carotene, vitamins A and E) have found no reduction in mortality, and in some cases a small increase. The practical conclusion is refreshingly cheap: eat the carrot, skip the high-dose extract.</p>
+
+      <div class="takeaway">💡 "Antioxidant" on a label is not a synonym for "healthy." A nutrient that protects you inside a whole food can backfire as an isolated mega-dose — so eat the plant, not the extract.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What did the ATBC and CARET trials find when they gave smokers high-dose beta-carotene, and what general lesson does this teach about supplements?
+        <details>
+          <summary>Check your answer</summary>
+          Instead of preventing cancer, beta-carotene supplements <em>increased</em> lung cancer in smokers (≈18% more in ATBC; ≈28% more, with ~17% higher mortality, in CARET, which was stopped early). The lesson: a nutrient that is beneficial within whole foods can be harmful as an isolated high dose; "antioxidant" is not automatically protective, and food-based intake is not the same as supplement intake.
+        </details>
+      </div>
+
+      <p class="source">📚 ATBC Cancer Prevention Study Group (1994), <em>NEJM</em> 330:1029; Omenn et al. / CARET (1996), <em>NEJM</em> 334:1150; Bjelakovic et al. (2012), Cochrane review of antioxidant supplements.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-9">
+      <div class="card-label">Card 9 · Sports Science</div>
+      <h2>Should You "Feel the Muscle Working"? The Science of Attentional Focus</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Gym coaches split into two camps. One says "focus on squeezing the target muscle" (internal focus); the other says "just move the weight, focus on the outcome" (external focus). The research has a twist: the right answer depends on whether your goal is muscle <em>size</em> or maximal <em>strength</em>. Which focus builds more muscle?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-9">
+        <div class="emoji-fallback">💪</div>
+      </div>
+      <p class="img-caption" id="cap-card-9"></p>
+
+      <p>The two strategies have names. An internal focus of attention — the gym's "mind-muscle connection" (意念–肌肉連結) — means consciously concentrating on the target muscle contracting: feeling the biceps shorten as you curl. An external focus means attending instead to the movement's outcome or the implement: "drive the floor away," "push the bar to the ceiling." Decades of motor-learning research, much of it by Gabriele Wulf, found a fairly consistent pattern: for performance — producing force, moving fast, learning a skill — an external focus usually wins, because thinking about the outcome lets the nervous system self-organise the movement without micromanaging individual muscles.</p>
+
+      <p>But hypertrophy is a different goal, and here the picture flips. In a 2018 study by Brad Schoenfeld and colleagues, untrained men did eight weeks of elbow-flexor training under identical loads, differing only in instruction. The group told to focus internally — to "squeeze the biceps" — gained significantly more muscle thickness (roughly 12.4% versus about 6.9% for the external-focus group). The plausible reason: deliberately attending to a muscle increases its activation and reduces the tendency to let other muscles take over, concentrating the training stimulus where you want it. For maximal strength on a heavy compound lift, though, the same internal focus can be counter-productive — the external cue still produces more total force and cleaner coordination. So the answer is genuinely goal-dependent.</p>
+
+      <p>That makes the practical rule simple. On isolation exercises aimed at growing a specific muscle — curls, lateral raises, flyes, leg extensions — slow down, lighten the ego, and deliberately "feel" the target muscle work through the full range. On heavy compound lifts where the priority is moving big loads safely and forcefully — squats, deadlifts, presses, jumps — switch to an external cue ("explode," "push the ground away"), which reliably yields more force and better technique. Two honest caveats: the effects are real but modest, and they sit on top of the fundamentals, not in place of them. Load, total weekly volume, and progressive overload still do the heavy lifting; attentional focus is a fine-tuning dial, not the engine.</p>
+
+      <div class="takeaway">💡 Match your focus to your goal: "feel the muscle" to build a specific muscle, "move the weight" to lift the most. Either way it fine-tunes — it never replaces progressive overload.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> When does an internal ("mind-muscle") focus beat an external focus, and when is it the other way around?
+        <details>
+          <summary>Check your answer</summary>
+          An internal focus — consciously feeling the target muscle work — tends to raise that muscle's activation and growth, so it helps hypertrophy on isolation exercises (Schoenfeld 2018: ≈12.4% vs ≈6.9% biceps growth). An external focus — attending to the outcome or implement — produces more force, speed, and coordination, so it is better for maximal strength and power lifts. Focus is goal-dependent, and secondary to load and volume.
+        </details>
+      </div>
+
+      <p class="source">📚 Schoenfeld et al. (2018), "Differential effects of attentional focus strategies during long-term resistance training," <em>European Journal of Sport Science</em> 18(5):705; Wulf (2013), <em>Int Review of Sport &amp; Exercise Psychology</em> 6(1) (attentional-focus review).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 10: INVESTING -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card green" id="card-10">
+      <div class="card-label">Card 10 · Investing &amp; Economic Thinking</div>
+      <h2>The "One-Decision" Stocks: How Buying Great Companies Still Lost a Decade</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        In the early 1970s, Wall Street fell in love with about fifty blue-chip growth stocks — Coca-Cola, Xerox, Polaroid, McDonald's — so reliable you were supposed to buy them once and never sell. They were genuinely excellent companies. So why did investors who bought them at the peak spend years just trying to break even?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-10">
+        <div class="emoji-fallback">📈</div>
+      </div>
+      <p class="img-caption" id="cap-card-10"></p>
+
+      <p>They were called the Nifty Fifty (漂亮五十) — a loosely defined set of about fifty large, fast-growing, high-quality American companies that institutional investors prized in the early 1970s. The market gave them an almost reverent nickname: "one-decision stocks" (一次決策股). The idea was that these businesses were so dominant and their growth so dependable that you needed to make only one decision — to buy — and could then hold forever, never bothering to sell. Names like Coca-Cola (可口可樂), IBM, McDonald's (麥當勞), Xerox (全錄), Polaroid (寶麗來), and Avon embodied the belief that for a truly great company, almost any price was justified. By 1972 some traded at extraordinary valuations — price-to-earnings ratios (本益比) of 50, 70, even 90 (Polaroid near 90, Avon around 65), versus a market average closer to 19.</p>
+
+      <p>Then came the reckoning. The brutal 1973–74 bear market (熊市) — driven by the oil shock, surging inflation, and recession — hit the Nifty Fifty far harder than the broad market. Stocks that had been bid up to dizzying multiples had nowhere to fall but down: Avon, Polaroid, and Xerox each lost on the order of 70–90% of their value. The companies themselves had not necessarily failed — many kept growing earnings — but their <em>prices</em> had embedded years of future growth in advance, leaving no margin for disappointment. Investors who had bought "wonderful businesses" at the top found themselves deep underwater, waiting through much of the decade simply to recover their cost.</p>
+
+      <p>The most instructive part came later. Wharton's Jeremy Siegel (西格爾) revisited the Nifty Fifty decades on and found that, held over a very long horizon, the basket as a whole roughly matched the broader market's return — but the average concealed enormous spread. Genuine compounders like Coca-Cola and McDonald's grew into and beyond even their lofty 1972 multiples, while others — Polaroid, Kodak, Burroughs — proved to be value traps whose growth stories faded. The enduring lesson is the one Benjamin Graham had taught a generation earlier: a great company is not the same thing as a great investment. Quality tells you <em>what</em> might be worth owning; valuation — the price you actually pay — determines your return. Pay any price for quality, and you can be right about the business and still lose for a decade.</p>
+
+      <div class="takeaway">💡 A wonderful business bought at a foolish price is still a foolish investment. Quality tells you what to buy; valuation tells you whether to buy it <em>now</em>.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What were the "Nifty Fifty," and what investing lesson did their 1973–74 collapse teach despite them being excellent companies?
+        <details>
+          <summary>Check your answer</summary>
+          They were about fifty blue-chip "one-decision" growth stocks of the early 1970s, bid up to extreme valuations (P/Es of 50–90) on the belief that quality justified any price. In the 1973–74 bear market many fell 70–90%, leaving peak buyers underwater for years. Lesson: a great company is not automatically a great investment — the price you pay determines your return, so valuation matters, not just quality.
+        </details>
+      </div>
+
+      <p class="source">📚 Jeremy J. Siegel, "The Nifty-Fifty Revisited: Do Growth Stocks Ultimately Justify Their Price?" (1995) &amp; <em>Stocks for the Long Run</em>; contemporary accounts of the 1973–74 bear market.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">Card 11 · Political Economics — Theory in the Wild</div>
+      <h2>The Tragedy That Often Isn't: Commons, Collapse, and Elinor Ostrom</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Garrett Hardin argued that any resource shared by many — a pasture, a fishery — is doomed to ruin, because each user grabs more while the cost is spread across all. It is one of the most cited ideas in social science. So why have Swiss alpine pastures and Maine lobster grounds survived, intact, for centuries?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-11">
+        <div class="emoji-fallback">🦞</div>
+      </div>
+      <p class="img-caption" id="cap-card-11"></p>
+
+      <div class="etac">
+        <div class="etac-item etac-event">
+          <span class="etac-label">① Event</span>
+          Maine's inshore lobster fishery has been harvested sustainably for over a century — governed not by government quotas but by informal "harbour gangs" of fishers who enforce territory, respect trap limits, and throw back egg-bearing and oversized females. It is exactly the kind of shared resource that the dominant theory predicts should long ago have been stripped bare.
+        </div>
+        <div class="etac-item etac-theory">
+          <span class="etac-label">② Theory</span>
+          The "Tragedy of the Commons" (公地悲劇) — Garrett Hardin (哈丁, 1968, in <em>Science</em>). Core claim: in a resource open to all, each individual rationally takes as much as possible, because they capture the full private benefit while the cost of depletion is shared across everyone. The result is inevitable overexploitation. Hardin's prescribed remedies were privatisation or top-down state control.
+        </div>
+        <div class="etac-item etac-anomaly">
+          <span class="etac-label">③ Anomaly</span>
+          All over the world, communities have governed common-pool resources sustainably for generations <em>without</em> either privatisation or state coercion: Swiss alpine commons at Törbel for 500+ years, Japanese village forests (入会 iriai), Spanish irrigation <em>huertas</em>, Maine lobster grounds. The "inevitable" tragedy frequently does not occur — self-organised users design and enforce their own rules.
+        </div>
+        <div class="etac-item etac-challenger">
+          <span class="etac-label">④ Challenger</span>
+          Elinor Ostrom (歐斯特羅姆), <em>Governing the Commons</em> (1990) — for which she won the 2009 Nobel Prize in Economics, the first woman to do so. Her field studies showed communities solve commons problems through institutions meeting "design principles": clear boundaries, rules fitted to local conditions, collective decision-making, monitoring, graduated sanctions, and conflict-resolution. The tragedy is not a law of nature but a failure of governance — avoidable when users can communicate, monitor, and sanction each other.
+        </div>
+      </div>
+
+      <div class="takeaway">💡 "Everyone acting selfishly must destroy the shared resource" is a prediction, not a law. Given the right rules — crafted and enforced by the users themselves — communities routinely escape the tragedy Hardin thought was inevitable.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What does Hardin's "tragedy of the commons" predict, and how did Ostrom's work challenge it?
+        <details>
+          <summary>Check your answer</summary>
+          Hardin (1968) predicted that any openly shared resource will inevitably be overexploited, because each user reaps the full private benefit of taking more while the depletion cost is shared — implying that privatisation or state control is required. Ostrom (1990) documented many communities that sustainably self-govern commons (Swiss pastures, Maine lobster, Japanese forests) using design principles like clear boundaries, monitoring, and graduated sanctions — showing the tragedy is an avoidable governance failure, not destiny.
+        </details>
+      </div>
+
+      <p class="source">📚 Garrett Hardin (1968), "The Tragedy of the Commons," <em>Science</em> 162:1243; Elinor Ostrom, <em>Governing the Commons</em> (Cambridge University Press, 1990); Royal Swedish Academy of Sciences, Nobel Prize in Economic Sciences 2009.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CONNECTION OF THE DAY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="connection-card">
+      <h3>🔗 Connection of the Day</h3>
+      <p><strong>Cards 8 &amp; 10 — The Beta-Carotene Trap and the Nifty Fifty:</strong> Both are cautionary tales about extrapolating a true property out of its context. Beta-carotene is genuinely beneficial inside a carrot — but harmful as an isolated mega-dose pill. Coca-Cola was genuinely a wonderful business — but a poor investment at ninety times earnings. In each case people seized on one real, attractive quality ("antioxidant," "great company") and forgot that <em>dose</em> and <em>price</em> — the context — are what actually determine the outcome. The virtue did not survive unlimited extrapolation.</p>
+      <p style="margin-top:.5rem;font-size:.88rem;color:var(--steel);"><strong>So what:</strong> Whenever you hear "X is good," append three questions before acting on it — good in what amount, at what price, in what context? A property that holds in one setting rarely transfers untouched to another.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>📚 All Sources</h3>
+      <p>1. Lorimer et al. (2007), <em>Science</em> 318:777; Bochenek et al. &amp; CHIME/FRB (2020), <em>Nature</em> 587; Macquart et al. (2020), <em>Nature</em> 581:391.</p>
+      <p>2. 《宋史·王安石傳》；李燾《續資治通鑑長編》；鄧廣銘《北宋政治改革家王安石》。</p>
+      <p>3. Peter H. Wilson, <em>Europe's Tragedy</em> (2009); C. V. Wedgwood, <em>The Thirty Years War</em> (1938); Britannica, "Peace of Westphalia."</p>
+      <p>4. 《六祖壇經》；Philip B. Yampolsky, <em>The Platform Sutra of the Sixth Patriarch</em> (1967)；印順《中國禪宗史》。</p>
+      <p>5. Nietzsche, <em>On the Genealogy of Morality</em> (1887); <em>Beyond Good and Evil</em> (1886); SEP, "Nietzsche's Moral and Political Philosophy."</p>
+      <p>6. Loftus &amp; Palmer (1974), <em>J. Verbal Learning &amp; Verbal Behavior</em> 13:585; Loftus &amp; Pickrell (1995); Innocence Project.</p>
+      <p>7. Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>; Foreman (1999), <em>Annu Rev Physiol</em> 61:143; Britannica, "Referred pain."</p>
+      <p>8. ATBC Study Group (1994), <em>NEJM</em> 330:1029; Omenn et al./CARET (1996), <em>NEJM</em> 334:1150; Bjelakovic et al. (2012), Cochrane.</p>
+      <p>9. Schoenfeld et al. (2018), <em>Eur J Sport Sci</em> 18(5):705; Wulf (2013), <em>Int Rev Sport Exerc Psychol</em> 6(1).</p>
+      <p>10. Jeremy Siegel, "The Nifty-Fifty Revisited" (1995) &amp; <em>Stocks for the Long Run</em>; accounts of the 1973–74 bear market.</p>
+      <p>11. Hardin (1968), <em>Science</em> 162:1243; Ostrom, <em>Governing the Commons</em> (1990); Nobel Prize in Economics 2009.</p>
+
+      <details style="margin-top:1.2rem;">
+        <summary style="cursor:pointer;color:var(--muted);font-size:.8rem;">📋 Do-Not-Repeat Log (collapsed)</summary>
+        <p style="margin-top:.5rem;font-size:.75rem;opacity:.7;">
+          See do-not-repeat-log.md for full history. Today (2026-06-12, 2nd Edition) added: Fast Radio Bursts / SGR 1935+2154 / Macquart relation · 王安石變法 (熙寧變法) · Thirty Years' War &amp; Peace of Westphalia · 禪宗六祖慧能 頓悟 (《六祖壇經》) · Nietzsche — Master/Slave Morality &amp; Genealogy · Misinformation Effect / Reconstructive Memory (Loftus) · Referred Pain / Viscerosomatic Convergence · Antioxidant Supplements Myth (Beta-Carotene / ATBC &amp; CARET) · Mind-Muscle Connection / Attentional Focus (Schoenfeld) · Nifty Fifty / "One-Decision" Stocks · Tragedy of the Commons vs Ostrom.
+        </p>
+      </details>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+window._imageMap = {};
+const imgCandidates = {
+  'card-1': ['Fast radio burst','SGR 1935+2154','CHIME (radio telescope)'],
+  'card-2': ['Wang Anshi','Emperor Shenzong of Song','Song dynasty'],
+  'card-3': ['Thirty Years%27 War','Peace of Westphalia','Defenestration of Prague'].map(function(s){return s.replace('%27',String.fromCharCode(39));}),
+  'card-4': ['Huineng','Platform Sutra','Chan Buddhism'],
+  'card-5': ['Friedrich Nietzsche','On the Genealogy of Morality','Master–slave morality'],
+  'card-6': ['Misinformation effect','Elizabeth Loftus','Eyewitness testimony'],
+  'card-7': ['Referred pain','Dermatome (anatomy)','Spinal cord'],
+  'card-8': ['Beta-Carotene and Retinol Efficacy Trial','Beta-Carotene','Antioxidant'],
+  'card-9': ['Biceps','Strength training','Muscle hypertrophy'],
+  'card-10': ['Nifty Fifty','Polaroid Corporation','1973–1974 stock market crash'],
+  'card-11': ['Elinor Ostrom','Tragedy of the commons','Common-pool resource']
+};
+
+async function loadWikiImage(cardId, candidates) {
+  const wrap = document.getElementById('img-' + cardId);
+  if (!wrap) return;
+  for (const title of candidates) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const resp = await fetch(url);
+      if (!resp.ok) continue;
+      const d = await resp.json();
+      const src = (d.originalimage || d.thumbnail || {}).source;
+      if (!src) continue;
+      window._imageMap[cardId] = src;
+      wrap.innerHTML =
+        '<img src="' + src + '" alt="' + title.replace(/"/g,"'") + '" loading="lazy">' +
+        '<div class="img-caption">' + (d.title || title) + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia</a></div>';
+      return;
+    } catch(e) { /* try next */ }
+  }
+}
+Object.keys(imgCandidates).forEach(id => loadWikiImage(id, imgCandidates[id]));
+
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-12-2.html';
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) {
+    window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank');
+  }
+}
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'daily-learning-2026-06-12-2.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){
+      alert('Link copied — paste it on your phone!');
+    });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl)
+      + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+</body>
+</html>
