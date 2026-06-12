@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 12 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;500;700&display=swap');
+
+:root {
+  --bg: #0f0f13;
+  --surface: #181820;
+  --surface2: #1e1e28;
+  --border: #2a2a38;
+  --text: #e0ddd4;
+  --muted: #888;
+  --accent: #7eb8f7;
+  --accent-dim: #3a6a9a;
+  --amber: #d4893a;
+  --amber-bg: #1e1808;
+  --amber-border: #5a3a10;
+  --green: #5aab6a;
+  --green-bg: #0e1a10;
+  --green-border: #2a6a35;
+  --steel: #7aafc8;
+  --steel-bg: #0e1520;
+  --steel-border: #2a4a65;
+  --nav-width: 185px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Serif HK", "Source Han Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── Sticky top ── */
+.sticky-top {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.back-bar {
+  padding: .22rem 1rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.back-bar a {
+  display: inline-block;
+  font-size: .72rem;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: .15rem .65rem;
+  transition: color .2s, border-color .2s;
+}
+.back-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+.badge-2nd {
+  font-size: .65rem;
+  background: var(--amber);
+  color: #000;
+  border-radius: 20px;
+  padding: .1rem .55rem;
+  font-weight: 700;
+}
+
+.sticky-top .site-header {
+  padding: .45rem 1.2rem;
+  text-align: left;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.sticky-top h1 { font-size: .97rem; font-weight: 700; letter-spacing: .02em; }
+.sticky-top .meta { font-size: .72rem; margin-top: 0; opacity: .75; }
+
+.toc-bar {
+  display: none;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: .28rem .8rem;
+  gap: .4rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  scrollbar-width: none;
+}
+.toc-bar::-webkit-scrollbar { display: none; }
+.toc-bar a {
+  display: inline-block;
+  font-size: .68rem;
+  padding: .18rem .6rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--muted);
+  margin-right: .3rem;
+  transition: color .2s, border-color .2s;
+}
+.toc-bar a:hover { color: var(--accent); border-color: var(--accent-dim); text-decoration: none; }
+
+/* ── Layout ── */
+.page-body {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-nav {
+  width: var(--nav-width);
+  flex-shrink: 0;
+  padding: 1.5rem .8rem 2rem;
+}
+.left-nav-inner {
+  position: sticky;
+  top: 3.5rem;
+}
+.left-nav h3 {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav .nav-label {
+  font-size: .65rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+  margin-bottom: .8rem;
+  padding-left: .4rem;
+}
+.left-nav a {
+  display: block;
+  font-size: .72rem;
+  padding: .32rem .6rem;
+  border-radius: 8px;
+  color: var(--muted);
+  margin-bottom: .15rem;
+  border: 1px solid transparent;
+  transition: all .2s;
+  line-height: 1.35;
+}
+.left-nav a:hover { color: var(--text); background: var(--surface); border-color: var(--border); text-decoration: none; }
+
+.content {
+  flex: 1;
+  min-width: 0;
+  padding: 1.5rem 1.5rem 4rem;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.card-label {
+  font-size: .68rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin-bottom: .35rem;
+}
+.card h2 {
+  font-size: 1.22rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* Amber cards (Eastern History & Eastern Philosophy) */
+.card.amber { border-color: var(--amber-border); background: var(--amber-bg); }
+.card.amber h2 { color: var(--amber); }
+.card.amber .card-label { color: #b8782a; }
+
+/* Green card (Investing) */
+.card.green { border-color: var(--green-border); background: var(--green-bg); }
+.card.green h2 { color: var(--green); }
+.card.green .card-label { color: #4a8a5a; }
+
+/* Steel card (Political Economics) */
+.card.steel { border-color: var(--steel-border); background: var(--steel-bg); }
+.card.steel h2 { color: var(--steel); }
+.card.steel .card-label { color: #5a8aaa; }
+
+/* Intro boxes */
+.intro-box {
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  margin-bottom: 1.1rem;
+  font-size: .88rem;
+  line-height: 1.6;
+  border-left: 4px solid;
+}
+.intro-box.amber { background: #261a06; border-color: var(--amber); }
+.intro-box.accent { background: #101828; border-color: var(--accent); }
+
+/* Image block */
+.card-img-wrap {
+  margin: 1rem 0;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-img-wrap img {
+  max-width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+.card-img-wrap .emoji-fallback { font-size: 4rem; }
+.img-caption {
+  font-size: .65rem;
+  color: var(--muted);
+  margin-top: .4rem;
+}
+
+/* Details/summary */
+details {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .7rem 1rem;
+  margin: .8rem 0;
+}
+.card.amber details { background: #1a1000; border-color: var(--amber-border); }
+.card.steel details { background: #0a1018; border-color: var(--steel-border); }
+.card.green details { background: #0a1208; border-color: var(--green-border); }
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .88rem;
+  color: var(--accent);
+  padding: .1rem 0;
+  list-style: none;
+  user-select: none;
+}
+.card.amber details summary { color: var(--amber); }
+.card.steel details summary { color: var(--steel); }
+.card.green details summary { color: var(--green); }
+details[open] summary { margin-bottom: .5rem; }
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶ "; font-size: .75em; }
+details[open] summary::before { content: "▼ "; }
+
+.retrieval-prompt {
+  background: var(--surface2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: .8rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+}
+.card.amber .retrieval-prompt { border-left-color: var(--amber); }
+.card.steel .retrieval-prompt { border-left-color: var(--steel); }
+.card.green .retrieval-prompt { border-left-color: var(--green); }
+.retrieval-prompt em { color: var(--accent); font-style: normal; font-weight: 600; }
+.card.amber .retrieval-prompt em { color: var(--amber); }
+.card.steel .retrieval-prompt em { color: var(--steel); }
+
+.takeaway {
+  background: var(--surface2);
+  border-left: 3px solid var(--green);
+  border-radius: 0 6px 6px 0;
+  padding: .7rem 1rem;
+  margin: 1rem 0;
+  font-size: .88rem;
+  font-style: italic;
+}
+.card.amber .takeaway { border-left-color: var(--amber); }
+.card.steel .takeaway { border-left-color: var(--steel); }
+
+.source { font-size: .72rem; color: var(--muted); margin-top: .8rem; }
+
+/* Political econ EVENT/THEORY/ANOMALY/CHALLENGER blocks */
+.etac { display: grid; gap: .6rem; margin: .8rem 0; }
+.etac-item { border-radius: 8px; padding: .7rem 1rem; font-size: .88rem; }
+.etac-event     { background: #1a1210; border-left: 3px solid #c0512a; }
+.etac-theory    { background: #0f1820; border-left: 3px solid var(--steel); }
+.etac-anomaly   { background: #171212; border-left: 3px solid #b04444; }
+.etac-challenger{ background: #0f1a10; border-left: 3px solid var(--green); }
+.etac-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--steel); display: block; margin-bottom: .25rem; }
+.etac-event .etac-label { color: #c0512a; }
+.etac-anomaly .etac-label { color: #b04444; }
+.etac-challenger .etac-label { color: var(--green); }
+
+/* Yesterday's Spark */
+.spark-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--amber);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+  scroll-margin-top: 52px;
+}
+.spark-card h2 { font-size: 1rem; color: var(--amber); margin-bottom: .8rem; }
+.spark-item {
+  font-size: .88rem;
+  padding: .55rem .8rem;
+  border-left: 3px solid var(--accent-dim);
+  margin-bottom: .6rem;
+  background: var(--surface2);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Connection */
+.connection-card {
+  background: var(--surface2);
+  border: 1px solid var(--steel-border);
+  border-left: 4px solid var(--steel);
+  border-radius: 12px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2rem;
+}
+.connection-card h3 { color: var(--steel); margin-bottom: .6rem; font-size: .95rem; }
+
+/* Footer */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  font-size: .78rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+footer h3, footer h4 { color: var(--text); font-size: .85rem; margin-bottom: .5rem; }
+
+p { margin-bottom: .9rem; }
+
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .left-nav { display: none; }
+  .toc-bar { display: flex; }
+  .content { padding: 1rem 1rem 4rem; }
+  .card { padding: 1.2rem 1.2rem; }
+}
+
+/* ── Header toolbar ── */
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border,#2a2a38);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted,#888);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text,#e0ddd4);border-color:var(--accent-dim,#3a6a9a);}
+</style>
+</head>
+<body>
+
+
+<!-- STICKY TOP -->
+<div class="sticky-top">
+  <div class="back-bar"><a href="index.html">← All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button></div></div>
+  <header class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">12 June 2026 · ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a href="#spark">⚡ Spark</a>
+    <a href="#card-1">1 · Cosmos</a>
+    <a href="#card-2">2 · 東史</a>
+    <a href="#card-3">3 · W.History</a>
+    <a href="#card-4">4 · 東哲</a>
+    <a href="#card-5">5 · W.Phil</a>
+    <a href="#card-6">6 · Psych</a>
+    <a href="#card-7">7 · Physio</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sport</a>
+    <a href="#card-10">10 · Invest</a>
+    <a href="#card-11">11 · PolEcon</a>
+  </nav>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-body">
+
+  <!-- LEFT NAV (desktop) -->
+  <nav class="left-nav" aria-label="Card navigation">
+    <div class="left-nav-inner">
+    <div class="nav-label">Today</div>
+    <a href="#spark">⚡ Yesterday's Spark</a>
+    <a href="#card-1">1 · Astronomy</a>
+    <a href="#card-2">2 · 東方歷史</a>
+    <a href="#card-3">3 · Western History</a>
+    <a href="#card-4">4 · 東方哲學</a>
+    <a href="#card-5">5 · Western Phil.</a>
+    <a href="#card-6">6 · Psychology</a>
+    <a href="#card-7">7 · Physiology</a>
+    <a href="#card-8">8 · Health</a>
+    <a href="#card-9">9 · Sports Science</a>
+    <a href="#card-10">10 · Investing</a>
+    <a href="#card-11">11 · Pol. Economics</a>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-card" id="spark">
+      <h2>🔁 Yesterday's Spark — Review Before You Read</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:.9rem;">From the 11 June 2026 (2nd Edition) — answer without looking back, then expand to check.</p>
+
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 1 · Astronomy:</em> Why are Type Ia supernovae reliable as standard candles, and what does finding them dimmer than expected imply about the universe's expansion?</summary>
+          Type Ia supernovae reach a consistent peak luminosity because they result from white dwarfs accreting matter to a fixed mass threshold (Chandrasekhar limit), so deviations from expected brightness reflect distance or expansion history. Dimmer-than-expected supernovae mean they are farther away than a decelerating universe would place them — implying the expansion is accelerating.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 2 · 東方歷史:</em> 交子（紙幣）為何在宋代四川首先出現？宋朝廢除坊市制度對城市商業形態帶來了什麼具體改變？</summary>
+          四川鐵錢沉重，遠距貿易需要輕便的結算工具，商人自發以紙質憑證代替金屬貨幣。廢除坊市制度後，店舖可臨街開設、全天候交易，夜市成為可能，商業活動不再被限定在封閉坊市內，城市公共空間與商業空間首次大規模融合。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 3 · Western History:</em> How was Toussaint Louverture defeated, and what happened to the Louisiana Territory as a direct consequence of Haiti's independence?</summary>
+          Toussaint was not defeated militarily — he was captured by deception during negotiations under a false guarantee of safe conduct, and died in a French prison. Napoleon, losing his Caribbean ambitions, sold the Louisiana Territory to the United States in 1803, doubling the young republic's land area.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 4 · 東方哲學:</em> 荀子「性惡論」中的「偽」字是什麼意思？荀子如何理解「禮」的社會功能——它與孟子的善性教育路線有何根本差別？</summary>
+          「偽」是「人為」、「刻意塑造」之意，非虛偽。荀子認為禮是歷代聖王設計的欲望管理制度，通過劃定邊界、分配資源防止爭奪混亂——這是外部結構性工具。孟子路線是喚醒內在已有的善性；荀子路線是用禮法從外部改造根本無善的人性。前者依賴內省，後者依賴制度設計。
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 5 · Western Philosophy:</em> What is the "Cartesian circle," and why does it undermine Descartes' attempt to rebuild knowledge from the cogito?</summary>
+          Descartes uses clear and distinct perception to prove God exists, then uses God's non-deceiving nature to guarantee that clear and distinct perceptions are true — an apparent circularity (the criterion is justified by what it is supposed to justify). It threatens the whole reconstruction because the foundation depends on a premise the foundation is meant to secure.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 6 · Psychology:</em> What did the 2016 revision to learned helplessness theory suggest about which state — helplessness or agency — is the brain's default, and what are the practical implications?</summary>
+          Maier &amp; Seligman (2016) argued that passivity in the face of aversive events is the brain's <em>default</em> response (mediated by the dorsal raphe nucleus); what is actually learned is <em>control</em> — the prefrontal cortex detecting that one's actions matter. Implication: agency must be actively trained, not assumed.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 7 · Physiology:</em> What is GLUT4, and why does muscle contraction lower blood glucose via a different mechanism than insulin — making it useful even in insulin-resistant individuals?</summary>
+          GLUT4 is the glucose transporter that moves glucose into muscle and fat cells. Insulin triggers GLUT4 translocation via the IRS-1/PI3K/Akt cascade. Muscle contraction triggers the same translocation through a separate AMPK-mediated pathway, so exercise lowers blood glucose even when the insulin pathway is impaired.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 8 · Health:</em> Why does a "caffeine crash" occur, and what does receptor upregulation mean for chronic daily caffeine users?</summary>
+          Caffeine blocks adenosine receptors but adenosine keeps accumulating behind the blockade; when caffeine clears, the backlog floods the now-available receptors, producing a crash. With chronic use the brain upregulates (makes more) adenosine receptors, so baseline alertness drops and more caffeine is needed for the same effect — tolerance.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 9 · Sports Science:</em> What specifically happens during slow-wave sleep and REM sleep that is directly relevant to athletic performance — and what does 17–19 hours of wakefulness do to reaction time?</summary>
+          Slow-wave sleep releases the bulk of growth hormone (tissue repair); REM consolidates motor learning. Van Dongen-type data show that 17–19 hours of wakefulness degrades reaction time and cognition to a level comparable to a blood-alcohol concentration of roughly 0.05%.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 10 · Investing:</em> What was the "issuer-pays" conflict of interest in the rating agency model, and why was the Gaussian copula model's central assumption wrong about mortgage default correlations?</summary>
+          Issuers (not investors) paid the rating agencies, so agencies competed for business by offering favourable ratings. David Li's Gaussian copula assumed mortgage default correlations could be inferred from credit-default-swap prices and were low and stable; in a nationwide downturn defaults became highly correlated, so "diversified" AAA tranches failed together.
+        </details>
+      </div>
+      <div class="spark-item">
+        <details>
+          <summary><em>Card 11 · Political Economics:</em> State Mundell's Impossible Trinity. Why, mechanically, is it impossible to maintain all three simultaneously — and what did Hélène Rey's "dilemma" revision argue?</summary>
+          A country cannot simultaneously have a fixed exchange rate, free capital flows, and independent monetary policy. Mechanism: with a fixed rate and free capital, any interest rate differing from the anchor currency triggers unlimited arbitrage that exhausts reserves. Rey argued the global financial cycle (driven by the US Fed) strips monetary independence even from floating-rate countries, so the real choice is a dilemma — capital controls or no sovereignty.
+        </details>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 1: ASTRONOMY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-1">
+      <div class="card-label">Card 1 · Astronomy &amp; Cosmos</div>
+      <h2>A Moon That Spits the Ingredients of Life into Space: Enceladus and Cassini's Greatest Surprise</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Enceladus (土衛二) is a tiny moon of Saturn only 500 km across — smaller than the United Kingdom is long. Why would NASA deliberately fly a billion-dollar spacecraft straight <em>through</em> the plumes erupting from its south pole, and what did the instruments taste there?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-1">
+        <div class="emoji-fallback">🪐</div>
+      </div>
+      <p class="img-caption" id="cap-card-1"></p>
+
+      <p>In 2005, the Cassini (卡西尼號) spacecraft — a joint NASA–ESA mission orbiting Saturn (土星) — noticed something strange about Enceladus (土衛二). Its south pole was warmer than it had any right to be, and fountains of icy particles were jetting hundreds of kilometres into space from four parallel fractures nicknamed the "tiger stripes" (虎紋). For a moon so small that it should have frozen solid billions of years ago, this was astonishing: something was keeping its interior warm and liquid. The leading explanation is tidal heating (潮汐加熱) — Saturn's immense gravity, combined with a gravitational tug from the neighbouring moon Dione (土衛四), flexes Enceladus's interior, and that constant kneading generates frictional heat deep below the crust.</p>
+
+      <p>Over the following decade, Cassini did something no mission had attempted: it repeatedly flew directly through the plumes, sampling them with its mass spectrometer (質譜儀). The results read like a recipe for habitability. The plumes contained water vapour, salts, and — crucially — tiny grains of silica (二氧化矽) that can only form when slightly alkaline water is in contact with rock at temperatures above about 90°C. That was the fingerprint of hydrothermal vents (熱液噴口) on the seafloor of a global subsurface ocean (地下海洋), the same kind of environment where life is thought to have begun on Earth. In 2017, scientists announced that Cassini had also detected molecular hydrogen (氫氣) in the plumes — a direct energy source that microbes on Earth use to make methane.</p>
+
+      <p>This reframed where we should look for life. For decades the search focused on the "habitable zone" — the band of orbits where a planet is warm enough for surface liquid water. Enceladus sits far outside that zone, frozen at the surface, yet hides a warm, salty, chemically rich ocean powered not by sunlight but by tides. Before Cassini's mission ended in 2017 — deliberately plunged into Saturn to avoid contaminating the moons — it had transformed Enceladus from an icy curiosity into one of the solar system's two prime targets in the search for life, alongside Jupiter's moon Europa (木衛二). A future "plume-sampling" mission could test the water for biosignatures without ever needing to land.</p>
+
+      <div class="takeaway">💡 You do not need a sun to be habitable — you need liquid water, chemistry, and an energy source. Enceladus has all three, supplied by gravity rather than light.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What keeps a moon as small as Enceladus warm enough to hold a liquid ocean, and what did the silica grains in its plumes reveal?
+        <details>
+          <summary>Check your answer</summary>
+          Tidal heating — Saturn's gravity (aided by the moon Dione) repeatedly flexes Enceladus's interior, generating frictional heat that prevents the subsurface ocean from freezing. The silica grains can only form when alkaline water contacts rock above ~90°C, revealing hydrothermal vents on the ocean floor — an Earth-like environment associated with the origin of life.
+        </details>
+      </div>
+
+      <p class="source">📚 Hsu et al. (2015), <em>Nature</em> 519:207 (silica/hydrothermal); Waite et al. (2017), <em>Science</em> 356:155 (molecular hydrogen); NASA JPL, Cassini Mission "Grand Finale" briefings (2017).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 2: EASTERN HISTORY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">Card 2 · 東方歷史</div>
+      <h2>一個被匈奴囚禁十年的使節，如何意外打通了橫貫歐亞的絲綢之路——張騫通西域</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        漢武帝最初派張騫出使西域，目的純粹是軍事——尋找盟友夾擊匈奴。這場軍事任務徹底失敗了，卻意外開啟了人類史上影響最深遠的貿易與文化通道。一個失敗的外交任務，為何能催生絲綢之路？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-2">
+        <div class="emoji-fallback">🐫</div>
+      </div>
+      <p class="img-caption" id="cap-card-2"></p>
+
+      <div class="intro-box amber">
+        <strong>核心人物：</strong>張騫（約前164–前114年），漢中人，漢武帝時期的郎官；副使甘父（堂邑父），原為匈奴降人，精於騎射<br>
+        <strong>關鍵事件：</strong>張騫兩次出使西域（前138年、前119年），尋求與大月氏、烏孫結盟對抗匈奴<br>
+        <strong>大背景：</strong>漢初國力疲弱，長期以「和親」籠絡匈奴；至漢武帝決心轉守為攻，需要在匈奴的西側尋找戰略盟友，由此展開了對未知西方世界的探索。
+      </div>
+
+      <p>公元前138年，漢武帝得知大月氏曾被匈奴擊敗、首領頭顱被製成酒器，料想他們必懷深仇，遂募使前往遊說結盟。張騫應募西行，卻在穿越河西走廊時即被匈奴俘虜。匈奴單于將他扣留，更替他娶妻生子，企圖消磨其意志——這一囚禁竟長達十餘年。然而張騫始終「持漢節不失」，那根象徵漢朝使命的符節，他保存了整整十年。後來他趁隙逃脫，並未東歸覆命，反而繼續西行，翻越蔥嶺（帕米爾高原），歷盡艱辛抵達大宛、康居，終於找到了已遷居中亞的大月氏。</p>
+
+      <p>諷刺的是，大月氏在中亞肥沃的土地上已安居樂業，早無報復匈奴之心。張騫的結盟使命徹底落空。但他在西域逗留期間，仔細記錄了沿途各國的物產、軍力、風俗與道路——大宛的汗血寶馬、安息（帕提亞帝國）的商業、身毒（印度）的存在。歸國後（前126年），他向漢武帝呈上的這份「情報」，價值遠超一紙盟約。司馬遷在《史記·大宛列傳》中以「鑿空」二字形容此行——意即「鑿通了原本不存在的通道」。漢武帝由此得知，在帝國以西，存在著一個物產豐饒、可以通商的廣闊世界。</p>
+
+      <p>此後，漢朝以軍事力量逐步控制河西走廊，設立武威、張掖、酒泉、敦煌四郡，確保商道暢通。中國的絲綢、漆器、鑄鐵技術西傳，而葡萄、苜蓿、石榴、胡麻以及來自大宛的良馬則東來。更深遠的是，這條通道日後成為佛教東傳中國的主要路徑。張騫的本意是軍事同盟，最終卻成就了一條維繫東西方文明交流逾千年的動脈。歷史的弔詭往往如此：宏大的計劃常常失敗，而失敗過程中偶然積累的知識，反而改變了世界的走向。</p>
+
+      <div class="takeaway">💡 張騫的教訓：探索的價值，常常不在於是否完成了原定目標，而在於沿途所積累、原本無人知曉的知識——失敗的任務，可以開啟成功的時代。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>張騫首次出使西域的原始目的是什麼？為何司馬遷用「鑿空」二字形容此行的歷史意義？
+        <details>
+          <summary>查看答案</summary>
+          原始目的是軍事結盟——說服被匈奴擊敗的大月氏與漢朝東西夾擊匈奴，但大月氏已無報復之意，結盟失敗。「鑿空」意為「鑿通原本不存在的通道」：張騫帶回西域各國的物產、地理與道路情報，首次讓漢朝認識到西方存在可通商的廣闊世界，開啟了絲綢之路。
+        </details>
+      </div>
+
+      <p class="source">📚 司馬遷《史記·大宛列傳》（約前91年）；班固《漢書·張騫傳》；余英時 <em>Trade and Expansion in Han China</em>（University of California Press, 1967）。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 3: WESTERN HISTORY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-3">
+      <div class="card-label">Card 3 · Western History</div>
+      <h2>The General Who Won Every Battle and Still Lost the War: Hannibal and the Second Punic War</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        At Cannae (坎尼) in 216 BC, Hannibal (漢尼拔) destroyed the largest army Rome had ever fielded — perhaps 50,000 dead in a single afternoon. Rome refused to surrender. How can a commander win the most lopsided victory in ancient history and still lose the war fifteen years later?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-3">
+        <div class="emoji-fallback">🐘</div>
+      </div>
+      <p class="img-caption" id="cap-card-3"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figures:</strong> Hannibal Barca (漢尼拔·巴卡), Quintus Fabius Maximus (費邊), Publius Cornelius Scipio "Africanus" (西庇阿)<br>
+        <strong>Event:</strong> The Second Punic War (第二次布匿戰爭), 218–201 BC, between Rome (羅馬) and Carthage (迦太基)<br>
+        <strong>Context:</strong> Carthage, a North African maritime empire, had lost the First Punic War and the island of Sicily (西西里). Hannibal, raised on his father's hatred of Rome, sought to break Roman power on the Italian peninsula itself.
+      </div>
+
+      <p>In 218 BC Hannibal (漢尼拔) did the unthinkable: rather than fighting Rome at sea, where it was strong, he marched an army — including dozens of war elephants (戰象) — from Spain, across the Pyrenees, through hostile Gaul, and over the snowbound passes of the Alps (阿爾卑斯山) in autumn. He lost perhaps half his men and most of his elephants to cold, landslides, and ambushes, but he descended into northern Italy where Rome least expected him. Over the next two years he annihilated one Roman army after another, culminating at Cannae (坎尼) in 216 BC. There, heavily outnumbered, he deliberately let his centre give way while his cavalry swept around the flanks and sealed the Roman rear — a double envelopment (雙翼包抄) still taught in military academies today. Tens of thousands of Romans died in a few hours.</p>
+
+      <p>By every conventional measure, Rome should have sued for peace. It did the opposite. The Senate refused even to ransom its captured soldiers, and adopted the strategy of Quintus Fabius Maximus (費邊) — nicknamed "the Delayer" (拖延者). Rather than risk another pitched battle against a tactical genius, Fabius shadowed Hannibal's army, harassed its foragers, scorched the land, and refused open combat. It was deeply unpopular — Romans wanted vengeance, not patience — but it denied Hannibal the decisive victory he needed. Hannibal could win battles, but he could not take the heavily fortified city of Rome, nor could he persuade enough of Rome's Italian allies to defect. His army, deep in enemy territory and starved of reinforcements from a hesitant Carthaginian senate, slowly withered.</p>
+
+      <p>The war was ultimately decided by strategy, not tactics. The young Roman general Scipio (西庇阿) studied Hannibal's methods, then applied them in reverse: instead of fighting Hannibal in Italy, he attacked Carthage's base in Spain, and finally invaded North Africa itself. This forced Carthage to recall Hannibal from Italy to defend his homeland. At the Battle of Zama (扎馬戰役) in 202 BC, Scipio — having neutralised Hannibal's cavalry advantage and devised a way to channel his elephants harmlessly through gaps in the Roman lines — defeated the master at last. Carthage was stripped of its empire and forbidden to wage war without Roman permission. The lesson echoed for centuries: a war is not the sum of its battles, and the side that controls the strategic terms can lose every engagement and still win.</p>
+
+      <div class="takeaway">💡 Tactical brilliance wins battles; strategy, logistics, and political will win wars. Rome lost the battles that mattered and won the war that mattered more.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What was the "Fabian strategy," and why did Scipio's invasion of North Africa finally defeat Hannibal after Rome had lost so many battles?
+        <details>
+          <summary>Check your answer</summary>
+          The Fabian strategy was deliberate avoidance of pitched battle — shadowing, harassing, and starving Hannibal's army rather than fighting him head-on, denying him a decisive victory. Scipio bypassed Hannibal in Italy and attacked Carthage's homeland directly, forcing Hannibal's recall; at Zama (202 BC) Scipio neutralised Hannibal's cavalry and elephants and won, ending the war.
+        </details>
+      </div>
+
+      <p class="source">📚 Polybius, <em>The Histories</em> (Book III, 2nd c. BC); Livy, <em>Ab Urbe Condita</em> (Books XXI–XXX); Adrian Goldsworthy, <em>The Fall of Carthage</em> (Cassell, 2003).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 4: EASTERN PHILOSOPHY (Chinese) -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">Card 4 · 東方哲學</div>
+      <h2>戰國時代的「反戰工程師」：墨子的兼愛、非攻，與一場用守城術贏得的辯論</h2>
+
+      <details>
+        <summary>🤔 讀前預測</summary>
+        孔子主張「愛有差等」——愛自己的父母，本該勝過愛陌生人。墨子卻反其道而行，提倡「兼愛」——無分親疏地愛所有人。這種「平等之愛」在當時被孟子斥為「無父」。一個出身工匠的思想家，為何敢於挑戰儒家的人倫根基？
+      </details>
+
+      <div class="card-img-wrap" id="img-card-4">
+        <div class="emoji-fallback">⚖️</div>
+      </div>
+      <p class="img-caption" id="cap-card-4"></p>
+
+      <div class="intro-box amber">
+        <strong>核心思想家：</strong>墨子（墨翟，約前470–前391年），出身低微，可能曾為工匠，創立墨家學派，組織嚴密、紀律森嚴<br>
+        <strong>核心文本：</strong>《墨子》五十三篇，涵蓋〈兼愛〉、〈非攻〉、〈尚賢〉、〈節用〉，以及論辯邏輯與守城技術的篇章<br>
+        <strong>歷史背景：</strong>戰國初期，諸侯兼併、戰禍連年；墨家以「興天下之利，除天下之害」為宗旨，是先秦唯一兼具哲學思辨、邏輯論證與工程實踐的學派。
+      </div>
+
+      <p>墨子思想的核心是「兼愛」與「非攻」，二者互為表裏。他認為天下之亂，根源在於「不相愛」——國與國相攻、家與家相奪、人與人相賊，皆因人們只愛自己、只顧私利。解方是「兼相愛，交相利」：若人人視他人之國如己國、視他人之身如己身，攻伐掠奪自然消失。這與儒家「愛有差等」針鋒相對。儒家認為愛應由近及遠、有親疏厚薄之別；墨子則主張這種差等正是禍亂之源。孟子因此猛烈抨擊墨家「兼愛」為「無父」，是禽獸之道。這場「儒墨之爭」，是先秦思想史上最尖銳的倫理對立之一。</p>
+
+      <p>但墨子並非空談道德的理想主義者。墨家是一個有嚴密組織的行動團體，成員稱「墨者」，奉行極端的自我節制（〈節用〉、〈節葬〉反對厚葬與奢靡），並以「赴湯蹈火，死不旋踵」的紀律著稱。最能體現墨家知行合一的，是一則著名典故：楚國準備以名匠公輸般（魯班）製造的雲梯攻打宋國，墨子聞訊，徒步十日十夜趕往楚國。他先在沙盤上與公輸般模擬攻防——「公輸般九設攻城之機變，墨子九距之」，公輸般的攻城器械用盡，墨子的守禦之法仍有餘。墨子更指出，自己的弟子三百人早已帶著守城器械在宋國城上待命。楚王見強攻無望，遂罷兵。一場戰爭，因一位思想家的辯論與工程實力而消弭。</p>
+
+      <p>墨家在戰國時期一度與儒家並稱「顯學」，影響極大。墨子主張「尚賢」——任人唯才而非任人唯親，反對世襲貴族壟斷官職；又提出「天志」、「明鬼」，以超越性的賞罰來約束統治者。然而秦漢以後，墨家急速衰落，幾近湮沒。原因眾說紛紜：嚴苛的紀律難以為繼、與大一統帝國的宗法秩序格格不入、其邏輯與科學傳統缺乏制度承載。直到清末民初，學者在西學東漸的背景下重新發現《墨子》中關於邏輯（墨辯）、幾何、光學、力學的記載，才驚覺這個被遺忘的學派，曾是中國古代最接近系統性科學思維的思想源頭。</p>
+
+      <div class="takeaway">💡 墨子的啟示：真正的反戰，不只是道德呼籲，更需要讓侵略「無利可圖」的實力——墨子用守城術證明，最有力的和平主義往往帶著工程師的精確。</div>
+
+      <div class="retrieval-prompt">
+        <em>讀後回想：</em>墨子的「兼愛」與儒家「愛有差等」的根本分歧是什麼？墨子勸退楚國攻宋的典故，如何體現墨家「知行合一」的特色？
+        <details>
+          <summary>查看答案</summary>
+          儒家主張愛有親疏厚薄、由近及遠；墨子主張無分親疏地平等愛人，認為差等之愛正是爭奪禍亂之源。勸退楚國一事：墨子既在沙盤辯論中以守城之法逐一化解公輸般的攻城器械（思辨層面），又預先派三百弟子帶守城器械在宋國待命（實踐層面）——道德主張、邏輯論證與工程實力三者結合，使楚國放棄攻宋。
+        </details>
+      </div>
+
+      <p class="source">📚 《墨子》（先秦典籍，〈兼愛〉〈非攻〉〈公輸〉諸篇）；A. C. Graham, <em>Disputers of the Tao</em>（Open Court, 1989）；馮友蘭《中國哲學史》（商務印書館，1934）。</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-5">
+      <div class="card-label">Card 5 · Western Philosophy</div>
+      <h2>The Mind Does Not Copy the World — It Builds It: Kant's Copernican Revolution</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Immanuel Kant (康德) said that reading David Hume (休謨) "interrupted my dogmatic slumber." Hume had argued we can never prove that cause and effect are real. Instead of accepting this scepticism, Kant made a radical move that flipped the whole question. What did he propose?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-5">
+        <div class="emoji-fallback">🧩</div>
+      </div>
+      <p class="img-caption" id="cap-card-5"></p>
+
+      <div class="intro-box accent">
+        <strong>Key Figure:</strong> Immanuel Kant (康德, 1724–1804), of Königsberg (柯尼斯堡), Prussia — so punctual that neighbours reportedly set their clocks by his daily walk<br>
+        <strong>Key Texts:</strong> <em>Critique of Pure Reason</em> (純粹理性批判, 1781) and <em>Groundwork of the Metaphysics of Morals</em> (道德形而上學基礎, 1785)<br>
+        <strong>The Problem:</strong> Rationalists claimed reason alone reveals reality; empiricists (经验主义者) claimed all knowledge comes from the senses. Hume's scepticism seemed to show that neither could justify even basic ideas like causation.
+      </div>
+
+      <p>Before Kant (康德), philosophy assumed that knowledge must conform to objects — that the mind passively receives an imprint of the world, like wax taking the shape of a seal. Hume (休謨) had shown the devastating consequence: we never actually <em>perceive</em> causation, only one event followed by another, so our confidence that the future will resemble the past has no rational foundation. Kant's response was as bold as Copernicus's (哥白尼) claim that the Earth moves rather than the heavens. He proposed that objects conform to the mind, not the mind to objects. Space, time, and causation are not features we discover in the world; they are the built-in structures through which any mind must organise experience in order to have experience at all. This is Kant's "Copernican revolution" (哥白尼式革命) in philosophy.</p>
+
+      <p>This let Kant carve out a category he called the synthetic a priori (先驗綜合判斷) — knowledge that is genuinely informative about the world yet known independently of experience. "Every event has a cause" is such a judgment: we cannot derive it from observation (Hume was right about that), but it is nonetheless certain, because causation is one of the categories the mind necessarily imposes on all experience. The cost of this solution is steep. We can only ever know phenomena (現象) — the world as structured by our cognition — never the noumena (本體), the "thing-in-itself" as it exists independently of any observer. Reality as it truly is, apart from our perception, is permanently beyond reach. Kant thereby rescued science from Humean scepticism, but at the price of walling off ultimate reality.</p>
+
+      <p>Kant extended the same architecture to morality. Just as the understanding has built-in categories, practical reason has a built-in law: the categorical imperative (定言令式). Its most famous formulation is to "act only according to that maxim whereby you can at the same time will that it should become a universal law." A lie fails this test because if everyone lied whenever convenient, the very institution of promising would collapse — the maxim is self-undermining when universalised. A second formulation commands that we treat humanity "always as an end and never merely as a means." For Kant, morality is not about consequences or divine command but about the rational consistency any free agent must demand of itself. Few thinkers have reshaped so many fields at once: epistemology, metaphysics, and ethics all still argue on terms Kant set.</p>
+
+      <div class="takeaway">💡 Kant's insight: we never see reality "raw." Every experience is already shaped by the structures of our own mind — which is exactly why some knowledge can be both certain and about the world.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is Kant's "Copernican revolution," and what is the price he pays for solving Hume's problem of causation?
+        <details>
+          <summary>Check your answer</summary>
+          Kant reversed the relationship between mind and world: instead of the mind conforming to objects, objects conform to the mind's built-in structures (space, time, causation). This makes causal knowledge certain (a synthetic a priori category the mind imposes). The price: we can only know phenomena — the world as structured by cognition — never the noumena, the thing-in-itself as it really is.
+        </details>
+      </div>
+
+      <p class="source">📚 Immanuel Kant, <em>Critique of Pure Reason</em> (1781); Kant, <em>Groundwork of the Metaphysics of Morals</em> (1785); Stanford Encyclopedia of Philosophy, "Kant's Transcendental Idealism" (2023 rev.).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 6: PSYCHOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-6">
+      <div class="card-label">Card 6 · Psychology</div>
+      <h2>Why Re-Reading Is a Trap: The Testing Effect and How Memory Actually Forms</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Two groups study the same passage. Group A re-reads it four times. Group B reads it once, then takes three practice tests with no feedback. A week later, which group remembers more — and by how much? Most students predict re-reading wins. They are wrong.
+      </details>
+
+      <div class="card-img-wrap" id="img-card-6">
+        <div class="emoji-fallback">🧠</div>
+      </div>
+      <p class="img-caption" id="cap-card-6"></p>
+
+      <p>In a landmark 2006 study, Henry Roediger (羅迪格) and Jeffrey Karpicke (卡爾皮克) had students learn prose passages under two conditions: repeated studying, or studying once and then repeatedly being tested by free recall — writing down everything they could remember, with no feedback. After five minutes, the re-readers did slightly better. But this short-term edge is a trap. When tested two days and one week later, the group that had practised <em>retrieval</em> remembered dramatically more — recalling roughly 60% of the material versus about 40% for the re-readers. The act of pulling information out of memory, not pushing it back in, is what builds durable retention. Psychologists call this the testing effect (測驗效應), or retrieval practice (提取練習).</p>
+
+      <p>The mechanism is counter-intuitive. Re-reading produces a powerful but misleading feeling of fluency (流暢性錯覺): the text looks familiar, so the brain mistakes recognition for mastery. Retrieval is effortful and feels worse — you struggle, you sometimes fail — but that very difficulty is what strengthens the memory trace. The leading explanation is that successful retrieval reconstructs and reconsolidates the memory, creating additional retrieval routes and strengthening the cue–memory association. Robert Bjork (比約克) calls these "desirable difficulties" (合意困難): conditions that slow down learning in the moment but improve long-term retention and transfer. The discomfort is not a bug; it is the signal that real learning is happening.</p>
+
+      <p>The practical implications are large and under-used. Instead of highlighting and re-reading notes — the most popular study method and one of the least effective — close the book and try to write or say everything you remember, then check. Use flashcards that force recall rather than recognition. Space those retrieval sessions out over days (the spacing effect compounds the benefit). Tellingly, this very briefing is built on the principle: every card ends with a retrieval prompt, and each morning opens by asking you to recall yesterday's. If a study technique feels easy and pleasant, be suspicious. The methods that feel hardest in the moment — testing yourself, spacing, interleaving — are usually the ones that work.</p>
+
+      <div class="takeaway">💡 Don't ask "Have I seen this before?" (recognition) — ask "Can I produce it from memory?" (retrieval). Comfort while studying is often a sign you are learning less, not more.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> Why does re-reading produce a worse long-term outcome than self-testing, despite feeling more effective in the moment?
+        <details>
+          <summary>Check your answer</summary>
+          Re-reading creates an illusion of fluency — familiarity is mistaken for mastery — but does little to strengthen retrieval routes. Self-testing forces effortful retrieval, which reconstructs and reconsolidates the memory and builds stronger, more accessible cues. The difficulty ("desirable difficulty") is precisely what produces durable retention, so the easier method yields weaker long-term memory.
+        </details>
+      </div>
+
+      <p class="source">📚 Roediger &amp; Karpicke (2006), "Test-Enhanced Learning," <em>Psychological Science</em> 17(3):249; Karpicke &amp; Roediger (2008), <em>Science</em> 319:966; Bjork &amp; Bjork (2011), "Making Things Hard on Yourself, But in a Good Way."</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 7: PHYSIOLOGY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-7">
+      <div class="card-label">Card 7 · Physiology</div>
+      <h2>Why You See Stars When You Stand Up Too Fast: The Baroreflex and Gravity's Daily Challenge</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Stand up quickly from lying down and you may feel a brief head-rush, dimmed vision, or lightheadedness. Gravity has just pulled roughly half a litre of blood down into your legs in a single heartbeat. What invisible reflex normally catches this fall in pressure before you even notice — and why does it sometimes lag?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-7">
+        <div class="emoji-fallback">🩸</div>
+      </div>
+      <p class="img-caption" id="cap-card-7"></p>
+
+      <p>Every time you stand, gravity pools 500–800 ml of blood in the veins of your legs and abdomen. Instantly, less blood returns to the heart, the heart's output drops, and blood pressure to the brain begins to fall. To stop you fainting, the body runs a continuous control loop called the baroreflex (壓力感受反射). Stretch-sensitive nerve endings called baroreceptors (壓力感受器), clustered in the carotid sinus (頸動脈竇) in your neck and the aortic arch (主動脈弓), constantly monitor arterial pressure by sensing how much the vessel wall is stretched. When you stand and pressure drops, the vessel wall stretches less, the baroreceptors fire less, and this change is relayed to the brainstem.</p>
+
+      <p>The signals travel via the glossopharyngeal (舌咽神經) and vagus (迷走神經) nerves to a hub in the medulla (延髓) called the nucleus tractus solitarius (孤束核). Reading a fall in pressure, the medulla does two things within a second or two: it withdraws the "brake" of parasympathetic activity and ramps up sympathetic (交感神經) output. The result is a faster heart rate and constriction of blood vessels in the periphery, which together push pressure back up and restore flow to the brain. This is happening every time you rise — usually so fast and so smoothly that you feel nothing at all. The system is a textbook negative feedback loop, correcting deviations before they become dangerous.</p>
+
+      <p>The head-rush — formally orthostatic hypotension (姿勢性低血壓) — happens when the reflex is too slow or too weak to keep up. The brief window before the baroreflex fully kicks in is enough to under-perfuse the retina and brain, causing the grey-out and dizziness. It is more common when you are dehydrated (less blood volume to start with), after a hot bath or alcohol (dilated vessels), in older adults (stiffer arteries and blunted reflexes), or after long bed rest, which deconditions the system. It is also why fighter pilots and those prone to fainting are taught to tense their leg and abdominal muscles — a manual assist that squeezes blood back toward the heart while the automatic reflex catches up.</p>
+
+      <div class="takeaway">💡 The head-rush isn't a malfunction — it's the brief gap before a fast, invisible reflex catches gravity. Rising slowly, staying hydrated, and tensing your legs all buy that reflex the second it needs.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> Which receptors detect the fall in blood pressure when you stand, and what two changes does the medulla trigger to correct it?
+        <details>
+          <summary>Check your answer</summary>
+          Baroreceptors in the carotid sinus and aortic arch sense reduced stretch in the vessel wall when pressure drops. Signals reach the nucleus tractus solitarius in the medulla, which withdraws parasympathetic (vagal) activity and increases sympathetic output — raising heart rate and constricting peripheral vessels to push pressure back up. A lag in this loop causes the brief head-rush (orthostatic hypotension).
+        </details>
+      </div>
+
+      <p class="source">📚 Lanfranchi &amp; Somers (2002), <em>Am J Physiol Regul Integr Comp Physiol</em> 283:R815 (baroreflex review); Freeman et al. (2011), consensus statement on orthostatic hypotension, <em>Clinical Autonomic Research</em> 21:69.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 8: HEALTH -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-8">
+      <div class="card-label">Card 8 · Health</div>
+      <h2>The "8 Glasses of Water a Day" Rule Is a Myth — and We Can Trace Exactly Where It Went Wrong</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Almost everyone "knows" you should drink eight glasses of water a day. Yet when a kidney physiologist went looking for the scientific study behind this rule, he found none. Where did the number actually come from — and what did people misread?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-8">
+        <div class="emoji-fallback">💧</div>
+      </div>
+      <p class="img-caption" id="cap-card-8"></p>
+
+      <p>The trail leads to 1945. That year, the US Food and Nutrition Board (食物與營養委員會) advised that a suitable water intake for adults was about 2.5 litres a day — which works out to roughly eight 8-ounce glasses. But the very next sentence, almost universally forgotten, added a crucial qualification: "Most of this quantity is contained in prepared foods." In other words, the recommendation covered <em>total</em> fluid from <em>all</em> sources — soups, fruit, vegetables, coffee, tea, milk — not eight extra glasses of plain water on top of everything else. Strip away that caveat and a sensible note on total fluid balance mutates into a rigid drinking quota that has no basis in physiology.</p>
+
+      <p>In 2002, Heinz Valtin (瓦爾廷), a kidney specialist at Dartmouth (達特茅斯), published a review in the <em>American Journal of Physiology</em> hunting for any evidence supporting the "8×8" rule (每日八杯水). He found none, and noted it had never been tested in healthy adults under normal conditions. His conclusion was reassuring: healthy people meet their needs by drinking to thirst, plus the water already in food. The body defends hydration with extraordinary precision — the hypothalamus (下視丘) detects tiny rises in blood concentration and triggers thirst and the hormone vasopressin (抗利尿激素), which tells the kidneys to conserve water — long before any health risk appears. Caffeinated drinks "count" too: their mild diuretic effect does not offset the fluid they provide.</p>
+
+      <p>The myth is mostly harmless, but not entirely. Forcing fluids well beyond thirst is unnecessary, and in rare cases overdrinking causes hyponatremia (低鈉血症) — dangerously diluted blood sodium — which has killed marathon runners and fraternity hazing victims who drank far past thirst. The grain of truth: needs genuinely rise with heat, exercise, illness, pregnancy, and altitude, and some people (such as those prone to kidney stones) benefit from drinking more. But "eight glasses, no matter what" is a number with no scientific pedigree. A better rule is almost insultingly simple: drink when you're thirsty, and check that your urine is pale yellow rather than dark.</p>
+
+      <div class="takeaway">💡 There is no magic number. For healthy adults, thirst plus the water already in food is a well-calibrated guide — and pale-yellow urine is a more honest signal than counting glasses.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> Where did the "8 glasses a day" figure originate, and what crucial caveat was dropped that turned it into a myth?
+        <details>
+          <summary>Check your answer</summary>
+          A 1945 US Food and Nutrition Board note recommended ~2.5 litres of water a day for adults — about eight glasses — but the next sentence said "most of this quantity is contained in prepared foods." That caveat was forgotten, turning a guideline about total fluid from all sources (including food) into a rule to drink eight extra glasses of plain water, which has no scientific basis.
+        </details>
+      </div>
+
+      <p class="source">📚 Valtin (2002), "Drink at least eight glasses of water a day. Really?", <em>Am J Physiol Regul Integr Comp Physiol</em> 283:R993; US Food and Nutrition Board recommendation (1945); EFSA Panel on water adequacy (2010).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card" id="card-9">
+      <div class="card-label">Card 9 · Sports Science</div>
+      <h2>Does Cardio Kill Your Gains? The Interference Effect, Untangled</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        Gym lore says that if you want to build muscle, running and cycling will "eat your gains." There is a real physiological basis for this fear — but the size of the effect, and the conditions under which it appears, are far narrower than most lifters believe. When does cardio actually blunt strength, and when doesn't it?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-9">
+        <div class="emoji-fallback">🏋️</div>
+      </div>
+      <p class="img-caption" id="cap-card-9"></p>
+
+      <p>The fear traces to a real mechanism. Strength and endurance training send partly opposing molecular signals inside muscle. Resistance training activates the mTOR (mTOR 蛋白) pathway, which drives muscle protein synthesis and growth. Endurance training activates AMPK (AMP活化蛋白激酶), an energy-sensing enzyme that promotes mitochondrial biogenesis and endurance adaptations — and AMPK can inhibit mTOR signalling. This is the "interference effect" (干擾效應), first named after Robert Hickson's 1980 study showing that athletes doing both strength and endurance work gained less strength than those lifting alone. On paper, the two goals seem to pull the body in chemically opposite directions.</p>
+
+      <p>But the real-world picture is far more forgiving. A 2012 meta-analysis by Jacob Wilson and colleagues found that interference is real but modest and highly conditional: it scaled with the frequency and especially the duration of endurance work, and was worst for running (high muscle damage from eccentric loading) and least for cycling (which more closely mimics lower-body lifting). Critically, hypertrophy — muscle <em>size</em> — was barely affected; the interference fell mainly on maximal strength and power, and even then only at high endurance volumes. For most people training for general fitness or moderate muscle gain, sensible amounts of cardio do not measurably shrink their results.</p>
+
+      <p>The practical levers are straightforward. Separate the two when you can: leaving roughly six or more hours between a hard cardio session and a lifting session, or training them on different days, sharply reduces the acute signalling conflict. If you must combine them in one session, lift first when the goal is strength. Prefer lower-impact modalities like cycling or the elliptical over high-volume running if you're protecting leg gains. Keep endurance volume in check — short, intense intervals interfere less than long steady-state sessions. And eat enough: much of the apparent "interference" in poorly designed studies is really an energy deficit, since combining two demanding stimuli without enough fuel starves recovery from both.</p>
+
+      <div class="takeaway">💡 Cardio doesn't erase muscle — but a lot of long, hard running right before or after lifting, on too few calories, will blunt strength gains. Separate them, fuel them, and the conflict mostly disappears.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What is the molecular basis of the interference effect, and which adaptation — size or maximal strength — does it affect most?
+        <details>
+          <summary>Check your answer</summary>
+          Resistance training activates mTOR (driving muscle growth); endurance training activates AMPK (driving mitochondrial/endurance adaptations), and AMPK can inhibit mTOR signalling. The interference mainly blunts maximal strength and power, especially with high-volume or running-based endurance work; hypertrophy (muscle size) is affected far less. Separating sessions, choosing cycling over running, and adequate energy intake minimise it.
+        </details>
+      </div>
+
+      <p class="source">📚 Hickson (1980), <em>Eur J Appl Physiol</em> 45:255; Wilson et al. (2012), "Concurrent Training: A Meta-Analysis," <em>J Strength Cond Res</em> 26(8):2293; Coffey &amp; Hawley (2017), <em>J Physiol</em> 595(9).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 10: INVESTING -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card green" id="card-10">
+      <div class="card-label">Card 10 · Investing &amp; Economic Thinking</div>
+      <h2>Why We Sell Winners and Marry Losers: The Disposition Effect</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        You own two stocks. One is up 30%, the other down 30%, and you need to raise cash. Which do most investors sell? Overwhelmingly, the winner — even though tax rules and momentum often argue for the opposite. Why does the human mind systematically do the wrong thing here?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-10">
+        <div class="emoji-fallback">📉</div>
+      </div>
+      <p class="img-caption" id="cap-card-10"></p>
+
+      <p>In 1985, Hersh Shefrin (謝弗林) and Meir Statman (斯塔特曼) named one of the most robust patterns in behavioural finance (行為金融學): the disposition effect (處置效應) — the tendency to sell winning investments too early and hold losing ones too long. The roots lie in prospect theory (前景理論): people evaluate outcomes relative to a reference point (usually their purchase price) and feel losses roughly twice as intensely as equivalent gains. A stock above its purchase price sits in the "gain" domain, where we are risk-averse and want to lock in the sure win; a stock below it sits in the "loss" domain, where we become risk-seeking, gambling on a rebound rather than crystallising a painful, definite loss.</p>
+
+      <p>This is not armchair theory. In a now-classic 1998 study, Terrance Odean (奧丁) examined 10,000 real brokerage accounts and found investors were roughly 50% more likely to realise a gain than a loss, even though — controlling for everything — the winners they sold went on to <em>outperform</em> the losers they kept over the following year. They were systematically selling the wrong stocks. The behaviour also showed up in housing markets, where sellers facing a nominal loss set stubbornly high asking prices and refused to cut them, and even among professional traders. Selling a loser forces you to admit the original decision was wrong — and the ego defends itself by holding on and hoping.</p>
+
+      <p>The deeper lesson is that the disposition effect is the reference point quietly hijacking judgement. The rational question is forward-looking: "Given everything I know today, would I buy this stock now at this price?" The disposition effect instead anchors you to a backward-looking and irrelevant fact — what <em>you</em> happened to pay. The price you paid is a sunk cost the market neither knows nor cares about. Disciplined investors counter this with pre-set rules: deciding sell criteria before emotions are engaged, using stop-losses or rebalancing schedules, and — for tax purposes in many jurisdictions — deliberately harvesting losses rather than fleeing them. The cure is to make the purchase price irrelevant to the decision.</p>
+
+      <div class="takeaway">💡 Your purchase price is information about your past, not the stock's future. Ask "Would I buy this today?" — not "Am I up or down on it?"</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> How does prospect theory explain the disposition effect, and what did Odean's study of real accounts reveal about the stocks investors chose to sell?
+        <details>
+          <summary>Check your answer</summary>
+          Prospect theory: outcomes are judged against a reference point (the purchase price), with losses felt about twice as strongly as gains. In the gain domain investors are risk-averse and lock in winners; in the loss domain they turn risk-seeking and hold losers hoping to break even. Odean (1998) found investors ~50% more likely to sell winners than losers — and the winners they sold subsequently outperformed the losers they held.
+        </details>
+      </div>
+
+      <p class="source">📚 Shefrin &amp; Statman (1985), "The Disposition to Sell Winners Too Early and Ride Losers Too Long," <em>Journal of Finance</em> 40(3):777; Odean (1998), "Are Investors Reluctant to Realize Their Losses?", <em>Journal of Finance</em> 53(5):1775.</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">Card 11 · Political Economics — Theory in the Wild</div>
+      <h2>The Trade-Off That Vanished: The Phillips Curve and the Stagflation of the 1970s</h2>
+
+      <details>
+        <summary>🤔 Predict Before You Read</summary>
+        For a generation, economists believed governments could "buy" lower unemployment with a little more inflation. Then the 1970s delivered both at once — high inflation <em>and</em> high unemployment — and the textbook relationship simply broke. What replaced it?
+      </details>
+
+      <div class="card-img-wrap" id="img-card-11">
+        <div class="emoji-fallback">📊</div>
+      </div>
+      <p class="img-caption" id="cap-card-11"></p>
+
+      <div class="etac">
+        <div class="etac-item etac-event">
+          <span class="etac-label">① Event</span>
+          Through the 1970s, the United States and much of the developed world suffered "stagflation" (停滯性通貨膨脹) — simultaneously high inflation and high unemployment. By 1975 US inflation exceeded 9% while unemployment topped 8%; both worsened again at the end of the decade. This combination was supposed to be nearly impossible under the prevailing economic orthodoxy.
+        </div>
+        <div class="etac-item etac-theory">
+          <span class="etac-label">② Theory</span>
+          The Phillips Curve (菲利普斯曲線), from A. W. Phillips (菲利普斯, 1958), documented a stable inverse relationship in UK data: when unemployment was low, wage inflation was high, and vice versa. Economists Paul Samuelson (薩繆爾森) and Robert Solow (索洛) recast it as a policy menu — a government could choose a permanent trade-off, accepting somewhat higher inflation in exchange for lower unemployment.
+        </div>
+        <div class="etac-item etac-anomaly">
+          <span class="etac-label">③ Anomaly</span>
+          The 1970s shattered the trade-off. Inflation and unemployment rose <em>together</em>, tracing not a smooth downward curve but an outward-drifting cloud. The 1973 oil shock contributed, but the deeper problem was that the supposedly stable relationship had dissolved: pumping demand to cut unemployment now produced mainly inflation, with little lasting employment gain.
+        </div>
+        <div class="etac-item etac-challenger">
+          <span class="etac-label">④ Challenger</span>
+          Milton Friedman (佛利民, 1968) and Edmund Phelps (費爾普斯) had predicted exactly this. Their expectations-augmented Phillips Curve (預期增強菲利普斯曲線) argued the trade-off is only temporary: once workers and firms come to <em>expect</em> inflation, they build it into wages and prices, and unemployment returns to its "natural rate." Any lasting attempt to hold unemployment below that rate yields accelerating inflation, not a stable trade-off — vindicated by the 1970s and now mainstream.
+        </div>
+      </div>
+
+      <div class="takeaway">💡 A correlation that holds for decades can still be a trap: the Phillips Curve was stable only while inflation expectations stayed anchored. Once people expected inflation, the "menu" governments thought they could order from vanished.</div>
+
+      <div class="retrieval-prompt">
+        <em>Answer this without looking back:</em> What policy menu did economists read into the Phillips Curve, and how did Friedman and Phelps's "expectations" critique explain why stagflation broke it?
+        <details>
+          <summary>Check your answer</summary>
+          The Phillips Curve was read as a stable trade-off — accept higher inflation to permanently lower unemployment. Friedman and Phelps argued the trade-off is only temporary: once people expect inflation and build it into wages and prices, unemployment returns to its natural rate, so attempts to hold it lower just produce accelerating inflation. The 1970s — high inflation <em>and</em> high unemployment together — confirmed their prediction and overturned the original curve.
+        </details>
+      </div>
+
+      <p class="source">📚 A. W. Phillips (1958), <em>Economica</em> 25(100):283; Samuelson &amp; Solow (1960), <em>American Economic Review</em> 50(2); Friedman (1968), "The Role of Monetary Policy," <em>American Economic Review</em> 58(1); Phelps (1967), <em>Economica</em> 34(135).</p>
+    </article>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- CONNECTION OF THE DAY -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="connection-card">
+      <h3>🔗 Connection of the Day</h3>
+      <p><strong>Cards 6 &amp; 10 — The Testing Effect and the Disposition Effect:</strong> Both reveal the same human weakness — we trust feelings as evidence when they are not. The re-reader mistakes the <em>fluency</em> of a familiar page for real knowledge; the investor mistakes the <em>comfort</em> of not realising a loss for a sound decision. In each case a pleasant internal signal (recognition, the avoidance of regret) is treated as proof of a good outcome, when the truth runs the other way: the effortful, uncomfortable choice — testing yourself, selling a loser — is usually the correct one. Both fields converge on the same fix: replace the feeling with an external rule, applied before emotion takes over.</p>
+      <p style="margin-top:.5rem;font-size:.88rem;color:var(--steel);"><strong>So what:</strong> When a decision <em>feels</em> easy or reassuring, pause and ask what objective signal — not what emotion — actually supports it. Whether studying or investing, design your rule before the moment of temptation, not during it.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <h3>📚 All Sources</h3>
+      <p>1. Hsu et al. (2015), <em>Nature</em> 519:207; Waite et al. (2017), <em>Science</em> 356:155; NASA JPL Cassini Grand Finale (2017).</p>
+      <p>2. 司馬遷《史記·大宛列傳》；班固《漢書·張騫傳》；Ying-shih Yü, <em>Trade and Expansion in Han China</em> (1967).</p>
+      <p>3. Polybius, <em>Histories</em> Bk III; Livy, <em>Ab Urbe Condita</em> XXI–XXX; Adrian Goldsworthy, <em>The Fall of Carthage</em> (2003).</p>
+      <p>4. 《墨子》（〈兼愛〉〈非攻〉〈公輸〉）；A. C. Graham, <em>Disputers of the Tao</em> (1989)；馮友蘭《中國哲學史》。</p>
+      <p>5. Kant, <em>Critique of Pure Reason</em> (1781); <em>Groundwork</em> (1785); SEP "Kant's Transcendental Idealism" (2023).</p>
+      <p>6. Roediger &amp; Karpicke (2006), <em>Psych Science</em> 17(3):249; Karpicke &amp; Roediger (2008), <em>Science</em> 319:966.</p>
+      <p>7. Lanfranchi &amp; Somers (2002), <em>Am J Physiol</em> 283:R815; Freeman et al. (2011), <em>Clin Auton Res</em> 21:69.</p>
+      <p>8. Valtin (2002), <em>Am J Physiol</em> 283:R993; US Food and Nutrition Board (1945); EFSA water adequacy (2010).</p>
+      <p>9. Hickson (1980), <em>Eur J Appl Physiol</em> 45:255; Wilson et al. (2012), <em>J Strength Cond Res</em> 26(8):2293.</p>
+      <p>10. Shefrin &amp; Statman (1985), <em>J Finance</em> 40(3):777; Odean (1998), <em>J Finance</em> 53(5):1775.</p>
+      <p>11. Phillips (1958), <em>Economica</em> 25(100); Friedman (1968), <em>AER</em> 58(1); Phelps (1967), <em>Economica</em> 34(135).</p>
+
+      <details style="margin-top:1.2rem;">
+        <summary style="cursor:pointer;color:var(--muted);font-size:.8rem;">📋 Do-Not-Repeat Log (collapsed)</summary>
+        <p style="margin-top:.5rem;font-size:.75rem;opacity:.7;">
+          See do-not-repeat-log.md for full history. Today (2026-06-12, 1st Edition) added: Enceladus / Cassini Subsurface Ocean · 張騫通西域 (絲綢之路開通) · Hannibal &amp; Second Punic War · 墨子兼愛非攻 · Kant's Copernican Revolution &amp; Categorical Imperative · Testing Effect / Retrieval Practice (Roediger &amp; Karpicke) · Baroreflex / Orthostatic Hypotension · "8 Glasses of Water" Myth (Valtin) · Interference Effect / Concurrent Training · Disposition Effect (Shefrin &amp; Statman / Odean) · Phillips Curve &amp; Stagflation / Friedman-Phelps.
+        </p>
+      </details>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+window._imageMap = {};
+const imgCandidates = {
+  'card-1': ['Enceladus','Geysers of Enceladus','Cassini–Huygens'],
+  'card-2': ['Zhang Qian','Silk Road','Han dynasty'],
+  'card-3': ['Hannibal','Second Punic War','Battle of Cannae'],
+  'card-4': ['Mozi','Mohism','Hundred Schools of Thought'],
+  'card-5': ['Immanuel Kant','Critique of Pure Reason','Categorical imperative'],
+  'card-6': ['Testing effect','Henry L. Roediger III','Spacing effect'],
+  'card-7': ['Baroreflex','Orthostatic hypotension','Carotid sinus'],
+  'card-8': ['Drinking water','Water intoxication','Dehydration'],
+  'card-9': ['Strength training','Aerobic exercise','Endurance training'],
+  'card-10': ['Disposition effect','Prospect theory','Behavioral economics'],
+  'card-11': ['Phillips curve','Stagflation','Milton Friedman']
+};
+
+async function loadWikiImage(cardId, candidates) {
+  const wrap = document.getElementById('img-' + cardId);
+  if (!wrap) return;
+  for (const title of candidates) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const resp = await fetch(url);
+      if (!resp.ok) continue;
+      const d = await resp.json();
+      const src = (d.originalimage || d.thumbnail || {}).source;
+      if (!src) continue;
+      window._imageMap[cardId] = src;
+      wrap.innerHTML =
+        '<img src="' + src + '" alt="' + title.replace(/"/g,"'") + '" loading="lazy">' +
+        '<div class="img-caption">' + (d.title || title) + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia</a></div>';
+      return;
+    } catch(e) { /* try next */ }
+  }
+}
+Object.keys(imgCandidates).forEach(id => loadWikiImage(id, imgCandidates[id]));
+
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'daily-learning-2026-06-12.html';
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) {
+    window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank');
+  }
+}
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'daily-learning-2026-06-12.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){
+      alert('Link copied — paste it on your phone!');
+    });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl)
+      + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+</body>
+</html>
