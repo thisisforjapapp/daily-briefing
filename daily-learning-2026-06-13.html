@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward's Daily Learning — 13 June 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&display=swap');
+    :root {
+      --bg:#111118; --surface:#1a1a24; --border:#2a2a38;
+      --text:#e0ddd4; --muted:#888;
+      --accent:#6a9fd8; --accent-dim:#3a6a9a;
+      --amber:#d4963a; --amber-dim:#4a3010; --amber-bg:rgba(212,150,58,0.07);
+      --green:#4a9a6a; --green-dim:#1a4a2a;
+      --steel:#5a8aaa; --steel-dim:#1a3a5a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:"Noto Serif HK","Source Han Serif",serif;font-size:1rem;line-height:1.78}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border)}
+    .back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.22rem 1rem;border-bottom:1px solid var(--border)}
+    .back-bar > a{font-size:.75rem;color:var(--muted);border:1px solid var(--border);padding:.15rem .55rem;border-radius:20px;transition:color .18s,border-color .18s}
+    .back-bar > a:hover{color:var(--text);border-color:var(--accent-dim);text-decoration:none}
+    .header-toolbar{display:flex;align-items:center;gap:.35rem}
+    .toolbar-btn{background:transparent;border:1px solid var(--border,#2a2a38);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted,#888);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5}
+    .toolbar-btn:hover{color:var(--text,#e0ddd4);border-color:var(--accent-dim,#3a6a9a)}
+    .sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+    .sticky-top h1{font-size:.97rem;font-weight:600;color:var(--text)}
+    .sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted)}
+    .sticky-top .toc-bar{padding:.28rem .8rem}
+    .toc-bar{display:none;overflow-x:auto;white-space:nowrap;gap:.4rem;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    .toc-bar::-webkit-scrollbar{display:none}
+    .toc-bar a{display:inline-block;font-size:.68rem;color:var(--muted);border:1px solid var(--border);padding:.12rem .55rem;border-radius:20px;margin-right:.3rem;transition:color .15s,border-color .15s}
+    .toc-bar a:hover{color:var(--accent);border-color:var(--accent-dim);text-decoration:none}
+    @media(max-width:899px){.toc-bar{display:block}.left-nav{display:none}}
+    .page-wrapper{display:flex;max-width:1160px;margin:0 auto;padding:0 .75rem}
+    .left-nav{width:190px;min-width:190px;padding:1.5rem .75rem 1rem 0;position:sticky;top:90px;height:fit-content;align-self:flex-start}
+    .left-nav a{display:block;font-size:.72rem;color:var(--muted);border:1px solid transparent;padding:.22rem .6rem;border-radius:20px;margin-bottom:.25rem;transition:color .15s,border-color .15s,background .15s;line-height:1.4}
+    .left-nav a:hover{color:var(--accent);border-color:var(--accent-dim);background:rgba(106,159,216,0.05);text-decoration:none}
+    .main-content{flex:1;min-width:0;padding:1.5rem 0 3rem .75rem}
+    .spark-section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:2rem}
+    .spark-section h2{font-size:1rem;color:var(--accent);margin-bottom:.8rem}
+    .spark-item{margin-bottom:.85rem;font-size:.88rem;border-bottom:1px solid var(--border);padding-bottom:.75rem}
+    .spark-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .spark-label{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.2rem}
+    .card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1.75rem;scroll-margin-top:52px}
+    .card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.3rem}
+    .card h2{font-size:1.18rem;font-weight:700;color:var(--accent);margin-bottom:.8rem;line-height:1.35}
+    .card.amber{border-left:3px solid var(--amber)}
+    .card.amber h2{color:var(--amber)}
+    .card.green{border-left:3px solid var(--green)}
+    .card.green h2{color:var(--green)}
+    .card.steel{border-left:3px solid var(--steel)}
+    .card.steel h2{color:var(--steel)}
+    .intro-box{padding:.75rem 1rem;border-radius:6px;margin-bottom:1rem;font-size:.9rem;background:rgba(106,159,216,0.07);border-left:3px solid var(--accent)}
+    .card.amber .intro-box{background:var(--amber-bg);border-left-color:var(--amber)}
+    .card-img-wrap{margin:.75rem 0 1rem;text-align:center}
+    .card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px}
+    .img-caption{font-size:.7rem;color:var(--muted);margin-top:.3rem}
+    .card p{margin-bottom:.95rem;font-size:.93rem}
+    .card p:last-of-type{margin-bottom:0}
+    details.predict-box{background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem}
+    details.predict-box > summary{padding:.5rem .9rem;cursor:pointer;font-size:.85rem;color:var(--muted);list-style:none;user-select:none}
+    details.predict-box > summary::-webkit-details-marker{display:none}
+    details.predict-box > summary::before{content:"🤔  "}
+    details.predict-box[open] > summary{border-bottom:1px solid var(--border)}
+    .predict-content{padding:.6rem .9rem;font-size:.88rem}
+    .takeaway{background:rgba(106,159,216,0.07);border-left:3px solid var(--accent);border-radius:4px;padding:.6rem .9rem;font-size:.88rem;margin:1rem 0}
+    .card.amber .takeaway{background:var(--amber-bg);border-left-color:var(--amber)}
+    .card.green .takeaway{background:rgba(74,154,106,0.07);border-left-color:var(--green)}
+    .card.steel .takeaway{background:rgba(90,138,170,0.07);border-left-color:var(--steel)}
+    .retrieval{border:1px solid var(--border);border-radius:8px;margin:1rem 0;font-size:.88rem}
+    .retrieval-q{padding:.55rem .9rem;border-bottom:1px solid var(--border)}
+    .retrieval details > summary{padding:.4rem .9rem;cursor:pointer;font-size:.82rem;color:var(--muted);list-style:none}
+    .retrieval details > summary::-webkit-details-marker{display:none}
+    .retrieval details > summary::before{content:"▶  ";font-size:.65rem}
+    .retrieval details[open] > summary::before{content:"▼  "}
+    .retrieval .answer{padding:.5rem .9rem 1rem;font-size:.85rem;color:var(--muted)}
+    .source{font-size:.75rem;color:var(--muted);margin-top:.75rem;padding-top:.5rem;border-top:1px solid var(--border)}
+    .polecon-grid{display:grid;gap:.7rem;margin:.5rem 0}
+    .polecon-part{padding:.6rem .8rem;border:1px solid var(--border);border-radius:6px;font-size:.88rem}
+    .polecon-part strong{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem}
+    .connection-section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:2rem}
+    .connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.5rem}
+    footer{border-top:1px solid var(--border);padding:1.5rem .75rem 3rem;font-size:.78rem;color:var(--muted);max-width:1160px;margin:0 auto}
+    footer details{margin-top:.75rem}
+    footer details summary{cursor:pointer;color:var(--muted);font-size:.8rem;list-style:none}
+    footer details summary::-webkit-details-marker{display:none}
+    footer details summary::before{content:"▶  ";font-size:.65rem}
+    footer details[open] summary::before{content:"▼  "}
+    footer details table{margin-top:.5rem;font-size:.72rem;border-collapse:collapse;width:100%}
+    footer details table td,footer details table th{padding:.2rem .5rem;border:1px solid var(--border);vertical-align:top}
+    footer details table th{font-weight:600}
+    footer ol{padding-left:1.2rem;line-height:2}
+    @media(max-width:899px){.page-wrapper{padding:0 .5rem}.main-content{padding:1rem 0 3rem 0}.card{padding:1.1rem 1rem}.card h2{font-size:1.05rem}}
+  </style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">← All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+    </div>
+  </div>
+  <div class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">13 June 2026 &nbsp;·&nbsp; ~55 min read</span>
+  </div>
+  <div class="toc-bar">
+    <a href="#card-0">🔁 Spark</a>
+    <a href="#card-1">🌌 Astronomy</a>
+    <a href="#card-2">🏯 Eastern History</a>
+    <a href="#card-3">🏛️ Western History</a>
+    <a href="#card-4">☯ Eastern Phil.</a>
+    <a href="#card-5">🧭 Western Phil.</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">💪 Physiology</a>
+    <a href="#card-8">🏥 Health</a>
+    <a href="#card-9">🏋️ Sports Science</a>
+    <a href="#card-10">💰 Investing</a>
+    <a href="#card-11">🌐 Pol. Economics</a>
+  </div>
+</div>
+
+<div class="page-wrapper">
+  <!-- Left Nav -->
+  <nav class="left-nav" aria-label="Card navigation">
+    <a href="#card-0">🔁 Yesterday's Spark</a>
+    <a href="#card-1">🌌 Astronomy</a>
+    <a href="#card-2">🏯 Eastern History</a>
+    <a href="#card-3">🏛️ Western History</a>
+    <a href="#card-4">☯ Eastern Phil.</a>
+    <a href="#card-5">🧭 Western Phil.</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">💪 Physiology</a>
+    <a href="#card-8">🏥 Health</a>
+    <a href="#card-9">🏋️ Sports Science</a>
+    <a href="#card-10">💰 Investing</a>
+    <a href="#card-11">🌐 Pol. Economics</a>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="card-0">
+      <h2>🔁 Yesterday's Spark</h2>
+      <p style="font-size:.82rem;color:var(--muted);margin-bottom:1rem">From <em>12 June 2026 — 2nd Edition</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">🌌 Astronomy — Fast Radio Bursts</span>
+        <em>Answer this without looking back:</em> How did the 2020 burst from the magnetar SGR&nbsp;1935+2154 advance the FRB mystery, and what does an FRB's "dispersion measure" let astronomers measure?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">It was the first FRB-like burst traced to a known object — a Galactic magnetar — proving that magnetars can produce at least some fast radio bursts. The dispersion measure (the frequency-dependent arrival delay caused by intervening ionised gas) scales with distance and the amount of plasma crossed, so localised FRBs let astronomers tally the diffuse intergalactic baryons and resolve the "missing baryons" problem.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">📜 東方歷史 — 王安石變法</span>
+        <em>讀後回想：</em>王安石「青苗法」的原意是什麼？為何它在實際推行中招致激烈反對？
+        <details style="margin-top:.4rem"><summary>查看答案</summary>
+          <div class="answer">青苗法原意是由官府在青黃不接時向農民低息貸款，既抑制民間高利貸的盤剝，又為國庫增收利息。但實際推行時，地方官為追求政績與利息指標，竟強制攤派、不問農民意願，在利率與催逼之下反成另一種官辦高利貸，加重百姓負擔，因而招致司馬光、蘇軾等人猛烈抨擊，並引發新舊黨爭。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🏛️ Western History — Thirty Years' War</span>
+        <em>Answer this without looking back:</em> What set off the Thirty Years' War, and what principle established at the Peace of Westphalia still underpins international order?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">It began with the 1618 Defenestration of Prague, as Bohemian Protestants resisted the Catholic Habsburg emperor's attempt to roll back Protestantism — drawing in Denmark, Sweden, and France over thirty years. The 1648 Peace of Westphalia established territorial sovereignty: each state controls its own internal affairs free from outside interference, the foundational principle of the modern state system.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">☯ 東方哲學 — 禪宗慧能頓悟</span>
+        <em>讀後回想：</em>神秀「漸修」偈與慧能「頓悟」偈的根本分歧在哪裏？為何說慧能把修行「帶回了日常生活」？
+        <details style="margin-top:.4rem"><summary>查看答案</summary>
+          <div class="answer">神秀主張「心如明鏡台，時時勤拂拭」，是循序漸進、不斷去除煩惱塵埃的漸修；慧能主張「本來無一物」，自性本自清淨、根本無塵可拭，故能一念之間直見本性而頓悟。慧能南宗強調「平常心是道」「擔水砍柴無非妙道」，把覺悟從繁瑣義學與出世苦行中解放出來，融入日常勞作與生活，故說他把修行帶回了日常。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🧭 Western Philosophy — Nietzsche</span>
+        <em>Answer this without looking back:</em> What is the difference between "master" and "slave" morality in Nietzsche's account, and what role does <em>ressentiment</em> play?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">Master morality calls "good" whatever is strong, noble, and life-affirming, with "bad" meaning merely the weak or base. Slave morality, born of <em>ressentiment</em> among the powerless, inverts this: it brands the strong "evil" and elevates meekness and humility as "good." Nietzsche presents this "slave revolt in morals" as a historical reversal — the transvaluation that shaped much conventional morality.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🧠 Psychology — Misinformation Effect</span>
+        <em>Answer this without looking back:</em> What did changing one verb ("smashed" vs "hit") do in Loftus &amp; Palmer's study, and what does this reveal about how memory works?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">"Smashed" raised speed estimates (~40.8 vs 34.0&nbsp;mph) and made participants more than twice as likely to falsely recall broken glass that was never there. Memory is reconstructive: post-event information — even a single suggestive word — gets integrated into recollection, so memories can be distorted or even implanted.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">💪 Physiology — Referred Pain</span>
+        <em>Answer this without looking back:</em> What is "viscerosomatic convergence," and why does cardiac pain so often appear in the left arm and jaw?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">Pain fibres from an internal organ and from a region of skin converge on the same spinal-cord neurons. The brain misreads the organ's signal as coming from that skin area. The heart's sensory nerves enter the cord at T1–T5 — the same segments serving the chest, inner left arm, and jaw — so cardiac distress is "referred" there.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🏥 Health — Antioxidant Supplements</span>
+        <em>Answer this without looking back:</em> What did the ATBC and CARET trials find when they gave smokers high-dose beta-carotene, and what general lesson does this teach about supplements?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">Instead of preventing cancer, beta-carotene supplements <em>increased</em> lung cancer in smokers (~18% more in ATBC; ~28% more with ~17% higher mortality in CARET, stopped early). A nutrient beneficial in whole foods can be harmful as an isolated high dose — food-based intake is not the same as supplement intake.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🏋️ Sports Science — Mind-Muscle Connection</span>
+        <em>Answer this without looking back:</em> When does an internal ("mind-muscle") focus beat an external focus, and when is it the other way around?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">Internal focus raises target-muscle activation and growth, helping hypertrophy on isolation exercises (Schoenfeld 2018: ~12.4% vs ~6.9% biceps). External focus (attending to the outcome) produces more force, speed, and coordination — better for maximal strength and power lifts. Focus is goal-dependent and secondary to load and volume.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">💰 Investing — Nifty Fifty</span>
+        <em>Answer this without looking back:</em> What were the "Nifty Fifty," and what investing lesson did their 1973–74 collapse teach despite them being excellent companies?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">About fifty blue-chip "one-decision" growth stocks bid up to P/Es of 50–90 in the early 1970s. In the 1973–74 bear market many fell 70–90%. Lesson: a great company is not automatically a great investment — the price you pay determines your return, so valuation matters.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🌐 Political Economics — Tragedy of the Commons</span>
+        <em>Answer this without looking back:</em> What does Hardin's "tragedy of the commons" predict, and how did Ostrom's work challenge it?
+        <details style="margin-top:.4rem"><summary>Check your answer</summary>
+          <div class="answer">Hardin (1968) predicted that openly shared resources will inevitably be overexploited, implying privatisation or state control is required. Ostrom (1990) documented many communities sustainably self-governing commons (Swiss pastures, Maine lobster, Japanese forests) using clear boundaries, monitoring, and graduated sanctions — showing the tragedy is an avoidable governance failure, not destiny.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <div class="card-label">1 · Astronomy &amp; Cosmos</div>
+      <h2>The Chirp Heard Across the Universe: LIGO's Gravitational Wave Discovery</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — Einstein predicted gravitational waves in 1916. Why did it take a century to detect them?</summary>
+        <div class="predict-content">Think about what a gravitational wave actually is, how small its effect must be, and what engineering challenges that poses. Then read on.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-1">
+        <span style="font-size:3rem">🌌</span>
+      </div>
+
+      <p>In his 1916 general theory of relativity (廣義相對論), Albert Einstein predicted that accelerating masses would ripple space-time (時空) itself — stretching and squeezing the distance between objects as they passed. He also suspected these gravitational waves (引力波) would be so vanishingly faint that they might never be detected. A century later, on 14 September 2015, the Laser Interferometer Gravitational-Wave Observatory (LIGO, 激光干涉引力波天文台) proved him both right and wrong: right that the waves exist; wrong that they are undetectable. The signal was brief, a rising "chirp" lasting less than a second, but it recorded the collision of two black holes (黑洞) roughly 1.3 billion light-years away — an event releasing more energy than every star in the observable universe radiates in an entire week, almost entirely in gravitational waves.</p>
+
+      <p>The engineering behind the detection borders on the miraculous. Each LIGO facility has two perpendicular arms, each precisely 4 kilometres long, down which laser beams bounce between mirror pairs. A passing gravitational wave stretches one arm and compresses the other in alternating fashion, shifting the interference pattern of the returning beams. The strain measured for GW150914 — the event's official designation — was about 10⁻²¹: that means one arm changed length by roughly 10⁻¹⁸ metres, one-thousandth the diameter of a proton (質子). To suppress quantum noise (量子噪聲) at those scales, LIGO's Advanced detectors use "squeezed light" (壓縮光), a technique exploiting Heisenberg's uncertainty principle (海森堡不確定性原理) to trade phase-noise for amplitude-noise. Seismic isolation systems (地震隔離系統) suspend the mirrors on cascades of pendulums so that even a passing lorry does not register.</p>
+
+      <p>The scientific payoff was immediate and ongoing. GW150914 confirmed that binary black-hole systems (雙黑洞系統) exist and merge, settling decades of debate. Two years later, GW170817 captured the merger of two neutron stars (中子星) and simultaneously triggered gamma-ray, optical, and radio telescopes in the first "multi-messenger" astronomical event — directly showing that neutron-star mergers produce heavy elements including gold (金) and platinum (鉑) through a process called rapid neutron capture (r-process, 快中子俘獲). LIGO's founders Kip Thorne (索恩), Rainer Weiss (韋斯), and Barry Barish (巴里什) shared the 2017 Nobel Prize in Physics (物理學諾貝爾獎). Future upgrades and space-based detectors like LISA aim to hear gravitational waves from the Big Bang itself.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Gravitational waves don't just confirm relativity — they open an entirely new sensory channel for astronomy. We no longer just see the cosmos; we can now feel it vibrating.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What mechanism does LIGO use to detect a gravitational wave, and why does the detection require measuring a displacement smaller than the diameter of a proton?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">LIGO fires a laser down two 4-km perpendicular arms and measures the interference pattern of reflected beams. A passing gravitational wave stretches one arm and compresses the other, shifting the pattern. The strain produced even by a catastrophic black-hole merger 1.3 billion light-years away is ~10⁻²¹ — far smaller than an atomic nucleus — because spacetime curvature dissipates over cosmic distances.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Abbott et al. (LIGO Scientific Collaboration) 2016. "Observation of Gravitational Waves from a Binary Black Hole Merger." <em>Physical Review Letters</em> 116, 061102. Nobel Prize in Physics 2017 Scientific Background (The Royal Swedish Academy of Sciences).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY (JAPAN — MEIJI) -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">2 · 東方歷史 🇯🇵</div>
+      <h2>明治日本的自我解剖：岩倉使節團與帝國的學習遠征</h2>
+
+      <details class="predict-box">
+        <summary>讀前預想 — 1871年，日本明治新政府的高層官員為何要親赴歐美十八個月，卻幾乎空手而回？</summary>
+        <div class="predict-content">想想一個剛剛推翻幕府、百廢待舉的政府，要在外交桌上爭取什麼，又如何面對強權的冷遇。</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-2">
+        <span style="font-size:3rem">🏯</span>
+      </div>
+
+      <div class="intro-box">
+        <strong>核心人物：</strong>岩倉具視（右大臣、使節團長）、大久保利通（參議）、木戶孝允（參議）、伊藤博文（副使，年僅三十歲）<br>
+        <strong>核心事件：</strong>1871年12月至1873年9月，使節團橫跨美國、英國、法國、德國等十八個國家，歷時約一年九個月<br>
+        <strong>大背景：</strong>廢藩置縣甫完成，不平等條約（治外法權、協定關稅）仍是明治政府心腹之患；西洋列強以日本「文明未達標準」拒絕修約，倒逼日本把「文明開化」由口號化為體制改革
+      </div>
+
+      <p>岩倉使節團出發的直接動因，是一次外交的挫敗。明治政府希望趁換約之機，收回幕末逼簽的不平等條約——尤其是允許外國人在日本不受本國法律管轄的治外法權（領事裁判權）。使節團抵達華盛頓後，美方告知：正式修約需要全權委任狀，而那份文件留在東京，日方唯有鎩羽而歸、重頭再辦。這場外交失敗，卻意外把使節團從談判使者轉變為一支系統性考察隊：他們有了充裕時間以學習者姿態，解剖西洋國家的神經與骨骼。</p>
+
+      <p>考察期間，每到一地，使節團便逐一叩問制度的核心。在美國，他們參觀工廠、國會與學校，感受到民主政治與工業生產的相互增強。在英國，他們仔細研究議會制度、海軍基地與棉紡廠的生產線，木戶孝允在日記中寫道：「英國強盛之源，在法律而非武力。」最震撼人心的一站是俾斯麥（Bismarck）的柏林：這位「鐵血首相」親自接見他們，直言當時國際秩序的本質——「萬國公法不過強者之具，弱者無從依恃」。俾斯麥以普魯士以小勝大的親身示範，告訴日本：先把國內產業與財政基礎打牢，軍事強盛自然隨之。這番話在大久保利通心中刻下了深痕。</p>
+
+      <p>回國後，使節團的收穫以截然不同的方式落地。大久保利通主導推行「殖產興業」，仿照德國俾斯麥的國家資本主義模式，設立官方工廠、引進紡紗與鋼鐵技術，直接催生了後來的財閥體制。伊藤博文則銘記德意志帝國憲法的君主立憲設計，於1882年親赴柏林和維也納深造，回國後主持起草《明治憲法》（1889年），以「萬世一系」的天皇大權搭配形式議會。此外，學制改革、陸軍法式改德式、海軍仿英式，均可溯源至使節團的考察報告。使節團的秘書久米邦武花費十年，整理成百萬字的《米歐回覽實記》，至今仍是研究明治初期政策思維的第一手史料。</p>
+
+      <div class="takeaway">💡 <strong>要點：</strong>岩倉使節團的真正遺產，不是它談成了任何條約，而是把近代日本的政治想像力從儒家秩序的框架中解放出來——讓高層官員親眼目睹制度如何被設計、調整與有意識地輸出。</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>讀後回想：</em>岩倉使節團出發時原定的外交任務是什麼？為何任務失敗反而成全了更深遠的收穫？俾斯麥對大久保利通說了什麼，令後者回國後大力推行殖產興業？</div>
+        <details><summary>查看答案</summary>
+          <div class="answer">使節團原意是修訂不平等條約、收回治外法權，但因全權委任狀未備而在華盛頓遭拒，轉為以近兩年時間系統考察西洋制度。失敗反而給了他們不受談判時程束縛的學習空間。俾斯麥告訴他們，國際公法是強者的工具，弱國唯有先強化內政與產業，方能自保；普魯士以小勝大的示範令大久保確信國家主導工業化的急迫性，回國後即力主設官辦工廠、引進西洋技術。</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>資料來源：</strong>久米邦武《米歐回覽實記》（1878）；Ian Nish（ed.）<em>The Iwakura Mission in America and Europe</em>（1998）；Gordon, Andrew. <em>A Modern History of Japan</em>（2003）, Oxford University Press.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY — DUTCH GOLDEN AGE -->
+    <article class="card" id="card-3">
+      <div class="card-label">3 · History — Western</div>
+      <h2>A Herring, a Ship, and the World's First Modern Economy: The Dutch Golden Age</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — How did a small, waterlogged republic with no king, no major natural resources, and a constant war for survival become the richest place on Earth in the 17th century?</summary>
+        <div class="predict-content">Consider what advantages a republic might have over a monarchy in mobilising capital, and what the sea offers to a flat country with limited arable land.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-3">
+        <span style="font-size:3rem">🏛️</span>
+      </div>
+
+      <div class="intro-box">
+        <strong>Key figures:</strong> Jan de Witt (荷蘭共和國大議長), the VOC directors (東印度公司董事), Rembrandt van Rijn (林布蘭), Baruch Spinoza (斯賓諾莎)<br>
+        <strong>Event/idea at stake:</strong> The Dutch Republic's commercial, scientific, and artistic dominance in the 17th century, built on tolerance, trade, and financial innovation<br>
+        <strong>Big-picture situation:</strong> Spain, the world's previous superpower, was bleeding treasure in the New World and haemorrhaging talent northward; the Dutch seized a window of relative freedom to experiment with capitalism itself
+      </div>
+
+      <p>The foundations were paradoxical. The Dutch Republic (荷蘭共和國, 1581–1795) was born in revolt against Spanish Habsburg (哈布斯堡王朝) rule during the Eighty Years' War (八十年戰爭), meaning its very existence depended on holding off the most powerful military in Europe. Yet that existential pressure forced institutional innovations. The Union of Utrecht (烏得勒支聯盟, 1579) codified an unusual degree of religious tolerance — Calvinist (喀爾文派) in public life but pragmatically open to Catholics, Jews, and Anabaptists (再洗禮派). This tolerance made Amsterdam (阿姆斯特丹) a magnet for skilled refugees: when Spain expelled its Jewish population from Antwerp (安特衛普) in 1585, the city's diamond cutters, sugar refiners, and textile merchants relocated north, bringing their networks with them. The herring fishery (鯡魚業), transformed by a 14th-century curing technique that allowed catches to be salted aboard ship, provided the cash surplus to fund Baltic grain imports, which in turn fed a non-agricultural workforce large enough to crew a merchant fleet.</p>
+
+      <p>The centrepiece of Dutch power was the Vereenigde Oost-Indische Compagnie (VOC, 東印度公司), chartered in 1602 as arguably the world's first publicly traded joint-stock corporation (股份制公司). By pooling capital across multiple voyages, it solved the problem that had bankrupted individual merchants financing single ships: one catastrophic loss no longer meant ruin. The VOC issued shares on the Amsterdam Stock Exchange (阿姆斯特丹交易所), the world's first permanent securities market (證券市場). Shareholders expected dividends, but the VOC frequently paid them in spices (香料) rather than cash, creating secondary markets and the first structured commodity trading. Corporate governance problems also appeared immediately: directors (the Heeren XVII, 十七紳士) enriched themselves at shareholders' expense, pioneering both the corporation and its principal-agent problem (委託代理問題) simultaneously. At its peak the VOC held a monopoly on the spice trade (香料貿易) from the Maluku Islands (馬魯古群島) and maintained a private army larger than many European states.</p>
+
+      <p>The Golden Age also illuminates the anatomy of a financial bubble (金融泡沫). In 1637, tulip bulb futures contracts (鬱金香期貨合約) — traded on informal credit, often for bulbs still in the ground — collapsed in days as buyers evaporated, leaving many traders unable to pay. Tulip mania (鬱金香狂熱) is often cited as history's first recorded speculative bubble, though modern historian Anne Goldgar argues the mania was more localised than legend suggests and that most participants were small tradespeople, not ruined aristocrats. The Republic's finances nonetheless proved resilient: it was invaded simultaneously by France (法國), England (英格蘭), and two German states in the "Rampjaar" (災難年) of 1672, temporarily collapsing the government. Recovery came, but Dutch commercial supremacy gradually passed to Britain, which had absorbed the Dutch Republic's financial toolkit — central banking, national debt, stock trading — and scaled it with larger territory and coal.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> The Dutch Golden Age is capitalism's proof of concept: tolerance attracts talent, financial innovation concentrates capital, and distributed ownership spreads risk enough to sustain imperial ambition — even without a king.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What specific financial innovation did the VOC (Dutch East India Company) introduce in 1602, and why did it represent a fundamental change in how economic risk was managed?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">The VOC issued permanent, publicly traded shares on the Amsterdam Stock Exchange — the first joint-stock company with freely transferable equity. By pooling capital from many investors across multiple voyages, it spread the catastrophic risk of a single shipwreck across shareholders instead of bankrupting one merchant. This separated risk-bearing (shareholders) from management (directors), giving rise simultaneously to the corporation and the principal-agent problem.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Schama, Simon. <em>The Embarrassment of Riches: An Interpretation of Dutch Culture in the Golden Age</em> (1987). Knopf. Israel, Jonathan. <em>The Dutch Republic: Its Rise, Greatness, and Fall 1477–1806</em> (1995). Oxford University Press. Goldgar, Anne. <em>Tulipmania: Money, Honor, and Knowledge in the Dutch Golden Age</em> (2007). University of Chicago Press.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY — ZHU XI -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">4 · 東方哲學</div>
+      <h2>朱熹理學：格物致知與天理人欲之辨</h2>
+
+      <details class="predict-box">
+        <summary>讀前預想 — 宋代儒者說要「格物」才能「致知」。你認為「格物」是指觀察外界事物，還是向內反省自心？</summary>
+        <div class="predict-content">這個問題在宋明理學中引發了長達數百年的爭論。想想兩條路徑各自的假設是什麼。</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-4">
+        <span style="font-size:3rem">☯</span>
+      </div>
+
+      <div class="intro-box">
+        <strong>核心人物：</strong>朱熹（1130–1200），字元晦，徽州婺源人；承程頤、程顥（二程）衣缽<br>
+        <strong>核心學說：</strong>以「理」為萬物本體，以「格物致知」為認識論路徑，以「存天理、滅人欲」為道德工夫論<br>
+        <strong>時代背景：</strong>南宋政局動盪，佛道二教深入民心，儒學需重構形而上學基礎方能抗衡；朱熹在白鹿洞書院（白鹿洞書院）主持講學，集理學之大成，其注解《四書》成為此後六百年科舉（科舉）正統
+      </div>
+
+      <p>朱熹思想的起點是一個本體論問題：天地萬物究竟由何構成？他繼承二程，提出「理」（義理、規律）與「氣」（物質、能量）的二元架構。「理」先於「氣」而存在，是萬物所以然的根據，亦是萬物當然的準則——桌子之所以是桌子，是因為桌子之「理」先於具體木料而存在；仁義禮智之所以是道德標準，是因為人性之「理」（即人之所以為人的天命之性）本自具足。「氣」則是理賦形的載體，氣有清濁厚薄之分，導致人與人之間的才情差異。這一架構既回應了佛教的空論（佛教認為萬物皆空，無實體），又為儒家倫理奠定了形上基礎。</p>
+
+      <p>認識論上，朱熹在《大學》的「格物致知」四字上花了畢生功夫。他的詮釋是：「格者，至也；物者，事也。」格物即是窮究事物之理，從日用倫常到草木鳥獸，逐一推敲探求，積累知識如積沙成塔，直至某一刻「豁然貫通」——如同盲人突然開眼，一切之理融會相通。他在廬山腳下建立或重整白鹿洞書院，親自制訂學規，把格物的次第功夫制度化：先讀四書五經，輔以史書，再及諸子，循序漸進。這種由外而內的認識路徑，被王陽明批評為「析心與理為二」——好像把道德真理放在外面的世界等人去尋找，而非本存於自己的良知之中。正是這一分歧，催生了明代心學對理學的根本顛覆。</p>
+
+      <p>道德工夫論上，朱熹提出最具爭議的命題：「存天理、滅人欲。」他明確區分天理（合乎道德規範的欲求，如飢食渴飲）與人欲（逾越規範的私欲，如貪財好色無度），主張通過「持敬」與格物雙管齊下，抑制人欲以彰顯天理。這一主張在宋代即有人批評其流於壓抑，明清以降更被視為束縛女性、扼殺個性的「道學」根源。然而錢穆等現代學者指出，朱熹原意並非否定一切慾望，而是強調欲的節制與方向；斷章取義的「滅人欲」後來與朱熹本人的複雜哲學漸行漸遠。朱熹去世時仍被列入「偽學黨禁」，身後卻被元明清三朝尊奉為儒學正統，其《四書集注》更成為科舉必讀，影響中國政治文化長達六百年。</p>
+
+      <div class="takeaway">💡 <strong>要點：</strong>朱熹的偉大在於他以哲學嚴謹性回答了「為何做好人」的根本問題——他的答案是：因為「理」就在萬物與人性之中，格物致知是把它找出來的路。明白這條路，才能理解王陽明何以要另闢蹊徑。</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>讀後回想：</em>朱熹「格物致知」與王陽明「致良知」在認識論上有何根本差異？朱熹所說的「豁然貫通」是指什麼樣的認識狀態？</div>
+        <details><summary>查看答案</summary>
+          <div class="answer">朱熹主張道德之理存於外部世界的萬事萬物之中，需透過逐物窮理、積累格物的功夫，到某一臨界點才能全面融通，是「由外向內」的認識路徑；王陽明則認為道德之理（良知）本就圓滿存於自心，無需向外搜尋，只需在日常行事中體察擴充即可，是「向內求諸心」的路徑。「豁然貫通」是指格物積累到一定程度後，突然融會貫通、一理通而萬理明的認識頓悟狀態，類似學習曲線上的質變時刻。</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>資料來源：</strong>Wing-tsit Chan. <em>A Source Book in Chinese Philosophy</em>（1963）. Princeton University Press；錢穆《朱子新學案》（1971）；Gardner, Daniel K. <em>Zhu Xi's Reading of the Analects</em>（2003）. Columbia University Press.</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY — MILL -->
+    <article class="card" id="card-5">
+      <div class="card-label">5 · Philosophy — Western</div>
+      <h2>Is Pushpin as Good as Poetry? Mill's Utilitarianism and the Harm Principle</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — If the right action is always the one that produces the most happiness, does that mean anything is justified if enough people enjoy it? What's the problem with Bentham's original formula?</summary>
+        <div class="predict-content">Consider the "utility monster" thought experiment: a being that gets so much pleasure from anything that maximising total happiness requires sacrificing everyone else's wellbeing for its sake.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-5">
+        <span style="font-size:3rem">🧭</span>
+      </div>
+
+      <div class="intro-box">
+        <strong>Key figures:</strong> John Stuart Mill (約翰·斯圖亞特·彌爾, 1806–1873) and his predecessor Jeremy Bentham (邊沁, 1748–1832)<br>
+        <strong>Problem at stake:</strong> How to justify moral rules without appealing to God or intuition — and why a purely quantitative measure of happiness collapses when you try to use it seriously<br>
+        <strong>Moment:</strong> Victorian Britain (維多利亞時代英國) at the height of industrialism, debates over suffrage reform, colonial policy, and the limits of state power — all demanding a principled framework for deciding what the law may compel
+      </div>
+
+      <p>Jeremy Bentham's (邊沁) original utilitarianism (功利主義) was bracingly egalitarian: every person's pleasure counts for one, nobody's for more than one, and the right action is whatever maximises the total sum of happiness minus suffering (his "felicific calculus," 快樂計算). The infamous implication — "the quantity of pleasure being equal, pushpin is as good as poetry" — meant that if low-brow entertainment genuinely pleased more people more intensely than Hamlet, a society maximising happiness should fund more pubs and fewer theatres. Mill found this intolerable. His 1863 essay <em>Utilitarianism</em> distinguished higher pleasures (理智快樂, those engaging the intellect, emotions, and moral sensibilities) from lower pleasures (感官快樂, physical gratification). Crucially, quality matters as well as quantity: "It is better to be Socrates (蘇格拉底) dissatisfied than a fool satisfied." A person who has experienced both kinds of pleasure will reliably prefer the higher, even at the cost of greater distress — which for Mill is empirical evidence, not mere elitist assertion.</p>
+
+      <p>Mill's second great contribution was the Harm Principle (傷害原則), the centrepiece of <em>On Liberty</em> (1859). His formulation: "the only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others." Self-regarding actions — things that affect only the actor — are categorically immune from legal coercion. Mill was writing against both Victorian paternalism (父權主義) and the "tyranny of the majority" (多數人的暴政): he saw conformity pressures as dangerous even when no law prohibited deviance, because social stigma could crush individuality as effectively as prison. He applied the principle radically for his time, defending freedom of thought, religious dissent, unconventional lifestyles, and (influenced by his collaborator Harriet Taylor Mill, 哈麗雅特·泰勒·彌爾) women's suffrage (女性選舉權) — a position he argued in parliament as MP for Westminster from 1865.</p>
+
+      <p>The problems with utilitarianism remain lively in philosophy departments. Robert Nozick's (諾齊克) "experience machine" thought experiment asks: would you plug into a simulation that delivers perfect happiness indefinitely? Most people say no — suggesting we care about actually doing things and being real, not just experiencing pleasure — which contradicts the utilitarian premise that only subjective experience matters. Rule utilitarianism (規則功利主義) emerged as a partial fix: rather than calculating the utility of each act, we adopt rules (don't steal, keep promises) whose general observance maximises utility even if occasional exceptions would do better in a specific case. Peter Singer (彼得·辛格), the most influential living utilitarian, pushes the logic with uncomfortable consistency: if suffering matters equally wherever it occurs, affluent people are morally obligated to give until giving more would cost them as much as it benefits others — a conclusion most feel is correct in principle and ignore in practice.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Mill's lasting insight is that freedom and welfare are not always in tension — protecting individual liberty from majority coercion is itself what maximises long-run human flourishing. The Harm Principle is the philosophical backbone of liberal democracy.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What specific flaw in Bentham's utilitarianism did Mill attempt to fix with his distinction between "higher" and "lower" pleasures, and why is this distinction itself philosophically controversial?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">Bentham's purely quantitative calculus implied that any pleasure outweighs any other if intense enough, collapsing the difference between poetry and pushpin. Mill added qualitative ranking: higher pleasures (intellectual, moral) are intrinsically preferable to lower ones (sensory). The controversy: to establish which pleasures are higher, Mill appeals to the judgment of those who have experienced both — but this risks circular reasoning (higher pleasures are those preferred by cultivated people; cultivated people prefer higher pleasures) and seems to smuggle in elitist assumptions under utilitarian language.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Mill, J.S. <em>Utilitarianism</em> (1863); <em>On Liberty</em> (1859). Penguin Classics editions. Crisp, Roger. "Mill on Utilitarianism." <em>Stanford Encyclopedia of Philosophy</em>, 2023 revision. Nozick, Robert. <em>Anarchy, State, and Utopia</em> (1974). Basic Books.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY — MENTAL ACCOUNTING (BEHAVIORAL ECON) -->
+    <article class="card" id="card-6">
+      <div class="card-label">6 · Psychology 🎯 Behavioral Economics</div>
+      <h2>Your Brain Has Separate Wallets: Mental Accounting and Why a Dollar Isn't Always a Dollar</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — Imagine you buy a £50 theatre ticket, lose it before entering, and buy another. Now imagine instead you arrive and find you've lost £50 cash. Are you equally likely to buy the ticket in both cases?</summary>
+        <div class="predict-content">Economically the loss is identical. But most people feel very differently about buying again. Why might that be?</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-6">
+        <span style="font-size:3rem">🧠</span>
+      </div>
+
+      <p>Standard economic theory treats money as fungible (可替換的) — one dollar is one dollar regardless of where it came from, what it's earmarked for, or whether it arrived as wages or a windfall. Richard Thaler (理察·塞勒, later Nobel laureate 2017), building on Kahneman and Tversky's Prospect Theory (前景理論), documented that people systematically violate this fungibility. They mentally segregate money into separate "accounts" — groceries, entertainment, retirement savings — and refuse to transfer between them even when doing so is rational. The theatre ticket experiment above is one of Thaler's clearest demonstrations: when you lose the ticket, you've depleted your "entertainment account" and feel you've already spent your budget; when you lose cash, it drains the "general funds" account and leaves the entertainment budget untouched. In a 1981 study, Kahneman and Tversky found roughly 46% of participants would rebuy after losing the ticket, versus 88% after losing equivalent cash — same monetary loss, dramatically different behaviour, because of which mental account was charged.</p>
+
+      <p>The "house money effect" (賭場錢效應) extends mental accounting into investment and gambling. Thaler and Johnson (1990) showed that people are far more willing to take risky bets after a recent gain than after a recent loss. Casino winnings feel like "free money" that belongs to a separate account from hard-earned income, so gamblers bet more aggressively with them — even though economically the chips are real money. The same effect distorts investing: investors who have made significant unrealised gains often hold riskier positions than their stated risk tolerance would allow, because those gains feel like they belong in a separate "house money" account that isn't really "theirs." Conversely, tax refunds are almost always spent rather than saved, even by people who profess to prioritise saving — because a windfall in the "unexpected income" account triggers different spending rules than regular salary.</p>
+
+      <p>Mental accounting has practical applications in both personal finance and product design. Credit cards (信用卡) decouple the "pain of paying" (消費痛感) from the purchase — swiping or tapping generates far less psychological resistance than handing over notes, which is why contactless payment consistently increases average spend. Employers who convert salary into a series of smaller "bonus" payments — matched pension contributions, quarterly performance bonuses, employee share schemes — generate more employee goodwill than the same total paid as a single annual raise, because each separate payment lands in its own account and feels like a distinct gift. Understanding these patterns does not automatically free us from them: knowing that your "house money" account is an illusion still doesn't make those casino chips feel like real cash.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Money is not fungible in the human mind. When making financial decisions, ask: "Would I make this same choice if this money had arrived differently?" If the answer is no, you've found a mental account distorting your judgment.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What is the "house money effect" in mental accounting, and what study design did Thaler and Johnson use to demonstrate that prior gains increase risk-taking?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">The house money effect is the tendency to take larger financial risks with recent winnings than with one's baseline wealth, because the gains feel like they belong to a separate "free" account. Thaler and Johnson (1990, <em>Management Science</em>) presented participants with sequential gamble scenarios: after a prior gain, subjects were significantly more willing to accept unfavourable-EV bets, because the gain functioned as a psychological cushion that made losing feel less painful — it was "only" house money.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Thaler, R.H. (1985). "Mental Accounting and Consumer Choice." <em>Marketing Science</em>, 4(3), 199–214. Thaler, R.H. &amp; Johnson, E.J. (1990). "Gambling with the House Money and Trying to Break Even." <em>Management Science</em>, 36(6), 643–660. Kahneman, D. &amp; Tversky, A. (1981). "The Framing of Decisions." <em>Science</em>.</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY — THERMOREGULATION -->
+    <article class="card" id="card-7">
+      <div class="card-label">7 · Physiology</div>
+      <h2>Your Inner Thermostat: How the Body Holds 37°C Against the Odds</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — On a hot, humid day you feel far more distressed than on an equally hot but dry day. Why does humidity make heat so much more dangerous?</summary>
+        <div class="predict-content">Think about what mechanism your body primarily relies on to shed heat in a hot environment, and what humidity does to that mechanism.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-7">
+        <span style="font-size:3rem">💪</span>
+      </div>
+
+      <p>The human body maintains core temperature within a remarkably narrow band — roughly 36.5 to 37.5°C — despite external temperatures that can swing from −40°C to +50°C and internal heat production that spikes fivefold during vigorous exercise. The master controller is the preoptic area (視前區) of the hypothalamus (下視丘), which acts as a biological thermostat (體溫調節器): it receives input from both core temperature sensors (blood temperature bathing the hypothalamus) and peripheral sensors in the skin, and fires efferent signals along the autonomic nervous system (自律神經系統) to activate heating or cooling responses. Fever (發燒) is not a system malfunction but a deliberate set-point elevation: immune cells release interleukin-1β (白細胞介素-1β) and other pyrogens (致熱原), which trigger prostaglandin E2 (前列腺素 E2) synthesis in the hypothalamus, raising the thermostat setting and making you feel cold even when your core temperature is rising — hence the chills before a fever peaks.</p>
+
+      <p>The primary heat-dissipation mechanism in humans is evaporative cooling via ~2–4 million eccrine sweat glands (外分泌汗腺) distributed across the body surface. Sweat is 99% water with dissolved electrolytes (電解質); as it evaporates, it carries ~2,430 joules per gram off the skin — far more efficiently than conduction, convection, or radiation. This is why high relative humidity is so dangerous: when ambient air is already saturated with water vapour, sweat cannot evaporate, stripping the body of its primary cooling mechanism. A wet-bulb temperature (濕球溫度) above ~35°C is thought to be survivable for only a few hours even for healthy resting adults. Simultaneously, cutaneous vasodilation (皮膚血管擴張) shunts warm blood from the core to the skin surface via arteriovenous anastomoses (動靜脈吻合) concentrated in the palms, feet, and face — the same network exploited by cooling gloves used by elite athletes.</p>
+
+      <p>When body temperature falls, the hypothalamus reverses the strategy. Peripheral vasoconstriction (外周血管收縮) reduces skin blood flow to insulate the core — which is why fingers go numb first in the cold. Shivering (寒顫) generates heat through rapid involuntary skeletal-muscle contractions, inefficient but metabolically significant. Brown adipose tissue (棕色脂肪組織, BAT) in the neck and shoulders provides non-shivering thermogenesis (非顫慄產熱) via uncoupling protein-1 (解偶聯蛋白-1, UCP-1), which short-circuits mitochondrial ATP synthesis to release energy as heat. Infants have abundant BAT (adults retain small amounts, more in cold-adapted individuals). Heat acclimatisation (熱適應) over 1–2 weeks increases plasma volume (血漿體積) by up to 15%, lowers core temperature at which sweating begins, and increases sweat rate — structural adaptations that explain why someone newly arrived in a tropical city struggles while long-term residents cope.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> When you exercise in heat, the danger isn't the temperature — it's whether you can sweat and whether the sweat can evaporate. High humidity plus exertion is the combination that kills; moving air (wind or a fan) restores the evaporative gradient even on a hot day.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> Why is high humidity more dangerous than high dry heat alone, and which specific cooling mechanism does humidity impair?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">Evaporative cooling from sweat is the body's primary heat-dissipation mechanism in heat. Evaporation requires a vapour pressure gradient between the wet skin and the surrounding air. When relative humidity is high, the air is already nearly saturated with water vapour, eliminating that gradient — sweat sits on the skin without evaporating and carries no heat away. Core temperature then rises unchecked even though the person is sweating normally.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Romanovsky, A.A. (2018). "The thermoregulation system and how it works." <em>Handbook of Clinical Neurology</em>, 156, 3–14. Tipton, M.J. et al. (2017). "Immersion in cold water: effects on performance and safety." <em>Extreme Physiology &amp; Medicine</em>. Sonna, L.A. et al. (2002). "Invited review: effects of heat and cold stress on mammalian gene expression." <em>Journal of Applied Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH — ULTRA-PROCESSED FOODS -->
+    <article class="card" id="card-8">
+      <div class="card-label">8 · Health</div>
+      <h2>Why Ultra-Processed Food Makes You Overeat: The Hall 2019 RCT</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — If two diets are matched for calories, protein, fat, carbohydrates, sugar, sodium, and fibre, should they produce different weight outcomes? A 2019 NIH trial found a stunning gap. What might explain it?</summary>
+        <div class="predict-content">Think beyond macronutrients: what else differs between a plate of steamed fish with vegetables and a plate of fish fingers with white bread?</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-8">
+        <span style="font-size:3rem">🏥</span>
+      </div>
+
+      <p>The debate about ultra-processed food (超加工食品, UPF) was clarified enormously by a 2019 NIH randomised controlled trial led by Kevin Hall (凱文·霍爾) at the National Institutes of Health. Unlike most diet research — which asks people to try a diet at home and self-report — Hall's team admitted twenty adults to a residential metabolic ward for four weeks, providing all food and measuring everything. Participants were randomised to two weeks of an ultra-processed diet followed by two weeks of an unprocessed diet (or vice versa, crossover design). Critically, both diets were matched as closely as possible for total energy, sugar, fat, carbohydrates, fibre, and sodium, and participants were told to eat as much or as little as they wanted. The result was unambiguous: on the ultra-processed diet, participants ate an average of 500 extra calories per day and gained approximately 0.9&nbsp;kg; on the unprocessed diet, they ate less and lost approximately 0.9&nbsp;kg.</p>
+
+      <p>The mechanistic question — why did they eat more on the UPF diet even though macronutrients were matched? — remains partially open. Hall's team measured appetite hormones (食慾荷爾蒙) and found that on the UPF diet, participants had higher levels of ghrelin (飢餓素, the hunger hormone) and lower levels of PYY (胜肽 YY, a satiety signal), suggesting impaired satiety signalling. One hypothesis centres on eating rate (進食速度): ultra-processed foods are typically softer, require less chewing, and are engineered for what food scientists call "vanishing caloric density" — a texture that melts in the mouth, side-stepping the oral satiation cues that trigger fullness. In separate research, the NOVA classification system (NOVA 食品分類) developed by Carlos Monteiro (卡洛斯·蒙泰羅) at the University of São Paulo classifies foods into four groups by processing level, with UPFs defined not by nutrients but by their industrial formulation involving flavour enhancers (增味劑), emulsifiers (乳化劑), and colourings absent from domestic kitchens.</p>
+
+      <p>The broader picture is more complex than "processed food is bad." Historically, food processing has been essential — fermentation (發酵), salting (醃製), and pasteurisation (巴氏殺菌) all extend shelf life and reduce pathogen load. The concern with modern UPFs is more specific: animal and human evidence suggests that certain emulsifiers (Chassaing et al. 2015 in mice showed carboxymethylcellulose disrupted gut microbiota and promoted colitis) and the disruption of the food matrix (食物基質) — the physical structure of unprocessed food that slows digestion and modulates satiety — may drive effects beyond macronutrient totals. Crucially, the Hall trial does not prove UPFs cause overeating through any specific mechanism; it only establishes that ad libitum consumption is higher. Whether this is the food itself or the social/behavioural context of eating industrially prepared meals remains under investigation.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> The most actionable lesson from Hall's trial is not "never eat processed food" but "cook more of your own food." Preparing meals from whole ingredients almost automatically reduces UPF intake and appears to regulate calorie intake without calorie counting.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What was the key experimental design feature of Hall et al.'s 2019 RCT that made it stronger than most diet studies, and what was the magnitude of the calorie difference found between the two diets?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">Participants were admitted to a residential metabolic ward so all food was provided and measured under controlled conditions, eliminating self-reporting bias. Both diets were matched for macronutrients and fibre, with ad libitum eating allowed. On the ultra-processed diet, participants consumed ~500 extra calories per day and gained ~0.9 kg over two weeks; on the unprocessed diet they ate less and lost ~0.9 kg — despite no instruction to restrict intake.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Hall, K.D. et al. (2019). "Ultra-Processed Diets Cause Excess Calorie Intake and Weight Gain: An Inpatient Randomized Controlled Trial of Ad Libitum Food Intake." <em>Cell Metabolism</em>, 30(1), 67–77.e3. DOI: 10.1016/j.cmet.2019.05.008. Monteiro, C.A. et al. (2019). "Ultra-processed foods: what they are and how to identify them." <em>Public Health Nutrition</em>.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE — NORDIC HAMSTRING CURL -->
+    <article class="card" id="card-9">
+      <div class="card-label">9 · Sports Science</div>
+      <h2>The Injury-Prevention Exercise with Extraordinary RCT Evidence: Nordic Hamstring Curls</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — What do you think is the most common muscle injury in football, sprinting, and court sports — and how might you train a muscle specifically to avoid it?</summary>
+        <div class="predict-content">Consider that most muscle tears happen not during shortening but during rapid lengthening — and that not all resistance training addresses that phase equally.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-9">
+        <span style="font-size:3rem">🏋️</span>
+      </div>
+
+      <p>A contraction is called eccentric (離心收縮) when the muscle generates force while lengthening — think of lowering a heavy weight slowly, or the hamstrings (膕繩肌) firing as your foot strikes the ground while sprinting. Eccentric contractions produce more peak force with less metabolic cost than concentric (向心收縮) contractions but cause more muscle damage — hence delayed-onset muscle soreness (遲發性肌肉痠痛) disproportionately follows downhill running or lowering phases. The structural reason involves titin (肌聯蛋白), a giant elastic protein within the sarcomere (肌節) that acts as a scaffold; under eccentric loading, titin stiffens and redistributes force across the fibre, but if the load exceeds the current adaptive ceiling, myofibrillar (肌原纖維) microtears accumulate at the Z-disc. Hamstring strain injury (膕繩肌拉傷) — typically occurring during late swing phase of a sprint when the biceps femoris (股二頭肌) is maximally stretched and still contracting — is the single most common muscle injury in professional football, accounting for an average of 12–16% of all time-loss injuries per club per season according to the UEFA Injury Study (UEFA 傷害研究).</p>
+
+      <p>The Nordic Hamstring Exercise (NHE, 北歐式膕繩肌訓練) is deceptively simple: kneel on a padded surface, have a partner hold your ankles, and lower your torso toward the floor as slowly as possible, braking entirely with hamstring contraction before catching yourself at the end. The exercise loads the hamstrings eccentrically through a long range of motion — exactly the mechanical regime that matches sprint biomechanics. A landmark RCT by Petersen et al. (2011) randomised 942 Danish male football players across 50 clubs to an NHE prevention programme (10-week progressive introduction) or a control season. The NHE group suffered 51% fewer overall hamstring injuries and 65% fewer severe injuries (>28 days absence). A 2014 Cochrane-style meta-analysis by Beaudouin et al. confirmed a risk reduction of approximately 50% across studies. The Premier League (英超) and UEFA now incorporate NHE into their injury-prevention guidelines.</p>
+
+      <p>The mechanism goes beyond "stronger muscles." Eccentric training applied through a long muscle length specifically shifts the optimal angle of force production (最佳力矩角) toward more stretched positions — essentially extending the "safe zone" of the hamstring into the range where sprinting injuries occur. Gareis et al. (2019) demonstrated via ultrasound that 6 weeks of NHE increased fascicle length (肌束長度) by ~1 cm, making the muscle structurally more tolerant of the explosive lengthening-shortening cycle. The Askling protocol (阿斯克林方案) — three specific exercises mimicking sprint mechanics — builds on this principle for post-injury return-to-sport, prioritising full-range eccentric loading and progressive running before clearance. The lesson generalises: for injury prevention, specificity of muscle length, not just strength in a comfortable range, is what matters.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> If you play any sport involving sprinting or kicking, 2–3 sets of Nordic hamstring curls twice a week cut your hamstring injury risk roughly in half — one of the best return-on-investment injury prevention exercises in all of sports medicine.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What is the Nordic hamstring exercise, and what specific structural change does regular eccentric loading produce in the hamstring muscle that helps prevent sprint injuries?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">The Nordic hamstring exercise involves kneeling with ankles held fixed and lowering the torso toward the floor using only hamstring eccentric contraction. Regular eccentric loading through a long range of motion shifts the optimal angle of force production toward more stretched positions and increases fascicle length — structural adaptations that extend the muscle's safe operating range into the sprint mechanics zone where most tears occur.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Petersen, J. et al. (2011). "Preventive Effect of Eccentric Training on Acute Hamstring Injuries in Men's Soccer." <em>American Journal of Sports Medicine</em>, 39(11), 2296–2303. Askling, C.M. et al. (2013). "Hamstring muscle injuries in sprinters." <em>British Journal of Sports Medicine</em>, 47(15). UEFA Injury Study (Ekstrand et al.) published annually in <em>BJSM</em>.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING — HOWARD MARKS -->
+    <article class="card green" id="card-10">
+      <div class="card-label">10 · Investing &amp; Economic Thinking</div>
+      <h2>Second-Level Thinking and the Pendulum: Howard Marks on Why Smart Analysis Isn't Enough</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — A company just reported record profits. Is that enough information to decide whether to buy the stock? What else would you need to know?</summary>
+        <div class="predict-content">Think about what the stock price already reflects, and who else knows what you know.</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-10">
+        <span style="font-size:3rem">💰</span>
+      </div>
+
+      <p>Howard Marks (霍華德·馬克斯), co-founder of Oaktree Capital Management (橡樹資本管理), has been writing investment memos since 1990 — many now freely available on Oaktree's website — that distil a philosophy both simple to state and genuinely difficult to execute. The centrepiece is the distinction between first-level thinking (一階思維) and second-level thinking (二階思維). First-level thinking says: "This is a great company, so I should buy the stock." Second-level thinking says: "This is a great company — but does everyone else already know that? Is the greatness already priced in, or does the market expect even more? What would have to go wrong to make this a bad investment despite the quality?" The insight is brutal: in a market populated by intelligent, motivated analysts, correct fundamental analysis is the entry fee, not the edge. Marks quotes the great Warren Buffett (巴菲特): "What the wise man does in the beginning, the fool does in the end." By the time a consensus view forms, the asset price has already moved to reflect it. The investor who gets ahead must not just be right — they must be right when the consensus is wrong.</p>
+
+      <p>Marks' second major framework is the investment cycle (投資周期) — specifically, that markets are driven by a pendulum (鐘擺) swinging between greed and fear, full confidence and total risk aversion, always overshooting in both directions. The credit cycle (信貸周期) is his favourite example: in good times, lenders compete to extend credit on ever-easier terms (thin covenants, high leverage, low spreads); this very process of accommodating capital eventually funds marginal and poor-quality borrowers whose failures then trigger the credit tightening that ends the cycle. Marks' key claim — drawn from his decades running distressed debt (問題債務) funds through multiple cycles — is that we cannot predict future events but we can know roughly where we are in a cycle, and therefore whether we are being paid adequately for the risk we are taking. At cycle peaks, yields are low and covenant protections thin; investors who know this can "move forward with caution" without needing to time the top.</p>
+
+      <p>Marks is also unusual in his explicit engagement with uncertainty and luck. Citing Nassim Taleb's (塔勒布) work on randomness, he argues that investment results alone cannot prove skill, because a rising market rewards many strategies simultaneously and good outcomes in a bull market are insufficient evidence of competence. The same investment process that produces strong five-year returns might have looked foolish in an alternative universe where the market declined. This leads Marks to what he calls "experienced, senior, careful" investing: acting on probabilistic assessments, maintaining humility about any individual prediction, positioning asymmetrically (larger gains when right, smaller losses when wrong), and measuring skill over full market cycles rather than bull-market legs. His insight doesn't tell you what to buy — it tells you how to think about buying.</p>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Before any investment, ask: "What does the consensus believe, and what am I seeing that they are not?" A great company at a consensus-justified price is a lottery ticket for a marginally better outcome — second-level thinking looks for gaps between price and value, not just quality.</div>
+
+      <div class="retrieval">
+        <div class="retrieval-q"><em>Answer this without looking back:</em> What is "second-level thinking" in Howard Marks' framework, and why does being correct about a company's quality not automatically make it a profitable investment?</div>
+        <details><summary>Check your answer</summary>
+          <div class="answer">Second-level thinking asks not just "is this a good company?" but "is the consensus view on this company already reflected in the price — and is the consensus right or wrong?" In liquid markets where many skilled analysts compete, correctly identifying quality is the norm, not an edge. A stock outperforms only if reality exceeds consensus expectations; a good company priced for perfection can still be a bad investment if anything falls even slightly short of those expectations.</div>
+        </details>
+      </div>
+
+      <div class="source"><strong>Source:</strong> Marks, Howard. <em>The Most Important Thing: Uncommon Sense for the Thoughtful Investor</em> (2011). Columbia University Press. Marks, Howard. <em>Mastering the Market Cycle</em> (2018). Houghton Mifflin Harcourt. Oaktree Capital memos available at oaktreecapital.com/insights.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS — RENT-SEEKING -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">11 · Political Economics — Theory in the Wild</div>
+      <h2>Rent-Seeking: Why Lobbying Can Pay Better Than Innovation</h2>
+
+      <details class="predict-box">
+        <summary>Predict Before You Read — If firms can profit either by creating better products or by lobbying for regulations that block competitors, which will a profit-maximising firm choose?</summary>
+        <div class="predict-content">Standard economics says firms choose the higher-return option. What might that imply for the composition of lobbying spending versus R&amp;D?</div>
+      </details>
+
+      <div class="card-img-wrap" id="img-wrap-11">
+        <span style="font-size:3rem">🌐</span>
+      </div>
+
+      <div class="polecon-grid">
+        <div class="polecon-part">
+          <strong>① Event</strong>
+          In 2023 the US pharmaceutical (製藥) industry spent approximately $370 million on lobbying — more than any other industry (OpenSecrets). For decades, that spending successfully delayed Medicare's (醫療保險) ability to negotiate drug prices; the first limited authority arrived only in the Inflation Reduction Act (通貨膨脹削減法案) of 2022, after 20+ years of legislative failure. In the same period, "pay-for-delay" settlements — where branded manufacturers pay generic (學名藥) rivals to stay off the market — were documented by the FTC (聯邦貿易委員會) as standard practice, costing US consumers an estimated $3.5 billion annually.
+        </div>
+        <div class="polecon-part">
+          <strong>② Theory</strong>
+          Rent-seeking (尋租) was formalised by Gordon Tullock (戈登·塔洛克, 1967) and named by Anne Krueger (安·克魯格, 1974). The core claim: firms invest real resources — lobbying fees, lawyers, campaign donations — not to create new wealth but to capture existing wealth by shaping regulations, tariffs, licences, or legal frameworks in their favour. Total social loss equals the economic value destroyed by the monopoly or protection plus the resources consumed in competing for it. In a perfectly contested rent-seeking game, the total spent by rivals could equal the full value of the prize.
+        </div>
+        <div class="polecon-part">
+          <strong>③ Anomaly</strong>
+          Standard theory predicts rent-seeking returns will be arbitraged away toward competitive levels over time as more rivals enter the contest. Yet pharmaceutical pay-for-delay and patent evergreening (專利常青策略) have persisted for 30+ years with documented positive returns consistently exceeding competitive investment alternatives. Rather than eroding, the industry's lobbying apparatus grew in real terms — suggesting the self-correcting mechanism does not operate.
+        </div>
+        <div class="polecon-part">
+          <strong>④ Challenger</strong>
+          George Stigler's (喬治·施蒂格勒) regulatory capture (監管俘獲) theory (1971) reframes the anomaly: regulators eventually serve the regulated industry due to information asymmetry, revolving-door employment flows, and the asymmetry between concentrated industry interests and diffuse consumer interests (Mancur Olson's (曼瑟·奧爾森) logic of collective action, 1965). This makes rent-seeking self-reinforcing rather than self-correcting — the political equilibrium shifts permanently. Why some nations (Australia's PBS, Canada's PMPRB) achieve meaningful price controls despite similar pharmaceutical lobbying pressure remains an open question, likely involving parliamentary structure and single-payer bargaining leverage.
+        </div>
+      </div>
+
+      <div class="takeaway">💡 <strong>Takeaway:</strong> When evaluating an industry's profitability, always check how much of it derives from protected market position versus genuine product advantage. Durable rent-seeking is not a market failure to be fixed — it is the intended output of a successful political strategy.</div>
+
+      <div class="source"><strong>Source:</strong> Tullock, G. (1967). "The Welfare Costs of Tariffs, Monopolies, and Theft." <em>Western Economic Journal</em>, 5(3), 224–232. Krueger, A.O. (1974). "The Political Economy of the Rent-Seeking Society." <em>American Economic Review</em>, 64(3), 291–303. Stigler, G.J. (1971). "The Theory of Economic Regulation." <em>Bell Journal of Economics</em>, 2(1), 3–21. OpenSecrets.org lobbying data 2023.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>🔗 Connection of the Day</h2>
+      <p><strong>Cards 10 &amp; 11 — Second-Level Thinking meets Rent-Seeking:</strong> Howard Marks argues that profitable investing requires identifying gaps between consensus price and underlying reality. Card 11 reveals one mechanism that systematically widens such gaps: rent-seeking entrenches the profits of incumbents through political rather than economic means, making "quality" analysis of a company's earnings misleading if it doesn't account for regulatory moat versus product moat. The second-level investor asks: "Is this company's profitability derived from genuine innovation, or from lobbying? And can that political advantage persist if the political environment shifts?"</p>
+      <p style="font-size:.88rem;margin-top:.5rem;color:var(--muted)"><strong>So what:</strong> Before celebrating a company's durable competitive advantage, ask where it came from. A moat built on regulatory capture (監管俘獲) is ultimately subject to political risk in a way that a technology or brand moat is not.</p>
+    </section>
+
+  </main>
+</div><!-- end .page-wrapper -->
+
+<footer>
+  <div style="max-width:900px">
+    <h3 style="color:var(--accent);font-size:.95rem;margin-bottom:.75rem">📚 Sources</h3>
+    <ol>
+      <li>Abbott et al. (LIGO Scientific Collaboration) 2016. <em>Physical Review Letters</em> 116, 061102.</li>
+      <li>久米邦武《米歐回覽實記》（1878）；Nish (ed.) <em>The Iwakura Mission in America and Europe</em> (1998).</li>
+      <li>Schama, S. <em>The Embarrassment of Riches</em> (1987). Knopf; Israel, J. <em>The Dutch Republic</em> (1995). OUP.</li>
+      <li>Wing-tsit Chan. <em>A Source Book in Chinese Philosophy</em> (1963). Princeton UP; 錢穆《朱子新學案》(1971).</li>
+      <li>Mill, J.S. <em>Utilitarianism</em> (1863); <em>On Liberty</em> (1859). SEP "Mill" 2023.</li>
+      <li>Thaler, R.H. (1985). <em>Marketing Science</em> 4(3); Thaler &amp; Johnson (1990). <em>Management Science</em> 36(6).</li>
+      <li>Romanovsky, A.A. (2018). <em>Handbook of Clinical Neurology</em> 156.</li>
+      <li>Hall, K.D. et al. (2019). "Ultra-Processed Diets Cause Excess Calorie Intake." <em>Cell Metabolism</em> 30(1).</li>
+      <li>Petersen, J. et al. (2011). <em>American Journal of Sports Medicine</em> 39(11).</li>
+      <li>Marks, H. <em>The Most Important Thing</em> (2011). Columbia UP.</li>
+      <li>Tullock (1967) <em>Western Economic Journal</em>; Krueger (1974) <em>AER</em>; Stigler (1971) <em>Bell Journal</em>.</li>
+    </ol>
+    <details style="margin-top:1.2rem">
+      <summary>📋 Do-Not-Repeat Log (all topics covered to date)</summary>
+      <table>
+        <tr><th>Topic</th><th>Subject</th><th>Angle</th><th>Date</th></tr>
+        <tr><td>Astronomy</td><td>LIGO / GW150914</td><td>Gravitational wave detection; chirp signal; laser interferometry; 10⁻²¹ strain; multi-messenger astronomy; Nobel 2017</td><td>2026-06-13</td></tr>
+        <tr><td>Eastern History 🇯🇵</td><td>岩倉使節團</td><td>Meiji period; 1871–1873; treaty revision failure; Bismarck meeting; 殖産興業; 伊藤博文 constitution; 久米邦武</td><td>2026-06-13</td></tr>
+        <tr><td>Western History</td><td>Dutch Golden Age</td><td>VOC 1602; first joint-stock company; Amsterdam Stock Exchange; tulip mania 1637; religious tolerance; Rampjaar 1672</td><td>2026-06-13</td></tr>
+        <tr><td>Eastern Philosophy</td><td>朱熹理學</td><td>格物致知; 理氣二元; 天理人欲之辨; 白鹿洞書院; 四書集注; contrast with Wang Yangming</td><td>2026-06-13</td></tr>
+        <tr><td>Western Philosophy</td><td>Mill — Utilitarianism &amp; Harm Principle</td><td>Higher vs lower pleasures; felicific calculus critique; On Liberty; harm principle; Nozick experience machine; Singer revival</td><td>2026-06-13</td></tr>
+        <tr><td>Psychology 🎯 Behavioral Econ</td><td>Mental Accounting (Thaler)</td><td>Fungibility violation; theatre ticket experiment; house money effect; Thaler &amp; Johnson 1990; pain of paying; contactless spending</td><td>2026-06-13</td></tr>
+        <tr><td>Physiology</td><td>Thermoregulation</td><td>Preoptic hypothalamus; eccrine sweat glands; evaporative cooling; high-humidity danger; vasoconstriction; brown adipose tissue; UCP-1; heat acclimatisation</td><td>2026-06-13</td></tr>
+        <tr><td>Health</td><td>Ultra-Processed Food / Hall 2019 RCT</td><td>NOVA classification; NIH metabolic ward; +500 kcal/day on UPF; matched macronutrients; ghrelin/PYY; eating rate; food matrix</td><td>2026-06-13</td></tr>
+        <tr><td>Sports Science</td><td>Nordic Hamstring Curl / Eccentric Training</td><td>Eccentric loading; Petersen 2011 RCT −51% injuries; fascicle length adaptation; optimal angle shift; Askling protocol</td><td>2026-06-13</td></tr>
+        <tr><td>Investing</td><td>Howard Marks / Second-Level Thinking</td><td>First vs second-level thinking; credit cycle pendulum; Oaktree distressed debt; probabilistic thinking; luck vs skill; market cycle positioning</td><td>2026-06-13</td></tr>
+        <tr><td>Political Economics</td><td>Rent-Seeking (Tullock/Krueger) &amp; Regulatory Capture</td><td>Tullock 1967; Krueger 1974; pharma lobbying; pay-for-delay; Stigler 1971 capture; Olson collective action; Australia/Canada anomaly</td><td>2026-06-13</td></tr>
+      </table>
+    </details>
+  </div>
+</footer>
+
+<script>
+// ── Image loading (async/await) ──────────────────────────────────────────────
+window._imageMap = {};
+
+const CARD_IMAGES = {
+  'card-1': ['LIGO', 'Gravitational wave', 'GW150914'],
+  'card-2': ['Iwakura Mission', 'Meiji Restoration', 'Tomomi Iwakura'],
+  'card-3': ['Dutch Golden Age', 'Dutch East India Company', 'Amsterdam in the Dutch Golden Age'],
+  'card-4': ['Zhu Xi', 'Neo-Confucianism', 'School of principle'],
+  'card-5': ['John Stuart Mill', 'Utilitarianism', 'On Liberty'],
+  'card-6': ['Richard Thaler', 'Mental accounting', 'Behavioral economics'],
+  'card-7': ['Thermoregulation', 'Hypothalamus', 'Eccrine sweat gland'],
+  'card-8': ['Ultra-processed food', 'NOVA classification (nutrition)', 'Processed food'],
+  'card-9': ['Nordic hamstring curl', 'Eccentric training', 'Hamstring'],
+  'card-10': ['Howard Marks (investor)', 'Oaktree Capital Management', 'Value investing'],
+  'card-11': ['Rent-seeking', 'Gordon Tullock', 'Regulatory capture']
+};
+
+async function fetchWikiImage(title) {
+  const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+  const resp = await fetch(url);
+  if (!resp.ok) throw new Error('HTTP ' + resp.status);
+  const d = await resp.json();
+  const src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
+  if (!src) throw new Error('no image');
+  return { src, title: d.title, page: d.content_urls && d.content_urls.desktop && d.content_urls.desktop.page };
+}
+
+async function loadCardImage(cardId) {
+  const wrap = document.getElementById('img-wrap-' + cardId.replace('card-',''));
+  if (!wrap) return;
+  const candidates = CARD_IMAGES[cardId];
+  for (const candidate of candidates) {
+    try {
+      const img = await fetchWikiImage(candidate);
+      window._imageMap[cardId] = img.src;
+      wrap.innerHTML = '<img src="' + img.src + '" alt="' + img.title + '" loading="lazy"><div class="img-caption">Image: <a href="' + (img.page||'https://en.wikipedia.org/wiki/'+encodeURIComponent(candidate)) + '" target="_blank" rel="noopener">' + img.title + '</a> via Wikipedia / Wikimedia Commons</div>';
+      return;
+    } catch(e) { /* try next */ }
+  }
+  // all failed: keep emoji fallback
+}
+
+async function loadAllImages() {
+  for (const cardId of Object.keys(CARD_IMAGES)) {
+    await loadCardImage(cardId);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadAllImages);
+
+// ── Toolbar actions ──────────────────────────────────────────────────────────
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'briefing.html';
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) { window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank'); }
+}
+
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'briefing.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){ alert('Link copied — paste it on your phone!'); });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl) + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+</body>
+</html>
