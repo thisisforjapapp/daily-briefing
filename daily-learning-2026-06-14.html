@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 14 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&display=swap');
+:root{
+  --bg:#0f0f17;--surface:#16161f;--card-bg:#1a1a26;--border:#2a2a38;
+  --text:#e0ddd4;--muted:#888;--accent:#6ab0e4;--accent-dim:#3a6a9a;
+  --amber:#c8941a;--amber-dim:#3a2a00;--amber-border:#5a4010;
+  --green:#4caf80;--green-dim:#0a2518;--green-border:#1a4a30;
+  --steel:#7a9abf;--steel-dim:#0a1828;--steel-border:#1a3050;
+  --spark:#2a1a3a;--spark-border:#5a3a7a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"Noto Serif HK","Source Han Serif",serif;font-size:1rem;line-height:1.75}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* STICKY TOP */
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border)}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.22rem 1rem;background:var(--surface);border-bottom:1px solid var(--border)}
+.back-bar a{font-size:.78rem;color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:.18rem .7rem;transition:color .18s,border-color .18s}
+.back-bar a:hover{color:var(--text);border-color:var(--accent-dim);text-decoration:none}
+.header-toolbar{display:flex;align-items:center;gap:.35rem}
+.toolbar-btn{background:transparent;border:1px solid var(--border);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim)}
+.site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+.sticky-top h1{font-size:.97rem;font-weight:700;color:var(--text)}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted)}
+
+/* TOC BAR (mobile) */
+.toc-bar{display:flex;gap:.4rem;overflow-x:auto;padding:.28rem .8rem;scrollbar-width:none}
+.toc-bar::-webkit-scrollbar{display:none}
+.toc-pill{flex-shrink:0;font-size:.68rem;padding:.22rem .7rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);white-space:nowrap;transition:color .18s,border-color .18s}
+.toc-pill:hover{color:var(--accent);border-color:var(--accent-dim);text-decoration:none}
+
+/* LAYOUT */
+.page-wrap{display:flex;max-width:1200px;margin:0 auto;padding:0 1rem}
+.left-nav{display:none}
+.content-col{flex:1;min-width:0;padding:1.2rem 0 3rem}
+
+@media(min-width:900px){
+  .left-nav{display:block;width:190px;flex-shrink:0;padding:1.2rem .8rem 0 0}
+  .left-nav-inner{position:sticky;top:80px}
+  .nav-pill{display:block;font-size:.72rem;padding:.3rem .7rem;border:1px solid transparent;border-radius:6px;color:var(--muted);margin-bottom:.25rem;transition:all .18s}
+  .nav-pill:hover{color:var(--accent);border-color:var(--accent-dim);background:var(--surface);text-decoration:none}
+  .toc-bar{display:none}
+  .content-col{padding:1.2rem 0 3rem 1.5rem}
+}
+
+/* CARDS */
+.card{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:1.4rem 1.6rem;margin-bottom:1.6rem;scroll-margin-top:52px}
+.card-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.35rem}
+.card h2{font-size:1.18rem;font-weight:700;color:var(--accent);margin-bottom:.8rem;line-height:1.35}
+.card.amber{border-color:var(--amber-border);background:linear-gradient(135deg,var(--card-bg) 0%,var(--amber-dim) 100%)}
+.card.amber h2{color:var(--amber)}
+.card.green{border-color:var(--green-border);background:linear-gradient(135deg,var(--card-bg) 0%,var(--green-dim) 100%)}
+.card.green h2{color:var(--green)}
+.card.steel{border-color:var(--steel-border);background:linear-gradient(135deg,var(--card-bg) 0%,var(--steel-dim) 100%)}
+.card.steel h2{color:var(--steel)}
+
+/* CARD ELEMENTS */
+.predict-box{margin:.7rem 0;background:var(--surface);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0}
+.card.amber .predict-box{border-left-color:var(--amber-border)}
+.card.green .predict-box{border-left-color:var(--green-border)}
+.card.steel .predict-box{border-left-color:var(--steel-border)}
+.predict-box summary{padding:.5rem .9rem;cursor:pointer;font-size:.9rem;font-style:italic;color:var(--muted)}
+.predict-box[open] summary{color:var(--text)}
+.predict-content{padding:.5rem .9rem .7rem;font-size:.9rem}
+.intro-box{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--amber-border);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin:.7rem 0;font-size:.88rem}
+.intro-box.western{border-left-color:var(--accent-dim)}
+.intro-box p{margin-bottom:.3rem}
+.card-img-wrap{margin:.9rem 0;text-align:center}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.35rem}
+.img-emoji{font-size:3.5rem;margin:.5rem 0}
+.card p{margin-bottom:.9rem;font-size:.97rem}
+.takeaway{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.7rem 1rem;font-size:.9rem;margin:.8rem 0}
+.retrieval-q{padding:.55rem .9rem;border-bottom:1px solid var(--border);font-size:.9rem;font-style:italic;margin:.8rem 0 0}
+details.answer-reveal{margin:.3rem 0 .8rem;font-size:.88rem}
+details.answer-reveal summary{padding:.4rem .9rem;cursor:pointer;color:var(--muted)}
+details.answer-reveal[open] summary{color:var(--accent)}
+details.answer-reveal .answer-body{padding:.4rem .9rem .6rem;color:var(--text)}
+.source{font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.5rem;margin-top:.5rem}
+
+/* INTRO BOX amber/western */
+.card.amber .intro-box{border-left-color:var(--amber);background:var(--amber-dim)}
+.card .intro-box.western{border-left-color:var(--accent-dim)}
+
+/* YESTERDAY'S SPARK */
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.8rem}
+.spark-q{padding:.45rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;font-style:italic}
+.spark-q:last-child{border-bottom:none}
+
+/* POLECON GRID */
+.polecon-grid{display:grid;gap:.8rem;margin:.7rem 0}
+@media(min-width:700px){.polecon-grid{grid-template-columns:1fr 1fr}}
+.polecon-part{background:var(--steel-dim);border:1px solid var(--steel-border);border-radius:6px;padding:.8rem 1rem;font-size:.88rem}
+.polecon-part strong{color:var(--steel);display:block;margin-bottom:.3rem;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em}
+
+/* CONNECTION */
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.7rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.5rem 0;font-size:.8rem;color:var(--muted)}
+footer details summary{cursor:pointer;color:var(--muted);margin-bottom:.5rem}
+footer details p{margin:.25rem 0}
+.log-table{width:100%;border-collapse:collapse;font-size:.75rem;margin-top:.5rem}
+.log-table th,.log-table td{border:1px solid var(--border);padding:.3rem .5rem;text-align:left}
+.log-table th{background:var(--surface);color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">← All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+    </div>
+  </div>
+  <div class="site-header">
+    <h1>Edward's Daily Learning</h1>
+    <span class="meta">14 June 2026 &nbsp;·&nbsp; ~25 min read</span>
+  </div>
+  <nav class="toc-bar" aria-label="Quick nav">
+    <a href="#card-1" class="toc-pill">🔭 Astronomy</a>
+    <a href="#card-2" class="toc-pill">⛩ Eastern History</a>
+    <a href="#card-3" class="toc-pill">🏛 Western History</a>
+    <a href="#card-4" class="toc-pill">☯ Eastern Phil.</a>
+    <a href="#card-5" class="toc-pill">🌿 Western Phil.</a>
+    <a href="#card-6" class="toc-pill">🧠 Psychology</a>
+    <a href="#card-7" class="toc-pill">🫀 Physiology</a>
+    <a href="#card-8" class="toc-pill">💊 Health</a>
+    <a href="#card-9" class="toc-pill">🏋 Sports Sci.</a>
+    <a href="#card-10" class="toc-pill">📈 Investing</a>
+    <a href="#card-11" class="toc-pill">🏛 Pol. Econ.</a>
+  </nav>
+</div>
+
+<div class="page-wrap">
+  <nav class="left-nav" aria-label="Card navigation">
+    <div class="left-nav-inner">
+      <a href="#spark" class="nav-pill">🔁 Yesterday's Spark</a>
+      <a href="#card-1" class="nav-pill">🔭 Astronomy</a>
+      <a href="#card-2" class="nav-pill">⛩ Eastern History</a>
+      <a href="#card-3" class="nav-pill">🏛 Western History</a>
+      <a href="#card-4" class="nav-pill">☯ Eastern Phil.</a>
+      <a href="#card-5" class="nav-pill">🌿 Western Phil.</a>
+      <a href="#card-6" class="nav-pill">🧠 Psychology</a>
+      <a href="#card-7" class="nav-pill">🫀 Physiology</a>
+      <a href="#card-8" class="nav-pill">💊 Health</a>
+      <a href="#card-9" class="nav-pill">🏋 Sports Sci.</a>
+      <a href="#card-10" class="nav-pill">📈 Investing</a>
+      <a href="#card-11" class="nav-pill">🏛 Pol. Econ.</a>
+    </div>
+  </nav>
+
+  <div class="content-col">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>🔁 Yesterday's Spark — Can You Answer These?</h2>
+      <div class="spark-q">How did the 2020 burst from the magnetar SGR&nbsp;1935+2154 advance the FRB mystery, and what does an FRB's "dispersion measure" let astronomers measure?</div>
+      <div class="spark-q">王安石「青苗法」的原意是什麼？為何它在實際推行中招致激烈反對？</div>
+      <div class="spark-q">What set off the Thirty Years' War, and what principle established at the Peace of Westphalia still underpins international order?</div>
+      <div class="spark-q">神秀「漸修」偈與慧能「頓悟」偈的根本分歧在哪裏？為何說慧能把修行「帶回了日常生活」？</div>
+      <div class="spark-q">What is the difference between "master" and "slave" morality in Nietzsche's account, and what role does <em>ressentiment</em> play?</div>
+      <div class="spark-q">What did changing one verb ("smashed" vs "hit") do in Loftus &amp; Palmer's study, and what does this reveal about how memory works?</div>
+      <div class="spark-q">What is "viscerosomatic convergence," and why does cardiac pain so often appear in the left arm and jaw?</div>
+      <div class="spark-q">What did the ATBC and CARET trials find when they gave smokers high-dose beta-carotene, and what general lesson does this teach about supplements?</div>
+      <div class="spark-q">When does an internal ("mind-muscle") focus beat an external focus, and when is it the other way around?</div>
+      <div class="spark-q">What were the "Nifty Fifty," and what investing lesson did their 1973–74 collapse teach despite them being excellent companies?</div>
+      <div class="spark-q">What does Hardin's "tragedy of the commons" predict, and how did Ostrom's work challenge it?</div>
+      <div class="spark-q">What mechanism does LIGO use to detect a gravitational wave, and why does the detection require measuring a displacement smaller than the diameter of a proton?</div>
+      <div class="spark-q">岩倉使節團出發時原定的外交任務是什麼？為何任務失敗反而成全了更深遠的收穫？俾斯麥對大久保利通說了什麼，令後者回國後大力推行殖產興業？</div>
+      <div class="spark-q">What specific financial innovation did the VOC (Dutch East India Company) introduce in 1602, and why did it represent a fundamental change in how economic risk was managed?</div>
+      <div class="spark-q">朱熹「格物致知」與王陽明「致良知」在認識論上有何根本差異？朱熹所說的「豁然貫通」是指什麼樣的認識狀態？</div>
+      <div class="spark-q">What specific flaw in Bentham's utilitarianism did Mill attempt to fix with his distinction between "higher" and "lower" pleasures, and why is this distinction itself philosophically controversial?</div>
+      <div class="spark-q">What is the "house money effect" in mental accounting, and what study design did Thaler and Johnson use to demonstrate that prior gains increase risk-taking?</div>
+      <div class="spark-q">Why is high humidity more dangerous than high dry heat alone, and which specific cooling mechanism does humidity impair?</div>
+      <div class="spark-q">What was the key experimental design feature of Hall et al.'s 2019 RCT that made it stronger than most diet studies, and what was the magnitude of the calorie difference found between the two diets?</div>
+      <div class="spark-q">What is the Nordic hamstring exercise, and what specific structural change does regular eccentric loading produce in the hamstring muscle that helps prevent sprint injuries?</div>
+      <div class="spark-q">What is "second-level thinking" in Howard Marks' framework, and why does being correct about a company's quality not automatically make it a profitable investment?</div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <div class="card-label">🔭 Astronomy &amp; Cosmos</div>
+      <h2>Europa's Hidden Ocean: The Moon That Doesn't Need the Sun</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — If you were designing a spacecraft to search for life in the solar system, why might you target a moon with no sunlight reaching its surface rather than a sun-warmed planet?</summary>
+        <div class="predict-content">Life on Earth is anchored to sunlight — but some ecosystems at deep-sea hydrothermal vents thrive entirely without it, powered by chemical energy. If the same is possible elsewhere, the habitable zone around a star stops being the only address worth visiting.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-1">
+        <div class="img-emoji">🌊</div>
+      </div>
+      <p>When NASA's Galileo (伽利略號探測器) spacecraft made its flybys of Jupiter's (木星) moon Europa (木衛二) in the mid-1990s, its magnetometer registered something that stopped scientists in their tracks. Instead of a static magnetic field, Europa had a fluctuating one — as if a conductive layer beneath the ice was being stirred by Jupiter's enormous magnetic field. The only material that could produce such a signal was salt water. The discovery quietly overturned a fundamental assumption: life might exist not in the narrow "habitable zone" (適居帶) where a star's warmth keeps surface water liquid, but anywhere that liquid water and chemical energy converge. Europa's ice shell, estimated at 10–30 km thick, conceals an ocean containing roughly twice the liquid water of all Earth's oceans combined.</p>
+      <p>The visual evidence sharpened the case. Galileo's close-approach images revealed a surface unlike any in the solar system: a cracked eggshell of rust-coloured ridges, pressure fractures called <em>linea</em>, and chaos terrain where blocks of ice have shifted and refrozen. The brown staining, scientists believe, is salt and possibly organic material welling up from below, irradiated by Jupiter's fierce radiation belts. In 2016, the Hubble Space Telescope (哈勃太空望遠鏡) detected what appeared to be plumes of water vapour erupting from Europa's south pole — jets reaching 200 kilometres above the surface, a potential direct window into the ocean beneath. The ocean itself stays liquid not through solar warmth but through tidal heating (潮汐加熱): Jupiter's immense gravity continuously flexes the moon's rocky interior, generating frictional heat, much as repeatedly bending a metal clip until it grows warm.</p>
+      <p>In October 2024, NASA's Europa Clipper (歐羅巴快船) launched toward Jupiter, scheduled to arrive in 2030 and complete 49 targeted flybys. Its instruments will map the ocean's thickness, salinity, and whether those plumes carry biosignatures (生命特徵). The mission is not searching for fish — it is searching for the chemical preconditions of life: hydrogen, carbon compounds, and an energy source. Hydrothermal vents (熱液噴口) on the seafloor, warmed by the same tidal flexing that heats the ocean, could supply all three. On Earth, entire ecosystems flourish at such vents with no sunlight whatsoever. If life arose independently at Europa, it would rank among the most consequential discoveries in human history — proof that life's emergence is not a cosmic accident tied to one lucky planet, but a recurring outcome wherever the basic chemistry gathers.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> The search for extraterrestrial life has shifted from looking for "another Earth in the right orbit" to finding liquid water anywhere — and Europa suggests the solar system's hidden oceans may vastly outnumber its dry, sunlit surfaces.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What two lines of evidence — one magnetic, one visual — convinced scientists Europa harbours a subsurface ocean, and what mechanism keeps that ocean liquid without solar energy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Galileo's magnetometer detected a fluctuating magnetic field consistent with a subsurface salty conductive layer; Hubble observed water-vapour plumes erupting from the surface. The ocean stays liquid via tidal heating — Jupiter's gravity continuously flexes Europa's interior, generating frictional warmth.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Kivelson, M.G. et al. (2000). "Galileo Magnetometer Measurements: A Stronger Case for a Subsurface Ocean at Europa." <em>Science</em>, 289(5483), 1340–1343. Roth, L. et al. (2014). "Transient Water Vapor at Europa's South Pole." <em>Science</em>, 343(6167), 171–174. NASA Europa Clipper Mission Overview, 2024.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">⛩ 東方歷史</div>
+      <h2>靖難之役：明朝唯一成功的藩王奪位</h2>
+      <details class="predict-box">
+        <summary>🤔 讀前思考——一個叔叔以「清君側、靖難」為旗號起兵謀反，最終登上皇位。你認為他的成功靠的是正義，還是運氣？</summary>
+        <div class="predict-content">靖難之役在中國歷史上是罕見的特例：無數藩王曾嘗試類似行動，均以失敗告終。燕王的勝利究竟源於軍事天才、對手失誤，還是命運的偶然？</div>
+      </details>
+      <div class="intro-box">
+        <p><strong>人物：</strong>朱棣（燕王，日後的永樂帝）、建文帝朱允炆、謀士姚廣孝</p>
+        <p><strong>事件：</strong>明初削藩政策引發的皇室內戰，1399–1402年</p>
+        <p><strong>大局：</strong>明太祖洪武帝駕崩後，皇太孫繼位，急推削藩以鞏固中央集權，將矛頭指向勢力最強的北方藩王</p>
+      </div>
+      <div class="card-img-wrap" id="img-wrap-2">
+        <div class="img-emoji">⚔️</div>
+      </div>
+      <p>洪武三十一年（1398年），明太祖朱元璋駕崩，遺命皇太孫朱允炆繼位，是為建文帝。建文帝深知諸藩割據之患，即位翌年便急速推行削藩——接連廢除周王、湘王、齊王，繼而將矛頭直指駐守北平的燕王朱棣。燕王府扼守北疆要衝，兵強馬壯，是邊防重鎮，亦是建文帝最難拔除的釘子。建文帝一面命人秘密監視燕王府，一面圖謀誘捕燕王心腹，朱棣由此被逼到牆角。他明白：坐以待斃，不如主動出擊。</p>
+      <p>建文元年（1399年）七月，朱棣以「清君側、靖難」（清除皇帝身邊奸佞、匡扶正統）為口號正式舉兵，史稱「靖難之役」。此役的關鍵謀士是黑衣僧人姚廣孝——他早年曾對朱棣說「臣能送殿下一頂白帽子」，暗示「王」字頭加「白」即「皇」字。燕軍依賴騎兵靈活機動，多次深入南軍腹地突襲，令建文朝廷疲於奔命。建文帝委任主帥李景隆統率號稱五十萬的大軍，卻一敗再敗：李景隆數度擁有兵力優勢，卻連連貽誤戰機，甚至數次在即將勝利之際撤退。燕軍幾度陷入絕境，皆因對手的失誤而死裏逃生。</p>
+      <p>建文四年（1402年），燕軍以奇兵繞過重兵把守的重鎮，直取空城南京。建文帝在宮中大火後下落不明，成為明史最著名的懸案。朱棣登基，改元永樂。他日後遷都北京、命鄭和七下西洋、主持編纂《永樂大典》，奠定明朝一代鼎盛。然而靖難之役在制度上留下深遠隱患：永樂帝為防藩王再度坐大，大幅削減藩王兵權，令邊防力量空心化，埋下日後土木堡之變（1449年，英宗被蒙古瓦剌俘虜）的遠因。一場奪位之戰的長遠代價，往往遲至數十年後方顯。</p>
+      <div class="takeaway">💡 <strong>重點：</strong>靖難之役是中國歷史上唯一藩王成功奪位的案例，勝負關鍵不在兵力多寡，而在指揮靈活、對手失誤，以及一位僧人謀士的長遠眼光。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>靖難之役中燕王的軍事優勢是什麼？擁有數十萬大軍的建文帝為何最終仍告失敗？永樂帝登位後的削藩政策，又如何埋下了明朝的邊防隱患？</div>
+      <details class="answer-reveal">
+        <summary>對答案</summary>
+        <div class="answer-body">燕軍以騎兵靈活機動、主動出奇兵；主帥李景隆指揮無能，數度坐失優勢，令燕軍得以直取南京。永樂帝即位後為防藩王效仿自己，大削藩王兵權，導致邊防空洞化，間接埋下土木堡之變的遠因。</div>
+      </details>
+      <div class="source"><strong>資料來源：</strong>《明史》卷五「成祖本紀」；Dreyer, E.L. (1982). <em>Early Ming China: A Political History 1355–1435</em>. Stanford University Press; Chan, H.-L. (1988). "The Chien-wen, Yung-lo reigns," in <em>The Cambridge History of China</em>, Vol. 7.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <div class="card-label">🏛 Western History</div>
+      <h2>The Ides of March: Why Rome Killed Its Most Successful General — and Lost the Republic Anyway</h2>
+      <div class="intro-box western">
+        <p><strong>Key figures:</strong> Julius Caesar (尤利烏斯·凱撒), Marcus Brutus (布魯圖斯), Gaius Cassius (卡修斯), Mark Antony (馬克·安東尼), Octavian (屋大維)</p>
+        <p><strong>Event:</strong> The assassination of Caesar on 15 March 44 BC and the unravelling of the Roman Republic (羅馬共和國)</p>
+        <p><strong>Big-picture situation:</strong> Caesar had just been declared <em>dictator perpetuo</em> (終身獨裁官) — an office the Republic had always treated as a temporary emergency measure; the conspirators believed one act of violence would restore collective government</p>
+      </div>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — If you killed a powerful leader but had no plan for what came next, could the act of assassination make things worse?</summary>
+        <div class="predict-content">The conspirators were certain killing Caesar would end tyranny. They had no army, no constitutional mechanism, and no political programme beyond "the Republic lives." What actually followed was 13 years of civil war.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-3">
+        <div class="img-emoji">🏛️</div>
+      </div>
+      <p>By 44 BC, Julius Caesar had achieved what no Roman before him had managed: he had conquered Gaul (高盧), survived a civil war against Pompey (龐培), and been declared <em>dictator perpetuo</em> — dictator for life. The Senate (元老院) still sat, but Caesar controlled the armies, the treasury, and even the calendar (he had just reformed it into the Julian calendar, which Europe used until 1582). For the conspirators led by Brutus and Cassius, he had shattered the unspoken compact that made the Roman Republic function: even the most powerful general was still subject to collective deliberation. Their argument was grounded in Roman mythology — Brutus's own ancestor had expelled Rome's last king, Tarquinius Superbus (塔昆), five centuries earlier. They framed the assassination as a restoration, not a revolution.</p>
+      <p>On the Ides of March (3月15日) — a date already marked in the Roman religious calendar — some 60 senators surrounded Caesar at the Theatre of Pompey (龐培劇場), where the Senate was temporarily meeting. He was stabbed 23 times. But the conspirators had planned the killing with no follow-up: no army waiting, no constitutional mechanism for what came next, no replacement authority. Within hours, the crowds turned. Mark Antony (馬克·安東尼), Caesar's ally, delivered a funeral oration that was historically attested as devastatingly effective — he read Caesar's will aloud, revealing that Caesar had bequeathed money to every Roman citizen and his private gardens as a public park. The conspirators fled Rome within days of the assassination they had planned for months.</p>
+      <p>The error was a misreading of history. Brutus believed the Republic was a set of institutions waiting to be restored; in fact, a decade of Caesar's personal rule had broken the habit of collective governance beyond repair. What followed was 13 years of civil wars — between Antony, Octavian (屋大維), and Lepidus (雷必達). By 27 BC, Octavian had emerged as Augustus (奧古斯都), the first Roman Emperor (羅馬皇帝), and what the conspirators had tried to prevent had arrived anyway — now without even the pretence of republican government. Political theorists call this "action without agency": the capacity to destroy a system without the capacity to replace it with something better. Rome's Republic had not been killed by Caesar — it had been dying for a century, rotted by inequality, military patronage, and the collapse of civic norms. Caesar was a symptom as much as a cause.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Removing a leader without a credible alternative rarely restores the system the leader disrupted — it more often triggers the succession war the leader's order had suppressed.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did Caesar's assassins fail to restore the Roman Republic despite successfully killing him, and what did they misunderstand about the Republic's condition?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They had no army, no political programme, and no replacement mechanism. Antony's funeral speech mobilised popular fury against them; they fled Rome. More fundamentally, they believed the Republic was intact and merely needed liberating from one man — in reality it had been structurally eroding for a century, and no assassination could restore it.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Suetonius, <em>The Twelve Caesars</em> (trans. Graves, 1957); Syme, R. (1939). <em>The Roman Revolution</em>. Oxford University Press; Beard, M. (2015). <em>SPQR: A History of Ancient Rome</em>. Profile Books.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">☯ 東方哲學</div>
+      <h2>董仲舒與天人感應：儒家如何以「天意」制衡皇權</h2>
+      <details class="predict-box">
+        <summary>🤔 讀前思考——如果皇帝對天下擁有絕對權力，是什麼機制能夠約束他的行為？</summary>
+        <div class="predict-content">董仲舒的答案不是法律、不是議會，而是「天」本身——把自然災異轉化為政治語言，讓大臣得以以「上天示警」為由諫阻皇帝。</div>
+      </details>
+      <div class="intro-box">
+        <p><strong>人物：</strong>董仲舒（前179–前104年），西漢大儒，著《春秋繁露》</p>
+        <p><strong>思想：</strong>天人感應——天道與人事相互呼應，皇帝失德則天降異象</p>
+        <p><strong>歷史背景：</strong>漢武帝採納「罷黜百家，獨尊儒術」，儒學由諸子一家升格為帝國官方意識形態</p>
+      </div>
+      <div class="card-img-wrap" id="img-wrap-4">
+        <div class="img-emoji">☯️</div>
+      </div>
+      <p>秦亡漢興，初期奉行黃老道家「無為而治」。然而隨漢武帝擴張版圖，帝國需要一套既能整合意識形態、又能為皇權提供合法性框架的學說。董仲舒以一篇《天人三策》說動漢武帝，儒學由此成為國家正統。但他的儒學並非先秦孔孟的原版——他雜糅了陰陽五行與宇宙論，發展出一套「天人感應」的政治神學：天、地、人三者相互呼應，皇帝作為「天子」（上天之子），其德行直接影響自然秩序。天降旱澇、日蝕、地震，皆是對失德之君的示警；皇帝若改過自新，天意便可轉圜。</p>
+      <p>董仲舒在《春秋繁露》中系統論述：五行（木火土金水）分別對應五德、五色、五季，天道循環制約人間秩序。這套宇宙論為儒家士大夫提供了強大的政治工具——一旦天現異象，大臣便可向皇帝進言，指其政令有誤，要求修德省身。這實質上形成了一種以「天意」包裝的政治制衡機制：士大夫成為「天意的詮釋者」，取得了在官僚體系之外影響最高決策的話語權。舉例而言，漢代屢有大臣以日蝕或旱災為由，要求皇帝下罪己詔或罷免失德官員，此乃天人感應落地為政治實踐的典型。</p>
+      <p>然而這套機制的漏洞同樣明顯。「天意」本身是詮釋性的，詮釋權並不固定。帝王可借「天降祥瑞」宣揚自身正統；臣子可借天災指責政敵；朝廷甚至可壓制對本朝不利的異象紀錄。北宋王安石變法期間，反對派即屢以旱災為據，稱新法「上干天怒」，迫使神宗一度動搖。馮友蘭在《中國哲學史》中指出：天人感應既是漢代儒學最具原創性的宇宙論貢獻，亦是其最易淪為政治工具的根本弱點——它把道德判斷外包給了一個無法反駁的「天」，使得任何一方皆可聲稱自己代表天意。</p>
+      <div class="takeaway">💡 <strong>重點：</strong>天人感應把自然異象轉化為政治語言，令士大夫得以「天意示警」制衡君主，是古代中國最富創意的軟性政治制度之一——但其詮釋權的模糊性，也令它成為各方操弄的工具。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>董仲舒「天人感應」如何為儒家大臣提供制衡皇帝的話語工具？這套機制有何根本漏洞？</div>
+      <details class="answer-reveal">
+        <summary>對答案</summary>
+        <div class="answer-body">天人感應主張天災反映皇帝失德，大臣可以「上天示警」為由諫言改政；但「天意」詮釋權不固定，帝王可借祥瑞宣揚正統，臣子亦可借天災打擊政敵，令制衡效力大打折扣。</div>
+      </details>
+      <div class="source"><strong>資料來源：</strong>董仲舒：《春秋繁露》；馮友蘭：《中國哲學史》下冊；Queen, S.A. (1996). <em>From Chronicle to Canon: The Hermeneutics of the Spring and Autumn Annals</em>. Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <div class="card-label">🌿 Western Philosophy</div>
+      <h2>Spinoza: God Is Everything — and That Changes Everything</h2>
+      <div class="intro-box western">
+        <p><strong>Key figure:</strong> Baruch Spinoza (巴魯赫·斯賓諾莎, 1632–1677)</p>
+        <p><strong>Idea at stake:</strong> Substance monism — God and Nature are not creator and creation; they are the same thing</p>
+        <p><strong>Big-picture situation:</strong> Spinoza wrote in the shadow of Descartes' (笛卡兒) mind-body dualism; in 1656 he was excommunicated from Amsterdam's Jewish community at 23 in the most severe <em>cherem</em> on record, for reasons still debated</p>
+      </div>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — Can a philosophy that identifies God with the laws of nature be genuinely religious, or is it necessarily atheism in disguise?</summary>
+        <div class="predict-content">Spinoza used the word "God" (Deus) throughout his masterwork — but his God cannot choose, intervene, or be prayed to. His contemporaries called this atheism in theological costume. Goethe and Einstein later called themselves Spinozists.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-5">
+        <div class="img-emoji">🌿</div>
+      </div>
+      <p>René Descartes (笛卡兒) had bequeathed 17th-century Europe a problem. If mind (<em>res cogitans</em>, 思維實體) and matter (<em>res extensa</em>, 物質實體) are entirely separate substances, how do they interact? How does the intention to move an arm actually cause the arm to move? Spinoza thought Descartes had created a ghost trapped inside a machine — and that the solution was to abolish the dualism entirely. In his masterwork <em>Ethics</em> (《倫理學》, 1677, published posthumously), composed in the austere formal language of geometry — definitions, axioms, propositions, proofs — Spinoza argued for radical monism (一元論): there is only one substance in the universe, which can be described either as God (Deus) or as Nature (Natura). His most famous phrase: <em>Deus sive Natura</em> — God, or Nature.</p>
+      <p>For Spinoza, God is not a personal deity who created the world, issues commandments, or answers prayers. God is the totality of existence itself, following necessary rational laws. Everything that exists — every rock, every thought, every human being — is a mode or expression of God-Nature. This sounds theological; it infuriated theologians. Free will (自由意志), in the traditional sense, is an illusion: we feel free because we are ignorant of the causal chain determining our actions, just as a rolling stone would feel it was "choosing" to move if it could experience its own motion. Spinoza's political theory followed logically: if all humans are expressions of the same substance and reason is the highest human capacity, then a democratic republic (民主共和國) where rational discourse can flow freely is the most natural form of government — not because of divine command, but because it best serves the human form of God-Nature expressing itself.</p>
+      <p>Spinoza spent his adult life grinding optical lenses (glass dust almost certainly contributed to the lung disease that killed him at 44), refused a professorship at Heidelberg rather than risk intellectual constraint, and died leaving a handful of friends and an unpublished manuscript. Then the world caught up. Leibniz (萊布尼茨) visited him secretly and later denied it; Goethe (歌德) declared himself a lifelong Spinozist; Hegel (黑格爾) wrote that all post-Cartesian philosophy was essentially "a working out of what Spinoza began." When Einstein (愛因斯坦) was asked if he believed in God, he replied: "I believe in Spinoza's God, who reveals himself in the harmony of all that exists." The excommunication had lasted 400 years — intellectually, Spinoza had won.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Spinoza's equation of God with Nature removed the supernatural from philosophy entirely — replacing a personal deity with rational necessity, and leaving unresolved the questions of free will, moral accountability, and whether a God that cannot be prayed to deserves the name.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is Spinoza's <em>Deus sive Natura</em>, and why did it lead contemporaries to accuse him of atheism despite his constant use of the word "God"?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body"><em>Deus sive Natura</em> (God or Nature) holds that there is only one substance, which may be described under either attribute; God is not a separate creator but the totality of existence governed by necessary rational laws. Since this God cannot choose, intervene, or respond to prayer, critics argued Spinoza had simply renamed physical necessity "God" — atheism in theological vocabulary.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Spinoza, B. (1677/1994). <em>Ethics</em> (trans. E. Curley). Princeton University Press; Nadler, S. (1999). <em>Spinoza: A Life</em>. Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <div class="card-label">🧠 Psychology</div>
+      <h2>The Fundamental Attribution Error: Why We Judge People Instead of Situations</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — If you saw a stranger snap rudely at a shop assistant, what would you instantly think about that person — and how likely are you to be right?</summary>
+        <div class="predict-content">You'd probably conclude they're rude, impatient, or unkind. You'd probably be wrong. Research suggests the situation — a bad day, an untreated illness, the twentieth identical complaint — explains far more of behaviour than we typically grant.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-6">
+        <div class="img-emoji">🧠</div>
+      </div>
+      <p>In 1967, Edward Jones (愛德華·瓊斯) and Victor Harris (維克多·哈里斯) gave university students an essay either supporting or opposing Fidel Castro (菲德爾·卡斯特羅). Half were told the author had chosen their position freely; the other half were told the position had been randomly assigned. The remarkable result: even when students knew the author had been given the essay topic by a coin flip, they still rated the author as genuinely holding the essay's views. They couldn't stop inferring personality from content, even when they knew content was dictated by circumstance. Lee Ross (李·羅斯, 1977) named this the Fundamental Attribution Error (基本歸因謬誤, FAE): the systematic tendency to overestimate dispositional causes (personality, character, intention) and underestimate situational forces when explaining other people's behaviour. It is one of the most robust findings in all of social psychology.</p>
+      <p>The mechanism traces to an asymmetry of perspective. When we observe someone else act, their behaviour occupies our visual and cognitive field — the context (role pressures, incentives, constraints, history) recedes into the background. When we explain our own behaviour, the situation is vivid to us and we invoke it readily. Ross and Richard Nisbett (理查·尼斯貝特) called this the actor-observer bias (行動者-觀察者偏誤): actors explain their behaviour situationally, observers explain it dispositionally. The doctor who seems cold is exhausted after 14 hours on call; the colleague who missed a deadline is managing a family crisis; the service worker being curt has handled 80 identical complaints today. We see the snap, infer the personality, and miss the context entirely.</p>
+      <p>Cultural psychologists have complicated the picture in productive ways. Michael Morris (邁克爾·莫里斯) and Kaiping Peng (彭凱平, 1994) compared American and Chinese newspaper coverage of mass shootings and found a striking pattern: American reports disproportionately attributed events to the individual's personality and pathology, while Chinese reports foregrounded situational and social factors. East Asian cultures, emphasising interdependence and contextual thinking, appear to commit the FAE less automatically — suggesting it is not a fixed cognitive hard-wiring but a culturally amplified tendency. The practical stakes are high: performance reviews, criminal justice, hiring, and political analysis are all systematically biased toward blaming individuals for outcomes that situations largely produced.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Before explaining someone's bad behaviour by their character, ask: what situational pressures were they under? The more you know about context, the less personality explains — and the more effective your response to the problem will be.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did Jones &amp; Harris's Castro essay study find, and why is it a demonstration of the Fundamental Attribution Error rather than simply a reasoning mistake?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Even when participants knew an essay position had been randomly assigned, they still inferred the author genuinely held those views. This is FAE — the automatic tendency to attribute behaviour to stable character dispositions even when a clear situational explanation (an assignment) is explicitly provided.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Jones, E.E. &amp; Harris, V.A. (1967). "The Attribution of Attitudes." <em>Journal of Experimental Social Psychology</em>, 3(1), 1–24. Ross, L. (1977). "The Intuitive Psychologist and His Shortcomings." <em>Advances in Experimental Social Psychology</em>, 10, 173–220. Morris, M.W. &amp; Peng, K. (1994). "Culture and Cause." <em>JPSP</em>, 67(6), 949–971.</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card" id="card-7">
+      <div class="card-label">🫀 Physiology — Hidden Biology of Human Variation</div>
+      <h2>The Lactate Shuttle: Your Body's Most Misunderstood Energy Currency</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — Almost every textbook says lactic acid "causes" the burning feeling in muscles during hard exercise. What are the odds this is wrong?</summary>
+        <div class="predict-content">Very high. The burning is real; the lactic acid story is mostly a 20th-century error. Lactate turns out to be a fuel — and some athletes are dramatically better at using it than others.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-7">
+        <div class="img-emoji">🔬</div>
+      </div>
+      <p>For most of the 20th century, lactate (乳酸鹽) was the villain of exercise physiology: an acidic waste product that accumulated during intense effort, caused fatigue, and produced post-exercise soreness. The story was clean, widely taught, and largely wrong. George Brooks (喬治·布魯克斯) at UC Berkeley began challenging it in the 1980s with isotope tracer experiments — feeding muscle cells labelled lactate molecules to track where they went. He found something unexpected: working muscle cells were simultaneously producing and consuming lactate, exporting it to neighbouring fibres, the heart, the liver, and even the brain, where it was burned as a preferred fuel. He named this the "lactate shuttle" (乳酸穿梭) hypothesis, published in 1984 and confirmed repeatedly since.</p>
+      <p>The mechanism is elegant. During high-intensity exercise, fast-twitch glycolytic fibres (快縮糖解肌纖維) produce lactate faster than their own mitochondria can oxidise it. They export it via monocarboxylate transporter proteins (MCTs, 單羧酸轉運蛋白) into the bloodstream and surrounding tissue. Neighbouring slow-twitch oxidative fibres (慢縮氧化肌纖維) — and the cardiac muscle, which may derive up to 60% of its energy from lactate during intense exercise — import it via the same MCT family and feed it directly into the Krebs cycle (克雷布斯循環) as a substrate. This is why elite athletes can sustain higher absolute workloads before hitting their "lactate threshold" (乳酸閾值): they have more MCT transporters and more mitochondrial volume in their slow-twitch fibres, clearing lactate faster. They are not producing less lactate — they are consuming it more efficiently.</p>
+      <p>The muscle burning of hard exercise is caused not by lactate itself but by hydrogen ions (氫離子) that accumulate alongside it during anaerobic glycolysis (無氧糖解) — an important distinction, because lactate actually buffers the acidic environment by consuming protons when it converts back to pyruvate. Furthermore, lactate is now recognised as a signalling molecule: it triggers mitochondrial biogenesis (線粒體生物合成) — the growth of new mitochondria — and acts as an epigenetic regulator affecting gene expression. This is part of why high-intensity interval training (高強度間歇訓練) produces such rapid adaptations: each lactate surge is simultaneously a fuel delivery and a molecular signal to build more capacity. The hidden biology of the difference between high and low responders to training lies partly here — in the density and efficiency of this shuttle system.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> "Lactic acid builds up and causes fatigue" is one of the most durable myths in exercise science — the reality is that lactate is an inter-organ energy currency, and training improves your capacity to use it, not to avoid it.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the lactate shuttle, and why does training increase lactate tolerance rather than reduce lactate production?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The lactate shuttle is the process by which lactate produced in fast-twitch fibres is exported and taken up as fuel by slow-twitch fibres, the heart, and brain. Training increases MCT transporter density and mitochondrial volume in slow-twitch fibres, so lactate is cleared and oxidised faster — the threshold rises not by producing less lactate but by consuming it more efficiently.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Brooks, G.A. (2018). "The Science and Translation of Lactate Shuttle Theory." <em>Cell Metabolism</em>, 27(4), 757–785. Robergs, R.A. et al. (2004). "Biochemistry of exercise-induced metabolic acidosis." <em>American Journal of Physiology</em>, 287(3), R502–R516.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card" id="card-8">
+      <div class="card-label">💊 Health</div>
+      <h2>The Vitamin D Paradox: Why Hundreds of Millions Are Deficient — and Why a Pill May Not Fix It</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — Hundreds of millions of people living in sunny countries are deficient in a vitamin synthesised by sunlight. How is this possible?</summary>
+        <div class="predict-content">Modern indoor living, sunscreen, and office schedules have nearly decoupled human skin from the sun. Meanwhile the pill-shaped fix turns out to be more complicated than the marketing suggests.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-8">
+        <div class="img-emoji">☀️</div>
+      </div>
+      <p>Vitamin D (維生素D) is technically a misnomer: it functions as a steroid hormone (類固醇激素), synthesised when UVB radiation converts 7-dehydrocholesterol (7-脫氫膽固醇) in the skin to previtamin D3, which the liver hydroxylates to 25-hydroxyvitamin D — the standard blood marker. The vitamin D receptor (VDR, 維生素D受體) is expressed in virtually every tissue — immune cells, the pancreas, cardiac muscle, even the brain. Beyond its classical role in calcium absorption and bone mineralisation (骨礦化), vitamin D modulates immune responses: it upregulates antimicrobial peptides (抗菌肽) like cathelicidin, downregulates pro-inflammatory cytokines (促炎細胞因子), and influences T-cell differentiation. This breadth of action is why COVID-19 sharpened scientific interest: multiple large observational studies found inverse correlations between vitamin D status and severe COVID-19 outcomes — darker-skinned, indoor-living, northern-latitude populations with high deficiency rates appeared harder hit.</p>
+      <p>But here is where the science becomes instructive about how medicine works. Mendelian randomisation studies (孟德爾隨機化研究) — which use genetic variants affecting vitamin D metabolism as natural experiments, sidestepping confounding — have produced more mixed results than simple observational data. The landmark VITAL trial (2019, <em>New England Journal of Medicine</em>, 25,871 US participants over five years) found that vitamin D3 supplementation at 2,000 IU/day did not significantly reduce cancer incidence or major cardiovascular events in the general population. A post-hoc analysis suggested reduced cancer mortality in those who did develop cancer, and a follow-up analysis found potential benefits for reducing autoimmune disease — but the primary endpoints were null. Supplementation appears most beneficial for the genuinely deficient (25(OH)D below 30 nmol/L); in replete individuals, adding more vitamin D confers little measurable benefit.</p>
+      <p>The deeper paradox is why a sun-derived vitamin may work better from the sun than from a pill. Sunlight exposure simultaneously triggers vitamin D production, releases nitric oxide (一氧化氮) from skin stores — lowering blood pressure — and generates photoconversion products with potential independent metabolic benefits that an oral supplement does not replicate. The observational associations between low vitamin D and poor health may partly reflect these co-produced compounds rather than vitamin D per se. This mirrors the lesson from beta-carotene trials: observational data showed that populations eating lots of vegetables (high beta-carotene) had lower cancer rates; supplementing with isolated beta-carotene pills in smokers increased cancer risk. The vegetable is not its most famous chemical. The same may be true of sunlight.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Test before you supplement — vitamin D pills help the genuinely deficient but appear to add little for those already replete. And 10–30 minutes of midday sun exposure (arms and legs uncovered) may confer benefits that a capsule cannot fully replicate.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did the VITAL trial find about vitamin D supplementation in the general population, and why might sun-derived vitamin D outperform a supplement even at equal blood levels?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">VITAL found no significant reduction in cancer incidence or cardiovascular events with 2,000 IU/day D3 supplementation in a large US cohort. Sun exposure co-produces nitric oxide and other photoconversion products with independent cardiovascular and metabolic effects that a pill does not deliver — meaning the observational health associations of vitamin D status may partly reflect sunlight exposure itself, not vitamin D alone.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Manson, J.E. et al. (2019). "Vitamin D Supplements and Prevention of Cancer and Cardiovascular Disease." <em>New England Journal of Medicine</em>, 380(1), 33–44. Webb, A.R. et al. (2018). "Meeting Vitamin D Requirements in White Caucasians at UK Latitudes." <em>Nutrients</em>, 10(4), 524. Wacker, M. &amp; Holick, M.F. (2013). "Sunlight and Vitamin D." <em>Dermato-Endocrinology</em>, 5(1), 51–108.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card" id="card-9">
+      <div class="card-label">🏋 Sports Science</div>
+      <h2>RPE &amp; Autoregulation: Training Smarter Than the Spreadsheet</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — Your programme says "5 sets of 5 at 85% of your max." You barely slept and you're fighting a cold. Should you follow the prescription exactly?</summary>
+        <div class="predict-content">Evidence suggests no — and that the most effective training adjusts to how you actually are today, not to what a fixed number assumes you are.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-9">
+        <div class="img-emoji">🏋️</div>
+      </div>
+      <p>Traditional resistance training relies on percentage-based programming (百分比訓練法): the coach assigns 75%, 80%, or 90% of a lifter's one-repetition maximum (1RM, 最大一下重量), and the lifter executes. The problem is that 1RM is not a fixed number — research shows it fluctuates daily by 5–18% depending on sleep quality, acute stress, nutritional status, and accumulated fatigue. Hitting a prescribed 85% on a poor sleep day may represent near-maximal, damaging effort; on a well-rested day the same weight may be a comfortable training stimulus. Autoregulation (自我調節訓練) is a framework for adjusting load in real time based on actual readiness, using Rate of Perceived Exertion (RPE, 主觀費力程度) as the primary signal — a systematic way to listen to the body without abandoning the principle of progressive overload.</p>
+      <p>The RPE scale adapted for strength training by Mike Tuchscherer and formally studied by Eric Zourdos (艾瑞克·佐多斯) and colleagues is anchored in "reps in reserve" (RIR, 保留次數): RPE 10 = maximal effort, no reps left; RPE 9 = one rep remaining; RPE 8 = two reps remaining; and so on. Zourdos et al. (2016, <em>Journal of Strength and Conditioning Research</em>) demonstrated that RPE-based prescription produced similar strength gains and muscle adaptations to percentage-based training while reducing the incidence of overreaching on fatigued days. A related approach, velocity-based training (VBT, 速度基礎訓練), uses a barbell sensor to measure mean propulsive velocity — if bar speed on a given weight is slower than normal, load is auto-reduced; if faster, load is increased. Both methods shift authority from an abstract number to the athlete's physiological state on that specific day.</p>
+      <p>The concept matters beyond competitive athletes. For recreational lifters, rigid percentage-based plans often produce two failure modes: skipped sessions ("I can't hit the numbers today, so why bother") or needlessly grinding sessions that accumulate fatigue without productive stimulus. RPE-based training builds systemic flexibility without abandoning the overarching aim — progressive challenge over time. It also teaches a skill: calibration of internal state. Beginners are initially poor at estimating reps-in-reserve (typically overestimating how close to failure they are), but accuracy improves significantly after 6–12 weeks of deliberate practice. That skill — knowing how hard you're actually working — turns out to be one of the most valuable things a lifter can develop, and one of the rarest.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Autoregulation is not an excuse to train easy — it is a tool to train appropriately every session. Over a year, consistently appropriate training beats alternating between excessive and skipped sessions.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the core problem with percentage-based training that RPE solves, and what does "RPE 8" mean in practice?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A fixed percentage delivers inconsistent actual stimulus because 1RM fluctuates by up to 18% daily. RPE 8 means the lifter has two reps remaining in reserve — demanding but not maximal — so load is adjusted in real time to match true daily capacity rather than a fixed number assigned weeks earlier.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Zourdos, M.C. et al. (2016). "Novel Resistance Training–Specific RPE Scale Measuring Repetitions in Reserve." <em>Journal of Strength and Conditioning Research</em>, 30(1), 267–275. Mann, J.B. et al. (2010). "The Effect of Autoregulatory Progressive Resistance Exercise vs. Linear Periodization on Strength Improvement in College Athletes." <em>JSCR</em>, 24(7), 1718–1723.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card green" id="card-10">
+      <div class="card-label">📈 Investing &amp; Economic Thinking</div>
+      <h2>Peter Lynch &amp; the PEG Ratio: The Fund Manager Who Beat the Market for 13 Years</h2>
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read — If the world's best-performing fund manager says "invest in what you know," what is the most dangerous way to misinterpret that advice?</summary>
+        <div class="predict-content">Mistaking brand familiarity for business understanding. Knowing a product and knowing a company's economics are entirely different skills.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-10">
+        <div class="img-emoji">📈</div>
+      </div>
+      <p>Between 1977 and 1990, Peter Lynch (彼得·林奇) ran the Fidelity Magellan Fund (富達麥哲倫基金) to an average annual return of 29.2% — the best 13-year record of any mutual fund in history. He managed the transition from a small $18 million fund to a $14 billion behemoth while continuing to outperform. Lynch's approach sounded almost anti-intellectual: visit companies in person, talk to competitors, walk through retail stores, look for businesses growing faster than the market realises. But beneath the accessible presentation was a systematic tool: the PEG ratio (市盈增長比率) — Price-to-Earnings (市盈率) divided by the annual earnings growth rate. A stock with a P/E of 15 growing earnings at 15% per year has a PEG of 1.0; Lynch considered anything below 0.5 potentially undervalued, above 1.5 potentially overpriced. The insight: a "cheap" P/E is meaningless without knowing the growth rate underneath it.</p>
+      <p>Lynch categorised stocks into six types: slow growers (緩慢增長股), stalwarts (穩健增長股), fast growers (快速增長股), cyclicals (景氣循環股), turnarounds (轉虧為盈股), and asset plays (資產股). His conviction was that individual investors could find "ten-baggers" (十倍股) — stocks that return 10× — in plain sight, before institutional analysts on Wall Street (華爾街) caught up: a new restaurant chain with one location always packed at 7pm; a regional car dealership expanding methodically; a drugstore chain positioned for an ageing demographic. He argued the retail investor's genuine edge is observational — they can notice consumer behaviour trends on the ground weeks or months before research analysts in New York produce a report on them. His books <em>One Up on Wall Street</em> (1989) and <em>Beating the Street</em> (1993) became investment classics.</p>
+      <p>But Lynch was careful about how he phrased "invest in what you know." He explicitly warned against its misuse: knowing a brand (品牌) is not the same as understanding a business — its return on invested capital (ROIC, 投入資本回報率), competitive moat (競爭護城河), management quality, balance sheet, and pricing power. Lynch's actual process was intensive: he was reading 700–1,000 annual reports a year and tracking hundreds of companies simultaneously. At Magellan's peak, he held over 1,400 positions — extraordinary diversification for a stock-picker. When Lynch retired in 1990 at age 46, citing the toll on family life, Magellan's returns promptly reverted toward the market mean under successive managers. The 29.2% annual return required not just a framework, but a specific human being executing it at extraordinary intensity.</p>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> Lynch's PEG ratio captures the key insight that growth justifies a premium P/E — but his deeper lesson is that "invest in what you know" means knowing a <em>business</em>, not just recognising a brand.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the PEG ratio, and what does Lynch's use of it reveal about why a low P/E alone is insufficient to identify an attractive stock?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">PEG = Price-to-Earnings ÷ earnings growth rate. A P/E of 8 on a company growing at 2% (PEG 4.0) is expensive; a P/E of 20 on a company growing at 30% (PEG 0.67) may be cheap. Lynch showed that P/E is only meaningful relative to the growth rate the multiple is pricing in.</div>
+      </details>
+      <div class="source"><strong>Source:</strong> Lynch, P. with Rothchild, J. (1989). <em>One Up on Wall Street</em>. Simon &amp; Schuster. Lynch, P. with Rothchild, J. (1993). <em>Beating the Street</em>. Simon &amp; Schuster. Fidelity Investments historical performance data.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">🏛 Political Economics — Theory in the Wild</div>
+      <h2>Minimum Wage: When a Border and a Fast-Food Survey Rewrote Labour Economics</h2>
+      <div class="polecon-grid">
+        <div class="polecon-part">
+          <strong>① Event</strong>
+          In April 1992, New Jersey (新澤西州) raised its minimum wage from $4.25 to $5.05. Neighbouring Pennsylvania (賓夕法尼亞州) kept its rate at $4.25. Economists David Card (大衛·卡德) and Alan Krueger (艾倫·克魯格) surveyed fast-food restaurants on both sides of the border before and after the change — a natural experiment using geography as the control group. The finding: New Jersey fast-food employment rose slightly relative to Pennsylvania. Workers were not laid off because of the minimum wage increase.
+        </div>
+        <div class="polecon-part">
+          <strong>② Theory</strong>
+          The standard competitive labour market model (競爭性勞動力市場模型) predicts that a price floor above equilibrium reduces employment. If wages are forced above what labour is worth at the margin, rational employers hire fewer workers. This follows directly from supply-and-demand logic and was the dominant view in labour economics through the 1980s, supported by cross-state time-series regressions showing negative employment effects of minimum wage increases.
+        </div>
+        <div class="polecon-part">
+          <strong>③ Anomaly</strong>
+          Card and Krueger's 1994 <em>American Economic Review</em> paper found no negative employment effect from a moderate minimum wage increase. Multiple subsequent "border discontinuity" studies — including Dube, Lester &amp; Reich (2010) using contiguous US county pairs and Seattle Minimum Wage Studies (2016–2019) — have largely replicated the null or modestly positive finding. Cross-country data shows wide variation in minimum wage levels with no clear employment penalty below roughly 60% of the median wage.
+        </div>
+        <div class="polecon-part">
+          <strong>④ Challenger</strong>
+          Monopsony (壟斷買方) theory, formalised by Alan Manning (艾倫·曼寧, 2003), offers an explanation. In a monopsonistic labour market, employers have significant wage-setting power — workers cannot easily switch jobs due to geography, skills, or search costs. A below-competitive wage prevails. A minimum wage floor can then raise both wages and employment simultaneously by correcting this distortion. How much monopsony characterises low-wage markets — and whether the null employment effect holds for very large minimum wage increases — remains actively debated, with some recent studies finding negative effects above certain thresholds.
+        </div>
+      </div>
+      <div class="takeaway">💡 <strong>Takeaway:</strong> The minimum wage debate changed methodology as much as it changed conclusions: Card &amp; Krueger popularised natural experiments in labour economics, and the method has since transformed how economists study policy — Card won the Nobel Prize in Economics in 2021 partly for this work.</div>
+      <div class="source"><strong>Source:</strong> Card, D. &amp; Krueger, A.B. (1994). "Minimum Wages and Employment." <em>American Economic Review</em>, 84(5), 772–793. Manning, A. (2003). <em>Monopsony in Motion</em>. Princeton University Press. Dube, A., Lester, T.W. &amp; Reich, M. (2010). "Minimum Wage Effects Across State Borders." <em>Review of Economics and Statistics</em>, 92(4), 945–964.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>🔗 Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 11 — The Fundamental Attribution Error in Economic Theory:</strong> Standard labour economics committed a version of Card 6's FAE — attributing unemployment to the dispositional cause (the minimum wage floor) while underweighting the situational factor (employer monopsony power over workers who cannot easily leave). The competitive labour market model assumed a "free agent" worker; real workers face search costs, geographic constraints, and skill specificity that give employers wage-setting power. Card &amp; Krueger's natural experiment forced economists to look at the situation, not just the individual transaction.</p>
+      <p style="font-size:.88rem;margin-top:.5rem;color:var(--muted)"><strong>So what:</strong> When a confident prediction fails empirically, the first question should always be: what situational constraint did the model ignore? In policy, in markets, and in daily life, the unseen context usually explains more than the visible actor.</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <details>
+        <summary>📚 All Sources</summary>
+        <p>Card 1: Kivelson et al. (2000) <em>Science</em> 289; Roth et al. (2014) <em>Science</em> 343; NASA Europa Clipper 2024.</p>
+        <p>Card 2: 《明史》卷五；Dreyer (1982) <em>Early Ming China</em>，Stanford UP；Chan (1988) <em>Cambridge History of China</em> Vol. 7.</p>
+        <p>Card 3: Suetonius, <em>The Twelve Caesars</em>；Syme (1939) <em>The Roman Revolution</em>；Beard (2015) <em>SPQR</em>.</p>
+        <p>Card 4: 董仲舒《春秋繁露》；馮友蘭《中國哲學史》下冊；Queen (1996) <em>From Chronicle to Canon</em>，Cambridge UP.</p>
+        <p>Card 5: Spinoza (1677/1994) <em>Ethics</em>，Princeton UP；Nadler (1999) <em>Spinoza: A Life</em>，Cambridge UP.</p>
+        <p>Card 6: Jones &amp; Harris (1967) <em>JESP</em> 3；Ross (1977) <em>Adv. Exp. Social Psych.</em> 10；Morris &amp; Peng (1994) <em>JPSP</em> 67.</p>
+        <p>Card 7: Brooks (2018) <em>Cell Metabolism</em> 27；Robergs et al. (2004) <em>AJP</em> 287.</p>
+        <p>Card 8: Manson et al. (2019) <em>NEJM</em> 380；Webb et al. (2018) <em>Nutrients</em> 10；Wacker &amp; Holick (2013) <em>Dermato-Endocrinology</em> 5.</p>
+        <p>Card 9: Zourdos et al. (2016) <em>JSCR</em> 30；Mann et al. (2010) <em>JSCR</em> 24.</p>
+        <p>Card 10: Lynch &amp; Rothchild (1989) <em>One Up on Wall Street</em>；Lynch &amp; Rothchild (1993) <em>Beating the Street</em>.</p>
+        <p>Card 11: Card &amp; Krueger (1994) <em>AER</em> 84；Manning (2003) <em>Monopsony in Motion</em>；Dube et al. (2010) <em>REStat</em> 92.</p>
+      </details>
+      <details style="margin-top:.8rem">
+        <summary>📋 Do-Not-Repeat Log (selected recent entries)</summary>
+        <table class="log-table">
+          <tr><th>Date</th><th>Topic</th><th>Angle</th></tr>
+          <tr><td>2026-06-14</td><td>Astronomy</td><td>Europa subsurface ocean; Galileo magnetometer; Hubble plumes; tidal heating; Europa Clipper</td></tr>
+          <tr><td>2026-06-14</td><td>Eastern History</td><td>靖難之役 1399–1402；朱棣燕王；建文帝削藩；姚廣孝；李景隆；奪位南京</td></tr>
+          <tr><td>2026-06-14</td><td>Western History</td><td>Caesar assassination Ides of March 44 BC；Brutus/Cassius；Antony funeral；failure to restore Republic；Octavian/Augustus</td></tr>
+          <tr><td>2026-06-14</td><td>Eastern Philosophy</td><td>董仲舒天人感應；罷黜百家；《春秋繁露》；五行宇宙論；天意制衡皇權；馮友蘭評價</td></tr>
+          <tr><td>2026-06-14</td><td>Western Philosophy</td><td>Spinoza Deus sive Natura；excommunication；Ethics geometric method；monism vs Descartes dualism；Einstein/Goethe</td></tr>
+          <tr><td>2026-06-14</td><td>Psychology</td><td>Fundamental Attribution Error；Jones &amp; Harris 1967 Castro essay；Ross 1977；actor-observer bias；Morris &amp; Peng cross-cultural</td></tr>
+          <tr><td>2026-06-14</td><td>Physiology</td><td>Lactate shuttle (Brooks 1984/2018)；MCT transporters；slow-twitch oxidation；lactate as signal；H⁺ vs lactate myth</td></tr>
+          <tr><td>2026-06-14</td><td>Health</td><td>Vitamin D；VITAL trial 2019；25(OH)D；sun vs pill；nitric oxide co-production；deficiency paradox</td></tr>
+          <tr><td>2026-06-14</td><td>Sports Science</td><td>RPE autoregulation；reps in reserve；Zourdos 2016；velocity-based training；1RM daily fluctuation</td></tr>
+          <tr><td>2026-06-14</td><td>Investing</td><td>Peter Lynch；Fidelity Magellan 29.2% 13yr；PEG ratio；ten-baggers；six stock categories；brand ≠ business</td></tr>
+          <tr><td>2026-06-14</td><td>Political Economics</td><td>Minimum wage；Card &amp; Krueger 1994 NJ/PA natural experiment；competitive model anomaly；monopsony Manning 2003；Nobel 2021</td></tr>
+        </table>
+      </details>
+      <p style="margin-top:1rem;font-size:.72rem;color:var(--muted)">Edward's Daily Learning · 14 June 2026 · 1st Edition</p>
+    </footer>
+
+  </div><!-- .content-col -->
+</div><!-- .page-wrap -->
+
+<script>
+// IMAGE LOADING
+var candidates = {
+  'img-wrap-1': ['Europa (moon)', 'Europa Clipper', 'Galileo spacecraft'],
+  'img-wrap-2': ['Yongle Emperor', 'Ming dynasty', 'Battle of Jingnan'],
+  'img-wrap-3': ['Julius Caesar', 'Roman Senate', 'Assassination of Julius Caesar'],
+  'img-wrap-4': ['Dong Zhongshu', 'Han dynasty Confucianism', 'Ancient Chinese cosmology'],
+  'img-wrap-5': ['Baruch Spinoza', 'Spinoza philosopher', 'Ethics Spinoza'],
+  'img-wrap-6': ['Fundamental attribution error', 'Social psychology experiment', 'Attribution theory'],
+  'img-wrap-7': ['Lactate', 'Muscle fiber', 'Exercise physiology'],
+  'img-wrap-8': ['Vitamin D', 'Cholecalciferol', 'Sunlight skin'],
+  'img-wrap-9': ['Rate of perceived exertion', 'Powerlifting training', 'Weight training'],
+  'img-wrap-10': ['Peter Lynch investor', 'Fidelity Magellan Fund', 'Stock market'],
+  'img-wrap-11': ['Minimum wage', 'Fast food restaurant', 'David Card economist']
+};
+
+window._imageMap = {};
+
+async function tryWikiImage(title) {
+  try {
+    var r = await fetch('https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title));
+    if (!r.ok) return null;
+    var d = await r.json();
+    return (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source) || null;
+  } catch(e) { return null; }
+}
+
+async function loadImages() {
+  for (var id in candidates) {
+    var wrap = document.getElementById(id);
+    if (!wrap) continue;
+    var titles = candidates[id];
+    var url = null;
+    for (var i = 0; i < titles.length; i++) {
+      url = await tryWikiImage(titles[i]);
+      if (url) break;
+    }
+    if (url) {
+      window._imageMap[id] = url;
+      var caption = titles[0];
+      wrap.innerHTML = '<img src="' + url + '" alt="' + caption + '" loading="lazy"><div class="img-caption">📷 ' + caption + ' · <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(titles[0]) + '" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a></div>';
+    }
+  }
+}
+
+loadImages();
+
+// TOOLBAR FUNCTIONS
+function briefingSave() {
+  var fn = location.pathname.split('/').pop() || 'briefing.html';
+  try {
+    var blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = fn;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+  } catch(e) { window.open('https://thisisforjapapp.github.io/daily-briefing/' + fn, '_blank'); }
+}
+
+function briefingShare() {
+  var fn  = location.pathname.split('/').pop() || 'briefing.html';
+  var url = 'https://thisisforjapapp.github.io/daily-briefing/' + fn;
+  var ttl = document.title;
+  if (navigator.share) {
+    navigator.share({ title: ttl, text: "Edward's Daily Learning", url: url }).catch(function(){});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(function(){ alert('Link copied — paste it on your phone!'); });
+  } else {
+    window.location.href = 'mailto:?subject=' + encodeURIComponent(ttl) + '&body=' + encodeURIComponent(url);
+  }
+}
+</script>
+</body>
+</html>
