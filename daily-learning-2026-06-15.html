@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 15 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{
+  --bg:#0f0f0f;--surface:#191919;--surface2:#1e1e26;--border:#2a2a38;
+  --text:#e0ddd4;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;
+  --amber:#d4a843;--amber-bg:#1c1500;--amber-border:#3a2e00;
+  --green:#5daa72;--green-bg:#0d1a10;--green-border:#1e3d22;
+  --steel:#7090b8;--steel-bg:#0d1320;--steel-border:#1e2e45;
+  --spark:#160c28;--spark-border:#2d1a50;--link:#7eb8d4;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif','Source Han Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+a{color:var(--link);}
+
+/* STICKY TOP */
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+
+/* BACK BAR */
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.22rem 1rem;border-bottom:1px solid var(--border);}
+.back-bar > a{font-size:.78rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:20px;padding:.2rem .7rem;transition:color .18s,border-color .18s;}
+.back-bar > a:hover{color:var(--text);border-color:var(--accent-dim);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);}
+
+/* HEADER */
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+
+/* TOC BAR */
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar a{white-space:nowrap;font-size:.72rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:20px;padding:.18rem .6rem;transition:color .18s,border-color .18s;}
+.toc-bar a:hover{color:var(--text);border-color:var(--accent);}
+
+/* LAYOUT */
+.page-wrap{display:flex;max-width:1100px;margin:0 auto;}
+.left-nav{display:none;}
+
+@media(min-width:900px){
+  .toc-bar{display:none;}
+  .left-nav{display:block;position:sticky;top:5rem;align-self:flex-start;width:182px;min-width:182px;padding:1.2rem .8rem 1.2rem 1rem;max-height:calc(100vh - 5rem);overflow-y:auto;}
+  .left-nav a{display:block;font-size:.72rem;color:var(--muted);text-decoration:none;border:1px solid transparent;border-radius:6px;padding:.28rem .55rem;margin-bottom:.3rem;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .left-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .content-col{flex:1;min-width:0;padding:1.5rem 1.5rem 4rem 1.2rem;}
+}
+.content-col{padding:1rem .9rem 4rem;}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.6rem;scroll-margin-top:52px;}
+.card.amber{background:var(--amber-bg);border-color:var(--amber-border);}
+.card.green{background:var(--green-bg);border-color:var(--green-border);}
+.card.steel{background:var(--steel-bg);border-color:var(--steel-border);}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:.45rem;}
+.card h2{font-size:1.15rem;color:var(--accent);margin-bottom:.9rem;line-height:1.35;}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+
+/* PREDICT BOX */
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem;}
+.predict-box>summary{padding:.6rem .9rem;cursor:pointer;font-size:.87rem;color:var(--muted);list-style:none;}
+.predict-box>summary::-webkit-details-marker{display:none;}
+.predict-box[open]>summary{color:var(--text);border-bottom:1px solid var(--border);}
+.predict-content{padding:.7rem .9rem;font-size:.87rem;line-height:1.65;}
+
+/* INTRO BOX */
+.intro-box{border-left:3px solid var(--accent);padding:.7rem 1rem;margin-bottom:1rem;background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;font-size:.9rem;}
+.intro-box strong{display:block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.3rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(212,168,67,.07);}
+
+/* IMAGE */
+.card-img-wrap{margin:1rem 0;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.35rem;font-style:italic;}
+.emoji-fallback{font-size:4.5rem;line-height:1;}
+
+/* BODY */
+.card p{font-size:.95rem;margin-bottom:.85rem;}
+
+/* TAKEAWAY */
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;padding:.65rem 1rem;font-size:.9rem;font-weight:700;margin:1rem 0 .85rem;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(212,168,67,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(93,170,114,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(112,144,184,.08);}
+
+/* RETRIEVAL */
+.retrieval-q{font-size:.88rem;color:var(--text);margin:.85rem 0 .35rem;}
+.retrieval-q em{color:var(--muted);font-style:italic;}
+details.answer-reveal{margin-bottom:.85rem;}
+details.answer-reveal summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.25rem 0;list-style:none;}
+details.answer-reveal summary::-webkit-details-marker{display:none;}
+details.answer-reveal summary::before{content:"▶ ";font-size:.7rem;}
+details.answer-reveal[open] summary::before{content:"▼ ";}
+details.answer-reveal[open] summary{color:var(--accent);}
+.answer-body{padding:.5rem 0 .2rem;font-size:.88rem;color:var(--text);line-height:1.65;}
+
+/* SOURCE */
+.source{font-size:.75rem;color:var(--muted);border-top:1px solid var(--border);padding-top:.65rem;margin-top:.5rem;}
+
+/* POLITICAL ECON */
+.pol-econ-section{margin-bottom:.85rem;}
+.pol-econ-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);margin-bottom:.25rem;}
+.pol-econ-section p{margin-bottom:0;}
+
+/* YESTERDAY'S SPARK */
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;list-style:none;}
+.spark-item details summary::-webkit-details-marker{display:none;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+
+/* CONNECTION */
+.connection-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;border-top:3px solid var(--accent);}
+.connection-card h3{color:var(--accent);font-size:.95rem;margin-bottom:.6rem;}
+.connection-card p{font-size:.9rem;}
+
+/* FOOTER */
+footer{padding:1.5rem 1rem 3rem;border-top:1px solid var(--border);}
+footer details summary{cursor:pointer;color:var(--muted);font-size:.8rem;padding:.4rem 0;}
+.sources-list{font-size:.78rem;color:var(--muted);padding:.6rem 0;line-height:1.9;}
+
+@media(max-width:600px){
+  .card{padding:1rem 1rem;}
+  .card h2{font-size:1.05rem;}
+  .spark-section{padding:.9rem 1rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">← All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+    </div>
+  </div>
+  <div class="site-header">
+    <h1>📖 Edward's Daily Learning — 15 June 2026</h1>
+    <span class="meta">~20 min read &nbsp;·&nbsp; 11 topics</span>
+  </div>
+  <nav class="toc-bar">
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">⛩ 東史</a>
+    <a href="#card-3">🏛 W. History</a>
+    <a href="#card-4">☯ 東哲</a>
+    <a href="#card-5">🌿 W. Philosophy</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">🫀 Physiology</a>
+    <a href="#card-8">💊 Health</a>
+    <a href="#card-9">🏋 Sports</a>
+    <a href="#card-10">📈 Investing</a>
+    <a href="#card-11">🏛 Pol. Econ</a>
+  </nav>
+</div>
+
+<div class="page-wrap">
+  <nav class="left-nav">
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">⛩ 東方歷史</a>
+    <a href="#card-3">🏛 Western History</a>
+    <a href="#card-4">☯ 東方哲學</a>
+    <a href="#card-5">🌿 W. Philosophy</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">🫀 Physiology</a>
+    <a href="#card-8">💊 Health</a>
+    <a href="#card-9">🏋 Sports Science</a>
+    <a href="#card-10">📈 Investing</a>
+    <a href="#card-11">🏛 Political Econ</a>
+  </nav>
+
+  <div class="content-col">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>🔁 Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>14 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">🔭 Astronomy &amp; Cosmos — Europa's Hidden Ocean</span>
+        <em>Answer this without looking back:</em> What two lines of evidence — one magnetic, one visual — convinced scientists Europa harbours a subsurface ocean, and what mechanism keeps that ocean liquid without solar energy?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Galileo's magnetometer detected a fluctuating magnetic field consistent with a subsurface salty conductive layer; Hubble observed water-vapour plumes erupting from the surface. The ocean stays liquid via tidal heating — Jupiter's gravity continuously flexes Europa's interior, generating frictional warmth.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">⛩ 東方歷史 — 靖難之役</span>
+        <em>讀後回想：</em>靖難之役中燕王的軍事優勢是什麼？擁有數十萬大軍的建文帝為何最終仍告失敗？永樂帝登位後的削藩政策，又如何埋下了明朝的邊防隱患？
+        <details><summary>查看答案</summary>
+          <div class="answer">燕軍以騎兵靈活機動、主動出奇兵；主帥李景隆指揮無能，數度坐失優勢，令燕軍得以直取南京。永樂帝即位後為防藩王效仿自己，大削藩王兵權，導致邊防空洞化，間接埋下土木堡之變的遠因。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🏛 Western History — Caesar's Assassination</span>
+        <em>Answer this without looking back:</em> Why did Caesar's assassins fail to restore the Roman Republic despite successfully killing him, and what did they misunderstand about the Republic's condition?
+        <details><summary>Check your answer</summary>
+          <div class="answer">They had no army, no political programme, and no replacement mechanism. Antony's funeral speech mobilised popular fury against them; they fled Rome. More fundamentally, they believed the Republic was intact and merely needed liberating from one man — in reality it had been structurally eroding for a century, and no assassination could restore it.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">☯ 東方哲學 — 董仲舒天人感應</span>
+        <em>讀後回想：</em>董仲舒「天人感應」如何為儒家大臣提供制衡皇帝的話語工具？這套機制有何根本漏洞？
+        <details><summary>查看答案</summary>
+          <div class="answer">天人感應主張天災反映皇帝失德，大臣可以「上天示警」為由諫言改政；但「天意」詮釋權不固定，帝王可借祥瑞宣揚正統，臣子亦可借天災打擊政敵，令制衡效力大打折扣。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🌿 Western Philosophy — Spinoza</span>
+        <em>Answer this without looking back:</em> What is Spinoza's <em>Deus sive Natura</em>, and why did it lead contemporaries to accuse him of atheism despite his constant use of the word "God"?
+        <details><summary>Check your answer</summary>
+          <div class="answer"><em>Deus sive Natura</em> (God or Nature) holds that there is only one substance, which may be described under either attribute; God is not a separate creator but the totality of existence governed by necessary rational laws. Since this God cannot choose, intervene, or respond to prayer, critics argued Spinoza had simply renamed physical necessity "God" — atheism in theological vocabulary.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🧠 Psychology — Fundamental Attribution Error</span>
+        <em>Answer this without looking back:</em> What did Jones &amp; Harris's Castro essay study find, and why is it a demonstration of the Fundamental Attribution Error rather than simply a reasoning mistake?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Even when participants knew an essay position had been randomly assigned, they still inferred the author genuinely held those views. This is FAE — the automatic tendency to attribute behaviour to stable character dispositions even when a clear situational explanation (an assignment) is explicitly provided.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🫀 Physiology — Lactate Shuttle</span>
+        <em>Answer this without looking back:</em> What is the lactate shuttle, and why does training increase lactate tolerance rather than reduce lactate production?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The lactate shuttle is the process by which lactate produced in fast-twitch fibres is exported and taken up as fuel by slow-twitch fibres, the heart, and brain. Training increases MCT transporter density and mitochondrial volume in slow-twitch fibres, so lactate is cleared and oxidised faster — the threshold rises not by producing less lactate but by consuming it more efficiently.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">💊 Health — Vitamin D &amp; VITAL Trial</span>
+        <em>Answer this without looking back:</em> What did the VITAL trial find about vitamin D supplementation in the general population, and why might sun-derived vitamin D outperform a supplement even at equal blood levels?
+        <details><summary>Check your answer</summary>
+          <div class="answer">VITAL found no significant reduction in cancer incidence or cardiovascular events with 2,000 IU/day D3 supplementation in a large US cohort. Sun exposure co-produces nitric oxide and other photoconversion products with independent cardiovascular and metabolic effects that a pill does not deliver — meaning the observational health associations of vitamin D status may partly reflect sunlight exposure itself, not vitamin D alone.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🏋 Sports Science — RPE &amp; Autoregulation</span>
+        <em>Answer this without looking back:</em> What is the core problem with percentage-based training that RPE solves, and what does "RPE 8" mean in practice?
+        <details><summary>Check your answer</summary>
+          <div class="answer">A fixed percentage delivers inconsistent actual stimulus because 1RM fluctuates by up to 18% daily. RPE 8 means the lifter has two reps remaining in reserve — demanding but not maximal — so load is adjusted in real time to match true daily capacity rather than a fixed number assigned weeks earlier.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">📈 Investing — Peter Lynch &amp; PEG Ratio</span>
+        <em>Answer this without looking back:</em> What is the PEG ratio, and what does Lynch's use of it reveal about why a low P/E alone is insufficient to identify an attractive stock?
+        <details><summary>Check your answer</summary>
+          <div class="answer">PEG = Price-to-Earnings ÷ earnings growth rate. A P/E of 8 on a company growing at 2% (PEG 4.0) is expensive; a P/E of 20 on a company growing at 30% (PEG 0.67) may be cheap. Lynch showed that P/E is only meaningful relative to the growth rate the multiple is pricing in.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <div class="card-label">🔭 Astronomy &amp; Cosmos</div>
+      <h2>Pluto's Heart: What New Horizons Found at the Edge of the Solar System</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If you were designing a mission to the most distant dwarf planet in our solar system, what would you expect to find on its surface — and why might you assume it was geologically dead?</summary>
+        <div class="predict-content">Most scientists expected a heavily cratered, frozen wasteland — no internal heat source, no atmosphere to speak of, and billions of years of accumulated impacts. Pluto had been officially downgraded from planet status in 2006. Nobody expected what came next.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-1"><div class="emoji-fallback">🪐</div></div>
+      <p>The world had written Pluto (冥王星) off. Then, on 14 July 2015, NASA's New Horizons (新視野號) spacecraft — nine and a half years and five billion kilometres from Earth — transmitted its first close-up. Scientists stared at screens in silence. Dominating the image was a vast, perfectly heart-shaped expanse of frozen nitrogen ice, roughly the size of Texas, glowing pale against the surrounding dark terrain. It was named Tombaugh Regio (湯博區) after Clyde Tombaugh, Pluto's discoverer. This was not the inert, cratered wasteland anyone had imagined. Pluto was alive.</p>
+      <p>The left lobe of the "heart," Sputnik Planitia (斯普特尼克平原), turned out to be a basin of nitrogen and carbon monoxide ice divided into polygonal cells 20–40 kilometres across. Scientists immediately recognised these as convection cells: nitrogen ice, warmed slightly by heat from Pluto's rocky interior, churns upward in massive thermal plumes on a timescale of hundreds of thousands of years, erasing craters as it resurfaces the terrain. Ringing this basin: water-ice mountains reaching 3,500 metres — taller than the European Alps — an impossible feature for a body so small and so far from the Sun. As New Horizons looked back after flyby, its cameras captured Pluto's atmosphere: a thin nitrogen haze glowing electric blue, backlit against the distant Sun, extending 200 km above the surface.</p>
+      <p>What powers this geological activity? Part of the answer is radiogenic heat — the slow decay of radioactive elements in Pluto's rocky core, the same internal furnace that keeps larger bodies warm long after formation. But Sputnik Planitia itself may have reshaped the entire planet: the massive nitrogen ice sheet is so heavy that it may have caused true polar wander (真極移動) — the entire dwarf planet slowly rotating until this enormous weight settled at its equatorial region, aligned with the gravitational pull of Charon (冥衛一，卡戎), Pluto's largest moon. A geological process on a planetary scale, triggered by an ice sheet. Pluto did not just surprise us — it rewrote the rules for what a small, cold body can do.</p>
+      <div class="takeaway">💡 Never assume a small, distant world is geologically dead — Pluto proved that internal heat and exotic ices can drive active geology even at the solar system's edge.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What was the key geological surprise on Pluto, and what process explains the polygon-shaped cells of Sputnik Planitia?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Scientists expected a cratered, inert surface but found geologically young terrain dominated by Sputnik Planitia — a vast nitrogen ice sheet divided into convection cells where slowly churning ice resurfaces the terrain, erasing craters, driven by residual heat from Pluto's rocky interior.</div>
+      </details>
+      <div class="source">📚 Stern et al., "The Pluto system: Initial results from its exploration by New Horizons," <em>Science</em>, 2015; NASA New Horizons Mission, Johns Hopkins APL; McKinnon et al., "Convection in a volatile nitrogen-ice-rich layer drives Pluto's geological vigour," <em>Nature</em>, 2016.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">⛩ 東方歷史</div>
+      <h2>虎門銷煙與砲艦外交：鴉片戰爭如何終結大清的天下秩序</h2>
+      <details class="predict-box">
+        <summary>讀前思考 — 若你是道光皇帝，面對英國以鴉片貿易要求通商，強硬禁絕還是妥協讓步，哪個代價更大？林則徐的做法為何幾乎注定失敗？</summary>
+        <div class="predict-content">清廷兩難：妥協等於默許毒品摧毀社會根基，強硬則可能引發軍事衝突。林則徐以強硬手段銷煙，觸怒英商，卻低估了工業革命後英國海軍的技術優勢。</div>
+      </details>
+      <div class="intro-box">
+        <strong>關鍵人物、事件與大局</strong>
+        核心人物：林則徐（欽差大臣）、道光帝；義律（Charles Elliot，英國商務監督）、義律勛爵（Lord Palmerston，英國外相）。核心事件：1839年虎門銷煙 → 1840–1842年第一次鴉片戰爭 → 《南京條約》簽訂。大局：大清「天朝上國」朝貢體系遭遇英國自由貿易帝國主義；這場衝突不只是軍事失敗，更是兩套截然不同的世界秩序觀的正面碰撞。
+      </div>
+      <div class="card-img-wrap" id="img-wrap-2"><div class="emoji-fallback">⛩</div></div>
+      <p>十九世紀初，大英東印度公司長期以白銀購買中國茶葉、絲綢與瓷器，貿易逆差持續擴大。解決之道，是用殖民地印度出產的鴉片換取白銀——鴉片貿易令數百萬中國人上癮，白銀大量外流，清廷財政與社會秩序雙雙告急。道光帝任命湖廣總督林則徐為欽差大臣，赴廣州徹查禁菸。1839年6月，林則徐在虎門海灘公開銷毀約二百三十七萬斤鴉片，連續二十三天，以石灰與鹽水溶解入海——這是對英國商業利益的正面挑戰，也是清廷最後一次以傳統天朝姿態回應西方壓力。</p>
+      <p>英國政府以保護商業利益與「自由貿易」原則為由，要求清廷賠償，清廷拒絕，戰爭於1840年爆發。問題不在兩軍人數，而在技術鴻溝：英國皇家海軍以蒸汽動力鐵殼炮艦「復仇女神號」為首，在廣東、廈門、定海、鎮江接連重挫清軍水師。清軍以火繩槍、木製帆船應戰，幾乎毫無勝算。林則徐被道光帝革職流放新疆，成為政治替罪羊。英軍長驅直入，逼近南京。</p>
+      <p>1842年，清廷被迫簽訂《南京條約》，條款史無前例：割讓香港島予英國、開放廣州、福州、廈門、寧波、上海五口通商、賠款二千一百萬銀元、廢除公行壟斷制度。最深遠的影響在於「最惠國待遇」條款——此後美國《望廈條約》、法國《黃埔條約》相繼援引同等特權。傳統朝貢體系徹底瓦解，中國被納入以歐洲規則運作的現代國際秩序，「百年屈辱」由此開端。</p>
+      <div class="takeaway">💡 鴉片戰爭的核心教訓：制度性落後無法以道德正確彌補——林則徐的禁菸在倫理上無可指摘，卻以軍事失敗告終，暴露了改革的迫切性。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>英國為何在鴉片戰爭中取得壓倒性優勢？《南京條約》在制度層面留下哪些深遠影響，令其後各列強均能從中受益？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">技術差距（蒸汽鐵殼炮艦對木製帆船）令英軍在所有主要戰役取勝；《南京條約》引入「最惠國待遇」條款，令美、法等列強無需再戰即可援引相同特權，奠定了「不平等條約體系」的法律框架，清廷主權持續受侵蝕。</div>
+      </details>
+      <div class="source">📚 Fairbank, J.K., <em>Trade and Diplomacy on the China Coast</em>, 1953；Wong, J.Y., <em>Deadly Dreams: Opium and the Arrow War</em>, 1998；《南京條約》原文，1842。</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <div class="card-label">🏛 Western History</div>
+      <h2>The French Revolution: How a Bankruptcy Became a World-Historical Rupture</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If a government goes bankrupt and needs to raise taxes, but must get approval from those being taxed, what could go wrong — and why might the solution make the problem worse?</summary>
+        <div class="predict-content">Requiring consent from the taxed creates a negotiation in which the powerful demand constitutional concessions in exchange for compliance — while the powerless demand representation. Both demands may be incompatible with the status quo.</div>
+      </details>
+      <div class="intro-box">
+        <strong>Key Figures, Event &amp; Big Picture</strong>
+        Key figures: Louis XVI (路易十六), Marie Antoinette (瑪麗·安托瓦內特), Jacques Necker (內克爾), Robespierre (羅伯斯比爾), Danton (丹東). Event at stake: Fiscal collapse of the Ancien Régime (舊制度) → 1789 Revolution → Republic → Terror → Napoleon. Big picture: When Enlightenment ideas, a fiscal emergency, and a blocked Third Estate converge, reform becomes impossible and revolution becomes structurally inevitable — regardless of individual intentions.
+      </div>
+      <div class="card-img-wrap" id="img-wrap-3"><div class="emoji-fallback">🏛</div></div>
+      <p>France in 1789 was simultaneously the richest country in Europe and effectively bankrupt. Decades of war — including subsidising the American Revolution (美國革命) — had left the crown drowning in debt; interest payments consumed over half of royal revenue. Louis XVI called the Estates-General (三級議會) for the first time since 1614, needing the nobility's approval to tax them. The nobility refused to pay unless they received constitutional reforms. Meanwhile, the Third Estate — everyone who was neither clergy nor aristocrat — represented 97% of the population and was being asked to shoulder the entire fiscal burden. In June 1789, Third Estate delegates locked themselves in a royal tennis court at Versailles and swore not to disband until France had a written constitution: the Tennis Court Oath (網球場宣誓). The Revolution began not with a mob, but with a procedure.</p>
+      <p>The storming of the Bastille (攻佔巴士底監獄) on 14 July 1789 was militarily minor — the fortress held only seven prisoners — but symbolically electric: it announced that the streets had entered politics. Within weeks, the National Assembly abolished feudalism in an all-night session, and the Declaration of the Rights of Man and of the Citizen (人與公民權利宣言) proclaimed liberty, equality, and popular sovereignty (人民主權). But revolution is easier to start than to steer. By 1792, France was at war with Austria and Prussia; the monarchy was suspended after the King's flight to Varennes was intercepted; Louis XVI was guillotined in January 1793. Each escalation seemed to its protagonists like a necessary defensive measure. None could control the cascade they had set in motion.</p>
+      <p>What followed — the Reign of Terror (恐怖統治, 1793–94) — revealed the revolution's most dangerous internal logic. Robespierre (羅伯斯比爾) and the Committee of Public Safety (公安委員會) guillotined approximately 17,000 people in official proceedings and perhaps 40,000 more died in custody or summary execution. The language of republican virtue became the vocabulary of elimination: any dissent was "counter-revolution." Robespierre himself was arrested and executed in the Thermidorian Reaction (熱月政變) of July 1794. When Napoleon Bonaparte (拿破崙·波拿巴) seized power in 1799, he inherited not a failed experiment but a set of administrative and legal innovations — the Napoleonic Code (《拿破崙法典》), meritocratic institutions, centralised bureaucracy — that would reshape Europe for generations. The Revolution's three exports: nationalism (民族主義), popular sovereignty, and the existential precedent that no institution is permanent.</p>
+      <div class="takeaway">💡 The French Revolution teaches that political blockage — not bad intentions — produces revolutions; once begun, no actor can control the outcome.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did France's attempt to solve its fiscal crisis by summoning the Estates-General backfire, and what specific act converted a tax dispute into a constitutional rupture?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Estates-General required noble consent to tax the nobility, but the nobility refused unless they gained constitutional concessions. The Third Estate responded by declaring itself a National Assembly and swearing the Tennis Court Oath — refusing to disband until France had a constitution — transforming a fiscal negotiation into an institutional break that made the Old Regime's continuity impossible.</div>
+      </details>
+      <div class="source">📚 Schama, S., <em>Citizens: A Chronicle of the French Revolution</em>, 1989; Doyle, W., <em>The Oxford History of the French Revolution</em>, 2002; Furet, F., <em>Interpreting the French Revolution</em>, 1978.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">☯ 東方哲學</div>
+      <h2>孔子的仁與禮：一套古代的倫理操作系統</h2>
+      <details class="predict-box">
+        <summary>讀前思考 — 若「仁」是內在善意，「禮」是外在行為規範，孔子認為哪個更根本？失去其中一個，另一個是否仍有意義？</summary>
+        <div class="predict-content">孔子的答案：兩者相互依存，缺一不可。沒有仁的禮是空洞表演；沒有禮的仁則缺乏可操作的社會形式，容易流於濫情。</div>
+      </details>
+      <div class="intro-box">
+        <strong>核心人物、文本與大局</strong>
+        核心人物：孔子（Kong Qiu，字仲尼，約公元前551–479年）；顏回、子路、樊遲等弟子。核心文本：《論語》——孔子去世後由弟子整理的語錄，共二十篇。大局：春秋末年「禮崩樂壞」，周室式微，諸侯僭越。孔子以「克己復禮」為政治與道德秩序的雙重解方，試圖在亂世中重建一套以人際關係為基礎的倫理秩序。
+      </div>
+      <div class="card-img-wrap" id="img-wrap-4"><div class="emoji-fallback">☯</div></div>
+      <p>孔子生於春秋末年，親眼目睹周室式微、諸侯爭霸。他觀察到一個根本弔詭：外在的禮儀（禮，lǐ）可以被機械地執行，卻毫無道德內容——那只是空洞的表演。他提出的答案是「仁」（rén）：仁是禮的內在靈魂，是對他人真誠的關懷。《論語·顏淵》記顏回問仁，孔子答：「克己復禮為仁。一日克己復禮，天下歸仁焉。」克制私慾、使行為符合恰當的人際規範，仁就自然呈現。《論語·八佾》更直接：「人而不仁，如禮何？人而不仁，如樂何？」——沒有仁，禮樂都是廢話。</p>
+      <p>「仁」不是抽象神學命題，而是一套可操作的關係倫理，從最近的關係向外延伸。從「孝」（filial piety，孝親）出發，至「悌」（兄弟之愛）、「忠」（對上位者的忠誠）、「信」（誠信），理想上延伸至「泛愛眾」。孔子對「仁」的定義因提問者不同而有所差異——對冒進的子路，他強調謹慎；對樊遲，他說「居處恭，執事敬，與人忠」。這不是前後矛盾，而是因材施教的體現：仁是一種需要「義」（情境判斷）的動態美德，而非死板的規則列表。</p>
+      <p>孔子與墨子（Mozi）之間存在一場根本性的分歧：墨子批評儒家的愛「有等差」，主張「兼愛」——對所有人一視同仁。孔子的回應（見弟子後學闡釋）是：抹去關係親疏不能帶來更強的道德動力，反而削弱人倫紐帶的真實性。宋明理學後來進一步本體化「仁」——朱熹以「理」詮釋，王陽明收攝於「良知」——但孔子最初的關懷，始終具體而實用：如何讓人在日常生活的人際關係中，真正地對他人好。後世學者馮友蘭（Fung Yu-lan）稱孔子為「哲學史上真正的人文主義先驅」，原因正在此處。</p>
+      <div class="takeaway">💡 孔子的核心洞見：外在規範（禮）與內在善意（仁）互為表裡——制度需要德性灌注，德性需要制度承載。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>孔子如何區分「仁」與「禮」？若一個人嚴格遵從禮儀卻缺乏仁心，孔子會如何評價？他為何反對墨子的「兼愛」？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">孔子視禮為行為的外在形式，仁為其內在動力；沒有仁的禮是空洞表演（「人而不仁，如禮何」）。他反對墨子兼愛，因為抹去親疏差別並不能強化道德動力，只會削弱建立在真實人際關係上的倫理基礎。</div>
+      </details>
+      <div class="source">📚 《論語》；Gardner, D.K., <em>Confucianism: A Very Short Introduction</em>, 2014；陳榮捷（Wing-tsit Chan），<em>A Source Book in Chinese Philosophy</em>, 1963；馮友蘭，《中國哲學史》，1934。</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <div class="card-label">🌿 Western Philosophy</div>
+      <h2>Hobbes's Leviathan: Why the State of Nature Demands an Absolute Sovereign</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If you had to rebuild a society from scratch after total governmental collapse, what single condition would make cooperation between strangers possible — and who, or what, would enforce it?</summary>
+        <div class="predict-content">Without enforcement, any agreement between self-interested agents is fragile: each party benefits from defecting if the other complies. The question is whether moral reasons or self-interest can substitute for an enforcer — Hobbes argues the answer is no.</div>
+      </details>
+      <div class="intro-box">
+        <strong>Key Figure, Work &amp; Big Picture</strong>
+        Key figure: Thomas Hobbes (霍布斯, 1588–1679). Work at stake: <em>Leviathan</em> (《利維坦》, 1651) — written in Parisian exile during the English Civil War. Big picture: Can a purely materialist, self-interest-based argument justify absolute political authority? Hobbes says yes — and his move still haunts every political theory that followed.
+      </div>
+      <div class="card-img-wrap" id="img-wrap-5"><div class="emoji-fallback">📜</div></div>
+      <p>Thomas Hobbes (霍布斯) wrote <em>Leviathan</em> in 1651 while watching England tear itself apart in civil war. His starting premise was ruthlessly mechanical: human beings are material objects driven by appetites and aversions. Without a political authority to enforce agreements and punish defection, rational self-interest produces a "state of nature" (自然狀態) — a condition of "war of every man against every man" (人人相戰的戰爭狀態). Life in this state, he wrote in his most quoted passage, would be "solitary, poor, nasty, brutish, and short." This was not a description of historical savages — it was a logical deduction about what rational agents do when there is no enforcer. Hobbes believed England in 1651 was demonstrating it in real time.</p>
+      <p>The solution was a social contract (社會契約), but far more radical than what later theorists like Locke (洛克) or Rousseau (盧梭) would accept. Individuals transfer all their rights — including self-governance — to a sovereign (主權者): the Leviathan, a biblical sea-monster used as metaphor for the awesome, totalising power of the state. The sovereign need not be a monarch; Hobbes allowed for a sovereign assembly. But crucially, its authority cannot be legitimately revoked, divided, or challenged. The moment subjects can override the sovereign, the contract dissolves and the state of nature returns — which is worse than any tyranny. This made Hobbes uncomfortable for both royalists (he grounded authority in consent, not divine right) and parliamentarians (he denied the right of rebellion). He was attacked from both sides simultaneously, which is often a sign of a genuinely novel position.</p>
+      <p>Hobbes's most enduring provocation is placing self-interest, not virtue or tradition, at the foundation of political obligation. We obey the Leviathan not because it is good, but because the alternative is worse. This move — grounding politics in the cold arithmetic of rational self-interest — prefigured game theory (博弈論), social contract liberalism, and modern international relations theory. His critics identified a gap: the argument only works if the Leviathan itself does not exploit subjects so severely that the state of nature becomes preferable. John Locke (洛克) built his entire liberalism on this gap, inserting a right of rebellion when the sovereign violates natural rights. Hobbes and Locke are best read not as opponents, but as two thinkers working from the same premises toward incompatible conclusions about when authority runs out.</p>
+      <div class="takeaway">💡 Hobbes's enduring insight: political order rests not on people being good, but on it being rational for self-interested individuals to delegate power to an enforcer — a logic that survives every attempt to replace it with moral argument.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is Hobbes's "state of nature," and why does his argument imply that subjects can never have a legitimate right to rebel against the sovereign?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The state of nature is the condition without political authority in which rational self-interest produces perpetual conflict — "war of every man against every man." The social contract works only by transferring all rights to the sovereign; if subjects retain the right to revoke this transfer when displeased, the contract collapses back into the state of nature, which is worse than any sovereign's abuses — making rebellion self-defeating by Hobbes's own logic.</div>
+      </details>
+      <div class="source">📚 Hobbes, T., <em>Leviathan</em>, 1651; Tuck, R., <em>Hobbes</em>, Oxford University Press, 1989; Skinner, Q., <em>Reason and Rhetoric in the Philosophy of Hobbes</em>, 1996.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <div class="card-label">🧠 Psychology</div>
+      <h2>The Bystander Effect: Why More Witnesses Can Mean Less Help</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If you collapsed on a crowded street with 50 people around, would more bystanders mean more help or less help — and why might large crowds actually be the worst emergency witnesses?</summary>
+        <div class="predict-content">Intuition says more people = more help. Darley and Latané found the opposite — and the mechanisms they identified are still among the most robust findings in social psychology.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-6"><div class="emoji-fallback">👥</div></div>
+      <p>On 13 March 1964, Kitty Genovese (吉蒂·吉諾維斯) was stabbed to death outside her New York apartment. The <em>New York Times</em> reported that 38 witnesses observed the attack for over half an hour and did nothing. The story became a landmark of urban moral failure, igniting a cultural conversation about alienation and indifference. Psychologists John Darley (約翰·達利) and Bibb Latané (比布·拉坦) responded not with outrage but with a question: is the 38-witness inaction a character failure, or is it a predictable product of group dynamics? In 1968 they published their now-classic answer.</p>
+      <p>In Darley and Latané's seizure experiment, participants — believing they were connected to a multi-person discussion via intercom — heard what sounded like a fellow participant having an epileptic seizure. The key variable was perceived group size. When participants believed they were alone with the victim, 85% intervened within 60 seconds. When they believed five others were also present, only 31% intervened — and with significant delay. Two mechanisms drove the effect. First: <em>diffusion of responsibility</em> (責任分散效應) — each person perceives their individual obligation as reduced proportionally by the number of others present. If ten people witness an event, each feels only 10% responsible. Second: <em>pluralistic ignorance</em> (多元無知) — when bystanders look around and see others appearing calm, they infer the situation is not an emergency, even when it is. The crowd's apparent inaction becomes social proof against the urgency of the event.</p>
+      <p>The original Genovese story, it emerged decades later, was substantially wrong. A 2007 reanalysis by Manning, Levine, and Collins found far fewer than 38 had clear sightlines, several did call the police, and the timeline had been compressed. The bystander effect, however, is real and highly replicable — in labs, in staged street emergencies, across cultures. What it reveals is not moral callousness but an architectural flaw in group cognition: the very presence of others systematically suppresses the response each individual, alone, would reliably provide. The practical correction is precise: in an emergency, do not appeal to the crowd. Single out one specific person — "you, in the blue jacket, call 999 now" — and eliminate both diffusion of responsibility and pluralistic ignorance in a single command.</p>
+      <div class="takeaway">💡 In any emergency, address one specific person by name or description — diffusing responsibility to a crowd is how help fails; naming an individual is how it succeeds.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What are the two psychological mechanisms behind the bystander effect, and how do they jointly suppress helping behaviour even among people who care?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Diffusion of responsibility means each person perceives their own obligation as proportionally smaller when others are present. Pluralistic ignorance means bystanders look to one another for cues — when others appear calm, individuals assume there is no emergency, even when there is. Together these mechanisms produce systematic non-intervention in groups despite individuals' genuine concern.</div>
+      </details>
+      <div class="source">📚 Darley, J.M. &amp; Latané, B., "Bystander intervention in emergencies: Diffusion of responsibility," <em>Journal of Personality and Social Psychology</em>, 1968; Manning, R., Levine, M., &amp; Collins, A., "The Kitty Genovese murder and the social psychology of helping," <em>American Psychologist</em>, 2007.</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card" id="card-7">
+      <div class="card-label">🫀 Physiology — Decode Your Body</div>
+      <h2>Your Internal Clock: The Molecular Timekeeping System That Runs Every Cell</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — Why do you feel groggy in the morning even after eight hours of sleep — and why is the teenager who "can't wake up" not simply being lazy?</summary>
+        <div class="predict-content">The answer lies not in how much sleep was obtained but when relative to the body's internal clock. That clock can be out of phase with external time, and in teenagers it is biologically shifted later — a genuine physiological difference, not a character flaw.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-7"><div class="emoji-fallback">⏰</div></div>
+      <p>Your body does not simply count hours — it tracks time. Every cell contains a molecular clock, and all of them synchronise to a master pacemaker in the hypothalamus (下視丘) called the suprachiasmatic nucleus (SCN，視交叉上核). The SCN runs on a self-sustaining transcription-translation feedback loop: two proteins, CLOCK (生理時鐘蛋白) and BMAL1 (腦與肌肉ARNT樣蛋白1), form a complex and activate genes including <em>Period</em> (PER) and <em>Cryptochrome</em> (CRY). As PER and CRY proteins accumulate, they loop back and suppress CLOCK-BMAL1 activity — like a thermostat shutting off a furnace. The oscillation completes in roughly 24 hours. Jeffrey Hall, Michael Rosbash, and Michael Young won the 2017 Nobel Prize in Physiology or Medicine for mapping this loop in <em>Drosophila</em> and confirming it is conserved across virtually all eukaryotic life.</p>
+      <p>The SCN is entrained — synchronised — primarily by light, via specialised retinal ganglion cells (視網膜神經節細胞) containing a photopigment called melanopsin (黑視素), maximally sensitive to short-wavelength blue light. When blue light hits these cells in the morning, a signal travels directly to the SCN, which resets the master clock and suppresses melatonin (褪黑素) secretion by the pineal gland (松果體). This is why bright screens at night delay sleep onset: blue light tells the SCN it is still daytime, delaying the melatonin rise. In teenagers, the circadian phase is genuinely shifted approximately 2 hours later during puberty — a biological phenomenon documented by Carskadon (1999, <em>Sleep</em>) across multiple studies — making early school start times a genuine public health issue, not a discipline problem.</p>
+      <p>Circadian misalignment — when the internal clock conflicts with social schedules — has measurable metabolic and health consequences beyond sleepiness. A landmark 2009 study by Scheer et al. (<em>PNAS</em>) forced subjects onto a 28-hour forced-desynchrony protocol, misaligning their internal clocks from external cues. Within days, healthy participants developed elevated blood pressure, reduced leptin (瘦素), increased ghrelin (胃飢素), and impaired glucose tolerance. Shift workers who chronically sleep out of phase with their SCN show higher rates of metabolic syndrome (代謝綜合症), type 2 diabetes (二型糖尿病), and certain cancers. Eating at the wrong circadian phase — independent of diet quality and total calories — is sufficient to shift metabolic risk profiles. Timing, it turns out, is a nutrient.</p>
+      <div class="takeaway">💡 Morning light exposure for 10–15 minutes is the most powerful free tool for anchoring your circadian clock — it sets your cortisol peak, advances sleep onset that night, and aligns your peripheral organ clocks.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the molecular feedback loop that drives the circadian clock, and why does blue light exposure in the evening delay sleep?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The CLOCK-BMAL1 protein complex activates PER and CRY gene transcription; as PER and CRY accumulate, they suppress CLOCK-BMAL1, completing a ~24-hour oscillation. Evening blue light stimulates melanopsin-expressing retinal cells, which signal the SCN to suppress melatonin and treat the time as daytime — delaying the circadian sleep phase.</div>
+      </details>
+      <div class="source">📚 Hall, Rosbash, Young — Nobel Prize in Physiology or Medicine 2017; Scheer, F.A.J.L. et al., "Adverse metabolic and cardiovascular consequences of circadian misalignment," <em>PNAS</em>, 2009; Carskadon, M.A., "When worlds collide: Adolescent need for sleep versus societal demands," <em>Phi Delta Kappan</em>, 1999.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card" id="card-8">
+      <div class="card-label">💊 Health</div>
+      <h2>Intermittent Fasting: What the Rigorous Trials Actually Show</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If you eat the exact same total calories but compress them into an 8-hour window, do you lose significantly more weight than spreading them across 14 hours? What mechanism would need to be true for the answer to be yes?</summary>
+        <div class="predict-content">For time-restricted eating to outperform equivalent calories spread across a longer window, the timing itself — not just intake — would need to produce metabolic effects beyond simple caloric deficit. The trials below test exactly this.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-8"><div class="emoji-fallback">🥗</div></div>
+      <p>Intermittent fasting (間歇性斷食, IF) has been among the most vigorously marketed dietary approaches of the last decade, promising weight loss, metabolic reversal, cognitive enhancement, and longevity. The biological mechanisms are genuinely interesting: extended fasting activates autophagy (細胞自噬) — the cellular recycling process that degrades damaged proteins and organelles — and shifts fuel metabolism toward ketone bodies (酮體), which have documented anti-inflammatory and neuroprotective effects in certain contexts. Animal studies show striking lifespan extensions with caloric restriction and time-restricted feeding. These mechanisms are real. The question is whether they translate into meaningful, sustained benefits in free-living humans on the popular 16:8 schedule.</p>
+      <p>The most rigorous human RCT came from Kevin Hall's group at the NIH: the 2020 TREAT trial (Lowe et al., <em>JAMA Internal Medicine</em>) randomised 116 adults to 16:8 time-restricted eating vs. an unrestricted eating window for 12 weeks. Both groups ate <em>ad libitum</em> (不限量). Result: no statistically significant difference in body weight (−0.94 kg vs −0.68 kg), fat mass, fasting insulin, blood pressure, or key metabolic markers. A 2022 Chinese RCT in the <em>New England Journal of Medicine</em> (Liu et al.) compared time-restricted eating directly to standard caloric restriction; both groups lost similar weight, and the time-restricted group showed no significant metabolic advantage when calories were equated. The autophagy and metabolic-switching benefits appear to require longer or more severe fasting periods — 24–72 hours — not the popular 16:8.</p>
+      <p>This does not make IF useless for everyone. Some individuals naturally reduce caloric intake when eating opportunities are limited; for them, 16:8 is a legitimate tool for passive caloric restriction. People with insulin resistance may show more pronounced metabolic responses. Clinical extended fasting (under supervision) does trigger stronger autophagy activation and more dramatic shifts in metabolic markers. The public-health problem is the gap between compelling mechanistic and animal data and the modest or null findings in well-controlled human trials — a gap the wellness industry consistently ignores. "Works in principle" and "works for you under these conditions" are categorically different claims, and conflating them has sold an enormous number of fasting-window apps.</p>
+      <div class="takeaway">💡 Intermittent fasting's real-world effectiveness in humans comes mainly from incidentally eating less — the metabolic "magic" appears largely absent at popular 16:8 unless total caloric intake is also reduced.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did the TREAT trial find about 16:8 intermittent fasting, and what does this reveal about how IF's popular reputation diverges from its controlled trial evidence?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The TREAT trial found no significant differences in body weight, fat mass, or metabolic markers between 16:8 IF and unrestricted eating in free-living adults over 12 weeks. IF's reputation is built partly on compelling animal-model and mechanistic data, but those mechanisms — autophagy, ketone production, metabolic switching — appear to require longer or more severe fasting protocols than the popular 16:8 window provides.</div>
+      </details>
+      <div class="source">📚 Lowe, D.A. et al., "Effects of Time-Restricted Eating on Weight Loss and Other Metabolic Parameters," <em>JAMA Internal Medicine</em>, 2020; Liu, D. et al., "Calorie Restriction with or without Time-Restricted Eating in Weight Loss," <em>NEJM</em>, 2022; de Cabo, R. &amp; Mattson, M.P., "Effects of Intermittent Fasting on Health, Aging, and Disease," <em>NEJM</em>, 2019 (review).</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card" id="card-9">
+      <div class="card-label">🏋 Sports Science</div>
+      <h2>Blood Flow Restriction Training: Serious Muscle Growth from Tiny Loads</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If you can only lift very light weights due to injury, is there any way to still trigger significant muscle hypertrophy? What would the mechanism need to look like?</summary>
+        <div class="predict-content">Standard hypertrophy requires sufficient mechanical tension and metabolic stress. If light loads produce the same metabolic stress — through a different mechanism — they might drive growth without the mechanical component. That is exactly what BFR does.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-9"><div class="emoji-fallback">💪</div></div>
+      <p>In the early 1960s, a young Japanese practitioner named Yoshiaki Sato (佐藤義昭) noticed during a long kneeling ceremony that blood pooling in his calves produced a sensation of intense muscular effort — without significant load. He spent years developing what he called <em>Kaatsu</em> (加壓訓練 — "added pressure"): the deliberate application of external compression to a limb during exercise. Modern blood flow restriction (BFR) training (血流限制訓練) applies an inflatable cuff to the proximal limb — upper thigh for leg exercises, upper arm for biceps and triceps work — partially occluding venous return (blood flowing out of the muscle) while preserving arterial inflow (blood flowing in). The result is blood pooling in the working muscle, creating an intensely metabolic environment at a fraction of the load normally required.</p>
+      <p>The hypertrophy finding is striking. Takarada et al. (2000, <em>Journal of Applied Physiology</em>) demonstrated that BFR training at just 20% of one repetition maximum (1RM, 單次最大重量) produced significant increases in muscle cross-sectional area within three weeks — comparable to traditional training at 70–80% 1RM. Three mechanisms drive this: (1) acute metabolite accumulation (lactate, inorganic phosphate, hydrogen ions) from the pooled blood recruits fast-twitch motor units earlier than they would be activated at such light loads; (2) the restriction triggers a growth hormone (生長激素, GH) surge approximately 170× greater than the same exercise without restriction; (3) cell swelling from restricted venous outflow may directly activate mechanotransduction pathways including mTOR (哺乳動物雷帕黴素靶點蛋白). A 2012 meta-analysis by Loenneke et al. confirmed hypertrophic equivalence between BFR at ≤50% 1RM and standard high-load training.</p>
+      <p>Two populations benefit most. First: post-surgical or injured athletes for whom heavy loading is contraindicated — ACL reconstruction, post-shoulder surgery, stress fractures — where rapid muscle atrophy is occurring but joints cannot tolerate the loads typically required for hypertrophy. Scott et al. (2015, <em>Sports Medicine</em>) documented BFR's use in maintaining quadriceps strength immediately post-ACL surgery. Second: older adults, for whom heavy resistance training carries elevated joint and cardiovascular risk; BFR provides an effective hypertrophy stimulus at loads they can safely manage. Proper application matters: the cuff should partially occlude venous outflow without stopping arterial inflow — recommended pressures are 40–80% of arterial occlusion pressure (AOP) for legs, 40–50% for arms. Contraindications include active thrombosis risk, hypertension, and peripheral vascular disease.</p>
+      <div class="takeaway">💡 BFR training achieves significant hypertrophy at loads as light as 20% 1RM — making it the most evidence-backed tool for building muscle when heavy loading is impossible due to injury, surgery, or age.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the primary mechanism by which BFR produces hypertrophy at very light loads, and for which two populations is it most clinically valuable?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Blood pooling from restricted venous outflow creates acute metabolite accumulation that recruits fast-twitch motor units and triggers a massive GH spike, combined with mTOR-pathway activation — producing hypertrophy without high mechanical load. Most clinically valuable for injured or post-surgical athletes requiring joint-sparing rehabilitation, and for older adults who cannot tolerate heavy resistance training.</div>
+      </details>
+      <div class="source">📚 Takarada, Y. et al., "Rapid increase in plasma growth hormone after low-intensity resistance exercise with vascular occlusion," <em>Journal of Applied Physiology</em>, 2000; Loenneke, J.P. et al., "Low intensity blood flow restriction training: a meta-analysis," <em>European Journal of Applied Physiology</em>, 2012; Scott, B.R. et al., "Exercise with blood flow restriction: an updated evidence-based approach for enhanced muscular development," <em>Sports Medicine</em>, 2015.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card green" id="card-10">
+      <div class="card-label">📈 Investing &amp; Economic Thinking</div>
+      <h2>Charlie Munger &amp; The Latticework of Mental Models</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — Would you make better decisions by going very deep in one discipline, or by having a working understanding of several? Why might breadth be systematically undervalued in environments that reward specialisation?</summary>
+        <div class="predict-content">Depth produces reliable expertise within a domain; breadth produces the ability to import frameworks from one domain and apply them to another. Munger argued the combination — depth plus a latticework of models from multiple fields — produces insights that neither alone can reach.</div>
+      </details>
+      <div class="card-img-wrap" id="img-wrap-10"><div class="emoji-fallback">📊</div></div>
+      <p>Charlie Munger (查理·芒格, 1924–2023) dropped out of Harvard Law School when his father died, built a legal career, then transitioned to investment partnership with Warren Buffett (沃倫·巴菲特) at Berkshire Hathaway (波克夏·哈薩威公司). His intellectual framework was not fundamentally about finance. He called it the "latticework of mental models" (心智模型架構): collect the most powerful explanatory tools from as many disciplines as possible — mathematics, physics, evolutionary biology, psychology, economics, history — and arrange them into a connected structure. Arriving at any problem with only one disciplinary tool, Munger said, was like being a man with a hammer: every problem looks like a nail. His corollary was inversion (反向思考): instead of asking how to succeed, ask what guarantees failure and then avoid it. "Invert, always invert" became his signature move — borrowed from the mathematician Carl Jacobi, applied to business.</p>
+      <p>The most famous demonstration of multi-model thinking is Munger's 1994 analysis of Coca-Cola (可口可樂) at the Berkshire AGM. He dissected not through a discounted cash flow model but through the psychology of brand loyalty (品牌忠誠度), the pharmacology of caffeine and sugar (咖啡因與糖的成癮性), the economics of distribution moats (分銷護城河), the sociology of shared cultural symbols, and the mathematics of compound growth at scale. Each lens revealed something the previous could not. What appeared to be an overpriced beverage company was, through Munger's framework, a near-perfect compounding machine with biological and cultural lock-in. His investment in See's Candies (時思糖果) in 1972 was equally instructive: See's could raise chocolate prices year after year without losing customers — teaching Munger the concept of pricing power (定價能力), the single most durable form of competitive advantage, one that asset-value analysis alone cannot identify.</p>
+      <p>Munger catalogued 25 categories of psychological misjudgement — drawn from Kahneman (卡尼曼), Cialdini (羅伯特·恰爾迪尼), and his own observation — and argued that the catastrophic investment mistakes he had witnessed were overwhelmingly caused by these biases, not by analytical errors. Incentive-caused bias (利益驅動的偏見): "show me the incentive and I'll show you the outcome." Social proof (社會認同): institutional investors bought Pets.com because everyone else was. Commitment and consistency (承諾與一致性陷阱): managers kept pouring capital into failing businesses because they had publicly endorsed them. The practical implication Munger drew was unconventional: reading evolutionary biology, psychology, and economic history is not a supplement to investment analysis — it <em>is</em> investment analysis, conducted at the level where the real decisions are being distorted.</p>
+      <div class="takeaway">💡 Build a latticework, not a tool kit — the most reliable way to avoid catastrophic errors is to arrive at every problem with models from multiple disciplines, so no single framework can blind you.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What does Munger mean by a "latticework of mental models," and why did he believe psychological biases matter more than analytical errors in investment decision-making?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A latticework of mental models means drawing the most powerful explanatory tools from multiple disciplines — biology, psychology, physics, history, economics — so any problem can be triangulated from independent angles rather than forced into a single framework. Munger argued most investment disasters trace to psychological biases (incentive distortion, social proof, commitment traps), not spreadsheet errors — making self-knowledge as critical as financial expertise.</div>
+      </details>
+      <div class="source">📚 Munger, C., "A Lesson on Elementary, Worldly Wisdom As It Relates To Investment Management &amp; Business," Kaufman Foundation, 1994; Kaufman, P.D. (ed.), <em>Poor Charlie's Almanack</em>, 2005; Berkshire Hathaway Annual Meeting transcripts, 1994–2023.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">🏛 Political Economics — Theory in the Wild</div>
+      <h2>The Fiscal Multiplier: When Does Government Spending Actually Stimulate Growth?</h2>
+      <details class="predict-box">
+        <summary>Predict Before You Read — If a government cuts spending by 1% of GDP, does the economy shrink by 1%, more, or less — and why might the answer depend on whether the economy is in a recession?</summary>
+        <div class="predict-content">Standard macroeconomic models assumed the answer was "less than 1%" — that the private sector compensates. The eurozone crisis became an accidental experiment that tested this assumption directly.</div>
+      </details>
+
+      <div class="pol-econ-section">
+        <div class="pol-econ-label">① Event</div>
+        <p>Between 2010 and 2013, the IMF and EU required Greece, Portugal, Spain, and Ireland to implement sharp fiscal consolidation programmes as conditions of financial assistance. The programmes assumed a fiscal multiplier of approximately 0.5 — meaning a 1% of GDP spending cut would shrink the economy by only 0.5%. The economies contracted far more severely than predicted, with Greece's GDP falling over 25% peak-to-trough. The IMF's own forecasts, it turned out, had been systematically wrong — and in a surprisingly consistent direction.</p>
+      </div>
+
+      <div class="pol-econ-section">
+        <div class="pol-econ-label">② Theory</div>
+        <p>The Keynesian fiscal multiplier (凱因斯財政乘數) — formalised by John Maynard Keynes (凱因斯) in <em>The General Theory</em> (1936) — holds that a £1 increase in government spending produces more than £1 of GDP growth, because each pound becomes income for someone who then spends a fraction, generating further rounds of demand. At the zero lower bound (零利率下限), when monetary policy is exhausted, theoretical multipliers may exceed 1.5. The multiplier's size was a central empirical question — and the answer was assumed to be settled.</p>
+      </div>
+
+      <div class="pol-econ-section">
+        <div class="pol-econ-label">③ Anomaly</div>
+        <p>In 2013, IMF economists Olivier Blanchard (布蘭查德) and Daniel Leigh published a striking internal paper (<em>World Economic Outlook</em>, 2013): the actual fiscal multipliers during eurozone consolidation were approximately 1.5 — three times the 0.5 assumed in the forecasts. Countries that cut spending by 1% of GDP saw output fall by roughly 1.5%, not 0.5%. The systematic forecast errors correlated directly with the size of planned fiscal adjustment. Austerity in a deep recession with a constrained central bank deepened the recession rather than stabilising it.</p>
+      </div>
+
+      <div class="pol-econ-section">
+        <div class="pol-econ-label">④ Challenger</div>
+        <p>Ricardian equivalence (李嘉圖等效定理), formalised by Robert Barro (巴羅, 1974), predicts that deficit-financed spending is offset by private saving — rational agents anticipate future tax hikes, save the transfers, and the multiplier approaches zero. Blanchard &amp; Leigh's evidence suggests the multiplier is strongly <em>state-dependent</em>: near zero at full employment (where Barro's model may hold), but large and positive in deep recessions where households face liquidity constraints and monetary policy cannot offset fiscal drag. Whether the "right" multiplier is theoretically determinable or irreducibly context-specific — and whether Ricardian behaviour obtains even partially — remains actively debated. Open question.</p>
+      </div>
+
+      <div class="takeaway">💡 The fiscal multiplier is not a fixed number — it depends critically on whether the economy is at full employment or in a demand-deficient recession, a distinction that the 2010s austerity programmes catastrophically underweighted.</div>
+      <div class="source">📚 Blanchard, O. &amp; Leigh, D., "Growth Forecast Errors and Fiscal Multipliers," IMF Working Paper 13/1, 2013; Keynes, J.M., <em>The General Theory of Employment, Interest and Money</em>, 1936; Barro, R.J., "Are Government Bonds Net Wealth?," <em>Journal of Political Economy</em>, 1974.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <div class="connection-card">
+      <h3>🔗 Connection of the Day</h3>
+      <p><strong>Cards 5 &amp; 6 — Hobbes and the Bystander Effect:</strong> Hobbes argued that without an enforcer assigning responsibility, rational individuals in a group produce collective paralysis — the state of nature is not a war of active aggression, but of mutual waiting for someone else to bear the cost. The Bystander Effect (達利與拉坦內, 1968) demonstrates exactly this logic in a controlled setting: in the absence of clearly assigned responsibility, rational individuals each defer, assuming others will act, and no one does. Both describe how individual rationality fails to produce collective welfare without structural solutions. Hobbes's answer was sovereign authority; Latané's experimental implication is explicit designation — naming one specific person eliminates the diffusion that silence creates. <strong>So what:</strong> In any team, meeting, or shared responsibility, naming a specific person for each action item is not micromanagement — it is the structural correction for a deep feature of group cognition.</p>
+    </div>
+
+    <footer>
+      <details>
+        <summary>🔗 Sources &amp; Do-Not-Repeat Log</summary>
+        <div class="sources-list">
+          <strong>Card 1 — Astronomy:</strong> Stern et al., <em>Science</em>, 2015; McKinnon et al., <em>Nature</em>, 2016; NASA New Horizons Mission.<br>
+          <strong>Card 2 — Eastern History:</strong> Fairbank, J.K., <em>Trade and Diplomacy on the China Coast</em>, 1953; Wong, J.Y., <em>Deadly Dreams</em>, 1998; 《南京條約》, 1842.<br>
+          <strong>Card 3 — Western History:</strong> Schama, S., <em>Citizens</em>, 1989; Doyle, W., <em>The Oxford History of the French Revolution</em>, 2002; Furet, F., <em>Interpreting the French Revolution</em>, 1978.<br>
+          <strong>Card 4 — Eastern Philosophy:</strong> 《論語》; Gardner, D.K., <em>Confucianism: A Very Short Introduction</em>, 2014; 陳榮捷 (Wing-tsit Chan), <em>A Source Book in Chinese Philosophy</em>, 1963.<br>
+          <strong>Card 5 — Western Philosophy:</strong> Hobbes, T., <em>Leviathan</em>, 1651; Tuck, R., <em>Hobbes</em>, OUP, 1989; Skinner, Q., <em>Reason and Rhetoric in the Philosophy of Hobbes</em>, 1996.<br>
+          <strong>Card 6 — Psychology:</strong> Darley &amp; Latané, <em>JPSP</em>, 1968; Manning, Levine &amp; Collins, <em>American Psychologist</em>, 2007.<br>
+          <strong>Card 7 — Physiology:</strong> Hall, Rosbash, Young — Nobel 2017; Scheer et al., <em>PNAS</em>, 2009; Carskadon, <em>Phi Delta Kappan</em>, 1999.<br>
+          <strong>Card 8 — Health:</strong> Lowe et al., <em>JAMA Internal Medicine</em>, 2020; Liu et al., <em>NEJM</em>, 2022; de Cabo &amp; Mattson, <em>NEJM</em>, 2019.<br>
+          <strong>Card 9 — Sports Science:</strong> Takarada et al., <em>JAP</em>, 2000; Loenneke et al., <em>EJAP</em>, 2012; Scott et al., <em>Sports Medicine</em>, 2015.<br>
+          <strong>Card 10 — Investing:</strong> Munger, Kaufman Foundation, 1994; <em>Poor Charlie's Almanack</em>, 2005; Berkshire Hathaway Annual Meetings.<br>
+          <strong>Card 11 — Political Economics:</strong> Blanchard &amp; Leigh, IMF WP 13/1, 2013; Keynes, <em>General Theory</em>, 1936; Barro, <em>JPE</em>, 1974.
+        </div>
+      </details>
+    </footer>
+
+  </div><!-- .content-col -->
+</div><!-- .page-wrap -->
+
+<script>
+// Image loading
+window._imageMap = {};
+async function loadWikiImage(cardId, candidates, caption) {
+  const wrap = document.getElementById('img-wrap-' + cardId);
+  if (!wrap) return;
+  for (const title of candidates) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const r = await fetch(url);
+      if (!r.ok) continue;
+      const d = await r.json();
+      const src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
+      if (src) {
+        window._imageMap[cardId] = src;
+        wrap.innerHTML = '<img src="' + src + '" alt="' + title + '" loading="lazy"><div class="img-caption">' + caption + ' · <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a></div>';
+        return;
+      }
+    } catch(e) {}
+  }
+}
+
+(async function(){
+  await Promise.allSettled([
+    loadWikiImage(1, ['Tombaugh Regio','Pluto','New Horizons (spacecraft)'], 'Tombaugh Regio — Pluto\'s heart-shaped nitrogen ice plain, imaged by New Horizons, 14 July 2015'),
+    loadWikiImage(2, ['First Opium War','Lin Zexu','HMS Nemesis (1839)'], '第一次鴉片戰爭；「復仇女神號」在廣東海岸交戰'),
+    loadWikiImage(3, ['Storming of the Bastille','French Revolution','Tennis Court Oath'], 'The Tennis Court Oath, 20 June 1789 — Jacques-Louis David sketch'),
+    loadWikiImage(4, ['Confucius','Temple of Confucius, Qufu','Analects'], 'Portrait of Confucius; Temple of Confucius, Qufu'),
+    loadWikiImage(5, ['Leviathan (Hobbes book)','Thomas Hobbes','State of nature'], 'Thomas Hobbes, <em>Leviathan</em> frontispiece, 1651'),
+    loadWikiImage(6, ['Bystander effect','Kitty Genovese','Diffusion of responsibility'], 'Bystander effect — Darley & Latané (1968) experimental paradigm'),
+    loadWikiImage(7, ['Circadian rhythm','Suprachiasmatic nucleus','Melatonin'], 'Circadian rhythm — the ~24-hour molecular oscillation in every cell'),
+    loadWikiImage(8, ['Intermittent fasting','Time-restricted eating','Caloric restriction'], 'Intermittent fasting — 16:8 time-restricted eating protocol'),
+    loadWikiImage(9, ['Blood flow restriction training','Kaatsu','Resistance training'], 'Blood flow restriction (BFR / Kaatsu) training with proximal cuff'),
+    loadWikiImage(10, ['Charlie Munger','Berkshire Hathaway','Warren Buffett'], 'Charlie Munger (1924–2023), Vice-Chairman of Berkshire Hathaway'),
+    loadWikiImage(11, ['Fiscal multiplier','John Maynard Keynes','Keynesian economics'], 'John Maynard Keynes — originator of fiscal multiplier theory')
+  ]);
+})();
+
+// Toolbar actions
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-15.html';
+  a.click();
+}
+function briefingShare() {
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 15 June 2026", url: window.location.href });
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      alert('Link copied to clipboard');
+    });
+  }
+}
+</script>
+</body>
+</html>
