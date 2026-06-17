@@ -2,45 +2,335 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edward's Daily Learning — All Briefings</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Edward's Daily Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&display=swap');
-    :root{--bg:#0f0f0f;--surface:#191919;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;}
-    *{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;max-width:640px;margin:0 auto;padding:2.5rem 1.2rem 4rem;}
-    header{margin-bottom:2rem;}
-    h1{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.35rem;}
-    .sub{font-size:.82rem;color:var(--muted);}
-    ul{list-style:none;padding:0;}
-    li{border-bottom:1px solid var(--border);}
-    li a{display:block;padding:.7rem 0;color:var(--accent);text-decoration:none;font-size:.97rem;transition:color .18s;}
-    li a:hover{color:#fff;}
-    .ed{background:rgba(126,184,212,.15);color:var(--accent);font-size:.68rem;padding:.1rem .45rem;border-radius:10px;margin-left:.5rem;vertical-align:middle;font-weight:700;}
-    footer{margin-top:2rem;font-size:.75rem;color:var(--muted);}
+    :root {
+      --bg: #0f0f0f;
+      --surface: #161616;
+      --surface2: #1c1c1c;
+      --border: #272727;
+      --border-hover: #3a3a3a;
+      --text: #e8e6e0;
+      --muted: #6a6a6a;
+      --muted2: #888;
+      --accent: #7eb8d4;
+      --accent-dim: #3a6a9a;
+      --gold: #c8a96e;
+      --gold-dim: #8a6a3a;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 2.5rem;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .header-eyebrow {
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: .9rem;
+    }
+    .header-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+    .header-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .header-sub {
+      margin-top: .9rem;
+      font-size: .82rem;
+      color: var(--muted2);
+      font-weight: 300;
+      letter-spacing: .01em;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 6rem;
+    }
+
+    /* ── DATE GROUP ── */
+    .date-group {
+      margin-bottom: 2rem;
+    }
+    .date-label {
+      padding-bottom: .5rem;
+      margin-bottom: .5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .date-label-text {
+      font-size: .7rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── ENTRY LINK ── */
+    .entry-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .9rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      color: inherit;
+      transition: background .18s, border-color .18s;
+      margin: .15rem 0;
+    }
+    .entry-link:hover {
+      background: var(--surface);
+      border-color: var(--border);
+    }
+    .entry-body {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      min-width: 0;
+    }
+    .entry-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .005em;
+      line-height: 1.3;
+    }
+    .topics-preview {
+      font-size: .72rem;
+      color: var(--muted2);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 560px;
+      letter-spacing: .01em;
+    }
+    .entry-arrow {
+      color: var(--muted);
+      font-size: .85rem;
+      flex-shrink: 0;
+      transition: color .18s, transform .18s;
+    }
+    .entry-link:hover .entry-arrow {
+      color: var(--accent);
+      transform: translateX(3px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+    }
+    @media (max-width: 600px) {
+      .site-header { padding: 2.5rem 1.2rem 1.8rem; }
+      main { padding: 2rem 1.2rem 5rem; }
+      .topics-preview { max-width: 220px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Edward's Daily Learning</h1>
-    <p class="sub">All briefings &mdash; most recent first</p>
+  <header class="site-header">
+    <div class="header-eyebrow">Daily Briefing</div>
+    <h1 class="header-title">Edward's<br><em>Daily Learning</em></h1>
+    <p class="header-sub">A curated briefing across science, history, philosophy &amp; economics &mdash; one card at a time.</p>
   </header>
-  <ul>
-      <li><a href="daily-learning-2026-06-17-2.html">2026-06-17 <span class="ed">2nd Edition</span></a></li>
-      <li><a href="daily-learning-2026-06-16.html">2026-06-16</a></li>
-      <li><a href="daily-learning-2026-06-15.html">2026-06-15</a></li>
-      <li><a href="daily-learning-2026-06-14.html">2026-06-14</a></li>
-      <li><a href="daily-learning-2026-06-13.html">2026-06-13</a></li>
-      <li><a href="daily-learning-2026-06-12-2.html">2026-06-12 <span class="ed">2nd Edition</span></a></li>
-      <li><a href="daily-learning-2026-06-12.html">2026-06-12</a></li>
-      <li><a href="daily-learning-2026-06-11-2.html">2026-06-11 <span class="ed">2nd Edition</span></a></li>
-      <li><a href="daily-learning-2026-06-11.html">2026-06-11</a></li>
-      <li><a href="daily-learning-2026-06-10.html">2026-06-10</a></li>
-      <li><a href="daily-learning-2026-06-09.html">2026-06-09</a></li>
-      <li><a href="daily-learning-2026-06-07.html">2026-06-07</a></li>
-      <li><a href="daily-learning-2026-06-03.html">2026-06-03</a></li>
-      <li><a href="daily-learning-2026-06-02.html">2026-06-02</a></li>
-  </ul>
-  <footer>14 briefings</footer>
+
+  <main>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Wednesday, 17 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-17.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">Io: Jupiter's Furious Volcanic Moon · &#x96CB;&#x715C;&#x5E1D;&#x7684;&#x8C6A;&#x8CED;&#xFF1A;&#x5927;&#x904B;&#x6CB3;&#x5982;&#x4F55;&#x5EFA;&#x9020;&#x4E00;&#x500B;&#x5E1D;&#x570B;&#xFF0C;&#x53C8;&#x5982;&#x4F55;&#x6467;&#x6BC0;&#x4E00;&#x500B;&#x738B;&#x671D; · The English Civil War: When Parliament Beheaded a King</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Tuesday, 16 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-16.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">The Architects of Stars: When JWST Redrew a Legend · &#x4E0D;&#x5C48;&#x7684;&#x5317;&#x4F10;&#xFF1A;&#x5CB3;&#x98DB;&#x4F55;&#x4EE5;&#x6210;&#x70BA;&#x4E2D;&#x570B;&#x6700;&#x6190;&#x6002;&#x7684;&#x82F1;&#x96C4;&#xFF1F; · Drawing Lines in the Dark: How Fourteen Nations Carved Up a Continent They'd Never Seen</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Monday, 15 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-15.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">Pluto's Heart: What New Horizons Found at the Edge of the Solar System · 虎門銷煙與砲艦外交：鴉片戰爭如何終結大清的天下秩序 · The French Revolution: How a Bankruptcy Became a World-Historical Rupture</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Sunday, 14 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-14.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">Europa's Hidden Ocean: The Moon That Doesn't Need the Sun · 靖難之役：明朝唯一成功的藩王奪位 · The Ides of March: Why Rome Killed Its Most Successful General — and Lost the Republic Anyway</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Saturday, 13 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-13.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">The Chirp Heard Across the Universe: LIGO's Gravitational Wave Discovery · 明治日本的自我解剖：岩倉使節團與帝國的學習遠征 · A Herring, a Ship, and the World's First Modern Economy: The Dutch Golden Age</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Friday, 12 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-12-2.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning &mdash; Edition 2</span>
+              <span class="topics-preview">Millisecond Flashes from the Far Universe — and the Magnetar That Cracked the Case · 一場為了救國而撕裂整個士大夫階層的改革——王安石變法 · The War That Killed a Third of Germany — and Invented the Modern State</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+          <a class="entry-link" href="daily-learning-2026-06-12.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">A Moon That Spits the Ingredients of Life into Space: Enceladus and Cassini's Greatest Surprise · 一個被匈奴囚禁十年的使節，如何意外打通了橫貫歐亞的絲綢之路——張騫通西域 · The General Who Won Every Battle and Still Lost the War: Hannibal and the Second Punic War</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Thursday, 11 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-11-2.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning &mdash; Edition 2</span>
+              <span class="topics-preview">The Universe Is Speeding Up — And Nobody Knows Why: Dark Energy and the Accelerating Cosmos · 世界第一張紙幣、百萬人口的夜市、海上貿易霸權：宋朝的商業革命 · The Only Successful Slave Revolt That Built a Nation: The Haitian Revolution</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+          <a class="entry-link" href="daily-learning-2026-06-11.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">The Universe's Most Extreme Objects: Inside Neutron Stars and the Spinning Lighthouses That Reveal Them · 征服已知世界的邊緣——蒙古帝國西征如何重塑歐亞大陸 · The Printing Press, a Monk's Theses, and the Fracturing of Christendom: The Protestant Reformation</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Wednesday, 10 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-10.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">🔗 Connection of the Day</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Tuesday, 9 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-09.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">The Shadow at the Heart of the Milky Way · 鄭和下西洋：被遺忘的帝國海路 · Constantinople, 1453: The Day a World Ended — and Another Began</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Sunday, 7 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-07.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Wednesday, 3 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-03.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">Saturn Was Never Speeding Up. Its Own Northern Lights Were Lying to Us. · 鎖國的算盤：德川幕府關閉日本大門，其實是為了對付日本人 · The Banned Book That Sold 20,000 Copies in a Year — and Helped Start a Revolution</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+        <div class="date-group">
+          <div class="date-label">
+            <span class="date-label-text">Tuesday, 2 June 2026</span>
+          </div>
+          <a class="entry-link" href="daily-learning-2026-06-02.html">
+            <div class="entry-body">
+              <span class="entry-title">Edward's Daily Learning</span>
+              <span class="topics-preview">The Lightest World We've Ever Seen Up Close · 安祿山之亂：一場幾乎終結大唐的宴席 · The Fortress That Fell in 24 Hours</span>
+            </div>
+            <span class="entry-arrow">&#x2192;</span>
+          </a>
+        </div>
+  </main>
+
+  <footer>
+    &copy; 2026 Edward Chan &middot; Powered by curiosity
+  </footer>
 </body>
 </html>
