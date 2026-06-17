@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 17 June 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e1e;--border:#2a2a38;--text:#e0ddd4;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#d4a84b;--amber-bg:#1a1608;--amber-border:#3a2e0a;--green:#5cba82;--green-bg:#0d1a11;--green-border:#1a3825;--steel:#7a9fc4;--steel-bg:#0d1420;--steel-border:#1a2840;--spark:#16112a;--spark-border:#2d2050;}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif',Georgia,'Noto Serif HK','Source Han Serif',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.22rem 1rem;}
+.back-bar a{color:var(--muted);text-decoration:none;border:1px solid var(--border);border-radius:20px;padding:.15rem .65rem;font-size:.75rem;transition:color .18s,border-color .18s;}
+.back-bar a:hover{color:var(--accent);border-color:var(--accent-dim);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:transparent;border:1px solid var(--border);border-radius:6px;padding:.18rem .52rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);}
+.site-header{padding:.45rem 1.2rem;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.site-header h1{font-size:.97rem;color:var(--text);}
+.site-header .meta{font-size:.72rem;color:var(--muted);opacity:.75;}
+.toc-bar{display:none;overflow-x:auto;white-space:nowrap;padding:.28rem .8rem;gap:.4rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-bar a{display:inline-block;border:1px solid var(--border);border-radius:20px;padding:.18rem .6rem;font-size:.72rem;color:var(--muted);text-decoration:none;transition:color .18s,border-color .18s;}
+.toc-bar a:hover{color:var(--accent);border-color:var(--accent);}
+.page-wrap{display:flex;max-width:1200px;margin:0 auto;padding:0 1rem;}
+.left-nav{display:none;}
+.content{flex:1;min-width:0;padding:1.5rem 0 4rem;}
+@media(min-width:900px){
+  .toc-bar{display:none !important;}
+  .left-nav{display:block;width:180px;flex-shrink:0;padding-top:1.5rem;}
+  .left-nav-inner{position:sticky;top:80px;}
+  .left-nav a{display:block;border:1px solid var(--border);border-radius:20px;padding:.22rem .7rem;font-size:.72rem;color:var(--muted);text-decoration:none;margin-bottom:.35rem;transition:color .18s,border-color .18s;}
+  .left-nav a:hover{color:var(--accent);border-color:var(--accent);}
+  .content{padding:1.5rem 0 4rem 1.8rem;}
+}
+@media(max-width:899px){.toc-bar{display:flex !important;}}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:1.5rem;scroll-margin-top:52px;}
+.card.amber{background:var(--amber-bg);border-color:var(--amber-border);}
+.card.green{background:var(--green-bg);border-color:var(--green-border);}
+.card.steel{background:var(--steel-bg);border-color:var(--steel-border);}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:.5rem;}
+.card h2{font-size:1.18rem;color:var(--accent);margin-bottom:.9rem;line-height:1.35;font-family:'Noto Serif HK','Noto Serif',serif;}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.card p{margin-bottom:.95rem;font-size:.95rem;}
+.predict-box{background:var(--surface2);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;margin-bottom:1rem;}
+.predict-box summary{padding:.5rem .8rem;cursor:pointer;font-size:.85rem;color:var(--muted);list-style:none;}
+.predict-box summary::before{content:"🤔 ";}
+.predict-box[open] summary{color:var(--accent);}
+.predict-box .predict-body{padding:.5rem .8rem .7rem;font-size:.9rem;font-style:italic;color:var(--text);}
+.card.amber .predict-box{border-left-color:var(--amber);}
+.card.steel .predict-box{border-left-color:var(--steel);}
+.card.green .predict-box{border-left-color:var(--green);}
+.intro-box{border-left:3px solid var(--accent-dim);padding:.6rem .9rem;margin-bottom:1rem;border-radius:0 6px 6px 0;background:rgba(126,184,212,.06);font-size:.88rem;}
+.intro-box strong{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:.3rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(212,168,75,.06);}
+.card.amber .intro-box strong{color:var(--amber);}
+.card-img-wrap{margin:1rem 0;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.4rem;font-style:italic;}
+.takeaway{border-top:1px solid var(--border);margin-top:1rem;padding-top:.8rem;font-size:.88rem;color:var(--accent);}
+.card.amber .takeaway{color:var(--amber);}
+.card.green .takeaway{color:var(--green);}
+.card.steel .takeaway{color:var(--steel);}
+.takeaway::before{content:"💡 ";}
+.retrieval-q{font-size:.88rem;margin-top:.9rem;font-style:italic;color:var(--text);}
+.answer-reveal{margin-top:.4rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;list-style:none;}
+.answer-reveal summary::before{content:"▶ ";}
+.answer-reveal[open] summary{color:var(--accent);}
+.answer-reveal[open] summary::before{content:"▼ ";}
+.answer-body{padding:.5rem 0 .3rem;font-size:.88rem;color:var(--text);line-height:1.65;}
+.source{font-size:.75rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.5rem;}
+.pe-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.9rem 0;}
+.pe-block{background:rgba(122,159,196,.06);border:1px solid var(--steel-border);border-radius:8px;padding:.65rem .8rem;}
+.pe-block h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-block p{font-size:.85rem;margin:0;}
+@media(max-width:600px){.pe-grid{grid-template-columns:1fr;}}
+.connection{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.4rem;margin:1.5rem 0;}
+.connection h3{font-size:.88rem;color:var(--accent);margin-bottom:.5rem;}
+.connection p{font-size:.9rem;}
+footer{color:var(--muted);font-size:.78rem;padding:2rem 0 1rem;border-top:1px solid var(--border);}
+footer details summary{cursor:pointer;color:var(--muted);padding:.3rem 0;}
+footer p{margin-bottom:.4rem;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">← All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+    </div>
+  </div>
+  <div class="site-header">
+    <h1>📖 Edward's Daily Learning — Wednesday, 17 June 2026</h1>
+    <span class="meta">~55 min read &nbsp;·&nbsp; 11 topics</span>
+  </div>
+  <div class="toc-bar">
+    <a href="#card-1">🔭 Astronomy</a><a href="#card-2">⛩ 東方歷史</a><a href="#card-3">🏛 W. History</a><a href="#card-4">☯ 東方哲學</a><a href="#card-5">🌿 W. Philosophy</a><a href="#card-6">🧠 Psychology</a><a href="#card-7">🫀 Physiology</a><a href="#card-8">💊 Health</a><a href="#card-9">🏋 Sports Sci</a><a href="#card-10">📈 Investing</a><a href="#card-11">⚖️ Pol. Econ</a>
+  </div>
+</div>
+<div class="page-wrap">
+  <nav class="left-nav">
+    <div class="left-nav-inner">
+      <a href="#card-1">🔭 Astronomy</a><a href="#card-2">⛩ 東方歷史</a><a href="#card-3">🏛 W. History</a><a href="#card-4">☯ 東方哲學</a><a href="#card-5">🌿 W. Philosophy</a><a href="#card-6">🧠 Psychology</a><a href="#card-7">🫀 Physiology</a><a href="#card-8">💊 Health</a><a href="#card-9">🏋 Sports Sci</a><a href="#card-10">📈 Investing</a><a href="#card-11">⚖️ Pol. Econ</a>
+    </div>
+  </nav>
+  <div class="content">
+
+<section class="spark-section">
+  <h2>🔁 Yesterday's Spark</h2>
+  <p class="spark-meta">From <em>16 June 2026 — 1st Edition</em>. Answer from memory before checking.</p>
+  <div class="spark-item">
+    <span class="spark-label">🔭 Astronomy — Pillars of Creation</span>
+    <em>Answer this without looking back:</em> What process is slowly destroying the Pillars of Creation, and how did JWST's infrared imaging change our understanding of what's happening inside them?
+    <details><summary>Check your answer</summary><div class="answer">Intense ultraviolet radiation from nearby hot stars ablates the pillar surfaces through photoevaporation. JWST's infrared vision penetrated the dust columns to reveal hundreds of embedded protostars invisible to Hubble — showing the pillars are active stellar nurseries even as they are being eroded from the outside in, by the very type of stars forming within them.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">⛩ 東方歷史 — 岳飛與宋金之戰</span>
+    <em>讀後回想：</em>宋高宗為何在岳飛節節勝利之際下令召回並殺害他？秦檜在此事件中扮演什麼角色？
+    <details><summary>查看答案</summary><div class="answer">高宗擔心北伐成功後欽宗返朝將威脅自身帝位，且長期戰爭消耗財政；秦檜身為主和派首相，藉「莫須有」罪名構陷岳飛，以鑄平《紹興和議》之路，換取南宋苟安。</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">🏛 Western History — Berlin Conference</span>
+    <em>Answer this without looking back:</em> What was the "effective occupation" principle established at Berlin, and how did Leopold II's Congo Free State exemplify both the conference's logic and its darkest consequences?
+    <details><summary>Check your answer</summary><div class="answer">Effective occupation required colonial powers to administer territory rather than merely claim it. Leopold exploited this by establishing a personal sovereign state in Congo, using it to extract rubber through forced labour enforced by mutilation and terror. It satisfied the conference's administrative criterion while producing mass atrocity on an industrial scale.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">☯ 東方哲學 — 黃宗羲《明夷待訪錄》</span>
+    <em>讀後回想：</em>黃宗羲如何論證帝制是「天下之大害」？他提出哪些具體的制度設計來限制君權？
+    <details><summary>查看答案</summary><div class="answer">黃宗羲認為帝制以「天下為一人之業」，君主佔利益而轉實禍害，違背了「天下為主、君為客」的古制。他主張恢復宰相實權以分君之權，建立以學校為中心的公共議政機制，並以「天下之法」取代「一家之法」，從制度層面約束君主專制。</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">🌿 Western Philosophy — Locke</span>
+    <em>Answer this without looking back:</em> How does Locke's labour theory of property differ from a rights-by-royal-grant model, and what is the "trust" argument that justifies resistance against unjust government?
+    <details><summary>Check your answer</summary><div class="answer">Locke argues property emerges when individuals mix their labour with natural resources, creating a rightful claim independent of any sovereign grant. The trust argument holds that political authority is conditional: citizens transfer enforcement rights to government in return for protection of their natural rights; if government violates those rights, the trust dissolves and resistance becomes legitimate.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">🧠 Psychology — Flow State</span>
+    <em>Answer this without looking back:</em> What is the challenge-skill balance condition for flow, and what counterintuitive finding emerged from Csikszentmihalyi's experience-sampling studies about work versus leisure?
+    <details><summary>Check your answer</summary><div class="answer">Flow requires challenge and skill to be matched at a high level — too easy produces boredom, too hard produces anxiety. The counterintuitive finding was that people reported more flow-like states during work than during leisure like watching television, which tended to produce low challenge, low engagement, and paradoxically low wellbeing despite being chosen as relaxation.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">🫀 Physiology — Exercise Cramps</span>
+    <em>Answer this without looking back:</em> What is the neuromuscular fatigue hypothesis for exercise cramps, and what evidence does pickle juice provide in support of it?
+    <details><summary>Check your answer</summary><div class="answer">As muscles fatigue, inhibitory signals from Golgi tendon organs decrease and excitatory signals from muscle spindles increase, tipping the balance toward uncontrolled motor neuron firing. Pickle juice relieves cramps within ~85 seconds — too fast for absorbed electrolytes to reach muscle tissue — suggesting it works via an oropharyngeal reflex that triggers inhibitory neural signals, consistent with a neurological rather than electrolyte cause.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">💊 Health — Alcohol &amp; CV Health</span>
+    <em>Answer this without looking back:</em> What is sick-quitter bias, and how do Mendelian randomisation studies challenge the J-curve hypothesis for alcohol and cardiovascular health?
+    <details><summary>Check your answer</summary><div class="answer">Sick-quitter bias occurs when the abstainer group includes former drinkers who quit due to poor health, making abstainers look sicker and artificially inflating the apparent protective effect of moderate drinking. Mendelian randomisation uses genetic variants affecting alcohol metabolism as a natural experiment: those genetically predisposed to drink less had lower cardiovascular risk — the inverse of what genuine cardioprotection from alcohol would predict.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">🏋 Sports Science — Stretch-Shortening Cycle</span>
+    <em>Answer this without looking back:</em> What is the stretch-shortening cycle, and why does tendon stiffness — rather than maximal muscle strength — determine how efficiently it works?
+    <details><summary>Check your answer</summary><div class="answer">The SSC is the pre-stretch of muscle and tendon under eccentric load during landing, which stores elastic potential energy in collagen fibres and releases it in the concentric phase. Stiffer tendons deform less per unit of force, store elastic energy more efficiently, and return it faster during push-off; a compliant tendon dissipates energy as heat rather than returning it, undermining the spring mechanism regardless of the muscle's contractile strength.</div></details>
+  </div>
+  <div class="spark-item">
+    <span class="spark-label">📈 Investing — Soros &amp; Reflexivity</span>
+    <em>Answer this without looking back:</em> What is Soros's reflexivity theory, and how did it shape the logic of the sterling short that broke the Bank of England?
+    <details><summary>Check your answer</summary><div class="answer">Reflexivity holds that market participants' biased perceptions not only respond to fundamentals but actively alter them through feedback loops — prices shape expectations shape behaviour shape fundamentals. In the sterling trade, Soros identified the UK had entered the ERM at an unsustainable rate; by short-selling at scale he made the cost of defence public and credible doubt contagious — the trade itself became part of the mechanism that made the peg indefensible.</div></details>
+  </div>
+</section>
+
+<article class="card" id="card-1">
+  <div class="card-label">🔭 Astronomy &amp; Cosmos</div>
+  <h2>Saturn's Other Wonder: Titan's Alien Seas and the World Beneath the Haze</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — What fills the lakes on Titan?</summary>
+    <div class="predict-body">Saturn's moon Titan (土衛六) is the only world besides Earth known to have stable liquid on its surface. What do you think those liquid bodies are made of?</div>
+  </details>
+  <div class="card-img-wrap" id="img-card-1"><span style="font-size:4rem">🪐</span></div>
+  <p>When the Cassini spacecraft (卡西尼號) first pierced Titan's thick orange haze in the early 2000s, scientists braced for something strange — but nothing prepared them for what radar revealed: coastlines. Titan turned out to host seas and lakes filled not with water, which freezes solid at Titan's surface temperature of −179 °C, but with liquid methane (甲烷) and ethane (乙烷). The largest, Kraken Mare (克拉肯海), exceeds the Caspian Sea in area. Scientists were stunned not merely by the existence of these bodies but by their mirror-flat surfaces — calm as glass in radar images — and their clustering near the north pole, hinting at a systematic hydrocarbon cycle (烴循環) analogous to Earth's water cycle.</p>
+  <p>Titan is the only world besides Earth with a dense nitrogen atmosphere (氮氣大氣層) and a full weather cycle — but powered by methane rather than water. Methane evaporates from lakes, forms clouds, and rains back onto a landscape of water-ice bedrock and organic-compound dunes (有機化合物沙丘). The Huygens probe (惠更斯探測器), released by Cassini and descending for 2.5 hours in January 2005, captured the crunch of a pebbly floodplain and detected traces of benzene (苯) and cyanogen (氰) in the haze. It remains the most distant soft landing ever achieved. Huygens found rounded pebbles worn smooth by flowing liquid — the same signature used on Earth to identify ancient riverbeds — confirming that methane rivers once ran, and may still run seasonally, across Titan's surface.</p>
+  <p>Beneath the surface lies a suspected liquid-water ocean (液態水海洋), kept warm by tidal heating from Saturn's gravity and potentially laced with ammonia (氨) as antifreeze. This makes Titan one of the most astrobiologically interesting worlds in the solar system, though any life would need to exploit liquid methane rather than water as a solvent — a chemistry our biochemistry cannot easily imagine. NASA's Dragonfly mission (蜻蜓號任務), a rotorcraft lander approved for launch in 2028, will hop between sites to sample organic materials and search for prebiotic chemistry. For the first time since Huygens, we will return — and stay.</p>
+  <div class="takeaway">Titan runs on methane the way Earth runs on water — evaporation, clouds, rain, rivers, seas — making it our solar system's most vivid proof that complex planetary cycles can operate with entirely different chemistry.</div>
+  <div class="retrieval-q"><em>Answer this without looking back:</em> Why does Titan have stable surface liquid when other moons do not, and what did the Huygens landing site reveal about the moon's geological history?</div>
+  <details class="answer-reveal">
+    <summary>Check your answer</summary>
+    <div class="answer-body">Titan's thick nitrogen atmosphere creates sufficient surface pressure, and its surface temperature of −179 °C sits within the liquid phase range for methane and ethane — not water, which is frozen solid. The Huygens landing site revealed rounded pebbles worn smooth by flowing liquid, the same signature as ancient riverbeds on Earth, confirming that liquid methane has flowed across Titan's surface over geological timescales.</div>
+  </details>
+  <div class="source">Sources: Stofan et al. (2007) <em>Nature</em> — Titan's lakes; Tomasko et al. (2005) <em>Nature</em> — Huygens descent imaging; NASA/ESA Cassini mission press releases; Turtle et al. (2011) <em>Science</em>.</div>
+</article>
+
+<article class="card amber" id="card-2">
+  <div class="card-label">⛩ 東方歷史</div>
+  <h2>手足相殘的帝國起點：玄武門之變與唐太宗的矛盾遺產</h2>
+  <details class="predict-box">
+    <summary>讀前預測——功高震主的皇子，有何出路？</summary>
+    <div class="predict-body">一個功勳卓著的皇子，卻不是法定繼承人。在帝制框架下，他面對的困境如何解決？</div>
+  </details>
+  <div class="intro-box">
+    <strong>背景概覽</strong>
+    <strong>關鍵人物：</strong>秦王李世民、太子李建成、齊王李元吉、唐高祖李淵、謀士房玄齡與杜如晦、猛將尉遲敬德<br>
+    <strong>核心事件：</strong>626年6月4日（武德九年），李世民率親信在長安北門玄武門伏擊並殺死兩兄弟，逼父退位稱帝<br>
+    <strong>大局背景：</strong>唐朝立國不足十年，北方突厥虎視眈眈；李建成與李世民的儲位之爭已演變為你死我活的生存危機
+  </div>
+  <div class="card-img-wrap" id="img-card-2"><span style="font-size:4rem">⛩</span></div>
+  <p>唐朝建立之功，三分在李淵、七分在李世民。他十八歲隨父起兵，先後平定薛舉、王世充、竇建德，以閃電式奔襲奠定江山。然而按宗法，長子李建成才是法定太子。玄武門之變的根源在於兩套平行政治班底的存在：李建成有東宮幕僚魏徵、王珪；李世民有秦王府謀士房玄齡、杜如晦，猛將尉遲敬德、秦叔寶。兩個集團共享一個皇宮，卻只能有一個未來，衝突自此不可避免。</p>
+  <p>武德九年六月，危機白熱化。李建成與李元吉計劃藉出征突厥之機，調走李世民的心腹將領，並在餞行宴上毒殺李世民——後者事後自稱飲酒後嘔血數升。李世民搶先行動：以「太白星出秦分」的天文異象為由，召高祖翌日早朝詳察，同時命尉遲敬德埋伏玄武門北側。六月四日清晨，李建成與李元吉入宮途中遭伏擊；李世民親手射殺李建成，尉遲敬德射殺李元吉。整場政變從伏擊到控制衛隊，不足一個時辰。</p>
+  <p>殺兄逼父的污點，李世民終其一生未能完全洗去，但他選擇以治績作答。他召昔日政敵魏徵入朝，問及原因，魏徵答：「太子若早從臣言，必無今日之禍。」李世民非但未殺他，反任為諫議大夫，開創唐朝廣納諫言的政治風氣。「貞觀之治」（626—649年）成為後世公認的盛世：均田制、府兵制、科舉完善、《貞觀律》修訂，對外以羈縻政策安撫各族。玄武門之變揭示了一個殘酷的制度規律：帝制繼承的零和格局，本身就埋下了手足相殘的種子。</p>
+  <div class="takeaway">李世民的弔詭在於：他靠殺兄才能成為「貞觀」的締造者——帝制繼承制度的設計，本身就迫使有能力者以暴力解決政治危機。</div>
+  <div class="retrieval-q"><em>讀後回想：</em>李世民為何能在玄武門政變後迅速穩定局面？他對待政敵魏徵的方式，反映了什麼政治邏輯？</div>
+  <details class="answer-reveal">
+    <summary>查看答案</summary>
+    <div class="answer-body">李世民掌控了玄武門這一進出皇城的要道，政變完成後即持刀請高祖禪讓，軍事上已無人能反制。對魏徵的寬待，一方面彰顯超越私怨的胸襟以收人心，另一方面是刻意引入曾服侍對立陣營的人才，藉此打破政治派系壟斷、建立廣泛聯合的執政基礎——此乃「貞觀」廣納諫言風氣的制度源頭。</div>
+  </details>
+  <div class="source">資料來源：《舊唐書》卷二；《資治通鑑》卷一九一；Denis Twitchett 主編《劍橋中國隋唐史》（1979，劍橋大學出版社）；Victor Cunrui Xiong《隋唐長安》（2006）。</div>
+</article>
+
+<article class="card" id="card-3">
+  <div class="card-label">🏛 Western History</div>
+  <h2>Remaking the Map: The Congress of Vienna and the Art of Preventing the Next Napoleon</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — How do you prevent war after defeating a conqueror?</summary>
+    <div class="predict-body">After 23 years of revolutionary and Napoleonic wars that killed millions, European statesmen met in Vienna (維也納) in 1814–15. What principles would you use to design a lasting peace?</div>
+  </details>
+  <div class="intro-box">
+    <strong>Key Figures &amp; Context</strong>
+    <strong>Key figures:</strong> Klemens von Metternich (梅特涅, Austria), Lord Castlereagh (卡斯爾雷, Britain), Tsar Alexander I (亞歷山大一世, Russia), Talleyrand (塔列朗, France)<br>
+    <strong>At stake:</strong> Redrawing Europe's map after Napoleon's collapse; balancing great-power rivalry while suppressing liberal nationalism<br>
+    <strong>Setting:</strong> Vienna, September 1814 – June 1815, punctuated by Napoleon's return during the Hundred Days (百日復辟)
+  </div>
+  <div class="card-img-wrap" id="img-card-3"><span style="font-size:4rem">🏛</span></div>
+  <p>The Congress of Vienna (維也納會議) was arguably the most successful peace settlement in modern European history — and one of the most cynically pragmatic. Metternich's guiding principle was legitimacy (正統性) and balance of power (均勢): restore monarchies to their thrones, redraw borders to prevent any single state from dominating, and suppress the liberal nationalism (自由民族主義) that had energised Napoleon's armies. The diplomatic method was as notable as the outcome — continuous private negotiation hosted by Vienna's lavish social calendar, allowing frank exchanges that formal sessions could not. Prince de Ligne famously quipped: "Le congrès ne marche pas, il danse" — the congress doesn't walk, it dances.</p>
+  <p>The territorial settlements were intricate. France, represented by the wily Talleyrand who had served Napoleon but now spoke for the restored Bourbon monarchy, was shrewdly rehabilitated: returned to 1792 borders and admitted to great-power deliberations, depriving Prussia and Russia of any pretext to permanently diminish it. The Netherlands absorbed Belgium to create a buffer state against France. Prussia gained Rhineland territories; Russia kept Finland and most of Poland; Britain took Ceylon, the Cape Colony, and Malta. The underlying logic was not fairness but equilibrium — no power large enough to overturn the system. Talleyrand's masterstroke was invoking "legitimacy" as a principle that protected France as much as it constrained it.</p>
+  <p>What emerged was the Concert of Europe (歐洲協調) — an informal system of great-power consultation that managed crises for nearly a century. Major wars between the great powers were avoided until 1914, a record unprecedented in European history. The Congress's flaw was its deliberate suppression of nationalism (民族主義): it kept the German states fragmented, left Poles stateless, and ignored Italian calls for unification. These deferred tensions eventually exploded — in 1848's revolutions, in Bismarck's wars of German unification (1864–71), and ultimately in the pressures that contributed to 1914. The Congress of Vienna is thus a case study in the limits of realist statecraft: it solved the hegemony problem brilliantly while creating conditions for a different catastrophe a century later.</p>
+  <div class="takeaway">The Congress of Vienna achieved nearly 99 years of great-power peace by treating stability as more valuable than justice — and the problems it chose to suppress rather than solve returned with compound interest in 1914.</div>
+  <div class="retrieval-q"><em>Answer this without looking back:</em> What was the Concert of Europe, and why did Talleyrand's participation in Vienna matter despite France being the defeated power?</div>
+  <details class="answer-reveal">
+    <summary>Check your answer</summary>
+    <div class="answer-body">The Concert of Europe was an informal system of regular great-power consultation to manage international crises through negotiation rather than war, operating through congresses and ambassadorial meetings for most of the 19th century. Talleyrand's participation mattered because France's inclusion transformed Vienna from a victor's tribunal into a genuine balance-of-power settlement: a weakened but dignified France was harder for Prussia and Russia to exploit, and a France with a stake in the system was less likely to produce another revolutionary upheaval.</div>
+  </details>
+  <div class="source">Sources: Henry Kissinger, <em>A World Restored</em> (1957); Harold Nicholson, <em>The Congress of Vienna</em> (1946); Paul Schroeder, <em>The Transformation of European Politics 1763–1848</em> (1994); Britannica — "Congress of Vienna."</div>
+</article>

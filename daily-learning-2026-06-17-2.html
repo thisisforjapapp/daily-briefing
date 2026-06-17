@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — 17 June 2026 (2nd Edition)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&display=swap');
+:root{
+  --bg:#0f1117;--surface:#181c27;--surface2:#1e2333;--border:#2a2f42;
+  --text:#dde1f0;--muted:#8891aa;--accent:#6eb5ff;--accent2:#4a9eff;
+  --amber:#c8922a;--amber-bg:rgba(200,146,42,.08);--amber-border:rgba(200,146,42,.3);
+  --green:#4caf7d;--green-bg:rgba(76,175,125,.08);--steel:#6b9ec7;--steel-bg:rgba(107,158,199,.08);
+  --radius:10px;--card-pad:1.6rem;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:"Noto Serif HK","Source Han Serif",serif;font-size:1rem;line-height:1.75}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* STICKY TOP */
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg)}
+.back-bar{display:flex;align-items:center;gap:.6rem;padding:.22rem 1rem;border-bottom:1px solid var(--border)}
+.back-bar a.back-pill{color:var(--muted);border:1px solid var(--border);border-radius:20px;padding:.15rem .7rem;font-size:.78rem;transition:color .2s}
+.back-bar a.back-pill:hover{color:var(--accent);text-decoration:none}
+.badge-2nd{background:var(--accent2);color:#fff;font-size:.68rem;padding:.1rem .5rem;border-radius:12px;font-weight:700;letter-spacing:.03em}
+.toolbar-btns{display:flex;gap:.4rem;margin-left:auto}
+.toolbar-btns button{background:var(--surface2);border:1px solid var(--border);color:var(--muted);border-radius:6px;padding:.15rem .55rem;font-size:.72rem;cursor:pointer}
+.toolbar-btns button:hover{color:var(--accent)}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.sticky-top h1{font-size:.97rem;font-weight:700;color:var(--text)}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted)}
+.toc-bar{display:none;overflow-x:auto;white-space:nowrap;padding:.28rem .8rem;border-bottom:1px solid var(--border);gap:.35rem;scrollbar-width:none}
+.toc-bar::-webkit-scrollbar{display:none}
+.toc-bar a{display:inline-block;border:1px solid var(--border);border-radius:16px;padding:.15rem .65rem;font-size:.72rem;color:var(--muted);margin-right:.3rem}
+.toc-bar a:hover{color:var(--accent);text-decoration:none}
+
+/* LAYOUT */
+.page-wrap{display:flex;max-width:1200px;margin:0 auto;padding:1.2rem 1rem 3rem}
+.left-nav{display:none}
+.content{flex:1;min-width:0}
+
+@media(min-width:900px){
+  .left-nav{display:block;width:185px;min-width:185px;margin-right:1.6rem;position:sticky;top:5.5rem;align-self:flex-start;height:fit-content}
+  .left-nav a{display:block;border:1px solid var(--border);border-radius:16px;padding:.28rem .7rem;font-size:.72rem;color:var(--muted);margin-bottom:.35rem;transition:color .2s,border-color .2s}
+  .left-nav a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+  .toc-bar{display:none!important}
+}
+@media(max-width:899px){
+  .toc-bar{display:flex}
+  .page-wrap{padding:.8rem .6rem 3rem}
+}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--card-pad);margin-bottom:1.4rem;scroll-margin-top:52px}
+.card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem}
+.card h2{font-size:1.3rem;font-weight:700;margin-bottom:.9rem;line-height:1.35}
+.card.amber{border-left:3px solid var(--amber);background:linear-gradient(135deg,var(--amber-bg),var(--surface))}
+.card.amber h2,.card.amber .card-label{color:var(--amber)}
+.card.green{border-left:3px solid var(--green)}
+.card.green .card-label{color:var(--green)}
+.card.steel{border-left:3px solid var(--steel)}
+.card.steel .card-label{color:var(--steel)}
+
+/* PREDICT BOX */
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;margin-bottom:1rem}
+.predict-box summary{padding:.6rem .9rem;cursor:pointer;font-size:.88rem;font-weight:600;list-style:none;display:flex;align-items:center;gap:.4rem}
+.predict-box summary::-webkit-details-marker{display:none}
+.predict-box summary::before{content:"🤔 ";font-size:1rem}
+.predict-box[open] summary{border-bottom:1px solid var(--border)}
+.predict-box .pred-answer{padding:.6rem .9rem;font-size:.85rem;color:var(--muted)}
+
+/* INTRO BOX */
+.intro-box{border-radius:8px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.9rem;line-height:1.65}
+.intro-box.amber-wash{background:var(--amber-bg);border-left:3px solid var(--amber)}
+.intro-box.accent-wash{background:rgba(110,181,255,.06);border-left:3px solid var(--accent)}
+
+/* IMAGE */
+.img-wrap{margin:1rem 0;text-align:center}
+.img-wrap img{max-width:100%;max-height:320px;object-fit:contain;border-radius:8px;background:var(--surface2)}
+.img-wrap .img-caption{font-size:.72rem;color:var(--muted);margin-top:.4rem}
+
+/* PARAGRAPHS */
+.card p{margin-bottom:.9rem;font-size:.95rem}
+.card p:last-of-type{margin-bottom:0}
+
+/* TAKEAWAY */
+.takeaway{background:var(--surface2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.65rem .9rem;margin:1rem 0;font-size:.88rem;font-style:italic}
+.card.amber .takeaway{border-left-color:var(--amber)}
+.card.green .takeaway{border-left-color:var(--green)}
+.card.steel .takeaway{border-left-color:var(--steel)}
+
+/* RETRIEVAL */
+.retrieval-q{margin-top:1rem;font-size:.88rem;font-weight:600;color:var(--muted)}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:8px;margin-top:.5rem}
+.answer-reveal summary{padding:.5rem .8rem;cursor:pointer;font-size:.85rem;list-style:none;display:flex;align-items:center;gap:.4rem}
+.answer-reveal summary::-webkit-details-marker{display:none}
+.answer-reveal summary::before{content:"✅ "}
+.answer-reveal[open] summary{border-bottom:1px solid var(--border)}
+.answer-body{padding:.6rem .8rem;font-size:.85rem;color:var(--muted)}
+
+/* SOURCE */
+.source{font-size:.75rem;color:var(--muted);margin-top:.9rem;border-top:1px solid var(--border);padding-top:.6rem}
+
+/* SPARK */
+.spark-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem var(--card-pad);margin-bottom:1.4rem}
+.spark-section h2{font-size:1rem;font-weight:700;margin-bottom:.9rem;color:var(--accent)}
+.spark-item{margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid var(--border)}
+.spark-item:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.spark-q{font-size:.88rem;font-weight:600;margin-bottom:.3rem}
+.spark-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:6px;margin-top:.4rem}
+.spark-reveal summary{padding:.4rem .7rem;cursor:pointer;font-size:.82rem;list-style:none}
+.spark-reveal summary::-webkit-details-marker{display:none}
+.spark-reveal[open] summary{border-bottom:1px solid var(--border)}
+.spark-ans{padding:.5rem .7rem;font-size:.82rem;color:var(--muted)}
+
+/* CONNECTION */
+.connection{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:1.4rem}
+.connection h3{font-size:.9rem;font-weight:700;margin-bottom:.5rem;color:var(--accent)}
+.connection p{font-size:.88rem}
+
+/* CARD 11 STRUCTURE */
+.theory-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}
+@media(max-width:600px){.theory-grid{grid-template-columns:1fr}}
+.theory-cell{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.7rem .9rem}
+.theory-cell .cell-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--steel);font-weight:700;margin-bottom:.35rem}
+.theory-cell p{font-size:.85rem;margin:0}
+
+/* FOOTER */
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem;font-size:.8rem;color:var(--muted);margin-top:2rem}
+footer details summary{cursor:pointer;font-weight:600;margin-bottom:.5rem}
+footer ul{padding-left:1.2rem;line-height:2}
+
+/* FLOATING TOOLBAR */
+.float-toolbar{position:fixed;bottom:1.2rem;right:1.2rem;display:flex;flex-direction:column;gap:.5rem;z-index:300}
+.float-toolbar button{background:var(--surface2);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.5rem .8rem;font-size:.78rem;cursor:pointer;white-space:nowrap;font-family:inherit}
+.float-toolbar button:hover{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a class="back-pill" href="index.html">← All Briefings</a>
+    <span class="badge-2nd">2nd Edition</span>
+    <div class="toolbar-btns">
+      <button onclick="window.print()">🖨 Print</button>
+      <button onclick="document.documentElement.requestFullscreen()">⛶ Full</button>
+    </div>
+  </div>
+  <div class="site-header">
+    <h1>Edward's Daily Learning — 17 June 2026</h1>
+    <span class="meta">2nd Edition · 11 topics · ~30 min read</span>
+  </div>
+  <div class="toc-bar">
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">📜 東史</a>
+    <a href="#card-3">🏛 W.History</a>
+    <a href="#card-4">☯ 東哲</a>
+    <a href="#card-5">💭 W.Phil</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">🫀 Physiology</a>
+    <a href="#card-8">🥗 Health</a>
+    <a href="#card-9">🏋 Sports Sci</a>
+    <a href="#card-10">📈 Investing</a>
+    <a href="#card-11">🏛 PolEcon</a>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <nav class="left-nav">
+    <a href="#spark">🔁 Spark</a>
+    <a href="#card-1">🔭 Astronomy</a>
+    <a href="#card-2">📜 東方歷史</a>
+    <a href="#card-3">🏛 Western History</a>
+    <a href="#card-4">☯ 東方哲學</a>
+    <a href="#card-5">💭 W. Philosophy</a>
+    <a href="#card-6">🧠 Psychology</a>
+    <a href="#card-7">🫀 Physiology</a>
+    <a href="#card-8">🥗 Health</a>
+    <a href="#card-9">🏋 Sports Science</a>
+    <a href="#card-10">📈 Investing</a>
+    <a href="#card-11">🏛 Pol. Econ</a>
+  </nav>
+
+  <div class="content">
+
+<!-- YESTERDAY'S SPARK -->
+<div class="spark-section" id="spark">
+  <h2>🔁 Yesterday's Spark — Check Your Memory</h2>
+
+  <div class="spark-item">
+    <div class="spark-q">🔭 Pillars of Creation: What process is slowly destroying the Pillars of Creation, and on what timescale?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Intense ultraviolet radiation from nearby young stars is photoevaporating the pillars' gas and dust. At current erosion rates, the pillars will dissolve in roughly 3 million years — a blink in cosmic time.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">📜 岳飛：宋高宗為何在岳飛節節勝利之際下令召回並殺害他？</div>
+    <details class="spark-reveal"><summary>查看答案</summary>
+      <div class="spark-ans">高宗擔心北伐成功後欽宗返朝威脅自身帝位，同時秦檜主和派力主議和，岳飛成為和談的政治障礙，遂以「莫須有」罪名賜死。</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">🏛 Berlin Conference: What was the "effective occupation" principle and why did it matter for African colonisation?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Effective occupation required colonial powers to demonstrate actual administrative control — not merely claim territory on a map. It accelerated the physical "Scramble for Africa," forcing European nations to build forts, roads, and administrative posts to secure legal title.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">☯ 黃宗羲：黃宗羲如何論證帝制是「天下之大害」？</div>
+    <details class="spark-reveal"><summary>查看答案</summary>
+      <div class="spark-ans">黃宗羲認為帝制以「天下為一人之業」，君主將天下視為私產，以一己私利凌駕天下公利，故為天下之大害；他主張以「天下之法」取代「一家之法」。</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">💭 Locke: How does Locke's labour theory of property differ from simple first-possession rules?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Locke argues property emerges when individuals mix their labour with natural resources — mere discovery or first-arrival confers no title. However, his "proviso" limits acquisition: one may take only what leaves "enough and as good" for others, preventing monopolisation of nature.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">🧠 Flow State: What is the challenge-skill balance condition for achieving flow?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Flow requires challenge and skill to be matched at a high level — tasks too easy produce boredom; tasks too hard produce anxiety. The sweet spot is when a high-difficulty task meets a high-skill performer operating near their ceiling.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">🫀 Exercise Cramps: What is the neuromuscular fatigue hypothesis for exercise-associated muscle cramps?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">As muscles fatigue, inhibitory signals from Golgi tendon organs (which normally dampen motor neuron firing) weaken, while excitatory signals from muscle spindles remain strong — the imbalance causes sustained, involuntary motor neuron firing and cramping.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">🥗 Alcohol &amp; CV Health: What is sick-quitter bias and why does it undermine observational studies?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Sick-quitter bias occurs when the abstainer group includes former drinkers who quit because of illness — making abstainers appear less healthy than moderate drinkers and artificially inflating alcohol's apparent protective effect in observational data.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">🏋 Stretch-Shortening Cycle: What is the stretch-shortening cycle and why does it improve power output?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">The SSC is the pre-stretch of muscle and tendon immediately before concentric contraction. It stores elastic energy in tendons (especially the Achilles) and potentiates muscle force via the stretch reflex — together boosting power output beyond what a purely concentric contraction could achieve.</div>
+    </details>
+  </div>
+
+  <div class="spark-item">
+    <div class="spark-q">📈 Soros / Reflexivity: What is Soros's reflexivity theory and how does it challenge the efficient market hypothesis?</div>
+    <details class="spark-reveal"><summary>Check your answer</summary>
+      <div class="spark-ans">Reflexivity holds that market participants' biased perceptions actively shape the fundamentals they are trying to predict — prices influence reality (e.g., rising share prices let companies raise cheap equity, actually improving their fundamentals). This creates feedback loops that drive booms and busts, contradicting EMH's assumption of passive price-takers discounting objective reality.</div>
+    </details>
+  </div>
+</div>
+
+<!-- CARD 1: ASTRONOMY — Io -->
+<div class="card" id="card-1">
+  <div class="card-label">🔭 Astronomy &amp; Cosmos</div>
+  <h2>Io: Jupiter's Furious Volcanic Moon</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — How many active volcanoes does Io have, and what powers them?</summary>
+    <div class="pred-answer">Io hosts over 400 active volcanic regions — more than anywhere else in the solar system. The heat source is not radioactive decay but tidal squeezing from Jupiter's immense gravity. Think of kneading dough rapidly: the internal friction generates tremendous heat.</div>
+  </details>
+  <div class="img-wrap" id="img-card-1">
+    <div style="font-size:3rem">🌋</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>When Voyager 1 (航海家一號) swept past Jupiter in March 1979, mission scientist Linda Morabito noticed something in a navigation photo: a pale umbrella shape rising 300 kilometres above a moon called Io (木衛一). It was an active volcanic plume — the first seen anywhere beyond Earth. Scientists were stunned. Io is roughly the size of our own Moon, and no one had expected it to be geologically alive. The images that followed showed a landscape unlike anything in the solar system: orange and yellow sulphur plains pocked with calderas (破火山口), lava lakes glowing deep red, and eruption columns tall enough to rain material back down across hundreds of kilometres.</p>
+  <p>The energy source is tidal heating (潮汐加熱). Io orbits Jupiter in a gravitational tug-of-war with two other large moons, Europa (木衛二) and Ganymede (木衛三). Their rhythmic pulls keep Io's orbit slightly elliptical, so Jupiter's gravity squeezes and stretches the moon's interior as it orbits — friction from this constant kneading generates more heat per unit volume than Earth's entire internal engine. NASA's Juno spacecraft (朱諾號) made repeated Io flybys in 2023 and 2024, photographing active lava lakes — Loki Patera (洛基熔岩湖) alone is larger than Lake Ontario — and showing that Io's volcanic output is concentrated near its poles, a pattern still being debated by planetary scientists.</p>
+  <p>Io's surface is geologically young: no impact craters survive because the ground is continuously repaved by lava. The moon loses three to twelve tonnes of material per second into space, which gets ionised by Jupiter's magnetic field (磁場) and forms a donut-shaped plasma torus (電漿環) around the planet. That torus, in turn, generates intense radiation that makes a Jovian moon landing extraordinarily dangerous. Io is a reminder that the most violent geology in the solar system doesn't require a star — just the right gravitational neighbour.</p>
+  <div class="takeaway">💡 Takeaway: Geological activity on a world is not about size or distance from the Sun — it's about the gravitational company it keeps.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> Why is Io so volcanically active despite being only the size of our Moon, and which two moons contribute to this?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">Io is heated by tidal friction: Europa and Ganymede's orbital resonance keeps Io's orbit slightly elliptical, so Jupiter's gravity constantly deforms Io's interior. The friction of this repeated squeezing generates enormous heat — far more than radioactive decay alone could produce.</div>
+  </details>
+  <div class="source">Source: NASA JPL — Voyager Mission Science Results (1979); Juno Mission Io Flyby Updates (2023–24); <em>Science</em>, Morabito et al. 1979; NASA Juno press releases, nasa.gov.</div>
+</div>
+
+<!-- CARD 2: EASTERN HISTORY — 隋煬帝與大運河 (Traditional Chinese only) -->
+<div class="card amber" id="card-2">
+  <div class="card-label">📜 東方歷史</div>
+  <h2>隋煬帝的豪賭：大運河如何建造一個帝國，又如何摧毀一個王朝</h2>
+  <details class="predict-box">
+    <summary>讀前預測——隋煬帝在位不足二十年，為何隋朝如此迅速崩潰？</summary>
+    <div class="pred-answer">隋煬帝集中力量推行三大工程：開鑿大運河、遠征高句麗、大規模建設東都洛陽。每一項單獨或許尚可承受，三者同時並舉，導致徭役與賦稅壓垮農民，烽火四起。</div>
+  </details>
+  <div class="intro-box amber-wash">
+    <strong>關鍵人物：</strong>隋煬帝楊廣（在位604–618年）／<strong>核心事件：</strong>大運河工程（605–609年）及三征高句麗（612–614年）／<strong>歷史格局：</strong>隋朝統一南北不過三十七年，其制度遺產（科舉、大運河、均田制）卻奠定唐代盛世的基礎，史家稱之「隋亡唐繼」。
+  </div>
+  <div class="img-wrap" id="img-card-2">
+    <div style="font-size:3rem">🛶</div>
+    <div class="img-caption">載入圖片中…</div>
+  </div>
+  <p>公元605年，楊廣即位甫一年，便下詔徵發百萬民夫，開鑿貫通南北的大運河。這條運河並非憑空創造——他利用並擴展了春秋以來的舊有水道網絡，最終形成一條南起杭州、北達涿郡（今北京附近）、全長約2700公里的水運動脈。工程分段推進：先是通濟渠連結黃河與淮河，繼而邗溝延伸至長江，永濟渠向北直達燕地邊境。工地上，男丁不敷，婦女亦被徵調。史書記載某些河段死亡率高達五至六成，屍骸填入河堤之中。</p>
+  <p>楊廣的動機既有戰略邏輯，也有個人野心。南方的糧食與財富若能快速北運，可同時支撐北疆防禦突厥與東征高句麗的軍事行動。他在揚州建造龍舟艦隊，多次南巡，隨行船隊綿延數十里，沿途地方官員供應奢靡所需，民間疲敝至極。三次遠征高句麗（今朝鮮半島北部）均以失敗告終：612年第一次出兵號稱百萬，渡遼河後在薩水（今清川江）慘遭伏擊，生還者不足三千。接連失敗令威信盡失，各地義軍蜂起，618年楊廣在江都（今揚州）被部將宇文化及弒殺，隋朝覆亡。</p>
+  <p>歷史的弔詭在於：摧毀隋朝的大運河，卻成為唐、宋、元、明、清延續千年的經濟命脈。唐代以漕運將江南稻米輸往關中，宋代商業革命依賴這條水路流通貨物，元明更加以疏浚延伸。楊廣被後世史家定性為「暴君」，但他的工程視野使中國南北在物質上真正連為一體。大運河至今仍局部通航，聯合國教科文組織於2014年將其列為世界文化遺產，這是對一個帝王豪賭最諷刺也最恰當的蓋棺論定。</p>
+  <div class="takeaway">💡 啟示：一項工程可以同時是時代的奇蹟與王朝的墓碑——取決於誰來付出代價。</div>
+  <div class="retrieval-q">🧠 <em>試在不翻閱的情況下回答：</em>隋煬帝三征高句麗為何失敗？其失敗如何加速隋朝滅亡？</div>
+  <details class="answer-reveal"><summary>查看答案</summary>
+    <div class="answer-body">三次遠征均遭遇補給困難、高句麗堅壁清野及大規模伏擊（尤以612年薩水之戰損失最慘），導致國威大損。接連軍事失敗加重賦役，各地農民起義爆發，朝廷無力鎮壓，楊廣最終被部將弒殺，隋朝在建立後僅三十七年便告覆亡。</div>
+  </details>
+  <div class="source">資料來源：《隋書》；《資治通鑑》卷一八〇至一八二；Denis Twitchett ed., <em>The Cambridge History of China</em>, Vol. 3 (Sui and T'ang China) (Cambridge University Press, 1979)。</div>
+</div>
+
+<!-- CARD 3: WESTERN HISTORY — English Civil War -->
+<div class="card" id="card-3">
+  <div class="card-label">🏛 History — Western</div>
+  <h2>The English Civil War: When Parliament Beheaded a King</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — What was the central constitutional question the English Civil War was trying to answer?</summary>
+    <div class="pred-answer">Could a monarch rule without Parliament's consent — levying taxes, commanding armies, even suspending laws unilaterally? Charles I said yes; Parliament said no. The war forced that question into the open at gunpoint, and the answer reshaped constitutional government across the English-speaking world.</div>
+  </details>
+  <div class="intro-box accent-wash">
+    <strong>Key figures:</strong> King Charles I (查理一世), Oliver Cromwell (克倫威爾), Thomas Fairfax (費爾法克斯) / <strong>Event at stake:</strong> Whether the Crown held sovereign power or Parliament did / <strong>Big picture:</strong> The English Civil War (英國內戰, 1642–51) was not just a military conflict — it produced the first trial and execution of a reigning European monarch by his own subjects, a republic lasting eleven years, and constitutional precedents that influenced the Glorious Revolution (光榮革命, 1688), the American Revolution (美國獨立革命), and beyond.
+  </div>
+  <div class="img-wrap" id="img-card-3">
+    <div style="font-size:3rem">⚔️</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>The immediate trigger was money — and Scotland. Charles I had ruled for eleven years without Parliament (the "Personal Rule," 1629–40), funding his court through unpopular levies like Ship Money (船錢稅), a medieval tax he revived in peacetime. When he tried to impose an Anglican prayer book on Presbyterian (長老會) Scotland in 1637, riots erupted, and the Scottish army marched south. Desperate for funds to fight, Charles was forced to recall Parliament — and the MPs who arrived in Westminster were primed with eleven years of grievances. The resulting Long Parliament (長期議會) immediately moved to clip royal prerogative, abolished the royal courts of Star Chamber (星法院) and High Commission, and declared that Parliament could not be dissolved without its own consent. By 1642, King and Parliament were raising separate armies.</p>
+  <p>The first phase of war (1642–46) saw Royalist (保皇黨) "Cavaliers" (騎士黨) face off against Parliamentarian (議會黨) "Roundheads" (圓顱黨) — a nickname mocking the Puritan (清教徒) soldiers' short hair. Parliament's decisive innovation was the New Model Army (新型軍, 1645), a professional force under Sir Thomas Fairfax and his cavalry commander Oliver Cromwell. Unlike previous armies of aristocratic obligation, the New Model was paid, drilled, and promoted on merit rather than birth. At Naseby (納斯比) in June 1645, it decisively defeated the king's forces. Charles surrendered to the Scots, who handed him to Parliament, and negotiations began — but Charles kept secretly inviting foreign intervention, infuriating the army.</p>
+  <p>What followed was without European precedent. In December 1648, the army purged Parliament of moderate members in "Pride's Purge" (普莱德清洗), leaving the "Rump Parliament" (殘缺議會), which voted to try the king for treason against his own people. On 30 January 1649, Charles I was beheaded outside Whitehall (白廳) — and England became a Commonwealth (英格蘭共和國), then a Protectorate (護國公政府) under Cromwell. The republic ended with Charles II's Restoration in 1660, but the constitutional genie was out: no English monarch thereafter could claim to rule without parliamentary authority, a principle codified in the Bill of Rights (權利法案) after 1688.</p>
+  <div class="takeaway">💡 Takeaway: The English Civil War didn't just overthrow a king — it established the principle that political authority flows upward from law and representation, not downward from divine appointment.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> What was the New Model Army, and why was it a decisive military innovation compared to earlier Civil War forces?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">The New Model Army (1645) was England's first professional national military force — paid regularly, drilled to consistent standards, and promoted on merit rather than aristocratic birth. It replaced an ad-hoc system of local levies loyal to regional commanders, giving Parliament a unified, disciplined force that outfought the Royalist armies at Naseby and effectively ended the first Civil War.</div>
+  </details>
+  <div class="source">Source: John Kenyon &amp; Jane Ohlmeyer, <em>The Civil Wars: A Military History of England, Scotland and Ireland 1638–1660</em> (Oxford University Press, 1998); Britannica, "English Civil Wars."</div>
+</div>
+
+<!-- CARD 4: EASTERN PHILOSOPHY — 張載氣學 (Traditional Chinese only) -->
+<div class="card amber" id="card-4">
+  <div class="card-label">☯ 東方哲學</div>
+  <h2>張載的「氣學」：萬物一體與民胞物與的宇宙倫理</h2>
+  <details class="predict-box">
+    <summary>讀前預測——如果萬物皆由同一物質構成，這對道德義務意味著甚麼？</summary>
+    <div class="pred-answer">張載認為，若宇宙萬物本質上是同一種「氣」的聚散，那麼人與人、人與天地萬物之間便有根本的親緣關係。道德義務因此不再只是社會規範，而是宇宙結構本身的要求。</div>
+  </details>
+  <div class="intro-box amber-wash">
+    <strong>核心人物：</strong>張載（1020–1077），字子厚，世稱橫渠先生，北宋關學創始人／<strong>核心概念：</strong>「太虛即氣」——宇宙本體是一種恆存的氣，並非真空或虛無／<strong>歷史脈絡：</strong>北宋儒學復興時期，學者急欲在佛道二教的形上學挑戰面前重建儒家宇宙論，張載的「氣學」是這一努力中最具原創性的嘗試之一，與程顥、程頤的「理學」分庭抗禮。
+  </div>
+  <div class="img-wrap" id="img-card-4">
+    <div style="font-size:3rem">☯</div>
+    <div class="img-caption">載入圖片中…</div>
+  </div>
+  <p>張載哲學的起點是對「虛」的重新詮釋。佛教與道家均以「空」或「無」為宇宙本體，認為萬物生滅皆從虛無中來。張載正面反駁：他稱宇宙本體為「太虛」（Great Void），但強調「太虛即氣」——太虛並非空無，而是氣在最稀薄、最均勻狀態下的存在。氣聚則成形，氣散則歸太虛，如冰融為水、水化為蒸汽，實質並無增減。這一見解看似形上學，卻有深遠的倫理含義：若萬物皆是同一「氣」的不同形態，則天地萬物之間存在著本質上的連續性，而非截然的分割。</p>
+  <p>張載將這一宇宙論直接轉化為道德命題，最集中體現於《西銘》（Western Inscription）。這篇僅251字的文章，開篇即宣稱：「乾稱父，坤稱母，予茲藐焉，乃混然中處。」天地是父母，人是天地所生之子，萬物是人的同胞。由此引申出「民胞物與」四字：天下之民皆吾兄弟，天下萬物皆吾同伴。這不是比喻，而是本體論的必然：既然同出一氣，便有真實的親緣關係。《西銘》後來成為宋明理學必讀經典，朱熹高度推崇，視之為「仁」的最佳詮釋。</p>
+  <p>與程頤「理學」的分歧在於：程頤認為宇宙有超越「氣」的形上原理「理」主宰萬物，氣只是形而下的材料；張載則堅持「氣」一元論，不承認有獨立於氣之外的「理」。這一爭論在明代由王陽明「心學」以另一路徑重新出場。現代學者如馮友蘭（Feng Youlan）和張岱年將張載定位為中國哲學中「氣一元論」傳統的奠基者，其「民胞物與」理念更被二十世紀的儒家生態倫理學者重新援引，視為東亞環境哲學的思想資源。</p>
+  <div class="takeaway">💡 啟示：張載的洞見是：如果你相信萬物由共同物質構成，那麼對他人和自然的關懷便不是美德的附加選項，而是宇宙的結構性要求。</div>
+  <div class="retrieval-q">🧠 <em>試在不翻閱的情況下回答：</em>張載「太虛即氣」如何反駁佛道二教的「空無」論，並如何由此推導出「民胞物與」的道德主張？</div>
+  <details class="answer-reveal"><summary>查看答案</summary>
+    <div class="answer-body">張載認為太虛並非空無，而是氣在最稀薄狀態下的存在——氣聚成形，氣散歸虛，萬物皆是同一「氣」的不同形態。由於萬物同出一氣，人與人、人與萬物之間存在本體論的親緣關係，道德義務（民胞物與）因此是宇宙結構本身的要求，而非單純的社會規範。</div>
+  </details>
+  <div class="source">資料來源：張載《正蒙》；《西銘》（收入《張子全書》）；馮友蘭《中國哲學史》（商務印書館）；Wing-tsit Chan, <em>A Source Book in Chinese Philosophy</em> (Princeton University Press, 1963)。</div>
+</div>
+
+<!-- CARD 5: WESTERN PHILOSOPHY — Wittgenstein -->
+<div class="card" id="card-5">
+  <div class="card-label">💭 Philosophy — Western</div>
+  <h2>Wittgenstein's U-Turn: From Logical Atomism to Language Games</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — If the meaning of a word isn't a mental image or a thing it names, what is it?</summary>
+    <div class="pred-answer">For the later Wittgenstein (後期維根斯坦), meaning is use: a word means whatever role it plays in a shared human practice. "Pain" means different things in a doctor's office, a playground, and a courtroom — not because the sensation changes, but because the game changes.</div>
+  </details>
+  <div class="intro-box accent-wash">
+    <strong>Key figure:</strong> Ludwig Wittgenstein (路德維希·維根斯坦, 1889–1951), Austrian-British philosopher / <strong>The pivot:</strong> Wittgenstein wrote the only two philosophies to fundamentally change analytic philosophy — the <em>Tractatus Logico-Philosophicus</em> (邏輯哲學論, 1921) and the <em>Philosophical Investigations</em> (哲學研究, published posthumously 1953) — and they contradict each other / <strong>Big picture:</strong> His later work dismantled the picture theory of meaning he had himself constructed, replacing it with a social, practice-based account that prefigured pragmatism, cognitive science, and the philosophy of mind.
+  </div>
+  <div class="img-wrap" id="img-card-5">
+    <div style="font-size:3rem">🧩</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>The early Wittgenstein believed language worked like a logical picture of reality. In the <em>Tractatus</em>, every meaningful sentence is a combination of names representing atomic facts (原子事實); logic reveals the hidden scaffolding of the world. Sentences that don't picture facts — ethics, aesthetics, the self — are literally unspeakable ("Whereof one cannot speak, thereof one must be silent"). This was enormously influential in the Vienna Circle (維也納學派) and logical positivism (邏輯實證主義). Then Wittgenstein stopped publishing for nine years, drove a tram in Vienna, designed an Art Deco house for his sister, and apparently heard Piero Sraffa (斯拉法) make a Neapolitan obscene gesture and ask what its "logical form" was. The question rattled him: a gesture communicates perfectly without resembling any fact.</p>
+  <p>In the <em>Philosophical Investigations</em>, Wittgenstein introduced the concept of language games (語言遊戲) — rule-governed practices embedded in forms of life (生活形式). Different activities use language differently: commanding, describing, play-acting, cursing, thanking, guessing — these are distinct games with distinct rules, and words migrate meaning as they move between them. "Game" itself, he noted, defies a single definition: chess, football, ring-around-the-rosy, and solitaire share no single property — only a web of "family resemblances" (家族相似性). This meant that philosophers' demand for necessary and sufficient conditions was wrongheaded: language doesn't have a hidden essence to uncover, just usages to describe.</p>
+  <p>His most explosive argument was the private language argument (私有語言論證). Can there be a language only I can understand — naming my inner sensations that no one else can access? Wittgenstein argued no: a language requires criteria for correct use, and a solo performer has no way to distinguish "I am following a rule" from "I merely think I am." This demolished Cartesian (笛卡兒式) introspection as a foundation for knowledge and sent shock waves through philosophy of mind, cognitive science, and even computer science (Alan Turing's (圖靈) imitation game can be read as a response). His key methodological move: philosophy's job is not to explain but to cure — to untangle the confusions that arise when language goes on holiday.</p>
+  <div class="takeaway">💡 Takeaway: When you argue about abstract concepts, check if you're using the same "game" — the same word in different practices can be two different words wearing the same costume.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> What is Wittgenstein's private language argument and why does it matter for our understanding of inner experience?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">The private language argument holds that a language logically accessible only to one person is impossible: any language requires external criteria to distinguish correct from incorrect use, but a solitary speaker has no such standard — they cannot know whether they are following a rule or merely doing whatever feels right. This undermines the Cartesian idea that we have privileged, certain access to our own inner states simply by introspecting.</div>
+  </details>
+  <div class="source">Source: Ludwig Wittgenstein, <em>Philosophical Investigations</em> (Blackwell, 1953/2009); Stanford Encyclopedia of Philosophy, "Ludwig Wittgenstein" (plato.stanford.edu); A.C. Grayling, <em>Wittgenstein: A Very Short Introduction</em> (Oxford University Press, 2001).</div>
+</div>
+
+<!-- CARD 6: PSYCHOLOGY — Ego Depletion -->
+<div class="card" id="card-6">
+  <div class="card-label">🧠 Psychology</div>
+  <h2>Ego Depletion: Does Self-Control Run on a Finite Tank?</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — After resisting a temptation, are you less able to resist the next one?</summary>
+    <div class="pred-answer">The ego depletion (自我耗竭) hypothesis says yes: self-control is a limited resource, like a muscle that tires. Resist a cookie before lunch, and you're less likely to resist a provocative comment at the afternoon meeting. But a major replication effort found this effect is far weaker and more conditional than originally claimed.</div>
+  </details>
+  <div class="img-wrap" id="img-card-6">
+    <div style="font-size:3rem">🧘</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>In 1998, Roy Baumeister (鮑邁斯特) and colleagues published a landmark study. Participants were brought into a lab where radishes and freshly baked cookies sat side by side. Half were instructed to eat only radishes; the other half could eat cookies freely. Both groups then tackled unsolvable geometry puzzles — a standard measure of self-regulatory persistence. The radish-eaters quit 8 minutes sooner and made fewer attempts. Baumeister concluded that resisting the cookies had depleted a limited psychological resource, leaving less willpower for the next task. He called this ego depletion (自我耗竭) and proposed the "strength model of self-control," likening willpower to a muscle that fatigues with use — and, intriguingly, that glucose (血糖) might replenish it.</p>
+  <p>The theory became enormously influential: judges gave harsher parole decisions before lunch (a 2011 Israeli study), dieters supposedly collapsed in the evening after a day of food restraint, and corporate wellness programs were redesigned around "decision fatigue (決策疲勞)." But in 2016, a rigorous pre-registered multi-lab replication by Hagger and colleagues tested ego depletion across 23 labs and 2,141 participants — and found essentially no effect (pooled effect size d = 0.04, near-zero). Follow-up work suggested the original effects may partly reflect demand characteristics (受試者揣摩實驗者期望) or publication bias (出版偏誤). The glucose replenishment finding also failed to replicate convincingly.</p>
+  <p>What does hold up? The motivational account offers a better fit. Self-control failures late in the day may reflect shifting priorities and motivation — people simply care less about resisting temptation when tired or when consequences feel distant — rather than a depleted internal reservoir. Individual differences in trait self-control (特質自制力) are robust predictors of real-world outcomes (academic achievement, health, income), and these seem to reflect habitual practice and environmental design more than momentary resource states. The lesson: rather than "save willpower," design environments that remove the need for repeated acts of resistance — the strongest self-controllers may simply face fewer temptations, not have bigger tanks.</p>
+  <div class="takeaway">💡 Takeaway: Don't rely on willpower as a battery. Design your environment so you don't have to keep saying no — remove the cookies from the table entirely.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> What did Hagger et al.'s 2016 multi-lab replication find about ego depletion, and what alternative explanation better accounts for the data?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">Hagger et al. (2016) found a near-zero pooled effect size (d ≈ 0.04) across 23 labs, failing to replicate the ego depletion effect. The motivational account better fits the data: self-control lapses appear to reflect shifts in priorities and motivation — caring less about resistance when tired or when stakes feel low — rather than depletion of a limited internal resource.</div>
+  </details>
+  <div class="source">Source: Baumeister et al., "Ego Depletion," <em>Journal of Personality and Social Psychology</em> 74:5 (1998); Hagger et al., "A Multilab Preregistered Replication of the Ego-Depletion Effect," <em>Perspectives on Psychological Science</em> 11:4 (2016); Inzlicht &amp; Schmeichel, "What Is Ego Depletion?", <em>Perspectives on Psychological Science</em> 7:5 (2012).</div>
+</div>
+
+<!-- CARD 7: PHYSIOLOGY — Muscle Spindles & Proprioception -->
+<div class="card" id="card-7">
+  <div class="card-label">🫀 Physiology</div>
+  <h2>Muscle Spindles: Your Body's Hidden Wires That Know Where You Are</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — How does your brain know where your hand is when your eyes are closed?</summary>
+    <div class="pred-answer">Specialised stretch sensors called muscle spindles (肌梭) embedded within every skeletal muscle continuously report their length and rate of change to the spinal cord and brain. This proprioceptive (本體感覺) stream runs in parallel with vision, giving you an internal GPS that functions even in total darkness.</div>
+  </details>
+  <div class="img-wrap" id="img-card-7">
+    <div style="font-size:3rem">🧬</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>Try walking in complete darkness. Within a few seconds you notice something remarkable: you can still navigate — not perfectly, but far better than chance would predict. The reason is proprioception (本體感覺), the body's "sixth sense" for position and movement. Muscle spindles (肌梭) are the principal hardware. Each spindle is a miniature sensory organ embedded in parallel with ordinary "extrafusal" (梭外) muscle fibres — a bundle of specialised "intrafusal" (梭內) fibres wrapped in spiral nerve endings. When the surrounding muscle stretches, those spiral afferents (傳入神經) fire at rates proportional to how far and how fast the muscle is lengthening. This signal shoots via large-diameter Ia fibres (一型傳入纖維) — among the fastest in the nervous system — to the spinal cord in a few milliseconds.</p>
+  <p>The classic demonstration is the knee-jerk reflex (膝反射). When a doctor taps the patellar tendon (髕骨肌腱), the sudden stretch activates spindles in the quadriceps (股四頭肌). Their Ia fibres synapse directly onto the same quadriceps motor neurons (運動神經元), triggering a contraction — the leg kicks — within about 30 ms, before any conscious perception occurs. But spindles do far more than reflexes. The brain also controls spindle sensitivity via gamma motor neurons (γ運動神經元), which adjust the intrafusal fibre tension to keep spindles "tuned" even as the main muscle contracts. Without this gamma drive, spindles would go slack during movement and stop reporting — instead, gamma and alpha motor neurons (α運動神經元) co-activate, ensuring continuous proprioceptive feedback throughout any motion.</p>
+  <p>What happens when the system fails? Patients with large-fibre sensory neuropathy (大纖維感覺神經病變) — a condition that selectively destroys Ia afferents — lose proprioception while keeping pain, temperature, and touch. They can stand only if they watch their feet; eyes closed, they topple. Rheumatoid arthritis (類風濕性關節炎) impairs spindle function in the hands, explaining the fine-motor clumsiness that patients notice before joint damage is visible on imaging. Conversely, training and athletic expertise subtly recalibrate proprioceptive maps: experienced gymnasts and dancers show smaller proprioceptive errors than untrained controls, suggesting the brain continuously updates its body-position priors through experience.</p>
+  <div class="takeaway">💡 Takeaway: Proprioception is a learnable skill, not fixed hardware — balance training, yoga, and sport can sharpen the internal GPS your spindles provide.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> What is the role of gamma motor neurons in muscle spindle function, and why is their co-activation with alpha motor neurons essential?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">Gamma motor neurons control the tension of intrafusal (spindle) fibres. Without gamma activation, spindles would go slack when the surrounding muscle contracts — losing their ability to detect stretch and report position. Co-activation of gamma and alpha motor neurons during movement keeps spindles under appropriate tension, ensuring continuous proprioceptive feedback even as the main muscle shortens.</div>
+  </details>
+  <div class="source">Source: Kandel et al., <em>Principles of Neural Science</em>, 6th ed. (McGraw-Hill, 2021), Ch. 35; Matthews P.B.C., "Muscle Spindles: Their Messages and Their Fusimotor Supply," in <em>Handbook of Physiology</em> (1981); Proske &amp; Gandevia, "The Proprioceptive Senses," <em>Physiological Reviews</em> 92:4 (2012).</div>
+</div>
+
+<!-- CARD 8: HEALTH — Omega-3 Fatty Acids -->
+<div class="card" id="card-8">
+  <div class="card-label">🥗 Health</div>
+  <h2>Omega-3s: What the Evidence Actually Says (vs. What the Bottles Claim)</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — Do fish oil supplements reliably prevent heart attacks?</summary>
+    <div class="pred-answer">The honest answer is: probably not for most people, based on major recent trials. The story of omega-3 fatty acids (ω-3脂肪酸) is a fascinating case of epidemiology leading the way, randomised trials failing to confirm, and one controversial high-dose study muddying the water further.</div>
+  </details>
+  <div class="img-wrap" id="img-card-8">
+    <div style="font-size:3rem">🐟</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>The omega-3 story begins with a 1970s epidemiological puzzle: Greenland Inuit (格陵蘭因紐特人) ate prodigious amounts of fat yet had strikingly low rates of cardiovascular disease (心血管疾病). Danish researchers Bang and Dyerberg hypothesised the protective agent was eicosapentaenoic acid (EPA, 二十碳五烯酸) and docosahexaenoic acid (DHA, 二十二碳六烯酸) from marine fat — the two long-chain omega-3 fatty acids (長鏈ω-3脂肪酸) concentrated in oily fish and fish oil supplements. Mechanistic research confirmed these lipids reduce triglycerides (三酸甘油酯), have anti-inflammatory effects, and alter platelet aggregation (血小板聚集) — all plausible pathways to cardiac protection. By the 2000s, fish oil was one of the world's best-selling supplements.</p>
+  <p>Then the randomised controlled trials arrived. The ASCEND trial (2018) enrolled 15,480 diabetic patients — already high-risk — and found fish oil supplements produced no significant reduction in serious cardiovascular events compared to placebo. VITAL (2019) gave omega-3s or placebo to over 25,000 US adults and found no significant benefit for the primary endpoint of major cardiovascular events, though a post-hoc analysis suggested possible benefit in fish-deficient populations. The ORIGIN trial (2012) likewise found no cardiovascular benefit in pre-diabetic patients. Meta-analyses of the older positive trials largely attribute their results to earlier statin (他汀類藥物) non-use in comparison groups — once everyone is also on statins, the marginal benefit of omega-3 disappears in most analyses.</p>
+  <p>The exception — and controversy — is REDUCE-IT (2018), which gave patients a high-dose purified EPA preparation (icosapentaenoic acid ethyl ester, 4g/day — roughly 8-10× normal supplement dose) and found a striking 25% relative reduction in cardiovascular events. The catch: REDUCE-IT used mineral oil as the placebo, which some researchers argue independently raised cardiovascular risk in the control group, inflating the apparent benefit. STRENGTH (2020), using a different high-dose omega-3 formulation with a corn oil placebo, found no benefit at all. Where does that leave us? Eating two servings of oily fish weekly remains associated with better cardiovascular outcomes in observational data, and omega-3s are clearly beneficial for very high triglycerides (極高三酸甘油酯) — reducing them 20–50%. For average-risk adults, a fish oil capsule is likely an expensive, underwhelming bet.</p>
+  <div class="takeaway">💡 Takeaway: Eat the fish, not necessarily the pills — the Mediterranean diet's omega-3 comes packaged with other nutrients, and isolated supplements don't consistently replicate the whole-food effect.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> Why did REDUCE-IT show a large cardiovascular benefit from omega-3s while ASCEND and VITAL did not, and what methodological controversy surrounds REDUCE-IT?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">REDUCE-IT used a much higher dose of purified EPA (4g/day vs. standard 1g supplements), but its mineral oil placebo may have independently increased cardiovascular risk in the control group, artificially inflating the apparent treatment benefit. ASCEND and VITAL used standard doses with inert placebos and found no significant cardiovascular benefit in their primary endpoints, while STRENGTH (high-dose, corn oil placebo) also found no benefit — suggesting the REDUCE-IT result may reflect placebo harm rather than treatment benefit.</div>
+  </details>
+  <div class="source">Source: ASCEND Study Collaborative Group, <em>NEJM</em> 379 (2018); Manson et al. (VITAL), <em>NEJM</em> 380 (2019); Bhatt et al. (REDUCE-IT), <em>NEJM</em> 380 (2019); NIH Office of Dietary Supplements, "Omega-3 Fatty Acids Fact Sheet," ods.od.nih.gov.</div>
+</div>
+
+<!-- CARD 9: SPORTS SCIENCE — Foam Rolling -->
+<div class="card" id="card-9">
+  <div class="card-label">🏋 Sports Science</div>
+  <h2>Foam Rolling: Does Myofascial Release Actually Work?</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — When you foam roll a tight muscle and it "releases," what is actually happening?</summary>
+    <div class="pred-answer">Almost certainly not what most people think. Fascia (筋膜) — the connective tissue sheath — is extremely tough and cannot be meaningfully deformed by body-weight pressure. What foam rolling probably changes is neural sensitivity (神經敏感度), not tissue structure. The "release" is in your nervous system, not your fascia.</div>
+  </details>
+  <div class="img-wrap" id="img-card-9">
+    <div style="font-size:3rem">🏃</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>Walk into any commercial gym and you'll find a foam roller (泡沫滾軸) in the warm-up area. The marketing rationale draws on "myofascial release" (肌筋膜放鬆): the idea that rolling breaks up adhesions (沾黏) or "knots" in the fascia — the dense fibrous connective tissue (緻密纖維結締組織) surrounding muscles — restoring free sliding between tissue layers. It sounds compelling and feels satisfying. The problem is the mechanical premise. Research on fascia stiffness shows it requires forces of hundreds of Newtons to produce even 1% deformation — far beyond what a human body resting on a foam cylinder generates. Electron microscopy (電子顯微鏡) of foam-rolled tissue shows no structural changes to the fascia itself.</p>
+  <p>If the fascia isn't changing, why do people feel better and move more freely after rolling? The evidence points to neurological mechanisms. Sustained pressure on a region activates mechanoreceptors (機械感受器) — particularly Ruffini endings (盧菲尼末梢) — which are known to reduce sympathetic nervous system (交感神經系統) tone and decrease the perception of tissue stiffness. Put differently: rolling doesn't make your muscles objectively longer; it changes your nervous system's threat response to stretch. A 2015 meta-analysis by Cheatham and colleagues reviewed 14 studies and found consistent evidence that foam rolling acutely increases range of motion (關節活動度, ROM) — typically 5–10° — without the strength loss associated with static stretching (靜態伸展) held for 60+ seconds. The ROM benefit is real, but it's neurological, not mechanical.</p>
+  <p>The practical implications are useful. Pre-workout: 30–60 seconds on target muscles appears to increase ROM and may reduce the perception of post-exercise soreness (運動後肌肉痠痛, DOMS), though evidence for DOMS reduction is mixed. Post-workout: rolling may accelerate perceived recovery between sessions — athletes report less soreness, and some studies show faster restoration of muscle peak force, though the effect sizes are modest. What doesn't work: "rolling out" a specific knot with sustained pinpoint pressure as a therapeutic intervention for myofascial pain — there's little evidence this changes structural tissue beyond the neurological window. Rolling is a useful warm-up and recovery tool, just not for the reasons most coaches describe.</p>
+  <div class="takeaway">💡 Takeaway: Foam roll before training for a quick range-of-motion boost, but understand you're calming your nervous system, not re-modelling your fascia.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> Why can't foam rolling mechanically "release" fascia, and what does it actually do to improve range of motion?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">Fascia requires forces far beyond body weight to deform structurally — foam rolling cannot produce meaningful mechanical changes to fascial tissue. Instead, sustained rolling pressure activates mechanoreceptors (especially Ruffini endings) that reduce sympathetic nervous tone and lower the nervous system's threat perception of stretch. The resulting range-of-motion gains are neurological, not structural.</div>
+  </details>
+  <div class="source">Source: Cheatham et al., "The Effects of Self-Myofascial Release Using a Foam Roll or Roller Massager on Joint Range of Motion, Muscle Recovery, and Performance," <em>International Journal of Sports Physical Therapy</em> 10:6 (2015); Schleip, "Fascial Plasticity," <em>Journal of Bodywork and Movement Therapies</em> 7:1 (2003); NSCA Position Statement on Flexibility Training.</div>
+</div>
+
+<!-- CARD 10: INVESTING — Buffett's Evolution -->
+<div class="card green" id="card-10">
+  <div class="card-label">📈 Investing & Economic Thinking</div>
+  <h2>Warren Buffett's Intellectual Evolution: From Cigar Butts to Castles</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — What did Buffett mean by a "cigar butt" investment, and why did he abandon the approach?</summary>
+    <div class="pred-answer">A "cigar butt" is a discarded cigar found on the street — enough tar for one last puff, then thrown away. Buffett used this to describe deeply cheap stocks: companies trading below liquidation value with a final "puff" of profit available. He abandoned the approach after Charlie Munger persuaded him that a wonderful company at a fair price beats a fair company at a wonderful price.</div>
+  </details>
+  <div class="img-wrap" id="img-card-10">
+    <div style="font-size:3rem">📊</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+  <p>Warren Buffett's (沃倫·巴菲特) earliest investment framework came directly from Benjamin Graham (班傑明·葛拉漢), his professor at Columbia Business School (哥倫比亞商學院) and the originator of value investing (價值投資). Graham's method was statistical and defensive: find companies trading at Net Current Asset Value (NCAV, 淨流動資產價值) — essentially cash and receivables minus all liabilities — meaning you were buying the operating business for free. Graham called these "net-nets." In his early partnership years (1956–69), Buffett excelled at this: Sanborn Map, Dempster Mill Manufacturing, and dozens of obscure companies were bought cheap and wrung of value. This approach worked magnificently in an era when markets were less efficient and computing power for screening was unavailable to most investors. Buffett's returns in the partnership were phenomenal — 29.5% annualised vs. the Dow's 7.4%.</p>
+  <p>The limitation became clear in one failed investment: Berkshire Hathaway (波克夏·海瑟威), the Massachusetts textile mill Buffett bought in 1962 because it was cheap relative to assets. It was cheap for a reason: the business was structurally mediocre, facing low-cost international competition that no amount of operational thrift could overcome. Buffett spent years ploughing capital into an inferior business. He later called buying Berkshire "the dumbest stock I ever bought" — the price was right, but the economics were permanently impaired. Around this time, Charlie Munger (查理·芒格) began pushing him toward a different framework: instead of asking "what is this worth dead?" ask "what can this business earn over the next 30 years?" The two ideas sound similar; their investment implications are radically different.</p>
+  <p>The See's Candies (喜斯糖果) acquisition in 1972 was Buffett's genuine intellectual turning point. Berkshire paid $25 million for a California candy company — well above book value (帳面價值), which Graham's framework would have rejected. See's had something more valuable than cheap assets: a brand (品牌) so trusted that customers would pay premium prices year after year, and the business required almost no additional capital to grow earnings. Buffett later calculated that See's earned over $2 billion for Berkshire over the following decades on that original $25 million investment — a moat (護城河) maintained not by patents or factories but by consumer habit and emotional attachment. This insight — that durable competitive advantage (持久競爭優勢) compounds capital better than statistical cheapness — reshaped his portfolio toward Coca-Cola (可口可樂), American Express (美國運通), and eventually Apple (蘋果), companies he would never have touched as a Graham disciple.</p>
+  <div class="takeaway">💡 Takeaway: Graham taught Buffett the price of assets; Munger taught him the value of businesses that don't need cheap prices to win. The difference is compounding versus arbitrage.</div>
+  <div class="retrieval-q">🧠 <em>Answer this without looking back:</em> What was the specific lesson Buffett drew from See's Candies that distinguished his later approach from Graham's net-net strategy?</div>
+  <details class="answer-reveal"><summary>Check your answer</summary>
+    <div class="answer-body">See's Candies demonstrated that a durable brand can earn exceptional returns on capital without requiring additional investment — a "capital-light" compounder. Unlike Graham's net-nets (which extracted value from underpriced assets and moved on), See's kept earning growing profits on a fixed capital base indefinitely. Buffett's insight: pay up for businesses with moats (sustainable competitive advantages) that compound capital, rather than hunt for statistical cheapness in mediocre businesses.</div>
+  </details>
+  <div class="source">Source: Buffett's letters to Berkshire Hathaway shareholders (1977–present), berkshirehathaway.com; Roger Lowenstein, <em>Buffett: The Making of an American Capitalist</em> (Random House, 1995); Alice Schroeder, <em>The Snowball</em> (Bantam, 2008).</div>
+</div>
+
+<!-- CARD 11: POLITICAL ECONOMICS — The Lucas Critique -->
+<div class="card steel" id="card-11">
+  <div class="card-label">🏛 Political Economics</div>
+  <h2>The Lucas Critique: Why Government Economic Models Keep Failing</h2>
+  <details class="predict-box">
+    <summary>Predict Before You Read — If people learn what a government policy is trying to do, does that change whether it works?</summary>
+    <div class="pred-answer">Yes — and this is exactly the Lucas Critique (盧卡斯批判). Economic agents who understand a policy's logic will adjust their behaviour in anticipation, neutralising the very effect the policy was designed to produce. Historical correlations stop working once policy targets them.</div>
+  </details>
+  <div class="img-wrap" id="img-card-11">
+    <div style="font-size:3rem">📉</div>
+    <div class="img-caption">Loading image…</div>
+  </div>
+
+  <div class="theory-grid">
+    <div class="theory-cell">
+      <div class="cell-label">① Event</div>
+      <p>The 1970s stagflation (停滯性通脹) crisis: US policymakers tried to exploit the apparent trade-off between inflation (通脹) and unemployment encoded in the Phillips curve (菲利普斯曲線). They expanded money supply expecting lower unemployment; instead they got both high inflation <em>and</em> high unemployment simultaneously — a combination their models said was impossible.</p>
+    </div>
+    <div class="theory-cell">
+      <div class="cell-label">② Theory</div>
+      <p>Robert Lucas (羅伯特·盧卡斯) argued in 1976 that econometric models built on historical correlations are unreliable for policy analysis: when a government changes policy, rational agents (理性行為者) change their behaviour in response, altering the very relationships the model was built on. "Any change in policy will systematically alter the structure of econometric models."</p>
+    </div>
+    <div class="theory-cell">
+      <div class="cell-label">③ Anomaly</div>
+      <p>The Phillips curve correlation between inflation and unemployment was stable for decades — until policymakers tried to exploit it. Workers and firms, anticipating that expansionary policy meant future inflation, demanded higher wages <em>pre-emptively</em>. The expected relationship collapsed exactly when targeted, producing stagflation the model classified as impossible.</p>
+    </div>
+    <div class="theory-cell">
+      <div class="cell-label">④ Challenger</div>
+      <p>Dynamic Stochastic General Equilibrium (DSGE, 動態隨機一般均衡) models incorporate rational expectations (理性預期) directly, attempting to model how agents respond to policies rather than assuming historical behaviour persists. Critics note DSGE models failed to predict the 2008 financial crisis — the expectation-formation problem resurfaces at a higher level of abstraction. Largely open question.</p>
+    </div>
+  </div>
+
+  <div class="takeaway">💡 Takeaway: Any economic relationship stable enough to base policy on is also unstable enough to disappear once policy targets it — Goodhart's Law (古德哈特定律) in macro form.</div>
+  <div class="source">Source: Lucas, "Econometric Policy Evaluation: A Critique," <em>Carnegie-Rochester Conference Series on Public Policy</em> 1 (1976); Sargent &amp; Wallace, "Some Unpleasant Monetarist Arithmetic," Federal Reserve Bank of Minneapolis <em>Quarterly Review</em> (1981); Olivier Blanchard, "Do DSGE Models Have a Future?", PIIE Policy Brief (2016).</div>
+</div>
+
+<!-- CONNECTION OF THE DAY -->
+<div class="connection">
+  <h3>🔗 Connection of the Day</h3>
+  <p><strong>Cards 5 &amp; 11 — Wittgenstein &amp; Lucas:</strong> Both thinkers identified the same fundamental problem in different domains: that using a system to describe behaviour changes the behaviour being described. Wittgenstein showed that when philosophers try to pin down the "real meaning" of language, they disrupt the natural language game and create pseudo-problems. Lucas showed that when economists try to exploit a stable statistical relationship, agents respond rationally and destroy it. <em>So what?</em> In any domain — investing, management, education — measure what matters rather than making what you measure the target, or you'll engineer the metric at the expense of the thing.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <details>
+    <summary>📚 All Sources</summary>
+    <ul>
+      <li>Card 1 (Io): NASA JPL Voyager Mission (1979); Juno Mission Io Flybys (2023–24); Morabito et al., <em>Science</em> 1979</li>
+      <li>Card 2 (隋煬帝): 《隋書》；《資治通鑑》；Twitchett, <em>Cambridge History of China</em> Vol. 3 (CUP, 1979)</li>
+      <li>Card 3 (English Civil War): Kenyon &amp; Ohlmeyer, <em>The Civil Wars</em> (OUP, 1998); Britannica</li>
+      <li>Card 4 (張載): 《正蒙》；《西銘》；馮友蘭《中國哲學史》；Wing-tsit Chan, <em>Source Book in Chinese Philosophy</em> (PUP, 1963)</li>
+      <li>Card 5 (Wittgenstein): <em>Philosophical Investigations</em> (Blackwell, 1953); SEP "Ludwig Wittgenstein"; Grayling (OUP, 2001)</li>
+      <li>Card 6 (Ego Depletion): Baumeister et al., <em>JPSP</em> 74:5 (1998); Hagger et al., <em>Perspectives on Psychological Science</em> 11:4 (2016)</li>
+      <li>Card 7 (Muscle Spindles): Kandel et al., <em>Principles of Neural Science</em> 6th ed. (2021); Proske &amp; Gandevia, <em>Physiological Reviews</em> 92:4 (2012)</li>
+      <li>Card 8 (Omega-3): ASCEND, <em>NEJM</em> 379 (2018); VITAL, <em>NEJM</em> 380 (2019); REDUCE-IT, <em>NEJM</em> 380 (2019); NIH ODS</li>
+      <li>Card 9 (Foam Rolling): Cheatham et al., <em>IJSPT</em> 10:6 (2015); Schleip, <em>JBMT</em> 7:1 (2003)</li>
+      <li>Card 10 (Buffett): Berkshire Hathaway shareholder letters; Lowenstein (Random House, 1995); Schroeder (Bantam, 2008)</li>
+      <li>Card 11 (Lucas Critique): Lucas, <em>Carnegie-Rochester CSPP</em> 1 (1976); Blanchard, PIIE (2016)</li>
+    </ul>
+  </details>
+  <details style="margin-top:.8rem">
+    <summary>📋 Do-Not-Repeat Log (appended this edition)</summary>
+    <p style="font-size:.78rem;padding:.5rem 0;color:var(--muted)">2026-06-17 Edition 2: Io (Astronomy) · 隋煬帝/大運河 (Eastern History) · English Civil War/Cromwell (Western History) · 張載氣學/民胞物與 (Eastern Philosophy) · Wittgenstein Language Games (Western Philosophy) · Ego Depletion/Baumeister (Psychology — not behavioral econ) · Muscle Spindles/Proprioception (Physiology) · Omega-3 Fatty Acids (Health) · Foam Rolling/Myofascial Release (Sports Science) · Buffett Evolution Graham→Munger/See's Candies (Investing) · Lucas Critique/DSGE (Political Economics)</p>
+  </details>
+  <p style="margin-top:1rem;font-size:.72rem;color:var(--muted)">Edward's Daily Learning Briefing · 17 June 2026 · 2nd Edition · Generated by Curiosity</p>
+</footer>
+
+</div><!-- end .content -->
+</div><!-- end .page-wrap -->
+
+<!-- FLOATING TOOLBAR -->
+<div class="float-toolbar">
+  <button onclick="window.print()">📄 Export PDF</button>
+  <button onclick="saveForPhone()">📥 Save for Phone</button>
+</div>
+
+<script>
+// IMAGE LOADING
+const imageMap = {
+  'card-1': ['Io (moon)', 'Io volcanic moon', 'Loki Patera'],
+  'card-2': ['Grand Canal (China)', 'Emperor Yang of Sui', 'Sui dynasty'],
+  'card-3': ['English Civil War', 'Oliver Cromwell', 'Battle of Naseby'],
+  'card-4': ['Zhang Zai', 'Neo-Confucianism', 'Song dynasty philosophy'],
+  'card-5': ['Ludwig Wittgenstein', 'Philosophical Investigations', 'Language game philosophy'],
+  'card-6': ['Willpower psychology', 'Self-control', 'Decision fatigue'],
+  'card-7': ['Muscle spindle', 'Proprioception', 'Stretch reflex'],
+  'card-8': ['Omega-3 fatty acids', 'Fish oil supplement', 'Eicosapentaenoic acid'],
+  'card-9': ['Foam roller exercise', 'Myofascial release', 'Fascia anatomy'],
+  'card-10': ['Warren Buffett', 'Berkshire Hathaway', 'See's Candies'],
+  'card-11': ['Lucas critique economics', 'Phillips curve', 'Stagflation 1970s']
+};
+
+window._imageMap = {};
+
+async function loadImage(cardId, titles) {
+  const wrap = document.getElementById('img-' + cardId);
+  if (!wrap) return;
+  for (const title of titles) {
+    try {
+      const url = 'https://en.wikipedia.org/api/rest_v1/page/summary/' + encodeURIComponent(title);
+      const r = await fetch(url);
+      if (!r.ok) continue;
+      const d = await r.json();
+      const src = (d.originalimage && d.originalimage.source) || (d.thumbnail && d.thumbnail.source);
+      if (src) {
+        window._imageMap[cardId] = src;
+        wrap.innerHTML = '<img src="' + src + '" alt="' + title + '" loading="lazy"><div class="img-caption">' + (d.description || title) + ' — <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent(title) + '" target="_blank" rel="noopener">Wikipedia / Wikimedia Commons</a></div>';
+        return;
+      }
+    } catch(e) {}
+  }
+  // fallback already in place
+}
+
+async function loadAllImages() {
+  for (const [cardId, titles] of Object.entries(imageMap)) {
+    await loadImage(cardId, titles);
+  }
+}
+
+loadAllImages();
+
+function saveForPhone() {
+  const blob = new Blob([document.documentElement.outerHTML], {type: 'text/html'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'daily-learning-2026-06-17-2.html';
+  a.click();
+}
+</script>
+</body>
+</html>
