@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning — 18 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+  </style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Thursday, 18 June 2026 &middot; ~20 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; &#x6771;&#x65B9;&#x6B77;&#x53F2;</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; &#x6771;&#x65B9;&#x54F2;&#x5B78;</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; &#x6771;&#x65B9;&#x6B77;&#x53F2;</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; &#x6771;&#x65B9;&#x54F2;&#x5B78;</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>17 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F30B; Astronomy &mdash; Io</span>
+        <em>Answer this without looking back:</em> Why is Io so volcanically active despite being only the size of our Moon, and which two moons contribute to this?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Io is heated by tidal friction: Europa and Ganymede's orbital resonance keeps Io's orbit slightly elliptical, so Jupiter's gravity constantly deforms Io's interior. The friction of this repeated squeezing generates enormous heat &mdash; far more than radioactive decay alone could produce.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 隋煬帝</span>
+        <em>讀後回想：</em>隋煬帝三征高句麗為何失敗？其失敗如何加速隋朝滅亡？
+        <details><summary>查看答案</summary>
+          <div class="answer">三次遠征均遇補給困難、高句麗堅壁清野及大規模伏擊（尤以612年薩水之戰損失最慘），導致國威大損。接連軍事失敗加重賦役，各地農民起義爆發，朝廷無力鎮壓，楊廣最終被部將弒殺，隋朝在建立後僅三十七年便告覆亡。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; English Civil War</span>
+        <em>Answer this without looking back:</em> What was the New Model Army, and why was it a decisive military innovation compared to earlier Civil War forces?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The New Model Army (1645) was England's first professional national military force &mdash; paid regularly, drilled to consistent standards, and promoted on merit rather than aristocratic birth. It replaced an ad-hoc system of local levies loyal to regional commanders, giving Parliament a unified, disciplined force that outfought the Royalist armies at Naseby and effectively ended the first Civil War.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 張載氣學</span>
+        <em>讀後回想：</em>張載「太虛即氣」如何反駁佛道二教的「空無」論，並如何由此推導出「民胞物與」的道德主張？
+        <details><summary>查看答案</summary>
+          <div class="answer">張載認為太虛並非空無，而是氣在最稀薄狀態下的存在——氣聚成形，氣散歸虛，萬物皆是同一「氣」的不同形態。由於萬物同出一氣，人與人、人與萬物之間存在本體論的親緣關係，道德義務（民胞物與）因此是宇宙結構本身的要求，而非單純的社會規範。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy &mdash; Wittgenstein</span>
+        <em>Answer this without looking back:</em> What is Wittgenstein's private language argument, and why does it undermine the Cartesian idea of privileged access to inner experience?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The private language argument holds that a language logically accessible only to one person is impossible: any language requires external criteria to distinguish correct from incorrect use, but a solitary speaker has no such standard &mdash; they cannot know whether they are following a rule or merely doing whatever feels right. This undermines the Cartesian idea that we have certain access to our own inner states simply by introspecting.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Ego Depletion</span>
+        <em>Answer this without looking back:</em> What did Hagger et al.'s 2016 multi-lab replication find about ego depletion, and what alternative explanation better accounts for the data?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Hagger et al. (2016) found a near-zero pooled effect size (d &asymp; 0.04) across 23 labs, failing to replicate the ego depletion effect. The motivational account better fits the data: self-control lapses appear to reflect shifts in priorities and motivation &mdash; caring less about resistance when tired or when stakes feel low &mdash; rather than depletion of a limited internal resource.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Muscle Spindles</span>
+        <em>Answer this without looking back:</em> What is the role of gamma motor neurons in muscle spindle function, and why is their co-activation with alpha motor neurons essential?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Gamma motor neurons control the tension of intrafusal (spindle) fibres. Without gamma activation, spindles would go slack when the surrounding muscle contracts &mdash; losing their ability to detect stretch and report position. Co-activation of gamma and alpha motor neurons during movement keeps spindles under appropriate tension, ensuring continuous proprioceptive feedback even as the main muscle shortens.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Omega-3s</span>
+        <em>Answer this without looking back:</em> Why did REDUCE-IT show a large cardiovascular benefit from omega-3s while ASCEND and VITAL did not, and what is the methodological controversy?
+        <details><summary>Check your answer</summary>
+          <div class="answer">REDUCE-IT used a much higher dose of purified EPA (4 g/day) but its mineral oil placebo may have independently raised cardiovascular risk in the control group, artificially inflating the apparent treatment benefit. ASCEND and VITAL used standard doses with inert placebos and found no significant cardiovascular benefit in their primary endpoints; STRENGTH (high-dose, corn oil placebo) also found no benefit.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Foam Rolling</span>
+        <em>Answer this without looking back:</em> Why can't foam rolling mechanically "release" fascia, and what does it actually do to improve range of motion?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Fascia requires forces far beyond body weight to deform structurally &mdash; foam rolling cannot produce meaningful mechanical changes to fascial tissue. Instead, sustained rolling pressure activates mechanoreceptors (especially Ruffini endings) that reduce sympathetic nervous tone and lower the nervous system's threat perception of stretch. The resulting range-of-motion gains are neurological, not structural.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; Buffett's Evolution</span>
+        <em>Answer this without looking back:</em> What was the specific lesson Buffett drew from See's Candies that distinguished his later approach from Graham's net-net strategy?
+        <details><summary>Check your answer</summary>
+          <div class="answer">See's Candies demonstrated that a durable brand can earn exceptional returns on capital without requiring additional investment &mdash; a "capital-light" compounder. Unlike Graham's net-nets (which extracted value from underpriced assets and moved on), See's kept earning growing profits on a fixed capital base indefinitely. The key insight: pay up for businesses with moats that compound capital, rather than hunt for statistical cheapness in mediocre businesses.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Titan: Saturn's Moon With Alien Lakes and an Orange Sky</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Saturn's largest moon has lakes on its surface — but they're not made of water. What fills them, and how does that change everything scientists thought about where life could exist?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img"><div class="img-fallback">&#x1FA90;</div></div>
+
+      <p>On 14 January 2005, a small disc-shaped probe called Huygens (惠更斯探測器) — released by the Cassini (卡西尼號) spacecraft — pierced the thick orange haze of Titan (土衛六) and descended for two and a half hours before touching down on a frozen plain littered with rounded pebbles of water ice. The images it returned were alien yet eerily familiar: a horizon, a shoreline, a flat floodplain shaped by flowing liquid. But Titan's temperature sits at −179 °C, far too cold for liquid water. What carved those channels, filled those basins, and rounded those pebbles was liquid methane (甲烷).</p>
+
+      <p>Titan is the only world beyond Earth with stable liquid on its surface — and Cassini's radar revealed two enormous lakes near the north pole. Ligeia Mare (利吉亞海), the size of Lake Huron, and Kraken Mare (克拉肯海), larger than the Caspian Sea, shimmer with liquid methane and ethane (乙烷). Titan even has weather: methane evaporates, rises, condenses into orange clouds, and rains back onto the surface — a complete hydrological cycle (水文循環) operating at cryogenic temperatures. Lightning storms have been detected. The orange haze itself is a chemical soup of nitrogen (氮) and complex organic molecules called tholins (有機高分子), forged by ultraviolet radiation — molecules some chemists describe as "primordial soup ingredients."</p>
+
+      <p>NASA's Dragonfly (蜻蜓號) mission, expected to arrive around 2034, will land an octocopter drone on Titan's surface — the first rotorcraft deployed on another world. It will hop between sites, analysing the chemistry of Titan's dunes and craters. Scientists are particularly interested in Selk Crater (塞爾克撞擊坑), where a meteorite impact long ago may have temporarily melted surface water ice, creating a warm liquid environment where organic chemistry could have briefly mimicked early Earth conditions. Titan will not tell us life exists there — but it may tell us how far chemistry can go without it.</p>
+
+      <div class="takeaway">&#x1F4A1; Titan proves that the ingredients for complex chemistry don't need liquid water — they just need the right temperature and a solvent. It's the solar system's most radical proof that life's building blocks assemble in unexpected places.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Titan has a full weather cycle analogous to Earth's water cycle. What is the liquid involved, and what ultimately powers the cycle despite Titan's enormous distance from the Sun?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The liquid is methane (and ethane). Titan's methane cycle — evaporation, cloud formation, rainfall, and lake refilling — is driven by Saturn's reflected sunlight and tidal heating, not direct solar energy (Titan receives roughly 1% of Earth's solar flux). Without a source replenishing the methane (possibly cryovolcanism from Titan's interior), UV photolysis would destroy the atmosphere in tens of millions of years.</div>
+      </details>
+
+      <div class="source">Sources: Lunine, J. I. et al. (2009). <em>Icarus</em> 202; ESA Huygens Mission Press Release (2005); Turtle, E. P. et al. (2011). <em>Science</em> 331; NASA Dragonfly Mission Overview (2024).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY (JAPAN) -->
+    <article class="card amber" id="card-2">
+      <div class="card-label">&#x26E9; 東方歷史 &#x1F1EF;&#x1F1F5;</div>
+      <h2>大化改新（645年）：日本第一場政治革命的血與制度</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">七世紀中葉，一個貴族家族幾乎把天皇架空為傀儡。一場宮廷政變改變了這一切——但這場政變究竟帶來了真正的中央集權，還是不過換了一批權臣？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 地點 · 形勢</span>
+        <p><strong>主角：</strong>中大兄皇子（後登基為天智天皇）、中臣鎌足（後賜姓藤原）；對手：蘇我入鹿（蘇我氏族長）。</p>
+        <p><strong>地點：</strong>飛鳥宮（今奈良縣明日香村）。</p>
+        <p><strong>大局：</strong>蘇我氏百年來挾天皇以令諸侯，大肆兼併土地，令豪族與皇室均不滿；與此同時，唐朝建立後制度威力震驚日本遣唐使，改革壓力內外兼至。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img"><div class="img-fallback">&#x26E9;</div></div>
+
+      <p>645年6月，飛鳥宮正殿之上，中大兄皇子與中臣鎌足預謀已久的刺殺計劃終於付諸實行。當蘇我入鹿在朝議上被當眾誅殺，其父蘇我蝦夷翌日自焚，歷時逾百年的蘇我氏政治壟斷在一夕之間瓦解。這場政變史稱「乙巳之變」（乙巳の変），其後頒布的一系列詔令，後世合稱「大化改新」——以新年號「大化」命名，這也是日本史上首個正式年號。</p>
+
+      <p>大化改新的核心在於仿效唐朝建立中央集權體制。645至646年頒布的《改新詔》宣布：土地與人民概歸天皇所有（公地公民制），廢除豪族世襲的土地私有；推行班田收授法，按丁口授田、課徵租庸調；設立國郡里三級行政架構，由中央派遣國司（地方官）取代世襲豪族管治地方；整頓戶籍制度，為徵兵與課稅奠定基礎。中臣鎌足在整個改革過程中均是中大兄皇子的首席謀臣，臨終前獲賜姓「藤原」，其家族日後成為日本歷史上最顯赫的攝關貴族。</p>
+
+      <p>然而改革並非一蹴而就。《改新詔》的實際執行遲緩且不完整，不少豪族仍保留實質土地控制。真正的律令制度要到701年《大寶律令》頒布後才得以鞏固——比「大化」改新晚了整整五十五年。歷史學者如坂本太郎（Tarō Sakamoto）指出，大化改新更像一個持續半世紀的制度建構過程，而非單一事件。儘管如此，它標誌著日本政治秩序從氏族競爭轉向天皇中心官僚制度的關鍵轉折，深刻影響奈良時代（710–794年）的國家形態。</p>
+
+      <div class="takeaway">&#x1F4A1; 大化改新說明：制度設計往往需要數十年才能落地。真正的革命不在詔書頒布的那一刻，而在官僚機器逐步取代人治慣例的漫長過程。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>大化改新的「公地公民制」究竟意味著什麼？它對豪族的土地權益造成了什麼衝擊，為何執行如此艱難？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">公地公民制宣布所有土地和人民歸天皇（即國家）所有，廢除豪族世代相傳的私有土地（部曲制）。改革直接威脅豪族的經濟基礎，他們以各種方式拖延、規避或半途妥協，導致班田制在地方上落實極不均勻。直至《大寶律令》（701年）確立完整律令體系後，中央集權才真正制度化。</div>
+      </details>
+
+      <div class="source">資料來源：坂本太郎《大化改新》（1958）；Piggott, J. R. (1997). <em>The Emergence of Japanese Kingship</em>. Stanford University Press；Aston, W. G. (trans., 1896). <em>Nihongi</em>. Tuttle Publishing。</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Magellan-Elcano: The Voyage That Proved the World Was Round — At a Terrible Cost</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1519, five ships and 270 men set out to sail around the world. Three years later, one ship and 18 skeletal survivors limped back. The expedition's leader was dead. But what it proved changed everything. What was the single most destabilising fact the voyage established?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures · Place · Stakes</span>
+        <p><strong>Ferdinand Magellan</strong> (費迪南·麥哲倫), Portuguese navigator in Spanish service; <strong>Juan Sebastián Elcano</strong> (胡安·塞瓦斯蒂安·埃爾卡諾), Basque captain who completed the voyage after Magellan's death.</p>
+        <p><strong>Departure:</strong> Sanlúcar de Barrameda (桑盧卡爾德巴拉梅達), Spain, 20 September 1519, with 5 ships and 270 men from more than a dozen nations.</p>
+        <p><strong>Stakes:</strong> Spain and Portugal had divided the globe under the Treaty of Tordesillas (托爾德西利亞斯條約, 1494), but the lucrative Spice Islands (香料群島, Maluku) lay ambiguously on Portugal's side. Magellan aimed to prove they could be reached by sailing west — and thus belonged to Spain.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img"><div class="img-fallback">&#x1F5FA;&#xFE0F;</div></div>
+
+      <p>The voyage's first crisis came in South America, where Magellan brutally suppressed a mutiny by three of his five captains — hanging one, quartering another, and marooning a third on a Patagonian beach. In October 1520, after months of searching, he discovered the treacherous strait that now bears his name (麥哲倫海峽) at the tip of South America. One ship turned back; the crew of another wrecked it and fled to Spain. Three ships entered the Pacific Ocean (太平洋) — a body of water Europeans had never crossed. What Magellan had wildly underestimated was its size: the crossing took 98 days. His men ate leather, sawdust, and rats. Nineteen died of scurvy (壞血病) before landfall in Guam (關島).</p>
+
+      <p>In the Philippines (菲律賓), Magellan made a fatal political error. He involved himself in a local conflict between chieftains, fighting in person on the island of Mactan (麥克坦島) on 27 April 1521. He was killed in the shallow surf by the warriors of Chief Lapu-Lapu (拉普拉普), struck by spears and a cutlass. Command passed through two more captains before settling on Elcano, who had been one of the original mutineers. Elcano loaded the one surviving seaworthy ship, the <em>Victoria</em> (勝利號), with cloves (丁香) and plotted a course west — across the Indian Ocean (印度洋), around the Cape of Good Hope (好望角), and north through the Atlantic. The <em>Victoria</em> arrived in Sanlúcar on 6 September 1522, three years after departure, carrying 18 survivors of the original 270.</p>
+
+      <p>The cargo of cloves on the <em>Victoria</em> paid for the entire expedition and turned a profit — which tells you something about the economics of spice in the 16th century. More important was what the voyage proved: the Earth was a sphere, the Pacific was vastly larger than anyone imagined, and a westward route to Asia was commercially impractical. The Treaty of Zaragoza (薩拉戈薩條約, 1529) followed, with Spain selling its Maluku claims to Portugal for 350,000 gold ducats. The journey also produced the first empirical proof of longitude: Elcano's crew found, on returning, that their meticulous journal showed a date one day behind Spain's — the first recorded observation of what we now call the International Date Line (國際換日線).</p>
+
+      <div class="takeaway">&#x1F4A1; The world's first circumnavigation was completed by a man who had mutinied against its leader. History rewards survivors, not planners — and Elcano's achievement was no less extraordinary for being unintended.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> When Elcano arrived back in Spain, his crew's journal showed a date one day behind the Spanish calendar. What did this prove, and what modern concept does it anticipate?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It proved that time is relative to direction of travel around a sphere: sailing continuously westward means each day is slightly longer than 24 hours (you are moving against the Sun's apparent motion), causing a cumulative day's lag over a full circumnavigation. This directly anticipates the International Date Line — the conceptual boundary where a day "resets" when crossing between eastward and westward hemisphere travel.</div>
+      </details>
+
+      <div class="source">Sources: Bergreen, L. (2003). <em>Over the Edge of the World</em>. William Morrow; Pigafetta, A. (1524/2007 trans. Skelton). <em>Magellan's Voyage</em>. Yale University Press; Howe, K. R. (2003). <em>The Quest for Origins</em>. University of Hawaii Press.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>二程理學：天理即萬物之本，人欲何處安頓？</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">北宋兩兄弟提出了一套宇宙論與道德論合一的哲學：萬物皆有一個共同的「理」，人心亦然。若此說成立，為何道德修養仍如此艱難？兄弟倆對這個問題給出了截然不同的答案。</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 學說 · 時代背景</span>
+        <p><strong>程顥（1032–1085）</strong>，字伯淳，世稱「明道先生」；<strong>程頤（1033–1107）</strong>，字正叔，世稱「伊川先生」。兄弟二人同為北宋洛陽人，同受業於周敦頤，共同奠立宋明理學的核心架構——「洛學」。</p>
+        <p><strong>時代背景：</strong>宋代儒學面臨佛教與道教的強力挑戰，儒者需要一套與之抗衡的形而上學體系，既能說明宇宙秩序，又能為道德實踐提供本體論根據。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img"><div class="img-fallback">&#x262F;</div></div>
+
+      <p>二程最核心的貢獻是確立「天理」（tiānlǐ）為宇宙最高本體。在他們看來，萬物各有其理，而萬理歸一，總稱「天理」。天理既是自然秩序，也是道德準則；仁義禮智不是人為規定，而是天理在人心中的具體呈現。這一論述的策略意涵在於：道德不再依賴聖人的權威或政治教化，而有了形而上的必然性——違反道德即違反宇宙秩序本身。二程因此被視為宋明理學（道學）的奠基者，後世朱熹（朱子）所建構的完整理學體系，正是在二程的基礎上發展而來。</p>
+
+      <p>然而兄弟二人在修養論上存在重大分歧。程顥傾向於強調「識仁」：仁者與天地萬物渾然一體，道德感悟是整體性的，接近後來王陽明（王守仁）「心即理」的路線。程頤則堅持「格物致知」：必須逐一窮究事物之理，日積月累，方能豁然貫通。他提出「涵養須用敬，進學則在致知」，強調持敬（居敬）與格物二者並進。這兩種路線後來分別成為心學（王陽明）與理學（朱熹）的源頭，宋明哲學最重要的內部張力由此而生。</p>
+
+      <p>二程還提出影響深遠的「天理人欲之辨」：天理（道德秩序）與人欲（私慾）形成二元對立，「存天理、滅人欲」成為道德修養的核心命題。此說歷代爭議不休——批評者（如明代李贄、清代戴震）認為此論壓抑人的正當情感與需求，不啻以禮殺人；辯護者則指出「人欲」所滅者是貪欲，非情感本身。馮友蘭（馮友蘭）在《中國哲學史》中評價二程的貢獻在於：首次為儒家道德秩序提供了可與佛道相抗衡的形而上學基礎，開創了中國哲學史上的理論新紀元。</p>
+
+      <div class="takeaway">&#x1F4A1; 二程最大的哲學遺產：他們讓儒家道德論有了宇宙論支撐，卻也因此埋下「天理壓制人性」的千年爭議。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>程顥與程頤在道德修養方法上最核心的分歧是什麼？這兩條路線分別如何影響後來的朱熹理學與王陽明心學？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">程顥主張透過「識仁」達到與萬物一體的整體感悟，傾向於心靈直覺與當下體認，啟發了王陽明「心即理」、「致良知」的心學路線。程頤則強調逐物窮理、持敬涵養，認為道德知識需要系統性積累，啟發朱熹「格物致知」、「理氣二元」的理學體系。兩者的共同點是以天理為本體，但在如何接近天理這一點上南轅北轍。</div>
+      </details>
+
+      <div class="source">資料來源：馮友蘭《中國哲學史》（1934）；Graham, A. C. (1992). <em>Two Chinese Philosophers: The Metaphysics of the Brothers Ch'eng</em>. Open Court; Chan, W. T. (1963). <em>A Source Book in Chinese Philosophy</em>. Princeton University Press。</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Rawls's Veil of Ignorance: What Would You Choose If You Didn't Know Who You'd Be?</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Rawls asks us to imagine designing the rules of society without knowing whether we'd be born rich or poor, talented or disadvantaged, majority or minority. What kind of society do you think rational people would choose from behind this "veil"?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">The Problem · Rival Views · Historical Moment</span>
+        <p><strong>John Rawls</strong> (約翰·羅爾斯, 1921–2002), Harvard philosopher, published <em>A Theory of Justice</em> (正義論) in 1971 — widely considered the most influential work of political philosophy in the 20th century.</p>
+        <p><strong>Problem he was answering:</strong> Utilitarianism (功利主義) justified sacrificing minority interests for aggregate welfare. Libertarianism (自由意志主義) justified radical inequality as the natural result of free exchange. Rawls wanted a theory of justice grounded in neither aggregate happiness nor natural talent as a moral basis for desert.</p>
+        <p><strong>Context:</strong> The American civil rights era and debates over welfare state legitimacy made questions of distributive justice (分配正義) urgently practical.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img"><div class="img-fallback">&#x2696;&#xFE0F;</div></div>
+
+      <p>Rawls's key device is the <strong>original position</strong> (原初狀態) behind a <strong>veil of ignorance</strong> (無知之幕): imagine choosing the basic structure of society — its constitution, economic system, and social institutions — without knowing your place in it. You don't know your race, sex, talents, wealth, conception of the good, or even which generation you belong to. Under these conditions, Rawls argues, rational people would choose two principles. First, everyone gets the most extensive system of equal basic liberties (平等基本自由) compatible with the same for all others. Second — the <strong>difference principle</strong> (差異原則) — social and economic inequalities are permitted only if they benefit the least advantaged members of society, and attached to positions open to all under fair equality of opportunity (公平機會平等).</p>
+
+      <p>The difference principle is the most contested part. It doesn't demand equality of outcome, but it does demand that any departure from equality be justified by its benefit to the worst-off. A surgeon earning ten times a cleaner's wage is acceptable only if that pay gap is necessary to attract people into the training required — and if the resulting healthcare benefits everyone, including the poorest. Robert Nozick (羅伯特·諾齊克) attacked this immediately in <em>Anarchy, State, and Utopia</em> (無政府、國家與烏托邦, 1974): if individuals have rights, patterned distributions (like Rawls's) require continuous interference with free exchange. Nozick's example — Wilt Chamberlain's voluntary basketball earnings — argued that any attempt to maintain Rawlsian distributions will inevitably violate individual liberty.</p>
+
+      <p>Communitarian critics — Michael Sandel (麥可·桑德爾), Alasdair MacIntyre (阿拉斯戴爾·麥金太爾) — attacked from the other direction: Rawls's "self" behind the veil is an abstraction stripped of the community, traditions, and relationships that actually constitute identity. Real people don't and can't reason from a position of radical ignorance about who they are. Rawls refined his position in <em>Political Liberalism</em> (1993), recasting the theory not as metaphysical truth but as the basis for agreement in a pluralist democracy. Whatever its limits, the veil of ignorance remains the most elegant thought experiment in modern ethics — a mirror that reveals which of our moral intuitions about fairness survive when self-interest is removed.</p>
+
+      <div class="takeaway">&#x1F4A1; The veil of ignorance is not a policy prescription — it's a thought-experiment that separates principles you hold from self-interest. If you'd endorse an arrangement only because you happen to benefit from it, you don't actually believe it's just.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is Rawls's difference principle, and what constraint does it place on economic inequality? How does it differ from demanding equal outcomes?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The difference principle holds that inequalities in social and economic goods are just only if they benefit the least-advantaged members of society. It does not require equal outcomes — a surgeon can earn far more than a janitor — but only if that inequality is necessary (e.g., to motivate training) and actually improves the absolute position of the worst-off group. Equality is the baseline; departures from it need justification in terms of the worst-off's benefit, not aggregate gain or talent-as-desert.</div>
+      </details>
+
+      <div class="source">Sources: Rawls, J. (1971). <em>A Theory of Justice</em>. Harvard University Press; Nozick, R. (1974). <em>Anarchy, State, and Utopia</em>. Basic Books; Sandel, M. (1982). <em>Liberalism and the Limits of Justice</em>. Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY (BEHAVIORAL ECON) -->
+    <article class="card" id="card-6">
+      <div class="card-label">&#x1F9E0; Psychology &#x1F3AF; Behavioral Economics</div>
+      <h2>The Anchoring Effect: Why the First Number You Hear Hijacks Every Decision After</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A spinning wheel stops on the number 65. You're then asked: what percentage of African countries are in the United Nations? Do you think the random spin changes your answer? Try to estimate first — then read on.</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img"><div class="img-fallback">&#x2696;&#xFE0F;</div></div>
+
+      <p>In their landmark 1974 paper in <em>Science</em>, Amos Tversky (阿莫斯·特沃斯基) and Daniel Kahneman (丹尼爾·卡尼曼) spun a wheel rigged to stop at either 10 or 65, then asked participants to estimate the percentage of African nations in the United Nations. Those who saw 65 guessed an average of 45%; those who saw 10 guessed 25%. The wheel was obviously random and obviously irrelevant — yet it shifted estimates by 20 percentage points. Tversky and Kahneman called the mechanism <strong>anchoring</strong> (定錨效應): people start from an initial value and adjust insufficiently, remaining biased toward the anchor. It is one of the most robust and replicable findings in cognitive psychology — the effect appears even when people are told the anchor is random, and even among domain experts.</p>
+
+      <p>Dan Ariely (丹·艾瑞利) extended anchoring into pricing in his concept of <strong>arbitrary coherence</strong> (任意的一致性). In experiments, participants wrote the last two digits of their Social Security Number (社會安全碼) at the top of a bid sheet, then made offers for wine, chocolate, and computer equipment. People with high SSN digits bid 60–120% more than those with low digits. The prices they subsequently paid formed a coherent internal structure — they were consistent with each other — but the initial anchor was completely arbitrary. In the real world, the implications are everywhere: the "was £200, now £79" retail tag; the salary you named first in a negotiation; the asking price on a house; the opening offer in a lawsuit settlement.</p>
+
+      <p>The anchoring effect is particularly powerful in high-stakes, unfamiliar decisions — exactly where we'd hope to be most rational. Its persistence even among experts in their own field (Northcraft & Neale 1987 found that real-estate agents anchored strongly to listing prices when valuing properties) means it cannot be dismissed as a novice error. The best-evidenced de-anchoring strategy is to generate explicit counterarguments to the anchor before committing to a number — a process called "consider the opposite" (Chapman & Johnson 2002). In negotiations, making the first offer anchors the discussion; if someone else anchors first, your best response is not to engage with their number at all, but to reframe the entire discussion around a different reference point.</p>
+
+      <div class="takeaway">&#x1F4A1; Always make the first offer in negotiations — anchoring is too powerful to cede. And when a price tag says "was £500," ask yourself: was it ever really worth £500, or is that number there solely to manipulate your perception of the deal?</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the key finding of Tversky and Kahneman's wheel-of-fortune experiment, and what does Ariely's arbitrary coherence research add to our understanding of anchoring?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Tversky and Kahneman showed that a random, irrelevant number (a wheel spin) systematically biased numerical estimates, with participants who saw 65 guessing roughly 20 percentage points higher than those who saw 10. This established that adjustment from any initial value is insufficient. Ariely's arbitrary coherence extended the finding into willingness to pay: arbitrary anchors (SSN digits) not only shifted prices but created internally consistent pricing structures — people were coherent with themselves, just anchored to a meaningless starting point. Together they show that anchoring shapes not just estimates but preferences and valuations.</div>
+      </details>
+
+      <div class="source">Sources: Tversky, A. & Kahneman, D. (1974). Judgment Under Uncertainty: Heuristics and Biases. <em>Science</em>, 185(4157); Ariely, D., Loewenstein, G. & Prelec, D. (2003). "Coherent Arbitrariness." <em>Quarterly Journal of Economics</em>, 118(1); Chapman, G. B. & Johnson, E. J. (2002). Incorporating the Irrelevant. In <em>Heuristics and Biases</em>. Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Gate Control Theory: Why Rubbing a Bruise Actually Helps, and Why Chronic Pain Is a Different Beast</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before 1965, scientists believed pain signals travelled in a straight line from injury to brain — more damage, more pain. But this doesn't explain why soldiers in battle feel no pain from serious wounds, or why thinking about something else makes a headache recede. What's really happening?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img"><div class="img-fallback">&#x1F9E0;</div></div>
+
+      <p>In 1965, Ronald Melzack (羅納德·梅爾扎克) and Patrick Wall (帕特里克·沃爾) published a short paper in <em>Science</em> that overturned a century of pain theory. The <strong>gate control theory</strong> (閘門控制理論) proposed that pain is not a simple alarm system but a modulated signal: a "gate" in the dorsal horn (背角) of the spinal cord determines how much pain signal reaches the brain. The gate is controlled by the relative activity of two types of fibres. Large-diameter Aβ fibres (Aβ纖維) — which carry touch, pressure, and vibration — can "close" the gate, inhibiting pain transmission. Small-diameter C fibres (C纖維) and Aδ fibres (Aδ纖維) — which carry pain and temperature signals — "open" it. This is why rubbing a banged shin provides immediate relief: touch-sensitive Aβ fibres fire, partially closing the gate and reducing the pain signal that reaches consciousness.</p>
+
+      <p>Even more radical was Melzack and Wall's second insight: the gate is also controlled from <em>above</em> — by the brain itself. Descending pathways from the brainstem and cortex release endogenous opioids (內源性鴉片類物質) — endorphins (腦內啡), enkephalins (腦啡肽) — that can close the gate independent of peripheral input. This explains placebo analgesia (安慰劑鎮痛), the documented phenomenon of soldiers in battle feeling no pain despite severe wounds (attention is directed elsewhere; catastrophising is absent; emotional context suppresses descending gates), and why anxiety and depression amplify pain perception. The brain is not a passive recipient of pain signals — it actively decides how much to let through, based on context, attention, and predicted threat.</p>
+
+      <p>Gate control theory transformed medicine's approach to chronic pain (慢性疼痛). In acute pain, the gate reflects tissue damage and closes as healing proceeds. In chronic pain — fibromyalgia (纖維肌痛症), lower back pain, phantom limb pain (幻肢痛) — the gate becomes chronically sensitised: central sensitisation (中樞敏化) means the nervous system itself begins amplifying signals, sometimes in the complete absence of ongoing injury. This is why opioids alone don't solve chronic pain and often worsen it over time — they address the signal but not the sensitised gate. Transcutaneous electrical nerve stimulation (TENS, 經皮電神經刺激) directly applies Melzack and Wall's model by electrically activating Aβ fibres to close the gate. Cognitive behavioural therapy (認知行為治療) for pain works by retraining the descending control system.</p>
+
+      <div class="takeaway">&#x1F4A1; Pain is a construction, not a reading. The gate means your brain always has a say in how much pain you experience — which is both reassuring for chronic pain sufferers and a warning against assuming "more pain = more damage."</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> According to gate control theory, what two types of neural fibres control the spinal gate, and in which direction do they push it? Why does rubbing a hurt area immediately reduce pain?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Large-diameter Aβ fibres (which carry touch and pressure) close the gate, inhibiting pain transmission to the brain. Small-diameter C fibres and Aδ fibres (which carry pain and temperature) open the gate. Rubbing a hurt area activates Aβ touch fibres, which close the gate partially and reduce the pain signal reaching consciousness — explaining the immediate, if temporary, relief from rubbing or applying pressure to a minor injury.</div>
+      </details>
+
+      <div class="source">Sources: Melzack, R. & Wall, P. D. (1965). Pain Mechanisms: A New Theory. <em>Science</em>, 150(3699); Melzack, R. (1999). From the Gate to the Neuromatrix. <em>Pain</em>, Suppl. 6; Woolf, C. J. (2011). Central Sensitization. <em>Pain</em>, 152(3 Suppl).</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Creatine: The Most Researched Supplement You're Probably Still Confused About</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Creatine (肌酸) has been studied for over 30 years in thousands of trials. It's cheap, widely available, and consistently effective. So why do so many people still think it damages kidneys, causes dehydration, or only works for bodybuilders?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img"><div class="img-fallback">&#x1F4AA;</div></div>
+
+      <p>Creatine is not a steroid, a stimulant, or a magic bullet. It is a naturally occurring compound (天然化合物) synthesised from amino acids arginine (精氨酸), glycine (甘氨酸), and methionine (甲硫氨酸) in your liver and kidneys. About 95% of the body's creatine sits in skeletal muscle as phosphocreatine (磷酸肌酸, PCr). When you perform a short, intense effort — a sprint, a heavy squat, a jump — your muscles consume ATP (三磷酸腺苷) faster than aerobic metabolism can supply it. PCr donates a phosphate group to ADP (二磷酸腺苷) to regenerate ATP in milliseconds, buying a few extra seconds of maximal power. Supplementing creatine monohydrate (肌酸一水化合物) increases intramuscular PCr stores by approximately 10–30%, extending the duration and power of high-intensity efforts before fatigue sets in. This is the entire mechanism. It is not hormonal.</p>
+
+      <p>The evidence base is unusually strong. A 2017 meta-analysis by Lanhers et al. in <em>European Journal of Sport Science</em> found significant strength gains in upper and lower body across 22 trials. Branch's 2003 meta-analysis in the <em>International Journal of Sport Nutrition and Exercise Metabolism</em> found average lean mass gains of ~1.37 kg over training periods compared to placebo — consistent with more reps per set, more training volume, more adaptation. The myths are well-studied and debunked: kidney damage occurs only in people with pre-existing renal disease; dehydration claims reverse the evidence (creatine actually increases intracellular water, which may be protective in heat); the need to "cycle" creatine has no mechanistic basis. A standard protocol of 3–5 g daily (no loading phase required) is sufficient to saturate muscle stores within 3–4 weeks.</p>
+
+      <p>The more surprising frontier is cognitive performance. Creatine is found in the brain as well as muscle, and vegetarians and vegans — who obtain no dietary creatine from meat — show the most consistent cognitive benefits from supplementation. Rae et al. (2003) in <em>Proceedings of the Royal Society B</em> found significant improvements in working memory and intelligence tests in vegetarian supplementers. McMorris et al. (2007) in <em>Neuroscience</em> showed creatine supplementation blunted the cognitive decline caused by sleep deprivation. The mechanism parallels the muscular one: ATP buffering in neurons during high cognitive load. Creatine monohydrate — roughly 3–5 g daily, costing pennies — is perhaps the most thoroughly validated supplement in sports science and increasingly in cognitive health.</p>
+
+      <div class="takeaway">&#x1F4A1; If you do any resistance or high-intensity training and aren't taking creatine, you are leaving a well-evidenced, safe, and cheap performance gain on the table. Vegetarians especially should consider it for both physical and cognitive benefits.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the precise mechanism by which creatine supplementation improves performance in high-intensity exercise? Why does it not help endurance events like marathons?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Creatine supplementation increases phosphocreatine (PCr) stores in skeletal muscle. During maximal efforts lasting a few seconds, PCr rapidly donates a phosphate group to ADP to regenerate ATP — the phosphocreatine system. More PCr means more ATP can be regenerated before the system exhausts, enabling more power and more repetitions before fatigue. It does not help marathon running because that relies primarily on aerobic metabolism (oxidative phosphorylation), not on PCr — the PCr system is relevant only in efforts lasting roughly 1–10 seconds at maximum intensity.</div>
+      </details>
+
+      <div class="source">Sources: Lanhers, C. et al. (2017). Creatine Supplementation and Upper Limb Strength Performance. <em>European Journal of Sport Science</em>, 17(7); Branch, J. D. (2003). Effect of creatine supplementation on body composition and performance. <em>Int. J. Sport Nutr. Exerc. Metab.</em>, 13(2); Rae, C. et al. (2003). Oral creatine monohydrate supplementation improves brain performance. <em>Proc. R. Soc. B</em>, 270.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Wolff's Law: Why Lifting Weights Builds Bone — and Why Cardio Alone Doesn't</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Astronauts lose significant bone density in space despite intense exercise programs. Elite marathon runners often have lower bone density than sprinters despite logging enormous training volumes. What does this tell us about how bone responds to exercise — and what type of loading actually matters?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img"><div class="img-fallback">&#x1F9B4;</div></div>
+
+      <p>In 1892, German surgeon Julius Wolff (尤利烏斯·沃爾夫) proposed what became known as Wolff's Law (沃爾夫定律): bone adapts its structure in response to the loads placed upon it. This is not merely a historical curiosity — it describes a precise biological mechanism. When mechanical load is applied to bone, the bone matrix deforms slightly, producing piezoelectric signals (壓電信號) and fluid flow through canaliculi (骨小管). These signals activate osteoblasts (成骨細胞) — bone-building cells — and suppress osteoclasts (破骨細胞) — bone-resorbing cells. The net result is new bone laid down along lines of stress. Conversely, unloaded bone (as in a limb immobilised in a cast, or an astronaut in microgravity) experiences net resorption: osteoclasts dominate and density falls, sometimes by 1–2% per month in weightlessness.</p>
+
+      <p>The type of load matters enormously. Bone responds to ground reaction forces (地面反作用力) and to the rapid rate of force development (力量發展速率) that resistance training and impact exercise produce — not to the sustained, low-amplitude forces of swimming or cycling. This explains why competitive cyclists, despite extraordinary cardiovascular fitness, show hip and spine bone density no better than sedentary controls in several studies (Scofield & Hecht 2012). It also explains why tennis players develop measurably denser bones in their dominant arm but not the other — the site specificity of bone adaptation mirrors the site specificity of load. Kerr et al.'s 1996 randomised controlled trial in <em>Bone</em> showed that high-load resistance training (a protocol targeting each site) produced bone density gains of 2–3% at the loaded sites in postmenopausal women over 12 months — significant in a population at acute osteoporosis (骨質疏鬆症) risk.</p>
+
+      <p>For practical bone health, the implications are clear and under-communicated. Compound resistance exercises — squats, deadlifts, lunges, overhead presses — load the spine, hips, and wrists (the three sites most vulnerable to osteoporotic fracture) directly. Impact loading — jumping, bounding, stair-climbing — also drives osteogenic adaptation. Walking is better than nothing, but its low ground reaction forces produce modest skeletal stimulus; the Framingham Osteoporosis Study found no significant bone density benefit from walking alone in older women. The clinically important point is that bone density built in youth and early middle age through loading exercise is protective for decades — bone is a biological bank account that pays dividends only if deposits were made early.</p>
+
+      <div class="takeaway">&#x1F4A1; Swimming and cycling keep your heart healthy but don't build bone. If long-term skeletal health matters — and it should, given fracture risk after 65 — resistance training and impact exercise are non-negotiable additions to any fitness programme.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the cellular mechanism by which mechanical loading builds bone? Name the two cell types involved and describe their competing roles.</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mechanical loading produces deformation of bone matrix and fluid flow through canaliculi, generating piezoelectric signals. These signals activate osteoblasts (bone-building cells) and suppress osteoclasts (bone-resorbing cells). When loading is present, osteoblast activity dominates and new bone is deposited along stress lines. When loading is absent (immobilisation, microgravity), osteoclast activity dominates and bone is resorbed. The balance between these two cell populations, driven by mechanical input, determines net bone density.</div>
+      </details>
+
+      <div class="source">Sources: Wolff, J. (1892/1986 trans.). <em>The Law of Bone Remodelling</em>. Springer; Kerr, D. et al. (1996). Exercise effects on bone mass. <em>Bone</em>, 18(5); Scofield, K. L. & Hecht, S. (2012). Bone health in endurance athletes. <em>Current Sports Medicine Reports</em>, 11(6); Frost, H. M. (1987). The mechanostat. <em>Journal of Bone and Mineral Research</em>, 2(2).</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Kelly Criterion: How a Bell Labs Mathematician Figured Out the Optimal Bet — and Why Wall Street Ignores It</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You have a coin that comes up heads 60% of the time. You can bet any fraction of your wealth on each flip. What fraction should you bet to maximise your long-run wealth? (Hint: it's not 60%, and it's not 100%.)</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img"><div class="img-fallback">&#x1F4CA;</div></div>
+
+      <p>In 1956, John Kelly Jr (約翰·凱利), a physicist at Bell Telephone Laboratories (貝爾電話實驗室), published "A New Interpretation of Information Rate" in the <em>Bell System Technical Journal</em> — ostensibly about channel noise in telephone transmission, but containing a formula that would eventually transform gambling and investing. The <strong>Kelly criterion</strong> (凱利準則) states that the optimal fraction of capital to bet on any wager is: <em>f* = (bp − q) / b</em>, where <em>b</em> is the net odds (how much you win per unit staked), <em>p</em> is the probability of winning, and <em>q = 1 − p</em> is the probability of losing. For the 60% coin, <em>b = 1, p = 0.6, q = 0.4</em>: <em>f* = (1 × 0.6 − 0.4) / 1 = 0.2</em>. Bet 20% of your wealth per flip. Not 60%, not 100% — 20%. The formula is derived from maximising the expected value of the <em>logarithm</em> of wealth, which is equivalent to maximising the long-run geometric growth rate.</p>
+
+      <p>The insight that made Kelly's formula explosive was that betting more than Kelly — even if you have a genuine edge — <em>reduces</em> long-run growth. Betting 100% of capital on a 60% coin will eventually bankrupt you with certainty: one losing streak wipes you out. Betting even 50% (far above Kelly's 20%) produces massive volatility and lower median wealth than Kelly after enough trials. Ed Thorp (愛德華·索普), a mathematician who applied information theory to blackjack and published <em>Beat the Dealer</em> (1962), then moved to Wall Street and ran a hedge fund using Kelly-based position sizing from 1969 to 1988 with returns audited at 20% annually without a single down year. Claude Shannon (克勞德·夏農) — Kelly's Bell Labs colleague and the father of information theory (資訊理論) — also privately applied Kelly principles to stock market investing.</p>
+
+      <p>In practice, full Kelly is almost never used by sophisticated investors, for a crucial reason: the formula is exquisitely sensitive to accurate probability estimates, and in markets (unlike fixed-odds games) those estimates are uncertain. If you believe your edge is larger than it actually is, full Kelly will over-bet and produce catastrophic drawdowns. The practical solution is <strong>fractional Kelly</strong> (分數凱利) — typically half-Kelly — which sacrifices some long-run growth in exchange for dramatically reduced volatility and sensitivity to estimation error. Warren Buffett's (沃倫·巴菲特) heavy concentration in a few holdings implicitly approximates Kelly-style sizing: large positions when conviction and assessed edge are high, small positions when not. The deeper lesson transcends the formula: the size of a bet should be proportional to the size of your genuine edge, not to your emotional conviction, the persuasiveness of the story, or how much you like the company.</p>
+
+      <div class="takeaway">&#x1F4A1; Kelly forces a discipline most investors lack: you must quantify your actual edge before sizing a position. No edge = no bet. Modest edge = modest position. The formula is unforgiving of overconfidence — which is precisely its value.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does betting more than the Kelly fraction reduce long-run wealth, even if you have a genuine positive-expectation edge? What mathematical property makes over-betting self-defeating?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Kelly maximises the geometric (multiplicative) growth rate of wealth, not the arithmetic expected value. Above the Kelly fraction, the variance of outcomes grows faster than the expected return, so the geometric mean — the actual long-run growth rate — begins to fall. At exactly twice Kelly, expected geometric growth falls to zero (equivalent to a fair game). Beyond that, expected geometric growth is negative: the multiplicative drag from large losing bets more than offsets the gains from winning bets, even though the arithmetic expected value per bet remains positive.</div>
+      </details>
+
+      <div class="source">Sources: Kelly, J. L. Jr. (1956). A New Interpretation of Information Rate. <em>Bell System Technical Journal</em>, 35(4); Thorp, E. O. (2006). <em>The Kelly Criterion in Blackjack, Sports Betting, and the Stock Market</em>. Handbook of Asset and Liability Management; MacLean, L. C., Thorp, E. O. & Ziemba, W. T. (2011). <em>The Kelly Capital Growth Investment Criterion</em>. World Scientific.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>Goodhart's Law: When a Measure Becomes a Target, It Ceases to Be a Good Measure</h2>
+
+      <div class="card-img-wrap" id="card-11-img"><div class="img-fallback">&#x1F4CA;</div></div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CD; Event</div>
+        <div class="pe-body">In 2004, England's NHS introduced a target requiring 98% of Accident &amp; Emergency patients to be seen, treated, and either admitted or discharged within four hours. Hospital performance rankings and funding allocations followed compliance. Within years, documented gaming proliferated: patients were kept waiting in ambulances outside A&amp;E to avoid the clock starting; internal "corridor wards" moved patients on paper without clinical reason; easy cases were prioritised over sicker ones needing longer evaluation. The target was met on paper; emergency care quality deteriorated in practice. A 2015 National Audit Office report confirmed widespread manipulation of the metric.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body"><strong>Goodhart's Law</strong> (古德哈特定律), named for Bank of England economist Charles Goodhart (查爾斯·古德哈特), was formulated in a 1975 conference paper on UK monetary policy: "Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes." Sociologist Marilyn Strathern gave it its canonical modern form in 1997: <em>"When a measure becomes a target, it ceases to be a good measure."</em> Donald Campbell's (唐納德·坎貝爾) parallel 1979 formulation ("Campbell's Law") stated the same for social indicators: the more a quantitative social indicator is used for decision-making, the more it is subject to corruption and the more apt it is to distort the social processes it was intended to monitor.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The anomaly is the gap between measurable proxy and underlying goal — and how quickly agents close it by gaming the proxy rather than improving the underlying reality. Soviet nail factories ordered to meet weight quotas produced single enormous unusable nails; ordered to meet quantity quotas, produced thousands of tiny unusable nails. Schools whose teachers are evaluated on standardised test scores show rising scores with flat or falling underlying knowledge (Koretz 2008). The metric becomes the goal; the goal becomes invisible.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">No single framework fully resolves the problem, making this an open question in institutional design. Holmstrom &amp; Milgrom's (霍姆斯特羅姆與米爾格羅姆) 1991 multitasking model formalises the mechanism: when agents face multiple tasks, easily-measured tasks crowd out unmeasured ones. Hayek's knowledge problem provides a deeper explanation: central authorities designing metrics lack the distributed knowledge to make them ungameable. The practical implication is that composite, frequently-rotated metrics with qualitative oversight resist Goodhart's Law better than single fixed targets — but at the cost of the clarity that made targets appealing in the first place.</div>
+      </div>
+
+      <div class="source">Sources: Goodhart, C. A. E. (1975). Problems of Monetary Management. Reserve Bank of Australia; Strathern, M. (1997). 'Improving Ratings.' <em>European Review</em>, 5(3); Campbell, D. T. (1979). Assessing the Impact of Planned Social Change. <em>Evaluation and Program Planning</em>, 2(1); Holmstrom, B. &amp; Milgrom, P. (1991). Multitask Principal-Agent Analyses. <em>Journal of Law, Economics, and Organization</em>, 7.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 — Anchoring and the Kelly Criterion:</strong> Anchoring (定錨效應) shows that any initial number — even a random one — colonises our subsequent estimates and valuations. The Kelly criterion (凱利準則) is, in one sense, an antidote: it forces you to quantify edge and probability <em>before</em> a position size is chosen, grounding the decision in arithmetic rather than in reference points, recent prices, or compelling narratives. The investor who sizes a position because "the stock is down 40% from its high" is anchoring to a price that has no logical bearing on current value. Kelly demands you ask instead: what is my estimated probability of being right, and what are the odds? No anchor — just numbers.</p>
+      <p><strong>So what:</strong> Before sizing any bet, investment, or negotiation position, write down your probability estimate and your edge <em>before</em> you look at the current price or the other party's opening offer. This single habit partially de-anchors the decision.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Titan):</strong> Lunine et al. (2009). <em>Icarus</em> 202; ESA Huygens Mission (2005); Turtle et al. (2011). <em>Science</em> 331; NASA Dragonfly Overview (2024).</li>
+      <li><strong>Card 2 (大化改新):</strong> 坂本太郎《大化改新》(1958)；Piggott (1997). <em>The Emergence of Japanese Kingship</em>. Stanford; Aston (trans. 1896). <em>Nihongi</em>. Tuttle.</li>
+      <li><strong>Card 3 (Magellan-Elcano):</strong> Bergreen (2003). <em>Over the Edge of the World</em>; Pigafetta (1524/2007). <em>Magellan's Voyage</em>. Yale UP.</li>
+      <li><strong>Card 4 (二程理學):</strong> 馮友蘭《中國哲學史》(1934)；Graham (1992). <em>Two Chinese Philosophers</em>. Open Court; Chan (1963). <em>A Source Book in Chinese Philosophy</em>. Princeton UP.</li>
+      <li><strong>Card 5 (Rawls):</strong> Rawls (1971). <em>A Theory of Justice</em>. Harvard UP; Nozick (1974). <em>Anarchy, State, and Utopia</em>. Basic Books; Sandel (1982). <em>Liberalism and the Limits of Justice</em>. Cambridge UP.</li>
+      <li><strong>Card 6 (Anchoring):</strong> Tversky &amp; Kahneman (1974). <em>Science</em> 185; Ariely, Loewenstein &amp; Prelec (2003). <em>QJE</em> 118; Chapman &amp; Johnson (2002) in <em>Heuristics and Biases</em>. Cambridge UP.</li>
+      <li><strong>Card 7 (Gate Control Pain):</strong> Melzack &amp; Wall (1965). <em>Science</em> 150; Melzack (1999). <em>Pain</em> Suppl. 6; Woolf (2011). <em>Pain</em> 152.</li>
+      <li><strong>Card 8 (Creatine):</strong> Lanhers et al. (2017). <em>European Journal of Sport Science</em> 17; Branch (2003). <em>Int. J. Sport Nutr.</em> 13; Rae et al. (2003). <em>Proc. R. Soc. B</em> 270.</li>
+      <li><strong>Card 9 (Bone Density):</strong> Wolff (1892/1986). <em>The Law of Bone Remodelling</em>. Springer; Kerr et al. (1996). <em>Bone</em> 18; Frost (1987). <em>J. Bone Min. Res.</em> 2; Scofield &amp; Hecht (2012). <em>Current Sports Med. Rep.</em> 11.</li>
+      <li><strong>Card 10 (Kelly Criterion):</strong> Kelly (1956). <em>Bell System Technical Journal</em> 35; Thorp (2006) in <em>Handbook of Asset and Liability Management</em>; MacLean, Thorp &amp; Ziemba (2011). <em>The Kelly Capital Growth Investment Criterion</em>. World Scientific.</li>
+      <li><strong>Card 11 (Goodhart's Law):</strong> Goodhart (1975). Reserve Bank of Australia; Strathern (1997). <em>European Review</em> 5; Campbell (1979). <em>Evaluation and Program Planning</em> 2; Holmstrom &amp; Milgrom (1991). <em>J. Law, Econ. &amp; Org.</em> 7.</li>
+    </ul>
+  </details>
+</footer>
+
+<script>
+const imageCandidates = [
+  {id:'card-1', candidates:['Titan_(moon)','Huygens_(probe)','Ligeia_Mare'], caption:'Titan\'s haze-shrouded atmosphere imaged by Cassini (NASA/ESA)'},
+  {id:'card-2', candidates:['Taika_Reform','Emperor_Tenji','Asuka_period'], caption:'飛鳥時代宮廷：大化改新奠定日本律令制度基礎 (Wikimedia Commons)'},
+  {id:'card-3', candidates:['Ferdinand_Magellan','Strait_of_Magellan','Juan_Sebastián_Elcano'], caption:'Ferdinand Magellan, who led but did not complete the first circumnavigation (Wikimedia Commons)'},
+  {id:'card-4', candidates:['Cheng_Yi','Cheng_Hao','Neo-Confucianism'], caption:'二程（程顥、程頤）：北宋洛學創立者 (Wikimedia Commons)'},
+  {id:'card-5', candidates:['John_Rawls','A_Theory_of_Justice'], caption:'John Rawls, author of A Theory of Justice (1971) (Wikimedia Commons)'},
+  {id:'card-6', candidates:['Amos_Tversky','Daniel_Kahneman','Anchoring_effect'], caption:'Tversky and Kahneman identified anchoring as a foundational cognitive bias (Wikimedia Commons)'},
+  {id:'card-7', candidates:['Pain_gate_control_theory','Ronald_Melzack','Patrick_Wall'], caption:'The gate control mechanism in the spinal dorsal horn (Wikimedia Commons)'},
+  {id:'card-8', candidates:['Creatine','Phosphocreatine'], caption:'Creatine monohydrate: the most-researched ergogenic supplement (Wikimedia Commons)'},
+  {id:'card-9', candidates:['Bone_remodeling','Wolff\'s_law','Osteoblast'], caption:'Wolff\'s Law: bone adapts its structure in response to mechanical load (Wikimedia Commons)'},
+  {id:'card-10', candidates:['Kelly_criterion','Ed_Thorp','Claude_Shannon'], caption:'The Kelly Criterion: bet proportional to your edge, not your conviction (Wikimedia Commons)'},
+  {id:'card-11', candidates:['Goodhart\'s_law','Charles_Goodhart'], caption:'Goodhart\'s Law: measured metrics quickly become gaming targets (Wikimedia Commons)'},
+];
+async function loadImages() {
+  for (const {id, candidates, caption} of imageCandidates) {
+    const wrap = document.getElementById(id + '-img');
+    if (!wrap) continue;
+    for (const term of candidates) {
+      try {
+        const r = await fetch(`https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(term)}`);
+        const d = await r.json();
+        if (d.thumbnail && d.thumbnail.source) {
+          wrap.innerHTML = `<img src="${d.thumbnail.source.replace(/\/\d+px-/,'/400px-')}" alt="${caption}" loading="lazy"><div class="img-caption">${caption}</div>`;
+          break;
+        }
+      } catch(e){}
+    }
+  }
+}
+document.addEventListener('DOMContentLoaded', loadImages);
+
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-18.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-18.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+</body>
+</html>
