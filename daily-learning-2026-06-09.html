@@ -101,12 +101,20 @@
     footer li{margin-bottom:.25rem;line-height:1.55;}
     .fab-toolbar,.float-toolbar{display:none !important;}
     @media(max-width:899px){.page-layout,.container,.page-body,.page-wrapper,.page{padding:1rem .75rem 3rem;}article.card,.card{padding:1.1rem 1.1rem;}article.card h2,.card h2,.card-title{font-size:1.05rem;}}
-  </style>
+  
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+</style>
 </head>
 <body>
 
 <div class="sticky-top">
-<div class="back-bar"><a href="index.html">&larr; All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button></div></div>
+<div class="back-bar"><a href="index.html">&larr; All Briefings</a><div class="header-toolbar"><button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button><button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button><button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button><a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a></div></div>
 <header class="site-header">
   <h1>Daily Learning</h1>
   <div class="meta">Tuesday, 9 June 2026 &nbsp;·&nbsp; Est. reading time: <strong>~35 min</strong></div>
@@ -167,6 +175,7 @@
 
     <!-- ══ CARD 1 — ASTRONOMY ══ -->
     <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Astronomy &amp; Cosmos</div>
       <h2>The Shadow at the Heart of the Milky Way</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -191,6 +200,7 @@
 
     <!-- ══ CARD 2 — EASTERN HISTORY (繁中) ══ -->
     <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Eastern History</div>
       <h2>鄭和下西洋：被遺忘的帝國海路</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -214,6 +224,7 @@
 
     <!-- ══ CARD 3 — WESTERN HISTORY ══ -->
     <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Western History</div>
       <h2>Constantinople, 1453: The Day a World Ended — and Another Began</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -237,6 +248,7 @@
 
     <!-- ══ CARD 4 — EASTERN PHILOSOPHY (繁中) ══ -->
     <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Eastern Philosophy</div>
       <h2>老子的弔詭：無為之治，柔弱勝剛強</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -260,6 +272,7 @@
 
     <!-- ══ CARD 5 — WESTERN PHILOSOPHY ══ -->
     <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Western Philosophy</div>
       <h2>Plato's Cave: Why the Real World Might Be a Shadow Show</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -283,6 +296,7 @@
 
     <!-- ══ CARD 6 — PSYCHOLOGY ══ -->
     <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Psychology</div>
       <h2>The Lie We Tell Ourselves: Cognitive Dissonance and the Mind's Self-Repair System</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -303,6 +317,7 @@
 
     <!-- ══ CARD 7 — PHYSIOLOGY ══ -->
     <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Physiology · Axis A: Decode Everyday Body Experiences</div>
       <h2>Fight, Flight — and the Body That Won't Stand Down</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -323,6 +338,7 @@
 
     <!-- ══ CARD 8 — HEALTH ══ -->
     <article class="card" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Health</div>
       <h2>Sleep Is Not Rest — It's Active Maintenance (and Missing It Is Expensive)</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -343,6 +359,7 @@
 
     <!-- ══ CARD 9 — SPORTS SCIENCE ══ -->
     <article class="card" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Sports Science</div>
       <h2>Periodisation: Why Training in Cycles Beats Training in Straight Lines</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -363,6 +380,7 @@
 
     <!-- ══ CARD 10 — INVESTING ══ -->
     <article class="card green" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Investing &amp; Economic Thinking · Economic History</div>
       <h2>The Dot-com Bubble: When a Story Became Worth More Than a Business</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -383,6 +401,7 @@
 
     <!-- ══ CARD 11 — POLITICAL ECONOMICS ══ -->
     <article class="card blue" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">Political Economics · Theory in the Wild</div>
       <h2>The Phillips Curve Meets Stagflation: When the Trade-off Disappeared</h2>
       <details class="predict"><summary>Predict Before You Read</summary>
@@ -683,6 +702,39 @@ function briefingShare() {
       + '&body=' + encodeURIComponent(url);
   }
 }
+</script>
+
+
+<script>
+/* ===== Bookmark feature (local-first; sync-ready) ===== */
+(function(){
+  var KEY='dl_bookmarks';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+  function save(a){localStorage.setItem(KEY,JSON.stringify(a));}
+  function file(){return location.pathname.split('/').pop()||'index.html';}
+  function flash(msg){var f=document.createElement('div');f.className='bm-flash';f.textContent=msg;document.body.appendChild(f);requestAnimationFrame(function(){f.classList.add('show');});setTimeout(function(){f.classList.remove('show');setTimeout(function(){f.remove();},300);},1400);}
+  window.toggleBookmark=function(btn){
+    var card=btn.closest('.card');if(!card)return;
+    var id=card.id;var f=file();
+    var h2=card.querySelector('h2');var lbl=card.querySelector('.card-label');
+    var title=h2?h2.textContent.trim():'Untitled';
+    var label=lbl?lbl.textContent.trim():'';
+    var meta=document.querySelector('.sticky-top .meta');
+    var date=meta?meta.textContent.trim():'';
+    var a=load();var i=-1;
+    for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===id){i=k;break;}}
+    if(i>=0){a.splice(i,1);btn.classList.remove('on');flash('Removed from bookmarks');}
+    else{a.unshift({file:f,id:id,title:title,label:label,date:date,ts:Date.now()});btn.classList.add('on');flash('Saved to bookmarks');}
+    save(a);
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var a=load();var f=file();
+    document.querySelectorAll('.card').forEach(function(c){
+      var b=c.querySelector('.bm-btn');if(!b)return;
+      for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===c.id){b.classList.add('on');break;}}
+    });
+  });
+})();
 </script>
 
 </body>

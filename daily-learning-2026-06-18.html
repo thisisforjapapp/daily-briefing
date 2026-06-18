@@ -93,7 +93,15 @@ footer ul{padding-left:1.2rem;margin-top:.4rem;}
 footer li{margin-bottom:.25rem;line-height:1.55;}
 .fab-toolbar,.float-toolbar{display:none !important;}
 @media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
-  </style>
+  
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+</style>
 </head>
 <body>
 
@@ -104,6 +112,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
       <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
       <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
       <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
     </div>
   </div>
   <header class="site-header">
@@ -232,6 +241,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 1: ASTRONOMY -->
     <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
       <h2>Titan: Saturn's Moon With Alien Lakes and an Orange Sky</h2>
 
@@ -240,7 +250,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">Saturn's largest moon has lakes on its surface — but they're not made of water. What fills them, and how does that change everything scientists thought about where life could exist?</div>
       </details>
 
-      <div class="card-img-wrap" id="card-1-img"><img src="img/2026-06-18-card-1.jpg" alt="Titan's haze-shrouded atmosphere imaged by Cassini (NASA/ESA)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Titan's haze-shrouded atmosphere imaged by Cassini (NASA/ESA)</div></div>
+      <div class="card-img-wrap" id="card-1-img"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Titan_in_true_color_by_Kevin_M._Gill.jpg" onerror="this.style.display='none'" alt="Titan's haze-shrouded atmosphere imaged by Cassini (NASA/ESA)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Titan's haze-shrouded atmosphere imaged by Cassini (NASA/ESA)</div></div>
 
       <p>On 14 January 2005, a small disc-shaped probe called Huygens (惠更斯探測器) — released by the Cassini (卡西尼號) spacecraft — pierced the thick orange haze of Titan (土衛六) and descended for two and a half hours before touching down on a frozen plain littered with rounded pebbles of water ice. The images it returned were alien yet eerily familiar: a horizon, a shoreline, a flat floodplain shaped by flowing liquid. But Titan's temperature sits at −179 °C, far too cold for liquid water. What carved those channels, filled those basins, and rounded those pebbles was liquid methane (甲烷).</p>
 
@@ -261,6 +271,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 2: EASTERN HISTORY (JAPAN) -->
     <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x26E9; 東方歷史 &#x1F1EF;&#x1F1F5;</div>
       <h2>大化改新（645年）：日本第一場政治革命的血與制度</h2>
 
@@ -276,7 +287,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <p><strong>大局：</strong>蘇我氏百年來挾天皇以令諸侯，大肆兼併土地，令豪族與皇室均不滿；與此同時，唐朝建立後制度威力震驚日本遣唐使，改革壓力內外兼至。</p>
       </div>
 
-      <div class="card-img-wrap" id="card-2-img"><img src="img/2026-06-18-card-2.png" alt="Emperor Tenji (中大兄皇子), architect of the Taika Reforms (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Emperor Tenji (中大兄皇子), architect of the Taika Reforms (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-2-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Emperor-Tenji.png" onerror="this.style.display='none'" alt="Emperor Tenji (中大兄皇子), architect of the Taika Reforms (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Emperor Tenji (中大兄皇子), architect of the Taika Reforms (Wikimedia Commons)</div></div>
 
       <p>645年6月，飛鳥宮正殿之上，中大兄皇子與中臣鎌足預謀已久的刺殺計劃終於付諸實行。當蘇我入鹿在朝議上被當眾誅殺，其父蘇我蝦夷翌日自焚，歷時逾百年的蘇我氏政治壟斷在一夕之間瓦解。這場政變史稱「乙巳之變」（乙巳の変），其後頒布的一系列詔令，後世合稱「大化改新」——以新年號「大化」命名，這也是日本史上首個正式年號。</p>
 
@@ -297,6 +308,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 3: WESTERN HISTORY -->
     <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F3DB; History &mdash; Western</div>
       <h2>Magellan-Elcano: The Voyage That Proved the World Was Round — At a Terrible Cost</h2>
 
@@ -312,7 +324,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <p><strong>Stakes:</strong> Spain and Portugal had divided the globe under the Treaty of Tordesillas (托爾德西利亞斯條約, 1494), but the lucrative Spice Islands (香料群島, Maluku) lay ambiguously on Portugal's side. Magellan aimed to prove they could be reached by sailing west — and thus belonged to Spain.</p>
       </div>
 
-      <div class="card-img-wrap" id="card-3-img"><img src="img/2026-06-18-card-3.jpg" alt="Ferdinand Magellan, who led but did not complete the first circumnavigation (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Ferdinand Magellan, who led but did not complete the first circumnavigation (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-3-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Ferdinand_Magellan.jpg" onerror="this.style.display='none'" alt="Ferdinand Magellan, who led but did not complete the first circumnavigation (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Ferdinand Magellan, who led but did not complete the first circumnavigation (Wikimedia Commons)</div></div>
 
       <p>The voyage's first crisis came in South America, where Magellan brutally suppressed a mutiny by three of his five captains — hanging one, quartering another, and marooning a third on a Patagonian beach. In October 1520, after months of searching, he discovered the treacherous strait that now bears his name (麥哲倫海峽) at the tip of South America. One ship turned back; the crew of another wrecked it and fled to Spain. Three ships entered the Pacific Ocean (太平洋) — a body of water Europeans had never crossed. What Magellan had wildly underestimated was its size: the crossing took 98 days. His men ate leather, sawdust, and rats. Nineteen died of scurvy (壞血病) before landfall in Guam (關島).</p>
 
@@ -333,6 +345,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 4: EASTERN PHILOSOPHY -->
     <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x262F; 東方哲學</div>
       <h2>二程理學：天理即萬物之本，人欲何處安頓？</h2>
 
@@ -347,7 +360,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <p><strong>時代背景：</strong>宋代儒學面臨佛教與道教的強力挑戰，儒者需要一套與之抗衡的形而上學體系，既能說明宇宙秩序，又能為道德實踐提供本體論根據。</p>
       </div>
 
-      <div class="card-img-wrap" id="card-4-img"><img src="img/2026-06-18-card-4.png" alt="北宋理學先驅：二程的思想源頭周敦頤 (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">北宋理學先驅：二程的思想源頭周敦頤 (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-4-img"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Cheng_Yi.jpg" onerror="this.style.display='none'" alt="北宋理學先驅：二程的思想源頭周敦頤 (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">北宋理學先驅：二程的思想源頭周敦頤 (Wikimedia Commons)</div></div>
 
       <p>二程最核心的貢獻是確立「天理」（tiānlǐ）為宇宙最高本體。在他們看來，萬物各有其理，而萬理歸一，總稱「天理」。天理既是自然秩序，也是道德準則；仁義禮智不是人為規定，而是天理在人心中的具體呈現。這一論述的策略意涵在於：道德不再依賴聖人的權威或政治教化，而有了形而上的必然性——違反道德即違反宇宙秩序本身。二程因此被視為宋明理學（道學）的奠基者，後世朱熹（朱子）所建構的完整理學體系，正是在二程的基礎上發展而來。</p>
 
@@ -368,6 +381,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 5: WESTERN PHILOSOPHY -->
     <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
       <h2>Rawls's Veil of Ignorance: What Would You Choose If You Didn't Know Who You'd Be?</h2>
 
@@ -383,7 +397,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <p><strong>Context:</strong> The American civil rights era and debates over welfare state legitimacy made questions of distributive justice (分配正義) urgently practical.</p>
       </div>
 
-      <div class="card-img-wrap" id="card-5-img"><img src="img/2026-06-18-card-5.jpg" alt="John Rawls, author of A Theory of Justice (1971) (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">John Rawls, author of A Theory of Justice (1971) (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-5-img"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg" onerror="this.style.display='none'" alt="John Rawls, author of A Theory of Justice (1971) (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">John Rawls, author of A Theory of Justice (1971) (Wikimedia Commons)</div></div>
 
       <p>Rawls's key device is the <strong>original position</strong> (原初狀態) behind a <strong>veil of ignorance</strong> (無知之幕): imagine choosing the basic structure of society — its constitution, economic system, and social institutions — without knowing your place in it. You don't know your race, sex, talents, wealth, conception of the good, or even which generation you belong to. Under these conditions, Rawls argues, rational people would choose two principles. First, everyone gets the most extensive system of equal basic liberties (平等基本自由) compatible with the same for all others. Second — the <strong>difference principle</strong> (差異原則) — social and economic inequalities are permitted only if they benefit the least advantaged members of society, and attached to positions open to all under fair equality of opportunity (公平機會平等).</p>
 
@@ -404,6 +418,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 6: PSYCHOLOGY (BEHAVIORAL ECON) -->
     <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F9E0; Psychology &#x1F3AF; Behavioral Economics</div>
       <h2>The Anchoring Effect: Why the First Number You Hear Hijacks Every Decision After</h2>
 
@@ -412,7 +427,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">A spinning wheel stops on the number 65. You're then asked: what percentage of African countries are in the United Nations? Do you think the random spin changes your answer? Try to estimate first — then read on.</div>
       </details>
 
-      <div class="card-img-wrap" id="card-6-img"><img src="img/2026-06-18-card-6.jpg" alt="Amos Tversky and Daniel Kahneman, who identified anchoring as a fundamental cognitive bias (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Amos Tversky and Daniel Kahneman, who identified anchoring as a fundamental cognitive bias (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-6-img"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" onerror="this.style.display='none'" alt="Amos Tversky and Daniel Kahneman, who identified anchoring as a fundamental cognitive bias (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Amos Tversky and Daniel Kahneman, who identified anchoring as a fundamental cognitive bias (Wikimedia Commons)</div></div>
 
       <p>In their landmark 1974 paper in <em>Science</em>, Amos Tversky (阿莫斯·特沃斯基) and Daniel Kahneman (丹尼爾·卡尼曼) spun a wheel rigged to stop at either 10 or 65, then asked participants to estimate the percentage of African nations in the United Nations. Those who saw 65 guessed an average of 45%; those who saw 10 guessed 25%. The wheel was obviously random and obviously irrelevant — yet it shifted estimates by 20 percentage points. Tversky and Kahneman called the mechanism <strong>anchoring</strong> (定錨效應): people start from an initial value and adjust insufficiently, remaining biased toward the anchor. It is one of the most robust and replicable findings in cognitive psychology — the effect appears even when people are told the anchor is random, and even among domain experts.</p>
 
@@ -433,6 +448,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 7: PHYSIOLOGY -->
     <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1FAC0; Physiology</div>
       <h2>Gate Control Theory: Why Rubbing a Bruise Actually Helps, and Why Chronic Pain Is a Different Beast</h2>
 
@@ -441,7 +457,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">Before 1965, scientists believed pain signals travelled in a straight line from injury to brain — more damage, more pain. But this doesn't explain why soldiers in battle feel no pain from serious wounds, or why thinking about something else makes a headache recede. What's really happening?</div>
       </details>
 
-      <div class="card-img-wrap" id="card-7-img"><img src="img/2026-06-18-card-7.png" alt="Gate control theory: the spinal dorsal horn modulates pain signals (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Gate control theory: the spinal dorsal horn modulates pain signals (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-7-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Gate_Theory_Circuit_Mechanism.svg/250px-Gate_Theory_Circuit_Mechanism.svg.png" onerror="this.style.display='none'" alt="Gate control theory: the spinal dorsal horn modulates pain signals (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Gate control theory: the spinal dorsal horn modulates pain signals (Wikimedia Commons)</div></div>
 
       <p>In 1965, Ronald Melzack (羅納德·梅爾扎克) and Patrick Wall (帕特里克·沃爾) published a short paper in <em>Science</em> that overturned a century of pain theory. The <strong>gate control theory</strong> (閘門控制理論) proposed that pain is not a simple alarm system but a modulated signal: a "gate" in the dorsal horn (背角) of the spinal cord determines how much pain signal reaches the brain. The gate is controlled by the relative activity of two types of fibres. Large-diameter Aβ fibres (Aβ纖維) — which carry touch, pressure, and vibration — can "close" the gate, inhibiting pain transmission. Small-diameter C fibres (C纖維) and Aδ fibres (Aδ纖維) — which carry pain and temperature signals — "open" it. This is why rubbing a banged shin provides immediate relief: touch-sensitive Aβ fibres fire, partially closing the gate and reducing the pain signal that reaches consciousness.</p>
 
@@ -462,6 +478,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 8: HEALTH -->
     <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F48A; Health</div>
       <h2>Creatine: The Most Researched Supplement You're Probably Still Confused About</h2>
 
@@ -470,7 +487,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">Creatine (肌酸) has been studied for over 30 years in thousands of trials. It's cheap, widely available, and consistently effective. So why do so many people still think it damages kidneys, causes dehydration, or only works for bodybuilders?</div>
       </details>
 
-      <div class="card-img-wrap" id="card-8-img"><img src="img/2026-06-18-card-8.png" alt="Creatine monohydrate: the most-researched ergogenic supplement (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Creatine monohydrate: the most-researched ergogenic supplement (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-8-img"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/CreatineStructure.png" onerror="this.style.display='none'" alt="Creatine monohydrate: the most-researched ergogenic supplement (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Creatine monohydrate: the most-researched ergogenic supplement (Wikimedia Commons)</div></div>
 
       <p>Creatine is not a steroid, a stimulant, or a magic bullet. It is a naturally occurring compound (天然化合物) synthesised from amino acids arginine (精氨酸), glycine (甘氨酸), and methionine (甲硫氨酸) in your liver and kidneys. About 95% of the body's creatine sits in skeletal muscle as phosphocreatine (磷酸肌酸, PCr). When you perform a short, intense effort — a sprint, a heavy squat, a jump — your muscles consume ATP (三磷酸腺苷) faster than aerobic metabolism can supply it. PCr donates a phosphate group to ADP (二磷酸腺苷) to regenerate ATP in milliseconds, buying a few extra seconds of maximal power. Supplementing creatine monohydrate (肌酸一水化合物) increases intramuscular PCr stores by approximately 10–30%, extending the duration and power of high-intensity efforts before fatigue sets in. This is the entire mechanism. It is not hormonal.</p>
 
@@ -491,6 +508,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 9: SPORTS SCIENCE -->
     <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F3CB; Sports Science</div>
       <h2>Wolff's Law: Why Lifting Weights Builds Bone — and Why Cardio Alone Doesn't</h2>
 
@@ -499,7 +517,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">Astronauts lose significant bone density in space despite intense exercise programs. Elite marathon runners often have lower bone density than sprinters despite logging enormous training volumes. What does this tell us about how bone responds to exercise — and what type of loading actually matters?</div>
       </details>
 
-      <div class="card-img-wrap" id="card-9-img"><img src="img/2026-06-18-card-9.png" alt="Wolff's Law: bone adapts its structure in response to mechanical load (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Wolff's Law: bone adapts its structure in response to mechanical load (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-9-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Bonemetabolism.svg/960px-Bonemetabolism.svg.png" onerror="this.style.display='none'" alt="Wolff's Law: bone adapts its structure in response to mechanical load (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Wolff's Law: bone adapts its structure in response to mechanical load (Wikimedia Commons)</div></div>
 
       <p>In 1892, German surgeon Julius Wolff (尤利烏斯·沃爾夫) proposed what became known as Wolff's Law (沃爾夫定律): bone adapts its structure in response to the loads placed upon it. This is not merely a historical curiosity — it describes a precise biological mechanism. When mechanical load is applied to bone, the bone matrix deforms slightly, producing piezoelectric signals (壓電信號) and fluid flow through canaliculi (骨小管). These signals activate osteoblasts (成骨細胞) — bone-building cells — and suppress osteoclasts (破骨細胞) — bone-resorbing cells. The net result is new bone laid down along lines of stress. Conversely, unloaded bone (as in a limb immobilised in a cast, or an astronaut in microgravity) experiences net resorption: osteoclasts dominate and density falls, sometimes by 1–2% per month in weightlessness.</p>
 
@@ -520,6 +538,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 10: INVESTING -->
     <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
       <h2>The Kelly Criterion: How a Bell Labs Mathematician Figured Out the Optimal Bet — and Why Wall Street Ignores It</h2>
 
@@ -528,7 +547,7 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
         <div class="predict-q">You have a coin that comes up heads 60% of the time. You can bet any fraction of your wealth on each flip. What fraction should you bet to maximise your long-run wealth? (Hint: it's not 60%, and it's not 100%.)</div>
       </details>
 
-      <div class="card-img-wrap" id="card-10-img"><img src="img/2026-06-18-card-10.png" alt="The Kelly Criterion: bet proportional to your edge, not your conviction (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">The Kelly Criterion: bet proportional to your edge, not your conviction (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-10-img"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Kelly_bet.png" onerror="this.style.display='none'" alt="The Kelly Criterion: bet proportional to your edge, not your conviction (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">The Kelly Criterion: bet proportional to your edge, not your conviction (Wikimedia Commons)</div></div>
 
       <p>In 1956, John Kelly Jr (約翰·凱利), a physicist at Bell Telephone Laboratories (貝爾電話實驗室), published "A New Interpretation of Information Rate" in the <em>Bell System Technical Journal</em> — ostensibly about channel noise in telephone transmission, but containing a formula that would eventually transform gambling and investing. The <strong>Kelly criterion</strong> (凱利準則) states that the optimal fraction of capital to bet on any wager is: <em>f* = (bp − q) / b</em>, where <em>b</em> is the net odds (how much you win per unit staked), <em>p</em> is the probability of winning, and <em>q = 1 − p</em> is the probability of losing. For the 60% coin, <em>b = 1, p = 0.6, q = 0.4</em>: <em>f* = (1 × 0.6 − 0.4) / 1 = 0.2</em>. Bet 20% of your wealth per flip. Not 60%, not 100% — 20%. The formula is derived from maximising the expected value of the <em>logarithm</em> of wealth, which is equivalent to maximising the long-run geometric growth rate.</p>
 
@@ -549,10 +568,11 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 
     <!-- CARD 11: POLITICAL ECONOMICS -->
     <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
       <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
       <h2>Goodhart's Law: When a Measure Becomes a Target, It Ceases to Be a Good Measure</h2>
 
-      <div class="card-img-wrap" id="card-11-img"><img src="img/2026-06-18-card-11.jpg" alt="Charles Goodhart, who formulated Goodhart's Law in 1975 (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Charles Goodhart, who formulated Goodhart's Law in 1975 (Wikimedia Commons)</div></div>
+      <div class="card-img-wrap" id="card-11-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Charles_Goodhart_delives_the_2012_Long_Finance_conference_keynote_speech.JPG" onerror="this.style.display='none'" alt="Charles Goodhart, who formulated Goodhart's Law in 1975 (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Charles Goodhart, who formulated Goodhart's Law in 1975 (Wikimedia Commons)</div></div>
 
       <div class="pe-section">
         <div class="pe-label">&#x1F4CD; Event</div>
@@ -626,5 +646,38 @@ function briefingShare() {
   }
 }
 </script>
+
+<script>
+/* ===== Bookmark feature (local-first; sync-ready) ===== */
+(function(){
+  var KEY='dl_bookmarks';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+  function save(a){localStorage.setItem(KEY,JSON.stringify(a));}
+  function file(){return location.pathname.split('/').pop()||'index.html';}
+  function flash(msg){var f=document.createElement('div');f.className='bm-flash';f.textContent=msg;document.body.appendChild(f);requestAnimationFrame(function(){f.classList.add('show');});setTimeout(function(){f.classList.remove('show');setTimeout(function(){f.remove();},300);},1400);}
+  window.toggleBookmark=function(btn){
+    var card=btn.closest('.card');if(!card)return;
+    var id=card.id;var f=file();
+    var h2=card.querySelector('h2');var lbl=card.querySelector('.card-label');
+    var title=h2?h2.textContent.trim():'Untitled';
+    var label=lbl?lbl.textContent.trim():'';
+    var meta=document.querySelector('.sticky-top .meta');
+    var date=meta?meta.textContent.trim():'';
+    var a=load();var i=-1;
+    for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===id){i=k;break;}}
+    if(i>=0){a.splice(i,1);btn.classList.remove('on');flash('Removed from bookmarks');}
+    else{a.unshift({file:f,id:id,title:title,label:label,date:date,ts:Date.now()});btn.classList.add('on');flash('Saved to bookmarks');}
+    save(a);
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var a=load();var f=file();
+    document.querySelectorAll('.card').forEach(function(c){
+      var b=c.querySelector('.bm-btn');if(!b)return;
+      for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===c.id){b.classList.add('on');break;}}
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
