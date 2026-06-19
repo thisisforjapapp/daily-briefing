@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning — 19 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Friday, 19 June 2026 &middot; ~20 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; &#x6771;&#x65B9;&#x6B77;&#x53F2;</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; &#x6771;&#x65B9;&#x54F2;&#x5B78;</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; &#x6771;&#x65B9;&#x6B77;&#x53F2;</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; &#x6771;&#x65B9;&#x54F2;&#x5B78;</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>18 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FA90; Astronomy &mdash; Titan</span>
+        <em>Answer this without looking back:</em> Titan has a full weather cycle analogous to Earth's water cycle. What is the liquid involved, and what ultimately powers the cycle despite Titan's enormous distance from the Sun?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The liquid is methane (and ethane). Titan's methane cycle — evaporation, cloud formation, rainfall, and lake refilling — is driven by weak reflected sunlight and internal heat, not direct solar energy (Titan receives roughly 1% of Earth's solar flux). Without a source replenishing the methane (possibly cryovolcanism), UV photolysis would strip the atmosphere within tens of millions of years.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 大化改新</span>
+        <em>讀後回想：</em>大化改新的「公地公民制」究竟意味著什麼？它對豪族的土地權益造成了什麼衝擊，為何執行如此艱難？
+        <details><summary>查看答案</summary>
+          <div class="answer">公地公民制宣布所有土地和人民歸天皇（即國家）所有，廢除豪族世代相傳的私有土地（部曲制）。改革直接威脅豪族的經濟基礎，他們以各種方式拖延、規避或半途妥協，導致班田制在地方上落實極不均勻。直至《大寶律令》（701年）確立完整律令體系後，中央集權才真正制度化。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Magellan-Elcano</span>
+        <em>Answer this without looking back:</em> When Elcano arrived back in Spain, his crew's journal showed a date one day behind the Spanish calendar. What did this prove, and what modern concept does it anticipate?
+        <details><summary>Check your answer</summary>
+          <div class="answer">It proved that time is relative to direction of travel around a sphere: sailing continuously westward means each day is slightly longer than 24 hours, causing a cumulative day's lag over a full circumnavigation. This directly anticipates the International Date Line — the conceptual boundary where the calendar day resets between eastward and westward hemisphere travel.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 二程理學</span>
+        <em>讀後回想：</em>程顥與程頤在道德修養方法上最核心的分歧是什麼？這兩條路線分別如何影響後來的朱熹理學與王陽明心學？
+        <details><summary>查看答案</summary>
+          <div class="answer">程顥主張透過「識仁」達到與萬物一體的整體感悟，傾向心靈直覺與當下體認，啟發了王陽明「心即理」、「致良知」的心學路線。程頤則強調逐物窮理、持敬涵養，認為道德知識需要系統性積累，啟發朱熹「格物致知」、「理氣二元」的理學體系。兩者同以天理為本體，但在如何接近天理上南轅北轍。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy &mdash; Rawls</span>
+        <em>Answer this without looking back:</em> What is Rawls's difference principle, and what constraint does it place on economic inequality? How does it differ from demanding equal outcomes?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The difference principle holds that inequalities in social and economic goods are just only if they benefit the least-advantaged members of society. It does not require equal outcomes — a surgeon can earn far more than a janitor — but only if that inequality is necessary (e.g., to motivate training) and actually improves the absolute position of the worst-off. Equality is the baseline; departures from it need justifying by the worst-off's benefit.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Anchoring Effect</span>
+        <em>Answer this without looking back:</em> What is the key finding of Tversky and Kahneman's wheel-of-fortune experiment, and what does Ariely's arbitrary coherence research add?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Tversky and Kahneman showed that a random, irrelevant number (a wheel spin) systematically biased numerical estimates — those who saw 65 guessed about 20 percentage points higher than those who saw 10 — proving adjustment from any starting value is insufficient. Ariely's arbitrary coherence extended this to willingness to pay: arbitrary anchors (SSN digits) shifted prices and produced internally consistent pricing structures anchored to a meaningless start.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Gate Control Theory</span>
+        <em>Answer this without looking back:</em> According to gate control theory, what two types of neural fibres control the spinal gate, and in which direction do they push it? Why does rubbing a hurt area immediately reduce pain?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Large-diameter Aβ fibres (carrying touch and pressure) close the gate, inhibiting pain transmission; small-diameter C and Aδ fibres (carrying pain and temperature) open it. Rubbing a hurt area activates Aβ touch fibres, partially closing the gate and reducing the pain signal that reaches consciousness — explaining the immediate, temporary relief from rubbing a minor injury.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Creatine</span>
+        <em>Answer this without looking back:</em> What is the precise mechanism by which creatine improves high-intensity performance, and why does it not help endurance events like marathons?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Creatine raises phosphocreatine (PCr) stores in muscle. During maximal efforts of a few seconds, PCr rapidly donates a phosphate to ADP to regenerate ATP. More PCr means more ATP regenerated before that system exhausts — more power, more reps. It does not help marathons because endurance relies on aerobic (oxidative) metabolism, not the PCr system, which only matters for efforts of roughly 1–10 seconds at maximum intensity.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Wolff's Law</span>
+        <em>Answer this without looking back:</em> What is the cellular mechanism by which mechanical loading builds bone? Name the two cell types involved and describe their competing roles.
+        <details><summary>Check your answer</summary>
+          <div class="answer">Loading deforms the bone matrix and drives fluid through canaliculi, generating piezoelectric signals that activate osteoblasts (bone-building cells) and suppress osteoclasts (bone-resorbing cells). Under load, osteoblasts dominate and new bone is laid along stress lines; without load (immobilisation, microgravity), osteoclasts dominate and bone is resorbed. The balance between the two, set by mechanical input, determines net density.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; Kelly Criterion</span>
+        <em>Answer this without looking back:</em> Why does betting more than the Kelly fraction reduce long-run wealth, even with a genuine positive-expectation edge? What mathematical property makes over-betting self-defeating?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Kelly maximises the geometric (multiplicative) growth rate of wealth, not arithmetic expected value. Above the Kelly fraction, variance grows faster than expected return, so the geometric mean — the real long-run growth rate — falls. At exactly twice Kelly it drops to zero; beyond that it turns negative, because the multiplicative drag of large losses outweighs the gains even though the arithmetic expectation per bet stays positive.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Rings of Saturn: A 4-Billion-Year-Old Illusion That's Younger Than the Dinosaurs</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Saturn's rings look ancient and permanent — the very symbol of the planet. But two recent discoveries suggest the opposite: that the rings are astonishingly young, and that they're vanishing before our eyes. How could something so vast be so fleeting?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg/3840px-PIA17172_Saturn_eclipse_mosaic_bright_crop.jpg" onerror="this.style.display='none'" alt="Saturn backlit by the Sun, photographed by the Cassini spacecraft in 2013 — the rings glow with scattered light (NASA/JPL-Caltech/SSI)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Saturn backlit by the Sun, imaged by Cassini in 2013 ("The Day the Earth Smiled") — the rings glow with scattered sunlight (NASA/JPL-Caltech/SSI)</div></div>
+
+      <p>On 19 July 2013, the Cassini (卡西尼號) spacecraft slipped into Saturn's shadow and turned its cameras back toward the eclipsed planet. What it captured stopped scientists cold: Saturn (土星) rimmed in fire, its rings lit from behind like stained glass, and — in the far distance, a single pale blue dot — Earth, photographed from 1.4 billion kilometres away. The rings that dominate the image look like the most permanent feature in the solar system. They are not. They may be the most temporary thing we can see in our cosmic neighbourhood, and they are made of something deceptively ordinary: almost pure water ice (水冰), in chunks ranging from dust grains to house-sized boulders, spread across 280,000 km but often only about 10 metres thick.</p>
+
+      <p>The first shock came from weighing them. As Cassini ended its mission in 2017, it threaded the 2,000-km gap between Saturn and its rings 22 times — the "Grand Finale" (壯麗終章) — letting scientists measure the rings' gravitational tug directly. The rings turned out to be far less massive than expected, and their ice is strikingly clean: dark interplanetary dust (星際塵埃) constantly rains onto them, so a low level of contamination means they simply haven't been around long enough to get dirty. The estimate that emerged stunned even the researchers: the rings are perhaps only 100 to 400 million years old. Saturn itself is 4.5 billion years old. When the rings formed, dinosaurs already walked the Earth.</p>
+
+      <p>The second shock is that they're disappearing. Saturn's gravity and magnetic field are pulling ring material inward as a steady drizzle scientists call "ring rain" (環雨) — ice raining down into the planet's upper atmosphere. NASA measurements suggest the rings are draining fast enough to vanish in perhaps 100 to 300 million years, an eyeblink in planetary terms. We are, in other words, living during the brief geological window in which Saturn happens to have spectacular rings at all. Whatever shattered to create them — a stray moon, a comet torn apart by tides — left behind a structure that is both younger than we imagined and already fading.</p>
+
+      <div class="takeaway">&#x1F4A1; The most iconic "permanent" sight in the solar system is a recent, dissolving accident. It's a reminder that even on cosmic scales, what looks eternal is often just a snapshot — we're lucky to be here while the rings exist.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What two lines of evidence from Cassini suggest Saturn's rings are surprisingly young rather than as old as the planet?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">First, the rings are much less massive than expected (measured directly during the 2017 Grand Finale gravity passes), and lower mass plus clean, bright ice implies they haven't accumulated much dark interplanetary dust — so they're geologically recent (roughly 100–400 million years old). Second, the rings are actively losing material as "ring rain," draining into Saturn fast enough to disappear within a few hundred million years — consistent with a structure that formed recently rather than 4.5 billion years ago.</div>
+      </details>
+
+      <div class="source">Sources: Iess, L. et al. (2019). "Measurement and implications of Saturn's gravity field and ring mass." <em>Science</em>, 364; O'Donoghue, J. et al. (2019). "Observations of the chemical and thermal response of 'ring rain'." <em>Icarus</em>, 322; NASA/JPL Cassini Grand Finale Mission Overview (2017).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>玄武門之變（626年）：唐太宗踏著兄弟的血登上帝位</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">一個在戰場上立下開國首功的次子，卻注定與皇位無緣——因為他不是嫡長子。當合法繼承的規則與真實的權力與功勳發生衝突，他選擇了最血腥的解決方式。但為何後世史家對這場弒兄殺弟的政變評價竟如此寬容？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 地點 · 形勢</span>
+        <p><strong>主角：</strong>秦王李世民（後登基為唐太宗）；對手：太子李建成、齊王李元吉（李世民之兄與弟）；居中者：開國皇帝唐高祖李淵。</p>
+        <p><strong>地點：</strong>長安城太極宮北面正門——玄武門。</p>
+        <p><strong>大局：</strong>李世民在唐朝統一戰爭中戰功彪炳，麾下聚集房玄齡、杜如晦、尉遲敬德等文武人才；然而太子之位屬嫡長子李建成。兄弟集團為剷除李世民屢設陷阱，雙方積怨已到你死我活之境。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/TangTaizong.jpg/3840px-TangTaizong.jpg" onerror="this.style.display='none'" alt="唐太宗李世民像（Wikimedia Commons）" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">唐太宗李世民——玄武門之變的主角，後開創貞觀之治（Wikimedia Commons）</div></div>
+
+      <p>626年7月2日凌晨，李世民率長孫無忌、尉遲敬德等心腹埋伏於玄武門內。他事先已重金收買玄武門守將常何——這一步是整場政變成敗的關鍵。當太子李建成與齊王李元吉如常入朝、行至臨湖殿察覺有異欲返時，李世民縱馬呼喚，繼而張弓射殺李建成；李元吉亦為尉遲敬德所殺。玄武門外太子部屬聞訊猛攻，尉遲敬德遂提二人首級示眾，東宮兵卒見主將已亡，瞬間潰散。一場決定大唐走向的政變，在天亮前便已塵埃落定。</p>
+
+      <p>政變的真正高潮在宮內。尉遲敬德全副甲冑、手持長矛，直闖唐高祖李淵泛舟的海池，名為「宿衛」，實為兵諫。李淵眼見兩子已死、大勢已去，只得下詔立李世民為太子，兩個月後更禪位退為太上皇。從射殺兄弟到逼父退位，李世民以雷霆手段在數十日內完成權力交接。值得注意的是，他隨即赦免並重用東宮舊臣，當中最著名者便是曾力勸李建成除掉他的魏徵——日後成為貞觀朝最敢直諫的名臣。這種「不計前嫌、唯才是用」的姿態，既是政治計算，也奠定了新政權的用人格局。</p>
+
+      <p>玄武門之變在道德上無可辯解——它是赤裸裸的弒兄、殺弟、逼父。然而歷史評價的弔詭之處在於：李世民登基後開創了「貞觀之治」，輕徭薄賦、虛心納諫、整飭吏治，締造中國史上少見的盛世，後世遂多以「成王」的角度寬看其奪位手段。但史家亦指出代價：玄武門開創了唐代以軍事政變奪嫡的惡例，此後唐宮廷政變頻仍（如神龍政變、唐隆政變），制度化的繼承規則始終未能穩固。李世民還親自干預史官記錄，要求查看《起居注》，使這段歷史的真實細節至今仍有爭議。</p>
+
+      <div class="takeaway">&#x1F4A1; 玄武門之變揭示一個殘酷的政治悖論：成功的篡奪者用治績洗白手段，而史書往往由勝利者改寫。功業可以贏得寬容，卻無法消除其開創的制度惡例。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>李世民發動玄武門之變的根本原因是什麼？這場政變為唐代往後的皇位繼承留下了什麼長遠的制度後遺症？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">根本原因在於「實際功勳與權力」同「嫡長子繼承制」之間的結構性衝突：李世民戰功與班底遠勝太子李建成，卻因非嫡長而與皇位無緣，雙方鬥爭升級至你死我活。後遺症是它開創了唐代以軍事政變奪取皇位的先例，此後神龍、唐隆等宮廷政變接連發生，正常的繼承規則長期難以制度化，成為唐代政治不穩的深層根源。</div>
+      </details>
+
+      <div class="source">資料來源：司馬光《資治通鑑·唐紀》；歐陽修等《新唐書·太宗本紀》；Wechsler, H. J. (1979). "T'ai-tsung the Consolidator." In <em>The Cambridge History of China, Vol. 3</em>. Cambridge University Press。</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Congress of Vienna: How a Year-Long Aristocratic Party Redrew Europe and Bought a Century of Peace</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">After Napoleon shattered Europe, the victorious powers gathered to rebuild the map. They could have crushed defeated France entirely. Instead they did something counterintuitive that helped keep the great powers from major war for nearly a hundred years. What was their guiding principle — and why did it work?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures · Place · Stakes</span>
+        <p><strong>Klemens von Metternich</strong> (梅特涅), Austrian foreign minister and host; <strong>Charles Maurice de Talleyrand</strong> (塔列朗), France's wily envoy; <strong>Viscount Castlereagh</strong> (卡斯爾雷) for Britain; <strong>Tsar Alexander I</strong> (亞歷山大一世) for Russia.</p>
+        <p><strong>Place &amp; time:</strong> Vienna (維也納), Austria, September 1814 – June 1815.</p>
+        <p><strong>Stakes:</strong> Two decades of Revolutionary and Napoleonic wars (拿破崙戰爭) had killed millions and redrawn every border. The powers had to rebuild a workable European order (歐洲秩序) from the wreckage — and decide what to do with a defeated France.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Europe_1815_map_en.png/330px-Europe_1815_map_en.png" onerror="this.style.display='none'" alt="The map of Europe as redrawn by the Congress of Vienna in 1815 (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Europe as redrawn by the Congress of Vienna, 1815 (Wikimedia Commons)</div></div>
+
+      <p>The Congress of Vienna (維也納會議) was, on its surface, the most glittering social event of the age — a near-continuous round of balls, banquets, hunts, and concerts hosted by Metternich's Austria. The Prince de Ligne quipped that "the Congress dances, but it does not progress." Yet beneath the waltzes, the real business proceeded in private rooms among a handful of men. Curiously, much of the formal "congress" never met in plenary session at all; the decisions were hammered out in committees dominated by the great powers. The guiding philosophy was a <strong>balance of power</strong> (勢力均衡): no single state should ever again be strong enough to dominate the continent as Napoleonic France had.</p>
+
+      <p>The most striking decision was the treatment of France. Talleyrand, representing a defeated and discredited nation, brilliantly exploited divisions among the victors — invoking the principle of <strong>legitimacy</strong> (正統原則), the restoration of "rightful" monarchies, to argue that France under the restored Bourbons (波旁王朝) deserved a seat at the table as an equal, not a punished pariah. Rather than dismember France, the powers restored it to roughly its 1792 borders and admitted it back into the concert of nations. This leniency was strategic: a resentful, humiliated France would destabilise Europe, whereas a restored one could serve as a counterweight. To contain future French ambition, the Congress strengthened France's neighbours — uniting the Netherlands and Belgium, bolstering Prussia (普魯士) in the Rhineland, and confirming a loose German Confederation (德意志邦聯).</p>
+
+      <p>Historians have long debated the Congress's legacy. It was, by the standards of its time, reactionary — it restored monarchs, ignored rising nationalism and liberalism, and helped Metternich build a system of repression against revolution. The nationalist and democratic energies it suppressed would erupt in the revolutions of 1848. Yet its central achievement is hard to dismiss: the settlement was moderate enough that no defeated party was left with an overwhelming grievance, and the resulting "Concert of Europe" (歐洲協調) — a habit of the great powers consulting to manage crises — helped prevent any continent-wide war between major powers from 1815 until 1914. Henry Kissinger (基辛格), who wrote his doctoral thesis on the Congress, argued that its genius lay precisely in producing an order that all the major players found tolerable rather than one that maximised any single victor's gain.</p>
+
+      <div class="takeaway">&#x1F4A1; The Vienna settlement worked because it prioritised a stable, legitimate order over punishing the loser — the opposite of the vindictive Versailles Treaty a century later, whose harshness helped sow the next war. Durable peace often requires the winners to show restraint.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did the victorious powers at Vienna choose to restore rather than dismember defeated France, and how does this contrast with the Treaty of Versailles after WWI?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The powers sought a stable balance of power, reasoning that a humiliated, resentful France would destabilise Europe, while a restored France of moderate size could act as a counterweight among the great powers. Talleyrand reinforced this with the principle of legitimacy. The result — a settlement no major party found intolerable — helped underpin a century without continent-wide great-power war. Versailles (1919) did the opposite: it imposed punitive reparations and humiliation on Germany, breeding the grievance that contributed to WWII.</div>
+      </details>
+
+      <div class="source">Sources: Kissinger, H. (1957). <em>A World Restored: Metternich, Castlereagh and the Problems of Peace 1812–22</em>. Houghton Mifflin; Zamoyski, A. (2007). <em>Rites of Peace: The Fall of Napoleon and the Congress of Vienna</em>. HarperCollins; Britannica, "Congress of Vienna."</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>龍樹中觀：萬物皆空，卻非虛無——印度佛學最鋒利的思辨</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">如果說「一切事物都沒有自性、本質皆空」，那豈不是說什麼都不存在、善惡因果皆可不論？兩千年前一位印度僧人提出了「空」的學說，卻反過來主張：正因為一切皆空，因果與道德才得以成立。這看似矛盾的論證，究竟如何成立？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 學說 · 時代背景</span>
+        <p><strong>龍樹（約公元150–250年）</strong>，南印度人，大乘佛教中觀學派（中觀宗）的創立者，被後世尊為「八宗共祖」。</p>
+        <p><strong>核心文本：</strong>《中論》（《根本中頌》），以簡練偈頌系統論證「空性」。</p>
+        <p><strong>時代背景：</strong>當時佛教部派（尤其說一切有部）主張構成世界的最小元素「法」具有實在自性。龍樹認為此說違背佛陀「緣起」本義，遂以犀利的辯證法予以破斥。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Nagarjuna_with_84_mahasiddha_cropped.jpg/330px-Nagarjuna_with_84_mahasiddha_cropped.jpg" onerror="this.style.display='none'" alt="龍樹菩薩像（Wikimedia Commons）" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">中觀學派創立者龍樹（Wikimedia Commons）</div></div>
+
+      <p>龍樹思想的核心是「空性」（性空）。所謂「空」，並非指事物不存在，而是指萬物沒有獨立、固定、自我成立的「自性」。一張桌子之所以是桌子，依賴木材、工匠、用途、概念等無數條件而成立；抽掉這些條件，並無一個本質性的「桌子自身」存在。這正是佛陀「緣起」（凡物皆因條件聚合而生）的邏輯延伸：既然一切都依緣而起，便不可能有不依賴他物的自性。故龍樹有名言：「以有空義故，一切法得成」——正因為事物是空（可變、依緣的），世界的生滅變化與因果關係才成為可能；若事物各有不變自性，反而一切無法生成、無法改變。</p>
+
+      <p>龍樹的論證方法極具特色，後世稱為「破而不立」。他不正面建立任何形上學主張，而是逐一揭示對手立場的內在矛盾。在《中論》開篇著名的「八不」中，他否定「生、滅、常、斷、一、異、來、去」八種極端見解，以顯中道。他擅長用兩難法（四句否定）逼使論敵承認其概念若推到底必然自相矛盾——例如「自生、他生、共生、無因生」皆不能成立，故知「生」本身並無自性。這種純粹解構式的思辨，使中觀學派以「不執一邊」的中道立場著稱。</p>
+
+      <p>然而龍樹深知「空」極易被誤解為「虛無」（斷滅論），於是提出「二諦」說加以防範：世俗諦（日常經驗中事物宛然存在、因果宛然不爽）與勝義諦（究竟而言一切無自性、皆空）。兩者並不衝突——日常層面我們照常行善積德、依因果而活，這正是修行的基礎；究竟層面則了悟其無自性，從而破除執著。龍樹甚至警告：「執空」比「執有」更危險，猶如抓蛇不得其法反被咬。這套思想經鳩摩羅什漢譯後深刻形塑中國三論宗、天台、禪宗，並經藏傳佛教格魯派奉為最高見地，影響遍及整個東亞與西藏佛教世界。</p>
+
+      <div class="takeaway">&#x1F4A1; 龍樹的洞見：「空」不是否定世界，而是否定我們對世界的僵化執著。正因事物無固定本質、皆可改變，成長、修行與因果才成為可能——空，恰恰是希望的邏輯基礎。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>龍樹的「空」為何不等同於「虛無」？他用什麼學說來防止人們把「空」誤解為「什麼都不存在」？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">「空」指事物沒有獨立不變的自性，而非不存在；萬物依緣而起、宛然顯現，只是無本質。龍樹以「二諦」說防止虛無誤解：世俗諦肯定日常經驗中事物與因果照常運作（修行與道德的基礎），勝義諦則指出究竟而言一切無自性皆空。兩諦並行不悖，故「空」否定的是執著與本質化，而非經驗世界本身；龍樹更警告「執空」比「執有」更危險。</div>
+      </details>
+
+      <div class="source">資料來源：龍樹《中論》（鳩摩羅什譯）；Garfield, J. L. (1995). <em>The Fundamental Wisdom of the Middle Way</em>. Oxford University Press；Stanford Encyclopedia of Philosophy, "Nāgārjuna." 馮友蘭《中國哲學史》論三論宗部分。</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Epicurus: Why the Original "Pleasure-Seeker" Actually Preached Bread, Water, and Friends</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">We call someone an "epicurean" when they love fine food and luxury. But the philosopher Epicurus lived on bread, water, and the occasional pot of cheese — and called this the height of pleasure. How did a man who preached simple living become the patron saint of indulgence, and what was he really arguing?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">The Problem · Rival Views · Historical Moment</span>
+        <p><strong>Epicurus</strong> (伊壁鳩魯, 341–270 BCE), Athenian philosopher who founded a school called "The Garden" (花園) that, unusually, admitted women and enslaved people as members.</p>
+        <p><strong>Problem he addressed:</strong> What is the good life, and how do we free ourselves from the fear and anxiety (especially fear of death and the gods) that poison human happiness?</p>
+        <p><strong>Rival views:</strong> Against the Stoics (斯多葛學派), who located the good in virtue and duty; against Platonic idealism (柏拉圖主義); and against popular religion's fear of divine punishment.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Epikouros_BM_1843.jpg/330px-Epikouros_BM_1843.jpg" onerror="this.style.display='none'" alt="Roman marble bust of Epicurus (British Museum / Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Roman marble bust of Epicurus, founder of the Garden (British Museum / Wikimedia Commons)</div></div>
+
+      <p>Epicurus did teach that pleasure (快樂) is the highest good — but he meant something very specific, and almost the reverse of what "epicurean" connotes today. For Epicurus, pleasure is fundamentally the <em>absence</em> of pain and disturbance: physical painlessness (<em>aponia</em>) and mental tranquillity (<em>ataraxia</em>, 心靈寧靜). He distinguished sharply between kinetic pleasures (the fleeting buzz of eating a feast) and katastematic pleasures (the stable, contented state of not being hungry, anxious, or afraid). The latter is far more valuable. Lavish living, he argued, actually undermines tranquillity — it breeds dependency, debt, status anxiety, and the fear of losing what you have. Hence his famous practice: live on simple food, so that the occasional luxury becomes a genuine delight rather than an expectation, and so that you never fear poverty.</p>
+
+      <p>His framework for a calm life is captured in the <em>tetrapharmakos</em> — the "four-part cure" (四味良藥): Don't fear the gods; don't worry about death; what is good is easy to get; what is terrible is easy to endure. The argument about death is his most celebrated: "Death is nothing to us," he wrote, "for when we exist, death is not present, and when death is present, we do not exist." Since Epicurus held that the soul is material and dissolves at death (he was an atomist, following Democritus), there is no afterlife to fear and no one left to suffer. To fear death is therefore irrational — it is to dread a state in which there will be no "you" to experience anything. The Roman poet Lucretius (盧克萊修) later elaborated this materialist vision in his great poem <em>De Rerum Natura</em>.</p>
+
+      <p>Crucially, Epicurus ranked <strong>friendship</strong> (友誼) among the very highest goods — "Of all the things which wisdom provides to make us entirely happy, much the greatest is the possession of friendship." The Garden was a community of friends living simply together, deliberately withdrawn from the stress of Athenian politics ("live unknown," he advised). His reputation suffered badly: rivals, and later Christian writers, caricatured him as a glutton and sensualist, which is how the modern word "epicure" acquired its meaning. The irony is profound — the philosopher most associated with indulgence was in fact an early theorist of minimalism, arguing that the secret to happiness is wanting less, not having more.</p>
+
+      <div class="takeaway">&#x1F4A1; Epicurus's practical wisdom: distinguish the pleasures that bring lasting calm (health, friendship, freedom from anxiety) from those that create craving and dependency. Wanting less is a more reliable route to contentment than acquiring more.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did Epicurus actually mean by "pleasure," and why did he argue that fearing death is irrational?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">By "pleasure" Epicurus primarily meant the absence of pain and mental disturbance — bodily painlessness (aponia) and tranquillity (ataraxia) — not sensual indulgence; stable, contented states matter far more than fleeting thrills, and luxury tends to breed anxiety. He argued fear of death is irrational because the soul is material and dissolves at death: "when we exist, death is not present, and when death is present, we do not exist." There is no subject left to experience harm, so death cannot be bad for the one who dies.</div>
+      </details>
+
+      <div class="source">Sources: Epicurus, "Letter to Menoeceus" and "Principal Doctrines" (in Diogenes Laertius, <em>Lives</em>, Book X); Lucretius, <em>De Rerum Natura</em>; Stanford Encyclopedia of Philosophy, "Epicurus."</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Spotlight Effect: Nobody Noticed Your Embarrassing Moment as Much as You Did</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You walk into a room wearing an embarrassing T-shirt, sure that everyone is staring. In a famous experiment, researchers made students do exactly this. How many of the other people in the room do you think actually noticed and could later identify the shirt?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Gilovich_%28fr_Feist%29.jpg" onerror="this.style.display='none'" alt="Thomas Gilovich, the psychologist who named and tested the spotlight effect (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Thomas Gilovich, who named and experimentally tested the spotlight effect (Wikimedia Commons)</div></div>
+
+      <p>In a now-classic 2000 study published in the <em>Journal of Personality and Social Psychology</em>, Thomas Gilovich (湯瑪斯·吉洛維奇), Victoria Medvec, and Kenneth Savitsky asked individual college students to put on a deliberately embarrassing T-shirt — a large image of singer Barry Manilow, chosen because students rated it as cringeworthy — and then walk into a room where other students were already seated. Afterward, the T-shirt wearers were asked to estimate what fraction of the group had noticed and could identify who was on their shirt. On average, they guessed about 46%. The reality, when the observers were quizzed: only around 23% — roughly half as many. People consistently and dramatically overestimated how much attention was directed at them. Gilovich named this the <strong>spotlight effect</strong> (聚光燈效應): the tendency to feel that we are under far more scrutiny than we actually are.</p>
+
+      <p>The mechanism is a failure of perspective-taking rooted in <strong>anchoring</strong> (定錨). You experience your own appearance, words, and mistakes with total vividness — they are the centre of your own attention — and you then insufficiently adjust away from this rich internal experience when estimating how they appear to others. Because you can't easily step outside your own head, your own salience leaks into your prediction of others' attention. A related finding by the same researchers, the "illusion of transparency" (透明度錯覺), shows that we also overestimate how visible our internal states — nervousness, disgust, a lie — are to onlookers. A nervous public speaker feels their anxiety is written all over their face, when in fact the audience usually can't tell.</p>
+
+      <p>The practical liberation here is real. Most people are absorbed in their own spotlight, not yours — the colleague who fumbled a sentence in a meeting, the visible stain on your shirt, the time you waved back at someone who wasn't waving at you: others noticed far less and forgot far faster than you imagine. As with most cognitive biases, the effect has limits — it is most pronounced for acute, self-conscious moments and can vary across individuals and cultures, and the original studies used modest samples of Western undergraduates. But the core finding is robust and well-replicated, and the takeaway for everyday anxiety is genuinely useful: the audience you fear is mostly imaginary.</p>
+
+      <div class="takeaway">&#x1F4A1; The next time you're mortified by a small public mistake, remember the Barry Manilow shirt: roughly half the people you think noticed didn't, and most of the rest have already forgotten. You are the star of your own movie, but only a background extra in everyone else's.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did Gilovich's "embarrassing T-shirt" experiment demonstrate, and what cognitive mechanism explains why we overestimate others' attention to us?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Students wearing an embarrassing shirt estimated that about 46% of observers had noticed it, but only about 23% actually could — they overestimated scrutiny roughly two-fold (the spotlight effect). The mechanism is anchoring combined with a failure of perspective-taking: we experience our own appearance and mistakes with intense vividness and then adjust insufficiently when judging how salient they are to others, so our own self-focus leaks into our estimate of others' attention.</div>
+      </details>
+
+      <div class="source">Sources: Gilovich, T., Medvec, V. H. & Savitsky, K. (2000). "The Spotlight Effect in Social Judgment." <em>Journal of Personality and Social Psychology</em>, 78(2); Gilovich, T. & Savitsky, K. (1999). "The Spotlight Effect and the Illusion of Transparency." <em>Current Directions in Psychological Science</em>, 8(6).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Feel Dizzy After Spinning: The Tiny Fluid-Filled Gyroscopes in Your Skull</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Spin around fast, then stop suddenly — and the room keeps spinning even though you've stopped. Why does the dizziness arrive <em>after</em> you stop, not while you're spinning? The answer lies in a set of fluid-filled loops in your inner ear, and the same mechanism explains both seasickness and a common, sudden form of vertigo.</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Vertigo.png" onerror="this.style.display='none'" alt="Vertigo and the vestibular system of the inner ear (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">The sensation of vertigo arises from the inner ear's balance organs (Wikimedia Commons)</div></div>
+
+      <p>Deep in each inner ear sits the <strong>vestibular system</strong> (前庭系統), your body's balance sensor — and at its heart are three <strong>semicircular canals</strong> (半規管), tiny fluid-filled loops oriented at right angles to one another, like three gyroscopes capturing rotation in every plane. Each canal is filled with fluid called endolymph (內淋巴液) and contains a gelatinous flap, the cupula (壺腹帽), studded with hair cells. When you turn your head, the bony canal moves with you, but the fluid inside lags behind due to inertia — this relative motion bends the cupula and its hair cells, which fire signals telling your brain "you are rotating." It is, in effect, a biological accelerometer that detects rotational acceleration.</p>
+
+      <p>This lag explains the after-spin dizziness perfectly. When you spin for several seconds, the endolymph eventually catches up and moves <em>with</em> the canal, so the cupula returns to neutral and the sensation of spinning fades. But when you stop suddenly, the fluid — now in motion — keeps swirling by inertia, bending the cupula in the <em>opposite</em> direction. Your canals now scream "you are rotating the other way!" while your eyes insist you are stationary. That mismatch is the post-spin vertigo, and it drives the reflexive eye-flicking (nystagmus) you can see in someone who just got off a merry-go-round. The same sensory conflict — balance organs and eyes disagreeing — underlies motion sickness (暈動症): on a boat, your inner ear feels rocking your eyes can't see, and the brain interprets the contradiction much as it would a neurotoxin, triggering nausea.</p>
+
+      <p>This system can also fail in an oddly mechanical way. The most common cause of sudden spinning vertigo, <strong>benign paroxysmal positional vertigo</strong> (BPPV, 良性陣發性姿勢性眩暈), occurs when tiny calcium-carbonate crystals (otoconia, 耳石) — normally embedded in a different part of the vestibular organ that senses gravity — break loose and drift into a semicircular canal. There, they slosh around with head movements and push on the cupula when they shouldn't, generating intense but brief spinning sensations triggered by rolling over in bed or tipping the head back. Remarkably, BPPV is often cured in minutes by the <em>Epley manoeuvre</em> (艾普利手法): a sequence of precise head positions that uses gravity to roll the stray crystals back out of the canal — one of medicine's most satisfying low-tech fixes.</p>
+
+      <div class="takeaway">&#x1F4A1; Your dizziness after spinning isn't your brain malfunctioning — it's accurate sensors reporting fluid that hasn't caught up yet. And if the room ever spins violently when you simply roll over in bed, it may be loose ear crystals, often fixable in minutes without any drug.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does dizziness hit <em>after</em> you stop spinning rather than during, and what physically goes wrong in BPPV?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">During sustained spinning the endolymph fluid in the semicircular canals catches up to the canal's motion, so the cupula returns to neutral and the spinning sensation fades. When you stop, the moving fluid keeps swirling by inertia and bends the cupula the opposite way, signalling rotation in the reverse direction while your eyes report stillness — that conflict is the after-spin dizziness. In BPPV, loose calcium-carbonate crystals (otoconia) drift into a semicircular canal and abnormally deflect the cupula during head movements, causing brief, intense positional vertigo.</div>
+      </details>
+
+      <div class="source">Sources: Purves, D. et al. (2018). <em>Neuroscience</em>, 6th ed., Sinauer (vestibular system chapter); von Brevern, M. et al. (2007). "Epidemiology of BPPV." <em>J. Neurol. Neurosurg. Psychiatry</em>, 78; Bhattacharyya, N. et al. (2017). "Clinical Practice Guideline: BPPV." <em>Otolaryngology–Head and Neck Surgery</em>, 156.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Vitamin C and the Common Cold: How One Nobel Laureate Created a Myth That Won't Die</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Millions reach for vitamin C (維他命C) at the first sniffle, convinced it'll fight off a cold. The belief traces largely to one brilliant scientist's bestselling book. But after decades of trials, what does the evidence actually say about whether vitamin C prevents or cures colds?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/L-Ascorbic_acid.svg/960px-L-Ascorbic_acid.svg.png" onerror="this.style.display='none'" alt="The molecular structure of L-ascorbic acid — vitamin C (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">L-ascorbic acid (vitamin C) — among the most-supplemented and most-misunderstood nutrients (Wikimedia Commons)</div></div>
+
+      <p>The modern belief that vitamin C wards off colds owes much to Linus Pauling (萊納斯·鮑林), one of the most accomplished scientists of the 20th century — a double Nobel laureate (chemistry and peace). In his 1970 bestseller <em>Vitamin C and the Common Cold</em>, Pauling argued that gram-scale daily doses could dramatically reduce colds. His towering reputation gave the claim enormous momentum, and it embedded itself in popular culture so deeply that it still drives supplement sales today. The trouble is that Pauling's enthusiasm ran well ahead of the evidence, and the careful trials that followed told a more sober story. This is a classic case of authority outrunning data — a reminder that even a genius can be wrong outside (and sometimes inside) their field.</p>
+
+      <p>The most authoritative synthesis is a Cochrane systematic review (Hemilä &amp; Chalker), which pooled dozens of placebo-controlled trials. Its findings are consistent and clear. For the general population, taking vitamin C regularly does <em>not</em> prevent colds — the incidence of catching a cold is essentially unchanged. What regular supplementation does do is modestly shorten colds: roughly an 8% reduction in duration in adults and about 14% in children across the studies, which amounts to a fraction of a day. Crucially, taking vitamin C only <em>after</em> symptoms begin — which is what most people actually do — shows no consistent benefit at all. The much-cited "boost" is small, requires daily dosing taken before you're sick, and does not stop you catching the cold in the first place.</p>
+
+      <p>There is one genuine exception worth knowing. In trials of people under heavy acute physical stress — marathon runners, skiers, and soldiers training in extreme cold — regular vitamin C roughly halved the risk of developing colds. This suggests a real but narrow effect under conditions of intense physical or thermal stress, not in ordinary daily life. The broader lesson is about dose and expectation: vitamin C is water-soluble, so megadoses are largely excreted in urine (and very high intakes can cause stomach upset and, in susceptible people, kidney stones). Eating enough fruit and vegetables to avoid deficiency is clearly worthwhile; swallowing grams of supplement in hope of dodging winter colds is, for most people, not supported by the evidence.</p>
+
+      <div class="takeaway">&#x1F4A1; For everyday life, vitamin C won't stop you catching a cold and barely shortens one — and taking it only once you're sick does nothing. Save your money, eat your fruit and veg, and be wary of bold health claims even when they come from a Nobel laureate.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What does the evidence say about vitamin C for preventing versus shortening colds, and who is the one group that genuinely benefits from prevention?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Regular vitamin C supplementation does not prevent colds in the general population (incidence is unchanged) but modestly shortens their duration — roughly 8% in adults, 14% in children — only if taken daily <em>before</em> getting sick; taking it after symptoms start shows no consistent benefit. The one group that genuinely benefits from prevention is people under extreme acute physical stress (e.g., marathon runners, skiers, soldiers in cold conditions), in whom regular vitamin C roughly halved cold incidence.</div>
+      </details>
+
+      <div class="source">Sources: Hemilä, H. & Chalker, E. (2013). "Vitamin C for preventing and treating the common cold." <em>Cochrane Database of Systematic Reviews</em>, Issue 1; Pauling, L. (1970). <em>Vitamin C and the Common Cold</em>. W. H. Freeman; NIH Office of Dietary Supplements, "Vitamin C Fact Sheet."</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Rest Between Sets: Why Rushing Your Workout Quietly Sabotages Your Gains</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For years, lifters were told to keep rest periods short — 60 seconds or less — to "maximise the pump" and build muscle. Then a well-designed study directly compared 1-minute versus 3-minute rests. Which group do you think gained more muscle and strength, and why does the answer overturn decades of gym lore?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Man_lifting_a_heavy_barbell.jpg/3840px-Man_lifting_a_heavy_barbell.jpg" onerror="this.style.display='none'" alt="A lifter performing a heavy barbell lift, where rest between sets shapes performance (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Adequate rest between heavy sets restores the energy needed for quality reps (Wikimedia Commons)</div></div>
+
+      <p>For decades, conventional bodybuilding wisdom held that short rest periods — 30 to 60 seconds between sets — were optimal for muscle growth. The reasoning sounded plausible: short rests produce a bigger "pump," greater metabolic stress, and a larger acute spike in growth hormone (生長激素), all thought to drive hypertrophy. This advice was repeated so often it became gospel. But it rested on a logical leap — assuming that a transient hormone spike or a subjective pump translates into more actual muscle over weeks and months. When researchers tested the claim directly, the gospel didn't hold.</p>
+
+      <p>The pivotal study came from Brad Schoenfeld (布拉德·舍恩菲爾德) and colleagues in 2016, published in the <em>Journal of Strength and Conditioning Research</em>. Trained men followed the same resistance programme, with one group resting 1 minute between sets and the other resting 3 minutes. After 8 weeks, the longer-rest group gained <em>more</em> muscle thickness and <em>more</em> strength than the short-rest group. The mechanism is straightforward: longer rest allows fuller recovery of the phosphocreatine (磷酸肌酸) energy system and dissipation of fatigue, so you can lift more total weight for more reps across the workout. That accumulated training volume (訓練總量) — not the size of a hormone spike — is the primary driver of hypertrophy. Rushing your rest simply means weaker, less productive sets later in the session.</p>
+
+      <p>The practical guidance that emerges is clear. For building muscle and strength on compound exercises (squats, presses, deadlifts, rows), rest roughly 2 to 3 minutes between hard sets — long enough to maintain performance. Very short rests aren't useless: they're time-efficient and fine for smaller isolation moves, circuit-style conditioning, or when the goal is muscular endurance rather than maximal growth. But if your sessions feel rushed and your weights are stalling, the fix may be counterintuitive: rest <em>longer</em>. The metabolic-stress pathway is real but secondary; mechanical tension and total volume do the heavy lifting of adaptation. Patience between sets buys you better sets — and better sets build the muscle.</p>
+
+      <div class="takeaway">&#x1F4A1; Don't rush between heavy sets. Resting 2–3 minutes lets you lift more total weight, and that accumulated volume — not the "pump" or a hormone spike — is what actually builds muscle and strength.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did the 3-minute rest group out-gain the 1-minute group in Schoenfeld's 2016 study, and what does this reveal about what really drives hypertrophy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Longer rest allowed fuller recovery of the phosphocreatine energy system and dissipation of fatigue between sets, so the 3-minute group could lift more weight for more reps and accumulate greater total training volume across the session. Since volume (mechanical tension over many quality reps) is the primary driver of muscle growth — not the acute "pump" or growth-hormone spike that short rests produce — the longer-rest group gained more muscle and strength. It overturns the old "keep rests short for growth" advice.</div>
+      </details>
+
+      <div class="source">Sources: Schoenfeld, B. J. et al. (2016). "Longer Interset Rest Periods Enhance Muscle Strength and Hypertrophy in Resistance-Trained Men." <em>Journal of Strength and Conditioning Research</em>, 30(7); Grgic, J. et al. (2017). "Effects of Rest Interval Duration in Resistance Training on Measures of Muscular Strength." <em>Sports Medicine</em>, 48.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Long-Term Capital Management: When Two Nobel Laureates Blew Up the Financial System</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A hedge fund run by Nobel Prize–winning economists, the smartest traders on Wall Street, and models proven over decades of data — what could go wrong? In 1998, this fund lost almost everything in weeks and nearly took the global financial system down with it. What did the geniuses get wrong?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img"><img src="https://upload.wikimedia.org/wikipedia/commons/3/39/1_New_York_Plz_fr_MWGW_E_of_BSt_jeh.jpg" onerror="this.style.display='none'" alt="1 New York Plaza, former home of Salomon Brothers, where LTCM's founder built his career (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">1 New York Plaza, former Salomon Brothers headquarters — where LTCM founder John Meriwether built his bond-arbitrage career (Wikimedia Commons)</div></div>
+
+      <p>Long-Term Capital Management (長期資本管理公司, LTCM) was, on paper, the most formidable hedge fund (對沖基金) ever assembled. Founded in 1994 by John Meriwether (約翰·梅里韋瑟), a legendary bond trader from Salomon Brothers, its partners included Myron Scholes (邁倫·斯科爾斯) and Robert Merton (羅伯特·默頓) — who would jointly win the 1997 Nobel Prize in Economics for the options-pricing model that bears their names. LTCM's strategy was "convergence arbitrage" (收斂套利): using sophisticated models to find pairs of bonds whose prices were slightly out of line, betting that the gap would close. These mispricings were tiny — fractions of a percent — so the fund used enormous leverage (槓桿) to magnify them, borrowing roughly $25 for every $1 of its own capital, and far more counting derivatives. For its first three years it earned spectacular returns of around 40% annually.</p>
+
+      <p>The models assumed that markets behave according to roughly normal probability distributions, and that the fund's many positions were largely independent — so a loss in one trade would be offset by others. Both assumptions failed catastrophically in 1998. When Russia unexpectedly defaulted on its debt in August 1998, panicked investors worldwide fled simultaneously toward safe, liquid assets — a "flight to quality" (避險潮). Suddenly LTCM's diverse-looking bets all moved against it <em>at once</em>: in a crisis, correlations (相關性) that are normally low snap toward 1, because the same fear drives every market. The "independent" positions were in fact all bets on calm and liquidity. The fund's vast leverage, so profitable on the way up, now amplified losses just as violently. LTCM lost about $4.6 billion in under four months.</p>
+
+      <p>The danger was systemic. LTCM's positions were so large, and so entangled with the balance sheets of the world's major banks, that its disorderly collapse could have frozen global credit markets. In September 1998 the Federal Reserve Bank of New York (紐約聯邦儲備銀行) convened the heads of fourteen major banks and brokered a roughly $3.6 billion private bailout to wind the fund down in an orderly way — not with taxpayer money, but by twisting the arms of the very firms exposed to it. The enduring lessons are sobering: leverage turns small errors into fatal ones; models built on historical "normal" conditions blind you to rare but devastating tail events (尾部風險); and diversification is an illusion if all your positions secretly depend on the same thing — in this case, that markets stay calm. As the title of Roger Lowenstein's classic account put it, this was the story of <em>When Genius Failed</em>.</p>
+
+      <div class="takeaway">&#x1F4A1; Brilliance plus leverage is a dangerous combination. When you can't survive the worst case, the size of your edge doesn't matter — and "diversified" bets that all rely on the same hidden assumption (here, market calm) aren't diversified at all.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did LTCM's "diversified," low-risk-looking portfolio collapse so suddenly in 1998, and what role did leverage play?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">LTCM's many positions were actually all bets on market calm and liquidity, so they appeared independent only in normal conditions. When Russia defaulted in 1998 and investors fled to safety, correlations across markets jumped toward 1 — every position moved against the fund simultaneously, destroying the supposed diversification. Its enormous leverage (~25:1, far more with derivatives) then magnified these losses catastrophically, wiping out ~$4.6 billion in months and forcing a Fed-brokered private bailout to prevent systemic contagion.</div>
+      </details>
+
+      <div class="source">Sources: Lowenstein, R. (2000). <em>When Genius Failed: The Rise and Fall of Long-Term Capital Management</em>. Random House; Edwards, F. R. (1999). "Hedge Funds and the Collapse of Long-Term Capital Management." <em>Journal of Economic Perspectives</em>, 13(2); President's Working Group on Financial Markets (1999), "Hedge Funds, Leverage, and the Lessons of LTCM."</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">🔖</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>The Median Voter Theorem: Why Politics Should Converge to the Centre — But Doesn't</h2>
+
+      <div class="card-img-wrap" id="card-11-img"><img src="https://upload.wikimedia.org/wikipedia/en/4/49/Harold_Hotelling.jpg" onerror="this.style.display='none'" alt="Harold Hotelling, whose 1929 spatial-competition model underlies the median voter theorem (Wikimedia Commons)" loading="lazy" style="max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;"><div class="img-caption">Harold Hotelling, whose 1929 spatial model underlies the median voter theorem (Wikimedia Commons)</div></div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CD; Event</div>
+        <div class="pe-body">Over recent decades, American politics has grown sharply more polarised: the two major parties have moved toward their ideological extremes, party-line voting has hardened, and the moderate centre in Congress has hollowed out (Pew Research; political-science measures such as DW-NOMINATE show widening party gaps). This directly contradicts a foundational prediction of formal political theory — that competition should pull parties <em>toward</em> the centre, not away from it.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The <strong>median voter theorem</strong> (中位選民定理) — developed by Duncan Black (鄧肯·布萊克, 1948) and popularised by Anthony Downs (安東尼·唐斯) in <em>An Economic Theory of Democracy</em> (1957), building on Harold Hotelling's (霍特林) 1929 model of spatial competition — predicts that in a two-party, single-dimension race with majority rule, both parties converge on the position of the median voter. Any candidate who drifts from the centre cedes the majority to a rival who hugs it, so rational vote-maximisers should end up nearly indistinguishable.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Real parties have <em>diverged</em>, not converged, for decades — the opposite of the prediction. The gap between the parties' positions is large and growing, and candidates frequently win while staking out clearly non-centrist platforms. The theorem's clean equilibrium simply does not describe modern competitive democracies.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">No single model fully resolves this, so it remains an active debate. Leading explanations relax the theorem's strict assumptions: <em>primary elections</em> force candidates to win a partisan, non-median electorate first; <em>activists and donors</em> (who cluster at the extremes) supply money and turnout; <em>abstention</em> means alienated extreme voters stay home unless courted; and politics is <em>multi-dimensional</em>, not a single left–right line, so no stable median exists (the chaos results of Arrow and McKelvey). Each captures part of the picture; a complete account is still open.</div>
+      </div>
+
+      <div class="source">Sources: Downs, A. (1957). <em>An Economic Theory of Democracy</em>. Harper; Black, D. (1948). "On the Rationale of Group Decision-making." <em>Journal of Political Economy</em>, 56(1); Hotelling, H. (1929). "Stability in Competition." <em>Economic Journal</em>, 39; McCarty, Poole & Rosenthal (2016). <em>Polarized America</em>. MIT Press.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 — The Spotlight Effect and LTCM's "diversification" illusion:</strong> Both are failures of perspective that come from over-weighting your own internal model of the world. The spotlight effect (聚光燈效應) makes an individual overestimate how much others' attention tracks <em>their</em> experience; LTCM's partners overestimated how well their elegant models tracked <em>reality</em>, mistaking the assumptions inside their heads for facts about markets. In both cases, vivid internal confidence — about being watched, or about being right — drowned out the duller external truth. And in both, the correction is the same move: deliberately step outside your own viewpoint and ask what the situation actually looks like from the outside.</p>
+      <p><strong>So what:</strong> Before acting on a strong internal conviction — social fear, or investment certainty — write down what an uninvolved outsider would observe. The gap between your felt confidence and the outside view is exactly where both embarrassment and ruin hide.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Rings of Saturn):</strong> Iess et al. (2019). <em>Science</em> 364; O'Donoghue et al. (2019). <em>Icarus</em> 322; NASA/JPL Cassini Grand Finale Overview (2017).</li>
+      <li><strong>Card 2 (玄武門之變):</strong> 司馬光《資治通鑑·唐紀》；歐陽修等《新唐書》；Wechsler (1979) in <em>The Cambridge History of China, Vol. 3</em>. Cambridge UP.</li>
+      <li><strong>Card 3 (Congress of Vienna):</strong> Kissinger (1957). <em>A World Restored</em>. Houghton Mifflin; Zamoyski (2007). <em>Rites of Peace</em>. HarperCollins; Britannica.</li>
+      <li><strong>Card 4 (龍樹中觀):</strong> 龍樹《中論》(鳩摩羅什譯)；Garfield (1995). <em>The Fundamental Wisdom of the Middle Way</em>. Oxford UP; SEP, "Nāgārjuna."</li>
+      <li><strong>Card 5 (Epicurus):</strong> Epicurus, "Letter to Menoeceus" & "Principal Doctrines" (in Diogenes Laertius, <em>Lives</em> X); Lucretius, <em>De Rerum Natura</em>; SEP, "Epicurus."</li>
+      <li><strong>Card 6 (Spotlight Effect):</strong> Gilovich, Medvec & Savitsky (2000). <em>JPSP</em> 78; Gilovich & Savitsky (1999). <em>Current Directions in Psychological Science</em> 8.</li>
+      <li><strong>Card 7 (Vestibular System):</strong> Purves et al. (2018). <em>Neuroscience</em>, 6th ed., Sinauer; von Brevern et al. (2007). <em>JNNP</em> 78; Bhattacharyya et al. (2017). <em>Otolaryngol. Head Neck Surg.</em> 156.</li>
+      <li><strong>Card 8 (Vitamin C):</strong> Hemilä & Chalker (2013). <em>Cochrane Database Syst. Rev.</em> Issue 1; Pauling (1970). <em>Vitamin C and the Common Cold</em>; NIH ODS Vitamin C Fact Sheet.</li>
+      <li><strong>Card 9 (Rest Intervals):</strong> Schoenfeld et al. (2016). <em>J. Strength Cond. Res.</em> 30(7); Grgic et al. (2017). <em>Sports Medicine</em> 48.</li>
+      <li><strong>Card 10 (LTCM):</strong> Lowenstein (2000). <em>When Genius Failed</em>. Random House; Edwards (1999). <em>J. Economic Perspectives</em> 13(2); President's Working Group (1999).</li>
+      <li><strong>Card 11 (Median Voter Theorem):</strong> Downs (1957). <em>An Economic Theory of Democracy</em>; Black (1948). <em>JPE</em> 56; Hotelling (1929). <em>Economic Journal</em> 39; McCarty, Poole & Rosenthal (2016). <em>Polarized America</em>. MIT Press.</li>
+    </ul>
+  </details>
+</footer>
+
+<script>
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-19.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-19.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+
+<script>
+/* ===== Bookmark feature (local-first; sync-ready) ===== */
+(function(){
+  var KEY='dl_bookmarks';
+  function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
+  function save(a){localStorage.setItem(KEY,JSON.stringify(a));}
+  function file(){return location.pathname.split('/').pop()||'index.html';}
+  function flash(msg){var f=document.createElement('div');f.className='bm-flash';f.textContent=msg;document.body.appendChild(f);requestAnimationFrame(function(){f.classList.add('show');});setTimeout(function(){f.classList.remove('show');setTimeout(function(){f.remove();},300);},1400);}
+  window.toggleBookmark=function(btn){
+    var card=btn.closest('.card');if(!card)return;
+    var id=card.id;var f=file();
+    var h2=card.querySelector('h2');var lbl=card.querySelector('.card-label');
+    var title=h2?h2.textContent.trim():'Untitled';
+    var label=lbl?lbl.textContent.trim():'';
+    var meta=document.querySelector('.sticky-top .meta');
+    var date=meta?meta.textContent.trim():'';
+    var a=load();var i=-1;
+    for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===id){i=k;break;}}
+    if(i>=0){a.splice(i,1);btn.classList.remove('on');flash('Removed from bookmarks');}
+    else{a.unshift({file:f,id:id,title:title,label:label,date:date,ts:Date.now()});btn.classList.add('on');flash('Saved to bookmarks');}
+    save(a);
+  };
+  document.addEventListener('DOMContentLoaded',function(){
+    var a=load();var f=file();
+    document.querySelectorAll('.card').forEach(function(c){
+      var b=c.querySelector('.bm-btn');if(!b)return;
+      for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===c.id){b.classList.add('on');break;}}
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
