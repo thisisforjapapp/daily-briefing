@@ -74,8 +74,9 @@
     </section>
 
     <div class="toolbar" id="toolbar" style="display:none">
-      <button class="tbtn" onclick="bmExport()">&#x2B07; Export</button>
-      <button class="tbtn" onclick="bmImport()">&#x2B06; Import</button>
+      <button class="tbtn" onclick="exportPDF()">&#x1F4C4; Export PDF</button>
+      <button class="tbtn" onclick="bmExport()">&#x2B07; Export JSON</button>
+      <button class="tbtn" onclick="bmImport()">&#x2B06; Import JSON</button>
       <button class="tbtn" onclick="bmClear()">&#x2715; Clear all</button>
     </div>
     <div id="list"></div>
@@ -86,6 +87,8 @@
 <script src="bm.js"></script>
 <script>
 function esc(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML;}
+function fileDate(fn){var m=/(\d{4})-(\d{2})-(\d{2})(?:-(\d+))?/.exec(fn||'');return m?(m[1]+m[2]+m[3]+(m[4]?('0'+m[4]).slice(-2):'01')):'00000000';}
+function cardNum(id){var m=/card-(\d+)/.exec(id||'');return m?parseInt(m[1],10):99;}
 
 function render(){
   var a=BM.items();
@@ -100,6 +103,9 @@ function render(){
   count.textContent=a.length+' saved card'+(a.length>1?'s':'');
   var groups=[],idx={};
   a.forEach(function(b){var key=b.file;if(idx[key]==null){idx[key]=groups.length;groups.push({file:key,date:b.date||key,items:[]});}groups[idx[key]].items.push(b);});
+  // chronological: newest briefing first; within a day, by card order
+  groups.sort(function(x,y){return fileDate(y.file).localeCompare(fileDate(x.file));});
+  groups.forEach(function(g){g.items.sort(function(x,y){return cardNum(x.id)-cardNum(y.id);});});
   var html='';
   groups.forEach(function(g){
     html+='<div class="date-group"><div class="date-label"><span class="date-label-text">'+esc(g.date)+'</span></div>';
@@ -135,6 +141,72 @@ function connect(){
 }
 function syncNow(){var s=document.getElementById('syncStatus');s.textContent='Syncing…';BM.syncNow().then(function(res){refreshSync();render();if(!res.ok)s.innerHTML+=' <span style="color:#e88">(could not reach server)</span>';});}
 function disconnect(){BM.setCode('');refreshSync();}
+
+/* ---- Export bookmarked cards as a single combined PDF ---- */
+var PDF_LIGHT = '<style>'+
+  ':root{--bg:#fff;--surface:#fff;--surface2:#f4f4f6;--border:#d8d8d8;--text:#1c1c1c;--muted:#666;--muted2:#666;'+
+  '--accent:#1a5e85;--accent-dim:#1a5e85;--amber:#9a6a00;--amber-bg:#fbf4e6;--amber-border:#e6d6b0;--green:#2e7d32;'+
+  '--steel:#3a5a7a;--spark:#f1f0f7;--spark-border:#d8d4ea;}'+
+  'html,body{background:#fff!important;color:#1c1c1c!important;}'+
+  '.sticky-top,.back-bar,.toc-bar,.side-nav,.header-toolbar,.bm-btn,.bm-flash{display:none!important;}'+
+  '.page-layout{display:block!important;padding:0!important;max-width:none!important;}'+
+  '.card,.connection-section,.spark-section{page-break-inside:avoid;break-inside:avoid;margin:0 0 1.1rem!important;}'+
+  '.card img,.card-img-wrap img{max-height:300px;}'+
+  '.pdf-src{font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:#888;margin:.2rem 0 .35rem;}'+
+  '.pdf-head{font-family:Georgia,serif;font-size:1.5rem;color:#111;margin:0 0 1.2rem;}'+
+  'details{margin:.4rem 0;} details>summary{display:none;} '+   /* show answers/predictions inline in PDF */
+  '@media print{body{padding:0;} a{color:inherit;text-decoration:none;}}'+
+  '*{-webkit-print-color-adjust:exact;print-color-adjust:exact;}'+
+  '</style>';
+
+async function exportPDF(){
+  var items=BM.items();
+  if(!items.length){alert('No bookmarks to export.');return;}
+  // chronological order: newest day first, card order within a day
+  items=items.slice().sort(function(x,y){
+    var d=fileDate(y.file).localeCompare(fileDate(x.file));
+    return d!==0?d:cardNum(x.id)-cardNum(y.id);
+  });
+  var status=document.getElementById('syncStatus');
+  var prevStatus=status.innerHTML, prevClass=status.className;
+  status.className='sync-status'; status.textContent='Building PDF…';
+  // open the print window NOW (within the click gesture) to avoid popup blocking
+  var w=window.open('','_blank');
+  if(w) w.document.write('<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Loading…</title></head><body style="font-family:sans-serif;padding:2rem;color:#333">Preparing your bookmarks PDF…</body></html>');
+  try{
+    var files=items.map(function(b){return b.file;}).filter(function(v,i,a){return a.indexOf(v)===i;});
+    var docs={}, style='';
+    for(var i=0;i<files.length;i++){
+      var html=await fetch(files[i]).then(function(r){return r.text();});
+      var doc=new DOMParser().parseFromString(html,'text/html');
+      docs[files[i]]=doc;
+      if(!style){var st=doc.querySelector('head style'); if(st) style=st.outerHTML;}
+    }
+    var body='';
+    items.forEach(function(b){
+      var doc=docs[b.file]; if(!doc) return;
+      var card=doc.getElementById(b.id); if(!card) return;
+      var c=card.cloneNode(true);
+      c.querySelectorAll('.bm-btn').forEach(function(e){e.remove();});
+      c.querySelectorAll('details').forEach(function(d){d.setAttribute('open','');}); // reveal answers
+      body+='<div class="pdf-src">'+esc(b.date||b.file)+'</div>'+c.outerHTML;
+    });
+    var out='<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">'+
+      '<title>Daily Learning — Bookmarks</title>'+style+PDF_LIGHT+'</head>'+
+      '<body><div class="page-layout"><div class="content" style="display:block">'+
+      '<h1 class="pdf-head">🔖 Bookmarked Cards — '+items.length+'</h1>'+body+
+      '</div></div></body></html>';
+    if(!w){alert('Please allow pop-ups for this site, then try Export PDF again.');status.innerHTML=prevStatus;status.className=prevClass;return;}
+    w.document.open(); w.document.write(out); w.document.close();
+    var done=function(){ try{w.focus();w.print();}catch(e){} };
+    // give images/fonts a moment to load before printing
+    setTimeout(done, 1200);
+  }catch(e){
+    if(w) try{w.close();}catch(_){}
+    alert('Could not build the PDF: '+e);
+  }
+  status.innerHTML=prevStatus; status.className=prevClass;
+}
 
 BM.onChange(render);
 refreshSync();
