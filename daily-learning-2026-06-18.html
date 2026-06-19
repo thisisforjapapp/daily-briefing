@@ -647,37 +647,8 @@ function briefingShare() {
 }
 </script>
 
-<script>
-/* ===== Bookmark feature (local-first; sync-ready) ===== */
-(function(){
-  var KEY='dl_bookmarks';
-  function load(){try{return JSON.parse(localStorage.getItem(KEY))||[]}catch(e){return[]}}
-  function save(a){localStorage.setItem(KEY,JSON.stringify(a));}
-  function file(){return location.pathname.split('/').pop()||'index.html';}
-  function flash(msg){var f=document.createElement('div');f.className='bm-flash';f.textContent=msg;document.body.appendChild(f);requestAnimationFrame(function(){f.classList.add('show');});setTimeout(function(){f.classList.remove('show');setTimeout(function(){f.remove();},300);},1400);}
-  window.toggleBookmark=function(btn){
-    var card=btn.closest('.card');if(!card)return;
-    var id=card.id;var f=file();
-    var h2=card.querySelector('h2');var lbl=card.querySelector('.card-label');
-    var title=h2?h2.textContent.trim():'Untitled';
-    var label=lbl?lbl.textContent.trim():'';
-    var meta=document.querySelector('.sticky-top .meta');
-    var date=meta?meta.textContent.trim():'';
-    var a=load();var i=-1;
-    for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===id){i=k;break;}}
-    if(i>=0){a.splice(i,1);btn.classList.remove('on');flash('Removed from bookmarks');}
-    else{a.unshift({file:f,id:id,title:title,label:label,date:date,ts:Date.now()});btn.classList.add('on');flash('Saved to bookmarks');}
-    save(a);
-  };
-  document.addEventListener('DOMContentLoaded',function(){
-    var a=load();var f=file();
-    document.querySelectorAll('.card').forEach(function(c){
-      var b=c.querySelector('.bm-btn');if(!b)return;
-      for(var k=0;k<a.length;k++){if(a[k].file===f&&a[k].id===c.id){b.classList.add('on');break;}}
-    });
-  });
-})();
-</script>
 
+
+<script src="bm.js"></script>
 </body>
 </html>
