@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning — 20 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+
+/* navfix */
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim,#3a6a9a);}
+.side-nav{display:none;}
+@media(min-width:900px){
+.side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+.side-nav ul{list-style:none;margin:0;padding:0;}
+.side-nav li{margin-bottom:.35rem;}
+.side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+.side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+.toc-bar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Saturday, 20 June 2026 &middot; ~20 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">🔭 Astronomy</a>
+    <a class="toc-pill" href="#card-2">⛩ 東方歷史</a>
+    <a class="toc-pill" href="#card-3">🏛 Western History</a>
+    <a class="toc-pill" href="#card-4">☯ 東方哲學</a>
+    <a class="toc-pill" href="#card-5">🌿 W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">🧠 Psychology</a>
+    <a class="toc-pill" href="#card-7">🫀 Physiology</a>
+    <a class="toc-pill" href="#card-8">💊 Health</a>
+    <a class="toc-pill" href="#card-9">🏋 Sports Science</a>
+    <a class="toc-pill" href="#card-10">📈 Investing</a>
+    <a class="toc-pill" href="#card-11">⚖️ Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">🔭 Astronomy</a></li>
+      <li><a href="#card-2">⛩ 東方歷史</a></li>
+      <li><a href="#card-3">🏛 Western History</a></li>
+      <li><a href="#card-4">☯ 東方哲學</a></li>
+      <li><a href="#card-5">🌿 W. Philosophy</a></li>
+      <li><a href="#card-6">🧠 Psychology</a></li>
+      <li><a href="#card-7">🫀 Physiology</a></li>
+      <li><a href="#card-8">💊 Health</a></li>
+      <li><a href="#card-9">🏋 Sports Science</a></li>
+      <li><a href="#card-10">📈 Investing</a></li>
+      <li><a href="#card-11">⚖️ Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>19 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; Rings of Saturn</span>
+        <em>Answer this without looking back:</em> What two lines of evidence from Cassini suggest Saturn's rings are surprisingly young rather than as old as the planet?
+        <details><summary>Check your answer</summary>
+          <div class="answer">First, the rings are much less massive than expected (measured directly during the 2017 Grand Finale gravity passes), and lower mass plus clean, bright ice implies they haven't accumulated much dark interplanetary dust — so they're geologically recent (roughly 100–400 million years old). Second, the rings are actively losing material as "ring rain," draining into Saturn fast enough to disappear within a few hundred million years — consistent with a structure that formed recently rather than 4.5 billion years ago.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 玄武門之變</span>
+        <em>讀後回想：</em>李世民發動玄武門之變的根本原因是什麼？這場政變為唐代往後的皇位繼承留下了什麼長遠的制度後遺症？
+        <details><summary>查看答案</summary>
+          <div class="answer">根本原因在於「實際功勳與權力」同「嫡長子繼承制」之間的結構性衝突：李世民戰功與班底遠勝太子李建成，卻因非嫡長而與皇位無緣，雙方鬥爭升級至你死我活。後遺症是它開創了唐代以軍事政變奪取皇位的先例，此後神龍、唐隆等宮廷政變接連發生，正常的繼承規則長期難以制度化，成為唐代政治不穩的深層根源。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Congress of Vienna</span>
+        <em>Answer this without looking back:</em> Why did the victorious powers at Vienna choose to restore rather than dismember defeated France, and how does this contrast with the Treaty of Versailles after WWI?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The powers sought a stable balance of power, reasoning that a humiliated, resentful France would destabilise Europe, while a restored France of moderate size could act as a counterweight among the great powers. Talleyrand reinforced this with the principle of legitimacy. The result — a settlement no major party found intolerable — helped underpin a century without continent-wide great-power war. Versailles (1919) did the opposite: it imposed punitive reparations and humiliation on Germany, breeding the grievance that contributed to WWII.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 龍樹中觀</span>
+        <em>讀後回想：</em>龍樹的「空」為何不等同於「虛無」？他用什麼學說來防止人們把「空」誤解為「什麼都不存在」？
+        <details><summary>查看答案</summary>
+          <div class="answer">「空」指事物沒有獨立不變的自性，而非不存在；萬物依緣而起、宛然顯現，只是無本質。龍樹以「二諦」說防止虛無誤解：世俗諦肯定日常經驗中事物與因果照常運作，勝義諦則指出究竟而言一切無自性皆空。兩諦並行不悖，故「空」否定的是執著與本質化，而非經驗世界本身；龍樹更警告「執空」比「執有」更危險。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy &mdash; Epicurus</span>
+        <em>Answer this without looking back:</em> What did Epicurus actually mean by "pleasure," and why did he argue that fearing death is irrational?
+        <details><summary>Check your answer</summary>
+          <div class="answer">By "pleasure" Epicurus primarily meant the absence of pain and mental disturbance — bodily painlessness (aponia) and tranquillity (ataraxia) — not sensual indulgence; stable, contented states matter far more than fleeting thrills, and luxury tends to breed anxiety. He argued fear of death is irrational because the soul is material and dissolves at death: "when we exist, death is not present, and when death is present, we do not exist." There is no subject left to experience harm, so death cannot be bad for the one who dies.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Spotlight Effect</span>
+        <em>Answer this without looking back:</em> What did Gilovich's "embarrassing T-shirt" experiment demonstrate, and what cognitive mechanism explains why we overestimate others' attention to us?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Students wearing an embarrassing shirt estimated that about 46% of observers had noticed it, but only about 23% actually could — they overestimated scrutiny roughly two-fold (the spotlight effect). The mechanism is anchoring combined with a failure of perspective-taking: we experience our own appearance and mistakes with intense vividness and then adjust insufficiently when judging how salient they are to others, so our own self-focus leaks into our estimate of others' attention.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Vestibular System</span>
+        <em>Answer this without looking back:</em> Why does dizziness hit <em>after</em> you stop spinning rather than during, and what physically goes wrong in BPPV?
+        <details><summary>Check your answer</summary>
+          <div class="answer">During sustained spinning the endolymph fluid in the semicircular canals catches up to the canal's motion, so the cupula returns to neutral and the spinning sensation fades. When you stop, the moving fluid keeps swirling by inertia and bends the cupula the opposite way, signalling rotation in the reverse direction while your eyes report stillness — that conflict is the after-spin dizziness. In BPPV, loose calcium-carbonate crystals (otoconia) drift into a semicircular canal and abnormally deflect the cupula during head movements, causing brief, intense positional vertigo.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Vitamin C</span>
+        <em>Answer this without looking back:</em> What does the evidence say about vitamin C for preventing versus shortening colds, and who is the one group that genuinely benefits from prevention?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Regular vitamin C supplementation does not prevent colds in the general population (incidence is unchanged) but modestly shortens their duration — roughly 8% in adults, 14% in children — only if taken daily <em>before</em> getting sick; taking it after symptoms start shows no consistent benefit. The one group that genuinely benefits from prevention is people under extreme acute physical stress (e.g., marathon runners, skiers, soldiers in cold conditions), in whom regular vitamin C roughly halved cold incidence.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Rest Between Sets</span>
+        <em>Answer this without looking back:</em> Why did the 3-minute rest group out-gain the 1-minute group in Schoenfeld's 2016 study, and what does this reveal about what really drives hypertrophy?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Longer rest allowed fuller recovery of the phosphocreatine energy system and dissipation of fatigue between sets, so the 3-minute group could lift more weight for more reps and accumulate greater total training volume across the session. Since volume (mechanical tension over many quality reps) is the primary driver of muscle growth — not the acute "pump" or growth-hormone spike that short rests produce — the longer-rest group gained more muscle and strength.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; LTCM 1998</span>
+        <em>Answer this without looking back:</em> Why did LTCM's "diversified," low-risk-looking portfolio collapse so suddenly in 1998, and what role did leverage play?
+        <details><summary>Check your answer</summary>
+          <div class="answer">LTCM's many positions were actually all bets on market calm and liquidity, so they appeared independent only in normal conditions. When Russia defaulted in 1998 and investors fled to safety, correlations across markets jumped toward 1 — every position moved against the fund simultaneously, destroying the supposed diversification. Its enormous leverage (~25:1, far more with derivatives) then magnified these losses catastrophically, wiping out ~$4.6 billion in months and forcing a Fed-brokered private bailout to prevent systemic contagion.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Betelgeuse's Great Dimming: When a Supergiant Sneezed and the World Thought It Was Dying</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In late 2019, one of the most famous stars in the night sky suddenly and dramatically faded — dimming by about 60% and triggering global headlines about an imminent supernova explosion. But the real explanation, when it came, was stranger and more intimate than a stellar death. What do you think actually happened?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Orion_constellation_map.svg/330px-Orion_constellation_map.svg.png" alt="Orion constellation map showing Betelgeuse at the shoulder of the Hunter (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Orion constellation map — Betelgeuse (畢宿五) marks the Hunter's right shoulder (Wikimedia Commons)</div>
+      </div>
+
+      <p>Look at Orion (獵戶座) on a clear night and your eye is drawn immediately to Betelgeuse (畢宿五) — the orange-red star glowing at the Hunter's right shoulder. It is staggering in scale: if it replaced our Sun, its surface would swallow Mercury, Venus, Earth, Mars, and reach most of the way to Jupiter. For thousands of years it has pulsed with a slow, irregular heartbeat, brightening and dimming on a roughly 400-day cycle as its outer layers heave in and out. Then, between October 2019 and February 2020, it did something extraordinary. It faded far beyond any normal pulse, dropping to its dimmest recorded brightness in a century and a half of careful observation. Astronomers around the world pointed every telescope they could muster at the red supergiant (紅超巨星), and social media erupted: was Betelgeuse about to explode?</p>
+
+      <p>The answer, reconstructed piece by piece over the following two years, was not an imminent supernova (超新星) but something almost more astonishing: a massive stellar sneeze. Betelgeuse had ejected a colossal bubble of superhot plasma (電漿) from its surface — equivalent in mass to several times the Moon — which then cooled and condensed into a cloud of dust (塵埃雲) that obscured perhaps a quarter of the star's visible disk. Hubble Space Telescope (哈勃太空望遠鏡) ultraviolet images, combined with ground-based data, revealed that the southern hemisphere of the star had literally darkened behind this self-generated fog. Simultaneously, an unusually cold patch on the stellar surface — a giant starspot (星斑) far larger than anything the Sun produces — added to the dimming from a second direction. The "Great Dimming" was two phenomena overlapping at once.</p>
+
+      <p>Betelgeuse recovered. By April 2020 it had returned to its normal brightness, and since then — chastened researchers note — it has actually been unusually bright, likely because the dust cloud has dispersed. It remains a star in the late stages of its life: it will explode as a supernova sometime in the next hundred thousand years, briefly visible in daylight and casting shadows at night. But the Great Dimming (大暗淡事件) taught astronomers something irreplaceable: red supergiants (紅超巨星) shed enormous clumps of material episodically, and that mass-loss process is central to understanding how massive stars eventually die. The event was not a death rattle — it was a vigorous, messy, stellar middle age.</p>
+
+      <div class="takeaway">&#x1F4A1; The star didn't dim because it was dying — it dimmed because it belched a planet-mass cloud of dust. Even catastrophic-looking stellar behaviour can be completely ordinary biology on a cosmic scale.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What were the two overlapping physical causes of Betelgeuse's Great Dimming in 2019–2020, and how did astronomers distinguish them from an actual supernova precursor?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The two causes were (1) a mass ejection that produced a cool dust cloud obscuring the star's southern hemisphere, and (2) an unusually large, cold starspot on the stellar surface. Together they caused a ~60% drop in visible brightness. Astronomers ruled out supernova precursor activity because the star recovered to normal brightness by April 2020 and has since been brighter than average; supernovae do not reverse. Hubble UV imaging confirmed the plasma ejection and dust formation mechanism, while radial velocity data showed no internal collapse signatures.</div>
+      </details>
+
+      <div class="source">Sources: Levesque, E.M. & Massey, P. (2020). "Betelgeuse Just Is Not That Cool." <em>Astrophysical Journal Letters</em>, 891; Montargès, M. et al. (2021). "A dusty veil shading Betelgeuse during its Great Dimming." <em>Nature</em>, 594; NASA Hubble Space Telescope news release (2020).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>文景之治：漢初的「無為而治」如何讓一個廢墟上的帝國重新呼吸</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">秦末大亂之後，漢初的皇帝面對滿目瘡痍的山河——人口銳減、府庫空虛、連皇帝都坐不起四匹顏色相同的馬。他們選擇的復甦之道，不是更多法令、更多工程、更多動員，而是讓帝國盡量保持安靜。這種「少做」的治國術究竟意味著什麼？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 地點 · 形勢</span>
+        <p><strong>人物：</strong>漢文帝劉恆（在位180–157 BCE）、漢景帝劉啟（在位157–141 BCE）、謀臣陸賈、晁錯（後期）。</p>
+        <p><strong>地點：</strong>長安（今西安）為都城；關中平原為糧倉；邊境匈奴持續威脅。</p>
+        <p><strong>形勢：</strong>楚漢相爭（206–202 BCE）後中原殘破，劉邦建漢時戶籍人口較秦末銳減逾半，征戰消耗了幾乎所有積蓄。高帝、惠帝、呂后時期初步休養，文景兩代才真正制度化這套「輕徭薄賦、與民休息」的政策路線。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/EmperorWenOfHan.jpg" alt="漢文帝劉恆畫像（維基共享資源）" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">漢文帝劉恆畫像——文景之治的開創者（維基共享資源）</div>
+      </div>
+
+      <p>秦朝的崩潰給繼承者留下了一份沉重的教訓：動員式帝國的極限在哪裡。阿房宮、驪山陵、萬里長城、徵百越、伐匈奴——秦始皇的每一項工程都是以人命、民脂、民膏換來的石頭與疆土。劉邦建漢之初，傳說連湊齊四匹同色馬駕御皇帝的車駕都辦不到，將相們只能乘坐牛車上朝。謀士陸賈在馬上打天下的劉邦面前高聲說出「逆取順守」的道理：武力可以奪權，卻不能治國。他以秦亡為前車之鑑，寫成《新語》進呈，力主採用黃老之術。這不只是一句哲學口號——它是一份切實的財政與行政方案：減輕農民賦稅、廢除嚴苛刑罰、縮減宮廷開支、不輕易發動戰爭。</p>
+
+      <p>文景兩代皇帝將這一路線付諸實踐，其具體措施令後世史家嘆為觀止。漢文帝在位期間多次下詔減免田賦，最終將田賦降至三十稅一，甚至有十二年完全免收的記錄。他廢除了大量秦代遺留的株連連坐之刑，親自耕作籍田以示重農。景帝繼承父業，進一步削減徭役的天數，限制地方官吏擾民。此外，朝廷嚴格控制自身規模——文帝多次拒絕修建宮殿的建議，理由是「費十家之產，吾不忍為」。這種財政自律在中國帝制史上極為罕見，且不是一時衝動，而是貫穿整個政策周期的制度堅持。</p>
+
+      <p>四十年無為的複利效應觸目驚心。《史記》記載到漢武帝即位時，太倉的糧食堆積至陳陳相因、無法入內，錢庫裡串錢的繩子因年久朽爛而錢散一地，無從清點。人口從戰後的約一千五百萬恢復至估計五千萬以上。正是這筆「文景積蓄」，讓漢武帝能夠隨後三十年大舉出擊匈奴、通西域、置朝鮮——卻也在武帝末年幾乎耗盡。歷史學家田餘慶與余英時均強調：文景之治並非消極怠政，而是清醒認識到國家能力邊界後的主動收縮，是一種代價最低、效益最高的制度選擇。</p>
+
+      <div class="takeaway">&#x1F4A1; 「無為」不是什麼都不做，而是克制政府自身的衝動——少徵稅、少勞役、少工程——讓社會的自然復原力得以發揮。這是東方政治智慧中最難實踐的一課。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>文景之治的「無為而治」在制度上體現在哪三個具體政策層面？漢武帝後來的積極擴張行動，在財政上與文景的積累有何直接關聯？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">三個層面：（一）財政——大幅減免田賦（最低三十稅一乃至完全免徵），嚴控宮廷開支；（二）刑法——廢除秦代株連連坐，減輕肉刑；（三）徭役——削減征調民夫的天數與規模，減少大型工程。財政關聯：文景四十年積累的太倉糧食與府庫銅錢，直接為漢武帝三十年的對匈奴戰爭、通西域外交及西南開拓提供了物質基礎；武帝末年財政告竭，正說明這份家底消耗殆盡。</div>
+      </details>
+
+      <div class="source">資料來源：司馬遷《史記·孝文本紀》《孝景本紀》；班固《漢書·食貨志》；田餘慶（1989）《秦漢魏晉史探微》，中華書局；余英時（1987）《中國思想傳統的現代詮釋》；Nishijima Sadao in Twitchett & Loewe (eds.) (1986). <em>The Cambridge History of China, Vol. 1</em>. Cambridge UP.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Spanish Armada: How Weather, Tactics, and a Protestant Wind Ended Philip II's Dream of Conquest</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1588, the largest naval invasion force Europe had ever assembled set sail for England. Spain was the world's superpower; England was a second-rank kingdom. Yet the Armada failed catastrophically. Before reading: what forces — military, political, or natural — do you think decided the outcome?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures · Setting · Stakes</span>
+        <p><strong>Principal figures:</strong> Philip II of Spain (西班牙國王菲利普二世); Elizabeth I of England (英格蘭女王伊麗莎白一世); Armada commander the Duke of Medina Sidonia (麥地那西多尼亞公爵); English admiral Francis Drake (法蘭西斯·德雷克); English Lord High Admiral Charles Howard (查爾斯·霍華德).</p>
+        <p><strong>Setting:</strong> The English Channel (英吉利海峽) and the North Sea (北海), summer 1588. Spain controls the Americas, the Philippines, and the Netherlands; England has been raiding Spanish treasure ships and supporting Dutch Protestant rebels.</p>
+        <p><strong>Stakes:</strong> If Spain lands its Army of Flanders in England, Catholicism would likely be restored, Elizabeth's Protestant settlement reversed, and Spain would dominate Western Europe unchallenged.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Armadaroute.jpg" alt="Map of the Spanish Armada's route around the British Isles, 1588 (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Route of the Spanish Armada (無敵艦隊), 1588 — the fleet was forced north around Scotland and Ireland (Wikimedia Commons)</div>
+      </div>
+
+      <p>Philip II of Spain launched his "Invincible Armada" (無敵艦隊) in May 1588 with a straightforward plan: 130 ships carrying 18,000 soldiers would sail up the English Channel, rendezvous with the Duke of Parma's (帕爾馬公爵) battle-hardened 17,000-man Army of Flanders (法蘭德斯軍團) in the Spanish Netherlands (西班牙荷蘭), and ferry them across for an invasion of England. It was a combined-arms operation of extraordinary logistical ambition — and the seams between its parts were the plan's fatal weakness. The English fleet, under Howard and Drake, had been harrying Spanish shipping for years and knew Philip was coming. When the Armada appeared off Plymouth (普利茅斯), Howard's squadrons executed a manoeuvre that would define the battle: rather than sailing out to meet the crescent-shaped formation head-on, they tacked upwind to gain the weather gauge (上風位) — the ability to choose when and how to engage.</p>
+
+      <p>The running battle up the Channel lasted eight days. English ships were faster, lower-slung, and mounted longer-range guns; the Spanish, with their towering galleons (大帆船), preferred close combat and boarding — a tactic the English refused to allow. Neither side inflicted decisive damage: the Spanish gunnery was poor, the English ammunition ran out, and the Armada anchored off Calais (加萊) intact, waiting for Parma. Then came the fireships (火船). On the night of 7–8 August, Howard sent eight blazing, unmanned vessels drifting into the anchorage. Panic broke the Spanish formation; ships cut their anchor cables and scattered. The next morning at the Battle of Gravelines (格拉夫林斯海戰), English guns finally found their range at close quarters, sinking or crippling several galleons and driving the rest north. The rendezvous with Parma never happened.</p>
+
+      <p>What finished the Armada was not English cannon but the North Atlantic. Trying to return home by sailing north around Scotland (蘇格蘭) and Ireland (愛爾蘭), the fleet ran into autumn gales of unprecedented ferocity. At least 24 ships were wrecked on Irish and Scottish coastlines; survivors staggered ashore only to face execution or death from exposure. Philip II, receiving the news in his monastery-palace the Escorial (埃斯科里亞爾宮), reportedly said: "I sent the fleet against men, not against the winds and waves of God." England celebrated with medals bearing the motto <em>Flavit et dissipati sunt</em> — "He blew, and they were scattered." The defeat did not end Spanish power overnight — the war dragged on until 1604 — but it permanently damaged the myth of Spanish naval invincibility and opened the seas for English and Dutch expansion.</p>
+
+      <div class="takeaway">&#x1F4A1; The Armada failed not from one cause but from compounding vulnerabilities: a plan that required perfect coordination, a tactical doctrine the enemy refused to play along with, and a force that survived the battle but not the weather.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did English fireships at Calais prove so decisive — not just tactically but strategically — in defeating the Armada's plan, even though they sank no Spanish ships?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The fireships forced the Armada to cut anchor cables and scatter from the Calais anchorage in panic, breaking the tight defensive crescent formation that had protected it during the Channel battle. Once scattered, the fleet could not reassemble effectively and could no longer hold position to link up with Parma's army — the essential logistical rendezvous the entire plan depended on. Without Parma's soldiers, the Armada had no invasion force to land; the mission was over before a single English soldier fired a shot on land. Strategically, the fireships destroyed the plan, not the fleet.</div>
+      </details>
+
+      <div class="source">Sources: Mattingly, G. (1959). <em>The Defeat of the Spanish Armada</em>. Jonathan Cape; Parker, G. (1996). <em>The Grand Strategy of Philip II</em>. Yale UP; Rodger, N.A.M. (1997). <em>The Safeguard of the Sea</em>. HarperCollins; Britannica, "Spanish Armada."</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>戴震的憤怒：當「天理」變成殺人的工具——清代最深刻的儒學反思</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">宋明理學家說「存天理，滅人欲」——壓抑個人欲望、服從禮教綱常，才能接近道德的最高境界。但一位清代考據學者卻怒問：當「理」被掌權者用來壓制弱者的合理訴求，「以理殺人」與以刀殺人有何分別？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">關鍵人物 · 文本 · 論爭</span>
+        <p><strong>人物：</strong>戴震（1724–1777），字東原，安徽休寧人，清代考據學（乾嘉學派）代表人物，同時精通天文、數學、音韻；著有《孟子字義疏證》（1777年）。</p>
+        <p><strong>論爭對象：</strong>程頤、朱熹的理學（道學）傳統，尤其是「天理人欲之辨」——以「理」為形而上本體，以「欲」為道德危險之源。</p>
+        <p><strong>時代背景：</strong>清代文字獄嚴峻，學者轉向客觀訓詁考據；戴震借詮釋《孟子》文字，以內部批判的方式挑戰宋明理學，是儒學史上最具顛覆性的理論行動之一。</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Dai_Zhen.png" alt="戴震畫像（維基共享資源）" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">戴震（1724–1777）畫像——清代最重要的儒學批評者（維基共享資源）</div>
+      </div>
+
+      <p>戴震最震撼人心的一句話，出現在他晚年的書信中：「今人以理殺人，勝於以法殺人。以法殺人，猶有憐者；以理殺人，至死而不悟，且相與指其死者為罪。」在宋明理學的話語體系裡，「天理」是宇宙與道德的最高根據，任何不符合禮教綱常的「人欲」都應當被壓制。這一套語言給了握有詮釋權的人——父權、夫權、族長、官員——幾乎無限的道德授權。一個守寡的女子不得改嫁，是「天理」；一個貧農無力負擔地租，卻不能向官員申訴，因為順從才是「禮」。戴震看到的是：「理」在實踐中成了強者壓制弱者的話語武器，而受害者甚至被訓練成相信自己的痛苦是應得的。</p>
+
+      <p>戴震的反批並不是要廢棄道德，而是要重新定義「理」的來源。他在《孟子字義疏證》中仔細梳理「理」、「欲」、「性」、「才」等核心範疇的先秦原義，論證孟子的原意從未主張滅絕人欲，而是要「達情遂欲」——讓人情的合理滿足得到實現與順遂。他把「理」重新理解為對人的欲望與情感進行合理秩序化的結果，而非壓制它們的形而上刀鋒。換言之，真正的道德不是克服欲望，而是讓每個人的欲望都得到公平的考量：「聖人之道，使天下無不達之情，無不遂之欲。」這一命題在十八世紀的中國語境裡，具有驚人的激進意義。</p>
+
+      <p>戴震的批判在他死後引起了廣泛回響。梁啟超稱他為「中國的盧梭」——雖然兩者路徑迥異，但都以個人的情感與意志對抗抽象的普遍原則。錢穆與馮友蘭則更謹慎，認為戴震強調情欲的合理性，可能走向另一個極端。無論如何，他開創了從內部、以文字訓詁的方式批判程朱理學的範式，為後來康有為、譚嗣同的維新思想鋪下了知識地基。他的核心問題至今未老：當抽象的「理」在制度中落地，誰來詮釋它？誰從中受益？誰在它的名義下受苦？</p>
+
+      <div class="takeaway">&#x1F4A1; 「以理殺人」的洞見提醒我們：任何道德語言一旦與權力結合，都可能從解放的工具變為壓制的武器——這不只是清代的問題。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>戴震如何重新定義「理」與「欲」的關係，以駁斥宋明理學「存天理、滅人欲」的主張？他認為真正的道德應以什麼為目標？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">戴震通過訓詁先秦文獻，論證孟子從未主張滅絕人欲；「理」的本義是對人情欲望進行合理有序的安排，而非壓制它們的形而上本體。他認為真正的道德目標是「達情遂欲」——讓每個人的情感與欲望都得到公平順遂的實現，聖人之道在於「使天下無不達之情、無不遂之欲」。他批評宋明理學把「理」高舉為壓制工具，結果讓強者以「天理」名義剝奪弱者的合理訴求，淪為「以理殺人」。</div>
+      </details>
+
+      <div class="source">資料來源：戴震《孟子字義疏證》（1777）；戴震《與某書》；馮友蘭《中國哲學史》下冊，商務印書館；錢穆《中國近三百年學術史》；余英時《論戴震與章學誠》，香港：龍門書店；Ng, On-cho (1991). "Toward a New Theory of Confucian Ethics." <em>Philosophy East &amp; West</em>, 41(3).</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Hegel's Dialectic: Why History Isn't a Story of Progress — It's a Story of Contradiction</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most of us feel intuitively that history "moves forward" somehow. Georg Wilhelm Friedrich Hegel (黑格爾) turned this intuition into the most ambitious philosophical system ever attempted — one in which the universe itself thinks, and every idea contains the seeds of its own destruction. What do you imagine that might mean?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Context · Rival Views · The Moment</span>
+        <p><strong>Context:</strong> Hegel (1770–1831) wrote in the aftermath of the French Revolution (法國大革命) and the Napoleonic Wars — a period in which the entire political and intellectual order of Europe was visibly transforming. Where Kant (康德) had asked what the mind contributes to knowledge, Hegel asked what mind <em>is</em> — and how it unfolds through time.</p>
+        <p><strong>Rival views:</strong> The Enlightenment (啟蒙運動) saw history as linear progress toward reason. Romanticism saw it as decline from organic wholeness. Hegel saw both as partial truths that annihilate each other and are preserved in a higher synthesis.</p>
+        <p><strong>Legacy dispute:</strong> Marx (馬克思) famously said he found Hegel "standing on his head" and turned the dialectic right-side up — replacing Geist with material conditions. The argument about which Hegel to read remains live in philosophy departments today.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Jakob_Schlesinger_-_Hegel_1831.jpg/330px-Jakob_Schlesinger_-_Hegel_1831.jpg" alt="Portrait of Georg Wilhelm Friedrich Hegel by Jakob Schlesinger, 1831 (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Georg Wilhelm Friedrich Hegel (黑格爾), painted by Jakob Schlesinger in 1831, the year of his death (Wikimedia Commons)</div>
+      </div>
+
+      <p>The popular shorthand for Hegel's dialectic — thesis, antithesis, synthesis (正、反、合) — was actually coined by his critic Johann Gottlieb Fichte (費希特), not by Hegel himself. But the underlying idea is genuinely Hegelian and genuinely strange. Every concept or historical formation, Hegel argued, contains an internal contradiction that drives it to negate itself and transform into something new — its "other." Freedom (自由) without limit becomes its opposite, arbitrary chaos. A slave rebellion that wins produces masters out of the former slaves. The French Revolution's abstract universal freedom collapses into the Terror, which in turn produces Napoleon, a figure who paradoxically carries revolutionary ideas into Europe at swordpoint. History is not a smooth upward line; it lurches forward through negation. What Hegel called <em>Aufhebung</em> (揚棄) — sometimes translated as "sublation" — captures this: each step cancels its predecessor, preserves what was valuable in it, and lifts the whole to a higher level.</p>
+
+      <p>At the centre of all this is what Hegel called <em>Geist</em> (精神) — Spirit or Mind, a term that encompasses individual consciousness, culture, history, and the universe's self-awareness all at once. Geist is not God in any conventional sense, but it is purposive: history is the process by which Spirit comes to know itself through the institutions, art, religion, and philosophy of human civilisations. The <em>Phenomenology of Spirit</em> (精神現象學, 1807) traces Geist's journey through a series of shapes — from sense-certainty through self-consciousness, master-slave dialectic (主奴辯證法), Stoicism, the Enlightenment, and beyond — each stage richer and more self-aware than the last. The master-slave section became one of the most cited passages in all of modern philosophy: a master who makes a slave do all the work discovers that real self-consciousness requires recognising oneself in another consciousness, and by dominating that consciousness, the master has destroyed the very recognition he needs. Meanwhile the slave, working and transforming the world, develops a consciousness the master lacks. Power, Hegel showed, inverts itself.</p>
+
+      <p>Hegel's claim that history had reached its "end" — not its termination but its fulfilment in the rational constitutional state — was seized on by Francis Fukuyama (福山) after 1989 to declare liberal democracy the final form of government. But Hegel's own "end of history" was more modest: it was the point at which the concept of freedom had been fully articulated in institutions, not a prediction about the future. His legacy runs through Marx's (馬克思) historical materialism, Sartre's (沙特) existentialism, the Frankfurt School (法蘭克福學派), post-colonial theory, and twentieth-century philosophy of recognition (承認哲學) — all of them using Hegel's tools to argue he got the outcome wrong. Few philosophers have been so influential in being disagreed with.</p>
+
+      <div class="takeaway">&#x1F4A1; Hegel's core insight — that every idea contains the contradiction that will transform it — is a powerful antidote to any system of thought that presents itself as final. History doesn't end; it keeps negating itself into something new.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What does Hegel's master-slave dialectic reveal about the relationship between power and self-consciousness? Why does the master's position become philosophically unstable?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The master seeks recognition of his independence from the slave, but the slave's consciousness is degraded by domination — treated as a thing, not an independent self. Recognition by a non-independent consciousness is therefore philosophically worthless: the master needs genuine recognition by another free self-consciousness, but by enslaving, he has destroyed exactly that. Meanwhile the slave, working to transform the natural world for the master, develops genuine self-consciousness through creative labour. The dialectic shows that domination produces its opposite: the slave becomes more philosophically developed than the master, and power built on non-recognition is internally unstable.</div>
+      </details>
+
+      <div class="source">Sources: Hegel, G.W.F. (1807). <em>Phenomenology of Spirit</em> (trans. Miller, Oxford UP, 1977); Hegel, G.W.F. (1820). <em>Philosophy of Right</em>; Singer, P. (1983). <em>Hegel: A Very Short Introduction</em>. Oxford UP; Pinkard, T. (2000). <em>Hegel: A Biography</em>. Cambridge UP; SEP, "Hegel."</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Self-Determination Theory: Why Rewards Can Quietly Destroy the Thing They're Meant to Encourage</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A child who loves drawing starts getting stickers for every picture she makes. Three months later, she draws far less than before — and only when stickers are on offer. What happened to her love of drawing? And what does this reveal about what motivates human beings at a fundamental level?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Greek_uc_psi_icon.svg/120px-Greek_uc_psi_icon.svg.png" alt="Psychology symbol — self-determination and intrinsic motivation research (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The psychology symbol (Ψ) — Self-Determination Theory (自我決定論) is one of the most empirically supported frameworks in motivational science (Wikimedia Commons)</div>
+      </div>
+
+      <p>In 1971, psychologist Edward Deci (愛德華·德西) ran a deceptively simple experiment at the University of Rochester. He gave participants an interesting puzzle to work on during three sessions. For the first and third sessions, no reward was offered. In the middle session, one group was paid for completing each puzzle; the other was not. In the free-time periods between sessions, Deci observed what people did. Those who had been paid in session two showed a striking drop in spontaneous puzzle-solving in the final free period — they were less likely to keep working on the puzzle once the money was gone than they had been before the money ever arrived. The reward hadn't amplified their interest; it had replaced it. Deci called this the <em>undermining effect</em> (削弱效應), later formalized by Mark Lepper (萊珀) and colleagues as the <em>overjustification effect</em> (過度理由化效應): when you add an external justification (the reward) to an already-intrinsically-motivated activity, the person comes to see the reward as the reason they're doing it — and the intrinsic motivation quietly disappears.</p>
+
+      <p>This finding grew into <strong>Self-Determination Theory</strong> (自我決定論, SDT), developed by Deci and Richard Ryan (理察·萊恩) over four decades and published in their landmark 2000 paper in <em>American Psychologist</em>. SDT proposes three universal psychological needs that, when satisfied, generate intrinsic motivation, well-being, and sustained engagement: <em>autonomy</em> (自主性) — feeling that one's actions come from oneself rather than external pressure; <em>competence</em> (能力感) — feeling effective and growing in skill; and <em>relatedness</em> (歸屬感) — feeling connected to others. Environments that support all three — schools, workplaces, parenting styles — consistently produce higher intrinsic motivation, creativity, and mental health. Environments that undermine them — through surveillance, excessive control, contingent rewards, or criticism — reliably suppress them, often producing compliance at the expense of genuine engagement.</p>
+
+      <p>The implications are consistently counterintuitive. Tangible, contingent rewards (cash, grades, trophies) reliably undermine intrinsic motivation for tasks that people already find interesting, while unexpected, non-contingent rewards (a surprise bonus, verbal praise that communicates information about competence rather than control) tend not to harm it. The distinction matters enormously in schools: a meta-analysis by Deci, Koestner, and Ryan (1999) covering 128 experiments confirmed that the undermining effect is robust and particularly strong for children. The exception is tasks that people find boring or unpleasant — there, external rewards may be the only lever available, and little intrinsic motivation exists to undermine. SDT has been validated across 40+ cultures, though the balance between autonomy-support and structure varies by context.</p>
+
+      <div class="takeaway">&#x1F4A1; Before adding a reward to encourage a behaviour, ask: does the person already find this intrinsically interesting? If yes, the reward may quietly substitute for the inner drive — and when the reward ends, the behaviour may be harder to sustain than it was before.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What are the three core psychological needs in Self-Determination Theory, and what type of reward reliably undermines intrinsic motivation while another type does not?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The three needs are autonomy (feeling that actions originate from oneself), competence (feeling effective and growing in skill), and relatedness (feeling connected to others). Tangible, contingent rewards — those explicitly tied to performing or completing a specific activity (e.g., "do this, get that") — reliably undermine intrinsic motivation, particularly for tasks already found interesting. Unexpected, non-contingent rewards, and verbal feedback that provides genuine information about competence rather than controlling the person, do not undermine intrinsic motivation and may even support it.</div>
+      </details>
+
+      <div class="source">Sources: Deci, E.L. (1971). "Effects of externally mediated rewards on intrinsic motivation." <em>JPSP</em>, 18(1); Deci, E.L., Koestner, R. & Ryan, R.M. (1999). "A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation." <em>Psychological Bulletin</em>, 125(6); Ryan, R.M. & Deci, E.L. (2000). "Self-Determination Theory and the facilitation of intrinsic motivation." <em>American Psychologist</em>, 55(1).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Blood-Brain Barrier: The Most Selective Wall in Biology — and Why It Makes Brain Disease So Hard to Treat</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your brain needs constant delivery of glucose, oxygen, and dozens of nutrients — yet it's also the organ most catastrophically damaged by infection, toxins, or inflammation. How does the body solve this paradox? And what happens when the solution becomes part of the problem?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Neurovascular_unit.jpg" alt="Diagram of the neurovascular unit including blood-brain barrier components: endothelium, pericytes, astrocyte endfeet (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The neurovascular unit (神經血管單元) — tight junctions between endothelial cells, pericytes (周細胞), and astrocyte endfeet (星形膠質細胞足突) form the blood-brain barrier (Wikimedia Commons)</div>
+      </div>
+
+      <p>Every blood vessel in the human body is lined with endothelial cells (內皮細胞) — flat, tile-like cells that form a continuous tube. In most of the body, these cells have gaps between them: small molecules, immune cells, and even proteins can squeeze through freely, which is why aspirin in your bloodstream can quickly reach a sore knee. In the brain, something extraordinary has happened: the endothelial cells are sealed together by proteins called <em>tight junctions</em> (緊密連接) — specifically claudins (閉合蛋白), occludins (密封蛋白), and junction adhesion molecules — that essentially glue the cells into a nearly impermeable wall. Surrounding these cells are two further layers: <em>pericytes</em> (周細胞) that wrap around the capillaries and regulate blood flow, and <em>astrocyte endfeet</em> (星形膠質細胞足突) that press against the outer surface, secreting signals that instruct endothelial cells to maintain barrier properties. This tripartite structure is called the <em>neurovascular unit</em> (神經血管單元), and together it constitutes the blood-brain barrier (腦血屏障, BBB).</p>
+
+      <p>The BBB solves the paradox of brain protection brilliantly, but with extreme specificity. Small, lipid-soluble molecules — oxygen, carbon dioxide, alcohol, most anaesthetics, some hormones — cross freely by diffusion. Glucose (葡萄糖) and amino acids have dedicated transporter proteins (GLUT1, large neutral amino acid transporter) that ferry them across in one direction. Everything else — most bacteria, virtually all immune cells, most drugs including antibodies and many chemotherapy agents — is blocked. This selectivity is why penicillin, effective against bacterial infections everywhere else in the body, cannot treat bacterial meningitis (細菌性腦膜炎) effectively at normal doses: it cannot cross the barrier in therapeutic concentrations. It is also why Parkinson's disease (柏金遜症) cannot be treated by simply giving dopamine (多巴胺) — dopamine molecules are too hydrophilic (親水性) to cross, which is why the clinical treatment uses L-DOPA (左旋多巴), a precursor that has transporter access and is converted to dopamine <em>inside</em> the brain.</p>
+
+      <p>The darker side of the BBB is its breakdown in disease. In Alzheimer's disease (阿茲海默症), the BBB progressively leaks, allowing toxic proteins and inflammatory molecules into the brain — and it now appears this breakdown may occur early, possibly preceding amyloid plaque formation rather than following it. In stroke (中風), the sudden loss of blood flow destroys tight junction proteins within hours, causing oedema (腦水腫) as fluid floods the brain tissue. Traumatic brain injury (創傷性腦損傷), multiple sclerosis (多發性硬化症), and HIV-related dementia all involve BBB disruption as a key mechanism. The entire field of CNS drug development grapples with this problem: getting therapeutic molecules into the brain requires either exploiting existing transporters, temporarily opening tight junctions (risky), encapsulating drugs in nanoparticles (奈米粒子), or delivering drugs directly via intranasal routes that bypass the barrier. Cracking the BBB — selectively and safely — is arguably one of the great unsolved engineering problems in medicine.</p>
+
+      <div class="takeaway">&#x1F4A1; The blood-brain barrier is both the brain's greatest protector and medicine's most frustrating obstacle. Nearly every neurological disease treatment must either work around it, exploit it, or temporarily breach it.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why is L-DOPA used to treat Parkinson's disease instead of dopamine itself, and what does this illustrate about how the blood-brain barrier selects what crosses it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Dopamine is too hydrophilic (water-soluble) to diffuse across the lipid-rich tight junctions of the blood-brain barrier, and there is no dedicated transport protein to carry it in. L-DOPA (levodopa), its chemical precursor, is structurally similar enough to amino acids to be recognised by the large neutral amino acid transporter (LAT1) and actively transported across the barrier into the brain, where the enzyme DOPA decarboxylase converts it to dopamine. This illustrates that the BBB's selectivity is based on lipid solubility plus transporter availability — molecules must either dissolve through lipid membranes or be "invited in" by a specific carrier protein.</div>
+      </details>
+
+      <div class="source">Sources: Daneman, R. & Prat, A. (2015). "The blood-brain barrier." <em>Cold Spring Harbor Perspectives in Biology</em>, 7; Zhao, Z. et al. (2015). "Establishment and dysfunction of the blood-brain barrier." <em>Cell</em>, 163(5); Sweeney, M.D. et al. (2018). "Blood-brain barrier: from physiology to disease and back." <em>Physiological Reviews</em>, 99(1); NIH National Institute of Neurological Disorders and Stroke.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Mouth vs. Nose Breathing: The Overlooked Habit That Affects Your Sleep, Performance, and Heart</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You've been breathing your whole life. But does it matter <em>how</em> you breathe — through your nose or your mouth? And could changing something as simple and automatic as the route of air into your lungs meaningfully affect your health, sleep quality, and even cognitive performance?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Illu01_head_neck.jpg" alt="Anatomy of the human nasal cavity and airway showing the turbinates and nasal passages (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Human nasal cavity (鼻腔) anatomy — turbinates filter, warm, and humidify air, and the nasal passages produce nitric oxide (Wikimedia Commons)</div>
+      </div>
+
+      <p>The nose is a far more sophisticated air-processing system than it appears. Its internal architecture — the turbinates (鼻甲), scrolled shelves of bone and tissue — filters particles, warms cold air to near body temperature, and humidifies dry air before it reaches the lungs. But its most pharmacologically active feature is less visible: the paranasal sinuses (副鼻竇) continuously produce <em>nitric oxide</em> (一氧化氮, NO), a signalling molecule that, when inhaled through nasal breathing, reaches the lungs and causes vasodilation (血管擴張) of pulmonary blood vessels. This improves the ventilation-perfusion match in the lungs — more blood reaching well-aerated regions — and can increase arterial oxygen uptake by as much as 10–15% compared to equivalent mouth breathing. Humming and nasal breathing both dramatically amplify NO production; mouth breathing largely bypasses the system. Research by Swedish physiologist Eddie Weitzberg (艾迪·韋茨伯格) in the late 1990s first documented nasal NO's role in regulating pulmonary circulation, a finding now widely replicated.</p>
+
+      <p>The downstream consequences of chronic mouth breathing — common in people with nasal congestion, enlarged tonsils, allergies, or simply a learned habit — are broader than most people realise. During sleep, mouth breathing increases the likelihood of snoring and obstructive sleep apnea (阻塞性睡眠窒息症) by reducing the muscle tone of the upper airway and bypassing the resistance that nasal breathing imposes; that resistance creates a slight back-pressure that helps keep airways open. A 2015 study by Christian Guilleminault (吉列米諾) showed that among children with sleep-disordered breathing, habitual mouth breathing was nearly universal, and that surgical correction of nasal obstruction substantially reduced apnea events. James Nestor's popular 2020 book <em>Breath</em> (《呼吸》) catalogued his self-experiment taping his mouth shut for 10 days — snoring increased dramatically during mouth-breathing nights and disappeared during nose-breathing nights, accompanied by consistent rises in blood pressure and reduced sleep quality.</p>
+
+      <p>The evidence base is mixed enough to require care. The Buteyko method (布泰科法) — a breathing technique that deliberately slows and restricts breathing through the nose — has modest RCT evidence for reducing asthma medication use but limited evidence for broader claims. Nestor's self-experiment was n=2 (himself and one other participant) and lacks peer review; anecdote, however vivid, is not clinical data. What is well-established is more limited but still meaningful: nasal breathing produces nitric oxide that mouth breathing bypasses; during sleep, mouth breathing increases upper-airway collapse risk; the nasal airway filters and conditions air in ways the mouth does not. For most people, simply paying attention to whether they habitually breathe through their nose or mouth — particularly during sleep — is a free, low-risk self-assessment that the literature supports checking.</p>
+
+      <div class="takeaway">&#x1F4A1; Nasal breathing is pharmacologically active — it delivers nitric oxide that improves lung oxygen absorption, and provides resistance that reduces sleep apnea risk. Chronic mouth breathing quietly bypasses both. The intervention is as simple as it gets: breathe through your nose.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What specific molecule does nasal breathing deliver to the lungs that mouth breathing largely bypasses, what does it do physiologically, and how does nasal resistance affect sleep apnea risk?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Nasal breathing delivers nitric oxide (NO) produced by the paranasal sinuses, which causes vasodilation of pulmonary blood vessels and improves ventilation-perfusion matching in the lungs, potentially increasing arterial oxygen uptake by 10–15% compared to mouth breathing. Regarding sleep apnea: nasal breathing imposes a slight resistance that generates back-pressure in the upper airway, helping maintain muscle tone and keeping the airway open; mouth breathing bypasses this resistance and reduces airway stability, significantly increasing the risk of snoring and obstructive sleep apnea events.</div>
+      </details>
+
+      <div class="source">Sources: Weitzberg, E. & Lundberg, J.O. (1999). "Humming greatly increases nasal nitric oxide." <em>American Journal of Respiratory and Critical Care Medicine</em>, 166; Guilleminault, C. et al. (2015). "Mouth breathing, nasal obstruction and childhood obstructive sleep apnea." <em>Sleep Science</em>; Nestor, J. (2020). <em>Breath: The New Science of a Lost Art</em>. Riverhead; NIH, National Heart, Lung, and Blood Institute — Sleep Apnea overview.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Training Frequency: How Often Should You Train Each Muscle to Maximise Growth?</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Traditional bodybuilding wisdom says train each muscle group once per week with enormous volume — the "bro split." Exercise science has been systematically dismantling this assumption for two decades. If you were to bet on the optimal frequency for muscle growth per muscle per week, what would you guess?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="People performing resistance training — training frequency per muscle group is a key variable for hypertrophy (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Resistance training — how often you stimulate each muscle group per week significantly influences long-term hypertrophy outcomes (Wikimedia Commons)</div>
+      </div>
+
+      <p>The bodybuilding tradition of training each muscle group once per week — chest Monday, back Tuesday, shoulders Wednesday, and so on — rests on a reasonable intuition: muscles need to rest after being damaged. But it misunderstands the timeline of muscle protein synthesis (肌肉蛋白質合成, MPS). After a resistance training session, MPS elevates for roughly 24–48 hours, then returns to baseline — even if the muscle is still sore. A once-weekly frequency means that for five or six days out of every seven, the muscle receives no anabolic stimulus at all. The signal for growth is simply off. Brad Schoenfeld's (布萊德·謝恩菲爾德) 2016 meta-analysis in the <em>Journal of Strength and Conditioning Research</em> addressed this directly, pooling 10 studies that held total weekly volume constant while varying frequency. The result was clear: training each muscle twice per week produced significantly greater hypertrophy than once per week; three times per week showed a trend toward further improvement but the advantage shrank.</p>
+
+      <p>The mechanism is the MPS window itself. When a muscle is stimulated with sufficient mechanical load, ribosomes (核糖體) begin synthesising contractile proteins — primarily actin (肌動蛋白) and myosin (肌球蛋白) — at elevated rates for up to 48 hours. After that, the signal decays regardless of soreness or remaining microtrauma (微創傷). Hitting each muscle twice per week means catching the muscle during its growth window twice, not once. A practical framework from Ralston et al. (2017), a further meta-analysis of 25 studies, confirmed that when volume is equated across conditions, 2+ sessions per week outperforms 1 session per week for both strength and hypertrophy — and that the interaction of volume × frequency matters more than either variable alone. In other words, the same 10 sets of chest training per week produce more growth as 5 sets twice a week than as 10 sets in a single Sunday session.</p>
+
+      <p>There is a ceiling and a floor to this principle. Very high frequencies (6–7 times per week) can theoretically sustain even more frequent anabolic signalling, but the practical reality is that accumulated fatigue and insufficient recovery between sessions tend to erode per-session quality faster than the frequency benefit arrives. Most evidence suggests 2–3 times per week per muscle group, with sufficient volume per session to drive a meaningful MPS spike, is the practical sweet spot for most trained individuals. For beginners, whole-body sessions three times per week hit every muscle at this optimal frequency automatically. For intermediate lifters, an upper-lower split (上下半身分練) or push-pull-legs split (推拉腿分練) repeated twice per week achieves the same effect. Soreness — or its absence — is a poor guide to readiness; the MPS timeline is a better one.</p>
+
+      <div class="takeaway">&#x1F4A1; Muscle protein synthesis returns to baseline within 48 hours of training, not after seven days. Training each muscle twice per week captures two growth windows instead of one — and that difference compounds over months and years.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does training frequency matter even when total weekly volume is kept the same, and what is the approximate duration of elevated muscle protein synthesis after a single session?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Muscle protein synthesis (MPS) is elevated for roughly 24–48 hours after a training session and then returns to baseline — regardless of ongoing soreness. If a muscle is trained only once per week, it receives an anabolic signal for ~2 days out of 7 and is unstimulated for 5. Training twice per week at the same total volume delivers two separate anabolic signals instead of one, doubling the time the muscle spends in an elevated growth state. Schoenfeld's 2016 meta-analysis showed this frequency advantage holds even when sets and reps per week are identical — the distribution of that volume across the week is what changes the outcome.</div>
+      </details>
+
+      <div class="source">Sources: Schoenfeld, B.J., Ogborn, D. & Krieger, J.W. (2016). "Effects of resistance training frequency on measures of muscle hypertrophy." <em>Journal of Strength and Conditioning Research</em>, 30(7); Ralston, G.W. et al. (2017). "The effect of weekly set volume on strength gain." <em>Sports Medicine</em>, 47; Damas, F. et al. (2016). "A review of resistance training-induced changes in skeletal muscle protein synthesis and their contribution to hypertrophy." <em>Sports Medicine</em>, 45.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Factor Zoo: How Fama and French Rewrote the Rules of Returns — and Why the Story Got Complicated</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The Capital Asset Pricing Model (CAPM) said returns came from one thing: market risk. Then two economists showed that two additional, measurable characteristics predicted returns over decades of data, independent of market exposure. Would you invest differently if you knew which characteristics of a stock predicted higher long-run returns, above and beyond just owning "the market"?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Eugene_Fama_at_Nobel_Prize%2C_2013.jpg" alt="Eugene Fama at the Nobel Prize ceremony, 2013 (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Eugene Fama (尤金·法馬) at the 2013 Nobel Prize ceremony — he shared the prize with Robert Shiller (羅伯特·席勒), who holds opposite views on market efficiency (Wikimedia Commons)</div>
+      </div>
+
+      <p>In 1992, Eugene Fama (尤金·法馬) and Kenneth French (肯尼斯·法蘭奇) published what became one of the most cited papers in finance. They looked at decades of US stock returns and asked: after controlling for market exposure (beta), what else predicts a stock's returns? Two things stood out with striking consistency. First, <em>small-cap stocks</em> (小型股) had systematically outperformed large-cap stocks (大型股) over time — the "size factor" (規模因子). Second, <em>value stocks</em> — those with low price-to-book ratios (低市賬率), meaning stocks the market had priced cheaply relative to their accounting assets — outperformed growth stocks by a similarly persistent margin — the "value factor" (價值因子). The three-factor model (三因子模型) — market, size, value — explained the cross-section of stock returns far better than CAPM alone. In 2015, Fama and French expanded this to five factors, adding <em>profitability</em> (獲利性) and <em>investment</em> (投資保守性): profitable companies with conservative capital deployment tended to outperform their less profitable, more expansive peers.</p>
+
+      <p>The industry response was enormous. "Smart beta" (聰明貝他) funds and factor ETFs proliferated, offering investors systematic exposure to value, size, profitability, and a fourth factor — <em>momentum</em> (動能因子), documented by Jegadeesh and Titman (1993): stocks that had risen in the past 12 months tended to keep rising for the next 12 months before mean-reverting. By 2020, researchers had identified more than 400 published "factors" — variables that appeared to predict returns in one sample. Harvey, Liu, and Zhu's (2016) paper in the <em>Review of Financial Studies</em> called this the "factor zoo" (因子動物園) and raised a devastating methodological point: with enough data-mining, virtually any arbitrary variable can appear to predict returns in a historical dataset, especially with publication bias (出版偏誤) selecting only significant results. How many of these 400+ factors are genuine priced risks or behavioural patterns, and how many are statistical artefacts that will vanish out-of-sample?</p>
+
+      <p>The evidence on decay is sobering. Hou, Xue, and Zhang (2020) attempted to replicate 452 published anomalies and found that more than half could not be reproduced with tighter statistical thresholds; many more faded after their discovery was published — the classic problem of "factor crowding" (因子擁擠) as arbitrageurs trade away the premium. The value factor itself underperformed dramatically in the 2010s, prompting fierce debate about whether it has permanently weakened (due to intangibles and technology's capital-light model) or is simply in a prolonged drought before reverting. Fama's own response is characteristically blunt: the premium exists precisely because value investing is uncomfortable to hold during growth bull markets — if it were easy, it would be competed away. What survives this debate is a methodological lesson: extraordinary statistical claims require extraordinary out-of-sample validation, and the most durable factors (market, value, profitability) have decades of cross-country evidence behind them.</p>
+
+      <div class="takeaway">&#x1F4A1; Factors are real but fragile: the most robust ones (market, value, profitability) persist across countries and decades, but hundreds of alleged predictors vanish when tested on new data. The more exotic the factor, the more scepticism it deserves.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What are the original three factors in the Fama-French model, and what is the core methodological warning posed by the "factor zoo" problem?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The three original Fama-French factors are: (1) market risk premium (exposure to the overall stock market); (2) the size factor — small-cap stocks outperform large-cap stocks; (3) the value factor — low price-to-book stocks outperform high price-to-book stocks. The "factor zoo" warning is that with hundreds of researchers mining the same historical datasets, many apparent predictors of returns are statistical artefacts produced by data dredging and publication bias (only significant results get published). When tested out-of-sample on new data, the majority of published factors either disappear or diminish substantially — meaning investors can't assume a historically measured factor premium will persist in their portfolio.</div>
+      </details>
+
+      <div class="source">Sources: Fama, E.F. & French, K.R. (1992). "The Cross-Section of Expected Stock Returns." <em>Journal of Finance</em>, 47(2); Fama, E.F. & French, K.R. (2015). "A five-factor asset pricing model." <em>Journal of Financial Economics</em>, 116(1); Harvey, C.R., Liu, Y. & Zhu, H. (2016). "… and the Cross-Section of Expected Returns." <em>Review of Financial Studies</em>, 29(1); Hou, K., Xue, C. & Zhang, L. (2020). "Replicating Anomalies." <em>Review of Financial Studies</em>, 33(5).</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>The Coase Theorem: Why Property Rights Can Solve Pollution — in Theory</h2>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Coase_scan_11_edited_%28cropped%29.jpg" alt="Ronald Coase, economist, Nobel Prize 1991 (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ronald Coase (羅納德·科斯), Nobel Prize in Economics 1991 — his 1960 paper is among the most cited in all of economics (Wikimedia Commons)</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CD; Event</div>
+        <div class="pe-body">A factory upstream poisons a river, destroying a fisherman's livelihood downstream. Should the government regulate the factory's emissions, tax them via a Pigouvian tax (庇古稅), or leave the parties to negotiate? In practice, environmental disputes between firms and affected communities rarely resolve neatly through private negotiation — courts, agencies, and international agreements proliferate. The simple market solution economists occasionally invoke keeps failing to appear.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Ronald Coase (羅納德·科斯) in "The Problem of Social Cost" (<em>Journal of Law and Economics</em>, 1960) argued that when property rights (產權) are clearly defined and transaction costs (交易費用) are negligible, private bargaining between parties will always produce an efficient outcome — regardless of who is initially assigned the right. If the factory has the right to pollute and the damage to the fisherman exceeds the factory's profit from doing so, the fisherman will pay the factory to stop. If the fisherman has the right to clean water, the factory will pay for the right to pollute if it's profitable to do so. Either way, the socially efficient level of pollution is reached without government intervention. George Stigler (喬治·斯蒂格勒) named this the "Coase Theorem" (科斯定理) — Coase himself was more cautious about how broadly it applied.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Real-world externality disputes (外部性糾紛) almost never resolve through private bargaining. Transaction costs — identifying all affected parties, negotiating across dozens or thousands of stakeholders, enforcing agreements — are enormous in most environmental and public-goods contexts. Holdout problems (敲竹槓問題) mean a single affected party can extract enormous concessions, blocking any deal. Information asymmetries prevent both sides from knowing the true value of the externality. And "who holds the initial right" turns out to matter enormously for outcomes — precisely the opposite of what the theorem predicts when wealth effects are present.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">The theorem's conditions — zero transaction costs, clearly defined property rights, symmetric information — never hold in practice for significant externalities. Coase's own deeper contribution, often overlooked, was precisely this: by showing that zero transaction costs is the baseline assumption required for markets to solve externalities, he identified transaction costs as the real subject of institutional economics (制度經濟學). Institutions, firms, and governments exist precisely to reduce transaction costs — a thesis Oliver Williamson (奧利弗·威廉姆森) developed into transaction cost economics (Nobel 2009). For carbon emissions (碳排放) — the defining 21st-century externality — cap-and-trade (總量管制與交易) is an institutional mechanism that internalises Coasian logic at the regulatory level; private bargaining remains largely unworkable.</div>
+      </div>
+
+      <div class="source">Sources: Coase, R.H. (1960). "The Problem of Social Cost." <em>Journal of Law and Economics</em>, 3; Stigler, G.J. (1966). <em>The Theory of Price</em> (where the "Coase Theorem" label originates); Williamson, O.E. (1985). <em>The Economic Institutions of Capitalism</em>. Free Press; Medema, S.G. (2020). "The Coase Theorem at Sixty." <em>Journal of Economic Literature</em>, 58(4).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 — Self-Determination Theory and Factor Investing:</strong> Both reveal how external pressures quietly corrupt something that works intrinsically. In SDT, adding tangible external rewards to an already-motivated activity replaces the inner drive with dependence on the reward — and when the reward vanishes, so does the behaviour. In factor investing, when a return premium is discovered, published, and then traded by armies of arbitrageurs, the very act of exploiting it tends to price it away — the "factor crowding" problem. In both cases, the signal that worked in the absence of attention degrades once it becomes the explicit object of external incentives.</p>
+      <p><strong>So what:</strong> In your own habits and systems, look for the places where you've introduced external accountability or reward structures into behaviours that once ran on internal motivation. The structures may be helping — or they may be quietly eating the thing they were meant to reinforce.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Betelgeuse Great Dimming):</strong> Levesque, E.M. &amp; Massey, P. (2020). <em>ApJL</em>, 891; Montargès, M. et al. (2021). <em>Nature</em>, 594; NASA Hubble Space Telescope news release (2020).</li>
+      <li><strong>Card 2 (文景之治):</strong> 司馬遷《史記·孝文本紀》《孝景本紀》；班固《漢書·食貨志》；田餘慶（1989）《秦漢魏晉史探微》；Nishijima in Twitchett &amp; Loewe (1986). <em>Cambridge History of China, Vol. 1</em>.</li>
+      <li><strong>Card 3 (Spanish Armada):</strong> Mattingly, G. (1959). <em>The Defeat of the Spanish Armada</em>; Parker, G. (1996). <em>The Grand Strategy of Philip II</em>. Yale UP; Rodger, N.A.M. (1997). <em>The Safeguard of the Sea</em>. HarperCollins.</li>
+      <li><strong>Card 4 (戴震):</strong> 戴震《孟子字義疏證》；馮友蘭《中國哲學史》；余英時《論戴震與章學誠》；Ng, On-cho (1991). <em>Philosophy East &amp; West</em>, 41(3).</li>
+      <li><strong>Card 5 (Hegel):</strong> Hegel (1807). <em>Phenomenology of Spirit</em> (Miller trans., Oxford UP, 1977); Singer, P. (1983). <em>Hegel: A Very Short Introduction</em>. Oxford UP; SEP, "Hegel."</li>
+      <li><strong>Card 6 (Self-Determination Theory):</strong> Deci, E.L. (1971). <em>JPSP</em>, 18(1); Deci, Koestner &amp; Ryan (1999). <em>Psychological Bulletin</em>, 125(6); Ryan &amp; Deci (2000). <em>American Psychologist</em>, 55(1).</li>
+      <li><strong>Card 7 (Blood-Brain Barrier):</strong> Daneman &amp; Prat (2015). <em>Cold Spring Harbor Perspectives in Biology</em>, 7; Zhao et al. (2015). <em>Cell</em>, 163(5); Sweeney et al. (2018). <em>Physiological Reviews</em>, 99(1).</li>
+      <li><strong>Card 8 (Nose vs Mouth Breathing):</strong> Weitzberg &amp; Lundberg (1999). <em>AJRCCM</em>, 166; Guilleminault et al. (2015). <em>Sleep Science</em>; Nestor, J. (2020). <em>Breath</em>. Riverhead.</li>
+      <li><strong>Card 9 (Training Frequency):</strong> Schoenfeld, Ogborn &amp; Krieger (2016). <em>JSCR</em>, 30(7); Ralston et al. (2017). <em>Sports Medicine</em>, 47; Damas et al. (2016). <em>Sports Medicine</em>, 45.</li>
+      <li><strong>Card 10 (Factor Investing):</strong> Fama &amp; French (1992). <em>Journal of Finance</em>, 47(2); Fama &amp; French (2015). <em>JFE</em>, 116(1); Harvey, Liu &amp; Zhu (2016). <em>Review of Financial Studies</em>, 29(1); Hou, Xue &amp; Zhang (2020). <em>Review of Financial Studies</em>, 33(5).</li>
+      <li><strong>Card 11 (Coase Theorem):</strong> Coase, R.H. (1960). <em>J. Law &amp; Economics</em>, 3; Stigler (1966). <em>Theory of Price</em>; Williamson (1985). <em>Economic Institutions of Capitalism</em>; Medema (2020). <em>JEL</em>, 58(4).</li>
+    </ul>
+  </details>
+</footer>
+
+<script>
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-20.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-20.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+
+<script src="bm.js"></script>
+</body>
+</html>
