@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning — 21 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+
+/* navfix */
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim,#3a6a9a);}
+.side-nav{display:none;}
+@media(min-width:900px){
+.side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+.side-nav ul{list-style:none;margin:0;padding:0;}
+.side-nav li{margin-bottom:.35rem;}
+.side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+.side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+.toc-bar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Sunday, 21 June 2026 &middot; ~20 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">🔭 Astronomy</a>
+    <a class="toc-pill" href="#card-2">⛩ 東方歷史</a>
+    <a class="toc-pill" href="#card-3">🏛 Western History</a>
+    <a class="toc-pill" href="#card-4">☯ 東方哲學</a>
+    <a class="toc-pill" href="#card-5">🌿 W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">🧠 Psychology</a>
+    <a class="toc-pill" href="#card-7">🫀 Physiology</a>
+    <a class="toc-pill" href="#card-8">💊 Health</a>
+    <a class="toc-pill" href="#card-9">🏋 Sports Science</a>
+    <a class="toc-pill" href="#card-10">📈 Investing</a>
+    <a class="toc-pill" href="#card-11">⚖️ Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">🔭 Astronomy</a></li>
+      <li><a href="#card-2">⛩ 東方歷史</a></li>
+      <li><a href="#card-3">🏛 Western History</a></li>
+      <li><a href="#card-4">☯ 東方哲學</a></li>
+      <li><a href="#card-5">🌿 W. Philosophy</a></li>
+      <li><a href="#card-6">🧠 Psychology</a></li>
+      <li><a href="#card-7">🫀 Physiology</a></li>
+      <li><a href="#card-8">💊 Health</a></li>
+      <li><a href="#card-9">🏋 Sports Science</a></li>
+      <li><a href="#card-10">📈 Investing</a></li>
+      <li><a href="#card-11">⚖️ Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>20 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; Betelgeuse's Great Dimming</span>
+        <em>Answer this without looking back:</em> What were the two overlapping physical causes of Betelgeuse's Great Dimming in 2019&ndash;2020, and how did astronomers distinguish them from an actual supernova precursor?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The two causes were (1) a mass ejection that produced a cool dust cloud obscuring the star's southern hemisphere, and (2) an unusually large, cold starspot on the stellar surface. Together they caused a ~60% drop in visible brightness. Astronomers ruled out supernova precursor activity because the star recovered to normal brightness by April 2020 and has since been brighter than average; supernovae do not reverse. Hubble UV imaging confirmed the plasma ejection and dust formation mechanism, while radial velocity data showed no internal collapse signatures.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 文景之治</span>
+        <em>讀後回想：</em>文景之治的「無為而治」在制度上體現在哪三個具體政策層面？漢武帝後來的積極擴張行動，在財政上與文景的積累有何直接關聯？
+        <details><summary>查看答案</summary>
+          <div class="answer">三個層面：（一）財政——大幅減免田賦（最低三十稅一乃至完全免徵），嚴控宮廷開支；（二）刑法——廢除秦代株連連坐，減輕肉刑；（三）徭役——削減征調民夫的天數與規模，減少大型工程。財政關聯：文景四十年積累的太倉糧食與府庫銅錢，直接為漢武帝三十年的對匈奴戰爭、通西域外交及西南開拓提供了物質基礎；武帝末年財政告竭，正說明這份家底消耗殆盡。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Spanish Armada</span>
+        <em>Answer this without looking back:</em> Why did English fireships at Calais prove so decisive — not just tactically but strategically — in defeating the Armada's plan, even though they sank no Spanish ships?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The fireships forced the Armada to cut anchor cables and scatter from the Calais anchorage in panic, breaking the tight defensive crescent formation that had protected it during the Channel battle. Once scattered, the fleet could not reassemble effectively and could no longer hold position to link up with Parma's army — the essential logistical rendezvous the entire plan depended on. Without Parma's soldiers, the Armada had no invasion force to land; the mission was over before a single English soldier fired a shot on land. Strategically, the fireships destroyed the plan, not the fleet.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 戴震《孟子字義疏證》</span>
+        <em>讀後回想：</em>戴震如何重新定義「理」與「欲」的關係，以駁斥宋明理學「存天理、滅人欲」的主張？他認為真正的道德應以什麼為目標？
+        <details><summary>查看答案</summary>
+          <div class="answer">戴震通過訓詁先秦文獻，論證孟子從未主張滅絕人欲；「理」的本義是對人情欲望進行合理有序的安排，而非壓制它們的形而上本體。他認為真正的道德目標是「達情遂欲」——讓每個人的情感與欲望都得到公平順遂的實現，聖人之道在於「使天下無不達之情、無不遂之欲」。他批評宋明理學把「理」高舉為壓制工具，結果讓強者以「天理」名義剝奪弱者的合理訴求，淪為「以理殺人」。</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy &mdash; Hegel: Dialectic &amp; Geist</span>
+        <em>Answer this without looking back:</em> What does Hegel's master-slave dialectic reveal about the relationship between power and self-consciousness? Why does the master's position become philosophically unstable?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The master seeks recognition of his independence from the slave, but the slave's consciousness is degraded by domination — treated as a thing, not an independent self. Recognition by a non-independent consciousness is therefore philosophically worthless: the master needs genuine recognition by another free self-consciousness, but by enslaving, he has destroyed exactly that. Meanwhile the slave, working to transform the natural world for the master, develops genuine self-consciousness through creative labour. The dialectic shows that domination produces its opposite: the slave becomes more philosophically developed than the master, and power built on non-recognition is internally unstable.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Self-Determination Theory</span>
+        <em>Answer this without looking back:</em> What are the three core psychological needs in Self-Determination Theory, and what type of reward reliably undermines intrinsic motivation while another type does not?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The three needs are autonomy (feeling that actions originate from oneself), competence (feeling effective and growing in skill), and relatedness (feeling connected to others). Tangible, contingent rewards — those explicitly tied to performing or completing a specific activity (e.g., "do this, get that") — reliably undermine intrinsic motivation, particularly for tasks already found interesting. Unexpected, non-contingent rewards, and verbal feedback that provides genuine information about competence rather than controlling the person, do not undermine intrinsic motivation and may even support it.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Blood-Brain Barrier</span>
+        <em>Answer this without looking back:</em> Why is L-DOPA used to treat Parkinson's disease instead of dopamine itself, and what does this illustrate about how the blood-brain barrier selects what crosses it?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Dopamine is too hydrophilic (water-soluble) to diffuse across the lipid-rich tight junctions of the blood-brain barrier, and there is no dedicated transport protein to carry it in. L-DOPA (levodopa), its chemical precursor, is structurally similar enough to amino acids to be recognised by the large neutral amino acid transporter (LAT1) and actively transported across the barrier into the brain, where the enzyme DOPA decarboxylase converts it to dopamine. This illustrates that the BBB's selectivity is based on lipid solubility plus transporter availability — molecules must either dissolve through lipid membranes or be "invited in" by a specific carrier protein.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Mouth vs Nose Breathing</span>
+        <em>Answer this without looking back:</em> What specific molecule does nasal breathing deliver to the lungs that mouth breathing largely bypasses, what does it do physiologically, and how does nasal resistance affect sleep apnea risk?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Nasal breathing delivers nitric oxide (NO) produced by the paranasal sinuses, which causes vasodilation of pulmonary blood vessels and improves ventilation-perfusion matching in the lungs, potentially increasing arterial oxygen uptake by 10–15% compared to mouth breathing. Regarding sleep apnea: nasal breathing imposes a slight resistance that generates back-pressure in the upper airway, helping maintain muscle tone and keeping the airway open; mouth breathing bypasses this resistance and reduces airway stability, significantly increasing the risk of snoring and obstructive sleep apnea events.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Training Frequency</span>
+        <em>Answer this without looking back:</em> Why does training frequency matter even when total weekly volume is kept the same, and what is the approximate duration of elevated muscle protein synthesis after a single session?
+        <details><summary>Check your answer</summary>
+          <div class="answer">Muscle protein synthesis (MPS) is elevated for roughly 24–48 hours after a training session and then returns to baseline — regardless of ongoing soreness. If a muscle is trained only once per week, it receives an anabolic signal for ~2 days out of 7 and is unstimulated for 5. Training twice per week at the same total volume delivers two separate anabolic signals instead of one, doubling the time the muscle spends in an elevated growth state. Schoenfeld's 2016 meta-analysis showed this frequency advantage holds even when sets and reps per week are identical — the distribution of that volume across the week is what changes the outcome.</div>
+        </details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; Factor Investing / Fama-French</span>
+        <em>Answer this without looking back:</em> What are the original three factors in the Fama-French model, and what is the core methodological warning posed by the "factor zoo" problem?
+        <details><summary>Check your answer</summary>
+          <div class="answer">The three original Fama-French factors are: (1) market risk premium (exposure to the overall stock market); (2) the size factor — small-cap stocks outperform large-cap stocks; (3) the value factor — low price-to-book stocks outperform high price-to-book stocks. The "factor zoo" warning is that with hundreds of researchers mining the same historical datasets, many apparent predictors of returns are statistical artefacts produced by data dredging and publication bias (only significant results get published). When tested out-of-sample on new data, the majority of published factors either disappear or diminish substantially — meaning investors can't assume a historically measured factor premium will persist in their portfolio.</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A Grain of Sand Held Up to the Sky: How the Hubble Ultra Deep Field Revealed Ten Thousand Galaxies in Apparent Emptiness</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2003, astronomers pointed the Hubble Space Telescope (哈勃太空望遠鏡) at a tiny, seemingly empty patch of sky near the constellation Fornax (天爐座) — a region so small it would be covered by a grain of sand held at arm's length. They kept the telescope fixed on this apparent void for 11 consecutive days, gathering light from the deepest darkness they could find. What do you think they discovered?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Hubble_ultra_deep_field_high_rez_edit1.jpg/3840px-Hubble_ultra_deep_field_high_rez_edit1.jpg" alt="Hubble Ultra Deep Field — approximately 10,000 galaxies visible in a tiny patch of sky (NASA/ESA)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Hubble Ultra Deep Field (哈勃超深場) — each smear, spiral, and ellipse of light is an entire galaxy, some seen as they appeared less than a billion years after the Big Bang (NASA/ESA/S. Beckwith STScI)</div>
+      </div>
+
+      <p>Look up at the night sky on a clear night and count the stars in a patch you can cover with your thumb. Now imagine that each of those points of light is not a star but an entire galaxy (星系) — a swirling city of hundreds of billions of stars. That is what the Hubble Ultra Deep Field (HUDF) showed the world in 2004. The project started with a deliberate act of courage: Robert Williams (羅伯特·威廉斯), then director of the Space Telescope Science Institute, overrode scientific committees and devoted over 11 days of Hubble's most precious observing time to staring at a region of sky in Fornax (天爐座) that contained almost nothing visible to ground-based telescopes. Colleagues warned it was a gamble. When the image was released, it contained approximately 10,000 distinct galaxies — every one of them invisible to any telescope before Hubble, crowding into a patch of sky about one thirteen-millionth of the total celestial sphere.</p>
+
+      <p>What made the image more than a pretty picture was the time-machine it provided. Because light travels at a finite speed (光速), every galaxy in the HUDF is seen not as it is now but as it was when its light began its journey — and the most distant objects in the image are so far away that their light left them less than a billion years after the Big Bang (大爆炸), 13.8 billion years ago. In a single two-dimensional image, astronomers could see galaxy evolution (星系演化) across cosmic time: irregular, clumpy proto-galaxies (原始星系) in the deep background; more organised spirals (螺旋星系) and ellipticals (橢圓星系) at intermediate distances; and the fully formed, mature structures of the near universe in the foreground. The HUDF became the most productive stretch of sky in the history of astronomy, spawning thousands of scientific papers.</p>
+
+      <p>In 2012, NASA pointed Hubble at an even deeper region — the Hubble eXtreme Deep Field (XDF) — and in 2022, the James Webb Space Telescope (韋布太空望遠鏡, JWST) produced its own first deep field, revealing galaxies even further back in time, some from just a few hundred million years after the Big Bang, glowing red with redshift (紅移). JWST has identified candidate Population III star clusters (第三星族恆星) — the hypothesised first generation of stars formed entirely from hydrogen and helium, before any heavier elements existed. What all these images share is the same humbling message encoded in that first Hubble grain-of-sand patch: point your instrument in any direction, and the universe is full to overflowing with entire galaxies, stretching back to the very edge of the observable cosmos.</p>
+
+      <div class="takeaway">&#x1F4A1; Every direction you look in the night sky contains thousands of entire galaxies — the Hubble Ultra Deep Field turned "empty sky" into the most crowded address in astronomical history.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> How did the Hubble Ultra Deep Field function as a cosmic time machine, and what did the variation in galaxy appearance across depth in the image reveal about galaxy evolution?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because light travels at a finite speed, distant galaxies are seen as they were when their light began its journey — not as they are now. The most distant objects in the HUDF are so far away that their light left them less than a billion years after the Big Bang. This means a single image captures different epochs of cosmic history at different depths: the faint, red, irregular blobs at maximum depth are young proto-galaxies in the early universe, while the more structured spirals and ellipticals in the foreground are mature, later-epoch systems. The progression from clumpy irregulars to organised spirals across the image directly reveals how galaxies assembled and settled over billions of years.</div>
+      </details>
+
+      <div class="source">Sources: Beckwith, S.V.W. et al. (2006). "The Hubble Ultra Deep Field." <em>Astronomical Journal</em>, 132(5); Illingworth, G. et al. (2013). "The HST eXtreme Deep Field." <em>ApJS</em>, 209; NASA/ESA JWST First Deep Field press release (July 2022).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>崖山之戰：十萬軍民的抉擇，與一個文明的最後時刻（1279年）</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">1279年，蒙古大軍圍困南宋最後的流亡朝廷於廣東崖山一隅。宋朝皇帝是一個八歲的孩子，身邊是數萬疲憊的士兵與平民，已無路可退。面對必敗之局，他們為何沒有選擇投降——而是選擇了一個更決絕的結局？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>陸秀夫（左丞相，最後負帝蹈海）、張世傑（大將軍，主持海上決戰）、文天祥（前丞相，已被俘，拒絕勸降）、趙昺（宋末帝，年僅八歲）</p>
+        <p><strong>地點與時間：</strong>廣東崖山（今新會）海域，1279年二月初六</p>
+        <p><strong>大勢：</strong>南宋政府自1276年臨安（杭州）失陷後，攜幼帝輾轉南逃，流亡行在先後在福州、泉州、廣州外海漂流，最終退守崖山一隅</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/%E9%99%B8%E7%A7%80%E5%A4%AB.jpg" alt="陸秀夫畫像——南宋末年左丞相，崖山之戰中負帝蹈海殉國（維基共享資源）" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陸秀夫畫像——南宋末年左丞相，1279年崖山海戰中抱帝跳海，以身殉國（維基共享資源）</div>
+      </div>
+
+      <p>1276年，蒙古大軍攻入南宋首都臨安（今杭州），太皇太后謝道清攜幼帝趙顯出降。然而南宋的抵抗並未就此終結——忠臣陳宜中、文天祥、張世傑等人擁立趙顯的弟弟趙昰、後又擁趙昺為帝，率殘餘軍民沿海南逃，在廣東沿海一帶繼續稱制。這支流亡政權人數最多時達二十萬，卻在顛沛流離中不斷縮減。元將張弘範率水軍追至崖山，封鎖出海口，以絕對優勢兵力圍困了宋廷僅剩的一千餘艘船隻。張世傑將所有船隻用鐵鏈連結，以大船為外牆、小船為內殿，把年僅八歲的宋末帝趙昺安置其中，打算在海上做最後一搏。</p>
+
+      <p>1279年二月初六，元軍以火攻突破外圍，繼而水陸夾攻。宋軍在此前已困守崖山達數月，糧食耗盡，士氣低落。決戰持續一日，宋軍大敗，旗艦被圍。左丞相陸秀夫見大勢已去，知投降者必遭羞辱、幼帝必淪囚虜，遂先將妻子推入海中，再抱著八歲的末帝趙昺縱身躍入大海，以身殉國。《宋史》記載，此後隨之跳海的軍民多達十萬，海面漂浮屍體，綿延數里。張世傑突圍後遇颱風，拒絕逃生，亦溺死於風浪。而早已被俘的文天祥在廣州聽聞消息，絕食殉難，留下「人生自古誰無死，留取丹心照汗青」的絕命詩句。宋朝，至此正式滅亡。</p>
+
+      <p>崖山之戰留下了中國思想史上最具爭議的一句話。明末清初的遺民史學家對此事百感交集，有人慨嘆：「崖山之後，無中國」——意指宋朝代表的那種以文治、文人政治和儒家禮序為核心的漢族政治文明，在此一役中永久終結，元朝是外來征服而非正統繼承。這句話後來引發了長達數百年的爭論：中國文明到底是超越政治朝代的連續存在，還是在特定制度和文化條件下才能成立的特定形態？歷史學家田餘慶、余英時等人認為，崖山代表的不只是軍事失敗，而是士大夫階層「以道義殉朝廷」這一政治倫理的最後彰顯——一種在後來各朝愈來愈難見到的節操。</p>
+
+      <div class="takeaway">&#x1F4A1; 崖山之戰的決絕不只是個人悲壯——它是一個政治倫理的極端呈現：在體制覆滅之際，選擇以死維護自身代表的價值，而非在征服者的秩序中苟存。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>陸秀夫在崖山選擇負帝蹈海而非投降的根本原因是什麼？張世傑的防禦部署在軍事上又出現了什麼致命失誤，導致元軍得以突破？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">陸秀夫的選擇出於三重考量：第一，投降意味著幼帝將成為元廷政治工具，如北宋二帝（徽欽二宗）被擄之辱；第二，整個流亡政權的合法性建立在「延續宋祚」上，一旦投降即宣告這一事業的虛妄；第三，他本人的士大夫倫理認為以身殉國是唯一可保全道義的出路。軍事上，張世傑用鐵鏈將船隻連結成一體的決策是致命失誤——這令宋軍無法靈活機動，元軍以火攻突破後，連結成片的船隊成了一個無法分散規避的龐大目標，被各個擊破。</div>
+      </details>
+
+      <div class="source">來源：《宋史·瀛國公本紀》《張世傑傳》《陸秀夫傳》《文天祥傳》；田餘慶《秦漢魏晉史探微》；Mote, F.W. (1999). <em>Imperial China 900–1800</em>. Harvard UP；Davis, R.L. (2001). <em>Wind Against the Mountain: The Crisis of Politics and Culture in Thirteenth-Century China</em>. Harvard UP.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Abolition and Its Contradictions: How Britain Ended the Slave Trade in 1807 — And Compensated the Wrong People</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Britain passed the Slave Trade Act in 1807, outlawing the buying and selling of enslaved people across the Atlantic. It was hailed as a great moral triumph. But when Parliament finally abolished slavery itself in British colonies 26 years later, it authorised a payment equivalent to roughly £17 billion in today's money. Who do you think received that payment?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures, Stakes &amp; Context</span>
+        <p><strong>Key figures:</strong> William Wilberforce (威廉·威伯福斯, MP), Thomas Clarkson (托馬斯·克拉克森, organiser), Olaudah Equiano (奧勞達·伊奎阿諾, author &amp; former enslaved person), Granville Sharp (格蘭維爾·夏普, lawyer)</p>
+        <p><strong>Event at stake:</strong> The Slave Trade Act 1807 (abolished the British trade); the Slavery Abolition Act 1833 (emancipated enslaved people in British colonies); the £20 million compensation scheme</p>
+        <p><strong>Big picture:</strong> The Atlantic slave trade (大西洋奴隸貿易) had transported approximately 12.5 million Africans to the Americas over four centuries. Britain was by the late 18th century the largest slave-trading nation, its merchants responsible for transporting ~3.1 million enslaved people. The abolition campaign took 20 years of parliamentary struggle.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Slavezanzibar2.JPG/330px-Slavezanzibar2.JPG" alt="East African slave trade — enslaved people being held before auction (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The East African slave trade — enslaved people waiting before auction, c. 1890. The Atlantic slave trade (大西洋奴隸貿易) transported ~12.5 million Africans over four centuries (Wikimedia Commons)</div>
+      </div>
+
+      <p>The abolition campaign (廢奴運動) that culminated in the 1807 Act was a masterpiece of early-modern political organisation. Thomas Clarkson (克拉克森) rode tens of thousands of miles to gather testimony from sailors, surgeons, and escaped survivors, building an archive of first-person evidence about conditions on slave ships (奴隸船). Olaudah Equiano's (伊奎阿諾) autobiography, published in 1789, sold out nine editions and put a name and a face on what legislators preferred to discuss as an abstraction. Josiah Wedgwood (約書亞·韋奇伍德) produced the famous kneeling enslaved-man medallion — "Am I Not a Man and a Brother?" — one of history's first mass-produced pieces of political iconography. Wilberforce (威伯福斯) introduced abolition bills in Parliament twelve consecutive years before they passed. The opposition was powerful: West India merchants (西印度商人) employed their own lobbyists, published counter-pamphlets claiming slavery was benign, and threatened economic catastrophe.</p>
+
+      <p>The Slave Trade Act 1807 was a genuine moral breakthrough — and also an exercise in moral minimalism. It abolished the <em>trade</em>: the buying, selling, and transporting of enslaved people across the Atlantic. But it did not abolish <em>slavery</em>. Hundreds of thousands of enslaved people on British Caribbean plantations (英屬加勒比海種植園) remained enslaved. The Royal Navy's (皇家海軍) West Africa Squadron (西非艦隊) intercepted slave ships and liberated their passengers — a genuine and costly commitment — but slavery as an institution persisted in the colonies for another 26 years. When Parliament finally passed the Slavery Abolition Act (廢奴法令) in 1833, it did include emancipation — and also included a payment of £20 million (approximately 40% of the British government's annual budget) in compensation. That sum went not to the formerly enslaved, but to their former owners. The enslaved people received nothing, and were required to work as "apprentices" for their former enslavers for a further six years.</p>
+
+      <p>The contradictions of British abolition echo across history. Britain simultaneously campaigned to end the slave trade globally (compelling other nations through treaty) and maintained its plantation economy on unpaid labour for a generation longer. The compensation debt — funded via a government loan — was only fully repaid by British taxpayers in 2015. A team at University College London (倫敦大學學院) mapping the 1833 recipients found that compensation money flowed into British industry, infrastructure, and the families of many prominent Victorians. The Haitian Revolution (海地革命, 1791–1804) — which forced Napoleon (拿破崙) to sell Louisiana and weakened the argument that plantation economies were indispensable — played a significant but underappreciated role in making British abolition politically viable. The moral arc of abolition is real; so is the fact that it was negotiated to protect, as far as possible, the economic interests of the powerful.</p>
+
+      <div class="takeaway">&#x1F4A1; The 1807 Act shows that even landmark moral reforms are shaped by power: the abolitionists won on the trade but lost on the institution, and when freedom was finally granted, it was the enslavers — not the enslaved — who were compensated.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did the 1807 Slave Trade Act not end slavery in British colonies, and what economic arrangement accompanied the Slavery Abolition Act of 1833 that many consider a profound moral failing?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The 1807 Act abolished the transatlantic trade in enslaved people — buying and selling and transporting — but left the status of already-enslaved people in British colonies entirely unchanged. Existing slaves remained enslaved; the Act simply prevented new importation. It took a further 26 years of campaigning before the Slavery Abolition Act 1833 actually emancipated enslaved people in British colonies. The moral failing of 1833 was the £20 million compensation payment: this enormous sum (roughly 40% of the government's annual budget, equivalent to ~£17 billion today) was paid entirely to the slave owners for the "loss" of their human property. The formerly enslaved received nothing, and were also compelled to serve a six-year "apprenticeship" under their former enslavers before true freedom.</div>
+      </details>
+
+      <div class="source">Sources: Hochschild, A. (2005). <em>Bury the Chains</em>. Houghton Mifflin; Drescher, S. (2009). <em>Abolition: A History of Slavery and Antislavery</em>. Cambridge UP; Draper, N. (2010). <em>The Price of Emancipation</em>. Cambridge UP; Hall, C. et al. (2014). <em>Legacies of British Slave-Ownership</em>. Cambridge UP.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>王夫之：「天下惟器」——清初遺民如何以氣論重建一種抵抗哲學</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 思考再閱讀</summary>
+        <div class="predict-q">明亡清興之際，有一位哲學家拒絕出仕新朝，隱居湖南衡山四十年，窮畢生之力著書數百萬言，卻叮囑子孫將手稿秘藏、生前不得刊行。他說「道在器中，無器則道無所附」——這句話為什麼既是形上學命題，也是對宋明理學六百年統治地位的根本挑戰？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>王夫之（1619–1692），字而農，號薑齋，又號船山，湖南衡陽人</p>
+        <p><strong>核心思想：</strong>氣本論（氣才是宇宙的根本）、理在氣中（「理」不能離開具體事物獨立存在）、日新論（歷史是不可逆的進步過程，非循環往復）</p>
+        <p><strong>大背景：</strong>1644年明朝覆滅，王夫之曾短暫參與抗清，失敗後隱居山中著述，終身拒絕為清廷效力；其遺著直到晚清才由曾國藩家族整理刊行</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/%E7%8E%8B%E5%A4%AB%E4%B9%8B.jpg" alt="王夫之（王船山）畫像——清初思想家，氣本論與歷史哲學的奠基者（維基共享資源）" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王夫之（王船山）畫像，清初遺民哲人，著有《周易外傳》《讀通鑑論》《宋論》等，晚清以後影響深遠（維基共享資源）</div>
+      </div>
+
+      <p>程朱理學（宋明理學的主流）的核心命題是「理先氣後」：「理」是先於萬物而存在的形而上本體，氣只是理的材料。王夫之從根本上翻轉了這個前提。他說：「天下惟器」——宇宙中只有具體的器物（物質、事件、現象），沒有任何離開器物而獨立漂浮的抽象「道」或「理」。「道」不是超越性的本體，而是存在於具體事物之中的規律與條理；離開了具體事物，「道」就無所附著、等於不存在。在王夫之眼中，程朱的「理」是一個思想陷阱：把抽象規則凌駕於真實存在之上，為統治者以「天理」之名壓制人的具體需求提供了哲學工具。他的氣本論（氣一元論）認為：整個宇宙是氣的流動、凝聚與化散；氣有陰陽動靜之分，但從不離開具體形態而存在；連「理」本身也是氣在運動中呈現的規律性，而非凌駕於氣之上的主宰。</p>
+
+      <p>王夫之的歷史哲學同樣是對理學的決裂。理學傾向於把歷史視為「天理」顯隱的循環：聖王之世→衰亂→聖王再現，有一種復古主義的循環觀。王夫之的「日新論」則主張：歷史是不可逆轉的連續過程，每一個時代都有其獨特的「時勢」，人的能動性只能在具體的歷史條件中發揮，而非借助對古代理想的簡單模仿。他在《讀通鑑論》與《宋論》中反覆論證：失敗往往不是因為君臣道德不夠，而是因為制度設計有缺陷——這是一種罕見的制度史視角。他批評漢唐以來的封建制與郡縣制之爭、宦官與外戚問題、軍閥化傾向，都從制度結構而非人心善惡去分析，遠超同時代的道德說教型史論。</p>
+
+      <p>王夫之的民族意識與政治立場緊密交織於其哲學之中。他的夷夏之辨不是純粹的種族論，而是建立在「文明制度是否能維繫」的基礎上：他認為維繫儒家禮義文明的政治秩序是有具體制度形態的，清朝的入主不僅是異族統治，更是這種制度秩序的中斷。這種立場使他無法以任何形式為清廷服務，即便貧病交加，晚年幾乎赤貧，亦不改初衷。他的手稿由子孫秘藏，直到十九世紀中葉才由曾國藩、曾國荃兄弟整理刊行。梁啟超稱船山為「中國民族主義先驅」，章太炎視之為漢學復興的精神資源，20世紀以後更被納入不同思想脈絡的各種詮釋——但過度簡化為「民族主義者」的標籤，往往遮蔽了他在形上學與歷史哲學上更深刻的原創性。</p>
+
+      <div class="takeaway">&#x1F4A1; 王夫之的「天下惟器」是一句擲地有聲的哲學宣言：真實的世界優先於抽象的原則——任何以抽象之「理」壓制具體之「人」的制度，都是哲學上的謊言。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>王夫之「天下惟器」的命題如何從根本上挑戰程朱理學的「理先氣後」論？這一形上學立場與他對歷史的「日新論」之間有何內在邏輯關聯？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">程朱的「理先氣後」主張「理」作為純粹形而上本體，在萬物之先獨立存在，氣只是「理」得以顯現的材料。王夫之的「天下惟器」正面否定了這個層級：宇宙中只有具體的氣（器），沒有離氣而存在的超驗「理」；「理」只是氣的規律性，是從具體事物中歸納出的條理，不是凌駕其上的主宰。內在邏輯關聯在於：既然道理只存在於具體事物與歷史過程之中，那麼歷史就不可能是「天理顯隱」的循環模式，而是氣在時間中不斷流動、日新月異的不可逆過程。每一時代的「時勢」都是獨特的氣之形態，人只能因勢利導，而非復古仿古。這也是他強調制度分析而非道德說教的哲學基礎。</div>
+      </details>
+
+      <div class="source">來源：王夫之《周易外傳》《張子正蒙注》《讀通鑑論》《宋論》；嵇文甫（1962）《王船山學術論叢》；McMorran, I. (1975). "Wang Fu-chih and the Neo-Confucian tradition." In de Bary, W.T. ed. <em>The Unfolding of Neo-Confucianism</em>. Columbia UP；黃俊傑（2010）《東亞儒學史的新視野》；SEP, "Wang Fuzhi."</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Blind Force Behind Everything: Schopenhauer (叔本華) and the World as Will and Representation</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Arthur Schopenhauer (叔本華) published his masterwork in 1818, at the age of 30. It sold almost no copies. He was so confident it would be recognised as a landmark of philosophy that he scheduled his lectures at the University of Berlin at exactly the same time as Hegel (黑格爾) — his nemesis — intending to steal the audience. Every student went to Hegel. Schopenhauer eventually withdrew from academic life entirely. What might a philosophy that begins with the claim that "the world is my representation" say about suffering, desire, and why music might be the highest art form?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Context &amp; Stakes</span>
+        <p><strong>Thinker:</strong> Arthur Schopenhauer (1788–1860); <em>The World as Will and Representation</em> (意志與表象的世界, 1818, expanded 1844)</p>
+        <p><strong>Problem he addressed:</strong> Kant (康德) had argued that the "thing-in-itself" (物自身/noumenon) — the ultimate nature of reality beyond what we perceive — is unknowable. Schopenhauer asked: is it entirely unknowable, or do we have one privileged window into it — our own body and its drives?</p>
+        <p><strong>Rival views:</strong> Hegel (黑格爾) — rational Geist (精神/Spirit) progressively unfolds through history; German Idealists generally saw reason as the deepest nature of reality. Schopenhauer saw something far darker.</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg" alt="Arthur Schopenhauer portrait, 1859 — German philosopher, author of The World as Will and Representation (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Arthur Schopenhauer (叔本華), 1859 — the philosopher of pessimism, Will, and the consolations of art (Wikimedia Commons / J. Schäfer)</div>
+      </div>
+
+      <p>Schopenhauer's central insight begins with an observation so simple it is easy to miss. From the outside, a stone rolling downhill, a plant bending toward light, an animal hunting, and a human pursuing love all look very different. But from the inside — from the one vantage point we actually inhabit — we know something. When you reach for food, stretch your arm, feel hunger or desire, there is a striving, a force, a pressing-toward something. Schopenhauer named this the Will (意志/Wille) — not a personal, conscious will but a blind, impersonal, insatiable striving that underlies all of nature. The stone rolling, the plant growing, the person yearning: all are the same Will expressing itself in different material forms. The world has two faces: Representation (表象/Vorstellung) — the phenomenal world as structured by our minds, the world of objects, space, time, causation as Kant described it — and Will, the thing-in-itself, the inner nature of everything, which is not rational, not purposive, and not benevolent. It simply strives, without final goal or satisfaction.</p>
+
+      <p>This leads to Schopenhauer's famous pessimism (悲觀主義). Since the Will is endless striving with no ultimate satisfaction, life is characterised by suffering. Desire achieved doesn't end wanting; it simply opens space for a new want. The pendulum of existence swings between pain (痛苦) — when desire is unsatisfied — and boredom (厭倦) — when it is briefly satisfied and the Will pauses before finding its next target. This is, Schopenhauer noted with genuine intellectual excitement, precisely what the Buddhist (佛教) concept of dukkha (苦諦/suffering as the basic character of existence) and the concept of tanha (渴愛/craving) describe — making his one of the first systematic Western engagements with Indian philosophy (印度哲學). Nietzsche (尼采) was initially intoxicated by this vision before staging his dramatic rejection; Freud's (佛洛伊德) concept of the id — the blind, irrational drives beneath consciousness — owes a considerable debt to Schopenhauer's Will.</p>
+
+      <p>But Schopenhauer was not purely nihilist. He identified genuine escape routes from the Will's grip. Aesthetic contemplation (審美靜觀) — particularly of great art — temporarily suspends the Will: for a moment, the striving self dissolves and becomes a "pure subject of knowing," absorbed in the object without desire. Music (音樂), he argued, was the highest art because it doesn't represent the world of objects; it is itself a direct copy of the Will — you don't hear "about" longing, you hear longing itself in time. Wagner (華格納) absorbed this idea and built the Ring Cycle on it. More permanently, Schopenhauer advocated compassion (悲憫/Mitleid) as the foundation of ethics — recognising that the suffering in another is the same Will that suffers in you — and ultimately asceticism (禁欲), the denial of the Will to live, as the only thoroughgoing liberation, again closely mirroring Buddhist renunciation (出離). His legacy is strange and wide: Wittgenstein (維根斯坦) called him the first truly modern philosopher; Thomas Hardy embedded Will-pessimism in his novels; Borges cited him on every third page.</p>
+
+      <div class="takeaway">&#x1F4A1; Schopenhauer's darkest insight has a practical sting: achieving a goal doesn't satisfy the Will — it momentarily quiets it, then it regenerates with a new object. This is why each promotion, purchase, or conquest leaves a faint sense of "is that it?"</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What does Schopenhauer mean by "the Will" as the inner nature of all things, and why does he argue that satisfying desire cannot produce lasting contentment?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Schopenhauer's "Will" is not personal or rational; it is a blind, impersonal, ceaseless striving that underlies all phenomena — the same force that moves a stone rolling downhill, a plant growing toward light, and a human pursuing love or ambition. It is the thing-in-itself behind the representational world we perceive. Satisfying a desire cannot produce lasting contentment because the Will is intrinsically without final goal: desire satisfied simply creates the space for a new desire to arise. The structure is a pendulum: desire → pursuit → brief satisfaction → boredom → new desire. There is no destination at which striving ends. This is why Schopenhauer compared his insight to Buddhist dukkha — the recognition that craving is the fundamental character of existence, not a problem solvable by getting what you want.</div>
+      </details>
+
+      <div class="source">Sources: Schopenhauer, A. (1818/1969). <em>The World as Will and Representation</em>, vols. 1–2 (Payne trans., Dover); Magee, B. (1983). <em>The Philosophy of Schopenhauer</em>. Oxford UP; Janaway, C. (1994). <em>Schopenhauer</em>. Oxford UP; SEP, "Schopenhauer."</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Does Your Body Shape Your Mind? The Replication Crisis Hits Embodied Cognition</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1988, researchers published a study claiming that holding a pen between your teeth (activating muscles used in smiling) made cartoons seem funnier — and that this happened without people knowing why. Amy Cuddy's 2010 TED Talk claimed that standing in an expansive "power pose" for two minutes raised testosterone and lowered cortisol, giving you a measurable confidence boost. Both became famous. Both were subsequently challenged by large replication studies. What do you think actually happened — and what does it tell us about how we should interpret psychology findings?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/201803_Human_Male.png" alt="Human body illustration — the physical body and its relationship to mental states is the subject of embodied cognition research (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The body-mind relationship: embodied cognition (具身認知) research examines how physical postures and movements influence thought and emotion (Wikimedia Commons)</div>
+      </div>
+
+      <p>The facial feedback hypothesis (面部回饋假說) was born in Fritz Strack, Leonard Martin, and Sabine Stepper's 1988 experiment. They had participants hold a pen either between their teeth (which activates the zygomaticus major muscle used in genuine smiling) or between their lips (which inhibits it) — crucially, without telling them the pen was simulating a smile. Participants holding the pen in their teeth rated Gary Larson cartoons as significantly funnier than those holding it in their lips. The implication was vivid: your face doesn't just express emotion, it helps create it. The study was cited over a thousand times and taught in virtually every introductory psychology course worldwide. Then, in 2016, Eric-Jan Wagenmakers and a consortium ran a pre-registered (預先登記) multi-lab replication (多實驗室複製研究) across 17 laboratories with 1,894 participants — almost eleven times the original sample size. The effect was gone: d = 0.03, essentially zero. The replication crisis (複製危機) had claimed one of psychology's most beloved demonstrations.</p>
+
+      <p>Amy Cuddy's (艾美·柯蒂) "power poses" (權力姿勢) story followed a similar trajectory. Her 2010 paper in <em>Psychological Science</em> (with Dana Carney and Andy Yap) claimed that adopting expansive, high-status body postures for two minutes produced measurable hormonal changes: testosterone (睪固酮) rose ~20% and cortisol (皮質醇) fell ~25%, compared to contractive poses. The TED Talk reached 60 million views, and "power posing" entered corporate culture, job interview coaching, and self-help. Then Ranehill et al. (2015) ran a replication with 200 participants — larger, pre-registered, and blinded — and found no hormonal effects whatsoever. More damagingly, Dana Carney, the paper's first author, publicly stated in 2016 that she no longer believed in the effect and had concerns about how the original data was analysed. A reanalysis found evidence of p-hacking (p值操弄): the hormone findings appear to have involved flexible analysis choices made after seeing the data.</p>
+
+      <p>What survives the wreckage? Embodied cognition (具身認知) as a broad theoretical framework — the idea that physical states influence mental ones — is real and supported by more robust evidence. Breathing rate, posture, and proprioceptive (本體感覺) signals demonstrably affect emotional processing. The felt psychological state of confidence from expansive posture does seem to show modest, consistent effects across studies — even if the dramatic hormonal story collapsed. The larger lesson is methodological: a compelling mechanism, a vivid demonstration, and a charismatic TED talk are not evidence. Pre-registration, larger samples, independent replication, and transparent data sharing are what separate a real effect from a false positive amplified by the publication system. The field has restructured substantially since 2011: today many top journals require pre-registration, and multi-lab collaborations have become the gold standard for testing iconic findings.</p>
+
+      <div class="takeaway">&#x1F4A1; Before adopting a psychological "life hack" from a study or TED talk, ask: has it been pre-registered and independently replicated with a large sample? Most haven't. The body does influence the mind — but not as dramatically or reliably as viral demonstrations suggested.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What happened when Wagenmakers et al. ran a pre-registered multi-lab replication of Strack's facial feedback hypothesis, and what does this illustrate about why small, unreplicated psychology studies should be treated with caution?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Across 17 independent laboratories with 1,894 participants, the facial feedback effect was entirely absent (d = 0.03). The original study used only ~90 participants and was not pre-registered — meaning the researchers had flexibility in their analysis that could produce false positives. The replication illustrates several failure modes that inflated the original finding: small sample sizes produce high variability; without pre-registration, researchers can (consciously or not) choose analyses that yield significance; and publication bias means significant findings get published while null results disappear into file drawers. The sum of these pressures systematically inflates effect sizes in the published literature, so iconic single studies — especially those with small, unregistered samples — should be treated as hypotheses to test, not established facts to teach.</div>
+      </details>
+
+      <div class="source">Sources: Strack, F., Martin, L.L. &amp; Stepper, S. (1988). JPSP, 54(5); Wagenmakers, E-J. et al. (2016). <em>Perspectives on Psychological Science</em>, 11(6); Ranehill, E. et al. (2015). <em>Psychological Science</em>, 26(5); Carney, D.R. (2016). "My position on 'power poses'" (public statement); Simmons, J.P. et al. (2011). <em>Psychological Science</em>, 22(11).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Born to Run or Born to Lift? The Hidden Biology of Muscle Fiber Types</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Elite marathon runners and elite sprinters train with comparable dedication and intensity — yet their physical capabilities diverge enormously. A world-class marathoner might run 26 miles at a pace that a sprinter could barely sustain for three minutes; a world-class sprinter can reach speeds the marathoner cannot approach for even a hundred metres. If the dedication is similar, what's the underlying biological difference?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Blausen_0801_SkeletalMuscle.png" alt="Skeletal muscle anatomy illustration showing muscle fibers, fascicles, and connective tissue (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Skeletal muscle (骨骼肌) anatomy — muscle fibres run in parallel bundles (fascicles); their type composition varies significantly between individuals and body regions (Wikimedia Commons / BruceBlaus)</div>
+      </div>
+
+      <p>Your skeletal muscle (骨骼肌) is not a uniform material. Under a microscope, it reveals two fundamentally different types of fibre, with a third in between. Type I fibres (慢縮肌纖維/slow-twitch), also called slow-oxidative fibres, are densely packed with mitochondria (粒線體), richly supplied by capillaries, and fuelled primarily by fat and oxygen. They contract relatively slowly but are extraordinarily fatigue-resistant — they can fire repeatedly for hours. Type IIx fibres (快縮肌纖維/fast-twitch glycolytic), at the other extreme, contract two to three times faster and produce far greater peak force, but rely on glycogen (肝醣) and phosphocreatine (磷酸肌酸) — fuels that deplete within seconds to minutes. They fatigue rapidly. Type IIa fibres occupy the middle ground: faster than Type I, more oxidative than Type IIx. The average sedentary adult has roughly 50% Type I and 50% Type II in large muscles like the vastus lateralis (股四頭肌外側頭) — but the individual range is enormous: some people are born with 25% Type I, others with 75%.</p>
+
+      <p>This distribution has profound athletic implications. Biopsy studies (肌肉切片研究) by David Costill and colleagues in the 1970s revealed that elite marathon runners (耐力型運動員) typically have 70–80%+ Type I fibres in their leg muscles, while elite sprinters (爆發型運動員) show 70%+ Type II. These proportions are largely genetically determined and do not change dramatically with training — though they are not completely fixed either. A key genetic factor is the ACTN3 gene (ACTN3基因), which encodes α-actinin-3, a protein expressed only in Type II fibres. Approximately 18% of humans carry the XX variant, which produces no α-actinin-3; these individuals show a slight endurance advantage and reduced explosive power. The striking finding: elite sprinters are almost never XX genotype. In a study of 107 elite sprint athletes, zero carried the XX variant. Meanwhile, the RR genotype (RR型) — which maximises α-actinin-3 expression — is strongly overrepresented in sprint and power athletes.</p>
+
+      <p>Training can modify the fibre landscape, but not transform it. The most consistent finding is that endurance training converts Type IIx fibres toward IIa — they acquire more mitochondria and become more oxidative — but does not convert IIa or IIx to Type I. Conversely, detraining or immobilisation rapidly increases IIx proportion (the fibre type's "default"), as Andersen et al. (2000) showed after 90 days of leg casting. Practically: if you've always found sustained effort easier than explosive power (or vice versa), fibre distribution is a genuine biological contributor — not a deficiency of effort. The implication for training is not fatalism but specificity: a person with high Type I composition who is trying to develop explosive strength will need to train that quality deliberately and sustainingly, and should not assume their endurance gifts will automatically transfer.</p>
+
+      <div class="takeaway">&#x1F4A1; Your muscle fiber distribution is a real biological starting point — not an excuse, but not irrelevant either. Training shifts Type IIx toward IIa (more endurance-capable) but cannot fundamentally change Type I/II ratios. Understanding your composition helps you train smarter, not just harder.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the key physiological difference between Type I and Type IIx muscle fibres, and why does the ACTN3 R577X (XX) genotype matter for explosive athletic performance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Type I (slow-twitch) fibres are rich in mitochondria, highly oxidative, fuelled by fat and oxygen, and extremely fatigue-resistant — they sustain prolonged effort. Type IIx (fast-twitch) fibres contract two to three times faster and produce much greater peak force, but rely on glycogen and phosphocreatine — fuels that deplete in seconds to minutes — and fatigue rapidly. The ACTN3 XX genotype produces no α-actinin-3 protein, which is expressed exclusively in Type II fibres and supports their forceful contraction. Individuals with the XX variant show slightly reduced explosive power and a mild endurance advantage. The practical significance is that elite sprinters are almost never XX — in one study of 107 elite sprinters, zero were XX — while the RR genotype (maximum α-actinin-3 expression) is strongly overrepresented in power and sprint athletes worldwide.</div>
+      </details>
+
+      <div class="source">Sources: Costill, D.L. et al. (1976). "Skeletal muscle enzymes and fiber composition." <em>J Applied Physiology</em>, 40(2); Yang, N. et al. (2003). "ACTN3 genotype is associated with human elite athletic performance." <em>American Journal of Human Genetics</em>, 73(3); Andersen, J.L. et al. (2000). "Myosin heavy chain isoform transformation in single fibres from immobilized human skeletal muscle." <em>Journal of Physiology</em>, 523(1); Scott, W. et al. (2001). "Human skeletal muscle fiber type classifications." <em>Exercise &amp; Sport Sciences Reviews</em>, 29(4).</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Quiet Deficiency: What Magnesium (鎂) Actually Does in Your Body — and Why Form Matters</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Magnesium is the fourth most abundant mineral in the human body. It's involved in over 300 enzymatic reactions. National dietary surveys suggest that between 45% and 80% of adults in Western countries don't get enough of it. Yet it's rarely mentioned in the same breath as iron, calcium, or vitamin D. What do you think the main symptoms of low magnesium are — and why might the cheapest, most widely sold supplement form be the worst choice?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/65/%D0%9A%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81_Mg%D0%90%D0%A2%D0%A4_2-.png" alt="Magnesium-ATP complex molecular diagram — magnesium is essential for ATP (adenosine triphosphate) function in the body (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Mg²⁺-ATP complex (鎂–三磷酸腺苷複合物) — magnesium (鎂) is required for ATP (三磷酸腺苷) to be biologically active; virtually every energy-using process in the body depends on this pairing (Wikimedia Commons)</div>
+      </div>
+
+      <p>Magnesium (鎂, Mg²⁺) participates in over 300 enzymatic reactions (酵素反應) — more than any other mineral. It is required for ATP (三磷酸腺苷/adenosine triphosphate) synthesis and activation (without magnesium, ATP is biologically inert), protein synthesis (蛋白質合成), DNA repair (DNA修復), nerve conduction (神經傳導), muscle contraction and relaxation (肌肉收縮與舒張), and blood glucose regulation (血糖調節). About 60% of the body's magnesium is stored in bone (骨骼), 39% in muscle and soft tissue, and only ~1% circulates in serum — making blood magnesium tests a poor indicator of total body status. Yet national dietary surveys consistently find that 45–80% of adults in Western Europe, North America, and Australia fall below the Estimated Average Requirement (約估平均需求量) of roughly 300–400 mg/day. Modern agricultural practices (土壤鎂含量下降) and food processing (processing strips magnesium from grains) have reduced dietary magnesium availability significantly since the mid-20th century. The symptoms of insufficiency are frustratingly nonspecific: fatigue (疲倦), irritability, muscle cramps (肌肉痙攣), poor sleep (睡眠品質差), and mild anxiety — conditions easily attributed to a dozen other causes.</p>
+
+      <p>The sleep and nervous system connection is among the most studied mechanisms. Magnesium acts as a natural regulator of GABA (γ-氨基丁酸/gamma-aminobutyric acid) receptors — the brain's primary inhibitory neurotransmitter system, responsible for calming neural activity. It also blocks NMDA receptors (N-甲基-D-天門冬酸受體) at resting membrane potential, preventing excessive neuronal firing. Additionally, magnesium is required for the synthesis of melatonin (褪黑素) and helps regulate cortisol (皮質醇) output. Abbasi et al. (2012), in a randomised controlled trial of 46 elderly insomniacs, found that 500 mg magnesium glycinate (甘氨酸鎂) daily for 8 weeks significantly improved sleep onset latency (入睡時間), sleep duration (睡眠時長), sleep efficiency (睡眠效率), and early morning awakening compared to placebo. However, this was in a deficient population — evidence is thinner for people already at adequate magnesium status, and most trials are small. A 2012 meta-analysis by Rosanoff et al. estimated that much of the Western population is in a state of "subclinical magnesium deficiency" — below optimal but above the threshold for clinical hypomagnesemia (低血鎂症).</p>
+
+      <p>Form matters enormously. Magnesium oxide (氧化鎂) — the cheapest, most widely sold supplement form — has approximately 4% elemental bioavailability (生物利用率). Most of it passes through the digestive tract unabsorbed and acts as an osmotic laxative (滲透性瀉藥). Magnesium glycinate (甘氨酸鎂) and magnesium malate (蘋果酸鎂) have substantially better absorption (~50–80% bioavailability) because the magnesium is chelated to amino acids or organic acids that facilitate intestinal uptake. Magnesium citrate (檸檬酸鎂) falls in between — better than oxide, not as good as glycinate. The best dietary sources are dark leafy greens (深色葉菜, especially spinach), pumpkin seeds (南瓜子), almonds (杏仁), cashews (腰果), legumes (豆類), dark chocolate (黑巧克力, 70%+), and whole grains (全穀物). Healthy kidneys efficiently excrete excess magnesium, making food-based toxicity virtually impossible — though high-dose supplement use can cause diarrhea and, in those with kidney disease, dangerous hypermagnesaemia (高血鎂症).</p>
+
+      <div class="takeaway">&#x1F4A1; If you're not regularly eating leafy greens, nuts, and legumes, low magnesium may be quietly degrading your sleep and energy. If you supplement, choose glycinate over oxide — the cheap version largely passes straight through you.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why is magnesium oxide a poor choice as a supplement despite its low cost, and through what neurotransmitter mechanism does magnesium support better sleep?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Magnesium oxide has only approximately 4% elemental bioavailability — meaning 96% of the supplement passes through the digestive tract unabsorbed, acting largely as a laxative rather than reaching the cells that need it. Better-absorbed forms like magnesium glycinate (chelated to glycine amino acids) have ~50–80% bioavailability because the glycine molecule facilitates intestinal transport. The sleep mechanism works primarily through GABA receptors: magnesium upregulates the sensitivity and activity of GABA (gamma-aminobutyric acid) receptors, which are the brain's primary inhibitory neurotransmitter system — reducing neuronal firing rate and promoting the calm, quieted state necessary for sleep onset. Magnesium also blocks overactive NMDA receptors and is required for melatonin synthesis, contributing through multiple pathways to better sleep architecture.</div>
+      </details>
+
+      <div class="source">Sources: Abbasi, B. et al. (2012). "The effect of magnesium supplementation on primary insomnia in elderly." <em>Journal of Research in Medical Sciences</em>, 17(12); Rosanoff, A. et al. (2012). "Suboptimal magnesium status in the United States." <em>Nutrition Reviews</em>, 70(3); Schwalfenberg, G.K. &amp; Genuis, S.J. (2017). "The importance of magnesium in clinical healthcare." <em>Scientifica</em>; Walker, A.F. et al. (2003). <em>Magnesium Research</em>, 16(3).</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Flexibility Isn't Enough: Why Mobility — Active Control at Range — Is What Actually Protects You</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many people assume that being flexible — able to stretch deeply into a position — makes them resilient against injury. Yet studies consistently show that stretching alone does not reduce injury rates. Meanwhile, some of the most flexible people around (yoga practitioners, gymnasts) have injury rates that rival contact sports athletes. What's missing from the flexibility picture?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Shiva_Bangalore.jpg" alt="Extreme range of motion posture — deep flexibility without active muscular control at end range is a common injury risk factor (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Extreme passive range of motion — being able to reach a position passively is categorically different from controlling it actively under load (Wikimedia Commons)</div>
+      </div>
+
+      <p>Flexibility (柔韌性) and mobility (活動能力) are not the same thing, though gyms and fitness culture use them interchangeably. Flexibility describes the passive capacity of a muscle, joint capsule, ligament, or fascial tissue to be stretched to a particular length — what happens when someone else pushes your leg further than you can voluntarily move it. Mobility describes the active, neuromuscularly controlled capacity to move through a range of motion under your own muscular power. A key example: a yogi may be able to sink into a deep hip flexion stretch passively, leg held by a partner, that looks astonishing. But if she cannot actively lift that leg to the same height under her own muscular control, or control a heavy external load at that depth, she has flexibility without mobility. The end of her passive range is essentially uncharted territory for her nervous system — a position her brain has never rehearsed controlling under load or in dynamic conditions.</p>
+
+      <p>Why does this distinction matter clinically? Joints are most vulnerable to injury at their end ranges, where passive restraints (ligaments, joint capsule) are under maximum stress and muscular control is typically weakest. If you can passively enter a range but cannot generate force there — cannot eccentrically resist a load, cannot fire the appropriate stabilisers — that range is a liability, not an asset. Passive stretching improves the passive end range. But it does not, by itself, develop the muscular strength and neuromuscular coordination (神經肌肉協調) to control that range. Thomas et al.'s (2018) meta-analysis of 104 randomised controlled trials found that stretching programs alone did not significantly reduce sports injury rates, while programs that combined strength training with mobility work did show prevention benefits. The physiological reason: proprioceptors (本體感覺受器) — Golgi tendon organs (高爾基腱器) and muscle spindles (肌梭) — must be trained to function accurately at end ranges, which requires active, loaded movement through those ranges, not passive relaxation into them.</p>
+
+      <p>The practical application comes from Functional Range Conditioning (FRC), developed by Dr. Andreo Spina, which operationalises this through Controlled Articular Rotations (CARs) — deliberate, slow, active rotations taken through a joint's full available range under muscular tension. The key word is "controlled": the movement is generated by the muscles around the joint, not by momentum, partner assistance, or gravity. Daily CARs serve a dual purpose: they assess where active control ends (telling you where you are mobility-deficient), and they gradually expand and reinforce active range by rehearsing end-range neuromuscular control. For people returning from injury — particularly ACL (前十字韌帶) reconstructions, hip labral repairs, or shoulder impingement — building mobility rather than just flexibility is now a central principle in evidence-based rehabilitation. The goal is not to "reach" a range of motion but to own it: to be able to load it, control it, and use it under the demands of sport and life.</p>
+
+      <div class="takeaway">&#x1F4A1; If you can touch your toes but can't control a deep hip hinge under load, you have flexibility without mobility. Train your joints actively at their end ranges — not just by stretching into them.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the key difference between flexibility and mobility, and why does passive stretching alone fail to translate into injury-resistant active range of motion?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Flexibility is the passive capacity to be moved into a range of motion — what happens when an external force (partner, gravity) takes a joint to its end range. Mobility is the active, neuromuscularly controlled ability to move through that range under one's own muscular power. Passive stretching improves the first but not the second: it increases the length tolerance of soft tissues, but it does not train the muscles to fire accurately at end range, the Golgi tendon organs and muscle spindles to provide accurate proprioceptive feedback in that position, or the agonist/antagonist pairs to generate and control force there. Joints are most vulnerable exactly at their end ranges — where passive restraints are maximally stressed and muscular control is typically weakest. Without active training at those ranges (eccentric loading, controlled articular rotations under tension), the expanded passive range becomes a liability: a position the nervous system has never rehearsed defending under load.</div>
+      </details>
+
+      <div class="source">Sources: Thomas, E. et al. (2018). "The relation between stretching typology and stretching duration: the effects on range of motion." <em>International Journal of Sports Medicine</em>, 39(4); Behm, D.G. et al. (2016). "Acute effects of muscle stretching on physical performance." <em>Applied Physiology, Nutrition, and Metabolism</em>; Weppler, C.H. &amp; Magnusson, S.P. (2010). "Increasing muscle extensibility: a matter of increasing length or modifying sensation?" <em>Physical Therapy</em>, 90(3); Spina, A. (2018). <em>Functional Range Conditioning</em>, FRC methodology documentation.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Art of Borrowing to Own: How Leveraged Buyouts Work — and Why IRR Flatters the Numbers</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A private equity firm (私募股權公司) buys a company for $100 million using only $30 million of its own money, borrows $70 million, improves the business, and sells it five years later for $150 million. After repaying the debt, the firm has turned $30 million into ~$80 million — a 167% return on equity, even though the business itself only rose 50% in value. Is this financial genius, financial engineering, or something in between?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Hudson_Yards_from_Hudson_Commons_%2895131p%29_%2830_Hudson_Yards%29.jpg/330px-Hudson_Yards_from_Hudson_Commons_%2895131p%29_%2830_Hudson_Yards%29.jpg" alt="30 Hudson Yards, New York — headquarters of KKR, one of the world's largest private equity firms (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">30 Hudson Yards, New York — global headquarters of KKR (科爾伯格-克拉維斯-羅伯茨), one of the founders of the modern leveraged buyout (杠杆收購) industry (Wikimedia Commons)</div>
+      </div>
+
+      <p>A leveraged buyout (LBO, 杠杆收購) is the acquisition of a company using a substantial proportion of borrowed money, with the acquired company's own assets and future cash flows serving as collateral for the debt. In a typical structure, the private equity (私募股權) firm contributes 20–40% equity and borrows 60–80% from banks and institutional lenders. Crucially, the debt is placed on the acquired company's balance sheet, not the firm's own. The economics are striking: leverage magnifies returns on the equity invested, because gains are calculated on the total enterprise value but losses are initially borne by the debt holders to the extent of their position. Michael Jensen's (麥可·延森) landmark 1989 Harvard Business Review essay "Eclipse of the Public Corporation" provided the intellectual framework: concentrated ownership, hard debt commitments that force cash discipline, and management equity stakes align incentives that dispersed public shareholders cannot. The KKR (科爾伯格-克拉維斯-羅伯茨)/RJR Nabisco buyout in 1988 — $25 billion, the largest in history for 17 years — crystallised both the model's possibilities and its excesses. Kaplan &amp; Schoar's (2005) sobering finding: the average private equity fund, net of fees (費後), roughly matches the S&amp;P 500 (標準普爾500指數), despite charging 2% annual management fees plus 20% carried interest (附帶權益).</p>
+
+      <p>The standard performance metric is Internal Rate of Return (IRR, 内部收益率) — the annualised rate at which the present value of cash outflows equals the present value of cash inflows. IRR is highly sensitive to the <em>timing</em> of cash flows: the sooner capital is deployed and the sooner distributions are returned, the higher the IRR — regardless of the absolute dollar return. This creates a structural incentive for a practice that has become widespread: subscription credit lines (認購信貸額度), or "subscription facilities." Instead of immediately calling capital from their limited partners (有限合夥人/LP investors) when making an investment, PE firms borrow via a short-term credit line and delay the capital call by 6–24 months. When the eventual distributions come back, the IRR calculation treats them as if the capital had only been committed for a shorter period — inflating reported IRR by 2–5 percentage points without changing a single underlying business outcome. Robinson &amp; Sensoy (2016) documented this effect across hundreds of funds; it is now a significant industry transparency concern.</p>
+
+      <p>The alternative metric, Multiple of Invested Capital (MOIC, 投資回報倍數), is immune to this manipulation. MOIC simply asks: for every dollar invested, how many dollars came back? A fund that turns $1 into $2.3 has a 2.3× MOIC — no timing games can change that number. Industry insiders increasingly argue that sophisticated limited partners should demand MOIC-first reporting, with IRR as a supplementary figure. The deeper issue is that IRR, combined with the 2-and-20 fee structure, creates an industry that is structurally incentivised to prioritise the appearance of performance over its substance. That doesn't mean private equity doesn't create value — operational improvement, strategic focus, and exit discipline genuinely matter — but investors who accept IRR at face value, without understanding subscription line effects and fee drag, are reading a number that is systematically biased in the fund manager's favour.</p>
+
+      <div class="takeaway">&#x1F4A1; IRR is to private equity what a fund manager's best quarter is to public equities — a cherry-picked metric. Ask for MOIC and net-of-fee, net-of-subscription-line IRR before comparing PE returns to the public market benchmark.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> How do subscription credit lines inflate a private equity fund's reported IRR, and why is MOIC a better measure of actual economic return?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">IRR (Internal Rate of Return) is extremely sensitive to timing: the shorter the period between when capital is "deployed" and when distributions are returned, the higher the IRR — even with identical absolute dollar returns. Subscription credit lines allow PE firms to delay calling capital from their limited partners by 6–24 months: the firm borrows to make investments, only later calling LP capital. The IRR calculation sees a shorter period between the LP's capital contribution and eventual distributions, producing a higher annualised rate — even though the underlying investments performed identically. Robinson &amp; Sensoy estimated this inflates reported IRR by 2–5 percentage points. MOIC (Multiple of Invested Capital) is immune because it is a simple ratio: dollars returned ÷ dollars invested. Whether the fund used subscription lines or called capital immediately has no effect on the MOIC — only on when money moved. MOIC measures economic reality; subscription-affected IRR measures the appearance of speed.</div>
+      </details>
+
+      <div class="source">Sources: Jensen, M.C. (1989). "Eclipse of the Public Corporation." <em>Harvard Business Review</em>, 67(5); Kaplan, S.N. &amp; Schoar, A. (2005). "Private equity performance: Returns, persistence, and capital flows." <em>Journal of Finance</em>, 60(4); Robinson, D.T. &amp; Sensoy, B.A. (2016). "Cyclicality, performance measurement, and cash flow liquidity in private equity." <em>Review of Financial Studies</em>, 29(6); Burrough, B. &amp; Helyar, J. (1989). <em>Barbarians at the Gate</em>. Harper &amp; Row.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>Theory in the Wild: Central Bank Independence — When the Cure Becomes the Disease</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The European Central Bank (歐洲央行, ECB) raised interest rates twice in 2011 — during the depths of the eurozone debt crisis, while Greece, Ireland, Portugal, and Spain were in severe recession. What theory justified this, and why did it make the crisis measurably worse?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Government-Vedder-Highsmith-detail-1.jpeg/330px-Government-Vedder-Highsmith-detail-1.jpeg" alt="Government allegory — the tension between democratic accountability and technocratic independence in central banking (Wikimedia Commons)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Government allegory — the tension between democratic accountability (民主問責) and technocratic independence (技術官僚獨立性) sits at the centre of central bank design debates (Wikimedia Commons / Highsmith)</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CD; Event</div>
+        <div class="pe-body">In April and July 2011, the European Central Bank (歐洲央行/ECB) raised its benchmark interest rate from 1.0% to 1.5%, while Greece was already contracting at over -7% per year, Ireland and Portugal were in IMF bailout programs, and Spain's unemployment had reached 21%. The ECB's justification was its primary mandate: price stability (物價穩定), defined as inflation below 2%. Headline eurozone inflation had briefly edged above 2% due to global commodity prices. The rate hikes deepened recessions in the periphery. Blanchard, Jaumotte &amp; Loungani (2013) estimated the ECB's premature tightening cost peripheral economies 1–2% of GDP. The ECB reversed course completely in November 2011, cutting rates under new President Mario Draghi (馬里奧·德拉吉). In July 2012, Draghi's "whatever it takes" speech — promising unlimited bond purchases to defend the euro — halted the crisis without a single bond being purchased, demonstrating that credibility, not rate levels, was the actual lever.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The time-inconsistency problem (時間不一致性問題), formalised by Finn Kydland (芬恩·基德蘭) and Edward Prescott (愛德華·普雷斯科特) in 1977 (Nobel 2004 with Prescott), and applied to monetary policy by Robert Barro (羅伯特·巴羅) and David Gordon (1983), argues that governments controlling money supply face a structural temptation: they can always produce a short-term employment boost by allowing unexpected inflation (出乎意料的通脹), but rational agents will anticipate this and demand higher wages, producing only inflation with no output gain. The solution: delegate monetary policy (貨幣政策) to an independent central bank (獨立央行) insulated from political pressure, with a strict inflation mandate. Kenneth Rogoff's (羅戈夫) 1985 "conservative central banker" formalisation showed that a CB that is more inflation-averse than the average citizen produces a credibility equilibrium that actually lowers inflation without permanently raising unemployment.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The ECB's mandate — enshrined in EU treaties, amendable only by unanimous member state agreement — proved fatally rigid during an asymmetric shock (不對稱衝擊). Germany (德國) needed tighter money (near-full employment, rising wages); Greece needed stimulus (6th year of contraction). The ECB's single mandate and single interest rate could not serve both simultaneously. More structurally, ECB institutional culture was heavily shaped by Bundesbank (德意志聯邦銀行) anti-inflation orthodoxy rooted in Weimar (威瑪) hyperinflation memory — a political bias embedded in what was meant to be a depoliticised institution. The very independence that prevents elected governments from inflating also prevents democratic correction when the mandate becomes pro-cyclically destructive. The anomaly is that CB independence solved one political economy problem (short-run inflation bias) while creating another (institutional rigidity in novel crisis conditions).</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Paul Tucker's (保羅·塔克) <em>Unelected Power</em> (2018) argues that CB independence is not a permanent institutional solution but a conditional delegation that requires ongoing democratic legitimation. When central banks expand into financial stability, climate risk assessment, and crisis management — as they have dramatically since 2008 — they exercise enormous political power over distribution of income and risk without electoral accountability. Tucker's framework: independence is justified only when the CB's mandate is (1) clear and narrow, (2) technically expert, and (3) overseen by elected representatives with genuine power of mandate revision. The ECB fails condition (3): mandate revision requires unanimous treaty amendment, making democratic correction practically impossible. <strong>Open question:</strong> no consensus exists on how to maintain anti-inflation credibility while restoring democratic responsiveness in non-standard situations — a tension that the post-2020 inflation surge and central bank climate mandates have made urgently real.</div>
+      </div>
+
+      <div class="source">Sources: Kydland, F.E. &amp; Prescott, E.C. (1977). "Rules rather than discretion." <em>Journal of Political Economy</em>, 85(3); Barro, R. &amp; Gordon, D. (1983). "A positive theory of monetary policy." <em>JPE</em>, 91(4); Rogoff, K. (1985). "The optimal degree of commitment to an intermediate monetary target." <em>Quarterly Journal of Economics</em>, 100(3); Blanchard, O., Jaumotte, F. &amp; Loungani, P. (2013). <em>IMF Staff Discussion Note 13/01</em>; Tucker, P. (2018). <em>Unelected Power</em>. Princeton UP; Draghi, M. (2012). Speech, Global Investment Conference, London, 26 July.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 — The Replication Crisis and IRR Engineering:</strong> Both reveal the same structural flaw: a metric or demonstration that was compelling in its original context becomes a tool for misleading once incentives align against honesty. In embodied cognition research, the publication system rewarded significant p-values — so small, flexible studies produced striking effects that vanished under rigorous replication. In private equity, the IRR metric rewards the appearance of speed — so subscription credit lines inflate a reported number without changing any underlying reality. In both cases, sophisticated consumers of information (journal editors, LP investors) accepted the headline number without asking how it was produced.</p>
+      <p><strong>So what:</strong> Whenever someone presents you with a compelling performance number — a study result, a fund return, a before-and-after — your first question should be about the measurement methodology, not the number itself. How was it measured? Was it pre-registered or pre-committed? What are the incentives of the person reporting it? The most flattering version of any number is usually the version you'll be shown first.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Hubble Ultra Deep Field):</strong> Beckwith, S.V.W. et al. (2006). <em>Astronomical Journal</em>, 132(5); Illingworth, G. et al. (2013). "HST eXtreme Deep Field." <em>ApJS</em>, 209; NASA/ESA JWST First Deep Field press release (July 2022).</li>
+      <li><strong>Card 2 (崖山之戰):</strong> 《宋史·瀛國公本紀》《張世傑傳》《陸秀夫傳》《文天祥傳》；田餘慶（1989）《秦漢魏晉史探微》；Mote, F.W. (1999). <em>Imperial China 900–1800</em>. Harvard UP；Davis, R.L. (2001). <em>Wind Against the Mountain</em>. Harvard UP.</li>
+      <li><strong>Card 3 (Abolition of Slave Trade):</strong> Hochschild, A. (2005). <em>Bury the Chains</em>. Houghton Mifflin; Drescher, S. (2009). <em>Abolition</em>. Cambridge UP; Draper, N. (2010). <em>The Price of Emancipation</em>. Cambridge UP; Hall, C. et al. (2014). <em>Legacies of British Slave-Ownership</em>. Cambridge UP.</li>
+      <li><strong>Card 4 (王夫之):</strong> 王夫之《周易外傳》《讀通鑑論》《宋論》；嵇文甫（1962）《王船山學術論叢》；McMorran, I. (1975) in de Bary, W.T. ed. <em>The Unfolding of Neo-Confucianism</em>. Columbia UP；SEP, "Wang Fuzhi."</li>
+      <li><strong>Card 5 (Schopenhauer):</strong> Schopenhauer, A. (1818/1969). <em>The World as Will and Representation</em> (Payne trans., Dover); Magee, B. (1983). <em>The Philosophy of Schopenhauer</em>. Oxford UP; SEP, "Schopenhauer."</li>
+      <li><strong>Card 6 (Embodied Cognition):</strong> Strack, F. et al. (1988). <em>JPSP</em>, 54(5); Wagenmakers, E-J. et al. (2016). <em>Perspectives on Psychological Science</em>, 11(6); Ranehill, E. et al. (2015). <em>Psychological Science</em>, 26(5); Carney, D.R. (2016). Public statement.</li>
+      <li><strong>Card 7 (Muscle Fiber Types):</strong> Costill, D.L. et al. (1976). <em>J Applied Physiology</em>, 40(2); Yang, N. et al. (2003). <em>American Journal of Human Genetics</em>, 73(3); Andersen, J.L. et al. (2000). <em>Journal of Physiology</em>, 523(1).</li>
+      <li><strong>Card 8 (Magnesium):</strong> Abbasi, B. et al. (2012). <em>J Research in Medical Sciences</em>, 17(12); Rosanoff, A. et al. (2012). <em>Nutrition Reviews</em>, 70(3); Schwalfenberg, G.K. &amp; Genuis, S.J. (2017). <em>Scientifica</em>.</li>
+      <li><strong>Card 9 (Mobility vs Flexibility):</strong> Thomas, E. et al. (2018). <em>Int J Sports Medicine</em>, 39(4); Behm, D.G. et al. (2016). <em>Applied Physiology, Nutrition, and Metabolism</em>; Weppler, C.H. &amp; Magnusson, S.P. (2010). <em>Physical Therapy</em>, 90(3).</li>
+      <li><strong>Card 10 (Private Equity LBO):</strong> Jensen, M.C. (1989). <em>Harvard Business Review</em>, 67(5); Kaplan, S.N. &amp; Schoar, A. (2005). <em>Journal of Finance</em>, 60(4); Robinson, D.T. &amp; Sensoy, B.A. (2016). <em>Review of Financial Studies</em>, 29(6); Burrough, B. &amp; Helyar, J. (1989). <em>Barbarians at the Gate</em>.</li>
+      <li><strong>Card 11 (Central Bank Independence):</strong> Kydland &amp; Prescott (1977). <em>JPE</em>, 85(3); Barro &amp; Gordon (1983). <em>JPE</em>, 91(4); Rogoff (1985). <em>QJE</em>, 100(3); Blanchard et al. (2013). <em>IMF SDN 13/01</em>; Tucker, P. (2018). <em>Unelected Power</em>. Princeton UP.</li>
+    </ul>
+  </details>
+</footer>
+
+<script>
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-21.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-21.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+
+<script src="bm.js"></script>
+</body>
+</html>
