@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning — 22 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+/* navfix */
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim,#3a6a9a);}
+.side-nav{display:none;}
+@media(min-width:900px){
+.side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+.side-nav ul{list-style:none;margin:0;padding:0;}
+.side-nav li{margin-bottom:.35rem;}
+.side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+.side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+.toc-bar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Monday, 22 June 2026 &middot; ~22 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">🔭 Astronomy</a>
+    <a class="toc-pill" href="#card-2">⛩ 東方歷史</a>
+    <a class="toc-pill" href="#card-3">🏛 Western History</a>
+    <a class="toc-pill" href="#card-4">☯ 東方哲學</a>
+    <a class="toc-pill" href="#card-5">🌿 W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">🧠 Psychology</a>
+    <a class="toc-pill" href="#card-7">🫀 Physiology</a>
+    <a class="toc-pill" href="#card-8">💊 Health</a>
+    <a class="toc-pill" href="#card-9">🏋 Sports Science</a>
+    <a class="toc-pill" href="#card-10">📈 Investing</a>
+    <a class="toc-pill" href="#card-11">⚖️ Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">🔭 Astronomy</a></li>
+      <li><a href="#card-2">⛩ 東方歷史</a></li>
+      <li><a href="#card-3">🏛 Western History</a></li>
+      <li><a href="#card-4">☯ 東方哲學</a></li>
+      <li><a href="#card-5">🌿 W. Philosophy</a></li>
+      <li><a href="#card-6">🧠 Psychology</a></li>
+      <li><a href="#card-7">🫀 Physiology</a></li>
+      <li><a href="#card-8">💊 Health</a></li>
+      <li><a href="#card-9">🏋 Sports Science</a></li>
+      <li><a href="#card-10">📈 Investing</a></li>
+      <li><a href="#card-11">⚖️ Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday's Spark</h2>
+      <p class="spark-meta">From <em>21 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">🔭 Astronomy &mdash; Hubble Ultra Deep Field</span>
+        <em>Answer this without looking back:</em> How did the Hubble Ultra Deep Field function as a cosmic time machine, and what did the variation in galaxy appearance across depth in the image reveal about galaxy evolution?
+        <details><summary>Check your answer</summary><div class="answer">Because light travels at a finite speed, distant galaxies are seen as they were when their light began its journey &mdash; not as they are now. The most distant objects in the HUDF are so far away that their light left them less than a billion years after the Big Bang. This means a single image captures different epochs of cosmic history at different depths: the faint, red, irregular blobs at maximum depth are young proto-galaxies in the early universe, while the more structured spirals and ellipticals in the foreground are mature, later-epoch systems. The progression from clumpy irregulars to organised spirals across the image directly reveals how galaxies assembled and settled over billions of years.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">⛩ 東方歷史 &mdash; 崖山之戰</span>
+        <em>讀後回想：</em>陸秀夫在崖山選擇負帝蹈海而非投降的根本原因是什麼？張世傑的防禦部署在軍事上又出現了什麼致命失誤，導致元軍得以突破？
+        <details><summary>查看答案</summary><div class="answer">陸秀夫的選擇出於三重考量：第一，投降意味著幼帝將成為元廷政治工具，如北宋二帝（徽欽二宗）被擄之辱；第二，整個流亡政權的合法性建立在「延續宋祚」上，一旦投降即宣告這一事業的虛妄；第三，他本人的士大夫倫理認為以身殉國是唯一可保全道義的出路。軍事上，張世傑用鐵鏈將船隻連結成一體的決策是致命失誤——這令宋軍無法靈活機動，元軍以火攻突破後，連結成片的船隊成了一個無法分散規避的龐大目標，被各個擊破。</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">🫀 Physiology &mdash; Muscle Fiber Types</span>
+        <em>Answer this without looking back:</em> What is the key physiological difference between Type I and Type IIx muscle fibres, and why does the ACTN3 R577X (XX) genotype matter for explosive athletic performance?
+        <details><summary>Check your answer</summary><div class="answer">Type I (slow-twitch) fibres are rich in mitochondria, highly oxidative, fuelled by fat and oxygen, and extremely fatigue-resistant &mdash; they sustain prolonged effort. Type IIx (fast-twitch) fibres contract two to three times faster and produce much greater peak force, but rely on glycogen and phosphocreatine &mdash; fuels that deplete in seconds to minutes &mdash; and fatigue rapidly. The ACTN3 XX genotype produces no &alpha;-actinin-3 protein, which is expressed exclusively in Type II fibres and supports their forceful contraction. Individuals with the XX variant show slightly reduced explosive power and a mild endurance advantage. In one study of 107 elite sprinters, zero were XX &mdash; while the RR genotype is strongly overrepresented in power and sprint athletes worldwide.</div></details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Mountains in the Infrared: How JWST's First Image Revealed a Hidden Stellar Nursery in the Carina Nebula (船底座星雲)</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">The Carina Nebula had been photographed many times by Hubble. When JWST turned its infrared eye on the same region in 2022, what do you think it found that had been invisible before?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/The_star_formation_region_NGC_3324.jpg/3840px-The_star_formation_region_NGC_3324.jpg" alt="NGC 3324 star formation region in the Carina Nebula" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">NGC 3324 in the Carina Nebula — Hubble Space Telescope. &mdash; <a href="https://en.wikipedia.org/wiki/NGC_3324" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>On 12 July 2022, the James Webb Space Telescope (JWST, 韋伯太空望遠鏡) released its first batch of full-colour science images. Among them was a view of a region in the Carina Nebula (船底座星雲) catalogued as NGC 3324 &mdash; and it stopped astronomers in their tracks. What had appeared in Hubble images as a smooth cliff of orange gas and dust was transformed, in Webb's infrared eye, into a landscape of soaring translucent towers, glowing pillars, and dozens of previously invisible newborn stars blazing out of the dust for the first time. The image was immediately dubbed the "Cosmic Cliffs" (宇宙峭壁) &mdash; and the nickname barely captured its majesty. The tallest pillar in the image stands roughly seven light-years high, about 1.5 times the distance from Earth to Alpha Centauri (半人馬座阿爾法星).</p>
+
+      <p>The reason Webb could see what Hubble could not comes down to wavelength. Visible light &mdash; Hubble's primary tool &mdash; is blocked by the dense dust clouds forming the "cliffs." But infrared radiation (紅外線) passes through dust like light through smoke. Webb's Near-Infrared Camera (NIRCam, 近紅外相機) detected the heat and glow of young stars deeply embedded in those clouds, including dozens of protostellar jets (原恒星噴流) &mdash; streams of superheated material launched by stars in the act of formation &mdash; that had been entirely hidden before. These jets appear as bright orange streaks in the image, marking the precise locations where new suns are igniting inside the pillars. A single picture had become a census of stellar birth.</p>
+
+      <p>The Carina Nebula itself is one of the most active star-forming regions in the Milky Way (銀河系), spanning roughly 300 light-years and containing some of the most massive stars in the galaxy, including Eta Carinae (船底座埃塔星) &mdash; a colossal unstable giant that may explode as a hypernova within our cosmic lifetime. The "Cosmic Cliffs" reveal this stellar nursery mid-process: intense ultraviolet (紫外線) radiation from massive young stars at the top of the image is steadily eroding the dust pillars below, carving the cliff-like landscape through a process called photoevaporation (光蒸發). Stars gestating inside those pillars face a race against time &mdash; they must gravitationally coalesce before stellar winds blast the pillars apart. Webb is watching this race in progress, giving astronomers a real-time window into the first hours of stellar life.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Webb doesn't just show us prettier pictures &mdash; it lets us see through walls of cosmic dust to reveal stars in the act of being born, turning a familiar nebula into an entirely new world.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What property of infrared light allows JWST to see through the dust clouds that block visible light instruments like Hubble, and what specifically was revealed in the Carina Nebula that had been entirely hidden before?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Infrared radiation has longer wavelengths than visible light. Dust particles in nebulae scatter and absorb visible wavelengths but are largely transparent to infrared &mdash; the longer waves pass through the dust grains rather than bouncing off them. JWST's NIRCam detects this infrared emission with extraordinary sensitivity, allowing it to pierce the opaque dust walls and image hot young stars and protostars glowing within. In the Carina Nebula specifically, Webb revealed dozens of previously unknown protostellar jets &mdash; streams of superheated gas ejected by newly forming stars embedded in the dust pillars. These jets were entirely invisible to Hubble because the dust columns blocked all optical light from reaching outside the nebula.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; NASA/ESA/CSA JWST NIRCam press release, 12 July 2022 (STScI-2022-035); Pontoppidan, K.M. et al. (2022), <em>Publications of the Astronomical Society of the Pacific</em>, 134(1041); NASA Goddard Space Flight Center image archive.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY (Traditional Chinese) -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>甲午之戰：北洋艦隊的覆滅，與一個帝國的最後幻覺（1894–1895年）</h2>
+
+      <details class="predict-box">
+        <summary>🤔 讀前預測</summary>
+        <div class="predict-q">一支看似現代化的海軍，在噸位上毫不遜色——為何仍會在短短數月內全軍覆沒？你認為問題出在技術，還是別的地方？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物、事件與大局</span>
+        <p><strong>人物：</strong>光緒帝、李鴻章（北洋大臣）、丁汝昌（北洋艦隊提督）、鄧世昌（致遠艦管帶）；日方：伊東祐亨（聯合艦隊司令）、陸奧宗光（外務大臣）</p>
+        <p><strong>事件：</strong>清日兩國因朝鮮宗主權衝突開戰；黃海決戰（1894年9月17日）北洋艦隊受重創；威海衛一役（1895年2月）全軍覆沒；《馬關條約》割台、賠款</p>
+        <p><strong>大局：</strong>洋務運動（1861–1895年）以「中學為體、西學為用」建立現代海軍，實為「形式現代化」——技術外殼套在腐敗官僚體制之上；甲午一敗，直接觸發百日維新與辛亥革命的思想鋪墊</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/%E6%97%85%E9%A1%BA%E6%B5%B7%E5%86%9B%E5%85%AC%E6%89%80.jpg" alt="旅順海軍公所" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">旅順海軍公所舊址（北洋艦隊重要基地）。&mdash; <a href="https://en.wikipedia.org/wiki/First_Sino-Japanese_War" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>1894年，朝鮮爆發東學黨起義，清廷依《天津條約》出兵，日本隨即以「對等權利」為由派遣大軍。名義上是藩屬之爭，實為兩套國家現代化路徑的直接碰撞——以李鴻章為首的洋務派，購置了德國克虜伯炮、英製鐵甲艦，卻無法改變背後的制度根底。北洋艦隊旗艦定遠、鎮遠各重七千三百噸，紙面數字令人印象深刻——偏偏炮彈庫存嚴重不足，訓練廢弛，砲管內藏砂包以充彈數的醜聞早已廣傳。光緒帝有心改革，卻受制於以慈禧太后為核心的保守派；李鴻章的北洋艦隊既是清廷最現代化的力量，又是制度性腐敗最集中的縮影。</p>
+
+      <p>黃海一戰（1894年9月17日），日本聯合艦隊以較高航速實施機動集火，北洋艦隊缺乏配合，陷入各自為戰的混亂局面。致遠艦管帶鄧世昌在彈藥耗盡後試圖撞擊日艦吉野，艦沉人亡，成為後世傳頌的悲壯符號。然而整場海戰的根本問題是戰術指揮與彈藥管理的全面失能，而非單純的英雄主義敘事。陸路戰線同樣全面崩潰——日軍在朝鮮半島與遼東的推進速度遠超預期，暴露了湘淮軍體系各自為政、缺乏統一指揮的致命弱點。威海衛一役（1895年2月），日軍水陸夾攻，北洋艦隊龜縮港內，提督丁汝昌服毒自盡，殘部降日，北洋海軍至此全軍覆沒。</p>
+
+      <p>《馬關條約》（1895年4月）割讓台灣、澎湖列島，賠款二億兩白銀（約相當於清廷三年財政收入），並開放多處通商口岸。此役的衝擊遠超領土損失本身：甲午一敗，徹底動搖了士大夫階層對「中學為體、西學為用」改良路線的信心。康有為、梁啟超隨即發動「公車上書」，翌年促成光緒帝主持的「百日維新」（戊戌變法，1898年）；雖因慈禧發動政變而夭折，其思想衝擊卻埋下了辛亥革命的種子。甲午之戰由此成為中國現代史最關鍵的轉捩點之一：它不只是一場海戰的失敗，而是一套改良主義論述的全面破產。</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>啟示：</strong>武器可以購買，制度不能外包——甲午戰爭的真正敗因，是把現代化的表皮貼在了前現代的骨骼上。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>黃海海戰中，日本聯合艦隊憑藉什麼戰術優勢壓制北洋艦隊？北洋艦隊的根本失敗又源於哪些制度性弱點，而非單純的技術差距？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">日本聯合艦隊以較高航速（部分艦艇可達十至十六節）實施機動集火戰術，集中優勢火力逐一擊毀分散的北洋各艦，而北洋艦隊因橫陣佈陣、指揮混亂，未能有效應對速度優勢。決定性因素卻是制度性的：彈藥庫存嚴重不足，部分炮彈品質低劣甚至以砂石充數；訓練廢弛，各艦指揮官無法協同作戰；洋務派以採購替代制度建設，北洋艦隊的現代化停留於器物層面，無法轉化為有組織的持續戰鬥力。此外，整個清廷的戰爭動員體系——財政調撥、後勤補給、指揮統一——均嚴重失能，非技術差距所能解釋。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Paine, S.C.M. <em>The Sino-Japanese War of 1894–1895</em> (Cambridge UP, 2003)；費正清主編《劍橋中國晚清史》（中譯本）；劉鳳翰《北洋艦隊》；《馬關條約》原文（1895年4月17日）。</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Last Charge: How Jan Sobieski's Hussars Stopped the Ottoman Empire (鄂圖曼帝國) at Vienna's Gates in 1683</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">In 1683, the Ottoman Empire besieged Vienna with an army ten times larger than the city's garrison. What single factor do you think ultimately determined the outcome?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures, Event &amp; Big Picture</span>
+        <p><strong>Key figures:</strong> Kara Mustafa Pasha (Grand Vizier), Emperor Leopold I (Habsburg), Jan III Sobieski (King of Poland, 揚三世·索別斯基), Ernst Rüdiger von Starhemberg (Vienna's defender)</p>
+        <p><strong>Event at stake:</strong> The Ottoman Empire's second attempt to capture Vienna &mdash; siege from 14 July 1683; relief battle on 12 September 1683; the largest cavalry charge in recorded history</p>
+        <p><strong>Big picture:</strong> The Ottoman Empire at its maximum European extent; the Holy League (神聖同盟) assembled in desperate diplomacy; 1683 marks the turning point beginning the century-long Ottoman retreat from Central Europe and the rise of Habsburg supremacy</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Anonym_Entsatz_Wien_1683.jpg/3840px-Anonym_Entsatz_Wien_1683.jpg" alt="Anonymous painting of the Relief of Vienna, 1683" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Anonymous painting depicting the Relief of Vienna, 1683. &mdash; <a href="https://en.wikipedia.org/wiki/Battle_of_Vienna" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>On 14 July 1683, an Ottoman army (鄂圖曼帝國) of roughly 140,000–200,000 men under Grand Vizier Kara Mustafa Pasha encircled Vienna (維也納) &mdash; the Habsburg capital and, symbolically, the gateway to Christian Europe. Emperor Leopold I had already fled. The city's garrison, commanded by Ernst Rüdiger von Starhemberg, numbered barely 15,000 soldiers. For sixty days, the Ottomans dug zigzag approach trenches toward the walls, detonated mines beneath Vienna's bastions, and launched wave after wave of assaults. The city ran dangerously low on food, ammunition, and men. Starhemberg was reduced to executing soldiers who fell asleep on watch. By early September, the walls were breached in multiple places and the garrison could barely hold.</p>
+
+      <p>What saved Vienna was a Holy League (神聖同盟) assembled in frantic diplomacy: Habsburg, Polish, and German forces converging on the Kahlenberg ridge above the city. At dawn on 12 September 1683, the relief army &mdash; roughly 65,000–80,000 troops &mdash; launched a coordinated assault down the hillside. The battle lasted all day. At sunset, Jan III Sobieski (揚三世·索別斯基), King of Poland (波蘭), personally led what became the largest cavalry charge in recorded history: approximately 18,000 mounted knights, including his elite Winged Hussars (翼騎兵) &mdash; riders with enormous feathered "wings" strapped to their backs, designed to create a terrifying roar at full gallop &mdash; crashed into the Ottoman flank. Kara Mustafa's army, already exhausted and unsupplied, collapsed within hours.</p>
+
+      <p>The consequences rippled across a century. The Ottomans abandoned such vast stores of supplies in their flight that Viennese entrepreneurs used their captured coffee beans (咖啡豆) to open the city's first coffeehouses &mdash; plausibly giving birth to iconic Viennese café culture, though the legend is disputed by historians. More consequentially, the Treaty of Karlowitz (卡洛維茨條約, 1699) ceded Hungary (匈牙利) to the Habsburgs, and the Ottoman Empire never again threatened the European interior. For Kara Mustafa, the reckoning was immediate: Sultan Mehmed IV had him strangled with a silken cord in Belgrade that same December. The siege of Vienna was the high-water mark of Ottoman expansion &mdash; and the moment the tide began irreversibly to turn.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Kara Mustafa's failure is a case study in strategic overconfidence: he besieged slowly when the military situation demanded speed, and left his flanks unguarded because he could not imagine a coalition assembling in time.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why was the Ottoman siege strategy at Vienna strategically flawed, and what made Jan Sobieski's cavalry charge so decisive at the moment it arrived?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Kara Mustafa chose a slow siege by mining and attrition rather than an immediate overwhelming assault, giving the Holy League weeks to mobilise &mdash; a critical miscalculation born of overconfidence in Ottoman numerical superiority. He also failed to adequately fortify his rear against a relief army, assuming no Christian coalition could assemble quickly enough. The Winged Hussar charge was decisive because it struck the Ottoman camp late in the day, when assault troops were exhausted and supply lines already overstretched. The cavalry's speed shattered unit cohesion before infantry could reform defensive lines; the controlled retreat became an uncontrollable rout within hours, and the enormous Ottoman camp with all its supplies fell intact to the Holy League forces.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Stoye, John. <em>The Siege of Vienna</em> (Collins, 1964); Wheatcroft, Andrew. <em>The Enemy at the Gate: Habsburgs, Ottomans and the Battle for Europe</em> (Basic Books, 2008); Davies, Norman. <em>God's Playground: A History of Poland</em>, Vol. 1 (OUP, 2005).</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY (Traditional Chinese) -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>陸九淵：「宇宙便是吾心」——儒學心學的真正奠基者</h2>
+
+      <details class="predict-box">
+        <summary>🤔 讀前預測</summary>
+        <div class="predict-q">若你認為「心」就是宇宙一切道理的根本所在，那麼你該如何向別人講解倫理原則？你還需要廣博讀書、逐一格物嗎？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物、思想焦點與大局</span>
+        <p><strong>人物：</strong>陸九淵（陸象山，1139–1193年），南宋哲學家；朱熹（晦庵，1130–1200年），南宋理學集大成者；呂祖謙（主持鵝湖之會）</p>
+        <p><strong>思想焦點：</strong>「心即理」——宇宙萬物之理不在外部世界等待格物，而是先天內在於每個人的心之中；道德認識不需繁瑣格物，只需「發明本心」</p>
+        <p><strong>大局：</strong>南宋學術格局——鵝湖之會（1175年）朱陸兩派正面交鋒，理學（道問學）與心學（尊德性）分道揚鑣；陸九淵直接啟發明代王陽明，後世合稱「陸王心學」</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chiu_Yuan.jpg/330px-Chiu_Yuan.jpg" alt="陸九淵畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陸九淵（象山先生）畫像。&mdash; <a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>南宋理學大潮中，陸九淵（象山先生，1139–1193年）以一句「宇宙便是吾心，吾心便是宇宙」橫空出世，立下心學的根基。這不只是詩意表達——它是嚴格的哲學命題：萬物之「理」（道德秩序與宇宙規律的統一）不在外部世界等待人去發掘，而是先天內在於每個人的「心」之中。朱熹的路徑是「格物致知」——逐一考察外部事物以積累知識，最終豁然貫通。陸九淵認為這是捨近求遠：你已擁有全部所需，只需「發明本心」，即喚醒並認清那個本已具足的道德自覺。這一立場在儒學史上具有革命性意義：它把道德知識的來源從「外求」根本地轉向「內省」。</p>
+
+      <p>1175年，呂祖謙在江西鵝湖寺安排朱陸兩派正面論辯——史稱「鵝湖之會」，是中國哲學史上最著名的學術論爭之一。陸九淵與其兄陸九韶以詩句開場：「易簡功夫終久大，支離事業竟浮沉。」直指朱熹格物路線繁瑣支離，不如心學「易簡直截」。朱熹反批陸九淵太過粗疏，忽視經典訓詁的嚴謹工夫，流於空談「悟道」，缺乏知識積累的扎實根基。兩人終未達成一致，但這場辯論劃定了此後四百年儒學的兩條主軸：外求的「道問學」（朱熹）與內省的「尊德性」（陸九淵）。</p>
+
+      <p>陸九淵的影響不止於南宋。他在象山精舍講學，強調立志、反省的工夫論——學者若能真正「自立」，便無需大量讀書積累。這種激進的道德直覺主義，在明代由王陽明（1472–1529年）接過並大幅發揚：王陽明的「致良知」與「知行合一」，在哲學結構上正是陸九淵「發明本心」的邏輯延伸，故學界常以「陸王心學」並稱。朱熹理學被確立為科舉官方標準之後，心學反成一種「非官方的道德激進主義」，在士人群體中持續流傳。明清之際的政治危機中，心學尤具感召力——當外部秩序崩潰，「回歸本心」的內在確定性往往成為士人最後的精神支撐。</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>啟示：</strong>陸九淵教我們：道德的根源不需要向外求——真正的問題是你是否有勇氣「發明」那個你本已擁有的心。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>陸九淵在鵝湖之會中如何批評朱熹的格物方法，而朱熹又如何還擊？兩者的根本分歧指向什麼哲學問題？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">陸九淵批評朱熹格物路線「支離」——逐一考察外部事物耗費精力，卻繞開了道德修養的核心：當下「發明本心」。他認為「理」本已在吾心之中，任何外部格物都是多餘的中間環節，屬於捨近求遠。朱熹則反指陸九淵的路線粗疏，忽略了文本訓詁與知識積累的必要性，「尊德性」而廢「道問學」，容易流於主觀臆斷，缺乏客觀的知識標準。根本分歧在於：道德知識的來源是先天的（內在於心，心學立場）還是後天的（需通過格物外求，理學立場）？即「心體論優先」還是「知識論優先」——這一張力貫穿整個宋明儒學史。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; 陳來《宋明理學》（華東師範大學出版社）；馮友蘭《中國哲學史》；Huang, Siu-chi, <em>Lu Hsiang-shan: A Twelfth Century Chinese Idealist Philosopher</em> (American Oriental Society, 1944); de Bary &amp; Bloom, <em>Sources of Chinese Tradition</em>, Vol. 1 (Columbia UP, 1999).</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Stoic Manual: How Three Philosophers Across 500 Years Built the West's Most Practical Philosophy</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">If you were a Greek philosopher around 300 BCE, what feature of human experience might lead you to argue that events outside your control are simply irrelevant to your happiness?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures, Event &amp; Big Picture</span>
+        <p><strong>Key figures:</strong> Zeno of Citium (基蒂翁的芝諾, c. 334–262 BCE), Epictetus (愛比克泰德, c. 50–135 CE), Marcus Aurelius (馬可·奧勒留, 121–180 CE), Seneca (塞內卡, c. 4 BCE–65 CE)</p>
+        <p><strong>Event at stake:</strong> Stoicism founded in Athens at the Stoa Poikile; spread to Rome; shaped the ethics of emperors and enslaved alike across five centuries</p>
+        <p><strong>Big picture:</strong> Stoicism emerged in competition with Epicureanism (伊比鳩魯主義) and Cynicism (犬儒主義); its Roman form shaped Western ethics, Christian theology, and &mdash; via Aaron Beck &mdash; modern Cognitive Behavioural Therapy (認知行為療法)</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/MSR-ra-61-b-1-DM.jpg" alt="Marcus Aurelius" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Roman imperial portrait, likely Marcus Aurelius (馬可·奧勒留). &mdash; <a href="https://en.wikipedia.org/wiki/Marcus_Aurelius" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Stoicism (斯多葛學派) began on a street corner in Athens (雅典) around 300 BCE, when Zeno of Citium (基蒂翁的芝諾) started teaching beneath the Stoa Poikile &mdash; the "Painted Porch" that gave the school its name. Its founding insight was simple and, for its time, radical: the only true good is virtue (美德), and virtue is entirely within our control; everything else &mdash; wealth, reputation, health, even life &mdash; is what the Stoics called a "preferred indifferent." You can pursue health or money, they argued, but your happiness must never depend on them. This distinction between what is "up to us" (eph' hēmin) and what is not became the cornerstone of the entire system &mdash; a philosophical scalpel for cutting anxiety at the root.</p>
+
+      <p>Where Stoicism proved its power was not in lecture halls but in extremity. Epictetus (愛比克泰德) was born into slavery around 50 CE; his master once deliberately broke his leg to demonstrate ownership. He responded, reportedly, without distress &mdash; the leg was not under his control, and his rational will was. He later founded a philosophical school in Nicopolis (尼科波利斯) that attracted wealthy Romans seeking what a slave had already mastered. Marcus Aurelius (馬可·奧勒留), Roman Emperor from 161–180 CE, wrote his <em>Meditations</em> (《沉思錄》) not for publication but as a private daily practice &mdash; reminding himself, over and over, of Stoic principles while governing an empire beset by plague, war, and dynastic treachery. Seneca (塞內卡), advisor to Nero (尼祿), wrote extensively on time and death, then was ordered by Nero to suicide &mdash; which he performed with documented Stoic composure.</p>
+
+      <p>The practical apparatus Stoicism offers is unusually concrete. Negative visualisation (負面視覺化) &mdash; regularly imagining losing what you value &mdash; restores appreciation and defuses fear. The "dichotomy of control" (控制二分法) sorts every situation into what you control (your judgements, choices, desires) and what you do not (everything else) &mdash; cutting off anxiety before it begins. The Stoics also taught cosmopolitanism (世界公民主義): since Logos (邏各斯) &mdash; rational order &mdash; connects all humans, our primary identity is as citizens of the world, not of any city or empire. These ideas survived into Christian theology, resurged in 20th-century existentialism, and found their most direct descendant in Cognitive Behavioural Therapy (認知行為療法) &mdash; Aaron Beck (貝克) explicitly named the Stoics as a precursor to CBT's core technique of examining and reframing automatic thoughts.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> You cannot always control what happens, but you can always choose what it means to you &mdash; that is the one freedom no external force can remove.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the Stoic "dichotomy of control," and how did the specific life circumstances of Epictetus and Marcus Aurelius serve as a proof-of-concept for the power of this principle from opposite extremes?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The dichotomy of control distinguishes between what is "up to us" &mdash; our opinions, judgements, desires, and choices &mdash; and what is not: everything external, including body, reputation, health, and death. True freedom and contentment can only come from working with the first category while accepting the second. Epictetus demonstrated this from the extreme of enslavement and physical abuse: his master could break his leg but could not touch his rational will. Marcus Aurelius demonstrated it from the opposite extreme of absolute power: emperor of the known world, he faced plagues, wars, and personal loss, yet his private journal shows a man relentlessly practising the discipline of accepting outcomes outside his control while rigorously attending to his own responses &mdash; the only domain Stoic philosophy claimed was genuinely his.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Marcus Aurelius, <em>Meditations</em> (trans. Gregory Hays, Modern Library, 2002); Epictetus, <em>Discourses and Enchiridion</em> (trans. Robin Hard, OUP, 2014); Long, A.A. <em>Epictetus: A Stoic and Socratic Guide to Life</em> (OUP, 2002).</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Blueprint We Carry: How Bowlby and Ainsworth Discovered Why Early Bonds Shape a Lifetime</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">What do you think a toddler would do if their caregiver left the room and then returned — and what might differences in how children respond reveal about their inner world?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Rhesus_macaque_%28Macaca_mulatta_mulatta%29%2C_male%2C_Gokarna.jpg/3840px-Rhesus_macaque_%28Macaca_mulatta_mulatta%29%2C_male%2C_Gokarna.jpg" alt="Rhesus macaque — subject of Harlow's classic attachment experiments" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Rhesus macaque (恆河猴) — the species used in Harry Harlow's (哈利·哈洛) wire-mother experiments that helped validate attachment theory. &mdash; <a href="https://en.wikipedia.org/wiki/Harry_Harlow" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>In the 1950s, British psychiatrist John Bowlby (約翰·鮑比, 1907–1990) was studying children separated from their mothers during hospitalisation &mdash; and what he found disturbed him. These children went through an intense three-stage sequence: protest (desperate crying and searching), despair (withdrawal), and detachment (emotional shut-down). Bowlby argued this was not spoiled behaviour or neurosis; it was evolution. He proposed that infants are biologically programmed to maintain proximity to a caregiver, and that this attachment system (依附系統) is as fundamental as hunger or fear. His radical break from Freudian orthodoxy was to place the origin of psychological health not in unconscious drives but in the felt security of early relationships &mdash; a claim that collided directly with prevailing hospital practice, which routinely separated sick children from parents for weeks at a time.</p>
+
+      <p>It was Mary Ainsworth (瑪麗·愛因斯沃思, 1913–1999) who turned Bowlby's theory into an experimentally testable framework. Her "Strange Situation" procedure (陌生情境實驗, 1969–1970) placed infants aged 12–18 months through a scripted sequence of separations and reunions with their caregiver in an unfamiliar room. What she observed was startling in its clarity. Securely attached (安全型依附) infants were distressed when the mother left but quickly comforted on return, using her as a base from which to explore. Anxious/ambivalent (焦慮矛盾型) infants were inconsolable and clingy even after reunion. Avoidant (迴避型) infants appeared indifferent to both departure and return &mdash; a pattern Ainsworth recognised not as independence but as suppressed distress; physiological monitoring confirmed their heart rates and cortisol (皮質醇) levels were elevated throughout, despite the outward calm.</p>
+
+      <p>Bowlby proposed that early attachment experiences build an "internal working model" (內部工作模型) &mdash; a mental representation of self, other, and the world that guides expectations in all subsequent relationships. The most robust finding of modern attachment research is continuity: Sroufe's Minnesota Study followed children from infancy through adulthood and found that secure infant attachment predicted better peer relationships, emotional regulation (情緒調節), and resilience under stress &mdash; though the relationship is probabilistic, not deterministic. A fourth style, disorganised attachment (混亂型依附) &mdash; identified by Main &amp; Solomon (1986) &mdash; arises most commonly from caregiving that is itself frightening, producing children whose attachment figure is simultaneously a source of safety and terror: an irresolvable dilemma with lifelong consequences.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The single most protective factor for lifelong psychological resilience is having had at least one secure attachment &mdash; and the research suggests it is never fully too late to form one.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is Bowlby's "internal working model," and why does the avoidant attachment pattern in the Strange Situation challenge the commonsense assumption that children who appear indifferent to separation are simply independent?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The internal working model is a cognitive-emotional schema built from early attachment experiences &mdash; a set of expectations about whether others will respond to one's needs, and whether the self is worthy of care. These models guide the processing of social information throughout life and tend to be self-fulfilling: a securely attached child expects responsiveness and seeks connection; an avoidant child has learned that expressing need triggers rejection or disengagement, so they suppress attachment behaviour as a strategy. The Strange Situation revealed that avoidant infants who appear "independent" actually show elevated heart rate and cortisol throughout the procedure &mdash; their physiological stress response is fully activated. Their indifference is a learnt inhibition of attachment behaviour, not genuine security. True security is demonstrated by the ability to seek comfort and be comforted, not by the absence of distress.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Bowlby, J. <em>Attachment</em>, Vol. 1 (Basic Books, 1969); Ainsworth, M.D.S. et al. <em>Patterns of Attachment</em> (Erlbaum, 1978); Sroufe, L.A. et al. <em>The Development of the Person</em> (Guilford, 2005); Main, M. &amp; Solomon, J. (1986) in <em>Affective Development in Infancy</em> (Ablex).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Real Reason You Can't Hold Your Breath: Why Carbon Dioxide (二氧化碳) — Not Oxygen — Runs Your Breathing</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">When you hold your breath, the desperate urge to inhale eventually becomes irresistible. What do you think is driving that sensation — running low on oxygen, or something else entirely?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Gray1186.png" alt="Gray's Anatomy illustration of the respiratory centre in the medulla" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Gray's Anatomy illustration of the brainstem respiratory control centres in the medulla oblongata (延腦). &mdash; <a href="https://en.wikipedia.org/wiki/Respiratory_center" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Most people assume the urgency to breathe comes from running low on oxygen (O₂) &mdash; the logic seems obvious. But the primary chemical driver of the urge to breathe is carbon dioxide (CO₂, 二氧化碳), not oxygen depletion. Specifically, it is the rise in blood CO₂ (measured as PCO₂, 二氧化碳分壓) &mdash; or more precisely, the resulting drop in blood pH (酸鹼值) as CO₂ combines with water to form carbonic acid (碳酸) &mdash; that triggers the overwhelming compulsion to inhale. This is detected by two sets of chemoreceptors (化學感受器): central chemoreceptors (中樞化學感受器) in the medulla oblongata (延腦) of the brainstem, which monitor pH in the cerebrospinal fluid; and peripheral chemoreceptors (周邊化學感受器) in the carotid bodies (頸動脈體) and aortic bodies, which detect both PCO₂ and &mdash; only at critically low levels &mdash; falling PO₂.</p>
+
+      <p>The asymmetry has a physiological rationale: CO₂ is produced continuously by metabolism at a fairly predictable rate, making it a reliable real-time signal of breathing adequacy. Oxygen, by contrast, is stored in haemoglobin (血紅蛋白) with a large buffer &mdash; blood O₂ can fall substantially before the peripheral chemoreceptors fire a meaningful alarm. This buffer is generous enough that under normal conditions, hypoxia (低氧血症) is never the immediate trigger. The dangerous corollary, exploited by competitive free divers (自由潛水員), is intentional hyperventilation (過度換氣) before a dive: rapidly blowing off CO₂ suppresses the breathing urge for far longer, but oxygen continues to deplete silently. When PO₂ falls below the threshold for consciousness &mdash; before PCO₂ has recovered enough to signal distress &mdash; the diver blacks out underwater without warning. This "shallow-water blackout" (淺水昏厥) kills multiple free divers globally each year.</p>
+
+      <p>The respiratory control centre in the medulla coordinates chemoreceptor signals with inputs from the pons (橋腦), higher cortical inputs, muscle proprioceptors, and lung stretch receptors to drive the diaphragm (橫膈肌) via the phrenic nerve (膈神經). During exercise, the system becomes far more sensitive: even a small rise in CO₂ drives a large increase in ventilation (換氣量), keeping arterial PCO₂ and pH within a narrow window. Normal resting arterial PCO₂ is 35–45 mmHg; a rise of just 10 mmHg roughly doubles breathing rate. The drive to breathe, in other words, is not primarily an oxygen delivery system but a real-time acid management system &mdash; keeping the chemical pH of your blood stable so that enzymes throughout the body can function.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Your lungs are not running low on oxygen — they are expelling CO₂ to prevent your blood from turning acidic. Deliberately hyperventilating before a swim removes the warning signal while the danger remains.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why is deliberately hyperventilating before a breath-hold dive dangerous, and which chemoreceptor mechanism does this exploit in a way that creates a hidden risk?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hyperventilation before a dive flushes CO₂ from the blood, lowering arterial PCO₂ well below normal. Since it is rising PCO₂ &mdash; not falling O₂ &mdash; that drives the urge to breathe, the diver can extend a dive far beyond the safe limit before feeling the need to surface. But oxygen continues to be consumed by tissues throughout the dive. With PCO₂ still low (not yet triggering the breathing urge), arterial PO₂ can fall to unconsciousness-inducing levels &mdash; typically below 40–30 mmHg &mdash; without any subjective warning. The peripheral chemoreceptors that could signal hypoxia only fire at very low O₂ levels, and by that point the brain's oxygen supply is insufficient to maintain consciousness. The diver loses consciousness underwater with no warning sensation of distress.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Guyton &amp; Hall, <em>Medical Physiology</em>, 14th ed. (Elsevier, 2020), Ch. 42; Dempsey, J.A. et al. (2012), <em>Comprehensive Physiology</em> 2(1): 743–777; Lindholm, P. &amp; Lundgren, C.E.G. (2009), <em>Respiratory Physiology &amp; Neurobiology</em> 165(1): 25–31.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Finnish Secret: What 25 Years of Data Reveals About Sauna (桑拿) and Your Heart</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">A Finnish study followed 2,315 men for 20 years and tracked their sauna habits. What do you think they found — and do you think it was as strong as conventional exercise?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Sauna_2.jpg" alt="Traditional Finnish sauna" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Traditional Finnish sauna (桑拿) — the setting for Laukkanen et al.'s landmark cardiovascular research. &mdash; <a href="https://en.wikipedia.org/wiki/Sauna" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>In 2015, Finnish epidemiologist Jari Laukkanen (賈里·勞卡寧) and colleagues published a striking paper in <em>JAMA Internal Medicine</em> (《美國醫學會雜誌內科》): a prospective cohort of 2,315 Finnish men followed for an average of 20 years. Men who used a sauna (桑拿) 4–7 times per week had a 40% lower risk of fatal cardiovascular disease (致命心血管疾病) compared to those who used it only once per week &mdash; a dose-response relationship robust enough to survive adjustment for age, blood pressure (血壓), cholesterol (膽固醇), physical activity, and smoking. A 2018 follow-up in the <em>European Heart Journal</em> extended the findings to all-cause mortality and sudden cardiac death (猝死). The effect size was comparable to the cardiovascular benefit of regular moderate aerobic exercise &mdash; for a practice requiring no effort beyond sitting in a hot room.</p>
+
+      <p>The proposed mechanisms are physiologically plausible. A traditional Finnish sauna at 80–100°C raises core body temperature (核心體溫) by 1–2°C, triggering cutaneous vasodilation (皮膚血管擴張): blood is redirected to the skin surface to dissipate heat, increasing cardiac output (心輸出量) to levels similar to moderate exercise, with heart rate rising to 100–150 bpm. Heat shock proteins (熱休克蛋白, HSPs) are produced &mdash; molecular chaperones that repair damaged proteins and appear to have anti-inflammatory (抗炎) and arterial-protective effects. Blood pressure drops transiently post-session, and repeated use is associated with improved arterial compliance (動脈順應性) and reduced arterial stiffness (動脈硬化) &mdash; both independent predictors of cardiovascular risk.</p>
+
+      <p>The caveats are genuine. The Laukkanen study is observational: healthy, active, socially engaged Finns are more likely to sauna frequently, raising confounding concerns. Randomised controlled trials (隨機對照試驗) on sauna are short-term and small-scale. Traditional Finnish sauna &mdash; dry, high-heat &mdash; differs from infrared saunas (紅外線桑拿) and steam rooms, which have different temperature and humidity profiles that may not replicate the same mechanisms. Sauna is contraindicated for people with unstable angina (不穩定型心絞痛), decompensated heart failure, or severe aortic stenosis (主動脈瓣狹窄). That said, the mechanistic plausibility combined with the scale and duration of the Laukkanen cohort makes it the strongest human evidence we have for any passive thermal intervention and cardiovascular health &mdash; a low-cost habit with a plausible biological story behind it.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> A sauna session raises cardiac output to that of a brisk walk, and 20 years of data suggests it isn't just relaxation doing the work — but the relationship is still observational, so combine it with real exercise, not replace it.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What physiological mechanisms might explain the cardiovascular benefit of sauna use, and why is the Laukkanen cohort study alone not sufficient to establish causation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">During a sauna session, heat triggers cutaneous vasodilation and a rise in cardiac output comparable to moderate aerobic exercise, as the body redirects blood to the skin for cooling. Repeated sessions may improve arterial compliance, reduce arterial stiffness, and induce heat shock protein production &mdash; proteins with anti-inflammatory and cellular protective functions. Blood pressure also drops transiently after sessions. However, the Laukkanen study is a prospective observational cohort: it measured what people already chose to do rather than randomly assigning them to different sauna frequencies. Healthy, physically active, socially connected people are more likely to use saunas frequently, and these lifestyle differences may account for some or all of the cardiovascular benefit. Without random assignment, the directionality of effect cannot be established with certainty.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Laukkanen, J.A. et al. (2015), <em>JAMA Internal Medicine</em> 175(4): 542–548; Laukkanen et al. (2018), <em>European Heart Journal</em> 39(22): 2086–2095; Kunutsor, S.K. et al. (2018), <em>Annals of Medicine</em> (systematic review).</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Your Handshake Might Save Your Life: What Grip Strength (握力) Reveals About Your Whole-Body Health</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">A study of 139,000 people across 17 countries found that one simple physical measurement predicted cardiovascular death better than blood pressure. What do you think it was?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Blausen_0801_SkeletalMuscle.png" alt="Diagram of skeletal muscle structure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Skeletal muscle (骨骼肌) structure &mdash; the tissue system that grip strength directly indexes. &mdash; <a href="https://en.wikipedia.org/wiki/Skeletal_muscle" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>In 2015, the PURE study (Prospective Urban Rural Epidemiology, 前瞻性城鄉流行病學研究) &mdash; a landmark prospective cohort spanning 17 countries and 139,691 adults, published in <em>The Lancet</em> (《刺針》) &mdash; found that grip strength (握力) measured with a hand dynamometer (握力計) was a stronger predictor of cardiovascular mortality (心血管死亡率) than systolic blood pressure (收縮壓). Each 5 kg reduction in grip strength was associated with a 17% higher risk of cardiovascular death, a 9% higher risk of stroke (中風), and a 7% higher risk of myocardial infarction (心肌梗塞). The finding held across all 17 countries, regardless of income level, physical activity habits, or baseline health status &mdash; a remarkably consistent signal across vastly different populations.</p>
+
+      <p>Why would hand squeeze predict heart disease? Grip strength is not a direct cause; it is a composite biomarker of overall skeletal muscle mass and quality (骨骼肌質量). Maintaining muscle mass requires consistent mechanical loading, adequate protein synthesis (蛋白質合成), good mitochondrial function (線粒體功能), hormonal health (testosterone, insulin sensitivity), and the absence of chronic systemic inflammation (全身性炎症). A person who is sedentary, insulin-resistant, chronically inflamed, or nutritionally depleted loses grip strength as part of a broader physiological decline &mdash; grip is measuring the cumulative state of the whole system, not just the hand. Rantanen et al. (2000) showed that grip strength at midlife predicted disability and all-cause mortality in old age more accurately than many standard clinical biomarkers.</p>
+
+      <p>The practical implication is direct: grip-building exercises &mdash; deadlifts (硬舉), farmer's carries, pull-ups, barbell rows &mdash; are not gym vanity metrics. They are index training for systemic musculoskeletal health, because the exercise modalities that build grip also build the larger muscle groups and connective tissue (結締組織) resilience that underlie the grip-health relationship. A 2019 meta-analysis by Bohannon in <em>PLOS ONE</em> confirmed predictive validity across diverse populations. A standard Jamar dynamometer test (標準握力測試) takes 30 seconds and costs nothing; for ageing populations in particular, the data from Rantanen is stark: the strongest single predictor of independence at 80 is not cardiovascular fitness alone but the preservation of functional muscle &mdash; and grip strength is its cheapest measurable proxy.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Grip strength is the closest thing we have to a one-minute whole-body health check &mdash; and the best way to improve it is heavy compound lifting, not squeezing a rubber ball.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does grip strength predict cardiovascular mortality more strongly than blood pressure in the PURE study, and what does this suggest about what grip strength is actually measuring?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Grip strength's predictive power exceeds blood pressure's because it is a composite biomarker that integrates multiple physiological systems simultaneously. Blood pressure reflects cardiovascular load at one moment and can be chemically normalised by medication without changing underlying health. Grip strength, by contrast, reflects the cumulative functional state of skeletal muscle mass, mitochondrial health, hormonal environment, systemic inflammation, and nutritional status &mdash; all independently associated with cardiovascular outcomes. A person with good grip strength has, almost by definition, maintained the muscle-preserving behaviours and metabolic health that protect the heart. It is a marker of overall physiological capacity, not a single-organ measurement &mdash; which is why it carries predictive power across 17 countries with very different lifestyles.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Leong, D.P. et al. (2015), <em>The Lancet</em> 386(9990): 266–273 (PURE study); Rantanen, T. et al. (2000), <em>American Journal of Epidemiology</em> 152(1): 33–38; Bohannon, R.W. (2019), <em>PLOS ONE</em> 14(10): e0224147.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The World's Most Expensive Lesson: Japan's Asset Price Bubble (資產價格泡沫) and the Lost Decade</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">Japan's economy in 1989 was the second largest in the world, with world-class companies and high savings rates. What could possibly go wrong — and why might a central bank interest rate hike be the pin that pops everything?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Nikkei_225%281970-%29.svg/960px-Nikkei_225%281970-%29.svg.png" alt="Nikkei 225 long-term chart showing the 1989 bubble peak" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Nikkei 225 (日經225指數) long-term chart — the December 1989 peak and subsequent collapse are clearly visible. &mdash; <a href="https://en.wikipedia.org/wiki/Nikkei_225" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>By December 1989, Japan's Nikkei 225 (日經225指數) had reached 38,957 &mdash; a level that would not be revisited for over three decades. Real estate (房地產) values had climbed to surreal heights: the land beneath the Imperial Palace (皇居) in Tokyo was, by some estimates, worth more than the entire state of California. Banks lent freely against these inflated asset values; companies borrowed against their own stock portfolios to make further investments; the cycle was self-reinforcing. Between 1985 and 1989, Japanese land prices tripled and stock prices quadrupled. The Bank of Japan (日本銀行), alarmed by excess credit creation and mild inflation, raised interest rates from 2.5% to 6% between 1989 and 1990. The trigger was small. The implosion was enormous.</p>
+
+      <p>From its peak, the Nikkei fell over 80% across the following decade. Commercial property in major Japanese cities fell 80–90% from peak values. Banks were left holding non-performing loans (不良貸款) secured by collateral that had collapsed &mdash; but rather than write down the losses and recapitalise, Japanese banks and regulators engaged in "zombie lending" (殭屍信貸): rolling over failing loans to avoid admitting insolvency. This kept technically-bankrupt companies ("zombie firms," 殭屍企業) alive, preventing the reallocation of capital to productive uses. Economist Paul Krugman (克魯格曼) described 1990s Japan as a "liquidity trap" (流動性陷阱): even near-zero interest rates couldn't stimulate borrowing when households and firms were focused entirely on paying down debts. The more precise description came from economist Richard Koo (辜朝明), who coined "balance-sheet recession" (資產負債表衰退) to describe a situation where the private sector collectively deleverages regardless of monetary conditions.</p>
+
+      <p>The Lost Decade (失落的十年) lasted closer to two. Japan's GDP growth averaged below 1% annually through the 1990s and 2000s. Three structural lessons emerged for investors worldwide. First, entry valuation matters enormously: in 1989, Japanese stocks traded at P/E (市盈率) ratios of 60–80×, pricing in growth the economy could not deliver. Second, monetary easing cannot compensate for a balance-sheet recession &mdash; the BOJ could print money, but it could not make indebted firms want to borrow. Third, recovery from asset-price collapses is measured in decades, not years. Abenomics (安倍經濟學) &mdash; launched from 2012 with massive quantitative easing, fiscal stimulus, and structural reform &mdash; finally pushed the Nikkei above its 1989 peak only in early 2024 &mdash; 35 years later.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The price you pay at entry matters more than the quality of the asset — Japan's economy was not bad, but its assets were priced for perfection in a country entering demographic decline.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is a "balance-sheet recession" as defined by Richard Koo, and why does conventional monetary policy (cutting interest rates) fail to stimulate an economy in that condition?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A balance-sheet recession occurs when an asset-price collapse leaves a significant portion of the private sector technically insolvent &mdash; holding debts worth more than their assets. The rational response for households and firms is to use every available dollar of income to pay down debt rather than borrow or invest, regardless of how low interest rates fall. Conventional monetary policy works by making borrowing cheaper &mdash; but when no one wants to borrow (because the priority is deleveraging rather than expansion), lowering the cost of credit has no transmission mechanism into the real economy. Richard Koo's insight, drawn directly from Japan, was that fiscal stimulus &mdash; government borrowing to offset private-sector deleveraging &mdash; is the only effective policy tool, because the government is the only agent willing to borrow and spend when the private sector will not.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Koo, R. (2008), <em>The Holy Grail of Macroeconomics: Lessons from Japan's Great Recession</em> (Wiley); Krugman, P. (1998), "It's Baaack: Japan's Slump and the Return of the Liquidity Trap," <em>Brookings Papers on Economic Activity</em>; Wood, C. <em>The Bubble Economy</em> (Atlantic Monthly Press, 1992).</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>Theory in the Wild: Moral Hazard (道德風險) and Too Big to Fail — When the Safety Net Becomes the Problem</h2>
+
+      <details class="predict-box">
+        <summary>🤔 Predict Before You Read</summary>
+        <div class="predict-q">If a bank knows the government will rescue it if it fails, how do you think that changes the risks it is willing to take — and can you think of a policy that tried to fix this and may have made it worse?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Seal_of_the_United_States_Federal_Reserve_System.svg/250px-Seal_of_the_United_States_Federal_Reserve_System.svg.png" alt="Seal of the Federal Reserve System" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Seal of the U.S. Federal Reserve System (聯邦儲備系統) &mdash; at the centre of the Too Big to Fail debate since Continental Illinois (1984). &mdash; <a href="https://en.wikipedia.org/wiki/Federal_Reserve" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CD; Event</div>
+        <div class="pe-body">In October 2008, the U.S. government injected $700 billion into the financial system via TARP (Troubled Asset Relief Program, 問題資產救助計劃), bailing out institutions whose reckless leverage had triggered the crisis. The implicit message had been established decades earlier: institutions deemed "systemically important" (系統重要性機構) would not be allowed to fail &mdash; embedded in Federal Reserve (聯邦儲備) practice at least since the 1984 Continental Illinois rescue, when regulators explicitly told Congress that the 11 largest U.S. banks were "too big to fail."</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Moral hazard (道德風險, Pauly 1968) predicts that when actors are insulated from the costs of their risks, they take more risks than is socially optimal. FDIC deposit insurance (存款保險) reduces bank runs but also reduces depositors' incentive to monitor bank risk. "Too Big to Fail" (大到不能倒) extends this logic: if management expects a government backstop, it under-prices systemic risk and over-levers its balance sheet &mdash; knowing that upside accrues to shareholders while catastrophic downside is socialised.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Post-Dodd-Frank (2010), which introduced "orderly liquidation authority" intended to make TBTF wind-downs credible, U.S. banking concentration has <em>increased</em>: the six largest banks now hold a greater share of national assets than before 2008. The IMF (國際貨幣基金組織) estimated the implicit TBTF subsidy &mdash; cheaper borrowing costs for designated systemically important institutions &mdash; at $70–90 billion annually in 2014. The safety net appears to have grown, not shrunk.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Admati &amp; Hellwig (<em>The Bankers' New Clothes</em>, 2013) argue the problem is not moral hazard alone but a capital structure problem: banks are allowed to operate on 3–5% equity capital, making insolvency nearly inevitable in a serious downturn without taxpayer intervention. Their solution &mdash; requiring 20–30% equity &mdash; would eliminate the need for bailouts without requiring regulators to credibly threaten failure, which markets have never believed anyway. Open question: no major economy has tested whether TBTF guarantees can be credibly removed once embedded.</div>
+      </div>
+
+      <div class="source">&#x1F4D6; Pauly, M.V. (1968), <em>American Economic Review</em>; Admati, A. &amp; Hellwig, M. (2013), <em>The Bankers' New Clothes</em> (Princeton UP); IMF <em>Global Financial Stability Report</em> (April 2014), Ch. 3.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 — Stoicism meets Attachment Theory:</strong> Epictetus argued that true freedom comes from accepting what is outside your control; Bowlby showed that the capacity to do exactly that &mdash; to engage with the world from a position of equanimity rather than anxiety &mdash; depends on whether, as an infant, you experienced a caregiver as reliably available. Secure attachment doesn't make you dependent; it does the opposite. It builds the internal working model that says "help is possible if I need it," which paradoxically frees you to function independently. The Stoic ideal of serene self-sufficiency, in other words, is not where you start &mdash; it is what secure early relationships make possible.</p>
+      <p><strong>So what:</strong> The most practical Stoic move may be relational, not philosophical: cultivate one or two relationships of genuine reliability, and your capacity to tolerate everything else will quietly expand.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 — Astronomy:</strong> NASA/ESA/CSA JWST NIRCam press release, 12 July 2022 (STScI-2022-035); Pontoppidan et al. (2022), <em>PASP</em> 134(1041).</li>
+      <li><strong>Card 2 — Eastern History:</strong> Paine, S.C.M. <em>The Sino-Japanese War of 1894–1895</em> (Cambridge UP, 2003); 費正清主編《劍橋中國晚清史》; 《馬關條約》原文 (1895).</li>
+      <li><strong>Card 3 — Western History:</strong> Stoye, J. <em>The Siege of Vienna</em> (Collins, 1964); Wheatcroft, A. <em>The Enemy at the Gate</em> (Basic Books, 2008); Davies, N. <em>God's Playground</em> (OUP, 2005).</li>
+      <li><strong>Card 4 — Eastern Philosophy:</strong> 陳來《宋明理學》；馮友蘭《中國哲學史》；Huang, Siu-chi (1944); de Bary &amp; Bloom, <em>Sources of Chinese Tradition</em> Vol. 1 (Columbia UP, 1999).</li>
+      <li><strong>Card 5 — Western Philosophy:</strong> Marcus Aurelius, <em>Meditations</em> (trans. Hays, Modern Library, 2002); Long, A.A. <em>Epictetus</em> (OUP, 2002).</li>
+      <li><strong>Card 6 — Psychology:</strong> Bowlby, J. <em>Attachment</em> Vol. 1 (Basic Books, 1969); Ainsworth et al. <em>Patterns of Attachment</em> (Erlbaum, 1978); Sroufe et al. <em>The Development of the Person</em> (Guilford, 2005).</li>
+      <li><strong>Card 7 — Physiology:</strong> Guyton &amp; Hall, <em>Medical Physiology</em> 14th ed. (Elsevier, 2020); Dempsey et al. (2012), <em>Comprehensive Physiology</em> 2(1); Lindholm &amp; Lundgren (2009), <em>Respir. Physiol. Neurobiol.</em> 165(1).</li>
+      <li><strong>Card 8 — Health:</strong> Laukkanen et al. (2015), <em>JAMA Intern. Med.</em> 175(4); Laukkanen et al. (2018), <em>Eur. Heart J.</em> 39(22); Kunutsor et al. (2018), <em>Ann. Med.</em></li>
+      <li><strong>Card 9 — Sports Science:</strong> Leong et al. (2015), <em>The Lancet</em> 386(9990) (PURE study); Rantanen et al. (2000), <em>Am. J. Epidemiology</em> 152(1); Bohannon (2019), <em>PLOS ONE</em> 14(10).</li>
+      <li><strong>Card 10 — Investing:</strong> Koo, R. (2008), <em>The Holy Grail of Macroeconomics</em> (Wiley); Krugman (1998), <em>Brookings Papers on Economic Activity</em>; Wood, C. (1992), <em>The Bubble Economy</em>.</li>
+      <li><strong>Card 11 — Political Economics:</strong> Pauly (1968), <em>Am. Econ. Rev.</em>; Admati &amp; Hellwig (2013), Princeton UP; IMF <em>GFSR</em> April 2014, Ch. 3.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent entries)</summary>
+    <ul>
+      <li>2026-06-22: JWST Carina Nebula / Cosmic Cliffs | 甲午戰爭 | Siege of Vienna 1683 | 陸九淵心學 | Stoicism | Attachment Theory (Bowlby/Ainsworth) | CO&#x2082; Drive to Breathe | Sauna &amp; Cardiovascular Health | Grip Strength (PURE study) | Japan Lost Decade / Balance-Sheet Recession | Moral Hazard &amp; Too Big to Fail</li>
+      <li>2026-06-21: Hubble Ultra Deep Field | 崖山之戰 | Abolition Atlantic Slave Trade 1807 | 王夫之氣本論 | Schopenhauer | Embodied Cognition/Facial Feedback | Muscle Fiber Types | Magnesium | Mobility vs Flexibility | Private Equity LBO | Central Bank Independence</li>
+    </ul>
+  </details>
+  <p style="margin-top:1rem;">Edward's Daily Learning &mdash; 22 June 2026</p>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+
+<script>
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-22.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-22.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+
+<script src="bm.js"></script>
+</body>
+</html>
