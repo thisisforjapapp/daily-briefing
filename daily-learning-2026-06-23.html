@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning &mdash; 23 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.img-fallback{font-size:3.5rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+
+/* ===== Bookmark feature ===== */
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+
+/* navfix */
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim,#3a6a9a);}
+.side-nav{display:none;}
+@media(min-width:900px){
+.side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+.side-nav ul{list-style:none;margin:0;padding:0;}
+.side-nav li{margin-bottom:.35rem;}
+.side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+.side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+.toc-bar{display:none;}
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Tuesday, 23 June 2026 &middot; ~22 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">🔭 Astronomy</a>
+    <a class="toc-pill" href="#card-2">⛩ 東方歷史</a>
+    <a class="toc-pill" href="#card-3">🏛 Western History</a>
+    <a class="toc-pill" href="#card-4">☯ 東方哲學</a>
+    <a class="toc-pill" href="#card-5">🌿 W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">🧠 Psychology</a>
+    <a class="toc-pill" href="#card-7">🫀 Physiology</a>
+    <a class="toc-pill" href="#card-8">💊 Health</a>
+    <a class="toc-pill" href="#card-9">🏋 Sports Science</a>
+    <a class="toc-pill" href="#card-10">📈 Investing</a>
+    <a class="toc-pill" href="#card-11">⚖️ Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">🔭 Astronomy</a></li>
+      <li><a href="#card-2">⛩ 東方歷史</a></li>
+      <li><a href="#card-3">🏛 Western History</a></li>
+      <li><a href="#card-4">☯ 東方哲學</a></li>
+      <li><a href="#card-5">🌿 W. Philosophy</a></li>
+      <li><a href="#card-6">🧠 Psychology</a></li>
+      <li><a href="#card-7">🫀 Physiology</a></li>
+      <li><a href="#card-8">💊 Health</a></li>
+      <li><a href="#card-9">🏋 Sports Science</a></li>
+      <li><a href="#card-10">📈 Investing</a></li>
+      <li><a href="#card-11">⚖️ Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday&#x27;s Spark</h2>
+      <p class="spark-meta">From <em>22 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &amp; Cosmos &mdash; JWST Carina Nebula / Cosmic Cliffs</span>
+        <em>Answer this without looking back:</em> What property of infrared light allows JWST to see through the dust clouds that block visible light instruments like Hubble, and what specifically was revealed in the Carina Nebula that had been entirely hidden before?
+        <details><summary>Check your answer</summary><div class="answer">Infrared radiation has longer wavelengths than visible light. Dust particles in nebulae scatter and absorb visible wavelengths but are largely transparent to infrared &mdash; the longer waves pass through the dust grains rather than bouncing off them. JWST&rsquo;s NIRCam detects this infrared emission with extraordinary sensitivity, allowing it to pierce the opaque dust walls and image hot young stars and protostars glowing within. In the Carina Nebula specifically, Webb revealed dozens of previously unknown protostellar jets &mdash; streams of superheated gas ejected by newly forming stars embedded in the dust pillars. These jets were entirely invisible to Hubble because the dust columns blocked all optical light from reaching outside the nebula.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 甲午戰爭</span>
+        <em>讀後回想：</em>黃海海戰中，日本聯合艦隊憑藉什麼戰術優勢壓制北洋艦隊？北洋艦隊的根本失敗又源於哪些制度性弱點，而非單純的技術差距？
+        <details><summary>查看答案</summary><div class="answer">日本聯合艦隊以較高航速實施機動集火戰術，集中優勢火力逐一擊毀分散的北洋各艦，而北洋艦隊因橫陣佈陣、指揮混亂，未能有效應對速度優勢。決定性因素卻是制度性的：彈藥庫存嚴重不足，部分炮彈品質低劣甚至以砂石充數；訓練廢弛，各艦指揮官無法協同作戰；洋務派以採購替代制度建設，北洋艦隊的現代化停留於器物層面，無法轉化為有組織的持續戰鬥力。</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; History &mdash; Western &mdash; Siege of Vienna 1683</span>
+        <em>Answer this without looking back:</em> Why was the Ottoman siege strategy at Vienna strategically flawed, and what made Jan Sobieski&rsquo;s cavalry charge so decisive at the moment it arrived?
+        <details><summary>Check your answer</summary><div class="answer">Kara Mustafa chose a slow siege by mining and attrition rather than an immediate overwhelming assault, giving the Holy League weeks to mobilise &mdash; a critical miscalculation born of overconfidence in Ottoman numerical superiority. He also failed to adequately fortify his rear against a relief army. The Winged Hussar charge was decisive because it struck the Ottoman camp late in the day, when assault troops were exhausted and supply lines already overstretched. The cavalry&rsquo;s speed shattered unit cohesion before infantry could reform defensive lines; the controlled retreat became an uncontrollable rout within hours.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 陸九淵心學</span>
+        <em>讀後回想：</em>陸九淵在鵝湖之會中如何批評朱熹的格物方法，而朱熹又如何還擊？兩者的根本分歧指向什麼哲學問題？
+        <details><summary>查看答案</summary><div class="answer">陸九淵批評朱熹格物路線「支離」——逐一考察外部事物耗費精力，卻繞開了道德修養的核心：當下「發明本心」。他認為「理」本已在吾心之中，任何外部格物都是多餘的中間環節。朱熹則反指陸九淵的路線粗疏，忽略了文本訓詁與知識積累的必要性，容易流於主觀臆斷。根本分歧在於：道德知識的來源是先天的（內在於心，心學立場）還是後天的（需通過格物外求，理學立場）。</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Philosophy &mdash; Western &mdash; Stoicism</span>
+        <em>Answer this without looking back:</em> What is the Stoic &ldquo;dichotomy of control,&rdquo; and how did the specific life circumstances of Epictetus and Marcus Aurelius serve as a proof-of-concept for the power of this principle from opposite extremes?
+        <details><summary>Check your answer</summary><div class="answer">The dichotomy of control distinguishes between what is &ldquo;up to us&rdquo; &mdash; our opinions, judgements, desires, and choices &mdash; and what is not: everything external, including body, reputation, health, and death. Epictetus demonstrated this from the extreme of enslavement: his master could break his leg but could not touch his rational will. Marcus Aurelius demonstrated it from the opposite extreme of absolute power: emperor of the known world, he faced plagues, wars, and personal loss, yet his private journal shows a man relentlessly practising the discipline of accepting outcomes outside his control while rigorously attending to his own responses.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Attachment Theory</span>
+        <em>Answer this without looking back:</em> What is Bowlby&rsquo;s &ldquo;internal working model,&rdquo; and why does the avoidant attachment pattern in the Strange Situation challenge the commonsense assumption that children who appear indifferent to separation are simply independent?
+        <details><summary>Check your answer</summary><div class="answer">The internal working model is a cognitive-emotional schema built from early attachment experiences &mdash; a set of expectations about whether others will respond to one&rsquo;s needs, and whether the self is worthy of care. Avoidant infants who appear &ldquo;independent&rdquo; actually show elevated heart rate and cortisol throughout the Strange Situation procedure &mdash; their physiological stress response is fully activated. Their indifference is a learnt inhibition of attachment behaviour, not genuine security. True security is demonstrated by the ability to seek comfort and be comforted, not by the absence of distress.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; CO&#x2082; Drive to Breathe</span>
+        <em>Answer this without looking back:</em> Why is deliberately hyperventilating before a breath-hold dive dangerous, and which chemoreceptor mechanism does this exploit in a way that creates a hidden risk?
+        <details><summary>Check your answer</summary><div class="answer">Hyperventilation before a dive flushes CO&#x2082; from the blood, lowering arterial PCO&#x2082; well below normal. Since it is rising PCO&#x2082; &mdash; not falling O&#x2082; &mdash; that drives the urge to breathe, the diver can extend a dive far beyond the safe limit before feeling the need to surface. But oxygen continues to be consumed throughout the dive. With PCO&#x2082; still low, arterial PO&#x2082; can fall to unconsciousness-inducing levels &mdash; below 40&ndash;30 mmHg &mdash; without any subjective warning. The diver loses consciousness underwater with no warning sensation of distress.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Sauna &amp; Cardiovascular Health</span>
+        <em>Answer this without looking back:</em> What physiological mechanisms might explain the cardiovascular benefit of sauna use, and why is the Laukkanen cohort study alone not sufficient to establish causation?
+        <details><summary>Check your answer</summary><div class="answer">During a sauna session, heat triggers cutaneous vasodilation and a rise in cardiac output comparable to moderate aerobic exercise. Repeated sessions may improve arterial compliance, reduce arterial stiffness, and induce heat shock protein production. However, the Laukkanen study is a prospective observational cohort: it measured what people already chose to do rather than randomly assigning them to different sauna frequencies. Healthy, physically active, socially connected people are more likely to use saunas frequently, and these lifestyle differences may account for some or all of the cardiovascular benefit observed.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Grip Strength as Health Predictor</span>
+        <em>Answer this without looking back:</em> Why does grip strength predict cardiovascular mortality more strongly than blood pressure in the PURE study, and what does this suggest about what grip strength is actually measuring?
+        <details><summary>Check your answer</summary><div class="answer">Grip strength&rsquo;s predictive power exceeds blood pressure&rsquo;s because it is a composite biomarker that integrates multiple physiological systems simultaneously. Blood pressure reflects cardiovascular load at one moment and can be chemically normalised by medication without changing underlying health. Grip strength, by contrast, reflects the cumulative functional state of skeletal muscle mass, mitochondrial health, hormonal environment, systemic inflammation, and nutritional status &mdash; all independently associated with cardiovascular outcomes. It is a marker of overall physiological capacity, not a single-organ measurement.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &amp; Economic Thinking &mdash; Japan Lost Decade / Balance-Sheet Recession</span>
+        <em>Answer this without looking back:</em> What is a &ldquo;balance-sheet recession&rdquo; as defined by Richard Koo, and why does conventional monetary policy (cutting interest rates) fail to stimulate an economy in that condition?
+        <details><summary>Check your answer</summary><div class="answer">A balance-sheet recession occurs when an asset-price collapse leaves a significant portion of the private sector technically insolvent &mdash; holding debts worth more than their assets. The rational response is to use every available dollar of income to pay down debt rather than borrow or invest, regardless of how low interest rates fall. Conventional monetary policy works by making borrowing cheaper &mdash; but when no one wants to borrow (because the priority is deleveraging rather than expansion), lowering the cost of credit has no transmission mechanism into the real economy. Fiscal stimulus &mdash; government borrowing to offset private-sector deleveraging &mdash; is the only effective policy tool in this condition.</div></details>
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Another World&rsquo;s Wright Brothers Moment: How NASA&rsquo;s Ingenuity Helicopter (機智號) Conquered the Martian Sky</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before Ingenuity attempted its first flight on Mars in April 2021, engineers calculated it would need to spin its rotors many times faster than any helicopter on Earth. Why would the Martian air make powered flight so much harder?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Perseverance-Selfie-at-Rochette-Horizontal-V2.gif" alt="Perseverance rover selfie at Rochette rock on Mars" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Perseverance rover selfie at the Rochette rock target, Jezero Crater, Mars (2021). &mdash; <a href="https://en.wikipedia.org/wiki/Perseverance_(rover)" style="color:inherit">Wikimedia Commons / NASA/JPL-Caltech/MSSS</a></div>
+      </div>
+
+      <p>On 19 April 2021, a small carbon-fibre helicopter named Ingenuity (機智號) lifted off from the Jezero Crater (耶澤羅隕石坑) on Mars (火星) and hovered for 39.1 seconds at an altitude of three metres. It was the first powered, controlled flight on another planet in human history &mdash; and the achievement nearly wasn&rsquo;t possible. The Martian atmosphere (火星大氣層) is about 99% thinner than Earth&rsquo;s sea-level air, equivalent in density to Earth&rsquo;s atmosphere at roughly 27 kilometres altitude &mdash; well above where any terrestrial helicopter has ever flown. At those densities, conventional helicopter blades would generate almost no lift whatsoever. The engineering solution was elegant: spin two counter-rotating rotors at approximately 2,400 revolutions per minute &mdash; roughly five times faster than a typical helicopter on Earth &mdash; and build each blade from ultra-light carbon-fibre foam composites to maximise the lift-to-weight ratio in the near-vacuum Martian air. The entire craft weighed just 1.8 kilograms.</p>
+
+      <p>Ingenuity arrived on Mars strapped to the belly of the Perseverance rover (毅力號火星車), which had landed in Jezero Crater on 18 February 2021. Jezero is an ancient river delta (古河流三角洲) where water once flowed into a lake billions of years ago &mdash; making it one of the most scientifically promising sites ever selected for Mars exploration. After Perseverance drove to a flat clearing named Wright Brothers Field &mdash; a deliberate homage to the first powered aircraft flight at Kitty Hawk (小鷹鎮) in 1903 &mdash; and gently lowered Ingenuity to the ground, the helicopter executed a five-flight demonstration campaign. The first flight lasted 39 seconds; by the fourth, it had achieved controlled horizontal movement, and by the fifth it had navigated an outward and return journey. What was originally designed as a short technology demonstration performed so spectacularly that NASA extended Ingenuity&rsquo;s mission indefinitely, pivoting it to an operational scouting role. By early 2024, it had completed over 70 flights covering more than 17 kilometres before contact was finally lost in January 2024.</p>
+
+      <p>The data Perseverance is collecting from Jezero&rsquo;s ancient delta floor represents one of the most ambitious astrobiology (天體生物學) missions in history. The rover has been drilling and caching rock core samples that, if returned to Earth by the planned Mars Sample Return mission (火星樣品返回任務), could finally answer whether microbial life ever existed on Mars &mdash; a question for which science has no definitive answer. Early Perseverance finds include rocks containing complex organic molecules (有機分子) and evidence of past hydrothermal activity, which significantly raises scientific interest. Ingenuity&rsquo;s aerial reconnaissance aided the rover by imaging terrain inaccessible from the ground and identifying scientifically interesting outcrops weeks ahead of the rover&rsquo;s actual arrival. Together they represented not just a technological milestone, but a working preview of what sustained robotic presence on another world can eventually achieve: a methodical search for life&rsquo;s signatures across a planet that, 3.5 billion years ago, may have looked much more like home.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Ingenuity proved that powered aviation is possible on Mars &mdash; a proof of concept that directly enables future missions, from cargo drones to human habitat transport on the Red Planet.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did Ingenuity&rsquo;s rotors need to spin roughly five times faster than a helicopter on Earth, and what specific engineering challenge did the near-vacuum Martian atmosphere impose on the rotor blade design?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Martian atmosphere is approximately 99% thinner than Earth&rsquo;s sea-level atmosphere. Lift is generated by rotor blades pushing air downward; the thinner the air, the fewer air molecules are deflected per revolution. To generate sufficient lift in the near-vacuum Martian air, Ingenuity&rsquo;s rotors must spin at ~2,400 rpm &mdash; roughly five times the speed of a terrestrial helicopter &mdash; to push enough of the thin gas downward to support its weight. The blade design challenge was structural: at those rotational speeds, conventional blade materials would be too heavy relative to the lift they could generate. Carbon-fibre composite blades were essential because they are extremely light while remaining stiff enough to withstand the aerodynamic and centrifugal forces at high rpm without structural failure.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; NASA/JPL Ingenuity Mars Helicopter mission overview; Balaram, J. et al. (2021), &ldquo;Ingenuity: The Mars Helicopter,&rdquo; <em>AIAA SciTech Forum</em>; Farley, K.A. et al. (2020), &ldquo;Mars 2020 Mission Overview,&rdquo; <em>Space Science Reviews</em>, 216(142).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY (Traditional Chinese, Japan Edo/Rangaku period) -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>蘭學之眼：杉田玄白如何在一夜解剖中，打開江戶日本的知識視窗（1774年）</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">一群幾乎不懂荷蘭文的日本醫師，僅憑一冊西洋解剖學圖譜，在刑場目睹解剖之後決定翻譯這本書。你認為他們克服語言障礙的方式是什麼？最終成果對日本醫學術語留下了什麼具體影響？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物、事件與大局</span>
+        <p><strong>人物：</strong>杉田玄白（1733–1817年）、前野良沢（1723–1803年）、中川淳庵；荷蘭解剖學家 Johann Adam Kulmus 原著《ターヘル・アナトミア》</p>
+        <p><strong>事件：</strong>1771年3月4日，江戶小塚原刑場解剖見學；翻譯工作歷時三年；1774年出版日本首部完整西洋解剖學譯著《解體新書》</p>
+        <p><strong>大局：</strong>江戶時代鎖國體制（1635–1853年）下，幕府僅許荷蘭通過長崎出島與日本貿易；由此產生的「蘭學」（蘭学）——荷蘭學問——成為日本吸收西方科學的唯一管道，深刻影響幕末知識精英，為明治維新的知識基礎奠定根基</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Kaitai_shinsyo01.jpg" alt="解體新書封頁" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《解體新書》（1774年）封頁，日本首部完整翻譯自西洋的解剖學著作。&mdash; <a href="https://en.wikipedia.org/wiki/Kaitai_Shinsho" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>1771年3月4日清晨，杉田玄白與前野良沢來到江戶小塚原刑場，親眼目睹了一具被處決囚犯的遺體解剖。他們隨身攜帶的是一冊珍貴的荷蘭文解剖圖譜——Johann Adam Kulmus 所著《ターヘル・アナトミア》（Ontleedkundige Tafelen，解剖學圖解）。負責解剖的「腑分師」以純熟的刀法將人體器官一一呈現。杉田玄白等人對照圖譜，震驚地發現：書中對人體結構的描繪精確無誤，而他們所受傳統漢方醫學教育中的人體知識，卻與眼前的實物大相逕庭。這一夜的解剖，從根本上動搖了他們對「醫學知識應以何為準」的理解，也成為日本近代科學史上最具決定性的單一時刻之一。</p>
+
+      <p>回家後，前野良沢與杉田玄白立即着手翻譯那冊荷蘭文圖譜。前野有一定的荷蘭文基礎，但整個小組幾乎無人能流利閱讀荷蘭文——翻譯工作以字典逐字比對、圖像對照與邏輯推斷為主要方法。杉田玄白後來在回憶錄《蘭學事始》（1815年）中，將這段歷程比作「在夜海中駕一葉扁舟，無槳無舵」。三年艱辛工作之後，1774年出版的《解體新書》成為日本第一部完整翻譯自西洋的解剖學著作，插圖精細，術語嚴謹。其中許多解剖學漢字——「神経」（神經）、「軟骨」（軟骨）、「動脈」（動脈）、「靜脈」（靜脈）——由譯者創製或固定化，直接被中文、韓文現代醫學沿用至今，構成整個東亞現代醫學術語體系的共同基礎。</p>
+
+      <p>《解體新書》的出版，開啟了日本蘭學的黃金時代。蘭學者的範圍迅速從醫學擴展至天文、地理、砲術、物理、化學。高野長英、緒方洪庵創辦蘭學私塾，培育出後來主導明治維新的一批知識精英——福澤諭吉早年即就讀於緒方洪庵的「適塾」，日後成為明治啟蒙運動的核心思想家。從某種意義上說，明治時代的迅速現代化，其知識根基早在一個世紀前的杉田玄白翻譯桌上已悄然奠定。鎖國體制並未令日本完全與世界隔絕；它只是把一扇窗縮窄成一條縫——而蘭學者便從那條縫裡，窺見了整個近代科學的輪廓。</p>
+
+      <div class="takeaway">&#x1F4A1; 知識的轉捩點往往不在制度，而在少數人願意用眼前的現實來質疑書本上的權威。杉田玄白在刑場上所見的那一刻，便是日本近代知識史的起點。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>杉田玄白與前野良沢翻譯《解體新書》時面臨什麼語言困難，而這部著作對東亞醫學術語體系留下了哪些至今可見的具體遺產？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">翻譯小組幾乎不懂荷蘭文，主要依靠字典逐字比對、圖像對照與邏輯推斷，前野良沢雖有初步荷蘭文基礎但亦非流利。翻譯工作歷時三年，杉田玄白形容如同在無槳無舵的扁舟上橫越夜海。《解體新書》最重要的遺產，是確立了一套漢字解剖學詞彙：「神経」「軟骨」「動脈」「靜脈」等由譯者創製或固定化的術語，直接被中文、韓文現代醫學採用，構成整個東亞現代醫學術語體系的共同基礎，影響延續至今。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; 杉田玄白《蘭學事始》（1815年）；Screech, T. (2002), <em>The Lens within the Heart</em>, Ch. 7 (University of Hawaii Press); Keene, D. (1969), <em>The Japanese Discovery of Europe</em>, Ch. 3 (Stanford UP); 芳賀徹《洋學者の系譜》（中公新書，1987年）</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Charter That Kings Couldn&rsquo;t Kill: How Magna Carta (大憲章) Survived to Become the Foundation of Constitutional Law</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">King John signed Magna Carta under extreme duress and immediately tried to renounce it. Pope Innocent III declared it &ldquo;null, void, and unjust.&rdquo; England promptly descended into civil war. And yet here we are. What kept this document alive?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures, Event, and Big Picture</span>
+        <p><strong>Key figures:</strong> King John (約翰王, r. 1199&ndash;1216), Archbishop Stephen Langton (坎特伯雷大主教蘭頓), the rebel English barons; Pope Innocent III (英諾森三世)</p>
+        <p><strong>Event at stake:</strong> The rebel barons forcing King John to seal Magna Carta at Runnymede (蘭尼米德) on 15 June 1215, its immediate repudiation by both king and pope, and how later reissues transformed a failed political settlement into the cornerstone of constitutional government</p>
+        <p><strong>Big picture:</strong> England&rsquo;s monarchy had accumulated extreme fiscal pressure through John&rsquo;s catastrophic wars in France and crushing taxation; the barons&rsquo; rebellion was part constitutional principle, part aristocratic self-interest &mdash; but the document they produced outlasted every one of their intentions</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg/330px-Magna_Carta_%28British_Library_Cotton_MS_Augustus_II.106%29.jpg" alt="Magna Carta original document, British Library" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Magna Carta, 1215 (Cotton MS Augustus II.106), British Library. &mdash; <a href="https://en.wikipedia.org/wiki/Magna_Carta" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>On 15 June 1215 at Runnymede (蘭尼米德), a meadow beside the River Thames (泰晤士河), King John (約翰王) placed his seal on a charter that the rebel barons had forced upon him. The document &mdash; Magna Carta (大憲章), the Great Charter &mdash; contained 63 clauses regulating feudal obligations, church rights, and legal procedures. Most famously in retrospect: clauses 39 and 40 declared that &ldquo;no free man shall be seized, imprisoned, dispossessed, outlawed, exiled or ruined in any way, nor in any way proceeded against, except by the lawful judgment of his peers and the law of the land&rdquo; and that &ldquo;to no one will we sell, to no one deny or delay right or justice.&rdquo; John had arrived at Runnymede after years of catastrophe: his defeat at Bouvines (布汶戰役) in 1214 had stripped England of Normandy (諾曼第), Anjou (安茹), and most Angevin (安茹王朝) possessions in France, and his desperate taxation to fund these failed wars had made him the most despised king in living English memory.</p>
+
+      <p>The ink was barely dry before both sides abandoned it. John immediately dispatched messengers to Pope Innocent III (英諾森三世), his feudal overlord, requesting annulment. Innocent obliged without hesitation, declaring Magna Carta &ldquo;null, void, harmful, shameful and reprehensible.&rdquo; John died of dysentery fifteen months later, with England in civil war and the rebel barons having invited the French prince Louis (路易王子) to take the English throne. And yet the charter survived &mdash; because it was politically indispensable to John&rsquo;s nine-year-old successor, Henry III (亨利三世), whose regency council desperately needed baronial support to hold the throne. Magna Carta was reissued in 1216, revised and reissued again in 1217, and a definitive version enrolled into the statute books in 1225. What had been a one-off emergency settlement became, through repeated reissue under different circumstances, a constitutional fixture that could no longer simply be reversed.</p>
+
+      <p>The long-term significance of Magna Carta had little to do with what John&rsquo;s barons actually wanted &mdash; which was largely to protect their own feudal privileges &mdash; and everything to do with how later lawyers and parliamentarians chose to read it. In the seventeenth century, Sir Edward Coke (愛德華·科克爵士), Chief Justice and later parliamentary opponent of Charles I (查理一世), cited clauses 39 and 40 as precedent for habeas corpus (人身保護令) and the principle that even the king was subject to law. This reading was legally contestable &mdash; Coke was projecting modern ideas onto a medieval text &mdash; but it proved politically transformative. The Petition of Right (1628), the English Bill of Rights (1689), the American Declaration of Independence (美國獨立宣言, 1776), and the Universal Declaration of Human Rights (世界人權宣言, 1948) all trace part of their intellectual lineage back to Runnymede. A document repudiated within weeks of its sealing became, over eight centuries, the symbolic foundation of constitutional government across the Anglophone world.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Magna Carta&rsquo;s true power came not from what it said in 1215 but from how later generations chose to read it &mdash; constitutional principles are living interpretations, not fixed texts.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why did Magna Carta survive despite King John and Pope Innocent III repudiating it almost immediately after sealing, and what gave clauses 39 and 40 their extraordinary later constitutional significance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Magna Carta survived because it was politically indispensable to the regency council of Henry III &mdash; a nine-year-old king who needed baronial support to hold his throne &mdash; leading to reissues in 1216, 1217, and a definitive 1225 version incorporated into statute. Once in statute, it became a legal touchstone that could not simply be reversed. Its later constitutional significance came from seventeenth-century lawyer Edward Coke&rsquo;s creative reinterpretation of clauses 39 and 40 as establishing habeas corpus and the rule of law &mdash; the idea that the king himself is subject to law and cannot imprison subjects without legal process. This reading was historically contestable but politically transformative, providing intellectual foundation for the Petition of Right, the English Bill of Rights, and ultimately the American constitutional tradition.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Holt, J.C. <em>Magna Carta</em>, 3rd ed. (Cambridge UP, 2015); Turner, R.V. <em>King John</em> (Longman, 1994); Breay, C. &amp; Harrison, J. (eds.) <em>Magna Carta: Law, Liberty, Legacy</em> (British Library, 2015).</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY (Traditional Chinese) -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>聖人無情，而應物無累——王弼如何用「無」重建魏晉玄學的哲學語言</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">漢代儒學在政治潰敗面前日益失效，三國時代的知識精英迫切需要一套新的哲學語言。一位二十三歲便英年早逝的學者，提出了以「無」為核心的答案。你認為這個「無」究竟是什麼意思？</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物、思想與大局</span>
+        <p><strong>人物：</strong>王弼（226–249 CE）、何晏（196–249 CE）；三國時代曹魏政權；「正始名士」（「竹林七賢」前身）</p>
+        <p><strong>思想焦點：</strong>以「無」為萬物之本的形上學；「得意忘象」的《易》學詮釋法；「聖人有情乎？」的人性論辯題；玄學如何打通儒道兩家</p>
+        <p><strong>大局：</strong>漢代「天人感應」宇宙論在東漢末年政治潰敗中失去公信力；玄學以老莊為根基，重新詮釋《易》《老》《莊》「三玄」，為魏晉南北朝文化轉型奠基，並間接為禪宗的興起預備思想土壤</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/%E6%9C%A8%E9%90%B8_---_Confucian_wooden-clapper_bell.svg/960px-%E6%9C%A8%E9%90%B8_---_Confucian_wooden-clapper_bell.svg.png" alt="儒家木鐸象徵" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">木鐸——儒家傳道的象徵，魏晉玄學在此傳統上進行根本性的重建。&mdash; <a href="https://en.wikipedia.org/wiki/Xuanxue" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>漢末以來，「天人感應」的經學宇宙論在政治潰敗的現實面前日益顯得空洞——董卓亂政、群雄割據，上天未見任何感應。三國時代的知識精英迫切需要一套新的哲學語言，既能解釋秩序崩壞，又能提供個人安身立命的依據。王弼字輔嗣，山陽高平人，出身士族，以犀利的思辨能力著稱於當世。他的核心洞見濃縮為一個字：「無」。王弼認為，萬物之所以存在、運動、互相關聯，根本原因不是某一具體的「有」（存在者），而是「無」本身——那個不可名狀、無形無象的本體，即老子所謂「道」。這不是說「無」等於虛無主義，而是說「有」的秩序根植於超越一切具體規定性的「無」之中。王弼的「無」是一個積極的形上學概念：它是萬物之所以可能的條件，而非萬物的否定。</p>
+
+      <p>王弼將這一洞見系統地應用於《易經》詮釋。漢代易學充斥着繁瑣的象數推算，王弼的《周易注》卻主張「得意忘象」——卦象只是載體，理解其「意」之後便可放下具體符號。這一詮釋策略打破了漢儒象數易學的封閉體系，將《易》的討論重心從「占驗」轉向了哲學問題：宇宙秩序是如何可能的，人應如何在此秩序中自處？同樣重要的是他對《老子》的注解：他一反漢人「黃老治術」的政治化詮釋，強調《老子》所言「無為」的形上基礎——統治者之所以能「治大國若烹小鮮」，是因為他體悟到「無」為萬物之本，從而不以一己意志強加於萬物，令一切各得其性。「無為」因此是本體論的洞見的實踐結果，而非政治操術的消極不作為。</p>
+
+      <p>何晏則從另一角度補充了玄學的人性論維度。他討論「聖人有情乎？」的問題，提出「聖人無情，而應物無累」——不是說聖人沒有情感，而是說聖人的情感不被外物所牽累，能夠恰如其分地回應萬事而不喪失心靈的平靜。這一命題與王弼的「得意忘象」相呼應：真正的智慧不是壓抑情感，而是讓心靈不被具體執著所束縛，保持與「無」之本體的聯繫。兩人均於249年「高平陵之變」後死去——司馬懿奪權，何晏被殺，王弼同年病逝，年僅二十三。然而他們開創的玄學話語，通過嵇康、阮籍、郭象等人深刻影響了魏晉南北朝的文化氣象，也為禪宗「不立文字、直指人心」的核心旨趣預備了哲學土壤。</p>
+
+      <div class="takeaway">&#x1F4A1; 王弼的「無」不是虛無主義，而是認識論的謙遜——提醒我們，秩序的根基往往在於我們看不見的地方，語言和符號只是通往真義的橋樑，而非真義本身。</div>
+
+      <div class="retrieval-q"><em>讀後回想：</em>王弼「得意忘象」的詮釋方法如何從根本上改變了漢代易學的問題意識，而他的《老子注》又如何重新定義了「無為」的哲學含義，使之有別於漢代黃老治術？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">漢代象數易學的核心關注是通過複雜的符號體系推算吉凶——即「占驗」功能。王弼的「得意忘象」主張卦象只是傳達「意」的媒介，理解意旨後符號可以放下，由此將易學問題意識從「如何正確解讀符號」轉向「宇宙秩序的形上根基是什麼」，打通了《易》與老莊的會通。在《老子注》中，他將「無為」從黃老治術的政治技巧（以退讓和消極控制達到統治目的）重新界定為形上學洞見的實踐結果：統治者之所以能「無為而治」，是因為他體認到「無」為萬物之本，不以一己具體意志強加於萬物，令一切各得其性——這是本體論的「無為」，而非政治操術的消極不作為。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Wagner, R.G. (2003), <em>A Chinese Reading of the Daodejing: Wang Bi&rsquo;s Commentary</em> (SUNY Press); Lynn, R.J. (1994), <em>The Classic of Changes: A New Translation of the I Ching as Interpreted by Wang Bi</em> (Columbia UP); 余英時《士與中國文化》（上海人民出版社，2003年）</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Leap in the Dark: Kierkegaard&rsquo;s (齊克果) Three Stages of Existence and the Question No Philosopher Before Him Would Ask</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most philosophers before Kierkegaard asked: &ldquo;What is true?&rdquo; or &ldquo;What is good?&rdquo; Kierkegaard asked something that his contemporaries considered too personal for serious philosophy to address. What do you think that question was?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figure, Problem, and Big Picture</span>
+        <p><strong>Key figure:</strong> S&oslash;ren Kierkegaard (齊克果, 1813&ndash;1855), Danish philosopher and theologian writing under multiple pseudonyms; responding directly to Hegel&rsquo;s (黑格爾) rationalist system and Danish state Christianity</p>
+        <p><strong>Problem at stake:</strong> Can reason alone guide a person to a meaningful life? Or is there something beyond rational argument &mdash; something irreducibly individual &mdash; that human existence ultimately demands?</p>
+        <p><strong>Big picture:</strong> Early nineteenth-century Copenhagen was intellectually dominated by Hegelian rationalism, which claimed that reason could systematically comprehend all of reality &mdash; including ethics, history, and religion. Kierkegaard found this magnificent in ambition and profoundly empty on the question he considered most urgent: how should <em>I</em> live?</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/S%C3%B8ren_Kierkegaard_%281813-1855%29_-_%28cropped%29.jpg" alt="Portrait of Søren Kierkegaard" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">S&oslash;ren Kierkegaard (1813&ndash;1855), portrait by Niels Christian Kierkegaard, c. 1840. &mdash; <a href="https://en.wikipedia.org/wiki/S%C3%B8ren_Kierkegaard" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>S&oslash;ren Kierkegaard (齊克果) was born in Copenhagen (哥本哈根) in 1813, the youngest son of a prosperous merchant haunted by guilt and religious melancholy. He studied theology, became briefly engaged to Regine Olsen (蕾緊娜·歐爾森) &mdash; then broke off the engagement, an act that tortured him for the rest of his life &mdash; and spent his remaining years writing with extraordinary intensity under a series of pseudonyms, each representing a different mode of existing. He despised the dominant philosophical project of his day: Hegel&rsquo;s system, which claimed to comprehend all reality &mdash; history, God, the state &mdash; through the rational unfolding of the Absolute Spirit (絕對精神). Kierkegaard found this breathtaking in scope and empty in its most important respect: it said nothing useful to the concrete individual staring at their own life and asking &ldquo;how should <em>I</em> live?&rdquo; A philosophy that dissolved the individual into universal categories had, in Kierkegaard&rsquo;s eyes, abandoned the most important task philosophy could attempt.</p>
+
+      <p>His response was the theory of three stages of existence: the Aesthetic (美學階段), the Ethical (倫理階段), and the Religious (宗教階段). In <em>Either/Or</em> (《非此即彼》, 1843), the aesthetic individual &mdash; depicted through the character &ldquo;A,&rdquo; a sophisticated seducer &mdash; lives in pursuit of sensation, novelty, and beauty. He is ironic, brilliant, and ultimately in despair because no arrangement of pleasures can fill the void; novelty always wears off, and the aesthete is trapped in boredom between stimulations. Judge Wilhelm, the ethical individual, offers a countermodel: duty, commitment, social roles, and universal moral law. He is earnest where the aesthete is ironic. But even ethical life, Kierkegaard argues, reaches a limit: ethics demands the universal, and the universal cannot capture what is most fundamentally individual about a person. The ethical person still risks living by someone else&rsquo;s formula &mdash; society&rsquo;s, Hegel&rsquo;s, the church&rsquo;s &mdash; rather than their own singular reality.</p>
+
+      <p>The transition to the Religious stage requires what Kierkegaard famously called the &ldquo;leap of faith&rdquo; (信仰的飛躍), and his most powerful illustration is the story of Abraham (亞伯拉罕) in <em>Fear and Trembling</em> (《恐懼與戰慄》, 1843). God commands Abraham to sacrifice his son Isaac (以撒). Ethically, this is straightforward: murder is wrong, categorically. Rationally, it makes no sense. And yet Abraham goes &mdash; not because he has found a loophole in the ethical law, but because he stands in a direct, untranslatable, individual relationship to God that cannot be explained to or validated by any third party. This &ldquo;teleological suspension of the ethical&rdquo; (目的論地暫停倫理) marks the Religious stage: faith as a category that exceeds reason and exceeds the universal, accessible only to the singular person in their singular moment. Kierkegaard became the intellectual ancestor of twentieth-century Existentialism (存在主義) &mdash; Sartre (沙特), Heidegger (海德格爾), and Camus (加繆) all drew on his radical insistence that individual existence cannot be explained away by any system.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Kierkegaard&rsquo;s lasting provocation: there are questions about your own life that reason, ethics, and universal systems cannot answer &mdash; only you can, as you, with no formula to hide behind.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is Kierkegaard&rsquo;s &ldquo;teleological suspension of the ethical,&rdquo; and why does the story of Abraham illustrate the idea of faith more powerfully than any abstract argument could?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The teleological suspension of the ethical refers to a situation in which an individual&rsquo;s relationship to a higher purpose (the telos &mdash; in Abraham&rsquo;s case, God&rsquo;s direct command) overrides the claims of universal ethical law. In normal ethical life, the universal always overrides the individual &mdash; what is right for everyone defines what is right for me. Abraham&rsquo;s case is the exception: God commands him to do what ethics forbids, and Abraham obeys, not because he has found a rational justification, but because he stands in a singular relationship to God that cannot be communicated, explained, or validated by any third party. The story does the philosophical work better than abstract argument because it forces the reader to inhabit Abraham&rsquo;s position &mdash; the loneliness, the silence, the impossibility of explanation &mdash; rather than merely to consider the concept. Kierkegaard&rsquo;s point is that faith is precisely what exceeds the communicable and the universal.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Kierkegaard, S. <em>Fear and Trembling</em> (1843, trans. Hong &amp; Hong, Princeton UP, 1983); <em>Either/Or</em> (1843, trans. Hong &amp; Hong, Princeton UP, 1987); Hannay, A. <em>Kierkegaard: A Biography</em> (Cambridge UP, 2001).</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY (Behavioral Econ REQUIRED) -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology &mdash; &#x1F3AF; Behavioral Economics</div>
+      <h2>Why Your Future Self Is a Stranger: Present Bias (當下偏誤) and the Science of Why We Always Prefer Now</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine: you&rsquo;re offered &pound;100 today or &pound;110 next week. Most people pick the &pound;100. But when offered &pound;100 in 52 weeks or &pound;110 in 53 weeks, most switch to taking the &pound;110. The sums are identical &mdash; only the delay differs. Why does the choice flip?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Paul_A._Samuelson%2C_economist%2C_edited.jpg/3840px-Paul_A._Samuelson%2C_economist%2C_edited.jpg" alt="Paul Samuelson, economist" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Paul Samuelson (薩繆爾森, 1915&ndash;2009), whose 1937 discounted utility model dominated economics for four decades before behavioral research revealed its limits. &mdash; <a href="https://en.wikipedia.org/wiki/Paul_Samuelson" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>In 1937, Paul Samuelson (薩繆爾森) proposed what seemed an elegant theory of how people value the future: the Discounted Utility (折現效用) model, which assumed people discount future rewards at a constant exponential rate. Under this model, if you&rsquo;d trade &pound;100 today for &pound;105 in a year, you should also be indifferent between &pound;100 in five years and &pound;105 in six years &mdash; the one-year gap always costs you the same percentage, regardless of when it occurs. This model became foundational to economics because it was mathematically tractable. But Samuelson himself expressed scepticism about its realism, noting in a footnote that it was &ldquo;a special case&rdquo; without strong empirical support. That footnote proved prophetic. Experimental economists found systematically that people&rsquo;s discount rates are not constant &mdash; they are steeply declining. The choice between &pound;100 today and &pound;110 next week differs fundamentally from the choice between &pound;100 in 52 weeks and &pound;110 in 53 weeks, even though the time gap is identical. The present exerts a disproportionate gravitational pull that diminishes rapidly with distance.</p>
+
+      <p>This pattern is captured by hyperbolic discounting (雙曲折現). Unlike exponential discounting, hyperbolic discount functions are &ldquo;front-loaded&rdquo;: the subjective cost of waiting is very steep in the near term (now vs. a week from now feels like a large gap) but flattens over longer horizons (week 52 vs. week 53 feels trivial). David Laibson (萊布森) at Harvard formalised this in his influential 1997 <em>Quarterly Journal of Economics</em> paper using a (&beta;,&delta;) model, where &beta; represents the immediate present bias and &delta; the standard long-run discount factor. The implication is time-inconsistent preferences: someone&rsquo;s preferred trade-off changes depending on when they are asked. A person who in January plans to start exercising in February will, upon arriving in February, prefer to start in March. This is not confusion; it is a predictable, structural bias built into how humans &mdash; and many animals &mdash; compute value across time. O&rsquo;Donoghue and Rabin (1999, <em>American Economic Review</em>) distinguished &ldquo;sophisticates&rdquo; (who know their bias and try to pre-commit) from &ldquo;naïfs&rdquo; (who perpetually underestimate their own future weakness), with naïfs facing cycles of failed intentions that feel genuinely surprising each time.</p>
+
+      <p>The policy applications of present bias are among the most practical contributions of behavioral economics (行為經濟學). Richard Thaler (塔勒) and Shlomo Benartzi (貝納齊) used present bias to design the &ldquo;Save More Tomorrow&rdquo; (SMarT) program: because employees face acute present bias about salary, SMarT pre-committed them to allocate a fraction of <em>future</em> pay raises to retirement savings. Because the commitment was always about the future &mdash; which people evaluate with more patience &mdash; median savings rates rose from 3.5% to 13.6% over four years in one deployment. The insight is more general: pre-commitment devices, automatic enrolment, cooling-off periods, and temptation-blocking technology all work by forcing the future-you decision to be made at a moment when present-you is feeling patient. Understanding present bias explains why gyms are full in January and empty in March, why procrastination feels surprising every time, and why &ldquo;I&rsquo;ll start Monday&rdquo; is not weakness &mdash; it&rsquo;s a structural feature of human temporal cognition.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> &ldquo;I&rsquo;ll start Monday&rdquo; is not weakness &mdash; it&rsquo;s present bias. The fix isn&rsquo;t willpower; it&rsquo;s pre-commitment: make the future-you decision now, while present-you is still feeling patient about the distant date.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the key difference between exponential discounting and hyperbolic discounting, and why does hyperbolic discounting produce time-inconsistent preferences?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Exponential discounting applies a constant percentage discount per time period: the subjective cost of waiting one year is the same whether that year runs from today to next year or from year 5 to year 6. This keeps preferences consistent over time. Hyperbolic discounting applies a steeply declining discount rate: the subjective cost of waiting is very high in the near term but falls rapidly for delays in the distant future. This means that when evaluated from a distance, a person prefers the larger-later option; but as the sooner date draws near, the steep near-term discount makes the smaller-sooner option suddenly more attractive. Preferences &ldquo;flip&rdquo; as the decision point approaches &mdash; producing time-inconsistency: the plan made in January (start exercising in February) is abandoned upon arrival in February, not because the person changed their assessment of the value of exercise, but because the present has become disproportionately expensive to sacrifice.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Laibson, D. (1997), &ldquo;Golden Eggs and Hyperbolic Discounting,&rdquo; <em>Quarterly Journal of Economics</em>, 112(2); O&rsquo;Donoghue, T. &amp; Rabin, M. (1999), &ldquo;Doing It Now or Later,&rdquo; <em>American Economic Review</em>, 89(1); Thaler, R. &amp; Benartzi, S. (2004), &ldquo;Save More Tomorrow,&rdquo; <em>Journal of Political Economy</em>, 112(S1).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Your Body&rsquo;s Thermostat Is Being Hacked: The Biology of Fever (發燒) and Why It&rsquo;s Not Always Your Enemy</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When bacteria invade your body, your immune system deliberately raises your core temperature &mdash; making you feel worse in the short run. Why would making yourself sicker-feeling be an adaptive immune strategy?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Symptoms-fever.jpg" alt="Symptoms of fever diagram" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Common symptoms of fever as an immune response. &mdash; <a href="https://en.wikipedia.org/wiki/Fever" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Your body normally maintains core temperature (核心體溫) at around 37&deg;C, regulated by the hypothalamus (下視丘) &mdash; a small brain region above the brainstem that functions as a thermostat. When bacteria, viruses, or other pathogens (病原體) invade, white blood cells &mdash; particularly macrophages (巨噬細胞) and monocytes (單核細胞) &mdash; release protein messengers called pyrogens (致熱原): specifically interleukin-1 (白細胞介素-1), interleukin-6 (白細胞介素-6), and tumour necrosis factor-alpha (腫瘤壞死因子-&#x3B1;). These circulate to the hypothalamus and, via the enzyme cyclooxygenase-2 (環氧酶-2, COX-2), trigger the synthesis of prostaglandin E&#x2082; (前列腺素 E&#x2082;, PGE&#x2082;). PGE&#x2082; is the direct chemical signal that resets the hypothalamic thermostat upward &mdash; to 38.5&deg;C, 39&deg;C, or higher. The body then experiences this elevated setpoint as &ldquo;too cold,&rdquo; and activates heat-generating responses: shivering (寒顫), peripheral vasoconstriction (血管收縮), and behavioural curling-up &mdash; all designed to drive core temperature toward the new target.</p>
+
+      <p>Fever is not a malfunction &mdash; it is a deliberate adaptive response. Many bacteria and viruses have narrow optimal temperature ranges, and raising body temperature by even 1&ndash;2&deg;C meaningfully inhibits their replication rates. More significantly, elevated temperatures amplify immune function: neutrophils (嗜中性白血球) and T-cells (T細胞) migrate to infection sites faster, antibody (抗體) production accelerates, and the interferon (干擾素) antiviral response strengthens. Landmark experimental work by Matthew Kluger (1979) showed that lizards with experimentally prevented fever had significantly higher mortality from bacterial infection compared to those allowed to develop it naturally &mdash; even though lizards are ectothermic and generate fever entirely by basking behaviour. Iron-binding proteins like transferrin (轉鐵蛋白) also shift behaviour at fever temperatures in ways that starve bacteria of the iron they need to replicate. Antipyretics (退燒藥) such as ibuprofen (布洛芬) and paracetamol (撲熱息痛) work by inhibiting COX-2, blocking PGE&#x2082; synthesis, and allowing the hypothalamic thermostat to reset downward.</p>
+
+      <p>The clinical picture is nuanced. A low-grade fever (below 38.5&deg;C) in a healthy adult is now widely regarded by infectious disease specialists as potentially counterproductive to suppress &mdash; it may truncate an adaptive immune response that is doing exactly what evolution designed it to do. However, fever above 40&deg;C carries genuine risk: protein denaturation (蛋白質變性) begins to impair enzyme function, and neurons (神經元) are particularly heat-sensitive, which is why hyperthermia (過高體溫) above 41&ndash;42&deg;C can cause neurological damage. Febrile seizures (熱性痙攣) in young children &mdash; affecting 2&ndash;5% of children under 5 &mdash; are alarming but typically benign, driven more by the rapid rate of temperature change than by absolute height. Current evidence suggests treating fever primarily to prevent complications at higher ranges (above 39&deg;C in children, 40&deg;C in adults) or for comfort &mdash; but routine suppression of every low-grade fever may interfere with the body&rsquo;s own best defence.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> A low-grade fever is your immune system&rsquo;s deliberate weapon. Think twice before reflexively reaching for antipyretics &mdash; unless the temperature is high, the patient vulnerable, or the discomfort significant.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What molecular pathway does the immune system use to reset the hypothalamic thermostat during fever, and how do ibuprofen and paracetamol intervene in exactly that pathway?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Immune cells (macrophages and monocytes) release pyrogens &mdash; interleukin-1, interleukin-6, and TNF-&alpha; &mdash; in response to infection. These pyrogens reach the hypothalamus and activate the enzyme cyclooxygenase-2 (COX-2), which catalyses the synthesis of prostaglandin E&#x2082; (PGE&#x2082;). PGE&#x2082; binds to receptors on hypothalamic neurons and raises the thermostat setpoint, triggering cold-response mechanisms (shivering, vasoconstriction) to raise core temperature. Ibuprofen and other non-steroidal anti-inflammatory drugs (NSAIDs) are COX inhibitors &mdash; they block COX-2 (and COX-1), preventing PGE&#x2082; synthesis. With PGE&#x2082; absent, the hypothalamic setpoint returns to normal (37&deg;C), and the body activates heat-dissipating responses (sweating, cutaneous vasodilation) to bring temperature down &mdash; producing the familiar sensation of &ldquo;breaking&rdquo; a fever.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Kluger, M.J. (1979), <em>Fever: Its Biology, Evolution and Function</em> (Princeton UP); Dinarello, C.A. (2004), &ldquo;Infection, Fever and Exogenous and Endogenous Pyrogens,&rdquo; <em>Journal of Endotoxin Research</em>, 10(4); Blatteis, C.M. (2007), &ldquo;Fever,&rdquo; <em>Handbook of Clinical Neurology</em>, 83.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Ice Baths (冰浴): What the Evidence Actually Says About Cold Water Recovery &mdash; and What It Doesn&rsquo;t</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Elite athletes swear by ice baths. Wim Hof has millions of followers. The science of cold water immersion is substantial. But the evidence points in two directions that are hard to reconcile. What trade-off do you predict the research reveals?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Karyn_Marshall_Ice_Bath.jpg" alt="Athlete in an ice bath for recovery" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold water immersion (冷水浸泡) used as a post-exercise recovery strategy. &mdash; <a href="https://en.wikipedia.org/wiki/Ice_bath" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Cold water immersion (冷水浸泡, CWI) &mdash; sitting in water at 10&ndash;15&deg;C for 10&ndash;15 minutes after exercise &mdash; has become one of the most visible recovery rituals in professional sport. The physiological rationale sounds intuitive: cold causes vasoconstriction (血管收縮), reduces local inflammation (炎症), decreases metabolic rate in tissues, and may attenuate the swelling and damage following intense training. In the short term, the evidence supports a real benefit. A systematic Cochrane review by Bleakley et al. (2012, updated 2021) found that CWI meaningfully reduces delayed onset muscle soreness (DOMS, 延遲性肌肉痠痛) in the 24&ndash;96 hours following exercise, with moderate-quality evidence. For athletes who need to perform again within 24&ndash;48 hours &mdash; rugby, basketball, tournament sports &mdash; this next-day recovery advantage is practically significant. A 2022 meta-analysis by Hohenauer et al. in <em>Sports Medicine</em> confirmed that CWI outperforms passive recovery on perceived exertion and subjective fatigue in the 24&ndash;48 hour post-exercise window.</p>
+
+      <p>The controversy arrives when CWI is used by athletes aiming to build muscle and strength. Roberts et al. (2015, <em>Journal of Physiology</em>) conducted a rigorous 12-week randomised controlled trial in which participants performed resistance training and then underwent either CWI or active recovery (low-intensity cycling). The CWI group showed significantly blunted gains in both muscle mass and strength over the training period. The mechanism: the post-exercise inflammatory response that CWI attenuates is not merely a damage signal &mdash; it is an essential anabolic signal. Inflammatory cytokines (細胞因子) such as IL-6 and PGF2&alpha;, released after resistance exercise, activate satellite cells (衛星細胞) and stimulate myofibrillar protein synthesis (肌纖維蛋白合成). Cold suppresses them, along with the hypertrophy stimulus. The study confirmed blunted p70S6K phosphorylation (a key marker of mTOR (哺乳動物雷帕黴素靶蛋白) pathway activation) in the CWI condition &mdash; the molecular machinery of muscle growth was being down-regulated by the cold.</p>
+
+      <p>The practical picture is context-dependent in ways that matter enormously. For competition recovery &mdash; when the goal is to feel better and perform again quickly, with long-term muscle adaptation secondary &mdash; CWI is genuinely evidence-backed and effective. For hypertrophy and strength development &mdash; when the entire point of training is to maximise physical adaptation &mdash; regular post-training cold immersion may actively undermine the goal. Timing also matters: a 2021 study by Ihsan et al. found that delaying CWI by several hours after training largely preserved the anabolic response while retaining some next-day recovery benefit. The broader lesson is a recurring theme in exercise science: acute inflammation is not inherently bad. It is often the precise signal that triggers meaningful adaptation. Systematically suppressing every inflammatory response risks blunting the mechanisms that make training worthwhile in the first place.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Ice baths after competition for next-day recovery: supported. Ice baths immediately after strength training aimed at building muscle: probably counterproductive. Context is everything.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does cold water immersion blunt muscle hypertrophy when used immediately after resistance training, and which specific molecular pathway does the research identify?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cold water immersion reduces the post-exercise inflammatory response via vasoconstriction and suppression of pro-inflammatory cytokines, including IL-6 and PGF2&alpha;. These cytokines are not merely damage signals &mdash; they are essential anabolic signals that activate satellite cells, stimulate myofibrillar protein synthesis, and trigger the mTOR pathway necessary for muscle growth. CWI suppresses them, and with them the hypertrophy stimulus. Roberts et al. (2015) demonstrated significantly blunted muscle mass and strength gains over 12 weeks in the CWI group versus active recovery, with reduced p70S6K phosphorylation &mdash; a key marker of mTOR pathway activation &mdash; confirming that the molecular machinery of muscle growth was being down-regulated by cold. Cold&rsquo;s anti-inflammatory effect is its strength for recovery and its liability for adaptation.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015), &ldquo;Post-exercise cold water immersion attenuates acute anabolic signalling and long-term adaptations in muscle to strength training,&rdquo; <em>Journal of Physiology</em>, 593(18); Bleakley, C. et al. (2012, updated 2021), Cochrane Review, &ldquo;Cold-water immersion for preventing and treating muscle soreness after exercise&rdquo;; Hohenauer, E. et al. (2022), <em>Sports Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Rep Range Myth: What Science Actually Says About Reps, Loads, and Muscle Growth (肌肉生長)</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Gym lore says: 1&ndash;5 reps builds strength, 6&ndash;12 builds muscle, 15+ builds endurance. This has been in textbooks for decades. But controlled research has repeatedly challenged at least one part of this framework. Which part do you think breaks down?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Types_of_muscle.webp" alt="Types of muscle fibre" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Muscle fibre types: the hypertrophy stimulus works across multiple rep ranges via progressive recruitment of fast-twitch fibres. &mdash; <a href="https://en.wikipedia.org/wiki/Muscle_hypertrophy" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>The idea that specific rep ranges unlock specific adaptations has been part of gym culture for decades. The &ldquo;hypertrophy zone&rdquo; of 6&ndash;12 repetitions was popularised by bodybuilding coaches and eventually entered textbooks &mdash; partly because it produces metabolic stress (代謝壓力) and time under tension (肌肉張力下的時間) that correlate with muscle pump, and partly because empirical tradition backed it. But the controlled scientific question &mdash; what rep range maximises muscle growth when total training volume (總訓練量) is equated? &mdash; turns out to have a surprisingly permissive answer. In a landmark 2017 meta-analysis, Schoenfeld, Grgic, Ogborn and Krieger examined 21 studies directly comparing different rep ranges and found that training protocols ranging from 1 to approximately 30 repetitions per set produced similar hypertrophy outcomes when total volume load (sets &times; reps &times; weight) was matched. The hypertrophy stimulus appears to be generated primarily by mechanical tension (機械張力) on the muscle fibre and the subsequent anabolic signalling cascade &mdash; and this can be achieved with heavy loads and few reps, or lighter loads and many reps, as long as the set is taken to near muscular failure.</p>
+
+      <p>The key moderator is proximity to failure. When a set is taken close to muscular failure, high-rep sets (20&ndash;30 reps at ~60% 1RM) produce hypertrophy comparable to low-rep sets (5&ndash;8 reps at ~80% 1RM). When high-rep sets are terminated well short of failure, hypertrophy is substantially reduced. The mechanism is motor unit recruitment (運動單位徵召): as a set progresses toward failure, progressively higher-threshold motor units &mdash; including the fast-twitch Type II fibres (第二型快縮肌纖維) most responsive to hypertrophy &mdash; are recruited to sustain force output. By near-failure, all available motor units are maximally engaged regardless of load. This recruitment pattern equalises the muscular stimulus across rep ranges at equivalent proximity to failure. Schoenfeld and Grgic&rsquo;s 2019 follow-up found that this equalisation does not hold for pure strength: maximal 1RM performance develops more specifically with heavy loads (&gt;80% 1RM), where neuromuscular adaptations &mdash; improved motor unit synchronisation (運動單位同步化), reduced antagonist co-activation &mdash; are load-specific and not reproducible with light high-rep training.</p>
+
+      <p>The practical implications are broader than they first appear. For hypertrophy (肌肥大), rep range preference can be guided by individual joint tolerance, exercise selection, and training variety rather than strict adherence to the 6&ndash;12 convention. This is especially relevant for older trainees or those with joint issues who struggle with the spinal loading of heavy barbell work &mdash; they can build equivalent muscle with higher-rep, lower-load protocols, provided sets are genuinely hard. Volume remains the primary driver of hypertrophy: current evidence supports roughly 10&ndash;20 hard sets per muscle group per week for most trainees (Krieger 2010 meta-analysis; Schoenfeld 2010 review), with load best viewed as one dimension of the volume equation rather than a separate gate through which muscle growth must pass. The liberating takeaway: you can build muscle across a much wider range of protocols than tradition suggested &mdash; so long as the effort is real and the progression is consistent.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Rep range is less important than proximity to failure and total weekly volume. Train in whatever range your joints tolerate, push close to failure, accumulate enough sets &mdash; and the muscle growth follows.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why do high-rep sets near muscular failure produce similar hypertrophy to heavy low-rep sets, according to the motor unit recruitment principle &mdash; and what is the one important exception where load specifically matters?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">As a set approaches muscular failure, the central nervous system progressively recruits higher-threshold motor units &mdash; including the fast-twitch Type II fibres most responsive to hypertrophy &mdash; to sustain force output. By near-failure, essentially all available motor units are recruited and generating mechanical tension on the muscle, regardless of whether the load was heavy or light. This progressive recruitment equalises the hypertrophic stimulus across rep ranges when sets are taken to near-failure. The important exception is maximal strength (1RM) performance: improving it requires load-specific neuromuscular adaptations &mdash; better motor unit synchronisation, reduced antagonist co-activation, improved rate of force development &mdash; that are trained specifically by handling near-maximal loads. High-rep training builds the muscle; heavy training teaches the nervous system to express the muscle&rsquo;s existing capacity with maximum efficiency.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Schoenfeld, B.J., Grgic, J., Ogborn, D. &amp; Krieger, J.W. (2017), &ldquo;Strength and Hypertrophy Adaptations Between Low- vs. High-Load Resistance Training: A Systematic Review and Meta-analysis,&rdquo; <em>Journal of Strength &amp; Conditioning Research</em>, 31(12); Schoenfeld, B.J. &amp; Grgic, J. (2019), &ldquo;Does Training to Failure Maximize Muscle Hypertrophy?&rdquo; <em>Strength &amp; Conditioning Journal</em>.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>All Weather, All Risk: Ray Dalio&rsquo;s (達利歐) Risk Parity Framework and the Portfolio That Broke in 2022</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A portfolio designed to perform across all economic environments sounds too good to be true &mdash; and it has a four-decade track record to point to. What do you think the hidden assumption was, and what kind of environment would expose it?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Asset_Allocation.pdf/page1-500px-Asset_Allocation.pdf.jpg" alt="Asset allocation diagram" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Asset allocation and diversification &mdash; the foundation of risk parity thinking. &mdash; <a href="https://en.wikipedia.org/wiki/Asset_allocation" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Ray Dalio (達利歐) founded Bridgewater Associates (橋水聯合) in his New York City apartment in 1975 with a simple but consuming obsession: understanding how economies and markets <em>actually</em> work, not how textbooks say they should. By the 1990s, he had developed what he called the &ldquo;economic machine&rdquo; framework: all economic events could be understood through the interaction of productivity growth, the short-term debt cycle (短期信貸週期, roughly 5&ndash;8 years), and the long-term debt cycle (長期信貸週期, roughly 75&ndash;100 years). Markets, he observed, respond primarily to four environmental combinations: rising growth, falling growth, rising inflation, and falling inflation. Most portfolios &mdash; including the classic 60/40 equity/bond allocation (股票/債券組合) &mdash; are, despite their apparent diversification, overwhelmingly exposed to a single scenario: rising growth with moderate inflation. When that scenario changes, they suffer catastrophically. The 2008 financial crisis and the 1970s stagflation (滯脹) were exhibits A and B.</p>
+
+      <p>From this analysis, Dalio&rsquo;s team developed the All Weather portfolio, later shared publicly in simplified form. The idea was to hold enough of each asset class so that the portfolio is equally sensitive to each of the four economic environments. Because equities (股票) are roughly three to four times more volatile than bonds (債券), an equal dollar allocation produces massively unequal risk contribution &mdash; making a conventional portfolio functionally an equity bet with decorative bond exposure. Risk parity (風險平價) resolves this by allocating based on volatility-adjusted risk contribution rather than dollar weight. The public-facing All Weather allocation produces something like: 30% equities, 40% long-term bonds, 15% intermediate bonds, 7.5% gold (黃金), 7.5% commodities (大宗商品). The heavy bond weighting looks peculiar by conventional standards but is engineered so that bonds&rsquo; lower volatility, amplified by higher allocation, contributes risk roughly equal to equities. Long-duration bonds (長期債券) specifically rise during deflation and falling growth &mdash; precisely the scenario that crashes equities &mdash; providing genuine structural diversification.</p>
+
+      <p>The empirical record is both impressive and cautionary. Backtested from 1970&ndash;2013, All Weather produced approximately 9.7% annual return with a maximum drawdown of roughly 4% &mdash; dramatically smoother than a standard 60/40 portfolio. But critics noted a critical limitation: this backtest covers an extraordinary 40-year bond bull market; as rates fell from ~15% in 1981 to near zero in 2020, long-duration bond returns were exceptional and historically unlikely to repeat. In 2022, when equities fell ~18% and long-duration bonds simultaneously fell ~30% &mdash; their worst year in decades &mdash; the All Weather framework lost approximately 21%, significantly underperforming even a conventional 60/40 portfolio. The stock-bond correlation, which risk parity fundamentally relies on remaining negative or zero, turned sharply positive in an inflationary environment precisely when the portfolio needed it to be negative. Dalio&rsquo;s broader insight about identifying economic environments remains powerful; the specific static construction reveals a hidden assumption: asset-class correlations must be stable for the framework to hold &mdash; and they are not.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> True diversification means distributing risk, not just dollars. But no construction that relies on historical correlations is immune to the day those correlations break &mdash; and inflation is historically the scenario that breaks them most reliably.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does risk parity recommend holding far more in bonds than equities by dollar weight, and what specific economic scenario exposed the vulnerability of this construction in 2022?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Risk parity allocates based on volatility-adjusted risk contribution rather than dollar amounts. Equities are historically three to four times more volatile than bonds, so an equal dollar split would produce a portfolio where equities contribute the vast majority of total risk. To equalise risk contributions, risk parity must hold far more bonds by dollar value &mdash; roughly two to three times as many as equities. In 2022, the vulnerability was exposed when inflation rose sharply and central banks aggressively raised interest rates: rising rates cause long-duration bond prices to fall (bond prices move inversely to yields), while simultaneously compressing equity valuations as discount rates rise. Both asset classes fell heavily in the same year &mdash; their correlation turned positive &mdash; destroying the diversification benefit that risk parity depends on. The framework assumes bonds protect against falling equity scenarios, which holds in deflationary downturns but breaks down when inflation is the dominant force.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Dalio, R. (2017), <em>Principles</em> (Simon &amp; Schuster); Bridgewater Associates, &ldquo;The All Weather Story&rdquo; (2013); Ilmanen, A. (2011), <em>Expected Returns</em> (Wiley), Ch. 4 on risk parity; Asness, C. et al. (2012), &ldquo;Leverage Aversion and Risk Parity,&rdquo; <em>Financial Analysts Journal</em>.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>Free Money for Everyone: Universal Basic Income (全民基本收入) Between Theory and the Real-World Experiment</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Classical economic theory predicts that unconditional cash payments reduce labour supply &mdash; if you get money without working, you work less. Finland ran a two-year controlled experiment. What do you think they found?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Negative_Income_Tax.png/3840px-Negative_Income_Tax.png" alt="Negative income tax diagram" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Negative income tax (負所得稅) diagram &mdash; Milton Friedman&rsquo;s 1962 proposal, a foundational precursor to UBI. &mdash; <a href="https://en.wikipedia.org/wiki/Negative_income_tax" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CC; Event</div>
+        <div class="pe-body">Finland&rsquo;s 2017&ndash;2018 Basic Income experiment, run by Kela (芬蘭社會保險局): 2,000 unemployed citizens were randomly assigned to receive &euro;560/month unconditionally for two years, regardless of employment status, versus a control group receiving standard conditional unemployment benefits. Results (published 2020): recipients reported significantly improved wellbeing, life satisfaction, and trust in institutions &mdash; but no statistically significant increase in employment. In Stockton, California&rsquo;s SEED program (2019&ndash;2021, $500/month unconditionally to 125 low-income residents), a Stanford-led evaluation found modest <em>increases</em> in full-time employment among recipients compared to the control group.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Milton Friedman (佛利民) proposed the negative income tax (負所得稅) in <em>Capitalism and Freedom</em> (1962): a guaranteed minimum income delivered via the tax code would replace the patchwork of conditional welfare programs with a simpler, less distorting transfer. Contemporary UBI proposals extend this to universal, unconditional periodic payments to every citizen. Classical labour market theory (標準勞動市場理論) predicts an income effect: unconditional income increases the relative attractiveness of leisure, reducing labour supply. The key policy concern has always been: will people stop working if you pay them not to?</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The Finland experiment showed no employment effect (neither positive nor negative), contradicting the classical prediction of reduced labour supply. The Stockton SEED program showed employment <em>increases</em>, the opposite of classical prediction. A 2022 analysis by Damon Jones and Ioana Marinescu (<em>Quarterly Journal of Economics</em>) of Alaska&rsquo;s Permanent Fund Dividend &mdash; roughly $1,200&ndash;$2,000/year unconditionally to every Alaska resident from oil revenues, paid annually since 1982 &mdash; found no negative employment effect across four decades of data and 40 annual payments.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Multiple interpretations contest the classical view. Poverty trap theory (貧困陷阱理論) notes that existing conditional welfare programs often impose very high implicit marginal tax rates as benefits are withdrawn when income rises &mdash; making it economically rational to <em>remain</em> unemployed. Unconditional income removes this trap, potentially increasing labour supply, reversing the classical prediction. Administrative burden theory argues means-testing itself creates stress and barriers that reduce economic activity. Whether these results scale from temporary experiments (where participants know payments will end) to a permanent universal policy remains an open question: no experiment has yet resolved the long-run behavioural dynamics at scale.</div>
+      </div>
+
+      <div class="source">&#x1F4D6; Kangas, O. et al. (2020), &ldquo;Evaluation of the Finnish Basic Income Experiment,&rdquo; Kela Social Insurance Institution; Jones, D. &amp; Marinescu, I. (2022), &ldquo;The Labor Market Impacts of Universal and Permanent Cash Transfers,&rdquo; <em>Quarterly Journal of Economics</em>, 137(4); Friedman, M. (1962), <em>Capitalism and Freedom</em>, Ch. 12 (University of Chicago Press).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 9 &mdash; Present Bias meets the Training Effort Problem:</strong> Present bias (今日偏誤) explains one of the most pervasive failure modes in strength training. The discomfort of a difficult set is <em>now</em>; the muscle growth it produces arrives weeks later. Because humans steeply discount future rewards (hyperbolic discounting), the temptation to end a set &ldquo;a rep or two early&rdquo; is not laziness but a structural feature of how the brain weighs present pain against future gain. The research on rep ranges shows that proximity to failure is precisely the variable that determines whether hypertrophy occurs &mdash; meaning the precise moment most people are tempted to stop is the moment the training effect actually kicks in. Understanding present bias doesn&rsquo;t just explain procrastination about starting to train; it explains why the people who do train often stop before the stimulus is delivered.</p>
+      <p><strong>So what:</strong> Use pre-commitment for effort, not just for showing up. Deciding in advance to hit a specific RIR (reps in reserve) target removes the in-set negotiation with your present-biased self &mdash; the same logic Thaler used to get people to save more.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 &mdash; Astronomy:</strong> NASA/JPL Ingenuity Mars Helicopter mission overview; Balaram, J. et al. (2021), <em>AIAA SciTech Forum</em>; Farley, K.A. et al. (2020), <em>Space Science Reviews</em>, 216(142).</li>
+      <li><strong>Card 2 &mdash; Eastern History:</strong> 杉田玄白《蘭學事始》（1815年）；Screech, T. (2002), <em>The Lens within the Heart</em> (University of Hawaii Press); Keene, D. (1969), <em>The Japanese Discovery of Europe</em> (Stanford UP).</li>
+      <li><strong>Card 3 &mdash; Western History:</strong> Holt, J.C. <em>Magna Carta</em>, 3rd ed. (Cambridge UP, 2015); Turner, R.V. <em>King John</em> (Longman, 1994); Breay, C. &amp; Harrison, J. (eds.) <em>Magna Carta: Law, Liberty, Legacy</em> (British Library, 2015).</li>
+      <li><strong>Card 4 &mdash; Eastern Philosophy:</strong> Wagner, R.G. (2003), <em>A Chinese Reading of the Daodejing</em> (SUNY Press); Lynn, R.J. (1994), <em>The Classic of Changes</em> (Columbia UP); 余英時《士與中國文化》（上海人民出版社，2003年）</li>
+      <li><strong>Card 5 &mdash; Western Philosophy:</strong> Kierkegaard, S. <em>Fear and Trembling</em> (1843, trans. Hong &amp; Hong, Princeton UP, 1983); <em>Either/Or</em> (1843, Princeton UP, 1987); Hannay, A. <em>Kierkegaard: A Biography</em> (Cambridge UP, 2001).</li>
+      <li><strong>Card 6 &mdash; Psychology:</strong> Laibson, D. (1997), <em>QJE</em> 112(2); O&rsquo;Donoghue &amp; Rabin (1999), <em>AER</em> 89(1); Thaler &amp; Benartzi (2004), <em>JPE</em> 112(S1).</li>
+      <li><strong>Card 7 &mdash; Physiology:</strong> Kluger, M.J. (1979), <em>Fever: Its Biology, Evolution and Function</em> (Princeton UP); Dinarello, C.A. (2004), <em>Journal of Endotoxin Research</em>, 10(4).</li>
+      <li><strong>Card 8 &mdash; Health:</strong> Roberts, L.A. et al. (2015), <em>Journal of Physiology</em>, 593(18); Bleakley, C. et al. (2021), Cochrane Review; Hohenauer, E. et al. (2022), <em>Sports Medicine</em>.</li>
+      <li><strong>Card 9 &mdash; Sports Science:</strong> Schoenfeld, B.J. et al. (2017), <em>Journal of Strength &amp; Conditioning Research</em>, 31(12); Schoenfeld &amp; Grgic (2019), <em>Strength &amp; Conditioning Journal</em>.</li>
+      <li><strong>Card 10 &mdash; Investing:</strong> Dalio, R. (2017), <em>Principles</em> (Simon &amp; Schuster); Bridgewater Associates, &ldquo;The All Weather Story&rdquo; (2013); Ilmanen, A. (2011), <em>Expected Returns</em> (Wiley).</li>
+      <li><strong>Card 11 &mdash; Political Economics:</strong> Kangas, O. et al. (2020), Kela evaluation; Jones &amp; Marinescu (2022), <em>QJE</em>, 137(4); Friedman, M. (1962), <em>Capitalism and Freedom</em> (University of Chicago Press).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent entries)</summary>
+    <ul>
+      <li>2026-06-23: Mars Perseverance/Ingenuity | 蘭學・杉田玄白・解體新書 (Japan, Edo/Rangaku) | Magna Carta 1215 | 魏晉玄學・王弼・何晏 | Kierkegaard Three Stages | Present Bias/Hyperbolic Discounting (Behavioral Econ) | Fever Mechanism (pyrogens/PGE2) | Cold Water Immersion/Ice Baths | Hypertrophy vs Rep Ranges (Schoenfeld 2017) | Ray Dalio/All Weather/Risk Parity | Universal Basic Income (UBI/Finland)</li>
+      <li>2026-06-22: JWST Carina Nebula | 甲午戰爭 | Siege of Vienna 1683 | 陸九淵心學 | Stoicism | Attachment Theory | CO&#x2082; Drive to Breathe | Sauna &amp; Cardiovascular Health | Grip Strength (PURE study) | Japan Lost Decade/Balance-Sheet Recession | Moral Hazard &amp; Too Big to Fail</li>
+    </ul>
+  </details>
+  <p style="margin-top:1rem;">Edward&rsquo;s Daily Learning &mdash; 23 June 2026</p>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+
+<script>
+function briefingSave() {
+  const fn = 'daily-learning-2026-06-23.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  window.open(url, '_blank');
+}
+function briefingShare() {
+  const fn = 'daily-learning-2026-06-23.html';
+  const url = window.location.href.includes('github.io')
+    ? window.location.href
+    : `https://thisisforjapapp.github.io/daily-briefing/${fn}`;
+  if (navigator.share) {
+    navigator.share({title: document.title, url}).catch(()=>{});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(()=>alert('Link copied!'));
+  }
+}
+</script>
+
+<script src="bm.js"></script>
+</body>
+</html>
