@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Learning &mdash; 24 June 2026</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim,#3a6a9a);}
+.side-nav{display:none;}
+@media(min-width:900px){
+.side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+.side-nav ul{list-style:none;margin:0;padding:0;}
+.side-nav li{margin-bottom:.35rem;}
+.side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+.side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+.toc-bar{display:none;}
+}
+  </style>
+</head>
+<body>
+
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Daily Learning</h1>
+    <span class="meta">Wednesday, 24 June 2026 &middot; ~22 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section">
+      <h2>&#x1F501; Yesterday&#x27;s Spark</h2>
+      <p class="spark-meta">From <em>23 June 2026</em>. Answer from memory before checking.</p>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; Mars Ingenuity Helicopter</span>
+        <em>Answer this without looking back:</em> Why did Ingenuity&#x27;s rotors need to spin roughly five times faster than a helicopter on Earth, and what specific engineering challenge did the near-vacuum Martian atmosphere impose on the rotor blade design?
+        <details><summary>Check your answer</summary><div class="answer">The Martian atmosphere is approximately 99% thinner than Earth&#x27;s sea-level atmosphere. To generate sufficient lift, Ingenuity&#x27;s rotors must spin at ~2,400 rpm &mdash; roughly five times the speed of a terrestrial helicopter &mdash; to push enough of the thin gas downward to support its weight. The blade design challenge was structural: at those rotational speeds, conventional blade materials would be too heavy relative to the lift they could generate. Carbon-fibre composite blades were essential because they are extremely light while remaining stiff enough to withstand the aerodynamic and centrifugal forces at high rpm without structural failure.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 蘭學・杉田玄白・《解體新書》</span>
+        <em>讀後回想&#xFF1A;</em>杉田玄白與前野良澤翻譯《解體新書》時面臨什麼語言困難&#xFF0C;而這部著作對東亞醫學術語體系留下了哪些至今可見的具體遗產&#xFF1F;
+        <details><summary>查看答案</summary><div class="answer">翻譯小組幾乎不懂荷蘭文&#xFF0C;主要依靠字典逐字比對、圖像對照與邏輯推斷。翻譯工作歷時三年&#xFF0C;杉田玄白形容如同在無槳無棵的扁舟上橫越夜海。《解體新書》最重要的遗產&#xFF0C;是確立了一套漢字解剖學詞彙&#xFF1A;「神経」「軟骨」「動脈」「靜脈」等術語直接被中文、韓文現代醫學採用&#xFF0C;構成整個東亞現代醫學術語體系的共同基礎。</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Magna Carta 1215</span>
+        <em>Answer this without looking back:</em> Why did Magna Carta survive despite King John and Pope Innocent III repudiating it almost immediately, and what gave clauses 39 and 40 their extraordinary later constitutional significance?
+        <details><summary>Check your answer</summary><div class="answer">Magna Carta survived because it was politically indispensable to the regency council of Henry III &mdash; a nine-year-old king who needed baronial support &mdash; leading to reissues in 1216, 1217, and a definitive 1225 version incorporated into statute. Its later constitutional significance came from Edward Coke&#x27;s seventeenth-century reinterpretation of clauses 39 and 40 as establishing habeas corpus and the rule of law &mdash; the idea that the king himself is subject to law. This reading was historically contestable but politically transformative, providing the intellectual foundation for the Petition of Right, the English Bill of Rights, and ultimately the American constitutional tradition.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 魏晉玄學・王弼</span>
+        <em>讀後回想&#xFF1A;</em>王弼「得意忘象」的詮釋方法如何從根本上改變了漢代易學的問題意識&#xFF0C;而他的《老子注》又如何重新定義了「無為」的哲學含義&#xFF0C;使之有別於漢代黃老治術&#xFF1F;
+        <details><summary>查看答案</summary><div class="answer">漢代象數易學的核心關注是通過符號體系推算吉凶&#xFF0C;王弼的「得意忘象」主張卸左易學問題意識從「如何解讀符號」轉向「宇宙秩序的形上根基是什麼」。在《老子注》中&#xFF0C;他將「無為」從黃老治術的政治技巧重新界定為形上學洞見的實蹐結果&#xFF1A;統治者因體認到「無」為萬物之本&#xFF0C;不以一己具體意志強加於萬物&#xFF0C;令一切各得其性&#x2014;&#x2014;這是本體論的「無為」。</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy &mdash; Kierkegaard Three Stages</span>
+        <em>Answer this without looking back:</em> What is Kierkegaard&#x27;s &ldquo;teleological suspension of the ethical,&rdquo; and why does the story of Abraham illustrate the idea of faith more powerfully than any abstract argument could?
+        <details><summary>Check your answer</summary><div class="answer">The teleological suspension of the ethical refers to a situation where an individual&#x27;s relationship to a higher purpose overrides the claims of universal ethical law. Abraham&#x27;s case is the exception: God commands him to do what ethics forbids, and Abraham obeys not because he has found a rational justification, but because he stands in a singular relationship to God that cannot be communicated or validated by any third party. The story does the philosophical work better than abstract argument because it forces the reader to inhabit Abraham&#x27;s position &mdash; the loneliness, the silence, the impossibility of explanation &mdash; rather than merely consider the concept. Kierkegaard&#x27;s point is that faith is precisely what exceeds the communicable and the universal.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Present Bias / Hyperbolic Discounting</span>
+        <em>Answer this without looking back:</em> What is the key difference between exponential discounting and hyperbolic discounting, and why does hyperbolic discounting produce time-inconsistent preferences?
+        <details><summary>Check your answer</summary><div class="answer">Exponential discounting applies a constant percentage discount per time period, keeping preferences consistent over time. Hyperbolic discounting applies a steeply declining discount rate: very high in the near term, falling rapidly for delays in the distant future. This means that when evaluated from a distance, a person prefers the larger-later option; but as the sooner date draws near, the steep near-term discount makes the smaller-sooner option suddenly more attractive. Preferences &ldquo;flip&rdquo; as the decision point approaches &mdash; the plan made in January is abandoned in February not because exercise&#x27;s value changed, but because the present has become disproportionately expensive to sacrifice.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Fever Mechanism</span>
+        <em>Answer this without looking back:</em> What molecular pathway does the immune system use to reset the hypothalamic thermostat during fever, and how do ibuprofen and paracetamol intervene in exactly that pathway?
+        <details><summary>Check your answer</summary><div class="answer">Immune cells release pyrogens &mdash; interleukin-1, interleukin-6, and TNF-&alpha; &mdash; which activate the enzyme cyclooxygenase-2 (COX-2) in the hypothalamus. COX-2 catalyses synthesis of prostaglandin E&#x2082; (PGE&#x2082;), which raises the thermostat setpoint, triggering shivering and vasoconstriction to raise core temperature. Ibuprofen and other NSAIDs are COX inhibitors &mdash; they block COX-2, preventing PGE&#x2082; synthesis. With PGE&#x2082; absent, the hypothalamic setpoint returns to 37&deg;C and the body activates heat-dissipating responses &mdash; producing the familiar sensation of &ldquo;breaking&rdquo; a fever.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Cold Water Immersion / Ice Baths</span>
+        <em>Answer this without looking back:</em> Why does cold water immersion blunt muscle hypertrophy when used immediately after resistance training, and which specific molecular pathway does the research identify?
+        <details><summary>Check your answer</summary><div class="answer">Cold water immersion suppresses pro-inflammatory cytokines including IL-6 and PGF2&alpha;. These are not merely damage signals &mdash; they are essential anabolic signals that activate satellite cells, stimulate myofibrillar protein synthesis, and trigger the mTOR pathway necessary for muscle growth. Roberts et al. (2015) demonstrated significantly blunted muscle mass and strength gains over 12 weeks in the CWI group, with reduced p70S6K phosphorylation &mdash; a key marker of mTOR pathway activation &mdash; confirming that the molecular machinery of muscle growth was being down-regulated by cold. Cold&#x27;s anti-inflammatory effect is its strength for recovery and its liability for adaptation.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Hypertrophy vs. Strength Rep Ranges</span>
+        <em>Answer this without looking back:</em> Why do high-rep sets near muscular failure produce similar hypertrophy to heavy low-rep sets, and what is the one important exception where load specifically matters?
+        <details><summary>Check your answer</summary><div class="answer">As a set approaches muscular failure, the central nervous system progressively recruits higher-threshold motor units &mdash; including the fast-twitch Type II fibres most responsive to hypertrophy &mdash; to sustain force output. This progressive recruitment equalises the hypertrophic stimulus across rep ranges when sets are taken to near-failure. The important exception is maximal strength (1RM) performance: improving it requires load-specific neuromuscular adaptations &mdash; better motor unit synchronisation, reduced antagonist co-activation, improved rate of force development &mdash; trained specifically by handling near-maximal loads. High-rep training builds the muscle; heavy training teaches the nervous system to express the muscle&#x27;s existing capacity with maximum efficiency.</div></details>
+      </div>
+
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; Ray Dalio / Risk Parity</span>
+        <em>Answer this without looking back:</em> Why does risk parity recommend holding far more in bonds than equities by dollar weight, and what specific economic scenario exposed the vulnerability of this construction in 2022?
+        <details><summary>Check your answer</summary><div class="answer">Risk parity allocates based on volatility-adjusted risk contribution. Equities are historically three to four times more volatile than bonds, so an equal dollar split produces a portfolio where equities contribute the vast majority of total risk. To equalise risk contributions, risk parity must hold far more bonds by dollar value. In 2022, inflation rose sharply and central banks aggressively raised rates: rising rates cause long-duration bond prices to fall while simultaneously compressing equity valuations. Both asset classes fell heavily &mdash; their correlation turned positive &mdash; destroying the diversification benefit that risk parity depends on. The framework assumes bonds protect during falling equity scenarios, which holds in deflationary downturns but breaks down when inflation is the dominant force.</div></details>
+      </div>
+
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A Mote of Dust Suspended in a Sunbeam: How Voyager 1 (旅行者一號) Took the Most Humbling Photograph in History</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Carl Sagan (卡爾&#x00B7;薩根) spent years lobbying NASA to turn Voyager 1&rsquo;s cameras back toward Earth one final time before the spacecraft left the solar system forever. NASA kept refusing. Why do you think NASA was reluctant &mdash; and what finally changed their minds?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Pale_Blue_Dot.png" alt="The Pale Blue Dot &mdash; Earth photographed by Voyager 1 from 6 billion km away, 1990" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Pale Blue Dot &mdash; Earth as photographed by Voyager 1 from 6.1 billion km away on 14 February 1990. Earth occupies approximately 0.12 pixels. &mdash; <a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" style="color:inherit">NASA/JPL-Caltech, Wikimedia Commons</a></div>
+      </div>
+
+      <p>By 1989, Voyager 1 (旅行者一號) had already done the impossible: launched in 1977, it had swung past Jupiter (木星) and Saturn (土星), returning photographs that changed humanity&rsquo;s picture of those worlds &mdash; the volcanic fury of Io (木衛一), the braided rings of Saturn, the methane haze of Titan (土衛六). Now the spacecraft was hurtling toward the edge of the solar system at 64,000 kilometres per hour, its cameras pointing outward. Carl Sagan had been petitioning NASA (美國太空總署) since the early 1980s for one final portrait: turn the cameras around and photograph the planets. NASA resisted for years. The risk was real &mdash; pointing cameras anywhere near the Sun could permanently blind Voyager&rsquo;s optical sensors. With the mission essentially complete, many engineers saw no justification for the gamble.</p>
+
+      <p>Sagan finally prevailed. On 14 February 1990, from a distance of 6.1 billion kilometres &mdash; about 40.5 astronomical units (天文單位) &mdash; Voyager 1 turned its cameras back and took 60 frames across multiple colour filters. The result was the Solar System&rsquo;s first family portrait: six of the planets visible as pale smudges against the darkness. Earth appeared in three of the frames as a fraction of a single pixel &mdash; 0.12 pixels in total. It should have been invisible. It was not, because a scattered ray of sunlight struck Voyager&rsquo;s wide-angle camera optics at just the right angle, creating a photographic artifact that made Earth glow more brightly than it should have &mdash; surrounded by a ray of light it did not earn. Sagan seized on this detail when he later wrote about the image: Earth, bathed in a beam of sunlight, looking far more significant than it is.</p>
+
+      <p>In a 1994 lecture at Cornell University (康奈爾大學), Sagan delivered what became one of the most celebrated passages in science writing: &ldquo;Look again at that dot. That&rsquo;s here. That&rsquo;s home. That&rsquo;s us&hellip; on a mote of dust suspended in a sunbeam.&rdquo; Every general, every king, every saint and sinner in history had played their part on that 0.12-pixel stage. Voyager 1 itself has since crossed into interstellar space (恒星際空間) &mdash; confirmed in 2012 when instruments detected the change in plasma density beyond the heliopause (日层頂). As of 2026, it is approximately 23 billion kilometres from the Sun, still transmitting faint signals that take over 22 hours to reach Earth at the speed of light. It is the most distant human-made object in existence.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The Pale Blue Dot cost nothing beyond the willingness to turn around and look back. What it revealed &mdash; that every human conflict, ambition, and certainty rests on a nearly invisible pixel &mdash; is a perspective no telescope pointed outward could have produced.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why was photographing the Pale Blue Dot technically risky for Voyager 1, and why does Earth appear as a bright dot rather than the near-invisible speck it should have been at that distance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Pointing the cameras back toward Earth required pointing them close to the Sun &mdash; risking permanent damage to Voyager&rsquo;s optical sensors from direct sunlight exposure, which is why NASA resisted for years. At 6.1 billion kilometres, Earth should have been essentially invisible at 0.12 pixels. It was made conspicuous by a photographic artifact: a beam of scattered sunlight struck Voyager&rsquo;s wide-angle camera optics at just the right angle, making Earth appear bathed in light. The scattered sunlight was an optical artifact of the camera, not a real shaft of light surrounding Earth &mdash; but it made the pale dot visible and gave Sagan his poetic image of Earth &ldquo;suspended in a sunbeam.&rdquo;</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Sagan, C. (1994). <em>Pale Blue Dot: A Vision of the Human Future in Space</em> (Random House); NASA/JPL-Caltech Voyager Mission Archives, voyager.jpl.nasa.gov; Pyne, S.J. (2010). <em>Voyager: Seeking Newer Worlds in the Third Great Age of Discovery</em> (Viking).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>布衣天子&#xFF1A;劉邦如何以識人善任之道&#xFF0C;擊敗力拔山兰的項羽&#xFF0C;奠定漢室四百年基業</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">項羽出身貴族名門&#xFF0C;武力冠絕天下&#xFF0C;鲵鹿之戰毲滅秦軍主力&#xFF0C;鸽門宴有機一舉消劉邦而放棄&#xFF1B;劉邦則是沛縣的市井小吏&#xFF0C;終日遊盪、好酒色。你認為誰更有可能建立帝國&#xFF1F;</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物 / 事件 / 背景</span>
+        <p><strong>人物&#xFF1A;</strong>劉邦&#xFF08;漢高祖&#xFF09;、項羽&#xFF08;西潜霸王&#xFF09;、張良、韓信、贕何、蕃何</p>
+        <p><strong>事件&#xFF1A;</strong>潜漢相爭&#xFF08;公元前206&#x2014;&#x2014;202年&#xFF09;&#x2014;&#x2014;秦朝崩潰後&#xFF0C;劉邦與項羽爭喔天下、决漢朝四百年基業</p>
+        <p><strong>大背景&#xFF1A;</strong>秦始皇建立的中央集權帝國在暴政與農民起義中崩潰&#xFF0C;舊六國貴族與平民英雄同台競爭&#xFF0C;决定誰將建立下一個大一統王朝</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Chu-Han_Contention.png" alt="潜漢相爭地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">潜漢相爭&#xFF08;公元前206&#x2014;&#x2014;202年&#xFF09;局勢圖&#x2014;&#x2014; <a href="https://en.wikipedia.org/wiki/Chu%E2%80%93Han_Contention" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>公元前207年&#xFF0C;項羽在鲵鹿之戰破釜沉舟&#xFF0C;以三萬楚軍擊潰四十萬秦軍&#xFF0C;天下諸侯無不折服。劉邦則抄先入關&#xFF0C;佔領和陽。項羽雨師西進&#xFF0C;在鬴門孴&#xFF08;公元前206年&#xFF09;逢劉邦。谋士范增力主殺劉邦&#xFF0C;項伯暗通張良&#xFF0C;項羽優柔寡斷&#xFF0C;放山了劉邦。這成為潜漢相爭賢分走勢的謜點&#x2014;&#x2014;也是歷史上最著名的戰略失誤之一。</p>
+
+      <p>潜漢相爭的核心是用人之別。劉邦自認&#xFF1A;「運籌棟嵄&#xFF0C;吾不如子房&#xFF1B;鎮國家&#xFF0C;撫百姓&#xFF0C;吾不如跃何&#xFF1B;連百萬之軍&#xFF0C;戰必勝&#xFF0C;攻必取&#xFF0C;吾不如韓信。此三人皆人僑也&#xFF0C;吾能用之&#xFF0C;此吾所以取天下也。」項羽勇而自搁&#xFF0C;不能容人&#xFF0C;謌臣范增屢獻良策而不聽&#xFF0C;韓信初投楚營亦不得重用。天下人才紛紛流向劉邦&#xFF0C;項羽却步步孤立。</p>
+
+      <p>决戰岸下之戰&#xFF08;公元前202年&#xFF09;&#xFF0C;韓信以「十面埋伏」重重包圍項羽楚軍&#xFF0C;四面楚歌令楚軍軍心潰散。項羽突圍至烏江&#xFF0C;船家待定&#xFF0C;他却因無顏見江東父老&#xFF0C;拔劍自刹&#xFF0C;時年三十一歲。劉邦稱帝&#xFF0C;建立漢朝&#xFF0C;開啟延續四百餘年&#xFF08;含東漢&#xFF09;的劉氏王朝。「漢人」「漢字」「漢語」之名&#xFF0C;由此而來。</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>心得&#xFF1A;</strong>識人善任勝過蓋世武力&#x2014;&#x2014;劉邦懂得自己的局限&#xFF0C;因此能網羅並信任遠比自己優秀的人&#xFF1B;項羽無法忍耐下屬超越自己&#xFF0C;最終孤立而敗。</div>
+
+      <div class="retrieval-q"><em>讀後回想&#xFF1A;</em>鬼門孴上項羽放走劉邦的決定&#xFF0C;反映了他哪一種根本性格缺陥&#xFF0C;而這個缺陥又如何在整個潜漢相爭中不斷重演&#xFF0C;最終導致岸下之敗&#xFF1F;</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">項羽優柔寡斷、婦人之仁&#xFF0C;不能在政治上果斷行事。鬼門孴上他以戰場上的個人武勇來評价劉邦&#xFF0C;認為不足為懂。這種人格特質在潜漢相爭中反覆出現&#xFF1A;他不重用韓信&#xFF0C;不聽范增&#xFF0C;分封諸侯時又心存私情而非戰略考量。岸下之敗的根源&#xFF0C;是他把天下之爭當成個人武勇的舞台&#xFF0C;而劉邦却清醒地認識到這是一場組織能力與制度建設的競爭。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; 司馬遷《史記・項羽本紀》&#xFF1B;《史記・高祖本紀》&#xFF1B;余英時《士與中國文化》&#xFF08;上海人民出版社&#xFF0C;2003年&#xFF09;&#xFF1B; Loewe, M. &amp; Shaughnessy, E.L. (eds.) (1999). <em>The Cambridge History of Ancient China</em> (Cambridge UP).</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Self-Destruction of the Golden Age: How the Peloponnesian War (伯羅奔尼撒戰爭) Tore Apart the World Athens Had Built</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">At the start of the Peloponnesian War (431 BC), Athens (雅典) had the largest navy in the Greek world, a treasury overflowing from its empire, and Pericles (伯里克利) as its strategic genius. Twenty-seven years later, Athens had surrendered unconditionally. What do you think was the decisive factor that brought it down?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figures / Event / Big Picture</span>
+        <p><strong>Key figures:</strong> Pericles (伯里克利), Thucydides (修昂底德), Alcibiades (亞西比德), Nicias (尼西亞斯), Lysander (萊山德)</p>
+        <p><strong>Event:</strong> The Peloponnesian War, 431&ndash;404 BC &mdash; Athens vs Sparta (斯巴達), the defining catastrophe of Classical Greece</p>
+        <p><strong>Big picture:</strong> Athens had converted a defensive alliance against Persia (波斯) into a tribute empire; Sparta saw growing Athenian power as existential; the war would end Athens&rsquo; golden age and exhaust both powers for Macedon&rsquo;s later conquest</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Pelop_war_en.png" alt="Map of the Peloponnesian War showing Athenian and Spartan alliance territories" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Athenian (雅典) and Spartan (斯巴達) alliance territories at the outset of the Peloponnesian War, 431 BC &mdash; <a href="https://en.wikipedia.org/wiki/Peloponnesian_War" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Athens in 431 BC was at the height of its power. Under Pericles (伯里克利), the Delian League (提洛同盟) &mdash; formed to defend Greece against Persia &mdash; had quietly transformed into an Athenian empire: allies were tribute-paying subjects, their treasury relocated to Athens, their legal disputes adjudicated in Athenian courts. The Parthenon (帕特德宜神殿) was being built with alliance funds. Sparta (斯巴達) and Corinth (科林斯) saw the writing on the wall. Thucydides (修昂底德), who would chronicle the war with merciless clarity, diagnosed the root cause: &ldquo;The growth of Athenian power and the fear this caused in Sparta made war inevitable.&rdquo; Pericles&rsquo; strategy was elegant in theory &mdash; avoid land battle with Sparta&rsquo;s superior army, use naval power to raid the Peloponnese, wait behind Athens&rsquo; Long Walls (長牆) while Sparta ravaged the countryside. The empire would outlast the siege.</p>
+
+      <p>Then catastrophe struck from an unexpected direction. In 430 BC, a plague (瘟疫) swept through Athens &mdash; possibly typhoid fever or a haemorrhagic fever &mdash; striking a city dangerously overcrowded with refugees from the Spartan invasion of Attica (阿提卡). Approximately a quarter to a third of the population died. Pericles himself succumbed in 429 BC. Without his steady hand, Athenian democracy&rsquo;s worst tendencies took over. Demagogues competed for popular favour with reckless proposals. The assembly that had accepted Pericles&rsquo; difficult defensive strategy lost patience. In 421 BC, a shaky peace (尼西亞斯和約) was concluded &mdash; but it satisfied nobody, and by 415 BC a faction led by the brilliant, unreliable Alcibiades (亞西比德) had convinced the assembly to launch the most ambitious operation in Athenian history.</p>
+
+      <p>The Sicilian Expedition (西西里遠征) of 415&ndash;413 BC was history&rsquo;s most spectacular act of imperial overreach. Athens dispatched 134 triremes (三橈懳战船) and approximately 27,000 men to conquer Sicily (西西里島) and cut off Sparta&rsquo;s grain supply. Alcibiades was recalled mid-voyage under suspicion of sacrilege and defected to Sparta, revealing Athenian plans. His replacement, the cautious Nicias (尼西亞斯), was gravely ill and opposed the mission. The Syracusans (敍拉古人) fought tenaciously. An attempted sea retreat was blocked; Nicias delayed the withdrawal because a lunar eclipse seemed a bad omen. The army attempting to withdraw overland was destroyed. All 27,000 men were killed or enslaved. Every ship was lost. Sparta then allied with Persia (波斯), which funded a Spartan fleet. By 404 BC, Athens surrendered; the Long Walls were torn down to the music of flutes. The golden age was over.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Athens didn&rsquo;t lose to Sparta &mdash; it lost to itself. The plague that killed Pericles, the recklessness of the Sicilian Expedition, and the democracy that couldn&rsquo;t maintain strategic discipline were all products of the same political culture that made Athens great.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What was the strategic rationale for the Sicilian Expedition, and what combination of factors turned it from a bold gamble into the greatest military disaster in Athenian history?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The strategic rationale was to conquer Sicily (西西里島), deny Sparta (斯巴達) access to Sicilian grain and resources, and expand Athenian empire westward to financially encircle the Peloponnesian coalition. The expedition was fatally compromised from the start: Alcibiades (亞西比德), its architect, was recalled under suspicion of sacrilege and defected to Sparta, revealing Athenian plans. His replacement Nicias (尼西亞斯) was gravely ill and opposed the mission. The Syracusans were better organised than expected. A sea retreat was blocked, and Nicias delayed the land retreat because of a lunar eclipse. The result was total annihilation: 27,000 men killed or enslaved, the entire fleet lost. The disaster was not simply bad luck but the consequence of democratic politics overriding sound strategy, divided command, and cascading intelligence failures.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Thucydides. <em>History of the Peloponnesian War</em> (trans. Crawley, Penguin Classics); Kagan, D. (2003). <em>The Peloponnesian War</em> (Viking); Hanson, V.D. (2005). <em>A War Like No Other</em> (Random House).</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>三千世界&#xFF0C;一念之間&#x2014;&#x2014;智颱如何以「一念三千」重建中國佛學的宇宙觀&#xFF0C;令每一劑那都成為整個法界的縮影</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">佛教傳入中國後&#xFF0C;各種互相矛盾的經典同時在流通&#xFF1A;有的強調空性&#xFF0C;有的強調佛性常在&#xFF0C;有的主張漸修&#xFF0C;有的倡導頓悟。如果你是六世紀的佛學大師&#xFF0C;你會用什麼方法來統一這些看似矛盾的教義&#xFF1F;</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">人物 / 思想核心 / 歷史背景</span>
+        <p><strong>人物&#xFF1A;</strong>智颱&#xFF08;538&#x2014;&#x2014;597年&#xFF0C;天台大師&#xFF09;&#xFF0C;天台宗开山祖師</p>
+        <p><strong>思想核心&#xFF1A;</strong>「一念三千」&#x2014;&#x2014;每一個思念劑那之中&#xFF0C;含攝三千種存在形態&#xFF0C;宇宙並非在心靈之外&#xFF0C;而是在每個當下完整呼現</p>
+        <p><strong>歷史背景&#xFF1A;</strong>佛教自漢代傳入中土&#xFF0C;各宗派翻譯不同經典&#xFF0C;判教問題&#xFF08;如何解釋互相矛盾的佛陀教義&#xFF09;成為六朝至雋唐最重要的哲學難題</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sanjusangendo_2022.jpg/330px-Sanjusangendo_2022.jpg" alt="三十三間堂千手觀音套像&#x2014;&#x2014;天台宗東傳日本媒介的信仰表張" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">三十三間堂&#xFF08;京都&#xFF09;千手觀音奈良康像&#x2014;&#x2014;天台宗影響日本天台宗後的信仰表張 &mdash; <a href="https://en.wikipedia.org/wiki/Sanjusangendo" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>智颱出生於南北朝亂世&#xFF0C;二十三歲投身於北方禅師慧思&#xFF08;515&#x2014;&#x2014;577年&#xFF09;門下&#xFF0C;在大蘇山修「法華三昧」時開悟&#xFF0C;慧思印可說&#xFF1A;「非汝弗證&#xFF0C;非我莫識。」此後智颱移居天台山&#xFF08;今浙江&#xFF09;&#xFF0C;著《摩訶止觀》《法華玄義》《法華文句》&#xFF0C;建立天台宗完整體系。他的核心問題是&#xFF1A;佛陀一生說法&#xFF0C;為何後人結集出如此多彼此矛盾的經典&#xFF1F;智颱的答案是「判教」&#x2014;&#x2014;依說法時機、對象、深淺&#xFF0C;將佛陀教義分為「五時八教」&#xFF0C;以《法華經》為最高&#xFF0C;統攝一切。</p>
+
+      <p>「一念三千」是天台哲學的精華。智颱從《法華經》十如是&#xFF08;如是相、性、體、力、作、因、緣、果、報、本末究站等&#xFF09;出發&#xFF0C;推導出&#xFF1A;十法界&#xFF08;地獄、餘鬼、畜生、修羅、人、天、聲聞、緣覺、菩薩、佛&#xFF09;互相含攝&#xFF0C;每一界都包含其餘九界&#xFF0C;故十法界含百法界。再乘以十如是得千如是&#xFF0C;再乘以三種世間&#xFF08;五陰世間、眾生世間、國土世間&#xFF09;&#xFF0C;得三千。這三千種存在形態&#xFF0C;並非在時間中依次展開&#xFF0C;而是同時含攝於每一個「一念」之中&#x2014;&#x2014;即每一個思念劑那都是完整宇宙的當下呼現。</p>
+
+      <p>「一念三千」的哲學意涵&#xFF0C;在於打破了「凡聖分離」的隔閡。地獄並非在彼岸&#xFF0C;佛境也並非遥不可及&#x2014;&#x2014;二者同時含攝於當下一念之中。「性惡說」由此而生&#xFF1A;佛雙已成就&#xFF0C;仍具地獄之「性」&#xFF08;性能&#xFF0C;非現行&#xFF09;&#xFF0C;否則佛便無法化度地獄眾生。天台宗東傳日本成天台宗&#xFF08;最澳&#xFF09;&#xFF0C;再衍生出禪宗&#xFF08;榮西、道元&#xFF09;、淨土宗&#xFF08;法然&#xFF09;、日蓮宗&#xFF0C;構成日本佛教的主帹。</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>心得&#xFF1A;</strong>「一念三千」的洞見是&#xFF1A;宇宙並非在你的心靈之外等待被認識&#xFF0C;而是在每一個思念劑那中完整呼現&#x2014;&#x2014;包括最高的覺悟境界&#xFF0C;也包括最深的苦難。</div>
+
+      <div class="retrieval-q"><em>讀後回想&#xFF1A;</em>智颱「一念三千」中的「三千」是如何推導出來的&#xFF0C;而「性惡說」又如何從這一理論中自然衍生&#xFF0C;成為天台宗不共他宗的特色主張&#xFF1F;</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">「三千」的推導路徑&#xFF1A;十法界互相含攝&#xFF08;每界含十界&#xFF09;得百法界&#xFF0C;乘以十如是得千如是&#xFF0C;再乘以三種世間&#xFF08;五陰、眾生、國土&#xFF09;得三千法。「性惡說」的邏輯&#xFF1A;若「一念三千」為真&#xFF0C;則三千法界都含攝於每一心念之中&#xFF0C;包括地獄界。佛已成就、不再現行地獄之惡&#xFF0C;但地獄的「性」&#xFF08;能力、潛性&#xFF09;依然在佛心中存在&#x2014;&#x2014;否則佛便無法了知地獄眾生的苦&#xFF0C;也無法化度他們。天台的「性惡」是存有論問題&#xFF1A;它主張所有存在形態同時在心性之中具足&#xFF0C;善惡之辨不在性之有無&#xFF0C;而在現行與否。</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Zhiyi. 《摩訶止觀》&#xFF08;T 46.1c&#xFF09;&#xFF1B; Hurvitz, L. (1962). <em>Chih-i: An Introduction to the Life and Ideas of a Chinese Buddhist Monk</em> (M&eacute;langes chinois et bouddhiques); Donner, N. &amp; Stevenson, D.B. (1993). <em>The Great Calming and Contemplation</em> (University of Hawaii Press).</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Desk Murderer: Hannah Arendt (漢娜&#x00B7;鄰蘭) and Why Evil Doesn&rsquo;t Require Monsters</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Adolf Eichmann (艾希曼) organised the transportation of hundreds of thousands of Jews to Nazi death camps. When philosopher Hannah Arendt attended his 1961 trial in Jerusalem (耶路撒安), expecting to confront a monster of history, what kind of person do you think she actually found in the bulletproof glass dock?</div>
+      </details>
+
+      <div class="intro-box">
+        <span class="intro-label">Key Figure / Event / Big Picture</span>
+        <p><strong>Key figure:</strong> Hannah Arendt (漢娜&#x00B7;鄰蘭, 1906&ndash;1975), German-American political philosopher; fled Nazi Germany in 1933, stateless for 18 years</p>
+        <p><strong>Event:</strong> The 1961 trial of Adolf Eichmann (艾希曼) in Jerusalem &mdash; the SS officer who co-ordinated Holocaust logistics &mdash; covered by Arendt for <em>The New Yorker</em></p>
+        <p><strong>Big picture:</strong> Arendt&rsquo;s <em>Origins of Totalitarianism</em> (1951) had established her as the foremost theorist of totalitarianism; the trial forced her to confront the question: what kind of person actually commits crimes against humanity?</p>
+      </div>
+
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg/330px-Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg" alt="Hannah Arendt at the First Cultural Critics Congress, 1950s" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hannah Arendt (漢娜&#x00B7;鄰蘭) at the First Cultural Critics Congress &mdash; <a href="https://en.wikipedia.org/wiki/Hannah_Arendt" style="color:inherit">Barbara Niggl Radloff / Wikimedia Commons</a></div>
+      </div>
+
+      <p>Arendt expected a monster. The logistics co-ordinator of the Holocaust &mdash; the man whose paperwork had helped send hundreds of thousands to Auschwitz (奥斯威辛集中熱) &mdash; surely had to be a fanatic or a sadist. What she found in the bulletproof glass dock was, by her own account, deeply unsettling precisely because it was not that. Eichmann was terrifyingly normal: a bureaucrat anxious about promotion, proud of how efficiently he had organised the transports, obsessed with following correct procedure. He was not stupid, but he had, she wrote, &ldquo;an almost total inability to look at anything from the other fellow&rsquo;s point of view.&rdquo; He spoke in clich&eacute;s. He had never read <em>Mein Kampf</em> all the way through. He kept insisting he bore no personal hatred of Jews &mdash; he was just doing his job.</p>
+
+      <p>This led to Arendt&rsquo;s famous and contested formulation: the &ldquo;banality of evil&rdquo; (惡的平庸性). Her point was not that what Eichmann did was banal &mdash; the Holocaust (大屠殺) was monstrousness of the highest order. Her point was that the man who helped perpetrate it was banal: not uniquely wicked, but shockingly ordinary. The mechanism was what she called &ldquo;thoughtlessness&rdquo; (無思想性) &mdash; not stupidity, but the suspension of the inner dialogue by which a person thinks about the consequences of their actions from the perspective of others. Eichmann had stopped thinking. He executed orders with professional diligence without asking what those orders meant in human terms. For Arendt, the capacity for evil was not located in monstrous characters but in the abandonment of thinking &mdash; something any bureaucrat, any follower of orders, can do.</p>
+
+      <p>The implications were deeply uncomfortable and remain contested. Arendt&rsquo;s broader project &mdash; from <em>Origins of Totalitarianism</em> (1951) to <em>The Human Condition</em> (人的條件, 1958) &mdash; was to understand how modern political systems could systematically cultivate thoughtlessness, rewarding obedience and punishing independent judgment. She identified statelessness (無國籍狀態) and the destruction of political belonging as the precondition for totalitarian control: the &ldquo;right to have rights&rdquo; requires belonging to a political community. Without that membership, people lose the capacity for political action and become passive functionaries of whatever system demands their compliance. The lesson is not that Eichmann was uniquely terrible; it is that ordinary institutional pressure can make ordinary people capable of anything &mdash; if they stop thinking.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Evil&rsquo;s most effective agents are not monsters but ordinary people who have stopped thinking. Arendt&rsquo;s &ldquo;banality of evil&rdquo; is not a claim about the Holocaust&rsquo;s severity &mdash; it is a warning about the conditions under which anyone becomes capable of participating in atrocity.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did Arendt mean by Eichmann&rsquo;s &ldquo;thoughtlessness,&rdquo; and why did she insist this was a more disturbing explanation of evil than the idea that perpetrators are motivated by hatred or ideology?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Arendt&rsquo;s &ldquo;thoughtlessness&rdquo; did not mean stupidity but the specific failure to exercise the inner dialogue &mdash; the imagined conversation with oneself and others &mdash; through which one understands the human consequences of one&rsquo;s actions from the perspective of those affected. Eichmann knew what he was doing in logistical terms but had completely suspended the capacity to consider it from the perspective of his victims. Arendt found this more disturbing than ideological fanaticism because fanaticism is at least comprehensible as a distorted moral system. Thoughtlessness, by contrast, means that ordinary institutional life &mdash; the desire to be a competent employee, to follow procedure, to advance in one&rsquo;s career &mdash; can produce mass murder without any special psychological depravity. The conditions for atrocity do not require monsters; they require systems that reward the suspension of moral thinking.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Arendt, H. (1963). <em>Eichmann in Jerusalem: A Report on the Banality of Evil</em> (Viking Press); Arendt, H. (1951). <em>The Origins of Totalitarianism</em> (Harcourt, Brace); Young-Bruehl, E. (1982). <em>Hannah Arendt: For Love of the World</em> (Yale UP).</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>You Are Who You&rsquo;re With: Henri Tajfel (塔基費爾) and the Disturbing Discovery That Humans Need Almost Nothing to Form an In-Group</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A researcher divides schoolboys into two groups based entirely on arbitrary criteria &mdash; which of two abstract painters they prefer, or even a coin flip. The boys have no history together, no shared interest, and no interaction with the other group. When asked to allocate monetary rewards between members of both groups, what do you predict the boys do?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Muzafer_Sherif_author_photo_%281967%29.png/330px-Muzafer_Sherif_author_photo_%281967%29.png" alt="Muzafer Sherif (复雷德山&#x00B7;谢里夫), pioneer of intergroup conflict research" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Muzafer Sherif (复雷德山&#x00B7;谢里夫), whose Robbers Cave experiment on intergroup conflict preceded and informed Tajfel&rsquo;s (塔基費爾) minimal group research &mdash; <a href="https://en.wikipedia.org/wiki/Muzafer_Sherif" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>In the early 1970s, Henri Tajfel (塔基費爾) and colleagues at the University of Bristol (布里斯托大學) wanted to identify the minimum conditions required for discrimination &mdash; what was the irreducible floor beneath which groups would not show in-group favouritism (內團偶喜性)? They expected to find some threshold: surely people needed a shared history, real competition, or meaningful differences to start favouring their own group. Their minimal group paradigm (最小群體典範) experiments dissolved this assumption. Boys were divided into &ldquo;Klee group&rdquo; or &ldquo;Kandinsky group&rdquo; based on painting preferences, or by coin flip. The groups never met, never interacted, and never competed for anything real. Yet when asked to allocate monetary rewards between anonymous members of both groups, boys systematically gave more to in-group members &mdash; and often sacrificed absolute gain to widen the gap between groups. Discrimination required no history, no enemy, no grievance: only a label.</p>
+
+      <p>Tajfel &amp; Turner&rsquo;s (1979) Social Identity Theory (社會認同理論) explains the mechanism. Identity is not purely personal &mdash; a significant component comes from the social groups we belong to. Because people are motivated to maintain positive self-esteem (自尊), and because group membership contributes to self-esteem, people are motivated to perceive their in-group as superior to out-groups. This does not necessarily operate through active denigration of others: often the mechanism is simply elevated evaluation of the in-group and slightly deflated evaluation of the out-group. The critical finding is that this process starts from almost nothing &mdash; mere categorisation is sufficient. The cognitive act of dividing people into &ldquo;us&rdquo; and &ldquo;them&rdquo; automatically triggers evaluative bias, even when the categories are known to be arbitrary.</p>
+
+      <p>The real-world implications stretch from sports tribalism to ethnic conflict to political polarisation (政治兩極化). Tajfel himself was a Polish-Jewish Holocaust survivor who had spent the war years as a French prisoner-of-war concealing his identity &mdash; the question of what makes people divide humanity into those who matter and those who don&rsquo;t was not academic for him. Later research by Allport (奧爾波特) and others developed the intergroup contact hypothesis (族際接觸假說): prejudice can be reduced when groups meet under conditions of equal status, common goals, co-operation, and institutional support. But the minimal group paradigm remains humbling: it suggests that the urge to favour one&rsquo;s own group is not a product of ignorance or experience but a feature of basic human cognition.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> You don&rsquo;t need history, competition, or meaningful difference to form an in-group &mdash; you need only a label. Understanding this is the starting point for designing institutions, teams, and communities that resist the pull of tribal thinking.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did the minimal group paradigm demonstrate about the conditions required for in-group favouritism, and why is this finding disturbing for rationalist accounts of the roots of prejudice?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The minimal group paradigm demonstrated that intergroup discrimination does not require realistic conflict over resources, historical grievance, meaningful group differences, or even acquaintance between members. Mere arbitrary categorisation &mdash; a label assigned by coin flip &mdash; is sufficient to produce systematic in-group favouritism and out-group discrimination. This is disturbing for rationalist accounts of prejudice (which assume people discriminate because of real conflicts of interest or accurate perceptions of group differences) because it reveals discrimination as a product of basic social categorisation rather than any rational calculation. It implies that many forms of real-world prejudice may not primarily be about the actual characteristics of out-groups but about the cognitive and motivational dynamics that categorisation itself unleashes &mdash; making it much harder to eliminate by providing accurate information alone.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Tajfel, H. et al. (1971). &ldquo;Social categorization and intergroup behaviour.&rdquo; <em>European Journal of Social Psychology</em>, 1(2), 149&ndash;178; Tajfel, H. &amp; Turner, J.C. (1979) in Worchel &amp; Austin (eds.), <em>Psychology of Intergroup Relations</em> (Nelson-Hall); Turner, J.C. et al. (1987). <em>Rediscovering the Social Group</em> (Blackwell).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Oxygen Without Enough Oxygen: How Your Body&rsquo;s HIF-1&alpha; Switch Rewires Every Cell When Altitude, Tumours, or Breath-Holding Cuts Off the Supply</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When you hold your breath or climb to high altitude (高海拔), your blood oxygen level drops. Rather than simply shutting down, cells across your body detect the change within seconds and launch a co-ordinated emergency response. What kind of response do you think they mount, and how could the same system be both a life-saver at altitude and a critical driver of cancer growth?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Altitude_Sickness_Warning.jpg/330px-Altitude_Sickness_Warning.jpg" alt="Cyanosis (发紺) of the fingertips indicating severe hypoxia" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cyanosis (发紺) of the fingertips &mdash; a visible sign of tissue hypoxia (缺氧) when blood oxygen saturation falls severely &mdash; <a href="https://en.wikipedia.org/wiki/Altitude_sickness" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Every cell in your body is an oxygen accountant. Under normal conditions, mitochondria (線粒體) burn oxygen to produce ATP (腺苷三磷) efficiently. Cut oxygen &mdash; through altitude, intense exercise, or blocked blood flow &mdash; and within minutes the cell faces an energy crisis. The master regulator of this response is Hypoxia-Inducible Factor 1-alpha (HIF-1&alpha;, 缺氧誠導因子-1&alpha;). Under normal oxygen levels, HIF-1&alpha; protein is produced continuously but immediately tagged for destruction by an enzyme called prolyl hydroxylase (脆氨酸罟化鈷) and degraded in the proteasome (蹋白體) within minutes. It is as if the cell is constantly printing and shredding a crucial memo. The shredder needs oxygen to run. Remove oxygen and the shredder stops. HIF-1&alpha; accumulates, moves to the nucleus (細胞核), and activates over 200 target genes in a matter of minutes.</p>
+
+      <p>The genes HIF-1&alpha; switches on read like an emergency action plan. First, it upregulates erythropoietin (EPO, 促紅細胞生成素) in the kidney, triggering production of more red blood cells over days to weeks &mdash; the same pathway that altitude training (高地訓練) exploits and that EPO doping (禁薬注射) illegally mimics. Second, it activates VEGF (血管內皮生長因子), prompting blood vessels to sprout and grow into hypoxic tissue &mdash; angiogenesis (血管新生). Third, it switches metabolism from oxygen-dependent oxidative phosphorylation (氧化磷酸化) to anaerobic glycolysis (無氧糣解), the same low-efficiency pathway active in sprinting muscles. This is how cells survive short hypoxic episodes while longer-term adaptations catch up. HIF-1&alpha; is the bridge between immediate crisis management and structural redesign.</p>
+
+      <p>The same machinery is catastrophically exploited by cancer. Solid tumours grow faster than new blood vessels can supply them, creating chronically hypoxic cores. In many tumours, HIF-1&alpha; is constitutively (persistently) active, not because oxygen is actually low, but because mutations in the Von Hippel-Lindau (VHL, 目東白非歇白宇生病基因) tumour-suppressor gene disable the destruction pathway. The tumour is permanently in &ldquo;emergency mode&rdquo;: constantly stimulating blood vessel growth to feed itself and shifting to glycolysis (the Warburg Effect, 瓦堡加效應) even in the presence of oxygen. Hypoxic tumours are also more radiation-resistant and more likely to metastasise (転移). The 2019 Nobel Prize in Physiology or Medicine (調頂吟爾單規生理學或醫學獎) went to Kaelin, Ratcliffe, and Semenza (兎林、拉特克利夫、塞溼扎) precisely for unravelling this HIF-1&alpha; system &mdash; understanding the molecular switch that could, in principle, be thrown to starve tumours of their survival signal.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> HIF-1&alpha; is evolution&rsquo;s answer to temporary oxygen shortage &mdash; a perfectly designed emergency switch. Cancer has learned to hijack it, turning a life-saving adaptation into a growth engine. The same pathway used in altitude training to boost red blood cells is the pathway tumours exploit to stay alive.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does HIF-1&alpha; protein constantly accumulate under normal conditions but get destroyed, and what molecular event allows it to escape destruction when oxygen falls?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Under normal oxygen levels, HIF-1&alpha; is constantly produced but immediately hydroxylated on specific proline residues by prolyl hydroxylase (脆氨酸罟化鈷) &mdash; an enzyme that requires oxygen as a co-substrate. This hydroxylation creates a docking site for the VHL (目東白非歇白宇生病) tumour-suppressor protein, which tags HIF-1&alpha; for rapid degradation in the proteasome (蹋白體). When oxygen falls, prolyl hydroxylase can no longer function. Hydroxylation stops; VHL can no longer bind; HIF-1&alpha; is no longer tagged and escapes destruction. It accumulates, dimerises with HIF-1&beta;, moves to the nucleus, and activates its target genes. The oxygen-sensing mechanism is therefore built directly into the degradation pathway &mdash; the sensor and the switch are the same molecular event.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Semenza, G.L. (2012). &ldquo;Hypoxia-inducible factors in physiology and medicine.&rdquo; <em>Cell</em>, 148(3), 399&ndash;408; Kaelin, W.G. &amp; Ratcliffe, P.J. (2008). &ldquo;Oxygen sensing by metazoans: the central role of the HIF hydroxylase pathway.&rdquo; <em>Molecular Cell</em>, 30(4), 393&ndash;402; Nobel Committee (2019). <em>Press Release: The Nobel Prize in Physiology or Medicine 2019</em>, nobelprize.org.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Perfect Nap Is 20 Minutes: The Science of Why a Short Sleep Restores Alertness Without Making You a Zombie</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most people who nap wake up feeling worse than before &mdash; groggy, disoriented, and harder to shake awake than from a full night&rsquo;s sleep. Yet some cultures institutionalise afternoon naps and report dramatic benefits in alertness and performance. What do you think determines whether a nap makes you feel better or worse?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Nappuccino_caf%C3%A9_napping_pods_Barcelona.jpg/330px-Nappuccino_caf%C3%A9_napping_pods_Barcelona.jpg" alt="A person napping in a hammock" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Napping in a hammock &mdash; even 10&ndash;20 minutes of light sleep can restore alertness and reaction time more effectively than caffeine &mdash; <a href="https://en.wikipedia.org/wiki/Nap" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>The reason most people feel worse after a nap is sleep inertia (睡眠慣性): the groggy, disoriented state that follows waking from deep slow-wave sleep (深层慢波睡眠, SWS). The culprit is adenosine (腺苷蓉). Adenosine is a metabolic byproduct that accumulates in the brain whenever neurons fire; it builds up throughout the day, progressively increasing what sleep researchers call sleep pressure (睡眠壓力). This is why you feel sleepier at 3 pm than 10 am. When you fall asleep, the brain begins clearing adenosine. But if you sleep long enough to enter slow-wave sleep and then wake in the middle of it, the brain is in an anomalous state: adenosine has been partially cleared (removing the sleepiness signal) but the neural systems have not yet completed their deep recovery cycle. The result is sleep inertia &mdash; and it can last 20&ndash;90 minutes after a long nap.</p>
+
+      <p>The solution is timing. A nap of 10&ndash;20 minutes &mdash; sometimes called a &ldquo;power nap&rdquo; &mdash; keeps the sleeper in light Stage 1 and Stage 2 non-REM sleep (非快眼睡眠) and allows them to wake before entering slow-wave sleep. Stage 2 sleep features sleep spindles (睡眠紡锄) and K-complexes (K波), brain wave patterns associated with consolidation of motor and procedural memories and restoration of cortical (大腦皮質) alertness. The benefit is substantial: a 2002 NASA study found that a 26-minute nap improved pilot performance by 34% and alertness by 100% compared to no nap. A 2021 systematic review in <em>Sleep Medicine Reviews</em> confirmed that naps of 10&ndash;20 minutes consistently outperformed longer naps on measures of immediate post-nap alertness, while a 90-minute nap (一個完整睡眠週期) is the other sweet spot &mdash; long enough to complete a full sleep cycle including REM (快眼期) and avoid being cut off mid-cycle.</p>
+
+      <p>One evidence-based technique maximises the short nap&rsquo;s effectiveness: the &ldquo;nappuccino&rdquo; or caffeine nap (咖啡因小睡). Drink a cup of coffee immediately before a 20-minute nap. Caffeine takes approximately 20&ndash;30 minutes to reach peak blood concentration and cross the blood-brain barrier (血腦屏障), where it blocks adenosine receptors (腺苷蓉受體). Timed correctly, you wake from the nap just as caffeine begins its effect &mdash; alertness from both adenosine clearance during sleep and caffeine blocking any residual adenosine receptors. A 1997 study by Horne &amp; Reyner in <em>Psychophysiology</em> found this combination produced better driving performance and fewer sleep-related accidents in a simulator than caffeine alone or nap alone. The key misunderstanding most people have: the problem is not napping per se, but napping too long or at the wrong time of day (past 3 pm tends to disrupt night-time sleep).</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Set a timer for 20 minutes, drink coffee immediately before, and lie down. The nap clears adenosine (腺苷蓉) before slow-wave sleep begins; the caffeine blocks residual receptors the moment you wake. You avoid sleep inertia and get double alertness for the price of one.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is sleep inertia, what causes it at the molecular level, and why does nap length determine whether you experience it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Sleep inertia (睡眠慣性) is the grogginess and impaired performance that follows waking from deep slow-wave sleep (SWS). It occurs because adenosine (腺苷蓉) &mdash; the molecule that accumulates during wakefulness to create sleep pressure &mdash; has been partially cleared during the sleep but the brain&rsquo;s deep recovery cycle has not been completed when you wake. The neural systems are in an intermediate state: the sleepiness signal is reduced but the restoration process is incomplete, leaving the prefrontal cortex (前額葉皮質) suppressed. Nap length determines this: a nap under ~20 minutes stays in light Stage 1&ndash;2 sleep, which restores alertness without triggering slow-wave sleep. Wake up before SWS begins and you avoid the inertia. Wake up in the middle of SWS and you get the worst of both worlds.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Mednick, S. et al. (2002). &ldquo;Sleep-dependent learning: a nap is as good as a night.&rdquo; <em>Nature Neuroscience</em>, 6(7), 697&ndash;698; Horne, J.A. &amp; Reyner, L.A. (1997). &ldquo;Counteracting sleepiness during extended wakefulness: a nap vs caffeine.&rdquo; <em>Psychophysiology</em>, 33(3), 306&ndash;309; Mantua, J. &amp; Spencer, R.M.C. (2017). &ldquo;Exploring the nap paradox.&rdquo; <em>Sleep Medicine</em>, 37, 88&ndash;97.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Training in the Heat to Win in Any Climate: The Physiology of Heat Acclimatisation (統熱適應) and Why It&rsquo;s One of the Most Powerful Legal Performance Enhancers in Sport</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Elite endurance athletes who train in hot, humid conditions for 10&ndash;14 days before a cool-weather competition often improve their performance even in the cool conditions. What physiological changes do you think heat training produces that could carry over to performance in any climate?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/NixonKiplimoChepseba.jpg/330px-NixonKiplimoChepseba.jpg" alt="Marathon runners at the Frankfurt Marathon 2013" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Marathon (馬拉松) runners: heat acclimatisation produces adaptations that enhance performance in any climate &mdash; <a href="https://en.wikipedia.org/wiki/Long-distance_running" style="color:inherit">Moritz Kosinsky / Wikimedia Commons</a></div>
+      </div>
+
+      <p>Your body&rsquo;s thermoregulatory system (體溫調節系統) responds to repeated heat exposure with a set of physiological changes that emerge over 10&ndash;14 days. The first and most dramatic is plasma volume expansion (血漿量改變). Within the first few sessions of exercising in heat, the kidneys increase retention of sodium and albumin (白蛋白), and water follows osmotically into the bloodstream. Blood plasma volume expands by 4&ndash;12% in trained athletes, sometimes more in sedentary individuals starting heat training. Why does this matter? More plasma means more fluid available for two competing demands that normally fight each other during exercise: sweating (流汗) for heat dissipation and maintaining stroke volume (每博輸出量) to supply muscles. With an expanded plasma volume, both demands can be met more fully &mdash; cardiac output (心輸出量) increases, core temperature rise is attenuated, and perceived exertion drops.</p>
+
+      <p>The second cluster of adaptations involves sweat efficiency. Acclimatised athletes begin sweating earlier (at a lower core temperature threshold), sweat at a higher total rate, and produce sweat that is more dilute (less sodium lost per litre). This conserves electrolytes (電解質) for critical neuromuscular function. Third, and crucially for cool-weather performance: the expanded plasma volume, improved cardiac efficiency, and enhanced mitochondrial density (線粒體密度) persist for 2&ndash;4 weeks after returning to cooler conditions. An athlete who trains in 35°C heat and races in 18°C simply has more blood plasma and a more efficient cardiovascular system than a competitor who trained in 18°C. This is why teams like Team Sky (天空跳輪车隊) used heat chambers and why elite cyclists and marathon runners deliberately schedule heat training blocks before major competitions.</p>
+
+      <p>The practical protocol for heat acclimatisation is well established. Sessions of 60&ndash;90 minutes at moderate intensity in 35&ndash;40°C ambient temperature (or in a sauna suit or heat chamber at normal temperatures) produce substantial adaptations over 10&ndash;14 days. Exercise is more effective than passive heat exposure (sitting in a sauna without exercising) because the cardiovascular stress &mdash; the competition between muscle blood flow and cutaneous (skin) blood flow &mdash; is what drives the plasma expansion signal. A 2010 study by Lorenzo et al. in the <em>Journal of Applied Physiology</em> found that heat acclimatisation improved VO&sub;2; max (最大氧氣攝取量) by 5% and time-trial performance by 6% in cool conditions &mdash; gains comparable to altitude training (高地訓練). Unlike altitude camps, heat acclimatisation requires no travel: a spare room with the heating cranked up and a static bike produces measurable results.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Ten to fourteen days of heat training expands blood plasma volume by up to 12%, making your cardiovascular system more efficient in any climate. This is one of the most evidence-backed, legal performance edges in endurance sport &mdash; and most amateur athletes have never tried it.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why does heat acclimatisation improve performance in cool conditions, and what is the primary physiological mechanism driving this transfer effect?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Heat acclimatisation improves cool-weather performance because the primary adaptation &mdash; plasma volume expansion (血漿量擴張) &mdash; persists for 2&ndash;4 weeks after returning to cool conditions. The mechanism: repeated heat exercise causes the kidneys to retain more sodium and albumin (白蛋白), drawing water into the bloodstream osmotically. Blood plasma volume increases by 4&ndash;12%. This expanded volume means the heart can maintain higher stroke volume (每博輸出量) and cardiac output (心輸出量) even in cool conditions where the demand was never as high. The athlete essentially has more blood volume than a comparably trained athlete who never heat-trained, improving oxygen delivery to muscles and allowing greater power output before hitting cardiovascular limits. Secondary adaptations (earlier sweating, higher sweat rate, improved mitochondrial density) also persist short-term.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Lorenzo, S. et al. (2010). &ldquo;Heat acclimation improves exercise performance.&rdquo; <em>Journal of Applied Physiology</em>, 109(4), 1140&ndash;1147; Périard, J.D. et al. (2015). &ldquo;Cardiovascular adaptations supporting human exercise-heat acclimation.&rdquo; <em>Autonomic Neuroscience</em>, 196, 52&ndash;62; Sawka, M.N. et al. (2011). ACSM position stand on exercise and heat stress. <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 43(7), 1340&ndash;1356.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Short That Shook a Market: GameStop (遊戲窟公司), the Reddit Squeeze, and What It Actually Taught Us About Short Selling (賽空) and Market Structure</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In January 2021, a Reddit (紅诪網) community of retail investors drove the share price of a struggling video game retailer from $20 to nearly $500 in three weeks, causing several large hedge funds to lose billions. Most media described it as a story of &ldquo;small investors beating Wall Street.&rdquo; But what do you think actually happened mechanically &mdash; and who really won?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Short_%28finance%29.png" alt="Diagram illustrating short selling (賽空) mechanics" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Mechanics of short selling (賽空): borrow shares, sell, buy back lower, return shares, pocket the difference &mdash; or, if the stock rises, face unlimited losses &mdash; <a href="https://en.wikipedia.org/wiki/Short_(finance)" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <p>Short selling (賽空) is the mechanism of borrowing shares you do not own, selling them at the current price, and hoping to buy them back later at a lower price to return to the lender and pocket the difference. The risk is theoretically unlimited: a stock can rise 100%, 500%, 1000%. In early January 2021, GameStop (GME) was approximately 140% short &mdash; meaning more shares had been borrowed and sold short than actually existed in the free float (流通股), because shares could be borrowed, reshorted, and the same shares appear on multiple short books simultaneously. Hedge funds including Melvin Capital (梅文資本) had enormous short positions, betting the company would continue to decline as physical game retail gave way to digital downloads. Their position was publicly visible through short interest disclosures (賽空益表露展).</p>
+
+      <p>The r/WallStreetBets community on Reddit identified that a sufficiently large co-ordinated purchase of GME shares could trigger a short squeeze (賽空搾市). Short sellers who need to buy back shares to close their positions face a reinforcing dynamic: as the price rises, their losses increase, triggering margin calls (追繳) that force them to buy even more shares to cover, which further drives the price up. The squeeze was amplified by options market mechanics (期權市場). As retail traders bought call options (購股期權), market makers who had sold those options had to buy the underlying shares to hedge &mdash; a process called delta hedging (德利對沖波). The buying pressure from delta hedging compounded the buying pressure from retail traders and short-covering simultaneously. GME went from $20 to $483 in three weeks. Melvin Capital (梅文資本) lost approximately 53% of its capital in January 2021 alone &mdash; a loss of billions &mdash; and required a $2.75 billion emergency bailout from Citadel (堡壘資本) and Point72 (點72資本).</p>
+
+      <p>The &ldquo;retail vs Wall Street&rdquo; narrative was compelling but incomplete. Sophisticated institutional players &mdash; most notably Senvest Management (第一资管理) &mdash; had bought large GME positions weeks earlier and sold near the top, pocketing hundreds of millions. Most retail traders who bought at the top lost significantly. Robinhood&rsquo;s (羅賓漢平台) decision to restrict GME buying on 28 January &mdash; driven by capital requirement calls from its clearing house, DTCC (存款信托公司) &mdash; was widely read as protecting hedge funds but was in fact a liquidity crisis response. The real lessons: short interest disclosures create co-ordination opportunities; options market gamma mechanics can accelerate moves far beyond what fundamental analysis would predict; and viral narratives about &ldquo;beating the system&rdquo; often transfer wealth from late retail buyers to early institutional players who were already positioned.</p>
+
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The GameStop squeeze was not retail investors versus Wall Street &mdash; it was two different parts of Wall Street fighting, with retail caught in the middle. Understanding short interest, options gamma (期權伽馬値), and clearing mechanics is what separated the people who made money from those who didn&rsquo;t.</div>
+
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is a short squeeze, and why did the options market amplify the GameStop price rise far beyond what retail buying alone could have produced?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A short squeeze (賽空搾市) occurs when a heavily shorted stock rises in price, forcing short sellers to buy shares to cover their positions (limiting losses), which drives the price higher still, triggering more covering &mdash; a self-reinforcing loop. In GameStop&rsquo;s case, the options market amplified this through delta hedging (德利對沖波): as retail traders bought call options (購股期權), market makers who sold those options were obligated to buy underlying GME shares to hedge their exposure (maintaining delta neutrality). Each dollar of option premium purchased triggered a disproportionate purchase of actual shares by market makers, layering institutional buying on top of retail buying on top of short-covering &mdash; a three-way buying pressure no single actor could have generated alone. This is why understanding options market microstructure is essential to understanding any modern momentum event.</div>
+      </details>
+
+      <div class="source">&#x1F4D6; Anand, A. &amp; Pathak, J. (2022). &ldquo;The role of Reddit in the GameStop short squeeze.&rdquo; <em>Economics Letters</em>, 211, 110249; Boehmer, E. et al. (2021). &ldquo;What happened with GameStop?&rdquo; SSRN Working Paper; U.S. Securities and Exchange Commission (2021). <em>Staff Report on Equity and Options Market Structure Conditions in Early 2021</em>, sec.gov.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>The Mariel Boatlift and the Wage That Didn&rsquo;t Fall: Why One of the Biggest Natural Experiments in Immigration Economics Remains Fiercely Contested Forty Years Later</h2>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/David_Card_-_Nobel_prize_interview_screenshot_%28cropped%29.png/330px-David_Card_-_Nobel_prize_interview_screenshot_%28cropped%29.png" alt="David Card (卡德·卡爾德), 2021 Nobel laureate in Economics whose Mariel Boatlift study is the most cited natural experiment in immigration economics" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">David Card (卡德&#x00B7;卡尔德), 2021 Nobel laureate in Economics &mdash; his 1990 Mariel Boatlift study remains the most cited natural experiment (自然實驗) in immigration economics &mdash; <a href="https://en.wikipedia.org/wiki/David_Card" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <span class="pe-label">EVENT</span>
+        <div class="pe-body">In April 1980, Fidel Castro opened Cuba&rsquo;s Mariel port (马里列港口) and approximately 125,000 Cuban migrants arrived in Miami (麦阿密) over five months &mdash; expanding the Miami labour force by 7% almost overnight. David Card (卡德&#x00B7;卡尔德, 2021 Nobel laureate in Economics) studied the episode and found no measurable drop in wages or rise in unemployment for Miami&rsquo;s existing workers, including previous Cuban immigrants.</div>
+      </div>
+
+      <div class="pe-section">
+        <span class="pe-label">THEORY</span>
+        <div class="pe-body">Standard labour economics predicts that a sudden labour supply increase shifts the supply curve rightward, reducing the equilibrium wage for competing workers. The prediction follows directly from competitive labour market theory (完全競爭勞工市場理論): more workers competing for the same jobs means lower wages and higher unemployment for incumbent workers.</div>
+      </div>
+
+      <div class="pe-section">
+        <span class="pe-label">ANOMALY</span>
+        <div class="pe-body">Card&rsquo;s 1990 <em>Industrial and Labor Relations Review</em> study found Miami&rsquo;s wage and employment outcomes indistinguishable from those in four comparable cities (Atlanta, Los Angeles, Houston, Tampa) that received no such influx. The predicted wage depression did not materialise &mdash; a result replicated in most subsequent studies, though a 2017 reanalysis by George Borjas (博尔哈斯) found wage declines for high-school dropouts when the comparison group was redefined.</div>
+      </div>
+
+      <div class="pe-section">
+        <span class="pe-label">CHALLENGER</span>
+        <div class="pe-body">Three challenger explanations: (1) <strong>Demand-side absorption</strong> &mdash; immigrants themselves create demand for goods and services, expanding the labour market rather than simply competing for fixed jobs. (2) <strong>Complementarity</strong> &mdash; many immigrants fill tasks that complement rather than substitute for existing workers, raising rather than lowering native productivity. (3) <strong>Methodological contest</strong> (open question) &mdash; Borjas vs Card debate turns on which control group is valid; no consensus has emerged. The Mariel Boatlift remains the most cited and most contested natural experiment (自然實驗) in immigration economics.</div>
+      </div>
+
+      <div class="source">&#x1F4D6; Card, D. (1990). &ldquo;The impact of the Mariel Boatlift on the Miami labor market.&rdquo; <em>Industrial and Labor Relations Review</em>, 43(2), 245&ndash;257; Borjas, G.J. (2017). &ldquo;The wage impact of the Marielitos.&rdquo; <em>ILR Review</em>, 70(5), 1077&ndash;1110; Peri, G. &amp; Yasenov, V. (2019). &ldquo;The labor market effects of a refugee wave.&rdquo; <em>Journal of Human Resources</em>, 54(2), 267&ndash;309.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section" id="connection">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <div class="connection-body">
+        <p><strong>Cards 5 &amp; 6 &mdash; Arendt&rsquo;s Banality of Evil &times; Tajfel&rsquo;s Minimal Groups:</strong> Hannah Arendt (漢娜&#x00B7;鄰蘭) argued that Eichmann&rsquo;s evil was produced not by ideology but by the failure to think &mdash; specifically, the failure to think from the perspective of others. Henri Tajfel (塔基費爾) showed that the very act of social categorisation automatically suppresses that perspective: once we divide people into in-group and out-group, we evaluate out-group members less carefully, attend to them less, and care about their welfare less &mdash; not from malice but from cognitive architecture. Together, these two frameworks suggest that the conditions for atrocity do not require extraordinary hatred or ideology: they require ordinary institutional contexts that reward obedience (suppressing Arendt&rsquo;s &ldquo;thinking&rdquo;) combined with social categorisation that makes victims into an abstract &ldquo;them&rdquo; (activating Tajfel&rsquo;s in-group bias).</p>
+        <p><strong>So what:</strong> This convergence has direct institutional design implications. Systems that want to prevent ethical failures should not rely on moral exhortation alone &mdash; they should structurally encourage perspective-taking (Arendt&rsquo;s antidote) and reduce the salience of arbitrary group divisions (Tajfel&rsquo;s antidote): diverse teams, rotated roles, explicit requirements to represent stakeholder perspectives in decisions.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer id="sources-footer">
+  <details>
+    <summary>&#x1F4DA; All Sources + Do-Not-Repeat Log</summary>
+    <div class="footer-inner">
+      <h3>Sources</h3>
+      <ul>
+        <li><strong>Card 1 (Astronomy):</strong> Sagan, C. (1994). <em>Pale Blue Dot</em> (Random House); NASA/JPL-Caltech voyager.jpl.nasa.gov; Pyne, S.J. (2010). <em>Voyager</em> (Viking).</li>
+        <li><strong>Card 2 (Eastern History):</strong> 司馬遷《史記・項羽本紀》《高祖本紀》; 余英時《士與中國文化》(2003); Loewe &amp; Shaughnessy (eds.) (1999). <em>Cambridge History of Ancient China</em> (Cambridge UP).</li>
+        <li><strong>Card 3 (Western History):</strong> Thucydides. <em>History of the Peloponnesian War</em> (Penguin); Kagan, D. (2003). <em>The Peloponnesian War</em> (Viking); Hanson, V.D. (2005). <em>A War Like No Other</em> (Random House).</li>
+        <li><strong>Card 4 (Eastern Philosophy):</strong> 智顗《摩訶止觀》(T 46.1c); Hurvitz, L. (1962). <em>Chih-i</em> (Mélanges); Donner &amp; Stevenson (1993). <em>The Great Calming and Contemplation</em> (University of Hawaii Press).</li>
+        <li><strong>Card 5 (Western Philosophy):</strong> Arendt, H. (1963). <em>Eichmann in Jerusalem</em> (Viking); Arendt, H. (1951). <em>The Origins of Totalitarianism</em> (Harcourt); Young-Bruehl, E. (1982). <em>Hannah Arendt: For Love of the World</em> (Yale UP).</li>
+        <li><strong>Card 6 (Psychology):</strong> Tajfel et al. (1971). <em>European Journal of Social Psychology</em>, 1(2), 149&ndash;178; Tajfel &amp; Turner (1979) in Worchel &amp; Austin (eds.); Turner et al. (1987). <em>Rediscovering the Social Group</em> (Blackwell).</li>
+        <li><strong>Card 7 (Physiology):</strong> Semenza (2012). <em>Cell</em>, 148(3); Kaelin &amp; Ratcliffe (2008). <em>Molecular Cell</em>, 30(4); Nobel Committee (2019). nobelprize.org.</li>
+        <li><strong>Card 8 (Health):</strong> Mednick et al. (2002). <em>Nature Neuroscience</em>, 6(7); Horne &amp; Reyner (1997). <em>Psychophysiology</em>, 33(3); Mantua &amp; Spencer (2017). <em>Sleep Medicine</em>, 37.</li>
+        <li><strong>Card 9 (Sports Science):</strong> Lorenzo et al. (2010). <em>Journal of Applied Physiology</em>, 109(4); Périard et al. (2015). <em>Autonomic Neuroscience</em>, 196; Sawka et al. (2011). <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 43(7).</li>
+        <li><strong>Card 10 (Investing):</strong> Anand &amp; Pathak (2022). <em>Economics Letters</em>, 211; Boehmer et al. (2021). SSRN; SEC (2021). <em>Staff Report on Equity and Options Market Structure</em>.</li>
+        <li><strong>Card 11 (Political Economics):</strong> Card (1990). <em>ILR Review</em>, 43(2); Borjas (2017). <em>ILR Review</em>, 70(5); Peri &amp; Yasenov (2019). <em>Journal of Human Resources</em>, 54(2).</li>
+      </ul>
+      <h3>Do-Not-Repeat Log (2026-06-24)</h3>
+      <p>Today&rsquo;s topics: Astronomy: Pale Blue Dot / Voyager 1 | Eastern History: 楚漢相爭 (劉邦識人善任) | Western History: Peloponnesian War | Eastern Philosophy: 天台宗・智顗「一念三千」| Western Philosophy: Hannah Arendt &mdash; Banality of Evil | Psychology: Social Identity Theory (Tajfel &amp; Turner) | Physiology: HIF-1&alpha; / Hypoxia response | Health: Power Napping / Sleep Inertia | Sports Science: Heat Acclimatisation | Investing: Short Selling &mdash; GameStop squeeze | Political Economics: Mariel Boatlift &mdash; immigration economics</p>
+    </div>
+  </details>
+</footer>
+
+<!-- STICKY FLOATING TOOLBAR -->
+<div class="float-toolbar">
+  <button onclick="briefingPDF()" title="Export PDF">&#x1F4C4; PDF</button>
+  <button onclick="briefingSave()" title="Save for Phone">&#x1F4E5; Save</button>
+  <button onclick="briefingShare()" title="Send to Phone">&#x1F4F1; Share</button>
+  <a href="bookmarks.html" title="Saved Cards">&#x1F516; Saved</a>
+</div>
+
+<script>
+// ── Briefing actions ──────────────────────────────────────────────────────────
+function briefingPDF() { window.print(); }
+
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-24.html';
+  a.click();
+}
+
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-06-24.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 24 Jun 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+
+// ── Smooth scroll offset for sticky header ────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script src="bm.js"></script>
+</body>
+</html>
