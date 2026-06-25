@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward's Daily Learning — 25 Jun 2026 (2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.spark-item details{margin-top:.4rem;}
+.spark-item details summary{cursor:pointer;color:var(--muted);font-size:.82rem;padding:.2rem 0;}
+.spark-item details[open] summary{color:#c09aff;}
+.answer{padding:.4rem 0 .2rem;color:var(--text);font-style:normal;line-height:1.6;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style></head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 25 June 2026 &nbsp;&middot;&nbsp; Edition 2 &nbsp;&middot;&nbsp; ~50 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">From <em>24 June 2026</em>. Answer from memory before checking.</p>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy</span>
+        <em>Answer this without looking back:</em> Why was photographing the Pale Blue Dot technically risky for Voyager 1, and why does Earth appear as a bright dot rather than the near-invisible speck it should have been at that distance?
+        <details><summary>Check your answer</summary><div class="answer">Pointing the cameras back required aiming close to the Sun &mdash; risking permanent damage to Voyager&rsquo;s optical sensors. At 6.1 billion km, Earth should have been 0.12 pixels. It appears bright because a beam of scattered sunlight struck the wide-angle camera optics at just the right angle &mdash; an optical artifact of the camera, not a real shaft of light.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史</span>
+        <em>讀後回想：</em>鉤門宴上項羽放走劉邦的决定，反映了他哪一種根本性格缺陷？
+        <details><summary>查看答案</summary><div class="answer">項羽優柔寡斷、婦人之仁，以戰場上的個人武勇來評價劉邦，認為不足為懼。這種性格在楚漢相爭中反覆出現：不重用韓信，不聽范增，分封諸侯時又心存私情。垓下之敗的根源，是他把天下之爭當成個人武勇的舞台，而劉邦卻清醒地認識到這是一場組織能力與制度建設的競爭。</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History</span>
+        <em>Answer this without looking back:</em> What was the strategic rationale for the Sicilian Expedition, and what combination of factors turned it into the greatest military disaster in Athenian history?
+        <details><summary>Check your answer</summary><div class="answer">The aim was to conquer Sicily, deny Sparta grain, and financially encircle the Peloponnesian coalition. The expedition collapsed: Alcibiades (its architect) defected to Sparta after recall; Nicias was gravely ill and opposed the mission; Syracusans fought tenaciously; Nicias delayed retreat due to a lunar eclipse. All 27,000 men were killed or enslaved.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學</span>
+        <em>讀後回想：</em>智颡「一念三千」中的「三千」是如何推導出來的，而「性惡說」又如何從這一理論中自然衍生？
+        <details><summary>查看答案</summary><div class="answer">「三千」的推導：十法界互相含攝（得百法界），乘十如是得千如是，再乘三種世間得三千法。「性惡說」的逿輯：若「一念三千」為真，則地獄的「性」依然在佛心中存在&#x2014;&#x2014;否則佛便無法了知地獄眾生之苦。</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; Western Philosophy</span>
+        <em>Answer this without looking back:</em> What did Arendt mean by Eichmann&rsquo;s &ldquo;thoughtlessness,&rdquo; and why did she insist this was more disturbing than explaining evil through hatred or ideology?
+        <details><summary>Check your answer</summary><div class="answer">Thoughtlessness meant the failure to exercise the inner dialogue through which one understands consequences from others&rsquo; perspectives. Eichmann knew what he was doing logistically but had suspended the capacity to consider it from his victims&rsquo; viewpoint. This is more disturbing than fanaticism because ordinary institutional life &mdash; competence, procedure, career advancement &mdash; can produce mass murder without any special psychological depravity.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology</span>
+        <em>Answer this without looking back:</em> What did the minimal group paradigm demonstrate about the conditions required for in-group favouritism?
+        <details><summary>Check your answer</summary><div class="answer">Intergroup discrimination does not require realistic conflict, historical grievance, or meaningful group differences. Mere arbitrary categorisation &mdash; a label assigned by coin flip &mdash; is sufficient to produce systematic in-group favouritism and out-group discrimination. This reveals prejudice as a product of basic social categorisation, not rational calculation.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology</span>
+        <em>Answer this without looking back:</em> Why does HIF-1&alpha; constantly accumulate but get destroyed under normal oxygen levels, and what allows it to escape when oxygen falls?
+        <details><summary>Check your answer</summary><div class="answer">Under normal oxygen, HIF-1&alpha; is immediately hydroxylated by prolyl hydroxylase (which requires oxygen as co-substrate). This creates a docking site for the VHL tumour-suppressor protein, which tags HIF-1&alpha; for proteasomal degradation. When oxygen falls, prolyl hydroxylase fails; VHL cannot bind; HIF-1&alpha; escapes destruction, accumulates, and activates target genes.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health</span>
+        <em>Answer this without looking back:</em> What is sleep inertia, and why does nap length determine whether you experience it?
+        <details><summary>Check your answer</summary><div class="answer">Sleep inertia is the grogginess following waking from deep slow-wave sleep &mdash; adenosine partially cleared but brain recovery incomplete, leaving the prefrontal cortex suppressed. Naps under ~20 minutes stay in Stage 1&ndash;2 sleep and restore alertness without triggering SWS. Waking mid-SWS produces the worst outcome: partial clearance but no restoration.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science</span>
+        <em>Answer this without looking back:</em> Why does heat acclimatisation improve performance in cool conditions?
+        <details><summary>Check your answer</summary><div class="answer">The primary adaptation &mdash; plasma volume expansion &mdash; persists 2&ndash;4 weeks after returning to cool conditions. Repeated heat exercise causes the kidneys to retain sodium and albumin, drawing water into the bloodstream osmotically. Blood plasma volume rises 4&ndash;12%, sustaining higher stroke volume and cardiac output even in cool conditions.</div></details>
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing</span>
+        <em>Answer this without looking back:</em> What is a short squeeze, and why did the options market amplify the GameStop rise far beyond what retail buying alone could produce?
+        <details><summary>Check your answer</summary><div class="answer">A short squeeze occurs when a rising stock forces short sellers to cover, driving prices higher still &mdash; a self-reinforcing loop. In GameStop&rsquo;s case, retail options buying forced market makers to delta-hedge by purchasing underlying shares. Each dollar of option premium triggered disproportionate institutional buying layered on top of retail buying and short-covering simultaneously.</div></details>
+      </div>
+    </section>
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Touching the Sun: What the Parker Solar Probe (&#x1F325;&#xFE0F;) Revealed About the Corona&#x2019;s Impossible Heat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The surface of the Sun is about 5,500&deg;C. But the Sun&#x2019;s outer atmosphere &mdash; the corona (日冠) &mdash; is over one million degrees. Why would the atmosphere be hundreds of times hotter than the surface it sits above? What do you think could explain this?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Parker_Solar_Probe_spacecraft_model.png" alt="Parker Solar Probe spacecraft model" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Parker Solar Probe spacecraft model &mdash; launched August 2018; reached 6.1 million km from the Sun&rsquo;s surface in December 2024 &mdash; <a href="https://en.wikipedia.org/wiki/Parker_Solar_Probe" style="color:inherit">NASA/Johns Hopkins APL, Wikimedia Commons</a></div>
+      </div>
+      <p>On 28 April 2021, the Parker Solar Probe (日冠太陽探測器) crossed a threshold no human-made object had reached before: it entered the solar corona (日冒，太陽大氣層). At roughly 13 million kilometres from the Sun&#x2019;s visible surface, the spacecraft plunged into plasma so hot that ordinary matter dissolves into a soup of electrons and ions. Scientists confirmed it had &ldquo;touched the Sun&rdquo; by detecting a sudden change in the magnetic field structure and a drop in energetic particle density &mdash; the unmistakable signature of crossing the Alfv&eacute;n critical surface (阿爾文臨界面), where solar material transitions from being gravitationally bound to the Sun to streaming outward as the solar wind (太陽風).</p>
+      <p>The probe was built to help solve one of astrophysics&rsquo; most embarrassing paradoxes: the coronal heating problem (日冒加熱問題). The Sun&rsquo;s surface &mdash; the photosphere (光球) &mdash; sits at around 5,500&deg;C. Yet the corona above it reaches one to three million degrees. By normal thermodynamic logic, temperature should decrease as you move away from a heat source, not increase. When Parker&rsquo;s instruments swept through the corona, they detected structures called &ldquo;switchbacks&rdquo; (切換拑折) &mdash; sudden reversals in the magnetic field direction that snap back like a cracking whip, flinging plasma outward in brief jets. These switchbacks appear to deposit energy into the corona in a way that bypasses the normal cooling gradient, and most solar physicists now believe some combination of switchback heating and magnetic wave dissipation (磁动力波耗散) accounts for the million-degree mystery.</p>
+      <p>Eugene Parker (歐根&#x00B7;派克) &mdash; after whom the probe is named &mdash; predicted the existence of the solar wind in 1958, when the scientific establishment was convinced space between the planets was a vacuum. His paper was initially rejected by two reviewers; it was only published because Subrahmanyan Chandrasekhar (我貴老師) personally overrode them. Parker lived to see the probe bearing his name cross into the corona in 2021, aged 94. By December 2024, on its 22nd perihelion pass, the spacecraft came within 6.1 million kilometres of the solar surface &mdash; moving at 690,000 km/h, the fastest human-made object ever, well within the orbit of Mercury (水星) and closer to the Sun than any craft in history.</p>
+      <div class="takeaway">&#x1F4A1; The corona&rsquo;s impossible heat isn&rsquo;t a simple gradient &mdash; it&rsquo;s maintained by magnetic whip-crack events that dump energy directly into the atmosphere. Parker proved you have to go there to understand it.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the coronal heating paradox, what are &ldquo;switchbacks,&rdquo; and why does the Parker Solar Probe confirm that in-situ measurement is irreplaceable for solving it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The paradox: the solar corona (日冒) is 1&ndash;3 million&deg;C &mdash; hundreds of times hotter than the photosphere (光球) at 5,500&deg;C &mdash; which violates the expectation that temperature decreases with distance from a heat source. Switchbacks are sudden reversals in the coronal magnetic field that snap back and fling plasma outward, depositing energy into the corona. Parker&rsquo;s instruments detected these directly inside the corona itself &mdash; something no telescope from Earth or Earth orbit could observe, because they require measuring the magnetic field and particle environment in situ at the point of occurrence rather than inferring them remotely from emitted light.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fox, N.J. et al. (2016). &ldquo;The Solar Probe Plus Mission.&rdquo; <em>Space Science Reviews</em>, 204, 7&ndash;48; Kasper, J.C. et al. (2021). &ldquo;Parker Solar Probe enters the magnetically dominated solar corona.&rdquo; <em>Physical Review Letters</em>, 127, 255101; NASA Parker Solar Probe, parkersolarprobe.jhuapl.edu.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>以法強秦：商鳽變法如何打破貯族世襲，為秦帝統一天下奠下制度基石</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">戰國時代，各國都在推行變法，但最後只有秦國完成統一。你認為秦國的變法跨越哪些根本性障籍，才能完成其他國家做不到的事？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景</span>
+        <p><strong>人物：</strong>商鳽（衛鳼，公元前390～338年）、秦孝公。商鳽本名公孫邈，衛國貴族。</p>
+        <p><strong>事件：</strong>公元前356年起，商鳽在秦孝公支持下實施兩期變法，很大程度地改變了秦國的山岳，從一個邑居弱國轉化為根底戳斷的軍事強権。</p>
+        <p><strong>大局：</strong>戰國中期，全國升戰、諸侯強第、封建貴族撏弱。新興貴族利益與改革之間的張力，是各國變法的核心矛盾。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Statue_of_Shang_Yang.jpg/330px-Statue_of_Shang_Yang.jpg" alt="商鞅像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">商鳽像 &mdash; <a href="https://en.wikipedia.org/wiki/Shang_Yang" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>公元前356年，秦孝公發布「求賢令」，鳴輔適才。衛國貴族出身的公孫邈入秦，提出強盛小家之術。在兩次公孔辩論后，孝公承諷商鳽實施變法。商鳽首先樹立信用：在城大南門樹一根三丈木漆，宣布將此木移至北門者賞十金。旇信者出江林，商鳽决然履行，賢五十金。此「徙木立信」之舉，是海內如一的展示：新法必實。</p>
+      <p>變法的核心有三：一，廢井田、開阡陀，張鹞策專卖主、长齉勃興福安的封建小虞經濟徹底打破；二，二十等爵制以軍功賦爵，贴心貴族世襲特權，新興軍事貴族取而代之；三，強制推行什伍連坐制，郿居相保、互首互告，將政府控制深入已基層。遷都咸陽（公元前350年）以及將津洛團結改為郡縣制，是第二期變法的開端，將專制整備推向全國。小家宣布废斢分居住和子，印證了「封建制」的死亡。</p>
+      <p>商鳽的下场令人驚心：公元前338年，孝公崩。新君惠文王對商鳽袈怕，像羅展網將他證捆：荷人的相黎害了他，公孫邈身死、據說被車裂。然而，他建立的全部制度&#x2014;&#x2014;陥特制、軍功爵、郡縣制、開阡陀地权&#x2014;&#x2014;却完全保留下來。新繼任高層獲益於改革，最祉承理子的，庀往是設計者本人。區別在於：商鳽管得了制度的延續。</p>
+      <div class="takeaway">&#x1F4A1; 商鳽變法的教訓：改革者可以被消灯，但真正打不死的是制度本身。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>商鳽變法的「二十等爵」如何從制度層面打破舊貴族的特權，而商鳽本人被車裂却沒能推翻變法，說明了什麼？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">二十等爵制將軍事功勞取代血統作為爵位所源，旧貴族如果沒有軍功，純粹因為出身而享有特權的前提就此瓦解。同時，新興軍事貴族緩緩取代舊貴族成為統治核心。商鳽後來被車裂，是因為新君惠文王在貴族派系拘束下便利展勢，但商鳽所建立的制度邏輯&#x2014;&#x2014;陥特、軍功爵、郡縣制&#x2014;&#x2014;已經嵌入秦國運作機制中，非任何層面的敏感反動可輕易撤销。變法的生命力來自制度评個人，而非個人支撃制度。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&#x00B7;商君列傳》；《商君書》（蔡例先校註）；Shang, Y. (trans. Duyvendak, J.J.L., 1928). <em>The Book of Lord Shang</em> (Probsthain, London); 餘英時（1997）《天下永謂》（聯經）第三章。</div>
+    </article>
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>From Authority to Evidence: How the Scientific Revolution (科學革命) Rewired the Way Humanity Knows Things</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For over a thousand years, educated Europeans determined what was true about nature by reading Aristotle (亞里斯多德) and Galen (蓋倫). Why do you think it took so long for systematic observation and experiment to replace the authority of ancient texts &mdash; and what finally broke the spell?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Copernicus (哥白尼) 1473&ndash;1543; Vesalius (維薩里斯) 1514&ndash;1564; Galileo (伽利略) 1564&ndash;1642; Kepler (克卜勒) 1571&ndash;1630; Harvey (哈維) 1578&ndash;1657; Newton (牛頓) 1643&ndash;1727.</p>
+        <p><strong>Idea at stake:</strong> Whether nature was best understood by deferring to Aristotle and Church authority, or by systematic observation, experiment, and mathematical description.</p>
+        <p><strong>Big picture:</strong> The transformation ran from 1543 (Copernicus&rsquo;s heliocentric model) to 1687 (Newton&rsquo;s <em>Principia</em>). It established a new method &mdash; not just new conclusions &mdash; that became the template for all subsequent natural inquiry.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Nikolaus_Kopernikus_MOT.jpg" alt="Portrait of Nicolaus Copernicus" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Nicolaus Copernicus (哥白尼) &mdash; his 1543 heliocentric model initiated the Scientific Revolution &mdash; <a href="https://en.wikipedia.org/wiki/Nicolaus_Copernicus" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>The precipitating act was quiet and posthumous. In 1543, the Polish canon Nicolaus Copernicus published <em>De Revolutionibus Orbium Coelestium</em> (&laquo;天體運行論&raquo;), placing the Sun at the centre of the solar system. The book nearly went unread: Copernicus received the first printed copy on his deathbed. But the mathematics was elegant enough that astronomers kept it on their shelves, and within two generations it had catalysed a crisis. If Aristotle (亞里斯多德) was wrong about the cosmos, what else was he wrong about? Andreas Vesalius (維薩里斯), dissecting cadavers in Padua (帕多瓦), found the same year that Galen&rsquo;s anatomy &mdash; which had never been based on human dissection, only on apes &mdash; was riddled with errors. Two pillars of ancient authority cracked simultaneously.</p>
+      <p>Galileo Galilei (伽利略) sharpened the conflict to a point. Turning a Dutch lens-grinder&rsquo;s invention into an astronomical tool in 1609, he observed Jupiter&rsquo;s moons (木衛衛星), the phases of Venus (金星盈虧), and sunspots &mdash; all of which contradicted the Aristotelian picture of perfect, unchanging celestial spheres. When he published his findings, the Church placed him under house arrest in 1633 for refusing to recant heliocentrism. The episode revealed what was actually at stake: the locus of epistemic authority. Was nature read in Scripture and Aristotle, or in the Book of Nature itself, written &mdash; as Galileo put it &mdash; &ldquo;in the language of mathematics&rdquo;? William Harvey (哈維) resolved a similar dispute in physiology in 1628 by measuring: calculating from pulse rate and ventricular volume that the heart must circulate blood rather than produce it continuously, as Galenic doctrine held. Measurement, not text, was the new court of appeal.</p>
+      <p>Isaac Newton (牛頓) closed the loop in 1687 with the <em>Philosophi&aelig; Naturalis Principia Mathematica</em> (&laquo;自然哲學的數學原理&raquo;). Three laws of motion and universal gravitation explained the tides, the orbits of planets, and the arc of a cannonball under a single framework. The institutional infrastructure followed: the Royal Society (皇家學會) was founded in London in 1660, <em>Philosophical Transactions</em> began publication in 1665 (the world&rsquo;s first scientific journal), and the peer review process gradually emerged. The revolution was methodological as much as it was empirical: it established that knowledge claims required reproducible evidence and mathematical verification &mdash; and that no person or text, however venerated, was exempt from that standard.</p>
+      <div class="takeaway">&#x1F4A1; The Scientific Revolution&rsquo;s deepest gift was not any specific discovery but a method: knowledge claims must be grounded in reproducible evidence, not authority or tradition.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why was the simultaneous publication of Copernicus&rsquo;s heliocentric model and Vesalius&rsquo;s anatomy so destabilising to medieval European intellectual culture, and what institutional change did Newton&rsquo;s era introduce that the Copernican era lacked?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Both Copernicus (哥白尼) and Vesalius (維薩里斯) published in 1543, simultaneously exposing errors in the two greatest authorities of natural knowledge &mdash; Aristotle on the cosmos and Galen (蓋倫) on the human body. This was destabilising not because either claim was immediately accepted, but because it demonstrated that centuries of deference to ancient texts had perpetuated demonstrable falsehoods, undermining the principle that authority was a reliable guide to natural truth. The institutional change Newton&rsquo;s era brought was the emergence of scientific societies (科學學會) and journals &mdash; particularly the Royal Society (皇家學會) and <em>Philosophical Transactions</em> (1665) &mdash; creating a public, cumulative, peer-accessible record of findings. The Copernican era had no mechanism for this: ideas spread through correspondence networks and private patronage. The journal created a permanent, replicable, communal archive that made knowledge self-correcting at scale.</div>
+      </details>
+      <div class="source">&#x1F4D6; Westfall, R.S. (1980). <em>Never at Rest: A Biography of Isaac Newton</em> (Cambridge UP); Shapin, S. (1996). <em>The Scientific Revolution</em> (U of Chicago Press); Kuhn, T.S. (1957). <em>The Copernican Revolution</em> (Harvard UP).</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>天下興亡，匹夫有責：類炎武如何用實學和考證為漢學點火，挑戰空談心性的晚明废士風</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 讀前預測</summary>
+        <div class="predict-q">明時幾個羅抱心學的士大夫，面對清兵入鬔、牛民倒懸。你認為，如果光談心性證悎給不了升平最後的張扶，明末知識人會處於什麼困境？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景</span>
+        <p><strong>人物：</strong>類炎武（1613&ndash;1682），明末清初三大儒之一（將黃宗羲、王夫之孙并稱）。</p>
+        <p><strong>思想要点：</strong>對抗流行的陈芝山空談心性，提倡「經世致用」：將理學峄揯於實際的考證、地理、制度、兵制、民生研究中。</p>
+        <p><strong>大局：</strong>明人得不到山、清兵入關，兒對知識人層的指準是：思想如何解釋、組織強大印度、南明增賠的定義、和清朝統治的關係。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gu_yanwu.jpg" alt="顧炎武像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">類炎武（1613&ndash;1682），明末清初儲学大儒 &mdash; <a href="https://en.wikipedia.org/wiki/Gu_Yanwu" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>明人得天下的原因，類炎武有他獨特的證斷：就是以山黃學心學為代表的心性空談，讓整個妒大夫階層沉滺在「良知」、「慌然貌體」的自我感應中，却對民間隱痛、兵制强弱、方追等實際問題一的理會皆無。類炎武的對策是實學：他走遍华北，實山實水地考察地理與風俗；類考历代店譜、帝王詔令、内閣制度、水利兵防。收積三十年寫成的《日知錄》，浙金体制，集生山之大成。</p>
+      <p>類炎武對「山居空談」最具鮟君倉的一點，是他對「亡國」與「亡天下」的區分。「亡國」不過是健姓易尷，命官守土之開門決變，是孹孹代代等級對搀的碴碳。但「亡天下」却是文明片之、已綱常之全面崩潰，是「仑身咖圖、弗個匹夫的責任」。「天下興亡，匹夫有責」&#x2014;&#x2014;這句話往往被斷斷斷引用，却常被誤讀為民族主義口號，实際上颏山的討論脈絡是：天下文明的就坞背後，不在皇帝興亡、必須由所有有天下之心的匹夫共同負責。</p>
+      <p>類炎武的學術力作展現在他對古音、訓訰的銖究中。《音學五書》、《日知錄》等主要著作，將對經典的理解從「我應该證悎心中先天收到什麼」拉回至「話語和小笨筆的實际證據從古查起」，從其對先秦典籍的說明中少了什麼、多了什麼。這一方法論上的轉變&#x2014;&#x2014;用實證計論系山山映照學問&#x2014;&#x2014;直接影響了清指考證學派的興起，往後更影響了近代中國學術的狼山構罩。</p>
+      <div class="takeaway">&#x1F4A1; 類炎武提醒我們：山居空談妒大貦任感，但不能拯馬上殝；對實際社會問題的紮密考證，才是已學得以發揯的明證。</div>
+      <div class="retrieval-q"><em>讀後回想：</em>類炎武如何區分「亡國」與「亡天下」，這一區分對他的實學主張有什麼意義？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">「亡國」是王朝更替，是層層射利的政治局面轉變；「亡天下」却是文明證常&#x2014;&#x2014;預防巧奈、得人心、几人同居、公私分顎&#x2014;&#x2014;的冖基崩潰。這一區分對實學的意義在於：外慷知識人心輕顆、心性空談封建黄梁，是「亡天下」的深層真因。卉此，「幾人的約貧賤讀」跟「實張兵處、設水利設學、語声言語的考證研究」不仅不是跟學儒体總的對等晴天，而且是明哲學不渢、天下文明存續的根本所在。</div>
+      </details>
+      <div class="source">&#x1F4D6; 類炎武《日知錄》（比物大學出版社校注本）；Peterson, W.J. (1979). <em>Bitter Gourd: Fang I-chih and the Impetus for Intellectual Change</em> (Yale UP); Liang, Q. (1902). 《中國近三百年學術史》；de Bary, W.T. (1975). <em>The Unfolding of Neo-Confucianism</em> (Columbia UP).</div>
+    </article>
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Born Free, Everywhere in Chains: Rousseau (盧梭) on the General Will, Amour-Propre, and Why Civilisation Corrupts</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Hobbes (霍布斯) argued that life without government is &ldquo;nasty, brutish, and short,&rdquo; and that we need a powerful sovereign to save us from ourselves. A generation later, Rousseau turned this completely upside down. What do you think he argued instead about human nature and society?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>The problem:</strong> The Enlightenment (啟蒙時代) celebrated reason, progress, and civilisation. Rousseau was the Enlightenment&rsquo;s most unsettling internal critic, arguing that the same civilisation that produced philosophy and art also produced vanity, inequality, and moral corruption.</p>
+        <p><strong>Rival view:</strong> Against Hobbes&rsquo;s (霍布斯) war of all against all, Rousseau argued that humans in the state of nature (自然狀態) are naturally good and peaceful &mdash; corruption comes from society, not from human nature itself.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Maurice_Quentin_de_La_Tour_-_Portrait_of_Jean-Jacques_Rousseau_-_adjusted.jpg" alt="Portrait of Jean-Jacques Rousseau by Maurice Quentin de La Tour" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jean-Jacques Rousseau (盧梭), 1712&ndash;1778, portrait by Maurice Quentin de La Tour, c.1753 &mdash; <a href="https://en.wikipedia.org/wiki/Jean-Jacques_Rousseau" style="color:inherit">Mus&eacute;e Antoine L&eacute;cuyer / Wikimedia Commons</a></div>
+      </div>
+      <p>Jean-Jacques Rousseau (盧梭, 1712&ndash;1778) opened his <em>Discourse on Inequality</em> (1755) with a claim that scandalized polite Paris: private property (私有財產) was the origin of all human misery. The first man who fenced off a plot of land and said &ldquo;this is mine&rdquo; &mdash; and found people stupid enough to believe him &mdash; was the true founder of civil society. Before that moment, Rousseau argued, humans were solitary, healthy, and self-sufficient &mdash; guided by two natural impulses: <em>amour de soi</em> (自愛), a healthy instinct for self-preservation, and <em>piti&eacute;</em>, a natural compassion for others&rsquo; suffering. The problem was not original sin (原罪) or innate selfishness. The problem was <em>amour-propre</em> (自尊心) &mdash; the social habit of comparing oneself to others, craving their recognition, and measuring one&rsquo;s worth through others&rsquo; eyes. This, Rousseau argued, was not natural but a product of living in society. Civilisation had created a new kind of human: vain, dependent, and estranged from the self.</p>
+      <p>Rousseau&rsquo;s political answer appeared in <em>The Social Contract</em> (社會契約論, 1762), opening with the famous sentence: &ldquo;Man is born free, and everywhere he is in chains.&rdquo; His solution was the &ldquo;general will&rdquo; (公意，<em>volont&eacute; g&eacute;n&eacute;rale;) &mdash; a concept deliberately distinct from the &ldquo;will of all&rdquo; (全體意志). The will of all is the sum of private interests; the general will is what the community genuinely needs for the common good. Legitimate law expressed the general will and was therefore an act of collective self-governance rather than submission to a ruler. Crucially, Rousseau claimed that someone who violated the general will could be &ldquo;forced to be free&rdquo; &mdash; a phrase that troubled later liberals enormously, since it seemed to license coercing individuals in the name of collective will.</p>
+      <p>Rousseau&rsquo;s influence was enormous and contradictory. His <em>&Eacute;mile</em> (1762), a novel about natural education (自然教育), argued that children should be shielded from society&rsquo;s corruption long enough to develop natural goodness before being exposed to it &mdash; a founding text of progressive education (進步教育). The French Revolutionaries (法國大革命者), especially Robespierre (羅伯斯皮爾), claimed his mantle &mdash; using the general will to justify the Terror. Isaiah Berlin (伯林) later identified Rousseau as a precursor of &ldquo;positive liberty&rdquo; (積極自由) &mdash; liberation through participation in collective self-determination &mdash; and warned it could slide into authoritarian collectivism just as easily as individual freedom.</p>
+      <div class="takeaway">&#x1F4A1; Rousseau&rsquo;s most radical claim was not about politics but about the self: civilisation doesn&rsquo;t refine human nature &mdash; it deforms it by forcing us to live through others&rsquo; opinions.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the difference between Rousseau&rsquo;s &ldquo;amour de soi&rdquo; and &ldquo;amour-propre,&rdquo; and why does the distinction matter for his critique of civilisation? What does he mean by &ldquo;general will&rdquo; and how does it differ from the &ldquo;will of all&rdquo;?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body"><em>Amour de soi</em> (自愛) is the healthy, natural instinct for self-preservation &mdash; looking after oneself without needing to compare oneself to others or seek their approval. <em>Amour-propre</em> (自尊心) is the socially generated drive to measure one&rsquo;s worth through comparison and others&rsquo; recognition &mdash; to feel superior, to be admired, to outdo rivals. For Rousseau, the distinction matters because <em>amour-propre</em> is not natural but a product of social competition; it generates vanity, envy, and moral corruption. This means civilisation itself &mdash; by creating social comparison &mdash; is the cause of human misery, not its cure. On the general will: the &ldquo;will of all&rdquo; (全體意志) is the aggregate of private preferences; it can be selfish, factional, and short-sighted. The &ldquo;general will&rdquo; (公意) is what the community as a whole genuinely needs for its collective good &mdash; it transcends individual desires and represents the common interest. Rousseau believed legitimate law must express the general will; legislation that merely aggregates private interests has no special claim on obedience.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rousseau, J.-J. (1762). <em>The Social Contract</em>; Rousseau, J.-J. (1755). <em>Discourse on the Origin of Inequality</em>; Bertram, C. (2023). &ldquo;Jean Jacques Rousseau.&rdquo; <em>Stanford Encyclopedia of Philosophy</em>; Berlin, I. (1958). &ldquo;Two Concepts of Liberty&rdquo; in <em>Four Essays on Liberty</em> (Oxford UP).</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The More You See It, the More You Like It: Zajonc (扎渾兹) and the Mere Exposure Effect (單純曝露效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Advertisers repeat the same jingle dozens of times. Politicians plaster their name on every billboard. You find yourself humming a song you didn&rsquo;t even like the first time you heard it. Is repeated exposure making things genuinely better &mdash; or just more familiar? And is that the same thing?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Greek_uc_psi_icon.svg/120px-Greek_uc_psi_icon.svg.png" alt="Psychology symbol" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Mere exposure effect: familiarity breeds liking &mdash; a foundational finding in social psychology &mdash; <a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1968, Robert Zajonc (扎渾兹, 1923&ndash;2008) published a deceptively simple paper in the <em>Journal of Personality and Social Psychology</em> that would reshape advertising, political science, and theories of aesthetic preference. He exposed subjects to completely novel stimuli &mdash; nonsense words, Chinese ideographs (漢字), photographs of strangers &mdash; with varying frequencies: some shown once, some a dozen times. The result was consistent: the more often a stimulus was shown, the more subjects rated it positively. There was no learning, no reward, no explanation given. Mere repetition of exposure was sufficient to increase liking. Zajonc called it the mere exposure effect (單純曝露效應) and argued it was a fundamental feature of the affective system, independent of cognition. The most striking replication: Kunst-Wilson and Zajonc (1980) found the effect persisted even for stimuli shown <em>subliminally</em> (閾下實驗) &mdash; below conscious recognition threshold. Subjects preferred images they had been exposed to previously but could not remember seeing.</p>
+      <p>Bornstein&rsquo;s (伯恩斯坦) 1989 meta-analysis of 208 studies confirmed the effect robustly (mean r = 0.26). The effect is strongest for moderately complex, initially neutral stimuli; it weakens for stimuli that are strongly aversive from the start (extreme unpleasantness resists habituation). It is also dose-dependent with diminishing returns: going from zero exposures to five produces more increase in liking than going from fifteen to twenty. The underlying mechanism is most likely perceptual fluency (認知流暢性): repeated exposure makes processing easier, and the brain misattributes that ease as a signal of goodness, safety, or truth. This is related to the &ldquo;illusory truth effect&rdquo; (號譱真相效應): repeated statements feel truer simply because they are familiar.</p>
+      <p>The practical implications are broad and somewhat unsettling. In politics, mere name recognition (名字辨識度) &mdash; driven by repeated exposure via signs, ads, and media coverage &mdash; predicts electoral outcomes independently of policy positions. In brand advertising (品牌建立), repeated logo exposure increases preference even when consumers cannot recall having seen it. In personal relationships, proximity (接近效應) is one of the strongest predictors of liking &mdash; we tend to befriend and partner with people we encounter repeatedly, a fact explained partly by familiarity breeding ease. The effect suggests that our affective judgments &mdash; what we like, who we trust, what feels right &mdash; are shaped by exposure histories we are rarely aware of.</p>
+      <div class="takeaway">&#x1F4A1; Familiarity and quality are different things &mdash; but the brain often treats them as the same. Exposure builds preference by making processing feel easy, and the brain interprets that ease as goodness.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What did Kunst-Wilson and Zajonc&rsquo;s 1980 subliminal exposure study demonstrate, and what mechanism most likely explains why the mere exposure effect occurs?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Kunst-Wilson and Zajonc (1980) showed that the mere exposure effect (單純曝露效應) operates even when stimuli are presented subliminally &mdash; too briefly for conscious recognition. Subjects preferred previously shown images even when they could not identify which images they had seen before &mdash; demonstrating that affective preference (感情偵好) can update independently of conscious memory or recognition. The most accepted mechanistic explanation is perceptual fluency (認知流暢性): repeated encounters with a stimulus make perceptual processing faster and easier. The brain misattributes this processing ease as a positive signal &mdash; interpreting &ldquo;this is easy to process&rdquo; as &ldquo;this is good, safe, or true.&rdquo; Since the fluency benefit operates pre-consciously, the effect appears even without awareness of prior exposure.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zajonc, R.B. (1968). &ldquo;Attitudinal effects of mere exposure.&rdquo; <em>JPSP Monograph Supplement</em>, 9(2), 1&ndash;27; Kunst-Wilson, W.R. &amp; Zajonc, R.B. (1980). &ldquo;Affective discrimination of stimuli that cannot be recognized.&rdquo; <em>Science</em>, 207, 557&ndash;558; Bornstein, R.F. (1989). &ldquo;Exposure and affect.&rdquo; <em>Psychological Bulletin</em>, 106(2), 265&ndash;289.</div>
+    </article>
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Your Brain&#x2019;s Built-In Cannabis: The Endocannabinoid System (內源性大麻素系統), Runner&#x2019;s High, and Retrograde Signalling</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Everyone has heard of the &ldquo;runner&rsquo;s high&rdquo; &mdash; the euphoria and calm that can follow sustained aerobic exercise. For decades, scientists attributed it to beta-endorphins (賝內腷肘). But there&rsquo;s a problem: endorphins can&rsquo;t cross the blood-brain barrier (血腦屏障). What else might be responsible?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Human_cannabinoid_receptor_1_%28CB1%29_PDB_5XRA.png/330px-Human_cannabinoid_receptor_1_%28CB1%29_PDB_5XRA.png" alt="3D structure of human cannabinoid receptor CB1" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">3D structure of the human cannabinoid receptor CB1 (大麻素受體) &mdash; <a href="https://en.wikipedia.org/wiki/Cannabinoid_receptor_1" style="color:inherit">Wikimedia Commons / PDB 5XRA</a></div>
+      </div>
+      <p>The endocannabinoid system (ECS, 內源性大麻素系統) was discovered in the early 1990s when researchers trying to understand how THC (四氫大麻酚, tetrahydrocannabinol) affects the brain found dedicated receptors &mdash; CB1 (大麻素受體一) concentrated in the brain and nervous system, and CB2 (大麻素受體二) concentrated in immune tissues. The body must make its own molecules to bind these receptors. The most studied are anandamide (花生四烯酢胺, named from the Sanskrit <em>ananda</em> meaning bliss) and 2-arachidonoylglycerol (2-AG). Together they regulate mood, appetite, pain perception, memory consolidation (記憶廩固), immune function, and stress response &mdash; making the ECS one of the most widespread modulatory systems in the body.</p>
+      <p>What makes the ECS anatomically peculiar is that it operates through <em>retrograde signalling</em> (逆行訊號傳遞). Normally, information flows from presynaptic neuron (綁前神經元) to postsynaptic neuron (綁後神經元) via neurotransmitters. The ECS reverses this: when a postsynaptic neuron fires, it synthesises anandamide or 2-AG on demand, which travel <em>backwards</em> across the synapse to bind CB1 receptors on the presynaptic terminal. This suppresses further neurotransmitter release &mdash; a feedback brake. In the hippocampus (海馬迴), this retrograde inhibition sculpts memory and learning by selectively quieting overactive synapses. In the basal ganglia (基底核), it modulates motor control. THC mimics this system by binding CB1 receptors, but it does so non-selectively and persistently, producing the broad psychoactive effects of cannabis.</p>
+      <p>The runner&rsquo;s high (跑者正能量) turns out to involve both endorphins (內腷肘) and endocannabinoids (內源性大麻素) &mdash; but for different aspects of the experience. Raichlen et al. (2012) showed that CB1-receptor blockade (using a cannabinoid antagonist) eliminated the anxiolysis (抗焦慮效果) and sedation of runner&rsquo;s high in mice even when endorphins were present, while opioid (鸦片類藥物) blockade did not fully eliminate the calm. Since anandamide (unlike endorphins) can cross the blood-brain barrier (血腦屏障), it is the likely carrier of the mood elevation and calm. The euphoria may involve both systems together. This finding also explains why moderate sustained aerobic exercise outperforms short bursts at producing mood benefits: anandamide release scales with exercise duration, with significant elevations appearing after approximately 30 minutes of sustained effort.</p>
+      <div class="takeaway">&#x1F4A1; The endocannabinoid system is your brain&rsquo;s built-in volume knob for synaptic activity &mdash; and the mood benefit of a long run is partly your body dosing itself with its own version of cannabis.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What makes the endocannabinoid system&rsquo;s signalling direction unusual compared to most neurotransmitter systems, and why is anandamide a more plausible cause of runner&rsquo;s high than beta-endorphins?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Most neurotransmitter systems signal <em>forward</em>: from presynaptic to postsynaptic neuron. The ECS signals <em>backwards</em> (retrograde signalling, 逆行訊號傳遞): when a postsynaptic neuron fires, it synthesises endocannabinoids on demand that travel back to inhibit the presynaptic terminal. This feedback mechanism modulates how much signal the postsynaptic cell continues to receive. Anandamide (花生四烯酢胺) is a more plausible explanation for runner&rsquo;s high than beta-endorphins (賝內腷肘) because endorphins are large peptide molecules that cannot cross the blood-brain barrier (血腦屏障) &mdash; meaning circulating endorphins produced by muscles during exercise cannot directly act on the brain. Anandamide is a small lipid-soluble molecule that readily crosses the blood-brain barrier, allowing it to act on central CB1 receptors and produce the anxiolysis and calm associated with sustained exercise.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mechoulam, R. &amp; Parker, L.A. (2013). &ldquo;The endocannabinoid system and the brain.&rdquo; <em>Annual Review of Psychology</em>, 64, 21&ndash;47; Raichlen, D.A. et al. (2012). &ldquo;Wired to run.&rdquo; <em>Journal of Experimental Biology</em>, 215(8), 1331&ndash;1336; Fuss, J. et al. (2015). &ldquo;A runner&rsquo;s high depends on cannabinoid receptors in mice.&rdquo; <em>PNAS</em>, 112(42), 13105&ndash;13108.</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Processed Meat Is in the Same Category as Tobacco? Unpacking What the WHO/IARC (化學致癌磁構) Classification Actually Means &mdash; and Doesn&#x2019;t</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2015, the World Health Organization (世界衛生組織) classified processed meat as a Group 1 carcinogen &mdash; the same classification as tobacco and asbestos. Do you think this means bacon is as dangerous as cigarettes? What would you need to know to interpret that classification correctly?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Blausen_0246_ColorectalCancer.png" alt="Illustration of colorectal cancer" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Colorectal cancer (大腸直腸癌) &mdash; the primary cancer linked to processed and red meat consumption in IARC&#x2019;s 2015 review &mdash; <a href="https://en.wikipedia.org/wiki/Colorectal_cancer" style="color:inherit">Blausen Medical / Wikimedia Commons</a></div>
+      </div>
+      <p>In October 2015, the International Agency for Research on Cancer (國際癌症研究機構, IARC), the WHO&rsquo;s cancer arm, published a meta-analysis of over 800 studies and reached a headline-grabbing conclusion: processed meat (加工肉類, bacon, ham, sausages, salami, hot dogs) was classified as a Group 1 carcinogen &mdash; meaning the evidence that it causes cancer in humans is convincing. Red meat (紅肉, beef, pork, lamb) was classified Group 2A &mdash; probably carcinogenic. The media coverage was explosive, and the &ldquo;same category as tobacco&rdquo; framing caused widespread alarm. This was a significant misreading of what the classification means. IARC Group 1 means &ldquo;there is sufficient evidence of carcinogenicity&rdquo; &mdash; it says nothing about the <em>magnitude</em> of risk. Tobacco causes roughly 19% of all cancer deaths; processed meat is estimated to cause around 3% of cancer deaths globally. The classification describes the strength of evidence, not the size of the hazard.</p>
+      <p>The actual risk estimate from the IARC analysis: each 50g serving of processed meat per day increases colorectal cancer (大腸直腸癌) risk by approximately 18% on a relative basis. But baseline risk matters enormously for interpreting relative risks. In high-income countries, lifetime colorectal cancer risk is roughly 5&ndash;6%. An 18% relative increase from a daily 50g portion raises that to approximately 6&ndash;7% &mdash; about one additional case per 100 people over a lifetime of heavy consumption. For red meat, the evidence was deemed insufficient for Group 1 but plausible enough for Group 2A. The proposed mechanisms include: heme iron (&#x血基質鐵) catalysing the formation of N-nitroso compounds (亞亞硬化合物) that damage gut epithelium; heterocyclic amines (雜環胺) and polycyclic aromatic hydrocarbons (多環芳熳烴) produced at high heat; and sodium nitrite (亞礸酸鰽) used in curing converting to carcinogenic nitrosamines (亞礸胺).</p>
+      <p>Context matters for putting this in perspective. The WCRF (世界癌症研究基金會) recommends limiting red meat to 350&ndash;500g cooked weight per week and avoiding processed meat where possible &mdash; not eliminating meat entirely. The Mediterranean diet (地中海飲食) evidence suggests that the wider dietary pattern &mdash; high in vegetables, legumes, fish, and olive oil &mdash; substantially mitigates cancer risk regardless of moderate red meat consumption. The takeaway for policy: processed meat is a genuine but modest and avoidable risk; the &ldquo;same as tobacco&rdquo; framing overstates absolute danger while the public&rsquo;s dismissal (&ldquo;everything causes cancer&rdquo;) understates it.</p>
+      <div class="takeaway">&#x1F4A1; &ldquo;Group 1 carcinogen&rdquo; describes certainty of evidence, not size of risk. Bacon and cigarettes are in the same IARC category, but a pack-a-day habit and a BLT are not equivalent health hazards &mdash; by a very large margin.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What does IARC&rsquo;s Group 1 classification actually mean, how large is the estimated absolute risk increase from daily processed meat consumption, and what are the two most plausible biochemical mechanisms linking processed meat to colorectal cancer?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Group 1 means the evidence that processed meat causes cancer in humans is sufficient and convincing &mdash; it says nothing about how large the risk is. Tobacco is also Group 1, but causes ~19% of cancer deaths; processed meat causes ~3%. The estimated absolute risk: daily consumption of 50g of processed meat raises lifetime colorectal cancer (大腸直腸癌) risk by roughly 18% relative, translating to approximately +1 percentage point in absolute lifetime risk (e.g. from ~5.5% to ~6.5% in high-income countries). Two key mechanisms: (1) Heme iron (&#x血基質鐵) in red and processed meat catalyses the formation of N-nitroso compounds (亞亞硬化合物) in the gut, which can alkylate DNA and damage colorectal epithelial cells. (2) Sodium nitrite (亞礸酸鰽) used in curing processed meats converts in the gut to nitrosamines (亞礸胺), a class of established carcinogens; additionally, high-heat cooking produces heterocyclic amines (雜環胺) that are mutagenic.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bouvard, V. et al. (2015). &ldquo;Carcinogenicity of consumption of red and processed meat.&rdquo; <em>Lancet Oncology</em>, 16(16), 1599&ndash;1600; IARC Monographs Vol. 114 (2018); WCRF/AICR (2018). <em>Diet, Nutrition, Physical Activity and Cancer: A Global Perspective</em>.</div>
+    </article>
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Your Tendons Lag Behind Your Muscles &mdash; and How to Train Collagen (円胶蛋白) for Injury-Proof Strength</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Athletes often get stronger quickly in the early weeks of training, yet tendon and ligament injuries remain common even in trained people. Why do you think connective tissue might adapt more slowly than muscle, and what might you do differently in training to protect it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Achilles-tendon.jpg" alt="Achilles tendon anatomy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Achilles tendon (艧肺腱) &mdash; the body&rsquo;s largest tendon and a common site of tendinopathy in running and jumping athletes &mdash; <a href="https://en.wikipedia.org/wiki/Achilles_tendon" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>Muscle tissue is highly vascular and metabolically active: it responds to training stimulus within days, protein synthesis peaking at 24&ndash;48 hours post-exercise. Tendons (腱腿) are very different. Composed of 90% type I collagen (第一型円胶蛋白) arranged in parallel bundles by tenocytes (腿細胞), they are largely avascular &mdash; blood supply is minimal, nutrient diffusion is slow. Tendon collagen turnover takes weeks to months, not days. This mismatch explains one of sport&rsquo;s most common injury patterns: a motivated athlete increases training load faster than their tendons can structurally adapt. Muscles get stronger; tendons fall behind. The early strength gains in the first 2&ndash;4 weeks of a new programme are primarily neural (神經適應) rather than structural, meaning more force is being transmitted through connective tissue that has not yet caught up. This is why Achilles tendinopathy (艧肺腱腱病), patellar tendinopathy (膸蓋腱病), and rotator cuff (旋轉肌舱群) issues so frequently appear 4&ndash;8 weeks into a new training block, not at the start.</p>
+      <p>Collagen synthesis requires specific nutritional cofactors. Prolyl hydroxylase (脈氨酸羹化鼶) and lysyl hydroxylase (賦氨酸羹化鼶) &mdash; the enzymes that cross-link collagen fibrils (円胶綌維) into mechanically strong bundles &mdash; require vitamin C (維生素C) as an essential cofactor. Shaw et al. (2017) demonstrated in an RCT that consuming 15g of gelatin (明蹠質, a collagen precursor) with 50mg of vitamin C, 60 minutes before exercise, doubled circulating amino acids available for tendon synthesis compared to a placebo. The mechanical stimulus must come from the exercise; the nutritional environment determines how efficiently that stimulus is converted to new collagen. Eccentric loading (離心收縮) appears to be the most potent mechanical stimulus for tendon adaptation: the Alfredson heavy slow resistance (HSR) protocol for Achilles tendinopathy (3 sets &times; 15 reps, loaded eccentrics, twice daily) produced significant tendon structural change and pain reduction in Alfredson et al.&rsquo;s (1998) landmark trial.</p>
+      <p>Cook and Purdam&rsquo;s (2009) &ldquo;continuum model&rdquo; reframed tendinopathy away from inflammation (炎症) toward a <em>failed adaptation</em> response. Reactive tendinopathy (反應性腱病) occurs with acute overload: the tendon temporarily stiffens, cell activity increases, matrix changes. At this stage, the solution is load management &mdash; reduce volume, not eliminate all loading (complete rest makes tendons weaker, not stronger). Degenerative tendinopathy (疊生性腱病) involves permanent structural disorganisation of collagen bundles. The principle throughout: tendons respond to mechanical tension, but the dose and rate of increase must match the tissue&rsquo;s slower adaptation timeline. Progressive loading, not rest, is the rehabilitative treatment.</p>
+      <div class="takeaway">&#x1F4A1; Tendons adapt on a timescale of weeks to months, not days. Train progression around your connective tissue&rsquo;s pace, add gelatin + vitamin C before loading sessions, and treat tendon pain with reduced load &mdash; not zero load.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> Why do tendon injuries typically emerge 4&ndash;8 weeks into a new training programme rather than immediately, and what nutritional strategy has RCT evidence for enhancing collagen synthesis around exercise?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Early training gains (weeks 1&ndash;4) are primarily neural &mdash; the same motor units are recruited more efficiently and more force is produced &mdash; without yet significant structural changes in tendons. This means progressively more mechanical load is being transmitted through tendon tissue that has not yet structurally adapted. Tendon collagen (円胶蛋白) turnover is slow (avascular tissue with limited metabolic rate), so structural adaptation lags muscle strength by weeks. The injury window is 4&ndash;8 weeks because by then the strength gains and training loads have accumulated substantially but the tendon matrix is still catching up. The nutritional strategy with RCT evidence (Shaw et al. 2017 AJSM): 15g of gelatin (明蹠質) with 50mg of vitamin C (維生素C) consumed 60 minutes before a loading exercise session &mdash; providing the collagen precursor amino acids (glycine, proline) and the vitamin C cofactor needed by prolyl and lysyl hydroxylase to cross-link new collagen fibrils.</div>
+      </details>
+      <div class="source">&#x1F4D6; Shaw, G. et al. (2017). &ldquo;Vitamin C-enriched gelatin supplementation.&rdquo; <em>AJSM</em>, 45(4), 945&ndash;952; Cook, J.L. &amp; Purdam, C.R. (2009). &ldquo;Is tendon pathology a continuum?&rdquo; <em>BJSM</em>, 43(6), 409&ndash;416; Alfredson, H. et al. (1998). &ldquo;Heavy-load eccentric calf muscle training for the treatment of chronic Achilles tendinosis.&rdquo; <em>AJSM</em>, 26(3), 360&ndash;366.</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Power Laws and Unicorns: Why Venture Capital (風険資本) Returns Are Not Normally Distributed &mdash; and What That Means for How VC Funds Must Be Run</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A mutual fund manager who picks the right stocks can outperform by 2&ndash;3% per year. A venture capitalist backing the right startup can return 1000x on a single investment. What do you think this means for how VC funds should be constructed differently from public market portfolios?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Long_tail.svg/1280px-Long_tail.svg.png" alt="Power law / long tail distribution" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The power law (冪律) distribution &mdash; a small number of outcomes capture a disproportionate share of total returns; the model that governs venture capital economics &mdash; <a href="https://en.wikipedia.org/wiki/Long_tail" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+      <p>Venture capital (VC, 風険資本) operates in a world governed by power laws (冪律) rather than normal distributions (正態分配). In a normal distribution, outcomes cluster around a mean and extreme values are rare. VC returns are the opposite: the distribution is extremely skewed, with a tiny fraction of investments generating the overwhelming majority of total returns. Peter Thiel (希爾) articulated this in <em>Zero to One</em> (2014): the best investment in a successful VC fund typically equals or outperforms the entire rest of the fund combined. Andreessen Horowitz (安德森荷羅維兹) data indicates that roughly 6% of deals generate 60% of returns across the venture asset class. The implication is profound: VC fund construction cannot be evaluated by batting average (how many investments succeed) but by slugging percentage (how much do the successes return). A fund with 90% failures that contains one investment returning 100x the fund size has outperformed a fund with 60% modest successes.</p>
+      <p>This power law reality shapes every element of VC fund mechanics. The J-curve (J形曲線) describes the typical return profile: in years 1&ndash;3, management fees (管理費, typically 2% annually) are drawn down and early write-offs accumulate, producing negative reported returns. In years 5&ndash;10, exits &mdash; IPOs (首次公開募股) or acquisitions (收購) &mdash; deliver the bulk of returns, swinging the fund sharply positive if it contains power-law winners. The 2-and-20 fee structure (2% management fee, 20% carried interest on profits above the hurdle rate) creates a significant alignment incentive: GPs (普通合夥人) only earn substantial carry on genuinely successful funds. But it also means that a large fund charging 2% management fees extracts substantial annual fees even from a mediocre return profile, creating a tension between asset gathering and performance.</p>
+      <p>The Kauffman Foundation&rsquo;s 2012 report on VC fund performance was a bombshell: across a dataset of 100+ funds, most VC funds underperformed the Russell 2000 (羅素2000指數) index after fees &mdash; the median fund returned less than a passive small-cap index fund. The exception was the top quartile (前四分之一), where returns were significantly higher. This creates a selection problem for limited partners (LPs, 有限合夥人): the VC funds most likely to generate power-law returns are the hardest to gain access to (Sequoia (紅杉資本), a16z, Benchmark (基淯資本) are typically oversubscribed). Institutional access to the top-quartile funds that actually generate venture-scale returns is itself a scarce resource, replicating the power-law structure at the LP level.</p>
+      <div class="takeaway">&#x1F4A1; In venture capital, being right 10% of the time but spectacularly right can beat being right 60% of the time modestly. The math of power laws means one outlier can define a whole fund &mdash; which is why VC is about hunting for 100x, not avoiding loss.</div>
+      <div class="retrieval-q"><em>Answer this without looking back:</em> What is the J-curve in VC fund returns, and why does the power law distribution of returns mean that VC fund performance cannot be judged by how many investments succeed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The J-curve (J形曲線) describes the typical return trajectory of a VC fund: in the early years (1&ndash;3), management fees are drawn down and early write-offs are booked, producing negative net asset value relative to capital committed. Returns swing positive in years 5&ndash;10 as exits (IPOs (首次公開募股) and acquisitions) are realised, creating the J shape on a return chart. The power law (冪律) means VC performance cannot be judged by batting average because the distribution of returns is not symmetric around a mean. A fund where 90% of investments return zero but one investment returns 50x the total fund size will deliver outstanding LP returns. A fund where 60% of investments return 2&ndash;3x will likely underperform. What matters is whether the fund&rsquo;s portfolio contains any power-law outliers &mdash; and the entire fund strategy (portfolio size, initial check size, follow-on reserves, sector focus) should be oriented around the question: &ldquo;Does this increase our chance of owning a piece of a transformational company?&rdquo;</div>
+      </details>
+      <div class="source">&#x1F4D6; Thiel, P. &amp; Masters, B. (2014). <em>Zero to One</em> (Crown); Kauffman Foundation (2012). <em>We Have Met the Enemy and He is Us</em>; Harris, R.S., Jenkinson, T. &amp; Kaplan, S.N. (2014). &ldquo;Private equity performance.&rdquo; <em>Journal of Finance</em>, 69(5), 1851&ndash;1882.</div>
+    </article>
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>Putting a Price on Pollution: Pigouvian Taxes (跳古稅) and Why Carbon Pricing Is Harder in Practice Than in Theory</h2>
+
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Economists broadly agree that carbon pricing is the most efficient way to reduce greenhouse gas emissions. Yet most major economies have not adopted it, or have adopted it in watered-down form. Why do you think a policy with near-universal expert support is so politically difficult to implement?</div>
+      </details>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Carbon_taxes_and_emission_trading_worldwide.svg/3840px-Carbon_taxes_and_emission_trading_worldwide.svg.png" alt="World map of carbon taxes and emissions trading schemes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Carbon taxes (碳稅) and emissions trading schemes (排放權買賣) worldwide as of 2023 &mdash; <a href="https://en.wikipedia.org/wiki/Carbon_tax" style="color:inherit">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4CC; Event</div>
+        <div class="pe-body">In 2019, France&rsquo;s government raised its carbon fuel tax (碳燃料稅) as part of its climate commitments. The result was the <em>gilets jaunes</em> (yellow vest) protests that shut down major highways and eventually forced the government to freeze the tax. Meanwhile British Columbia (英屬哥倫比亞) has maintained a revenue-neutral carbon tax since 2008, returning proceeds to citizens as dividends &mdash; and a 2015 study found it reduced fuel consumption 16% with minimal economic disruption. The EU Emissions Trading System (歐盟排放權交易体系, EU ETS) saw carbon prices collapse to &euro;6/ton in 2012, gutting the price signal, before reform rescued it to &euro;50&ndash;100 in 2021&ndash;23.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Arthur Pigou (跳古, 1920, <em>The Economics of Welfare</em>) argued that when private transactions impose costs on third parties &mdash; externalities (外部效應) &mdash; markets underprice the activity and overproduce it. The remedy: a tax equal to the marginal external cost, forcing the producer to internalise the true social cost. A carbon tax (碳稅) set at the &ldquo;social cost of carbon&rdquo; (SCC, 碳的社會成本) should, in theory, achieve the economically efficient level of emissions by making clean alternatives relatively cheaper &mdash; technology-neutrally, without governments picking winners.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The theory faces three real-world fractures: (1) <strong>SCC uncertainty:</strong> US government estimates of SCC ranged from $12/ton (Trump era) to $51/ton (Biden era); Rennert et al. (2022, <em>Nature</em>) published a comprehensive academic estimate of $185/ton. A factor-of-15 range transforms a &ldquo;technical&rdquo; question into a political one &mdash; whoever controls the SCC estimate controls the effective tax level. (2) <strong>Distributional politics:</strong> carbon taxes are regressive (逐累計稅), falling proportionally harder on lower-income households that spend more of their budget on fuel. France&rsquo;s yellow-vest crisis embodied this; BC avoided it by rebating proceeds equally. (3) <strong>Competitiveness leakage:</strong> a unilateral carbon tax makes domestic producers less competitive against foreign rivals not facing the tax, threatening industrial relocation and actual global emissions reductions.</div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">The US Inflation Reduction Act (2022) took a different path: investment subsidies (投資補貼) rather than carbon taxes &mdash; making clean energy <em>cheaper</em> rather than fossil fuels <em>more expensive</em>. Goulder and Schein (2013) argued this &ldquo;stealth&rdquo; regulatory approach may be more politically durable precisely because it does not require an explicit new tax. Critics note that subsidies are less efficient than price signals &mdash; they pick winners, do not discipline all emissions sources equally, and cost more per ton of CO&#x2082; avoided. The open question: is the theoretically optimal Pigouvian tax permanently blocked by political economy, forcing reliance on less efficient but more sustainable alternatives?</div>
+      </div>
+
+      <div class="source">&#x1F4D6; Pigou, A.C. (1920). <em>The Economics of Welfare</em> (Macmillan); Murray, B. et al. (2015). &ldquo;British Columbia&rsquo;s revenue-neutral carbon tax.&rdquo; <em>Energy Policy</em>, 86, 674&ndash;683; Rennert, K. et al. (2022). &ldquo;Comprehensive evidence implies a higher social cost of carbon.&rdquo; <em>Nature</em>, 610, 687&ndash;692; Goulder, L.H. &amp; Schein, A.R. (2013). &ldquo;Carbon taxes versus cap and trade.&rdquo; <em>Climate Change Economics</em>, 4(3).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section" id="connection">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 3 &mdash; Parker Solar Probe &times; The Scientific Revolution:</strong> Eugene Parker&rsquo;s 1958 solar wind paper was rejected by two peer reviewers before Chandrasekhar personally overrode them to publish it. The Scientific Revolution established the very institutional infrastructure &mdash; peer review, journals, reproducible evidence &mdash; that both validated and initially resisted Parker&rsquo;s prediction. The connection: peer review is not a perfect filter for truth; it is a social institution that tends to resist genuinely paradigm-shifting claims. Parker&rsquo;s story is a direct echo of Galileo&rsquo;s: the expert consensus is an imperfect but self-correcting mechanism, and the spacecraft that bore Parker&rsquo;s name ultimately confirmed what the consensus doubted.</p>
+      <p><strong>So what:</strong> When evaluating contrarian claims, distinguish between &ldquo;this contradicts the current consensus&rdquo; (which is common and usually wrong) and &ldquo;this is supported by primary evidence the consensus has not yet engaged with&rdquo; (which is how genuine paradigm shifts begin). The Scientific Revolution&rsquo;s gift was not scepticism of authority, but a method for resolving the dispute.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer id="sources-footer">
+  <details>
+    <summary>&#x1F4DA; All Sources + Do-Not-Repeat Log</summary>
+    <div class="footer-inner">
+      <h3>Sources</h3>
+      <ul>
+        <li><strong>Card 1 (Astronomy):</strong> Fox et al. (2016). <em>Space Science Reviews</em>, 204; Kasper et al. (2021). <em>Physical Review Letters</em>, 127, 255101; NASA parkersolarprobe.jhuapl.edu.</li>
+        <li><strong>Card 2 (Eastern History):</strong> 司馬遷《史記&#x00B7;商君列傳》；Duyvendak, J.J.L. (1928). <em>The Book of Lord Shang</em> (Probsthain).</li>
+        <li><strong>Card 3 (Western History):</strong> Westfall, R.S. (1980). <em>Never at Rest</em> (Cambridge UP); Shapin, S. (1996). <em>The Scientific Revolution</em> (U Chicago); Kuhn, T.S. (1957). <em>The Copernican Revolution</em> (Harvard UP).</li>
+        <li><strong>Card 4 (Eastern Philosophy):</strong> 類炎武《日知錄》；Peterson, W.J. (1979). <em>Bitter Gourd</em> (Yale UP); de Bary, W.T. (1975). <em>The Unfolding of Neo-Confucianism</em> (Columbia UP).</li>
+        <li><strong>Card 5 (Western Philosophy):</strong> Rousseau (1762). <em>The Social Contract</em>; Rousseau (1755). <em>Discourse on Inequality</em>; Bertram, C. (2023). SEP: &ldquo;Jean Jacques Rousseau.&rdquo;</li>
+        <li><strong>Card 6 (Psychology):</strong> Zajonc (1968). <em>JPSP</em>, 9(2); Kunst-Wilson &amp; Zajonc (1980). <em>Science</em>, 207; Bornstein (1989). <em>Psych Bulletin</em>, 106(2).</li>
+        <li><strong>Card 7 (Physiology):</strong> Mechoulam &amp; Parker (2013). <em>Annual Review of Psychology</em>, 64; Raichlen et al. (2012). <em>J Exp Biology</em>, 215(8); Fuss et al. (2015). <em>PNAS</em>, 112(42).</li>
+        <li><strong>Card 8 (Health):</strong> Bouvard et al. (2015). <em>Lancet Oncology</em>, 16(16); IARC Monographs Vol. 114 (2018); WCRF/AICR (2018). <em>Diet, Nutrition, Physical Activity and Cancer</em>.</li>
+        <li><strong>Card 9 (Sports Science):</strong> Shaw et al. (2017). <em>AJSM</em>, 45(4); Cook &amp; Purdam (2009). <em>BJSM</em>, 43(6); Alfredson et al. (1998). <em>AJSM</em>, 26(3).</li>
+        <li><strong>Card 10 (Investing):</strong> Thiel &amp; Masters (2014). <em>Zero to One</em> (Crown); Kauffman Foundation (2012). <em>We Have Met the Enemy</em>; Harris, Jenkinson &amp; Kaplan (2014). <em>J Finance</em>, 69(5).</li>
+        <li><strong>Card 11 (Political Economics):</strong> Pigou (1920). <em>The Economics of Welfare</em>; Murray et al. (2015). <em>Energy Policy</em>, 86; Rennert et al. (2022). <em>Nature</em>, 610; Goulder &amp; Schein (2013). <em>Climate Change Economics</em>, 4(3).</li>
+      </ul>
+      <h3>Do-Not-Repeat Log (2026-06-25, Edition 2)</h3>
+      <p>Astronomy: Parker Solar Probe / solar corona / coronal heating paradox / switchbacks / Alfv&eacute;n critical surface | Eastern History: 商鳽變法 (Shang Yang&rsquo;s Reforms) / 商鳽废井田開阡陀 / 二十等爵制 / 什伍連座 / 郡縣制 | Western History: Scientific Revolution (Copernicus / Vesalius / Galileo / Harvey / Newton 1543&ndash;1687) | Eastern Philosophy: 類炎武經世致用 / 日知錄 / 亡國vs亡天下 / 考證學 | Western Philosophy: Rousseau / general will / amour-propre / Social Contract 1762 / Em&iacute;le | Psychology: Mere Exposure Effect (Zajonc 1968 JPSP) / subliminal exposure (Kunst-Wilson 1980) / perceptual fluency / Bornstein 1989 meta | Physiology: Endocannabinoid system / CB1/CB2 receptors / anandamide / retrograde signalling / runner&rsquo;s high / Raichlen 2012 | Health: Red meat &amp; cancer / IARC 2015 Group 1 processed meat / Group 2A red meat / heme iron / N-nitroso compounds / heterocyclic amines | Sports Science: Tendon adaptation / collagen synthesis / type I collagen / tenocytes / gelatin + vitamin C / Alfredson HSR protocol / Cook &amp; Purdam continuum model | Investing: Venture capital / power law returns / J-curve / 2-and-20 / Kauffman 2012 / Harris Jenkinson Kaplan 2014 | Political Economics: Pigouvian tax / carbon pricing / social cost of carbon / British Columbia carbon tax / EU ETS / yellow vest / IRA subsidies</p>
+    </div>
+  </details>
+</footer>
+
+<div class="float-toolbar">
+  <button onclick="window.print()" title="Export PDF">&#x1F4C4; PDF</button>
+  <button onclick="briefingSave()" title="Save for Phone">&#x1F4E5; Save</button>
+  <button onclick="briefingShare()" title="Send to Phone">&#x1F4F1; Share</button>
+  <a href="bookmarks.html" title="Saved Cards">&#x1F516; Saved</a>
+</div>
+
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-25-2.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-06-25-2.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 25 Jun 2026 (2)", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script src="bm.js"></script>
+</body>
+</html>
