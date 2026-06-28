@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward's Daily Learning — 28 Jun 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style></head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 28 June 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>27 June 2026</em>:</p>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; Jupiter&rsquo;s Great Red Spot</span>
+        Juno revealed Jupiter&rsquo;s Great Red Spot is a colossal anticyclone over 350 years old, probing 500&nbsp;km deep with no solid surface to slow it.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 清軍入關</span>
+        多爾袞借道山海關借吳三桂之兵輕取中原，頒剃髮令，滅南明，奠定大清二百六十八年江山。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Napoleon&rsquo;s Russian Campaign</span>
+        Napoleon&rsquo;s 685,000-man Grande Arm&eacute;e entered Moscow only to find it burned; the catastrophic winter retreat left fewer than 100,000 survivors.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 玄奘唯識學</span>
+        玄奘西行取回唯識典籍，確立「萬法唯識」體系，令印度瑜伽行派在中土生根。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; W. Philosophy &mdash; William James &amp; Pragmatism</span>
+        James argued truth is whatever &ldquo;works&rdquo; in practice &mdash; ideas are tools, not mirrors of fixed reality, and their cash value lies in the difference they make.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Peak-End Rule</span>
+        Kahneman showed memory of an experience is dominated by its most intense moment and its final moment, not its total duration &mdash; shaping every review, treatment, and customer journey.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Testosterone &amp; Androgen Receptor</span>
+        Two people with identical testosterone levels can build radically different muscle mass due to androgen receptor density and the length of the CAG repeat polymorphism on the AR gene.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Posture Myths &amp; Back Pain</span>
+        Multiple large systematic reviews find no consistent link between specific postures, slouching, or standing desks and back pain; movement variability and nocebo thinking matter far more.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Post-Activation Potentiation</span>
+        A heavy compound lift 5&ndash;12 minutes before explosive work acutely enhances power output via myosin light-chain phosphorylation and increased motor unit recruitment.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; FX Carry Trade</span>
+        Borrowing in low-rate yen to invest in high-yield currencies exploits a persistent crack in interest parity theory, delivering steady gains that implode violently during risk-off events.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Argentine Sovereign Default</span>
+        Argentina&rsquo;s 2001 default revealed how a single holdout creditor exploiting pari passu clauses can block restructuring agreements accepted by 93% of bondholders.
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Seven Worlds at the Edge of the Habitable Zone: How TRAPPIST-1 (超冷矮星) Became the Most Scrutinised Star System in the Search for Life</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If a planet orbits inside its star&#x2019;s &ldquo;habitable zone,&rdquo; does that guarantee conditions for life? What else would need to be true for liquid water to persist on the surface?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/TRAPPIST-1_SDSS_2009-09-28_square_crop.png" alt="TRAPPIST-1 star imaged by the Sloan Digital Sky Survey" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">TRAPPIST-1 star imaged by the Sloan Digital Sky Survey &mdash; <a href="https://commons.wikimedia.org/wiki/File:TRAPPIST-1_SDSS_2009-09-28_square_crop.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2017, astronomers announced what felt like science fiction: a nearby ultracool dwarf star (超冷矮星), just 39 light-years away, harboured seven rocky Earth-sized planets (地球大小行星), at least three of which sit within the habitable zone (宜居帶) &mdash; the distance band where liquid water could persist on a planetary surface. The star, TRAPPIST-1, is barely larger than Jupiter and burns at a dim reddish fraction of our Sun&#x2019;s heat, meaning its planets orbit extremely close &mdash; most complete a full year in days. Belgian astronomers at the TRAPPIST telescope in Chile first spotted transits in 2016; follow-up by NASA&#x2019;s Spitzer (史必哲太空望遠鏡) and Hubble (哈勃太空望遠鏡) confirmed the full seven-planet architecture.</p>
+      <p>The James Webb Space Telescope (韋伯太空望遠鏡) has begun answering the crucial question: do any of these worlds have atmospheres? In 2023, Webb&#x2019;s Mid-Infrared Instrument (MIRI) measured the thermal emission of TRAPPIST-1b &mdash; the innermost planet &mdash; and found it hot, bare, and airless. In early 2024, TRAPPIST-1c showed no sign of a thick CO&#x2082; (二氧化碳) atmosphere either. Both results disappointed, but scientists caution these tell us primarily about inner planets likely baked and stripped by stellar flares (恆星閃焰). The outer trio &mdash; TRAPPIST-1e, 1f, and 1g &mdash; remain largely uncharacterised and are considered the most promising candidates for liquid water.</p>
+      <p>The TRAPPIST-1 system forces a reckoning with what &ldquo;habitable&rdquo; actually means. Red dwarf stars (紅矮星) like TRAPPIST-1 make up 70% of all stars in the galaxy, making them crucial to any probabilistic estimate of life elsewhere. But they are ferociously active in their youth, bombarding orbiting planets with ultraviolet and X-ray radiation (紫外線及X射線). Tidal locking (潮汐鎖定) &mdash; which likely keeps some TRAPPIST-1 planets facing their star in perpetual day &mdash; could drive extreme temperature gradients or hurricane-force circulation. Whether magnetic fields strong enough to protect atmospheres can form on such slowly rotating planets is the next theoretical frontier &mdash; and Webb may soon provide its first direct answer on the outer three worlds.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/TRAPPIST-1" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> &ldquo;Habitable zone&rdquo; is just one of at least six conditions needed for surface life; TRAPPIST-1 is teaching us which conditions we still cannot measure.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why are TRAPPIST-1&#x2019;s inner planets likely too harsh for life, while the outer ones remain intriguing candidates?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The inner planets are exposed to intense stellar flares and radiation during the star&#x2019;s active youth, stripping their atmospheres &mdash; confirmed by Webb&#x2019;s detection of bare, airless surfaces on 1b and 1c. The outer three (e, f, g) orbit in the habitable zone at distances where shielding from radiation is greater and liquid water is thermodynamically possible; Webb has not yet probed their atmospheres directly.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gillon, M. et al. (2017). &ldquo;Seven temperate terrestrial planets around the nearby ultracool dwarf star TRAPPIST-1.&rdquo; <em>Nature</em> 542, 456&ndash;460; Greene, T.P. et al. (2023). &ldquo;Thermal emission from the Earth-sized exoplanet TRAPPIST-1b.&rdquo; <em>Nature</em> 618, 39&ndash;42; Lustig-Yaeger, J. et al. (2022). &ldquo;A Mirage of the Cosmic Shoreline.&rdquo; <em>arXiv</em> 2301.04500.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY (JAPAN/HEIAN) -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>此夜明月照千年&#xFF1A;藤原道長如何以嫁女之術掌握平安朝政，令天皇淪為象徵性君主</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">日本天皇不親政時，誰在代替他統治？這種以外戚控制皇室的安排，對朝廷文化有何深遠影響？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>藤原道長（966&ndash;1027）、一條天皇、三條天皇、後一條天皇、紫式部</p>
+        <p><strong>事件：</strong>道長先後嫁三女為后，以外祖父身份主導攝關政治近三十年；1018年三后並立，道長賦詩「此世即吾世」</p>
+        <p><strong>時代背景：</strong>平安時代中期（794&ndash;1185），藤原氏北家透過婚姻外戚關係架空律令制，掌控人事與莊園資源</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Fujiwara_no_Michinaga_2.jpg" alt="藤原道長肖像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">藤原道長肖像（後世摹本）&mdash; <a href="https://commons.wikimedia.org/wiki/File:Fujiwara_no_Michinaga_2.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>藤原道長生於966年，出身攝關家藤原氏北家核心宗脈。平安時代的政治邏輯清晰而殘酷：天皇年幼，由外祖父以攝政名義理政；天皇成年，由舅父以關白名義輔政——總稱「攝關政治」。道長的手腕並非赤裸的武力奪權，而是婚姻外交的精密佈局：他先後將長女彰子、次女妍子、四女威子嫁予三位天皇，令自己以天皇外祖父的身份掌握實際政權長達三十餘年，史稱「御堂關白」，儘管他本人幾乎不曾正式就任關白之職，足見其對名義與實權的精準區分。</p>
+      <p>1018年，道長的女兒威子被立為中宮，三個女兒同日身為三任天皇的后妃，史書記載道長當晚在月下吟出令後世傳誦的和歌：「この世をば わが世とぞ思ふ 望月の 欠けたることも なしと思へば」（此世即吾世，滿月無缺如吾志）。這首短歌成為攝關政治頂峰的縮影——政治權力在優雅的和歌文化包裝之下運行。道長讓天皇在宮廷儀式中保持神聖的象徵地位，自己則在幕後透過人事任命、莊園擴張及土地免稅特權操控國家資源，逐漸架空公地公民制的律令體系，形成實質上的私人封建秩序。</p>
+      <p>攝關政治的文化遺產遠超政治本身。道長的女兒彰子廣召才女，紫式部正是在彰子女房職位上寫成《源氏物語》（約1000年），被許多文學史家視為世界最早的長篇小說。清少納言亦在政敵藤原定子宮廷中寫成《枕草子》。然而攝關政治本身是脆弱的：道長的繼承人賴通無法複製父親的婚姻優勢，至1068年後三條天皇親政，藤原氏的攝政時代實質終結。此後武家勢力崛起，平清盛、源賴朝相繼登場，日本走向幕府政治的新時代，而平安朝那個以詩歌與嫁女定天下的黃金時代，再未重現。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fujiwara_no_Michinaga" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>道長的權力秘訣是讓天皇保持神聖而無實權——以文化合法性配合外戚控制，比刀劍更持久，也比篡位更安全。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答以下問題：</em>藤原道長如何在不篡位的情況下掌握日本朝政近三十年？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">道長先後嫁三女予三位天皇，以天皇外祖父身份行攝關之實，掌握人事任命與莊園資源，讓天皇保持象徵性神聖地位而無實際決策權。他精準區分名義（幾乎不正式就任關白）與實權（實際控制朝政），以外戚婚姻關係架空君權，是攝關政治的典型範本。</div>
+      </details>
+      <div class="source">&#x1F4D6; McCullough, W.H. &amp; McCullough, H.C. (1980). <em>A Tale of Flowering Fortunes</em>. Stanford UP; Hurst, G.C. (1976). <em>Insei: Abdicated Sovereigns in the Politics of Late Heian Japan</em>. Columbia UP; Shively, D. &amp; McCullough, W.H. eds. (1999). <em>The Cambridge History of Japan</em>, Vol. 2. Cambridge UP.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>God Wills It: How Pope Urban II&rsquo;s (教宗烏爾班二世) 1095 Speech Launched the First Crusade (第一次十字軍東征) and Reshaped Three Civilisations</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Why would tens of thousands of ordinary people leave their homes, families, and livelihoods to fight a war thousands of miles away for a city most had never seen?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Pope Urban II (教宗烏爾班二世), Byzantine Emperor Alexios I Komnenos (拜占庭皇帝阿歷克修斯一世), Peter the Hermit (隱士彼得), Godfrey of Bouillon (布永的戈弗雷)</p>
+        <p><strong>Event at stake:</strong> Council of Clermont speech Nov 1095; the People&rsquo;s Crusade disaster; siege and capture of Jerusalem July 15, 1099</p>
+        <p><strong>Big picture:</strong> Byzantine Empire reeling from Seljuk Turk (塞爾柱突厥人) advances in Anatolia; Western European feudal culture channelling religious fervour and economic ambition into a military pilgrimage</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Peter_the_Hermit.jpg" alt="Peter the Hermit leading the People's Crusade, medieval illustration" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Peter the Hermit (隱士彼得) leading the People&rsquo;s Crusade &mdash; medieval illustration &mdash; <a href="https://commons.wikimedia.org/wiki/File:Peter_the_Hermit.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>At the Council of Clermont (克萊蒙會議) in November 1095, Pope Urban II (教宗烏爾班二世) delivered a speech whose exact words no contemporary wrote down, but whose effects are undeniable. He called Western Christendom to march east and recover Jerusalem (耶路撒冷) from Muslim control, transforming a Byzantine Emperor&#x2019;s request for mercenary reinforcements into a holy war. The offer was extraordinary: participants received plenary indulgence (全赦罪罰), remission of penance for all confessed sins, and in some accounts the promise of direct heavenly reward. Eyewitnesses recorded the crowd spontaneously crying &ldquo;Deus vult!&rdquo; (&ldquo;God wills it!&rdquo;) and sewing red crosses to their shoulders on the spot. Within months, an estimated 100,000 people had taken the cross.</p>
+      <p>The first wave that reached Jerusalem was not the one Urban planned. The People&rsquo;s Crusade (民間十字軍), led by charismatic preacher Peter the Hermit (隱士彼得), was thousands of untrained peasants who massacred Jewish communities in the Rhineland (萊茵河流域) en route before being annihilated by Seljuk forces in Anatolia. The princes&#x2019; crusade followed: a coalition of French, Norman (諾曼人), and Flemish (法蘭德斯人) nobles crossed Byzantium with roughly 70,000 soldiers, endured the grinding nine-month Siege of Antioch (安條克圍城, 1097&ndash;1098), and arrived at Jerusalem in June 1099. After five weeks&#x2019; siege they breached the walls on July 15, 1099 and massacred the Muslim and Jewish population &mdash; acts medieval chronicles recorded with something closer to pride than horror.</p>
+      <p>The long-term consequences spiralled far beyond military geography. For Western Europe (西歐), the Crusades opened intellectual exchange with the Islamic world (伊斯蘭文明) &mdash; Arabic numerals (阿拉伯數字), Aristotle&#x2019;s (亞里士多德) works translated via Arabic, and advanced medical texts all flowed westward, seeding the twelfth-century Renaissance (十二世紀文藝復興). For the Islamic world, the Crusades created a template of external aggression that shaped political memory for centuries beyond the Crusaders&#x2019; actual presence. Most ironically, the Byzantine Empire (拜占庭帝國) that had begged for help found its capital sacked in 1204 not by Muslims but by Latin Crusaders (拉丁十字軍) on the Fourth Crusade &mdash; a catastrophic self-inflicted wound from which it never recovered.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/First_Crusade" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The First Crusade achieved its military objective yet simultaneously accelerated the collapse of the very Christian empire it claimed to defend.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Pope Urban II&#x2019;s call for a crusade succeed so dramatically in mobilising tens of thousands of volunteers in 1095?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Urban reframed the Byzantine emperor&#x2019;s mercenary request into a holy war offering plenary indulgence &mdash; spiritual salvation &mdash; to participants. The timing aligned with apocalyptic religious expectations around the millennium, a feudal culture that glorified martial piety, and genuine economic incentives for younger sons with no inheritance. The combination of sacred duty and earthly opportunity was unprecedented in scale.</div>
+      </details>
+      <div class="source">&#x1F4D6; Asbridge, T. (2010). <em>The Crusades: The War for the Holy Land</em>. Simon &amp; Schuster; Tyerman, C. (2006). <em>God&rsquo;s War: A New History of the Crusades</em>. Harvard UP; Riley-Smith, J. (1987). <em>The First Crusade and the Idea of Crusading</em>. Athlone Press.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY (PURE LAND / HUIYUAN) -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>心繫西方，行走塵世&#xFF1A;慧遠如何在廬山東林寺創立淨土信仰，令佛法從精英學問變為平民之道</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">如果修行需要數十年冥想苦學才能證悟，識字不多、無暇修禪的普通人該怎麼辦？有沒有一條門檻更低的解脫之路？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>慧遠（334&ndash;416）、師父道安、白蓮社一百二十三位同修、鳩摩羅什（書信往來）</p>
+        <p><strong>事件：</strong>404年在廬山東林寺召集白蓮社，共同發願念佛往生西方極樂世界；撰《沙門不敬王者論》《神不滅論》</p>
+        <p><strong>時代背景：</strong>東晉南北朝，佛教初傳中國，義理深奧，禪定修習非普通人所能及；道教與儒學正統仍據主流</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Budda.svg/500px-Budda.svg.png" alt="阿彌陀佛圖像示意" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">阿彌陀佛（Amit&#x101;bha）圖像示意 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Budda.svg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>慧遠生於334年，初習儒道，二十一歲聽道安講《般若經》，當下決意出家，感嘆「儒道九流皆糠秕耳」。他最著名的行動發生於404年：在廬山東林寺召集一百二十三位僧俗同修，共同在阿彌陀佛（Amit&#x101;bha，無量光佛）像前立誓，願憑稱念佛名及觀想修行，死後往生西方極樂世界（淨土，Sukh&#x101;vat&#x012B;）。這次集結被後世追認為淨土宗的創立時刻，慧遠亦因此被尊為「淨土宗初祖」。他的貢獻並非自創宗派，而是為《無量壽經》《觀無量壽經》的信仰系統提供了義理根基，令念佛修行超越口頭儀式，成為有哲學支撐的修道路徑。</p>
+      <p>慧遠的神學創見在於「神不滅論」：他反駁當時流行的形神俱滅說（主張肉體死亡後精神亦隨之消散），認為神識類似燭火，薪盡火傳，可在業力的引導下轉生。若神識隨死而滅，則往生淨土毫無意義——這是淨土信仰整個義理體系的邏輯前提。慧遠同時積極支持譯經事業，與鳩摩羅什（Kum&#x101;raj&#x012B;va, 344&ndash;413）保持書信往來，辯論佛性與實相問題，其問答輯成《大乘大義章》，是中印義理交流的珍貴文獻，亦顯示慧遠絕非閉門造車，而是積極融匯大乘思想。</p>
+      <p>淨土信仰在中國迅速普及，根源在於它從根本上降低了解脫的門檻。禪定、義理研習、嚴格戒律——傳統修行路徑對農民、婦女、軍士等人而言幾乎不可及，而念佛法門只需至誠口稱「南無阿彌陀佛」，憑阿彌陀佛的大願（他力）即可得到接引。這種「他力救度」的結構與禪宗的「自力悟道」形成補充對比：有識者以禪見性，一般信衆以念佛求往生，兩者共同撐起了中國佛教最廣泛的信仰基礎。淨土信仰後來傳入日本，法然與親鸞分別創立淨土宗與淨土真宗，至今仍是東亞流傳最廣的佛教傳統之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Huiyuan_(Buddhist_monk)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>慧遠將解脫的門檻從精英修行降為普通人皆可實踐的信念與稱念，令佛教真正走入民間，是宗教民主化的早期典範。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答：</em>慧遠如何以「神不滅論」為淨土信仰提供義理基礎？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">慧遠認為神識如燭火，薪盡火傳，不隨肉體消滅，可在業力牽引下往生淨土。若神識隨死而滅，則念佛往生毫無意義，整個修行系統失去基礎。「神不滅」因此是淨土義理的邏輯前提，令他力救度的宗教實踐獲得哲學支撐。</div>
+      </details>
+      <div class="source">&#x1F4D6; 慧遠《沙門不敬王者論》《神不滅論》（東晉）；de Bary, W.T. &amp; Bloom, I. eds. (1999). <em>Sources of Chinese Tradition</em>, Vol. 1. Columbia UP; Sharf, R.H. (2002). <em>Coming to Terms with Chinese Buddhism</em>. U Hawaii Press.</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY (FRANCIS BACON) -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Unlearning to Learn: How Francis Bacon (法蘭西斯&#x00B7;培根) Diagnosed Four Diseases of the Human Mind That Make Evidence-Based Thinking So Difficult</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before reading: can you name one systematic mental habit &mdash; not a personal quirk, but a universal one &mdash; that makes it hard even for intelligent, educated people to reason clearly from evidence?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Francis Bacon (法蘭西斯&#x00B7;培根, 1561&ndash;1626), Aristotle (亞里士多德) as the methodological target, René Descartes (笛卡兒) as near-contemporary reformer with a contrasting approach</p>
+        <p><strong>Event / idea at stake:</strong> <em>Novum Organum</em> (新工具論, 1620) &mdash; Bacon&rsquo;s systematic critique of scholastic deduction (經院演繹法) and the proposal of inductive empiricism (歸納經驗論) built on systematic observation</p>
+        <p><strong>Big picture:</strong> Late Renaissance England; university learning dominated by Aristotelian logic; the Scientific Revolution was beginning; Bacon saw a fundamental crisis of scientific method blocking all genuine progress</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Somer_Francis_Bacon.jpg" alt="Portrait of Francis Bacon by Paul van Somer" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Francis Bacon (法蘭西斯&#x00B7;培根), portrait attributed to Paul van Somer c.&thinsp;1617 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Somer_Francis_Bacon.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1620, Francis Bacon (法蘭西斯&#x00B7;培根), Lord Chancellor of England, published the <em>Novum Organum</em> (新工具論) &mdash; a deliberate challenge to Aristotle&#x2019;s (亞里士多德) <em>Organon</em> (邏輯工具論). His central charge: Aristotelian deduction (演繹推理), which reasoned downward from abstract premises to specific conclusions, had produced centuries of learned argument and almost zero new knowledge about nature. What the natural world required was induction (歸納法): moving upward from careful, systematic observation to general laws. But before any induction could be trusted, Bacon argued, the human mind had to clear itself of four deep systematic biases he called the Idols (假象論) &mdash; cognitive distortions so entrenched that most thinkers mistake them for reality itself.</p>
+      <p>The four Idols constitute a taxonomy of cognitive bias (認知偏誤) that anticipates modern psychology by three centuries. The Idols of the Tribe (族類假象) are errors built into human nature universally &mdash; our tendency to see patterns in random data, to weight confirming evidence over disconfirming evidence, to project our desires onto nature. The Idols of the Cave (洞穴假象) are individual distortions shaped by one&rsquo;s education, specialisation, or favourite theory. The Idols of the Marketplace (市場假象) arise from language: words like &ldquo;Fortune&rdquo; or &ldquo;Prime Mover&rdquo; impose ontological structure on reality that may not exist. The Idols of the Theatre (劇場假象) are grand philosophical systems &mdash; Aristotelianism, Platonism, Pythagorean (畢達哥拉斯) number mysticism &mdash; which seduce the mind with elegant narrative while lacking empirical grounding.</p>
+      <p>Bacon&#x2019;s practical remedy was what he called elimination and exclusion: tabulating cases where a phenomenon is present, where it is absent despite similar conditions, and where it varies in degree, then reading off the real causal structure from overlapping patterns. He compared himself to a bee (蜜蜂比喻): the ant (螞蟻) merely collects empirical facts; the spider (蜘蛛) spins theories from its own substance; the bee processes collected material by digestion into something genuinely new. Bacon never lived to complete his great inductive programme, but his influence on the founding of the Royal Society (皇家學會, 1660) was explicit &mdash; its motto, <em>Nullius in verba</em> (&ldquo;take no one&#x2019;s word for it&rdquo;), is pure Baconian empiricism, and it shaped the institutional culture of science that still governs peer review and replication today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Francis_Bacon" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Bacon&rsquo;s four Idols remind us that smart people with bad epistemology produce confident, systematic nonsense; clearing mental software matters as much as gathering data.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What distinguishes Bacon&rsquo;s Idols of the Tribe from his Idols of the Cave?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Idols of the Tribe are cognitive biases inherent in all humans universally &mdash; seeing patterns in noise, weighting confirming evidence more heavily, projecting desire onto nature. Idols of the Cave are individual distortions shaped by a particular person&rsquo;s education, narrow specialisation, or favourite theory. The Tribe represents the shared cognitive floor of human limitation; the Cave adds each individual&rsquo;s personal history of intellectual formation on top of it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bacon, F. (1620). <em>Novum Organum</em>. London; Jardine, L. &amp; Stewart, A. (1998). <em>Hostage to Fortune: The Troubled Life of Francis Bacon</em>. Hill &amp; Wang; Gaukroger, S. (2001). <em>Francis Bacon and the Transformation of Early-Modern Philosophy</em>. Cambridge UP.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY (BEHAVIORAL ECON — OVERCONFIDENCE) -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>You&rsquo;re Probably Not as Good as You Think: The Overconfidence Effect (過度自信效應), the Planning Fallacy, and Why Expertise Makes It Worse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In studies where participants answer true/false questions and rate their confidence from 50% (guessing) to 100% (certain): do people tend to be overconfident, underconfident, or perfectly calibrated? Does having more expertise in the subject help?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" alt="Daniel Kahneman, whose work on planning fallacy underpins overconfidence research" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Daniel Kahneman (卡尼曼), whose planning fallacy research underpins overconfidence theory &mdash; <a href="https://commons.wikimedia.org/wiki/File:Daniel_Kahneman_(3283955327)_(cropped).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1977, psychologists Lichtenstein and Fischhoff (費斯克霍夫) ran a calibration experiment that is now a textbook classic. Participants answered two-alternative general-knowledge questions and rated their confidence from 50% to 100%. When people said they were &ldquo;100% certain,&rdquo; they were wrong roughly 20% of the time. When they claimed &ldquo;70% confidence,&rdquo; their actual accuracy was closer to 60%. This systematic gap &mdash; being more certain than the evidence warrants &mdash; is the overconfidence effect (過度自信效應), and it appears robustly across nationalities, professions, and education levels. The hard-easy effect (難易效應) refines the picture: overconfidence is most pronounced on genuinely difficult questions, while on trivially easy items people can briefly become slightly underconfident. But in virtually every real-world forecasting domain &mdash; financial prediction, medical diagnosis, legal outcomes &mdash; the dominant error is too much certainty.</p>
+      <p>Overconfidence bleeds into everyday economic life through two mechanisms. Svenson (1981) famously found that 93% of American drivers and 69% of Swedish drivers rated themselves above-average for safety &mdash; a statistical impossibility. More consequentially, Kahneman and Tversky documented the planning fallacy (計劃謬誤): people systematically underestimate how long their own projects will take and overestimate success probability, while they can often forecast quite accurately for <em>other</em> people&#x2019;s similar projects. This &ldquo;inside view&rdquo; (內部視角) bias &mdash; using vivid personal details about <em>this specific project</em> while ignoring the base rate (基準比率) of how similar projects typically perform &mdash; explains why IT projects chronically run over budget, infrastructure is perpetually delayed, and corporate acquisitions destroy value at predictable rates across industries.</p>
+      <p>The corporate finance evidence shows the stakes. Malmendier and Tate (2005) analysed CEO stock option exercises and found that &ldquo;overconfident&rdquo; CEOs &mdash; those who held deeply in-the-money options long past the rational exercise date &mdash; led firms that destroyed significantly more shareholder value through empire-building acquisitions. The strongest de-biasing strategy supported by evidence is Kahneman&#x2019;s reference class forecasting (參照級別預測): rather than reasoning from inside the unique project, explicitly ask &ldquo;what was the outcome distribution of a reference class of similar projects?&rdquo; This outside view (外部視角), systematised by Bent Flyvbjerg for infrastructure megaprojects, consistently improves budget and schedule accuracy &mdash; not by eliminating optimism, but by forcing confrontation with the statistical reality of how things actually go.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Overconfidence_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> When estimating timelines or probabilities, ask &ldquo;what happened to the last ten people who tried something similar?&rdquo; &mdash; the outside view beats your inside view almost every time.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the planning fallacy, and why does subject-matter expertise not reliably correct it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The planning fallacy is the systematic tendency to underestimate project duration and cost while overestimating success probability for one&rsquo;s own projects, driven by inside-view thinking that focuses on unique task details and ignores base-rate outcomes. Expertise doesn&rsquo;t reliably correct it because experts apply their knowledge to the specific project&rsquo;s particulars rather than comparing it to the statistical distribution of similar projects &mdash; a mode Kahneman called &ldquo;taking the inside view.&rdquo;</div>
+      </details>
+      <div class="source">&#x1F4D6; Lichtenstein, S. &amp; Fischhoff, B. (1977). &ldquo;Do Those Who Know More Also Know More About How Much They Know?&rdquo; <em>Organizational Behavior and Human Performance</em> 20(2); Svenson, O. (1981). &ldquo;Are We All Less Risky and More Skillful Than Our Fellow Drivers?&rdquo; <em>Acta Psychologica</em> 47(2); Malmendier, U. &amp; Tate, G. (2005). &ldquo;CEO Overconfidence and Corporate Investment.&rdquo; <em>Journal of Finance</em> 60(6); Flyvbjerg, B. et al. (2002). &ldquo;Underestimating Costs in Public Works Projects.&rdquo; <em>Journal of the American Planning Association</em> 68(3).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY (RAAS) -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Kidney&rsquo;s Pressure Valve: How the RAAS (腎素&ndash;血管緊張素&ndash;醛固酮系統) Manages Blood Pressure Through a Hormone Cascade &mdash; and Why Its Failure Kills</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When you stand up suddenly and feel briefly dizzy, blood pressure has dropped momentarily. What mechanisms restore it within seconds to minutes &mdash; and which organs are orchestrating that recovery?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Renin-angiotensin_system_in_man_shadow.svg/1280px-Renin-angiotensin_system_in_man_shadow.svg.png" alt="Diagram of the renin-angiotensin system" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Diagram of the renin&ndash;angiotensin system (腎素&ndash;血管緊張素系統) &mdash; <a href="https://commons.wikimedia.org/wiki/File:Renin-angiotensin_system_in_man_shadow.svg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Blood pressure management is ultimately a problem of volume and resistance: how much fluid fills the vessels, and how tightly those vessels are constricted. The renin-angiotensin-aldosterone system (RAAS, 腎素&ndash;血管緊張素&ndash;醛固酮系統) is the body&rsquo;s primary long-term solution to both. It begins in the kidney&rsquo;s juxtaglomerular cells (腎小球旁細胞), which sense a drop in blood pressure, reduced sodium delivery to the distal tubule, or sympathetic nervous system (交感神經系統) activation. They respond by releasing renin (腎素) &mdash; an enzyme that cleaves the plasma protein angiotensinogen (血管緊張素原), produced by the liver (肝臟), into angiotensin I (血管緊張素I). This molecule then reaches the lungs (肺臟), where angiotensin-converting enzyme (ACE, 血管緊張素轉化酶) converts it into the potent vasoconstrictor angiotensin II (血管緊張素II).</p>
+      <p>Angiotensin II does three things simultaneously: it constricts blood vessels (vasoconstriction, 血管收縮) to raise pressure directly; it stimulates the adrenal cortex (腎上腺皮質) to release aldosterone (醛固酮), which signals the kidney to retain sodium and water, expanding blood volume; and it acts on the brain&rsquo;s thirst centre (口渴中樞) to drive fluid intake. When pressure recovers, the juxtaglomerular cells reduce renin output &mdash; a classic negative feedback loop (負反饋迴路). In chronic hypertension (慢性高血壓), however, the RAAS locks into a pathological setpoint: excessive angiotensin II continuously elevates resistance and volume. This is precisely why ACE inhibitors (ACE抑制劑) and angiotensin receptor blockers (ARBs, 血管緊張素受體阻斷劑) are first-line antihypertensive drugs &mdash; they cut the cascade at the conversion step or at the receptor, respectively.</p>
+      <p>Beyond blood pressure, the RAAS plays a central role in heart failure (心臟衰竭). When a failing heart reduces output, RAAS activation is physiologically appropriate at first &mdash; but the resulting vasoconstriction and fluid retention increase cardiac workload in a vicious cycle, straining the very heart it is trying to help. ACE inhibitors in heart failure, demonstrated in the landmark CONSENSUS trial (1987) and SOLVD trial (1991), reduce mortality by 16&ndash;40% by breaking this feedback trap. An unexpected connection emerged with COVID-19 (新冠肺炎): SARS-CoV-2 (嚴重急性呼吸綜合症冠狀病毒2型) uses ACE2 &mdash; the enzyme that breaks down angiotensin II and serves a lung-protective function &mdash; as its cellular entry receptor, partly explaining why infection disrupts cardiovascular and renal physiology so profoundly.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Renin%E2%80%93angiotensin_system" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The same hormone cascade that saves you from dizziness can, if chronically overactivated, quietly destroy your heart and kidneys &mdash; ACE inhibitors work by dismantling this vicious feedback loop.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do ACE inhibitors reduce mortality in both hypertension and heart failure, despite these being very different conditions?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">In hypertension, ACE inhibitors block the conversion of angiotensin I to angiotensin II, preventing chronic vasoconstriction and sodium retention that maintain elevated blood pressure. In heart failure, the failing heart inappropriately activates RAAS, creating a vicious cycle: vasoconstriction and volume expansion increase cardiac workload on a weakened heart. ACE inhibitors break this cycle by reducing both vascular resistance and fluid load, decreasing the strain on the heart and improving survival.</div>
+      </details>
+      <div class="source">&#x1F4D6; The CONSENSUS Trial Study Group (1987). &ldquo;Effects of Enalapril on Mortality in Severe Congestive Heart Failure.&rdquo; <em>NEJM</em> 316(23); Skeggs, L.T. et al. (1954). &ldquo;The Purification of Hypertensin I.&rdquo; <em>Journal of Experimental Medicine</em> 100(4); Ferrario, C.M. (2010). &ldquo;New Physiological Concepts of the Renin-Angiotensin System from Angiotensin-(1&ndash;7) to Alamandine.&rdquo; <em>Hypertension</em> 55(2).</div>
+    </article>
+
+    <!-- CARD 8: HEALTH (ARTIFICIAL SWEETENERS) -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Sweet but Complicated: What the Latest Research Really Says About Artificial Sweeteners (人工甜味劑), Your Gut Microbiome, and Long-Term Metabolic Health</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If an artificial sweetener contains zero calories, logic says it should help with weight loss. Why might the real-world evidence be messier &mdash; and what unexpected biological mechanism might be involved?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/E._coli_Bacteria_%287316101966%29.jpg" alt="Gut microbiome bacteria under electron microscope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Gut microbiome (腸道微生物群) bacteria under electron microscope; sweetener effects operate through this ecosystem &mdash; <a href="https://commons.wikimedia.org/wiki/File:E._coli_Bacteria_(7316101966).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Artificial sweeteners (人工甜味劑) &mdash; including saccharin (糖精), aspartame (阿斯巴甜), sucralose (蔗糖素), and stevia (甜菊糖) &mdash; are consumed by roughly 40% of adults in developed countries, mostly as tools for reducing caloric intake without sacrificing sweetness. The observational epidemiology has long been paradoxical: people who consume the most artificial sweeteners consistently show higher rates of obesity, type 2 diabetes (第二型糖尿病), and metabolic syndrome (代謝症候群) than non-consumers. This could be reverse causation &mdash; heavier people switch to diet products &mdash; or confounding. But the 2022 Suez et al. study in <em>Cell</em> took a rigorous randomised approach: 120 healthy adults who did not normally use non-nutritive sweeteners were assigned to six groups (saccharin, sucralose, aspartame, stevia, glucose, or water) and monitored via continuous glucose monitor for two weeks.</p>
+      <p>The results were striking. Saccharin and sucralose consumers showed significant alterations in gut microbiome (腸道微生物群) composition and impaired glucose tolerance (葡萄糖耐受性) compared to water controls. Crucially, the researchers transplanted gut microbiota (腸道菌群) from disrupted participants into germ-free mice (無菌鼠): those mice then developed impaired glucose regulation themselves, isolating the microbiome as the causal mechanism rather than a direct sweetener effect. The proposed pathway involves artificial sweeteners altering bacterial populations that regulate bile acid (膽酸) metabolism, which in turn affects insulin sensitivity (胰島素敏感性). Aspartame and stevia showed less disruption in this specific study, though the doses tested were equivalent to roughly half the FDA&#x2019;s acceptable daily intake &mdash; within the range of regular users.</p>
+      <p>The regulatory picture has sharpened. In 2023, the World Health Organization (世界衛生組織) issued a guideline stating that non-sugar sweeteners provide no long-term benefit for weight management and flagged potential risks with prolonged use, though most evidence was graded &ldquo;low certainty.&rdquo; The International Agency for Research on Cancer (IARC, 國際癌症研究機構) simultaneously classified aspartame as &ldquo;possibly carcinogenic&rdquo; (Group 2B) in 2023 &mdash; the same category as pickled vegetables and mobile phone radiation, meaning the signal is suggestive but far from conclusive. The practical bottom line: for a diabetic or person with severe obesity switching from full-sugar soda, the net benefit may still favour diet versions. But treating artificial sweeteners as metabolically inert is no longer scientifically defensible.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sugar_substitute" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> &ldquo;Zero calories&rdquo; doesn&rsquo;t mean &ldquo;zero effect&rdquo; &mdash; artificial sweeteners interact with your gut bacteria in ways that may impair how your body handles real sugar afterwards.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did the Suez et al. 2022 study isolate the gut microbiome as the mechanism through which artificial sweeteners impair glucose tolerance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Suez found that saccharin and sucralose altered gut microbiome composition and impaired glucose tolerance in healthy adults over two weeks. The key mechanistic proof: when gut bacteria from disrupted human participants were transplanted into germ-free mice (mice with no microbiome of their own), those mice developed impaired glucose regulation &mdash; demonstrating the microbiome as the causal intermediary, not a direct metabolic effect of the sweeteners themselves.</div>
+      </details>
+      <div class="source">&#x1F4D6; Suez, J. et al. (2022). &ldquo;Personalized microbiome-induced glycemic alterations after non-caloric sweeteners.&rdquo; <em>Cell</em> 185(18); WHO (2023). &ldquo;Use of non-sugar sweeteners: WHO guideline&rdquo;; IARC (2023). <em>IARC Monographs on the Identification of Carcinogenic Hazards to Humans</em>, Vol. 133 (Aspartame).</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE (ALTITUDE TRAINING) -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Thin Air, Thick Blood: How Altitude Training (高原訓練) and the &ldquo;Live High, Train Low&rdquo; Model Give Elite Athletes a Legal Haematological Edge</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Kenyan and Ethiopian runners dominate global distance events despite similar training volumes to competitors from other countries. What physiological adaptation acquired in early life at altitude might partly &mdash; but only partly &mdash; explain their dominance?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/c5/Athletics%2C_Rio_2016.png" alt="Distance running at the 2016 Rio Olympics" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Distance running at the Rio 2016 Olympics; altitude adaptation is a key contested advantage in elite endurance sport &mdash; <a href="https://en.wikipedia.org/wiki/File:Athletics,_Rio_2016.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikipedia</a></div>
+      </div>
+      <p>Above approximately 2,000 metres, the partial pressure of oxygen (氧分壓) in the atmosphere drops even though its percentage composition stays fixed at 21%. Cells sense this hypoxia (低氧) via the HIF-1&#x03B1; (低氧誘導因子) pathway, triggering a cascade response &mdash; most importantly, the kidneys (腎臟) produce more erythropoietin (EPO, 促紅細胞生成素), a hormone that stimulates red blood cell (紅血球) production in bone marrow (骨髓). More red blood cells means more haemoglobin (血紅蛋白) and greater oxygen-carrying capacity &mdash; directly raising VO&#x2082;max (最大攝氧量) and endurance performance. This is the physiological rationale for why thousands of elite distance runners from Kenya and Ethiopia grow up and train at 2,000&ndash;2,800 metres, and why athletes worldwide seek altitude camps ahead of major competitions.</p>
+      <p>The practical problem with pure altitude training is that lower oxygen forces athletes to train at slower speeds, risking loss of the race-specific neuromuscular adaptations (神經肌肉適應) built at full intensity. Levine and Stray-Gundersen&rsquo;s landmark 1997 study in the <em>Journal of Applied Physiology</em> proposed the &ldquo;Live High, Train Low&rdquo; (LHTL, 高住低練) model as the solution: athletes sleep and recover at 2,500 metres to drive EPO and red blood cell production, but descend daily to train at full race-specific intensity with adequate oxygen. Their randomised study demonstrated a 1&ndash;5% improvement in 5,000-metre performance compared to groups living and training entirely at sea level or entirely at altitude. In elite distance running, where the margin between medal and elimination is often under 1%, a haematological boost of this magnitude is decisive.</p>
+      <p>The LHTL principle has evolved into altitude tents (高原帳) &mdash; portable normobaric hypoxia chambers (常壓低氧艙) that simulate altitude during sleep at sea level. Randomised trials show smaller but real benefits from tents compared to genuine altitude, likely because hypoxic exposure is less continuous. The World Anti-Doping Agency (WADA, 世界反禁藥機構) explicitly permits altitude training and tents, treating them as environmental advantages analogous to genetics. The ethical boundary lies at synthetic EPO injection (合成促紅細胞生成素注射), which produces the same haematological outcome but is banned because it eliminates the effort and investment required by natural altitude exposure. Beyond endurance sport, brief altitude pre-acclimatisation is now used for military operations and emerging strength-sport research exploring non-haematological mitochondrial density benefits.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> &ldquo;Live High, Train Low&rdquo; captures an elegant physiological tradeoff: harvest the blood-building stress of altitude while preserving the quality of hard training at sea level.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is &ldquo;living high but training low&rdquo; superior to simply training at high altitude, according to the Levine &amp; Stray-Gundersen model?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Living at altitude drives EPO production and red blood cell increases via hypoxic stimulus during sleep and recovery. But training at altitude forces slower paces due to oxygen limitation, eroding race-specific neuromuscular adaptations. Training at low altitude restores full-intensity work while the haematological adaptations accumulated during high-altitude living and sleep are retained &mdash; the two physiological stresses are optimally separated rather than forced to compete.</div>
+      </details>
+      <div class="source">&#x1F4D6; Levine, B.D. &amp; Stray-Gundersen, J. (1997). &ldquo;&lsquo;Living high-training low&rsquo;: effect of moderate-altitude acclimatization with low-altitude training on performance.&rdquo; <em>Journal of Applied Physiology</em> 83(1); Chapman, R.F. et al. (2014). &ldquo;Altitude training at the summit of success.&rdquo; <em>Journal of Applied Physiology</em> 116(6); Wilber, R.L. (2007). &ldquo;Application of altitude/hypoxic training by elite athletes.&rdquo; <em>Medicine &amp; Science in Sports &amp; Exercise</em> 39(9).</div>
+    </article>
+
+    <!-- CARD 10: INVESTING (MINSKY MOMENT) -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Stability Is Destabilising: Hyman Minsky (海曼&#x00B7;明斯基) and the Financial Instability Hypothesis That Predicted Every Major Crash Before Anyone Believed It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Mainstream economic models of the 1970s assumed financial markets were inherently self-stabilising. What feature of real financial markets does this assumption miss &mdash; and how might long periods of calm actually increase fragility?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/HymanMinsky-1.jpg" alt="Hyman Minsky, economist who developed the Financial Instability Hypothesis" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hyman Minsky (海曼&#x00B7;明斯基, 1919&ndash;1996), whose Financial Instability Hypothesis was ignored for decades until 2008 &mdash; <a href="https://commons.wikimedia.org/wiki/File:HymanMinsky-1.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>American economist Hyman Minsky (海曼&#x00B7;明斯基, 1919&ndash;1996) spent decades arguing that financial systems do not tend toward equilibrium &mdash; and was largely ignored until the 2008 financial crisis made him suddenly essential. His Financial Instability Hypothesis (金融不穩定假說) argued that stability itself generates instability. His logic: during a long calm, borrowers grow confident and lenders relax standards. The system transitions through three stages. Hedge finance (對沖融資): borrowers repay both principal (本金) and interest (利息) from operating cash flows &mdash; genuinely solvent. Speculative finance (投機融資): borrowers cover only interest and must roll over principal by refinancing &mdash; viable as long as credit markets stay open. Ponzi finance (龐氏融資): borrowers cannot cover even interest from operations and rely on rising asset prices to borrow more &mdash; viable only if the market keeps rising.</p>
+      <p>The crucial Minsky insight is that the transition from hedge to speculative to Ponzi finance is not driven by irrationality but by the rational responses of individual actors to the recent environment. Every period of stability rationally encourages a little more leverage (槓桿), a little more asset-price optimism, a little looser lending standard. The system becomes simultaneously more leveraged and more fragile without any individual actor necessarily behaving irresponsibly by the standards of their immediate context. Then a small shock &mdash; a rate hike (加息), a failed debt placement, one large default &mdash; tips confidence, and institutions that assumed they could roll over debt find no takers. The Minsky moment (明斯基時刻) &mdash; coined by fund manager Paul McCulley (麥卡利) during the 1998 Russian crisis &mdash; is the sudden, precipitous shift from collective optimism to collective deleveraging.</p>
+      <p>The 2007&ndash;2008 financial crisis is now the canonical Minsky moment. The US mortgage market followed the script precisely: government-backed conforming loans (hedge finance) gave way to subprime adjustable-rate mortgages (投機融資), which gave way to no-documentation, no-money-down NINJA loans (龐氏融資, no income, no job, no assets) &mdash; sustained solely by the assumption that US house prices never fall nationally. When they did in 2006&ndash;07, the Ponzi tier collapsed, dragging the speculative tier with it. Minsky&rsquo;s prescription was counter-cyclical regulation (反週期監管): require higher capital buffers (資本緩衝) and tighter lending standards precisely when credit is cheap and risk seems lowest &mdash; the opposite of human nature and political incentive. Post-2008 stress tests partially embody this logic, but critics argue the macro-prudential toolkit (宏觀審慎工具) remains too weak to prevent the next Minsky cycle.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hyman_Minsky" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Minsky&rsquo;s paradox: the longer a financial expansion runs without crisis, the more fragile the system becomes &mdash; because stability is what encourages the leverage that makes the next crash inevitable.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What distinguishes Minsky&rsquo;s Ponzi finance from speculative finance, and which is more dangerous during a downturn?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Speculative finance: borrowers cover interest payments from operations but must refinance principal &mdash; solvent if credit markets stay open, but illiquid if they close. Ponzi finance: borrowers cannot even cover interest from operations and rely on asset price appreciation to borrow more &mdash; insolvent the moment asset prices stop rising, regardless of credit availability. Ponzi finance is more dangerous because it turns any asset price plateau into immediate insolvency rather than mere illiquidity.</div>
+      </details>
+      <div class="source">&#x1F4D6; Minsky, H.P. (1992). &ldquo;The Financial Instability Hypothesis.&rdquo; Levy Economics Institute Working Paper No. 74; Minsky, H.P. (1986). <em>Stabilizing an Unstable Economy</em>. Yale UP; McCulley, P. (1998). &ldquo;A Reverse Minsky Journey.&rdquo; PIMCO Global Central Bank Focus; Kindleberger, C. (1978). <em>Manias, Panics, and Crashes</em>. Basic Books.</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS (LAFFER CURVE) -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>The Napkin That Launched a Revolution: The Laffer Curve (拉弗曲線) and the Contested Arithmetic of Tax Cuts Paying for Themselves</h2>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Government-Vedder-Highsmith-detail-1.jpeg" alt="US Capitol building, site of decades of Laffer Curve tax policy debates" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US Capitol (美國國會大廈) &mdash; arena of decades of supply-side tax debates &mdash; <a href="https://commons.wikimedia.org/wiki/File:Government-Vedder-Highsmith-detail-1.jpeg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1981, the Reagan administration (列根政府) cut the US top federal income tax rate from 70% to 50% (and further to 28% by 1988), explicitly citing the Laffer Curve (拉弗曲線) as justification: cutting rates would stimulate enough additional economic activity that total tax revenues would be maintained or even increase. The prediction &mdash; that the cuts would pay for themselves &mdash; became the defining promise of supply-side economics (供應面經濟學) and has been politically contested ever since.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D0; Theory</div>
+        <div class="pe-body">Arthur Laffer (亞瑟&#x00B7;拉弗) sketched the curve in 1974 on a napkin in a Washington restaurant. Its logic is irrefutable at the extremes: at a 0% tax rate, revenue is zero; at a 100% rate, revenue is also zero because no rational actor works or invests. Somewhere between lies a revenue-maximising rate. The formal mechanism is the elasticity of taxable income (應稅所得彈性): high rates reduce work effort, investment, and income reporting, shrinking the tax base and partially or fully offsetting rate increases.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">US federal revenues fell as a share of GDP after the Reagan cuts, and the budget deficit tripled. Gruber and Saez (2002, <em>Journal of Public Economics</em>) estimated the elasticity of taxable income for high earners at roughly 0.57, implying the revenue-maximising top rate is approximately 70% &mdash; precisely where it started. The UK&rsquo;s cut of its top rate from 50% to 45% in 2013 showed no detectable revenue increase. Across OECD (經濟合作暨發展組織) countries, no clear pattern of tax-cut-driven revenue increases has emerged.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Supply-side economists argue that static budget scoring (靜態評分) misses growth effects over longer horizons: lower rates may increase investment and GDP growth, raising the future tax base. Dynamic scoring (動態評分), now used by the Congressional Budget Office (美國國會預算局) in modified form, attempts to capture these effects, though estimates remain contested. Chetty et al. (2011) show that labour supply elasticities vary enormously by income group, gender, and country &mdash; making a single universal revenue-maximising rate a theoretical oversimplification. Whether tax cuts for upper-income earners pay for themselves is politically live but empirically near-settled: the preponderance of evidence says they do not.</div>
+      </div>
+      <div class="source">&#x1F4D6; Laffer, A. (2004). &ldquo;The Laffer Curve: Past, Present, and Future.&rdquo; Heritage Foundation Backgrounder No. 1765; Gruber, J. &amp; Saez, E. (2002). &ldquo;The Elasticity of Taxable Income: Evidence and Implications.&rdquo; <em>Journal of Public Economics</em> 84(1); Mankiw, N.G. et al. (2009). &ldquo;Optimal Taxation in Theory and Practice.&rdquo; <em>Journal of Economic Perspectives</em> 23(4).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section" id="connection">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; Bacon&rsquo;s Four Idols and the Overconfidence Effect</strong></p>
+      <p>Four hundred years apart, Francis Bacon and Daniel Kahneman are diagnosing the same failure: the human mind is not a neutral instrument that simply records and processes evidence. Bacon&#x2019;s Idols of the Tribe &mdash; our tendency to see patterns in random data, to weight confirming evidence more heavily &mdash; are essentially a 1620 description of what Kahneman would later call confirmation bias and overconfidence. The Idols of the Cave are individual blindspots; the planning fallacy is the same phenomenon in a specific economic context. Bacon&#x2019;s prescription (induction from systematic tabulation, eliminate rather than confirm) and Kahneman&#x2019;s prescription (reference class forecasting, outside view) are structurally identical: deliberately decentre yourself from your own vivid case and look for the base rate. <strong>So what:</strong> The next time you feel certain about an outcome &mdash; a project timeline, an investment, a judgment about someone &mdash; treat that certainty as diagnostic information. High confidence is more often evidence that an Idol of the Tribe has taken over than that you genuinely know more than the base rate suggests.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Astronomy):</strong> Gillon, M. et al. (2017). <em>Nature</em> 542; Greene, T.P. et al. (2023). <em>Nature</em> 618; Lustig-Yaeger, J. et al. (2022). arXiv 2301.04500.</li>
+      <li><strong>Card 2 (Eastern History):</strong> McCullough, W.H. &amp; McCullough, H.C. (1980). <em>A Tale of Flowering Fortunes</em>. Stanford UP; Hurst, G.C. (1976). <em>Insei</em>. Columbia UP; Shively, D. &amp; McCullough, W.H. eds. (1999). <em>Cambridge History of Japan</em>, Vol. 2.</li>
+      <li><strong>Card 3 (Western History):</strong> Asbridge, T. (2010). <em>The Crusades</em>. Simon &amp; Schuster; Tyerman, C. (2006). <em>God&rsquo;s War</em>. Harvard UP; Riley-Smith, J. (1987). <em>The First Crusade and the Idea of Crusading</em>. Athlone Press.</li>
+      <li><strong>Card 4 (Eastern Philosophy):</strong> 慧遠《沙門不敬王者論》《神不滅論》；de Bary, W.T. &amp; Bloom, I. eds. (1999). <em>Sources of Chinese Tradition</em>, Vol. 1. Columbia UP; Sharf, R.H. (2002). <em>Coming to Terms with Chinese Buddhism</em>. U Hawaii Press.</li>
+      <li><strong>Card 5 (Western Philosophy):</strong> Bacon, F. (1620). <em>Novum Organum</em>; Jardine, L. &amp; Stewart, A. (1998). <em>Hostage to Fortune</em>. Hill &amp; Wang; Gaukroger, S. (2001). <em>Francis Bacon and the Transformation of Early-Modern Philosophy</em>. Cambridge UP.</li>
+      <li><strong>Card 6 (Psychology):</strong> Lichtenstein, S. &amp; Fischhoff, B. (1977). <em>Organizational Behavior and Human Performance</em> 20(2); Svenson, O. (1981). <em>Acta Psychologica</em> 47(2); Malmendier, U. &amp; Tate, G. (2005). <em>Journal of Finance</em> 60(6); Flyvbjerg, B. et al. (2002). <em>Journal of the American Planning Association</em> 68(3).</li>
+      <li><strong>Card 7 (Physiology):</strong> CONSENSUS Trial Study Group (1987). <em>NEJM</em> 316(23); Skeggs, L.T. et al. (1954). <em>Journal of Experimental Medicine</em> 100(4); Ferrario, C.M. (2010). <em>Hypertension</em> 55(2).</li>
+      <li><strong>Card 8 (Health):</strong> Suez, J. et al. (2022). <em>Cell</em> 185(18); WHO (2023). Non-sugar sweeteners guideline; IARC (2023). Monographs Vol. 133.</li>
+      <li><strong>Card 9 (Sports Science):</strong> Levine, B.D. &amp; Stray-Gundersen, J. (1997). <em>Journal of Applied Physiology</em> 83(1); Chapman, R.F. et al. (2014). <em>Journal of Applied Physiology</em> 116(6); Wilber, R.L. (2007). <em>Medicine &amp; Science in Sports &amp; Exercise</em> 39(9).</li>
+      <li><strong>Card 10 (Investing):</strong> Minsky, H.P. (1992). Levy Economics Institute WP No. 74; Minsky, H.P. (1986). <em>Stabilizing an Unstable Economy</em>. Yale UP; Kindleberger, C. (1978). <em>Manias, Panics, and Crashes</em>.</li>
+      <li><strong>Card 11 (Political Economics):</strong> Laffer, A. (2004). Heritage Foundation Backgrounder No. 1765; Gruber, J. &amp; Saez, E. (2002). <em>Journal of Public Economics</em> 84(1); Mankiw, N.G. et al. (2009). <em>Journal of Economic Perspectives</em> 23(4).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent)</summary>
+    <ul>
+      <li>2026-06-28: TRAPPIST-1, 藤原道長/平安攝關政治 (Heian/Japan), First Crusade, 淨土宗慧遠, Francis Bacon/Novum Organum, Overconfidence Effect/Planning Fallacy, RAAS, Artificial Sweeteners, Altitude Training/LHTL, Minsky Moment, Laffer Curve</li>
+      <li>2026-06-27: Jupiter GRS, 清軍入關/多爾袞, Napoleon 1812, 玄奘唯識, William James/Pragmatism, Peak-End Rule, Testosterone/AR, Posture/Back Pain, PAP, FX Carry Trade, Argentine Default</li>
+      <li>2026-06-26: CMB, 赤壁之戰, American Revolution, 王充《論衡》, Sartre, Cognitive Load Theory, Thyroid, Myopia, Core stability/McGill, Yield Curve, Environmental Kuznets Curve</li>
+    </ul>
+  </details>
+  <p style="margin-top:1rem;">&copy; 2026 Edward&rsquo;s Daily Learning &mdash; <a href="index.html" style="color:var(--accent);">All Briefings</a> &middot; <a href="bookmarks.html" style="color:var(--accent);">My Bookmarks</a></p>
+</footer>
+
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-28.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-06-28.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 28 Jun 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script src="bm.js"></script>
+</body></html>
