@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward's Daily Learning &mdash; 29 Jun 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style></head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 29 June 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>28 June 2026</em>:</p>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; TRAPPIST-1</span>
+        JWST showed the two innermost TRAPPIST-1 planets are bare and airless, but three outer worlds in the habitable zone remain uncharacterised and are still considered promising targets for atmospheric study.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 藤原道長</span>
+        藤原道長嫁三女予三位天皇，以天皇外祖父之名掌握攝關政治三十年，讓天皇保持象徵神聖而無實際決策權。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; First Crusade</span>
+        Pope Urban II&rsquo;s 1095 speech reframed a Byzantine mercenary request into a holy war offering plenary indulgence, mobilising an estimated 100,000 volunteers &mdash; who breached Jerusalem&rsquo;s walls on 15 July 1099.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 慧遠淨土宗</span>
+        慧遠以「神不滅論」為念佛往生提供義理根基，將解脫門檻從精英修禪降為普通人皆可稱念佛名的他力救度之道。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; W. Philosophy &mdash; Francis Bacon</span>
+        Bacon&rsquo;s four Idols catalogued universal cognitive distortions blocking evidence-based reasoning &mdash; anticipating modern psychology&rsquo;s confirmation bias and overconfidence by three centuries.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Overconfidence Effect</span>
+        People systematically overestimate certainty and underestimate project timelines; the remedy is reference class forecasting &mdash; asking what actually happened to similar projects, not reasoning from the inside view of this one.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; RAAS</span>
+        The kidney&rsquo;s renin cascade raises blood pressure through vasoconstriction and sodium retention; when chronically overactivated it destroys the heart, explaining why ACE inhibitors reduce mortality in both hypertension and heart failure.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Artificial Sweeteners</span>
+        A 2022 <em>Cell</em> RCT found saccharin and sucralose alter gut microbiome composition and impair glucose tolerance; germ-free mouse transplants confirmed the microbiome as the causal mechanism, not a direct metabolic sweetener effect.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Altitude Training / LHTL</span>
+        Sleeping at 2,500&nbsp;m drives EPO production while descending to sea level for training preserves race-specific neuromuscular quality &mdash; the &ldquo;Live High, Train Low&rdquo; model yields a 1&ndash;5% performance gain in elite endurance events.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; Minsky Moment</span>
+        Long periods of financial stability rationally encourage more leverage, transitioning borrowers from hedge to speculative to Ponzi finance, until a small shock triggers collective deleveraging &mdash; the Minsky Moment.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Laffer Curve</span>
+        The Laffer Curve&rsquo;s logic is sound at the extremes, but Gruber &amp; Saez estimate the revenue-maximising US top rate at ~70% &mdash; precisely where Reagan started &mdash; and the 1981 tax cuts did not pay for themselves.
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Galaxies in Collision: How JWST Unveiled the Shocking Physics Inside Stephan&rsquo;s Quintet (斯蒂芬五重星系), a 290-Million-Light-Year Galaxy Pile-Up</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If five galaxies appear very close together in the sky, does that mean they are actually close to each other in space? And how would you detect a shock wave between galaxies when no explosion has occurred?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Sonify7_stephansquintet.jpg" alt="Stephan's Quintet galaxy group as imaged by the James Webb Space Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Stephan&rsquo;s Quintet (斯蒂芬五重星系) &mdash; JWST first-release image 2022 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Sonify7_stephansquintet.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons / NASA/ESA/CSA/STScI</a></div>
+      </div>
+      <p>In July 2022, NASA released the first full-colour images from the James Webb Space Telescope (韋伯太空望遠鏡), and among its five debut targets was a spectacular cluster of galaxies that had mystified astronomers since French observer &Eacute;douard Stephan (史蒂芬) first catalogued it in 1877 at the Marseille Observatory (馬賽天文台): Stephan&rsquo;s Quintet (斯蒂芬五重星系), approximately 290 million light-years away in the constellation Pegasus (飛馬座). What Webb&rsquo;s Mid-Infrared Instrument (MIRI) revealed &mdash; invisible to Hubble&rsquo;s optical cameras &mdash; was a colossal arc of shock-heated gas (衝擊波加熱氣體) stretching some 100,000 light-years across, glowing brilliantly in the infrared (紅外線). That arc is larger than our entire Milky Way (銀河系), and its luminosity rivals the combined output of roughly 100 billion suns.</p>
+      <p>A counterintuitive twist underpins the entire group: only four of the five galaxies are a true interacting system at 290 million light-years &mdash; NGC 7317, 7318a, 7318b, and 7319. The fifth, NGC 7320, is a foreground interloper (前景星系) a mere 40 million light-years away, only accidentally aligned from our vantage point. The shock wave itself is produced by galaxy NGC 7318b plunging into the intragroup medium (星系間介質) &mdash; the hot, diffuse gas filling the space between the four true members &mdash; at nearly 3.2 million kilometres per hour. The collision compresses and heats the gas, creating the enormous infrared arc. JWST&rsquo;s unprecedented sensitivity also detected molecular hydrogen (分子氫) surviving inside the shock at temperatures where earlier theory predicted it should be instantly dissociated, revealing turbulent, multi-phase gas physics that older simulations had not captured.</p>
+      <p>Stephan&rsquo;s Quintet is a living laboratory for galaxy evolution (星系演化) on the scale our own Local Group (本星系群) may have experienced billions of years ago. Webb also detected the active galactic nucleus (活躍星系核, AGN) in NGC 7319 &mdash; a supermassive black hole (超大質量黑洞) actively accreting material, whose jets add another energy source to the intragroup medium. By studying how shock waves, AGN feedback (黑洞噴流回饋), and galaxy&ndash;galaxy interactions heat, strip, and redistribute gas and stars, astronomers hope to map the processes that transform gas-rich spirals into gas-poor elliptical galaxies &mdash; the same transformation that shaped the most massive galaxies in the universe. Webb is expected to observe the quintet repeatedly, assembling a multi-epoch record that will directly test cosmological simulations.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Stephan%27s_Quintet" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Four of the five galaxies are genuinely colliding 290 million light-years away; the fifth is a foreground coincidence 250 million light-years closer &mdash; JWST&rsquo;s infrared eye revealed the collision&rsquo;s shock wave for the first time.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does JWST reveal a massive shock wave in Stephan&rsquo;s Quintet that Hubble missed, and what is producing it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">JWST observes in infrared rather than visible light, detecting heat signatures invisible to Hubble&rsquo;s optical instruments. The shock wave is produced by galaxy NGC 7318b plunging into the intragroup medium at ~3.2 million km/h, compressing and heating gas to millions of degrees. The resulting infrared-bright arc stretches 100,000 light-years &mdash; larger than the Milky Way &mdash; and MIRI can map it in detail. Hubble&rsquo;s visible-light cameras saw only the galaxy cores and stellar regions, missing the diffuse hot gas entirely.</div>
+      </details>
+      <div class="source">&#x1F4D6; Pontoppidan, K.M. et al. (2022). &ldquo;Pandora&rsquo;s Box Opened: The Universe Revealed by Webb.&rdquo; <em>PASP</em>; Xu, C.K. et al. (2005). &ldquo;Spitzer Observations of Stephan&rsquo;s Quintet.&rdquo; <em>ApJ Letters</em> 627; STScI Press Release STScI-2022-029 (12 Jul 2022), NASA/ESA/CSA.</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>海上王者：鄭成功（國姓爺）如何以九個月圍城驅逐荷蘭東印度公司，在台灣重建明朝遺烈最後的根據地</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">如果一個王朝已經滅亡，抵抗運動能在海外異地延續多久？一個擁有強大海軍、卻缺乏大陸立足點的政權，最終命運會是如何？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>鄭成功（1624&ndash;1662，字大木，賜國姓朱）、荷蘭守將揆一（Frederik Coyett）、父親鄭芝龍、子鄭經、清將施琅</p>
+        <p><strong>事件：</strong>1661年三月，鄭成功率艦隊約兩萬五千人穿越鹿耳門水道，包圍熱蘭遮城（Fort Zeelandia）；1662年二月荷蘭守軍投降，荷蘭在台三十八年殖民統治終結</p>
+        <p><strong>時代背景：</strong>1644年清軍入關，明朝滅亡；鄭成功長期以廈門、金門為根據地反清復明，1659年北伐長江失利後轉向台灣，試圖建立穩固的根據地持續抗清</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/The_Portrait_of_Koxinga.jpg" alt="鄭成功（國姓爺）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">鄭成功（國姓爺）畫像 &mdash; <a href="https://commons.wikimedia.org/wiki/File:The_Portrait_of_Koxinga.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>鄭成功生於1624年，父親鄭芝龍曾是東亞最大海盜集團首領，後招撫為明朝水師將領，母親為日本田川氏。年少的鄭成功在南京受儒學教育，明亡後毅然拒絕隨父降清，在隆武帝手中獲賜「朱」姓，世稱「國姓爺」（荷蘭文獻記作Coxinga，來自閩南語「國姓爺」音譯）。此後他以廈門、金門為根據地，建立頗具規模的海上武裝力量，通過與日本、東南亞各地的貿易籌措軍費。1659年，他率十七萬大軍溯長江攻至南京城下，卻因輕敵及糧道被截功虧一簣，被迫退回海上——正是這次大陸作戰的挫折，使他將目光轉向台灣。</p>
+      <p>荷蘭東印度公司（VOC）自1624年起在台灣西南岸建立熱蘭遮城，以胡椒、砂糖、生絲轉口貿易大獲其利，但駐守兵力從未超過二千人。1661年三月，鄭成功利用熟悉台灣水道的何廷斌作嚮導，率主力艦隊穿越荷蘭人認為難以通航的鹿耳門淺水道，一舉截斷熱蘭遮城與外海的聯絡，令守將揆一陷入孤立。荷蘭援軍嘗試突圍皆遭擊退。圍城九個月後，彈盡糧絕的揆一於1662年二月一日開城投降，在降書中保留了荷蘭人的財產與安全撤退的權利。此一九個月圍城戰，在亞洲戰場上以制海權取代強攻的典型案例，至今仍是軍事史學者研究的範本。</p>
+      <p>鄭成功在台灣建立的東寧王國（Tungning Kingdom）設承天府，仿明制推行文官體系，建孔廟辦學校，廣招明朝遺民，並透過對日、東南亞的海上貿易維持財政。然而他於1662年六月突然病逝，年僅三十八歲，留下的政治格局極為脆弱。其子鄭經繼位後多次嘗試反攻大陸，均無功而返。1683年，清廷福建水師提督施琅以壓倒性兵力在澎湖海戰中殲滅東寧海軍，鄭克塽降清，台灣正式納入清朝版圖，設台灣府隸屬福建省——距鄭成功驅逐荷蘭人，僅二十一年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Koxinga" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>鄭成功能驅逐荷蘭人，關鍵在制海權與補給線——他截斷熱蘭遮城的外援，令固若金湯的要塞因孤立而失守，而非依賴正面強攻。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答：</em>鄭成功能成功驅逐荷蘭東印度公司的關鍵軍事因素是什麼？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">鄭成功掌握台灣西南水道地形，利用熟悉水道的嚮導穿越荷軍認為不能通航的鹿耳門淺水道，以兩萬五千人的兵力優勢截斷熱蘭遮城與外海的補給及援軍路線。荷蘭守軍孤立無援，兵力不足二千人，圍城九個月後彈盡糧絕被迫投降。制海權的掌握與補給線的切斷，而非正面攻城，是這場戰役的決定性因素。</div>
+      </details>
+      <div class="source">&#x1F4D6; Andrade, T. (2011). <em>Lost Colony: The Untold Story of China&rsquo;s First Great Victory over the West</em>. Princeton UP; 江樹生譯（2003）。《熱蘭遮城日誌》第四冊，台南市政府；連橫（1920）。《台灣通史》，卷一；Wills, J.E. (1974). <em>Pepper, Guns and Parleys: The Dutch East India Company and China 1662&ndash;1681</em>. Harvard UP.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Money, Beauty, and Power: How the Medici (梅第奇家族) Banking Dynasty Bankrolled the Italian Renaissance (文藝復興) and Redefined What Patronage Could Achieve</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Can a banking family ruling a city-state actually produce a sustained cultural golden age &mdash; or is that convenient mythology? What would a banking family actually have to do differently from a military dynasty to turn money into enduring art?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Cosimo de&rsquo; Medici (科西莫&middot;梅第奇, 1389&ndash;1464), Lorenzo de&rsquo; Medici &ldquo;il Magnifico&rdquo; (洛倫佐&middot;梅第奇, 1449&ndash;1492), Sandro Botticelli (波提切利), Leonardo da Vinci (達文西), Marsilio Ficino (費奇諾), Donatello (多那太羅)</p>
+        <p><strong>Event at stake:</strong> Medici de facto rule of Florence 1434&ndash;1494; Pazzi Conspiracy (帕茲家族陰謀) 1478; Platonic Academy (柏拉圖學院) under Cosimo; Savonarola&rsquo;s (薩佛納羅拉) Bonfire of the Vanities 1497</p>
+        <p><strong>Big picture:</strong> Italian city-states competing for prestige; papal revenue banking concentrated enormous capital; Byzantine scholars fleeing Ottoman conquest (1453) brought Greek manuscripts westward; humanist philosophy (人文主義) offered a secular framework for art and scholarship</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Lorenzo_de_Medici.jpg" alt="Portrait of Lorenzo de' Medici il Magnifico" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Lorenzo de&rsquo; Medici &ldquo;il Magnifico&rdquo; (洛倫佐&middot;梅第奇) &mdash; portrait attributed to Giorgio Vasari &mdash; <a href="https://commons.wikimedia.org/wiki/File:Lorenzo_de_Medici.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In the mid-fifteenth century, Florence (佛羅倫斯) was not obviously destined for cultural immortality. What transformed it was money &mdash; specifically, the banking fortune of the Medici family (梅第奇家族). Cosimo de&rsquo; Medici (科西莫&middot;梅第奇, 1389&ndash;1464) built Europe&rsquo;s largest banking network, with branches in Rome (羅馬), Venice (威尼斯), Bruges, and London, financed partly through the lucrative contract to collect papal revenues (教宗稅收). When he returned from exile in 1434 to seize de facto power over the Florentine republic (佛羅倫斯共和國), he held no formal title &mdash; ruling instead by controlling electoral committees (balie), extending credit to bind the elite to his interests, and deploying wealth as political glue. He funded Brunelleschi&rsquo;s (布魯內萊斯基) dome for Florence Cathedral &mdash; the largest masonry dome built since the Pantheon (萬神殿) &mdash; and underwrote the Platonic Academy (柏拉圖學院) where Marsilio Ficino (費奇諾) translated the complete works of Plato from newly arrived Greek manuscripts.</p>
+      <p>Cosimo&rsquo;s grandson Lorenzo de&rsquo; Medici (洛倫佐&middot;梅第奇, 1449&ndash;1492) took patronage to its zenith. Lorenzo survived the Pazzi Conspiracy (帕茲家族陰謀) of April 26, 1478 &mdash; a rival family&rsquo;s assassination attempt during Mass in Florence Cathedral that killed his brother Giuliano &mdash; and subsequently tightened Medici control over Florence&rsquo;s institutions. His patronage supported Sandro Botticelli (波提切利, whose &ldquo;Birth of Venus&rdquo; 維納斯誕生 and &ldquo;Primavera&rdquo; drew on Neo-Platonic philosophy 新柏拉圖主義 supplied by Ficino), the young Leonardo da Vinci (達文西), and the sculptor Donatello (多那太羅). Lorenzo himself wrote vernacular (義大利方言) poetry of genuine distinction and cultivated a court culture where the line between patron and intellectual collaborator dissolved. The Platonic Academy became the intellectual engine of Florentine Humanism (人文主義), recovering Plato, Plotinus (普羅提諾), and Hermes Trismegistus in a synthesis that gave Renaissance artists an entirely new symbolic vocabulary.</p>
+      <p>The Medici model illuminates a persistent historical question: can wealth deliberately produce cultural genius, or does it merely purchase prestige? The evidence suggests something subtler. Medici patronage created institutional conditions &mdash; a library (梅第奇圖書館), an academy, access to ancient manuscripts, freedom from censorship for heterodox ideas &mdash; that made innovation possible but not inevitable. Yet the system was fragile: Lorenzo died in 1492 at 43, his son Piero was expelled two years later as Charles VIII (法王查理八世) invaded, and the Dominican friar Savonarola (薩佛納羅拉) subsequently staged his Bonfire of the Vanities (虛榮篝火, 1497), publicly burning Medici-patronised art in the Piazza della Signoria. The Renaissance survived its patrons; the lesson is that cultural flourishing requires both material conditions and institutional security, neither of which can be guaranteed by money alone.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Medici_family" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The Medici didn&rsquo;t create Renaissance genius &mdash; they created institutional conditions (library, academy, manuscripts, security) in which genius could emerge, survive, and communicate itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> By what two mechanisms did Cosimo de&rsquo; Medici exercise political power over Florence without holding any formal title?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cosimo controlled Florence through financial leverage &mdash; extending credit to the political elite created dependency, making his goodwill financially essential &mdash; and through manipulation of the electoral committees (balie) that determined who could hold office. He effectively chose the city&rsquo;s governors while remaining personally unelected. His banking relationship with the papacy also gave him international leverage no rival could match, and his cultural patronage created a reputational aura of legitimate authority that covert political control alone could not have sustained.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hibbert, C. (1974). <em>The Rise and Fall of the House of Medici</em>. Allen Lane; Kent, F.W. (2004). <em>Lorenzo de&rsquo; Medici and the Art of Magnificence</em>. Johns Hopkins UP; Najemy, J.M. (2008). <em>A History of Florence 1200&ndash;1575</em>. Blackwell.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>無極而太極：周敦頤如何以兩百四十九字開創宋代理學，將道德秩序根植於宇宙生成之中</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">道德規範（仁義禮智）可以從宇宙起源論（天地萬物如何生成）中推導出來嗎？這樣做的哲學意義是什麼——如果道德有宇宙論根基，它是否就變得不可否定了？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>周敦頤（1017&ndash;1073，字茂叔，道州人）、弟子程顥（1032&ndash;1085）、程頤（1033&ndash;1107）、後學朱熹（1130&ndash;1200）</p>
+        <p><strong>文本：</strong>《太極圖說》（249字）、《通書》（3,000餘字）——以宇宙生成圖表推導道德秩序的奠基文本</p>
+        <p><strong>時代背景：</strong>北宋中期，儒學自漢代以來長期以注疏訓詁為主，缺乏系統形上學；佛道兩教的宇宙論相對完整，儒家需要回應佛道的哲學挑戰，以重建道德秩序的形上學根基</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Zhou_Dunyi.png" alt="周敦頤畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">周敦頤（1017&ndash;1073）畫像 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Zhou_Dunyi.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>周敦頤仕官低微，一生未曾位至顯要，卻留下兩篇震動後世的短文。《太極圖說》起首即是中國哲學史上最著名的命題之一：「無極而太極。太極動而生陽，動極而靜，靜而生陰，靜極復動。一動一靜，互為其根；分陰分陽，兩儀立焉。陽變陰合而生水火木金土，五行順布，四時行焉。五行一陰陽也，陰陽一太極也，太極本無極也。」這段話以「無極」（無任何規定性的本源）作為起點，經太極、陰陽、五行，層層化生萬物，試圖為儒家倫理找到一個宇宙論（cosmological）基礎——一種漢代儒學長期缺乏、令儒家在對抗佛道兩教時處於哲學下風的根基。周敦頤的圖解並非純粹的自然哲學，而是以宇宙生成秩序反推道德實踐的正當性。</p>
+      <p>《太極圖說》的哲學架構可分三層。第一層是宇宙論：萬物從「無極而太極」的自發運動中化生，陰陽五行是天地之道的基本結構。第二層是人性論：「惟人也，得其秀而最靈」——人是萬物之秀，稟受天地陰陽五行之正而成形，「聖人定之以中正仁義而主靜，立人極焉」。「人極」（人的最高準則）與「太極」（宇宙的最高本原）在結構上對應，所以仁義禮智信並非人為約定，而是天道在人性中的顯現。第三層是道德實踐的核心概念：《通書》以「誠」（sincerity，真實無妄）為百行之本，「誠者聖人之本，五常之本，百行之源也」——「誠」連通了宇宙的自然秩序與人的道德修養，使形上學與倫理學在一個系統中渾然一體。</p>
+      <p>周敦頤在世時並未大受重視，然而他的兩位弟子程顥與程頤以其思想為基礎各自發展，程顥主「識仁」（體認天地一體之仁），程頤主「格物」（逐事窮理）。朱熹（1130&ndash;1200）後來以「天理」統攝二程，建立龐大的理學（Neo-Confucianism）體系，追溯道統時必稱「周程張朱」，周敦頤居首，被尊為「理學開山」。後人曾質疑《太極圖說》圖式是否借自道教，此爭論至今未決，但這不影響其哲學史地位：它是儒學首次嘗試為道德秩序建立系統宇宙論基礎的努力，開啟了宋明儒學最重要的形上學論爭。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhou_Dunyi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>周敦頤的天才在於將「宇宙如何生成」（太極→陰陽→五行→萬物）與「人應如何行善」（誠→仁義禮智信）縫合為同一系統，讓儒家道德具備形上學根基而非僅是社會習俗。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答：</em>周敦頤《太極圖說》如何嘗試為儒家道德秩序提供宇宙論依據？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">周敦頤以「無極而太極」作為宇宙起源，描述太極動靜生陰陽、陰陽生五行、五行化育萬物的生成序列。人為萬物之秀，稟受天地之性，「誠」是貫通宇宙秩序與人性道德的核心概念——宇宙生成的自然秩序即是道德秩序的本源。「人極」（聖人以中正仁義確立的人的標準）與「太極」在結構上對應，使儒家道德不再只是社會習俗或教化結果，而有形上學宇宙論作為客觀基礎。</div>
+      </details>
+      <div class="source">&#x1F4D6; 周敦頤（宋）《太極圖說》《通書》；Chan, W. (1963). <em>A Source Book in Chinese Philosophy</em>. Princeton UP（pp.&nbsp;460&ndash;480）; Adler, J.A. (2014). <em>Reconstructing the Confucian Dao: Zhu Xi&rsquo;s Appropriation of Zhou Dunyi</em>. SUNY Press; 馮友蘭（1952）。《中國哲學史》下冊，商務印書館。</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>One Must Imagine Sisyphus Happy: How Albert Camus (卡繆) Built a Philosophy of Revolt from the Collision Between Human Longing and a Silent Universe</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If the universe has no inherent meaning &mdash; no god, no cosmic purpose, no guarantee of justice &mdash; what logically prevents that conclusion from leading to despair or suicide? Is there a rigorous third option that neither denies the emptiness nor surrenders to it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Albert Camus (卡繆, 1913&ndash;1960), S&oslash;ren Kierkegaard (齊克果) as the target of &ldquo;philosophical suicide,&rdquo; Jean-Paul Sartre (沙特) as near-contemporary and eventual intellectual rival, Sisyphus (西西弗斯) as the philosophical exemplar</p>
+        <p><strong>Event / idea at stake:</strong> <em>The Myth of Sisyphus</em> (西西弗斯的神話, 1942) &mdash; the Absurd (荒誕) as the collision between human need for meaning and the world&rsquo;s silence; revolt as the only authentic response</p>
+        <p><strong>Big picture:</strong> Nazi Germany occupying France in 1942; existentialism (存在主義) and religious thought competing as responses to the collapse of Enlightenment optimism; Camus consciously resisting both as forms of evasion</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg" alt="Albert Camus, Nobel laureate and author of The Myth of Sisyphus" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Albert Camus (卡繆, 1913&ndash;1960) &mdash; Nobel Prize portrait &mdash; <a href="https://commons.wikimedia.org/wiki/File:Albert_Camus,_gagnant_de_prix_Nobel,_portrait_en_buste,_pos%C3%A9_au_bureau,_faisant_face_%C3%A0_gauche,_cigarette_de_tabagisme.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Albert Camus (卡繆, 1913&ndash;1960) was born in colonial Algeria (阿爾及利亞) to a working-class French family &mdash; his mother was nearly deaf, could not read, and worked as a cleaning woman &mdash; and grew up in a poverty that made abstract philosophy feel urgent rather than academic. In 1942, under Nazi occupation, he published <em>The Myth of Sisyphus</em> (西西弗斯的神話) alongside <em>The Stranger</em> (異鄉人). His central question: given a universe without God, without inherent purpose, and without any guarantee of justice, what reason is there to go on living? Camus named this confrontation &ldquo;the Absurd&rdquo; (荒誕): not a property of the world alone, nor of the human alone, but of the relationship between them &mdash; the collision between our desperate demand for clarity, meaning, and warmth, and the world&rsquo;s absolute, unreasonable silence in response. The Absurd arises only in confrontation; it cannot exist without a human consciousness pressing itself against reality and finding no echo.</p>
+      <p>Camus identified three possible responses and found two of them dishonest. Physical suicide (自殺) accepts the Absurd&rsquo;s verdict &mdash; that life without meaning is not worth living &mdash; and acts on it; it is coherent but resolves the tension by eliminating the human side of the equation. Philosophical suicide (哲學自殺) &mdash; Camus&rsquo;s pointed term for the &ldquo;leap of faith&rdquo; taken by Kierkegaard (齊克果) and those Existentialists (存在主義者) who confessed the universe&rsquo;s silence and then leapt to religious transcendence anyway &mdash; is for Camus a form of evasion, substituting comforting myth for honest confrontation. The third response, revolt (反抗), means living fully and passionately within the Absurd, with no appeal to higher meaning, maintaining the tension rather than resolving it. Sisyphus (西西弗斯), condemned by the gods to push his boulder up a hill for eternity only to watch it roll back, becomes Camus&rsquo;s paradigm: he knows the futility completely, yet his contempt for the gods and his passionate attachment to his task make him, in Camus&rsquo;s famous line, happy.</p>
+      <p>Camus is persistently confused with Jean-Paul Sartre (沙特), with whom he shared a Paris intellectual scene and a Nobel Prize era, but the differences are fundamental. Sartre&rsquo;s Existentialism (存在主義) holds that existence precedes essence &mdash; humans are free to create their own values &mdash; and Camus rejected the label &ldquo;Existentialist&rdquo; precisely because he thought creating your own values was just another way of escaping the Absurd rather than living inside it. Their public break in 1952 &mdash; over Camus&rsquo;s book <em>The Rebel</em> (反抗者), which argued that political revolt becomes murderous the moment it seeks a final historical solution &mdash; cost Camus much of his Parisian prestige. But it also clarified his distinct contribution: unlike Sartre, who ended up apologising for Soviet purges, Camus consistently opposed totalitarianism on both left and right and refused every form of ideological consolation. He received the Nobel Prize in Literature (諾貝爾文學獎) in 1957; he died in a car accident in 1960, aged 46, with an unfinished novel in his briefcase.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Albert_Camus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Camus offers a middle path between nihilism and faith &mdash; live fully in the tension of meaninglessness, refuse all comforting escapes, and let that refusal itself become the source of human dignity.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What distinguishes Camus&rsquo;s &ldquo;philosophical suicide&rdquo; from his recommended response of &ldquo;revolt,&rdquo; and why does he reject the former?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Philosophical suicide is Camus&rsquo;s term for Kierkegaard-style leap of faith: acknowledging the Absurd&rsquo;s silence and then substituting religious or ideological meaning to escape the confrontation. Revolt means holding the Absurd fully in view without resolving it &mdash; living passionately and consciously within meaninglessness rather than fleeing into comforting belief. Camus rejects philosophical suicide as intellectual dishonesty: it evades the very confrontation that defines authentic human existence, trading honest tension for a myth that patches the wound without healing it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Camus, A. (1942/1955). <em>The Myth of Sisyphus</em>. Trans. J. O&rsquo;Brien. Vintage; Aronson, R. (2004). <em>Camus and Sartre: The Story of a Friendship and the Quarrel That Ended It</em>. U Chicago Press; Foley, J. (2008). <em>Albert Camus: From the Absurd to Revolt</em>. Acumen.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why We Can&rsquo;t Agree on Right and Wrong: Jonathan Haidt&rsquo;s (海德特) Moral Foundations Theory (道德基礎理論) and the Six Pillars Beneath Every Political Argument</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Is moral disagreement mostly about facts (different information) or values (fundamentally different things we care about)? If you surveyed people across dozens of countries, would moral priorities look similar, or would they cluster in predictable cultural and political patterns?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Jonathan_Haidt_in_2012_%283x4_cropped%29.jpg" alt="Jonathan Haidt, social psychologist and author of The Righteous Mind" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jonathan Haidt (海德特), whose cross-cultural research led to Moral Foundations Theory &mdash; <a href="https://commons.wikimedia.org/wiki/File:Jonathan_Haidt_in_2012_(3x4_cropped).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In the early 2000s, social psychologist Jonathan Haidt (海德特) set out to challenge a dominant assumption in moral psychology: that moral reasoning is primarily a cognitive process &mdash; like solving a logic problem &mdash; and that people who reach different moral conclusions are simply reasoning from different facts or making different logical errors. Drawing on cross-cultural fieldwork in Brazil, India, and the United States, Haidt and colleagues proposed Moral Foundations Theory (MFT, 道德基礎理論): moral intuitions (道德直覺) are organised around six distinct evolved psychological systems, each tracking a different adaptive social challenge, and different cultures and political groups weight these foundations differently. The six foundations are: Care/Harm (關懷/傷害), Fairness/Cheating (公平/欺騙), Loyalty/Betrayal (忠誠/背叛), Authority/Subversion (權威/顛覆), Sanctity/Degradation (聖潔/污穢), and Liberty/Oppression (自由/壓迫). All six are detectable across cultures; the dispute is about which ones matter most.</p>
+      <p>The most striking application of MFT is its account of political polarisation (政治極化). Haidt&rsquo;s large-scale surveys, including a dataset of 130,000 participants across 27 countries analysed with Jesse Graham and published in the <em>Journal of Personality and Social Psychology</em> in 2011, consistently found that self-identified political liberals (自由派) score highest on Care/Harm and Fairness &mdash; their moral concern centres on preventing suffering and ensuring equal treatment &mdash; and score much lower on Loyalty, Authority, and Sanctity. Conservatives (保守派) draw approximately equally on all six foundations, including strong concern for group cohesion, hierarchy, and purity. This means liberals and conservatives are not just disagreeing about facts but are drawing on morally different operating systems. Haidt&rsquo;s &ldquo;elephant and rider&rdquo; (大象與騎象人) metaphor captures the dynamic: moral intuitions (the elephant) make snap judgements first; moral reasoning (the rider) rationalises those judgements post hoc, providing arguments that feel like the cause but are actually the justification.</p>
+      <p>MFT has attracted both influence and criticism. The empirical base is substantial: cross-cultural replication, online surveys, experimental vignettes, and neuroimaging studies (showing different emotional activation to care- vs purity-violation scenarios). Critics argue that some foundations &mdash; particularly Sanctity &mdash; show weaker cross-cultural validity in non-WEIRD (Western, Educated, Industrialised, Rich, Democratic) populations, and that the theory&rsquo;s symmetry between liberal and conservative moral frameworks implicitly normalises empirically contested positions. Haidt has also been criticised for understating the degree to which motivated reasoning (動機性推理) is asymmetrically distributed across the political spectrum. These critiques have merit, but MFT remains the most empirically detailed account of why politically diverse people, using the same evidence, reach systematically different moral conclusions &mdash; and why simply presenting better facts rarely resolves deeply moral disagreements.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Moral_foundations_theory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Moral disagreement is rarely about facts &mdash; it&rsquo;s about which of the six moral foundations your opponent weights most; knowing that structure is the first step to actually being heard across a political divide.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the key structural difference between how political liberals and conservatives prioritise the six moral foundations, according to Haidt?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Liberals primarily weight Care/Harm and Fairness &mdash; their moral concern centres on preventing suffering and equal treatment &mdash; and rate Loyalty, Authority, and Sanctity as far less morally relevant. Conservatives draw more evenly across all six foundations, including genuine moral concern for group cohesion, respect for hierarchy, and purity. The disagreement is structural: each political group is using a genuinely different set of moral intuitions as its operating system, which is why providing better facts rarely resolves moral arguments &mdash; the participants are evaluating situations through different foundational lenses.</div>
+      </details>
+      <div class="source">&#x1F4D6; Haidt, J. &amp; Graham, J. (2007). &ldquo;When Morality Opposes Justice.&rdquo; <em>Social Justice Research</em> 20(1); Graham, J. et al. (2011). &ldquo;Mapping the Moral Domain.&rdquo; <em>JPSP</em> 101(2), 366&ndash;385; Haidt, J. (2012). <em>The Righteous Mind: Why Good People Are Divided by Politics and Religion</em>. Pantheon Books.</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Hunger Hormone Paradox: How Leptin (瘦素), Ghrelin (飢餓素), and the Hypothalamus (下視丘) Control Appetite &mdash; and Why Willpower Is the Wrong Explanation for Obesity</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two people eat the same calories and do the same exercise; one gains weight much faster than the other. Could a hormone system &mdash; not character or discipline &mdash; explain this difference? And why would an obese person with abundant fat stores still feel chronically hungry?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Hypothalamus.jpg" alt="Diagram of the human hypothalamus, which coordinates appetite regulation" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Human hypothalamus (下視丘) &mdash; the brain region coordinating appetite and energy balance via leptin and ghrelin signals &mdash; <a href="https://commons.wikimedia.org/wiki/File:Hypothalamus.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1994, molecular biologist Jeffrey Friedman (弗里德曼) and colleagues at Rockefeller University published a paper in <em>Nature</em> that transformed the understanding of obesity (肥胖症). They isolated the gene responsible for a mutation making certain mice eat continuously and balloon to three times normal weight: the <em>ob</em> gene. Its protein product &mdash; named leptin (瘦素), from the Greek <em>leptos</em> (lean) &mdash; was a hormone secreted by adipose tissue (脂肪組織) in direct proportion to fat mass. Injecting leptin into <em>ob</em>-mutant mice caused dramatic weight loss. The implication was electric: the body had a feedback sensor for its own fat stores, communicating directly with the brain. Leptin acts on the arcuate nucleus (弓狀核) of the hypothalamus (下視丘), a brain region integrating metabolic signals. There it modulates two competing neuron populations: NPY/AgRP neurons (appetite-stimulating 促食慾神經元, drive hunger and slow metabolism) and POMC/CART neurons (appetite-suppressing 抑食慾神經元, induce satiety and increase energy expenditure). High fat stores produce abundant leptin, which suppresses NPY/AgRP and activates POMC &mdash; net result: reduced hunger and elevated calorie burn.</p>
+      <p>Ghrelin (飢餓素), produced primarily by cells in the stomach wall (胃壁), works antagonistically to leptin and drives the pre-meal hunger experience. Ghrelin spikes before meals &mdash; even at habitual mealtimes in the absence of genuine caloric deficit, as shown by Crum et al.&rsquo;s &ldquo;milkshake mindset&rdquo; work &mdash; stimulating NPY/AgRP neurons and creating the anticipatory hunger that dissipates once food is consumed. Sleep deprivation (睡眠不足) disrupts both hormones simultaneously: Spiegel et al. (2004, <em>Annals of Internal Medicine</em>) showed that restricting healthy men to 4 hours of sleep per night for two nights reduced leptin levels by 18% and raised ghrelin by 28%, producing subjective hunger increases of 24% and cravings for calorie-dense, high-carbohydrate foods &mdash; a direct hormonal bridge between sleep debt and dietary overconsumption.</p>
+      <p>The critical insight &mdash; and the reason obesity is not primarily a willpower (意志力) problem &mdash; is leptin resistance (瘦素抵抗). Most obese individuals have very high circulating leptin levels, because more fat tissue produces more leptin. Yet their hypothalami stop responding: inflammation triggered by high-fat diets damages hypothalamic neurons and downregulates leptin receptor (瘦素受體) signalling via the JAK2/STAT3 pathway (訊號轉導途徑), confirmed in rodent models by Thaler et al. (2012, <em>Journal of Clinical Investigation</em>). The brain behaves as if the body is starving even while fat stores are abundant &mdash; driving hunger and suppressing energy expenditure simultaneously. Caloric restriction often worsens this by reducing leptin further, triggering counter-regulatory responses that make sustained weight loss physiologically extraordinary. This explains why pharmaceutical strategies restoring leptin sensitivity (e.g., GLP-1 receptor agonists like semaglutide 司美格魯肽, which act on overlapping hypothalamic circuits) have proven more effective than willpower-based interventions.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Leptin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Leptin resistance means an obese person&rsquo;s brain genuinely believes it is starving &mdash; treating obesity as a character flaw ignores the hormonal feedback system that makes sustained weight loss physiologically extraordinary.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do most obese people have high leptin levels but still experience chronic hunger and difficulty losing weight?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Obese individuals produce abundant leptin proportional to their large fat mass, but the hypothalamus develops leptin resistance &mdash; inflammation from high-fat diets damages hypothalamic neurons and impairs leptin receptor signalling. The brain cannot read the leptin satiety signal and interprets the metabolic state as starvation, activating hunger neurons (NPY/AgRP) and suppressing satiety neurons (POMC). Caloric restriction worsens this by reducing leptin further, triggering compensatory hunger. The result: abundant energy stored, but the brain drives eating behaviour as if none were available &mdash; a hormonal trap, not a moral failing.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zhang, Y. et al. (1994). &ldquo;Positional cloning of the mouse obese gene and its human homologue.&rdquo; <em>Nature</em> 372, 425&ndash;432; Schwartz, M.W. et al. (2000). &ldquo;Central nervous system control of food intake.&rdquo; <em>Nature</em> 404, 661&ndash;671; Spiegel, K. et al. (2004). &ldquo;Sleep curtailment in healthy young men is associated with decreased leptin levels.&rdquo; <em>Annals of Internal Medicine</em> 141(11); Thaler, J.P. et al. (2012). &ldquo;Obesity is associated with hypothalamic injury in rodents and humans.&rdquo; <em>Journal of Clinical Investigation</em> 122(1).</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Seed Oil Panic vs Evidence: What the Science Actually Says About Linoleic Acid (亞油酸), Cooking Oxidation, and Whether Vegetable Oils (植物油) Are the Villain They&rsquo;re Claimed to Be</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">&ldquo;Seed oils cause inflammation&rdquo; is a popular claim in wellness circles. What specific biochemical mechanism would need to be true &mdash; and what controlled trial evidence would need to exist &mdash; to make this claim scientifically defensible?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Linoleic_acid3D.png/330px-Linoleic_acid3D.png" alt="3D molecular structure of linoleic acid, the main omega-6 fatty acid in seed oils" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">3D molecular structure of linoleic acid (亞油酸), the predominant omega-6 polyunsaturated fatty acid in seed oils &mdash; <a href="https://commons.wikimedia.org/wiki/File:Linoleic_acid3D.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Few dietary topics generate more polarised opinion than seed oils (種子油) &mdash; the cooking fats extracted from soybeans (大豆), sunflowers (葵花籽), corn (玉米), and rapeseed (油菜籽) that dominate modern food production. The anti-seed-oil argument runs: these oils are rich in omega-6 polyunsaturated fatty acids (多元不飽和脂肪酸), specifically linoleic acid (LA, 亞油酸, 18:2 n-6), which are precursors to arachidonic acid (花生四烯酸) and then to pro-inflammatory eicosanoids (促炎花生四烯酸衍生物). Modern Western diets carry an omega-6 to omega-3 ratio (&#969;-6:&#969;-3比值) of roughly 15:1 versus an estimated ancestral ratio of 4:1, and this imbalance supposedly drives chronic inflammation (慢性炎症), insulin resistance (胰島素抵抗), and cardiovascular disease (心血管疾病). The biochemistry is partially correct: LA is indeed a precursor to pro-inflammatory compounds. The critical question is whether dietary LA doses actually raise arachidonic acid and inflammatory markers meaningfully in practice, and whether randomised evidence shows harm.</p>
+      <p>The most-cited evidence for concern is Christopher Ramsden&rsquo;s 2016 <em>BMJ</em> reanalysis of the Minnesota Coronary Experiment (明尼蘇達冠狀動脈實驗, 1968&ndash;1973): replacing saturated fat with corn-oil-rich margarine in ~9,000 institutionalised patients significantly lowered LDL cholesterol (低密度脂蛋白) but did not reduce &mdash; and in some analyses increased &mdash; total mortality. This is a genuine finding that deserves scrutiny. However, several important caveats apply: the study used margarine with high levels of already-oxidised linoleic acid (已氧化亞油酸) under industrial processing conditions, the population was heavily institutionalised and medicated, and the finding contradicts a same-team reanalysis of the Sydney Diet Heart Study. More broadly, Linda Hooper et al.&rsquo;s 2020 Cochrane meta-analysis of 15 randomised controlled trials with 56,000 participants showed a statistically significant 17% relative risk reduction in cardiovascular events (心血管事件) when saturated fat was replaced with polyunsaturated fat.</p>
+      <p>The practical question that matters most is cooking temperature and oil reuse. Linoleic acid does oxidise at high heat (高溫氧化), producing reactive aldehydes (醛類化合物) including 4-hydroxynonenal (4-羥基壬烯醛) and malondialdehyde (丙二醛), some of which are cytotoxic at high doses. The risk is real but context-dependent: a single stir-fry produces far lower aldehyde levels than repeated commercial deep-frying in the same degraded oil. Using high-stability oils with high smoke points for high-heat cooking (avocado oil 牛油果油, refined coconut oil 精製椰子油), and not reusing cooking oil multiple times, addresses the genuine oxidation concern without abandoning all polyunsaturated fat consumption. Replacing seed oils wholesale with butter or lard (豬油) in a typical diet does not improve cardiovascular outcomes according to controlled trial evidence. The well-evidenced position: diversify fat sources, minimise repeatedly reheated seed oils, and let randomised trial evidence &mdash; not mechanistic plausibility &mdash; guide dietary decisions.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Linoleic_acid" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Seed oil oxidation at very high heat is a real concern &mdash; don&rsquo;t reuse frying oil repeatedly &mdash; but the controlled trial evidence does not support replacing all seed oils with saturated fats for cardiovascular health.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the key methodological limitation of citing the Ramsden 2016 Minnesota Coronary Experiment reanalysis as proof that seed oils are harmful?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Minnesota study used margarine with high levels of already-oxidised linoleic acid under industrial processing conditions, in an institutionalised and heavily medicated population &mdash; conditions that don&rsquo;t represent normal seed oil use in a general population. The finding also contradicts other trials by the same research group and runs counter to the Hooper 2020 Cochrane meta-analysis of 15 RCTs (56,000 participants) showing a 17% cardiovascular event reduction from replacing saturated with polyunsaturated fat. A single reanalysis of an unusual dietary context cannot overturn a broad controlled trial evidence base.</div>
+      </details>
+      <div class="source">&#x1F4D6; Ramsden, C.E. et al. (2016). &ldquo;Re-evaluation of the traditional diet-heart hypothesis.&rdquo; <em>BMJ</em> 353:i1246; Hooper, L. et al. (2020). &ldquo;Reduction in saturated fat intake for cardiovascular disease.&rdquo; <em>Cochrane Database of Systematic Reviews</em>; Sacks, F.M. et al. (2017). &ldquo;Dietary Fats and Cardiovascular Disease: A Presidential Advisory.&rdquo; <em>Circulation</em> 136(3); Grootveld, M. et al. (2020). &ldquo;Health effects of oxidised heated oils and fats.&rdquo; <em>Food &amp; Chemical Toxicology</em> 145.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Push Until You Can&rsquo;t? The Science of Training to Muscular Failure (力竭訓練) and What Actually Drives Hypertrophy</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Does every set need to end when you physically cannot lift the weight again to maximise muscle growth &mdash; or does stopping two or three reps short produce similar results? And if the outcome is similar, what does that tell us about the mechanism of muscle growth?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="Resistance training in a small group fitness session" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Resistance training (阻力訓練) &mdash; the question of how close to failure to train has major practical implications &mdash; <a href="https://commons.wikimedia.org/wiki/File:Small_group_fitness_sessions_bundall.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Every gym has two camps: those who believe every set must end the instant you cannot perform another repetition &mdash; training to failure (力竭訓練) &mdash; and those who stop two or three reps short on principle. A 2019 meta-analysis by Schoenfeld and Grgic in the <em>Strength and Conditioning Journal</em>, pooling studies that directly compared failure vs non-failure training with equated total volume (組數&times;次數&times;重量), found no statistically significant difference in hypertrophy (肌肥大) outcomes. The mechanistic explanation: motor unit recruitment (運動單元徵召) &mdash; the nervous system&rsquo;s selective activation of progressively more muscle fibres &mdash; reaches near-maximal levels in the final several repetitions before failure, regardless of whether the set ends precisely at failure or one to three reps beforehand. Both approaches expose muscle fibres to the high-threshold mechanical tension (機械張力) and metabolic stress (代謝壓力) that appear to be the primary drivers of the hypertrophic response.</p>
+      <p>The costs of genuine failure training are real and often underweighted. Pareja-Blanco et al. (2016, <em>European Journal of Applied Physiology</em>) randomised participants to 60% vs 100% velocity loss per set (100% loss = failure) over 8 weeks: the failure group built similar muscle mass but accumulated significantly more central nervous system (中樞神經系統) fatigue, requiring longer recovery before baseline performance was restored. On compound barbell movements (複合動作 &mdash; squat 深蹲, deadlift 硬舉, bench press 臥推), reaching failure under heavy load meaningfully raises the risk of form breakdown and injury, a consequence less severe on isolation exercises (孤立動作) like bicep curls or lateral raises. Perhaps most importantly, volume accumulation suffers: reaching failure on early sets reduces the quality and possible number of subsequent sets in the same session, potentially cutting total weekly stimulus &mdash; which is the more important driver of hypertrophy than maximising intensity on any individual set.</p>
+      <p>The practical synthesis is captured in the concept of &ldquo;proximity to failure&rdquo; (接近力竭): stopping two to three repetitions in reserve (RIR, 保留次數) on most working sets of compound exercises produces equivalent hypertrophy with substantially less systemic fatigue. Failure training is most defensible on the final set of isolation exercises where form breakdown is inconsequential and the fatigue won&rsquo;t cascade into the remainder of the session. Lasevicius et al. (2022, <em>Journal of Strength and Conditioning Research</em>) also found that for untrained individuals, the gap between failure and non-failure training narrows considerably &mdash; beginners grow from almost any sufficient stimulus; proximity to failure becomes most relevant for experienced trainees with a large gap between working and maximal strength. The key insight: the mechanism of hypertrophy requires near-maximal motor unit activation, not the absolute final rep &mdash; and the last rep of a set to failure often costs more in recovery than it contributes in additional stimulus.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Progressive_overload" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> &ldquo;Proximity to failure&rdquo; is the key variable &mdash; stopping 2&ndash;3 reps short delivers similar hypertrophy with far less fatigue, especially on compound lifts where form breakdown at failure is genuinely risky.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does training to failure not produce meaningfully more hypertrophy than stopping 2&ndash;3 reps short, and what costs does reaching failure impose?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Maximal motor unit recruitment occurs in the last few reps before failure regardless of whether the set ends exactly at failure or slightly before &mdash; both approaches expose the same muscle fibres to high mechanical tension. Training to failure imposes additional CNS fatigue and longer recovery requirements, and on compound barbell movements raises injury risk from form breakdown. It also reduces the quality and volume of subsequent sets in the same session, potentially cutting total weekly stimulus, which is a more important hypertrophy driver than per-set intensity.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schoenfeld, B.J. &amp; Grgic, J. (2019). &ldquo;Does Training to Failure Maximize Muscle Hypertrophy?&rdquo; <em>Strength and Conditioning Journal</em> 41(5); Pareja-Blanco, F. et al. (2016). &ldquo;Effects of velocity loss during resistance training on athletic performance, strength gains and muscle adaptations.&rdquo; <em>European Journal of Applied Physiology</em> 117(2); Lasevicius, T. et al. (2022). &ldquo;Muscle Failure Promotes Greater Muscle Hypertrophy in Low-Load but Not in High-Load Resistance Training.&rdquo; <em>Journal of Strength and Conditioning Research</em> 36(2).</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Case Against Waiting: Why Lump Sum Investing (一次性投資) Beats Dollar-Cost Averaging (定期定額投資) Two-Thirds of the Time &mdash; and When DCA Is Still Rational</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If you received a large sum of money today, would it be better to invest it all at once or spread it over 12 monthly instalments to reduce the risk of investing at a market peak? What does the historical evidence across multiple markets actually show?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="Warren Buffett, whose principle 'time in market beats timing the market' underpins lump sum investing evidence" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Warren Buffett (巴菲特), whose principle &ldquo;time in market beats timing the market&rdquo; is directly supported by lump sum investing evidence &mdash; <a href="https://commons.wikimedia.org/wiki/File:Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_(cropped).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Imagine receiving a large inheritance today. You could invest it all immediately in a diversified portfolio &mdash; or spread it over twelve monthly instalments to reduce the risk of investing at a market peak. This is one of the most common investment dilemmas, and Vanguard researchers Anatoly Shtekhman and colleagues provided a rigorous empirical answer in a 2012 paper: lump sum investing (LSI, 一次性投資) outperformed 12-month dollar-cost averaging (DCA, 定期定額投資) approximately two-thirds of the time. Testing across US, UK, and Australian equity markets from 1926 to 2011 &mdash; measuring portfolio values 12 months after the deployment decision &mdash; they found lump sum investing won 68% of the time in the US, 71% in the UK, and 70% in Australia, with an average outperformance of roughly 2.3 percentage points annually. The mechanism is straightforward: over long periods, diversified equity markets (股票市場) trend upward. Any day spent holding cash (現金) while waiting to deploy capital has a positive expected cost, because that cash earns less than diversified equities in expectation.</p>
+      <p>DCA&rsquo;s genuine benefit is variance reduction (降低波動性), not expected return maximisation. The one-third of scenarios where DCA wins are concentrated in periods when markets fall shortly after initial deployment &mdash; exactly the bear market (熊市) scenario that psychologically drives investors to delay in the first place. By spreading purchases across 12 months, DCA reduces the worst-case outcome: the investor who DCA&rsquo;d into a January 2022 market peak suffered less than the lump-sum investor. But variance reduction comes at the explicit cost of expected return &mdash; DCA is fundamentally regret (後悔) management and risk-aversion (風險規避) management, not a return-enhancing strategy. Loss aversion (損失規避) &mdash; the Kahneman-Tversky finding that losses hurt roughly twice as much as equivalent gains feel good &mdash; explains why DCA feels rational even when the evidence says otherwise: investors are implicitly weighting the painful one-third outcome more than the better two-thirds outcomes warrant.</p>
+      <p>There are, however, cases where DCA is genuinely the optimal strategy. The most important: when money arrives as regular income instalments (regular salary investing &mdash; contributing monthly from wages is structurally DCA and represents the optimal deployment of a cash flow that simply doesn&rsquo;t arrive as a lump sum). Additionally, when the investor&rsquo;s honest alternative to DCA is not &ldquo;lump sum now&rdquo; but &ldquo;stay in cash indefinitely&rdquo; while waiting for a better entry point (入市時機), the opportunity cost of DCA is lower than the likely cost of paralysis &mdash; a psychological trap well documented in the retirement savings literature. Warren Buffett&rsquo;s (巴菲特) most-quoted principle applies directly: time in market (長期持有) beats timing the market (擇時交易). Lump sum investing is optimal in expected-value terms for those who genuinely have a lump sum to deploy; DCA is rational as a tool for overcoming the psychological barriers that would otherwise prevent investing at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dollar_cost_averaging" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Lump sum beats DCA two-thirds of the time because markets trend up &mdash; DCA is a tool for managing regret and overcoming paralysis, not for maximising expected return.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does lump sum investing outperform DCA in most historical backtests, and in what specific circumstance is DCA the genuinely rational choice?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Lump sum wins because markets trend upward over time &mdash; holding cash while averaging in means missing positive expected returns on every day of delay. DCA reduces variance and worst-case outcomes but lowers average outcome. DCA is genuinely optimal when capital arrives as periodic income (wages), making lump sum structurally impossible; or when the investor&rsquo;s realistic alternative is not &ldquo;lump sum now&rdquo; but &ldquo;remaining in cash indefinitely&rdquo; &mdash; in which case DCA&rsquo;s expected cost is less than the opportunity cost of staying out of the market.</div>
+      </details>
+      <div class="source">&#x1F4D6; Shtekhman, A. et al. (2012). <em>Dollar-cost averaging just means taking risk later</em>. Vanguard Research; Williams, R.E. &amp; Bacon, P.W. (1993). &ldquo;Lump Sum Beats Dollar-Cost Averaging.&rdquo; <em>Journal of Financial Planning</em> 6(2); Atra, R.J. &amp; Mann, T.L. (2001). &ldquo;Dollar-cost averaging and seasonality.&rdquo; <em>Journal of Financial Planning</em> 14(7).</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics</div>
+      <h2>The Illusion of Mastery: The Great Moderation (大緩和時期), Why Central Bankers Thought They Had Tamed the Business Cycle, and What 2022 Revealed</h2>
+
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/TheGreatModeration.png/330px-TheGreatModeration.png" alt="Chart showing the Great Moderation: declining US GDP growth volatility 1950-2000s" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US GDP growth volatility through the Great Moderation (大緩和時期) &mdash; <a href="https://commons.wikimedia.org/wiki/File:TheGreatModeration.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">From roughly 1984 to 2007, the macroeconomic volatility of major advanced economies fell dramatically: US GDP growth variance dropped ~75% from its 1960s&ndash;1970s peak; G7 inflation fell from double digits to 2&ndash;3%; recessions became milder and shorter. Fed Governor Ben Bernanke (伯南克) gave a landmark 2004 speech calling this the &ldquo;Great Moderation (大緩和時期)&rdquo; and attributed it to better monetary policy frameworks, improved inventory management (just-in-time supply chains), and financial innovation. Then the 2022 inflation surge &mdash; US CPI peaked at 9.1%, eurozone at 10.6% &mdash; arrived despite the same central bank frameworks, with the Fed initially calling it &ldquo;transitory.&rdquo;</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D0; Theory</div>
+        <div class="pe-body">New Keynesian macroeconomics (新凱因斯主義) held that central banks with credible inflation-targeting mandates, transparent forward guidance, and Taylor-rule-like reaction functions could anchor inflation expectations (通脹預期) and thereby stabilise output. Rogoff (1985) and Barro-Gordon (1983) showed theoretically that an independent central bank (獨立央行) with strong anti-inflation credibility eliminates the &ldquo;inflation bias&rdquo; that produced the 1970s stagflation &mdash; and the Great Moderation appeared to be empirical confirmation of this institutional solution.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Stock and Watson (2002, <em>NBER Macroeconomics Annual</em>) estimated roughly half the Great Moderation&rsquo;s variance reduction was attributable to &ldquo;good luck&rdquo; &mdash; smaller exogenous shocks, particularly the absence of major energy supply disruptions comparable to 1973 and 1979. DSGE models (動態隨機一般均衡模型), the workhorse of central bank forecasting, had assigned near-zero probability to the 2022 inflation scenario. Standard inflation-targeting frameworks also failed to anticipate the 2008 financial crisis (金融危機). Both events suggest the Great Moderation&rsquo;s stability was conditional on benign supply-side conditions, not durable institutional achievement.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Blanchard and Gal&iacute; (2007) decomposed the Great Moderation into &ldquo;good shocks&rdquo; (smaller disturbances) and &ldquo;good policy&rdquo;, finding the former dominant. Ahmed, Levin &amp; Wilson (2004, <em>Review of Economics and Statistics</em>) similarly found most variance reduction was luck-driven. The challenger framework: once supply shocks of 1970s magnitude return (Ukraine war, energy prices, post-COVID supply chains), standard monetary frameworks are insufficient to prevent inflation surges; central bank credibility matters for how rapidly inflation subsequently falls, but not for prevention. Whether the 2020s represent a structurally more volatile macroeconomic era is an open question &mdash; but the &ldquo;better policy alone tamed the cycle&rdquo; thesis is substantially weakened.</div>
+      </div>
+      <div class="source">&#x1F4D6; Bernanke, B.S. (2004). &ldquo;The Great Moderation.&rdquo; Speech, Eastern Economic Association; Stock, J.H. &amp; Watson, M.W. (2002). &ldquo;Has the Business Cycle Changed and Why?&rdquo; <em>NBER Macroeconomics Annual</em> 17; Ahmed, S., Levin, A. &amp; Wilson, B.A. (2004). &ldquo;Recent U.S. Macroeconomic Stability: Good Policies, Good Practices, or Good Luck?&rdquo; <em>Review of Economics and Statistics</em> 86(3); Blanchard, O. &amp; Gal&iacute;, J. (2007). &ldquo;The Macroeconomic Effects of Oil Price Shocks.&rdquo; <em>NBER Working Paper</em> 13368.</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section" id="connection">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 10 &mdash; Camus&rsquo;s Revolt and Lump Sum Investing</strong></p>
+      <p>Albert Camus argued that waiting for the universe to provide perfect conditions before engaging fully with life is itself a form of philosophical suicide &mdash; the revolt that constitutes authentic existence means committing now, in full knowledge of uncertainty, without waiting for a guarantee. Vanguard&rsquo;s lump sum investing research makes the structurally identical point about capital: waiting for a &ldquo;better entry point&rdquo; before committing money is, in expected-value terms, an inferior strategy in two-thirds of historical cases, because markets trend upward and every month of hesitation is a cost silently paid. Both warn against the same cognitive trap &mdash; the belief that holding back until conditions improve is prudent, when actually the delay imposes its own compounding cost. Camus would call &ldquo;waiting for perfect conditions&rdquo; an evasion of the Absurd; Vanguard would call it &ldquo;taking risk later.&rdquo;</p>
+      <p><strong>So what:</strong> The next time you find yourself waiting for the right moment &mdash; to invest, to commit to a project, to act on a difficult decision &mdash; ask whether the delay is genuinely improving your decision or simply deferring a cost you will eventually pay anyway. Time spent waiting is rarely neutral.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Astronomy):</strong> Pontoppidan et al. (2022). <em>PASP</em>; Xu, C.K. et al. (2005). <em>ApJ Letters</em> 627; STScI-2022-029 NASA/ESA/CSA.</li>
+      <li><strong>Card 2 (Eastern History):</strong> Andrade, T. (2011). <em>Lost Colony</em>. Princeton UP; 江樹生譯（2003）。《熱蘭遮城日誌》第四冊；連橫（1920）。《台灣通史》；Wills, J.E. (1974). <em>Pepper, Guns and Parleys</em>. Harvard UP.</li>
+      <li><strong>Card 3 (Western History):</strong> Hibbert, C. (1974). <em>The Rise and Fall of the House of Medici</em>. Allen Lane; Kent, F.W. (2004). <em>Lorenzo de&rsquo; Medici and the Art of Magnificence</em>. Johns Hopkins UP; Najemy, J.M. (2008). <em>A History of Florence 1200&ndash;1575</em>. Blackwell.</li>
+      <li><strong>Card 4 (Eastern Philosophy):</strong> 周敦頤《太極圖說》《通書》；Chan, W. (1963). <em>A Source Book in Chinese Philosophy</em>. Princeton UP; Adler, J.A. (2014). <em>Reconstructing the Confucian Dao</em>. SUNY Press; 馮友蘭（1952）。《中國哲學史》下冊。</li>
+      <li><strong>Card 5 (Western Philosophy):</strong> Camus, A. (1942/1955). <em>The Myth of Sisyphus</em>. Trans. J. O&rsquo;Brien. Vintage; Aronson, R. (2004). <em>Camus and Sartre</em>. U Chicago Press; Foley, J. (2008). <em>Albert Camus: From the Absurd to Revolt</em>. Acumen.</li>
+      <li><strong>Card 6 (Psychology):</strong> Haidt, J. &amp; Graham, J. (2007). <em>Social Justice Research</em> 20(1); Graham, J. et al. (2011). <em>JPSP</em> 101(2); Haidt, J. (2012). <em>The Righteous Mind</em>. Pantheon.</li>
+      <li><strong>Card 7 (Physiology):</strong> Zhang, Y. et al. (1994). <em>Nature</em> 372; Schwartz, M.W. et al. (2000). <em>Nature</em> 404; Spiegel, K. et al. (2004). <em>Annals of Internal Medicine</em> 141(11); Thaler, J.P. et al. (2012). <em>Journal of Clinical Investigation</em> 122(1).</li>
+      <li><strong>Card 8 (Health):</strong> Ramsden, C.E. et al. (2016). <em>BMJ</em> 353; Hooper, L. et al. (2020). <em>Cochrane Database</em>; Sacks, F.M. et al. (2017). <em>Circulation</em> 136(3); Grootveld, M. et al. (2020). <em>Food &amp; Chemical Toxicology</em> 145.</li>
+      <li><strong>Card 9 (Sports Science):</strong> Schoenfeld, B.J. &amp; Grgic, J. (2019). <em>Strength and Conditioning Journal</em> 41(5); Pareja-Blanco, F. et al. (2016). <em>European Journal of Applied Physiology</em> 117(2); Lasevicius, T. et al. (2022). <em>JSCR</em> 36(2).</li>
+      <li><strong>Card 10 (Investing):</strong> Shtekhman, A. et al. (2012). Vanguard Research; Williams, R.E. &amp; Bacon, P.W. (1993). <em>Journal of Financial Planning</em> 6(2); Atra, R.J. &amp; Mann, T.L. (2001). <em>Journal of Financial Planning</em> 14(7).</li>
+      <li><strong>Card 11 (Political Economics):</strong> Bernanke, B.S. (2004). Eastern Economic Association speech; Stock &amp; Watson (2002). <em>NBER Macro Annual</em> 17; Ahmed, Levin &amp; Wilson (2004). <em>Review of Economics and Statistics</em> 86(3); Blanchard &amp; Gal&iacute; (2007). <em>NBER WP</em> 13368.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent)</summary>
+    <ul>
+      <li>2026-06-29: Stephan&rsquo;s Quintet/JWST, 鄭成功收復台灣, Florence &amp; Medici, 周敦頤/太極圖說, Albert Camus/Absurdism, Moral Foundations Theory (Haidt), Leptin/Appetite Regulation, Seed Oils/Linoleic Acid, Training to Failure, Dollar-Cost Averaging vs Lump Sum, Great Moderation/Luck Hypothesis</li>
+      <li>2026-06-28: TRAPPIST-1, 藤原道長/平安攝關政治 (Heian/Japan), First Crusade, 淨土宗慧遠, Francis Bacon/Novum Organum, Overconfidence Effect/Planning Fallacy, RAAS, Artificial Sweeteners, Altitude Training/LHTL, Minsky Moment, Laffer Curve</li>
+      <li>2026-06-27: Jupiter GRS, 清軍入關/多爾袞, Napoleon 1812, 玄奘唯識, William James/Pragmatism, Peak-End Rule, Testosterone/AR, Posture/Back Pain, PAP, FX Carry Trade, Argentine Default</li>
+    </ul>
+  </details>
+  <p style="margin-top:1rem;">&copy; 2026 Edward&rsquo;s Daily Learning &mdash; <a href="index.html" style="color:var(--accent);">All Briefings</a> &middot; <a href="bookmarks.html" style="color:var(--accent);">My Bookmarks</a></p>
+</footer>
+
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-29.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-06-29.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 29 Jun 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script src="bm.js"></script>
+</body></html>
