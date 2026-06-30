@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edward's Daily Learning &mdash; 30 Jun 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style></head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 30 June 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+
+    <!-- YESTERDAY'S SPARK -->
+    <section class="spark-section" id="spark">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>29 June 2026</em>:</p>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F52D; Astronomy &mdash; Stephan&rsquo;s Quintet</span>
+        JWST&rsquo;s infrared eye revealed a 100,000-light-year shock wave in a four-galaxy collision 290 million light-years away &mdash; a structure larger than the Milky Way, entirely invisible to Hubble.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x26E9; 東方歷史 &mdash; 鄭成功</span>
+        鄭成功以制海權截斷熱蘭遮城補給線，圍城九個月驅逐荷蘭VOC，建立東寧王國，但二十一年後清朝施琅以澎湖海戰終結了這段明鄭政權。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3DB; Western History &mdash; Florence &amp; Medici</span>
+        Cosimo de&rsquo; Medici wielded banking leverage and electoral manipulation &mdash; not a formal title &mdash; to transform Florence into the Renaissance&rsquo;s cultural capital, funding Ficino&rsquo;s Platonic Academy and Brunelleschi&rsquo;s dome.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x262F; 東方哲學 &mdash; 周敦頤</span>
+        周敦頤以《太極圖說》將宇宙生成（太極&#x2192;陰陽&#x2192;五行&#x2192;萬物）與儒家道德（誠&#x2192;仁義禮智信）縫合為一個系統，為宋明理學奠定形上學基礎。
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F33F; W. Philosophy &mdash; Camus</span>
+        Camus argued that acknowledging life&rsquo;s absurdity without escaping into religion or suicide &mdash; choosing instead to revolt, create, and live fully &mdash; is the only philosophically honest response.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F9E0; Psychology &mdash; Moral Foundations Theory</span>
+        Haidt identified six moral foundations (care, fairness, loyalty, authority, sanctity, liberty) and showed liberals weight the first two most heavily while conservatives distribute weight more evenly across all six.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1FAC0; Physiology &mdash; Leptin &amp; Appetite</span>
+        Leptin signals satiety to the hypothalamus, but chronic overeating inflames the hypothalamus and blocks the signal &mdash; meaning obesity can self-perpetuate even with high leptin levels, not merely through lack of willpower.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F48A; Health &mdash; Seed Oils</span>
+        The largest Cochrane review (15 RCTs, 56k participants) found replacing saturated fat with linoleic acid reduces cardiovascular events by 17%; the seed oil &ldquo;toxicity&rdquo; narrative lacks randomised trial support.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F3CB; Sports Science &mdash; Training to Failure</span>
+        Training to muscular failure produces no more hypertrophy than stopping 2&ndash;3 reps short when total volume is equated; proximity to failure matters, but reaching it is unnecessary and accumulates excess fatigue.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x1F4C8; Investing &mdash; DCA vs Lump Sum</span>
+        Vanguard&rsquo;s analysis found lump sum investing outperforms dollar-cost averaging in two-thirds of historical periods across US, UK, and Australian markets; DCA reduces regret but lowers expected return.
+      </div>
+      <div class="spark-item">
+        <span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Great Moderation</span>
+        The Great Moderation&rsquo;s low volatility (1984&ndash;2007) was roughly half better monetary policy and half good luck; 2022&rsquo;s 9.1% US inflation confirmed that macroeconomic mastery had been overestimated.
+      </div>
+    </section>
+
+    <!-- CARD 1: ASTRONOMY -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Moon That Shouldn&rsquo;t Exist: How Voyager 2 (旅行者2號) Revealed Triton (海衛一) &mdash; Neptune&rsquo;s (海王星) Captured World with Nitrogen Geysers and a Death Sentence Written in Physics</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">All large moons in the solar system orbit their planet in the same direction the planet rotates &mdash; except one. What would it tell you about a moon&rsquo;s origin if it orbited backwards? And if a moon&rsquo;s orbit is slowly decaying, what eventually happens to it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Triton-usgs23-with-frame.jpg/3840px-Triton-usgs23-with-frame.jpg" alt="Triton, Neptune's largest moon, imaged by Voyager 2 in 1989" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Triton (海衛一) &mdash; Voyager 2 mosaic, 25 August 1989 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Triton-usgs23-with-frame.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons / NASA/JPL/USGS</a></div>
+      </div>
+      <p>When Voyager 2 (旅行者2號) swung past Neptune (海王星) on 25 August 1989 &mdash; completing humanity&rsquo;s only close reconnaissance of the outermost gas giant &mdash; what stopped scientists in their tracks was not Neptune itself but its largest moon, Triton (海衛一). A world of frozen nitrogen geysers and a salmon-pink south polar cap glittering under a sun 900 times fainter than Earth sees, Triton spans 2,707 kilometres across &mdash; slightly smaller than our Moon (月球) yet the seventh-largest natural satellite (衛星) in the solar system (太陽系). Voyager 2 detected at least eight active geysers erupting dark, nitrogen-rich plumes 8 kilometres into Triton&rsquo;s tenuous atmosphere &mdash; the first active geological features ever discovered on a world beyond the inner solar system (內太陽系).</p>
+      <p>What makes Triton genuinely extraordinary is its orbit: it circles Neptune in the wrong direction. Every other large moon in the solar system orbits in the same direction its planet rotates &mdash; prograde (順行) &mdash; because moons that form from the disk of material surrounding a planet inherit its angular momentum (角動量). Triton circles Neptune in the opposite direction (retrograde, 逆行). This is physically impossible for a moon that formed alongside Neptune, and the only explanation is capture: Triton originated as a Kuiper Belt Object (古柏帶天體, KBO) &mdash; a Pluto (冥王星) cousin &mdash; snared by Neptune billions of years ago, most likely when a gravitational three-body encounter (三體引力作用) ejected Triton&rsquo;s original binary companion as the price of capture (Agnor &amp; Hamilton 2006, <em>Nature</em> 441).</p>
+      <p>Triton&rsquo;s retrograde orbit is its death warrant. Tidal forces (潮汐力) between Neptune and Triton are steadily draining orbital energy, pulling the moon inward at a measurable rate. In approximately 3.6 billion years, Triton will cross the Roche limit (洛希極限) &mdash; the radius inside which Neptune&rsquo;s gravity tears objects apart rather than holding them together. When that happens, Triton will either crash into Neptune or be shredded into a ring system (行星環) potentially more spectacular than Saturn&rsquo;s (土星環). Meanwhile, Hubble Space Telescope (哈勃太空望遠鏡) follow-up observations between 1992 and 2010 tracked seasonal brightening of Triton&rsquo;s south polar cap, confirming that its exotic nitrogen-ice chemistry remains actively evolving, driven by solar energy too faint for us to feel.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Triton_(moon)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Triton&rsquo;s retrograde orbit is its death warrant &mdash; tidal forces slowly drag it inward; in ~3.6 billion years it will cross the Roche limit and become a ring system more spectacular than Saturn&rsquo;s.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does Triton&rsquo;s retrograde orbit prove it was captured rather than formed alongside Neptune, and what fate awaits it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Moons formed from a planet&rsquo;s accretion disk all orbit prograde (same direction as planetary rotation) because they inherit the disk&rsquo;s angular momentum. Triton orbits retrograde, which is impossible for an in-situ formed moon, proving capture from the Kuiper Belt. Its retrograde orbit loses energy through tidal interaction with Neptune, causing Triton to spiral inward; in ~3.6 billion years it crosses the Roche limit and is torn apart into a spectacular ring system.</div>
+      </details>
+      <div class="source">&#x1F4D6; Smith, B.A. et al. (1989). &ldquo;Voyager 2 at Neptune: Imaging Science Results.&rdquo; <em>Science</em> 246(4936); Agnor, C.B. &amp; Hamilton, D.P. (2006). &ldquo;Neptune&rsquo;s capture of its moon Triton in a binary&ndash;planet gravitational encounter.&rdquo; <em>Nature</em> 441(7090); Stern, S.A. &amp; McKinnon, W.B. (2000). &ldquo;Triton&rsquo;s surface age and impactor population revisited.&rdquo; <em>Astronomical Journal</em> 119(2).</div>
+    </article>
+
+    <!-- CARD 2: EASTERN HISTORY -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>天下一統：秦王嬴政如何以十年兼滅六國，以書同文車同軌重塑中華文明的制度骨架，又因焚書坑儒釀成千古爭議</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">如果一個政權憑藉強大的軍事力量統一天下，但在位僅十五年便崩潰，那它還算成功嗎？一個朝代的「成功」，應該以政治壽命，還是以制度遺產來衡量？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>秦王嬴政（前259&ndash;前210，後稱始皇帝）；大將王翦（滅趙、楚、燕主帥）與其子王賁（滅魏、齊主帥）；丞相李斯（法家策士，主導書同文、焚書）；宦官趙高（胡亥之師，始皇死後政變奪權）</p>
+        <p><strong>事件：</strong>前230&ndash;221 BCE，秦依序滅韓（前230）、趙（前228）、魏（前225）、楚（前223）、燕（前222）、齊（前221），天下歸一；前213年焚書，前212年坑儒（一說方士）</p>
+        <p><strong>時代背景：</strong>戰國末年諸侯割據逾百年，秦國自商鞅變法起以軍功爵制、法家行政體系積累壓倒性優勢；關中農業生產力支撐長達數十年的持續征戰；六國雖有合縱抗秦之議，卻因各自利益而難以形成持久同盟</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/QinShiHuang19century.jpg" alt="秦始皇畫像（十九世紀繪本）" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">秦始皇嬴政（前259&ndash;前210）畫像 &mdash; <a href="https://commons.wikimedia.org/wiki/File:QinShiHuang19century.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>秦王嬴政自前247年十三歲繼位，初由呂不韋輔政，前238年親政後即展開統一部署。其戰略核心是「遠交近攻」：先以外交孤立近鄰，再以武力各個擊破。滅六國的順序經過精心計算——先韓（最弱，前230），再趙（前228，俘趙王遷），水淹大梁滅魏（前225），六十萬大軍滅楚（前223；嬴政初信年輕將領李信以二十萬人出征，慘敗後改用老將王翦），滅燕（太子丹遣荊軻刺秦，事敗反加速燕亡，前222），最後齊以孤立降秦（前221）。從前230至前221，十年之內六國盡滅。嬴政自稱「始皇帝」，取「三皇五帝」之名，意謂超越一切前代君主，定下「傳之萬世」的宏圖。</p>
+      <p>統一後的制度設計影響深遠。嬴政廢除封建分封制，推行郡縣制：全國分三十六郡，郡設守（行政）、尉（軍事）、監（監察），官員由中央任命而非世襲，切斷了地方自立的制度根源。丞相李斯主導三大標準化工程：「書同文」（統一六國各異的文字為小篆，後簡化為隸書，奠定漢字統一書寫兩千年的基礎）、「車同軌」（統一輪距，使全國馳道通暢）、「行同倫」（統一度量衡與法律）。這三項措施對中華文明的深遠影響，遠超軍事征服本身——不同地域的人從此可以閱讀同一份文書，同一套法律與度量衡橫跨數千里生效。</p>
+      <p>前213&ndash;212年的焚書坑儒是始皇政權最具爭議的兩個決定。焚書起因於丞相李斯奏請：民間以古非今、批評郡縣制危害帝國統一，下令焚燒《詩》《書》及諸子百家著作，僅留秦史、法家書籍與農醫技術類文獻。翌年，術士盧生、侯生批評始皇後潛逃，觸怒嬴政，在咸陽坑殺四百六十餘名儒生（一說方士）。然而歷史的反諷在於：秦朝僅十五年便被陳勝吳廣（前209年）與劉邦（前206年）的農民起義推翻，然而郡縣制、書同文與度量衡，卻被漢朝原封不動地繼承，延續至今日中華文明的核心制度結構之中。制度比政權更長壽。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Qin_Shi_Huang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>秦始皇的真正遺產不是征服，而是郡縣制、書同文與度量衡標準化——這些制度跨越政權更迭，塑造了中華文明兩千年的統一性。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答：</em>秦朝為何在統一後僅十五年即亡，而始皇所建立的制度卻延續至今？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">秦朝滅亡源於嚴刑峻法、沉重徭役（長城、阿房宮）與繼承危機（趙高弄權，胡亥昏庸），令六國遺民在前209年陳勝吳廣起義後迅速響應。但郡縣制（中央任命官員取代世襲封建）、書同文與度量衡標準化，是跨地域有效治理的根本工具，漢朝以儒學包裝這套法家制度框架，使之延續至現代中國行政體制。制度的生命力遠超建立它的政權。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&middot;秦始皇本紀》《史記&middot;李斯列傳》；Lewis, M.E. (2007). <em>The Early Chinese Empires: Qin and Han</em>. Harvard UP; Bodde, D. (1938). <em>China&rsquo;s First Unifier</em>. E.J. Brill; Kern, M. (2000). <em>The Stele Inscriptions of Ch&rsquo;in Shih-huang</em>. American Oriental Society.</div>
+    </article>
+
+    <!-- CARD 3: WESTERN HISTORY -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Boy King Who Remade the World: How Alexander the Great (亞歷山大大帝) Toppled the Persian Empire (波斯帝國) in Eight Years and Scattered Greek Civilisation (希臘文明) Across Three Continents</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If a general conquers half the known world by age 32 and then dies, leaving no successor &mdash; what actually survives? Is military empire-building a form of lasting legacy, or does cultural transmission require something different?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Alexander III of Macedon (馬其頓亞歷山大三世, 356&ndash;323 BCE); his tutor Aristotle (亞里斯多德); Darius III (大流士三世), last king of the Achaemenid Persian Empire (波斯阿契美尼德帝國); Porus (波魯斯), Indian king of the Punjab (旁遮普); Ptolemy (托勒密), general and future king of Egypt (埃及)</p>
+        <p><strong>Events:</strong> 334&ndash;323 BCE campaign from Macedonia through Anatolia (小亞細亞), Egypt (埃及), Persia, Bactria (巴克特里亞), and the Indian subcontinent (印度次大陸); Battle of Gaugamela (高加米拉戰役) 331 BCE; founding of Alexandria (亞歷山大城) 331 BCE; death in Babylon (巴比倫) June 323 BCE, aged 32</p>
+        <p><strong>Big picture:</strong> The Persian Achaemenid Empire (波斯阿契美尼德帝國) spanned from Egypt to the Indus River (印度河) &mdash; the world&rsquo;s largest state, ruling ~44% of the global population at its peak. Greeks had defined their identity against Persia since Marathon (馬拉松, 490 BCE) and Thermopylae (溫泉關, 480 BCE). Alexander&rsquo;s father Philip II (腓力二世) had already unified fractious Greek city-states under Macedonian hegemony (霸權) by 338 BCE, providing the military machine Alexander inherited</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Alexander_Mosaic_detail_of_Alexander_the_Great_%283x4_cropped%29.jpg" alt="Alexander the Great, detail from the Alexander Mosaic, House of the Faun, Pompeii" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Alexander the Great (亞歷山大大帝) &mdash; detail from the Alexander Mosaic (亞歷山大馬賽克鑲嵌畫), c. 100 BCE, House of the Faun (法翁之家), Pompeii (龐培) &mdash; <a href="https://commons.wikimedia.org/wiki/File:Alexander_Mosaic_detail_of_Alexander_the_Great_(3x4_cropped).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 334 BCE, a 21-year-old Macedonian king crossed the Hellespont (赫勒斯滂海峽, modern Dardanelles) with approximately 37,000 soldiers &mdash; and over the next eleven years never suffered a battlefield defeat. Alexander&rsquo;s genius expressed itself through a combined arms approach: the Macedonian phalanx (馬其頓方陣, 18-foot sarissa pikes) fixed the enemy frontally while Alexander personally led the Companion Cavalry (戰友騎兵隊) in a hammer blow at the opponent&rsquo;s weakest flank. At the Battle of Gaugamela (高加米拉戰役, 331 BCE), facing a Persian force that ancient sources wildly exaggerate (modern estimates: 100,000&ndash;200,000 men), Alexander identified a gap in Darius III&rsquo;s (大流士三世) deployment and drove his cavalry directly at the Persian king, who fled for the second time. Darius was later murdered by his own satrap (總督) Bessus. The 220-year-old Achaemenid Empire, spanning 5.5 million square kilometres, disintegrated in an afternoon.</p>
+      <p>Alexander was not merely a conqueror &mdash; he was a deliberate civilisational architect. In Egypt (埃及) he was welcomed as a liberator from Persian rule and visited the oracle at Siwa (錫瓦綠洲), which may have declared him son of the god Amun (阿蒙神) &mdash; a claim he found diplomatically useful. He founded Alexandria (亞歷山大城) in 331 BCE, designing it as a Greek-style polis (城邦) at the mouth of the Nile (尼羅河), later home to the Great Library (亞歷山大圖書館) holding an estimated half-million scrolls. He founded approximately 20 cities bearing his name across conquered territory, each transplanting Hellenic (希臘) urban life deep into Asia. At the Battle of the Hydaspes River (希達斯佩斯河戰役, 326 BCE) he defeated the Indian king Porus (波魯斯) and his war elephants (戰象) in one of his hardest-fought victories, before his veterans finally refused to march further east at the Beas River (比亞斯河), forcing him to turn back. He died in Babylon (巴比倫) in June 323 BCE, aged 32, possibly from typhoid fever (傷寒), leaving no designated heir.</p>
+      <p>Alexander&rsquo;s political empire collapsed within 50 years, dismembered by his warring generals (the Diadochi, 繼業者) into the Ptolemaic Kingdom (托勒密王國) of Egypt, the Seleucid Empire (塞琉古帝國) spanning Persia and the Middle East, and the Macedonian Antigonid dynasty (安提柯王朝). What endured was cultural: Hellenism (希臘化文明) &mdash; the spread of Greek language, philosophy, art, and urban planning from the Adriatic to the Indus &mdash; became the shared civilisational substrate on which the Roman Empire (羅馬帝國) and, centuries later, early Christianity (基督教) constructed themselves. Alexander&rsquo;s tutor Aristotle (亞里斯多德) had given him systematic tools of observation; in return, Alexander reportedly sent biological specimens back from the field. The paradox of his legacy: the empire he fought to build lasted a generation; the cultural fusion he triggered &mdash; Greek thought embedded in Persian, Egyptian, and eventually Roman institutions &mdash; shaped the intellectual world for a thousand years.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Alexander_the_Great" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Alexander&rsquo;s political empire lasted one generation; the cultural fusion he triggered &mdash; Greek thought, language, and city planning embedded across three continents &mdash; shaped Western and Islamic civilisation for a millennium.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was the decisive tactic at Gaugamela (331 BCE) that shattered the Persian Empire, and why did it work?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Alexander identified a gap opening in Darius&rsquo;s line &mdash; created by Persian cavalry pursuing Macedonian diversionary moves &mdash; and personally led the Companion Cavalry (戰友騎兵隊) through it, driving directly at Darius III. The Macedonian signature move was to target the enemy commander&rsquo;s position rather than grind through troops: collapsing morale at the centre caused the entire Persian structure to disintegrate. Darius fled (for the second time), removing his personal authority; without him the empire had no centre of gravity to defend.</div>
+      </details>
+      <div class="source">&#x1F4D6; Arrian (c.&nbsp;130 CE). <em>Anabasis of Alexander</em>. Trans. P.A. Brunt. Loeb Classical Library; Green, P. (1991). <em>Alexander of Macedon, 356&ndash;323 B.C.</em> University of California Press; Bosworth, A.B. (1988). <em>Conquest and Empire: The Reign of Alexander the Great</em>. Cambridge UP.</div>
+    </article>
+
+    <!-- CARD 4: EASTERN PHILOSOPHY -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>白馬非馬：公孫龍如何以一句邏輯弔詭顛覆語言與現實的關係，開創中國哲學史上最接近分析哲學的名辯傳統</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 開啟前試想</summary>
+        <div class="predict-q">「白馬非馬」——這句話是詭辯，還是有精確邏輯根據的哲學命題？語言對世界的描述，真的能做到完全準確嗎？「白馬」和「馬」在邏輯上是什麼關係？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>人物：</strong>公孫龍（約前320&ndash;前250，趙國人，名辯家代表）；惠施（約前370&ndash;前310，莊子友人，「合同異」派，以十個宇宙悖論著稱）；墨家《墨經》亦同期發展論辯邏輯</p>
+        <p><strong>文本：</strong>《公孫龍子》今存六篇，以〈白馬論〉（「白馬非馬」）與〈堅白論〉（「離堅白」）為核心；〈指物論〉進一步探討「指」（概念指涉）與「物」（具體事物）的關係</p>
+        <p><strong>時代背景：</strong>戰國末年百家爭鳴，「正名」（使名稱與現實對應）是儒、法各家的政治訴求；名家以探討「名」（語言符號、概念）與「實」（指涉對象、現實）的邏輯關係為核心，是先秦哲學中最接近西方分析哲學與語言哲學的傳統，後因漢代獨尊儒術而幾近失傳</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg" alt="公孫龍畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">公孫龍（約前320&ndash;前250）畫像 &mdash; <a href="https://commons.wikimedia.org/wiki/File:%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>「白馬非馬」是公孫龍最著名的命題，見於《公孫龍子&middot;白馬論》。表面看來荒謬，但公孫龍給出了兩套精確論證。第一套訴諸外延（指涉範圍）：「馬」所指的是形體，「白」所指的是顏色，「白馬」所指的是具備特定顏色的形體。當有人說「牽馬來」，黃馬黑馬皆可應選；但說「牽白馬來」，黃馬黑馬均不符合——二者所指涉的對象集合不同，故概念不同。第二套訴諸內涵（概念構成）：「馬」是純形體概念，「白馬」是形體加顏色的複合概念；複合概念不等於其組成部分之一，故「白馬與馬，異矣」。這兩套論證指向同一個哲學洞見：普遍類概念（馬作為物種，genus）與特定子類概念（白馬，species）在邏輯層次上不同，混淆二者是範疇錯誤。</p>
+      <p>公孫龍的另一核心命題是〈堅白論〉中的「離堅白」。論證大意是：你用眼看白色的石頭，感知到「白」卻感知不到「堅」；你用手觸摸，感知到「堅」卻感知不到「白」。既然二者由不同感知管道分別把握，「白」與「堅」在認識論上是相互獨立的屬性，不能說一塊石頭同時且完整地呈現「堅且白」——「堅白」可以「離」（分離）。這個論證在西方哲學中有驚人的平行：柏拉圖的共相理論（Forms of universals）追問屬性是否獨立於具體物件而存在；近代感知哲學探討感官是否只捕捉現象的局部片段。公孫龍的答案傾向於某種概念實在論：「白」與「堅」這類屬性有自身獨立的邏輯存在，不依附於承載它們的具體石頭。</p>
+      <p>名家傳統在先秦之後幾近失傳，主要原因有三：漢代儒學以實用政治倫理為中心，視名辯為無益於治國的「詭辯」；《公孫龍子》十四篇僅存六篇，文本殘缺使詮釋困難；荀子雖批評名家「蔽於辭而不知實」，但其〈正名篇〉本身亦借用了名家對概念分析的關注。現代學者發現名家論辯與西方邏輯傳統的深刻平行：弗雷格（Frege）區分概念的外延（extension）與內涵（intension），羅素（Russell）的類型論（theory of types）防止混淆不同邏輯層次的概念——這與公孫龍區分「馬」（genus）與「白馬」（species）的問題意識相通，跨越兩千年在不同文明中獨立發現了相同的邏輯問題。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Gongsun_Long" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>要點：</strong>「白馬非馬」不是文字遊戲，而是一個精確的邏輯命題：普遍類（馬）與特定子類（白馬）屬不同邏輯層次，混淆二者是範疇錯誤——這個洞見在兩千年後由弗雷格與羅素重新發現。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>不看回頭，試答：</em>公孫龍為「白馬非馬」提供的兩套論證是什麼？</div>
+      <details class="answer-reveal">
+        <summary>查看答案</summary>
+        <div class="answer-body">第一套訴諸外延：「馬」指涉所有馬（黃白黑均可），「白馬」指涉只有白色的馬，二者指涉範圍不同，故概念不同。第二套訴諸內涵：「馬」是純形體概念，「白馬」是形體加顏色的複合概念，複合概念不等於其組成部分之一。兩套論證共同指向：普遍類（genus）與特定子類（species）在邏輯上屬不同層次，混淆二者是範疇錯誤。</div>
+      </details>
+      <div class="source">&#x1F4D6; 公孫龍（周）。《公孫龍子》〈白馬論〉〈堅白論〉；Fraser, C. (2020). &ldquo;School of Names.&rdquo; <em>Stanford Encyclopedia of Philosophy</em>; Graham, A.C. (1989). <em>Disputers of the Tao</em>. Open Court (pp.&nbsp;75&ndash;95); 馮友蘭（1952）。《中國哲學史》上冊，商務印書館（第9章）。</div>
+    </article>
+
+    <!-- CARD 5: WESTERN PHILOSOPHY -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Ghost in the Machine: How Karl Marx (馬克思) Built a Theory of History, Labour (勞動), and Exploitation That Still Haunts Capitalism (資本主義) 160 Years Later</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If a worker creates a product worth £100 and receives £30 in wages, where does the other £70 go &mdash; and is that arrangement natural, or does it require an explanation? Is capitalism an economic system or also a set of ideas that makes exploitation appear inevitable?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Karl Marx (卡爾&middot;馬克思, 1818&ndash;1883, Trier, Prussia 普魯士特里爾); Friedrich Engels (弗里德里希&middot;恩格斯, factory-owner&rsquo;s son and lifelong collaborator); G.W.F. Hegel (黑格爾, philosophical predecessor); David Ricardo (大衛&middot;李嘉圖, classical political economist); Karl Popper (卡爾&middot;波普爾) and Friedrich Hayek (弗里德里希&middot;海耶克), most influential critics</p>
+        <p><strong>Events at stake:</strong> <em>The Communist Manifesto</em> (共產黨宣言) 1848; <em>Das Kapital</em> (資本論) Vol.1 1867; the First International (第一國際) 1864&ndash;76; the Paris Commune (巴黎公社) 1871; Marx&rsquo;s death in London 1883 with 11 people at his grave</p>
+        <p><strong>Big picture:</strong> The Industrial Revolution (工業革命) created a new factory working class (無產階級) labouring 14-hour days for subsistence wages; classical political economy treated these conditions as natural market outcomes; 1848 revolutions across Europe showed that the &ldquo;social question&rdquo; &mdash; who bears the costs of industrial progress &mdash; was becoming politically explosive</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%26_Adjusted_%283x4_cropped_b%29.png" alt="Karl Marx, photograph by John Jabez Edwin Mayall, 1875" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Karl Marx (卡爾&middot;馬克思, 1818&ndash;1883) &mdash; photograph by John Jabez Edwin Mayall, 1875 &mdash; <a href="https://commons.wikimedia.org/wiki/File:Karl_Marx_by_John_Jabez_Edwin_Mayall_1875_-_Restored_%26_Adjusted_(3x4_cropped_b).png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Karl Marx inverted Hegel (黑格爾). Hegel had argued that History progresses through the clash of ideas (ideas &rarr; material reality). Marx agreed that history progresses through conflict but insisted Hegel had it backwards: the motor is not the clash of ideas but of material economic interests. This &ldquo;historical materialism&rdquo; (唯物史觀) holds that each era&rsquo;s laws, politics, religion, and philosophy form a &ldquo;superstructure&rdquo; (上層建築) resting on an economic &ldquo;base&rdquo; (經濟基礎) &mdash; the prevailing mode of production and the class relations it generates. Feudalism (封建主義) grew from agrarian ownership; capitalism (資本主義) grew from the factory and wage-labour. And just as the bourgeoisie (資產階級) had overthrown feudal aristocracy, Marx predicted the proletariat (無產階級) would eventually overthrow the bourgeoisie &mdash; not through moral persuasion but through structural contradictions inherent in capitalism itself, which he spent his life systematically cataloguing.</p>
+      <p>The heart of <em>Das Kapital</em> (資本論, Vol.1, 1867) is the theory of surplus value (剩餘價值). Marx began with the labour theory of value (勞動價值論) &mdash; commodity value derives from socially necessary labour time (社會必要勞動時間) &mdash; and asked: where does profit come from? Workers sell their labour power (勞動力) as a commodity, but the wage they receive covers only the labour needed to reproduce their own subsistence, not the full value they create during the working day. The difference &mdash; surplus value (剩餘價值) &mdash; is appropriated by the capitalist. From this followed the concept of alienated labour (異化勞動, Entfremdung): under capitalism, workers are severed from the product of their work, from the act of production itself, from their &ldquo;species-being&rdquo; (類存在), and from each other. Commodity fetishism (商品拜物教) completed the picture: in a market society, social relations between people (who exploits whom) appear instead as relations between things (prices, commodities, money), concealing the power relations behind a veil of apparent natural exchange.</p>
+      <p>Marx&rsquo;s influence was vast and deeply ambiguous. The revolutions carried out in his name &mdash; Russia 1917, China 1949, Cuba 1959 &mdash; diverged radically from his vision of proletarian revolution in advanced industrial societies; most occurred in agrarian economies run by vanguard parties he never envisioned. Karl Popper (波普爾), in <em>The Open Society and Its Enemies</em> (1945), accused Marx of unfalsifiable &ldquo;historicism&rdquo; &mdash; a theory of historical inevitability immune to evidence. Friedrich Hayek (海耶克) attacked the claim that central planning (中央計劃) could substitute for market price signals as a distributed information system. Yet Marx&rsquo;s diagnostic tools &mdash; class analysis, ideology critique, the social determination of what appears as &ldquo;common sense&rdquo; (常識) &mdash; remain standard instruments in sociology (社會學), critical theory (批判理論), and history regardless of one&rsquo;s verdict on his political prescriptions. The question &ldquo;who benefits from this arrangement appearing natural?&rdquo; is a Marxist question asked routinely by people who would not call themselves Marxists.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Karl_Marx" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Marx&rsquo;s most durable legacy is not a political programme but a diagnostic question: when a social arrangement appears natural and inevitable, ask who benefits from it appearing that way.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does Marx mean by &ldquo;commodity fetishism&rdquo; (商品拜物教), and why does it matter politically?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Commodity fetishism (商品拜物教) means that in a market economy, social relations between people &mdash; who exploits whom, whose labour creates what value &mdash; appear instead as relations between things (prices, wages, exchange rates). Workers see a commodity&rsquo;s price but not the conditions of its production; the exploitative relation is concealed behind the apparent neutrality of market exchange. This matters politically because it makes exploitation look like a natural economic outcome rather than a contestable social arrangement &mdash; suppressing the awareness needed for political change.</div>
+      </details>
+      <div class="source">&#x1F4D6; Marx, K. (1867). <em>Das Kapital</em> Vol.1, Chs.&nbsp;1, 6&ndash;7. Trans. B. Fowkes (Penguin Classics, 1976); Marx, K. &amp; Engels, F. (1848). <em>The Communist Manifesto</em>; McLellan, D. (1973). <em>Karl Marx: His Life and Thought</em>. Harper &amp; Row; Popper, K. (1945). <em>The Open Society and Its Enemies</em> Vol.2. Routledge.</div>
+    </article>
+
+    <!-- CARD 6: PSYCHOLOGY -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>You Get What You Expect: How the Pygmalion Experiment (皮格馬利翁效應) Proved That Teacher Expectations Can Literally Change Children&rsquo;s IQ Scores &mdash; and What That Means for Every Leader</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If you told a teacher that a randomly selected group of students were &ldquo;about to bloom intellectually&rdquo; &mdash; while lying about who was in that group &mdash; would their IQ scores actually change eight months later? And if so, how?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Pygmalion_%28Raoux%29.jpg" alt="Pygmalion (Jean Raoux, 1717), Mus&eacute;e Fabre, Montpellier" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption"><em>Pygmalion</em> by Jean Raoux (1717), Mus&eacute;e Fabre, Montpellier &mdash; the myth of the sculptor whose belief brings his creation to life &mdash; <a href="https://commons.wikimedia.org/wiki/File:Pygmalion_(Raoux).jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1968, Harvard psychologist Robert Rosenthal (羅伯特&middot;羅森塔爾) and elementary school principal Lenore Jacobson published <em>Pygmalion in the Classroom</em>, one of the most debated studies in educational psychology (教育心理學). At the start of a school year, they administered an intelligence test to all students at a San Francisco school, telling teachers it was the &ldquo;Harvard Test of Inflected Acquisition&rdquo; designed to identify &ldquo;intellectual spurters&rdquo; (即將爆發的天才). A randomly selected 20% of students were then identified to teachers as &ldquo;bloomers&rdquo; poised for exceptional academic gain. In reality, these students were selected entirely at random, with no difference in prior ability. Eight months later, genuine IQ tests showed that randomly designated &ldquo;bloomers&rdquo; had gained significantly more IQ points than controls &mdash; in grades 1 and 2, bloomers gained on average 27.4 IQ points versus 12 for controls. The only difference was what their teachers had been told.</p>
+      <p>The mechanism behind the Pygmalion effect (皮格馬利翁效應) &mdash; also called the Rosenthal effect (羅森塔爾效應) &mdash; operates through four channels identified in later research. First, <em>climate</em> (氣氛): teachers create warmer emotional environments for high-expectation students, with more eye contact, smiling, and encouragement. Second, <em>input</em> (輸入): teachers teach more, and harder material, to expected &ldquo;bloomers.&rdquo; Third, <em>response opportunity</em> (回應機會): teachers give bloomers more time to answer questions before redirecting. Fourth, <em>feedback</em> (回饋): bloomers receive more detailed, specific, and corrective feedback rather than vague praise. None of these are conscious decisions &mdash; they are automatic expressions of the teacher&rsquo;s underlying belief, operating below awareness. Over months and years, these micro-behaviours compound to produce measurable differences in cognitive outcomes. The study&rsquo;s name comes from the Greek myth (希臘神話) in which sculptor Pygmalion (皮格馬利翁) fell so deeply in love with his ivory statue that the goddess Aphrodite (阿芙蘿黛蒂) brought it to life &mdash; the creator&rsquo;s belief actualising the creation.</p>
+      <p>The study attracted immediate controversy. Elashoff and Snow (1971) criticised its statistical analysis, and replication attempts showed smaller effects &mdash; particularly in older students with established teacher reputations, where prior beliefs were harder to shift. Rosenthal&rsquo;s own 1978 meta-analysis (統合分析) across many studies found an average correlation of r&nbsp;=&nbsp;0.30 between induced expectations and student outcomes &mdash; a real but moderate effect. Robert Merton (羅伯特&middot;默頓, sociologist 社會學家) had coined &ldquo;self-fulfilling prophecy&rdquo; (自我實現預言) in 1948: a false belief, acted upon as if true, creates the conditions that make it true. The Pygmalion study made this abstract dynamic concrete and measurable. Its broader lesson extends beyond classrooms: in management research (Livingston 1969, <em>Harvard Business Review</em>: &ldquo;Pygmalion in Management&rdquo;), leaders who genuinely communicate high expectations through their micro-behaviours &mdash; tone, wait time, quality of feedback &mdash; consistently produce higher-performing teams. What you truly believe about someone shapes what they become.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pygmalion_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Expectations are not merely internal states &mdash; they are sets of micro-behaviours (tone, eye contact, wait time, feedback depth) that others detect and respond to; what you genuinely believe about someone shapes what they become.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> By what four channels does the Pygmalion effect operate, according to Rosenthal&rsquo;s later research?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The four channels are: (1) climate &mdash; warmer emotional environment, more eye contact and encouragement; (2) input &mdash; more material and harder content taught to expected bloomers; (3) response opportunity &mdash; more time given to answer before redirecting; (4) feedback &mdash; more detailed, specific, and corrective responses rather than vague praise. None are conscious; they are automatic behavioural expressions of the teacher&rsquo;s underlying belief, compounding over months to produce measurable IQ and academic outcome differences.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rosenthal, R. &amp; Jacobson, L. (1968). <em>Pygmalion in the Classroom</em>. Holt, Rinehart &amp; Winston; Rosenthal, R. (1994). &ldquo;Interpersonal expectancy effects: A 30-year perspective.&rdquo; <em>Current Directions in Psychological Science</em> 3(6); Livingston, J.S. (1969). &ldquo;Pygmalion in Management.&rdquo; <em>Harvard Business Review</em> (reprinted 2003).</div>
+    </article>
+
+    <!-- CARD 7: PHYSIOLOGY -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Your Heart&rsquo;s Built-In Electrical Grid: How the Sinoatrial Node (竇房結) Generates and Orchestrates 100,000 Precisely Timed Heartbeats Every Day</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your heart beats without any instruction from your brain &mdash; it has its own built-in electrical system. What would you need to build into a pump to make it self-starting, self-regulating, and self-timing, without any external controller?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Reizleitungssystem_1.png" alt="Cardiac conduction system diagram showing SA node, AV node, Bundle of His, and Purkinje fibres" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cardiac conduction system (心臟傳導系統) &mdash; SA node (竇房結), AV node (房室結), Bundle of His (希氏束), Purkinje fibres (浦肯野纖維) &mdash; <a href="https://commons.wikimedia.org/wiki/File:Reizleitungssystem_1.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Your heart beats roughly 100,000 times per day without conscious effort &mdash; driven entirely by its own built-in electrical system, not by instructions from the brain (腦). The pacemaker is a grape-seed-sized cluster of specialised cells called the sinoatrial node (竇房結, SA node), nestled in the upper right atrium (右心房). SA node cells have a unique property: they spontaneously and rhythmically depolarise &mdash; generating an electrical action potential (動作電位) approximately 60&ndash;100 times per minute at rest &mdash; without any external trigger. This self-igniting &ldquo;funny current&rdquo; (奇異電流, I&#x2099;) is carried by HCN channels (超極化激活環核苷酸門控通道) that open during the recovery phase after each beat, allowing sodium and potassium to gradually raise the membrane potential (膜電位) back to threshold. The result is an automatic, self-regenerating rhythm &mdash; the physiological basis of the pulse (脈搏).</p>
+      <p>The electrical impulse from the SA node spreads across both atria (心房) within 0.04 seconds, triggering coordinated atrial contraction (心房收縮) visible as the &ldquo;P wave&rdquo; (P波) on an electrocardiogram (心電圖, ECG). It then reaches the atrioventricular node (房室結, AV node) at the boundary between atria and ventricles (心室), where a critical 0.12-second delay is introduced. This delay is not a flaw &mdash; it is essential: it gives the ventricles time to fill completely with blood from the contracting atria before their own contraction begins. Without it, atria and ventricles would fire simultaneously, dramatically reducing cardiac output (心輸出量). From the AV node the impulse travels down the Bundle of His (希氏束) and spreads via the left and right bundle branches (左右束支) into the Purkinje fibres (浦肯野纖維), fanning across both ventricular walls within 0.08 seconds &mdash; producing the &ldquo;QRS complex&rdquo; (QRS波群) on the ECG and the powerful ventricular contraction (心室收縮) that propels blood into the aorta (主動脈) and lungs.</p>
+      <p>The autonomic nervous system (自主神經系統) modulates this intrinsic rhythm without taking it over. The parasympathetic system (副交感神經) releases acetylcholine (乙醯膽鹼), which hyperpolarises SA and AV node cells, slowing the funny-current ramp and reducing heart rate. This is why elite endurance athletes can have resting heart rates of 35&ndash;40 beats per minute: years of aerobic training increase resting parasympathetic tone. The sympathetic system (交感神經) releases norepinephrine (去甲腎上腺素), steepening the funny current and accelerating AV conduction, raising both rate and contractile force. When this system misfires &mdash; when the SA node degenerates, when a rogue electrical focus in a ventricle fires independently, or when Purkinje fibres conduct in self-sustaining re-entry loops &mdash; arrhythmia (心律失常) results. Atrial fibrillation (心房顫動, AF), affecting 37 million people worldwide, occurs when the atria fire chaotically at 400&ndash;600 impulses per minute; ventricular fibrillation (心室顫動, VF) is immediately fatal without defibrillation (電除顫).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cardiac_conduction_system_of_the_heart" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> The heart doesn&rsquo;t wait for the brain&rsquo;s permission to beat &mdash; the SA node fires spontaneously; the autonomic nervous system only accelerates or slows what is already a self-sustaining electrical process.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is the AV node&rsquo;s 0.12-second conduction delay essential for cardiac output, and what arrhythmia occurs when this delay is bypassed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The AV node delay gives the ventricles time to fill fully with blood from the contracting atria before ventricular contraction begins. Without this delay, atria and ventricles contract simultaneously, blood doesn&rsquo;t fully enter the ventricles, and cardiac output falls sharply. In Wolff-Parkinson-White syndrome (預激症候群), an accessory pathway (副傳導束) bypasses the AV node, causing premature ventricular activation, reduced filling, and potentially fatal tachyarrhythmias (快速心律失常).</div>
+      </details>
+      <div class="source">&#x1F4D6; Guyton, A.C. &amp; Hall, J.E. (2016). <em>Textbook of Medical Physiology</em> (13th ed.), Ch.&nbsp;9&ndash;10. Elsevier; Boyett, M.R. et al. (2000). &ldquo;The sinoatrial node, a heterogeneous pacemaker structure.&rdquo; <em>Cardiovascular Research</em> 47(4); January, C.T. et al. (2014). &ldquo;2014 AHA/ACC/HRS Guideline for Management of Atrial Fibrillation.&rdquo; <em>Circulation</em> 130(23).</div>
+    </article>
+
+    <!-- CARD 8: HEALTH -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>As Deadly as Smoking: How Chronic Loneliness (孤獨感) Raises Mortality Risk by 29% &mdash; and Why the Remedy Is Quality of Connection, Not Quantity of Contacts</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Is loneliness a feeling, a lifestyle choice, or a medical condition? Can you be lonely in a crowd? And would a hermit who chooses solitude suffer the same health effects as someone who involuntarily lacks connection?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Thoma_Loneliness.jpg" alt="Loneliness, painting by Hans Thoma (1839-1924)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption"><em>Loneliness</em> (孤獨) &mdash; Hans Thoma (1839&ndash;1924) &mdash; <a href="https://commons.wikimedia.org/wiki/File:Thoma_Loneliness.jpg" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2015, social psychologist Julianne Holt-Lunstad (霍爾特&ndash;倫斯塔德) of Brigham Young University published a meta-analysis (統合分析) in <em>Perspectives on Psychological Science</em> covering 148 longitudinal studies (縱向研究) and 308,849 participants followed for an average of 7.5 years. The finding: people with adequate social relationships had a 50% greater likelihood of survival. Translated into mortality risk, loneliness (孤獨感) and social isolation (社交隔離) were associated with a 26&ndash;29% increased risk of death &mdash; comparable to smoking 15 cigarettes per day, and exceeding the mortality effects of physical inactivity (缺乏運動), obesity (肥胖), and heavy alcohol consumption (酗酒). A 2023 advisory from the US Surgeon General (美國衛生局局長 Vivek Murthy) described loneliness as an epidemic (流行病) affecting approximately half of American adults, with similar rates reported across Europe and East Asia.</p>
+      <p>The biological pathways are multiple and compounding. Neuroscientist John Cacioppo (卡喬波) at the University of Chicago proposed the &ldquo;hypervigilance model&rdquo; (超警覺模型): perceived social isolation activates an ancient threat-detection system, maintaining the body in a low-grade state of sympathetic arousal (交感神經喚醒). The resulting chronic cortisol elevation (皮質醇升高) suppresses immune function, promotes arterial inflammation, and degrades sleep architecture &mdash; particularly slow-wave sleep (慢波睡眠), during which cellular repair occurs. Lonely individuals show elevated inflammatory markers interleukin-6 (白細胞介素-6, IL-6) and C-reactive protein (C反應蛋白, CRP) even after controlling for health behaviours. Several studies also document accelerated epigenetic ageing (表觀遺傳老化) in socially isolated individuals, suggesting that loneliness is measurably ageing the body at the cellular level.</p>
+      <p>A critical distinction repeatedly validated in the literature: social isolation (社交隔離, objective lack of social contact) and loneliness (孤獨感, subjective perception of inadequate connection) do not always co-occur, and the second is more harmful. Monks who choose solitude rarely show the health penalties of involuntary loneliness; people surrounded by others in crowded cities can score highest on loneliness scales. The harmful mechanism is the perceived mismatch between desired and actual connection &mdash; not the raw count of interactions. Holt-Lunstad&rsquo;s 2017 follow-up meta-analysis (3.4 million participants) confirmed that social isolation, loneliness, and living alone each independently predict premature mortality. The UK appointed the world&rsquo;s first Minister for Loneliness (孤獨問題大臣) in 2018. The public health implication: treating loneliness as a lifestyle choice or character trait rather than a health risk is a category error with measurable mortality consequences.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Loneliness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> Loneliness is not a feeling to push through &mdash; it is a biological stress state that chronically elevates inflammatory markers, disrupts sleep, and raises mortality risk by 29%; the remedy is quality of connection, not quantity of contacts.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does perceived loneliness cause greater harm than objective social isolation, according to Cacioppo&rsquo;s hypervigilance model?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cacioppo&rsquo;s model holds that the harmful mechanism is the <em>perceived</em> mismatch between desired and actual social connection, not the raw count of social contacts. Perceived social isolation triggers an ancient threat-response system, maintaining low-grade sympathetic arousal, elevated cortisol, and heightened vigilance for social threats. A monk who chooses solitude does not experience this threat response; a person surrounded by people who still feels disconnected does. The biology responds to the subjective sense of belonging, not to the number of people physically nearby.</div>
+      </details>
+      <div class="source">&#x1F4D6; Holt-Lunstad, J. et al. (2015). &ldquo;Loneliness and social isolation as risk factors for mortality.&rdquo; <em>Perspectives on Psychological Science</em> 10(2); Cacioppo, J.T. &amp; Patrick, W. (2008). <em>Loneliness: Human Nature and the Need for Social Connection</em>. Norton; Holt-Lunstad, J. et al. (2017). &ldquo;Loneliness and social isolation as risk factors.&rdquo; <em>American Psychologist</em> 72(5); US Surgeon General (2023). <em>Our Epidemic of Loneliness and Isolation</em>. US DHHS.</div>
+    </article>
+
+    <!-- CARD 9: SPORTS SCIENCE -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>30 Minutes That Build a Better Brain: How Aerobic Exercise (有氧運動) Floods the Hippocampus (海馬體) with BDNF (腦源性神經營養因子) &mdash; the Miracle-Gro of the Nervous System</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The adult brain was long believed unable to grow new neurons. What if a single 20-minute jog could demonstrably improve your memory, attention, and mood for hours afterward &mdash; through a mechanism completely different from a caffeine hit? What might that mechanism be?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Gray739-emphasizing-hippocampus.png" alt="Brain diagram emphasising the hippocampus location" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hippocampus (海馬體) location in the human brain &mdash; the primary site of exercise-induced BDNF upregulation (腦源性神經營養因子提升) and adult neurogenesis (成人神經新生) &mdash; <a href="https://commons.wikimedia.org/wiki/File:Gray739-emphasizing-hippocampus.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons / Gray&rsquo;s Anatomy</a></div>
+      </div>
+      <p>The conventional view held that the adult brain was largely fixed &mdash; neurons died but were not replaced. That consensus was overturned in 1998 when Peter Eriksson and Fred Gage published evidence in <em>Nature Medicine</em> of adult neurogenesis (成人神經新生) in the human hippocampus (海馬體) &mdash; the region critical for memory formation (記憶形成) and spatial navigation (空間導航). What made this actionable was the parallel work of Carl Cotman at UC Irvine: voluntary running in mice dramatically upregulates Brain-Derived Neurotrophic Factor (BDNF, 腦源性神經營養因子) in the hippocampus. BDNF is a protein that supports existing neuron (神經元) survival, promotes new synaptic connections (突觸連接), and actively stimulates neurogenesis in the hippocampus. Cotman&rsquo;s landmark 2002 review in <em>Nature Reviews Neuroscience</em> described exercise as &ldquo;the most accessible and reliable activator of BDNF&rdquo; available to humans &mdash; more potent than any drug then known to produce the same effect.</p>
+      <p>Human evidence converged powerfully across the 2000s. Charles Hillman (希爾曼) at the University of Illinois found that a single 20-minute session of moderate aerobic exercise (中等強度有氧運動) significantly improved executive function (執行功能), attention (注意力), and academic performance in children within the hour. John Ratey (雷提), a Harvard psychiatrist, documented the Naperville, Illinois school district&rsquo;s practice of scheduling PE before academically demanding classes; despite average demographics, the district ranked among the world&rsquo;s highest on international science and mathematics assessments. Most clinically dramatic was the 1999 SMILE trial by James Blumenthal at Duke University: 16 weeks of aerobic exercise (30 minutes, 3 times per week) produced equivalent antidepressant effects to sertraline (舍曲林, SSRI) in older adults with major depression (重度抑鬱症), and at 10-month follow-up the exercise group showed significantly lower relapse rates than the medication group.</p>
+      <p>The physiology operates through multiple pathways converging on hippocampal enrichment. Exercise increases cerebral blood flow (腦血流量), delivering more oxygen and glucose; it raises IGF-1 (胰島素樣生長因子-1) and VEGF (血管內皮生長因子), stimulating new blood vessel formation in brain tissue; it elevates serotonin (血清素) and norepinephrine (去甲腎上腺素), improving mood-related neurotransmitter availability. Kirk Erickson&rsquo;s randomised controlled trial, published in <em>PNAS</em> (2011), found that one year of aerobic exercise in older adults increased hippocampal volume (海馬體體積) by 2% &mdash; effectively reversing 1&ndash;2 years of age-related atrophy. The minimum effective dose appears to be approximately 30 minutes of moderate aerobic exercise at 60&ndash;75% maximum heart rate (最高心率), at least 3 times per week. Resistance training (阻力訓練) also raises BDNF but more modestly; combining both appears optimal for cognitive benefit.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Brain-derived_neurotrophic_factor" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> A 30-minute moderate aerobic session is both a fitness stimulus and a neurological one &mdash; the BDNF surge that follows supports memory, attention, and emotional regulation in ways no supplement yet replicates.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the SMILE trial find about exercise versus antidepressants, and what was the critical follow-up finding?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Blumenthal&rsquo;s 1999 SMILE trial found that 16 weeks of aerobic exercise (30 min, 3&times;/week) produced equivalent reductions in major depression symptoms (重度抑鬱症症狀) as sertraline (SSRI) in older adults. The critical follow-up at 10 months showed that the exercise group had significantly lower relapse rates than the medication group &mdash; suggesting that exercise-induced neurobiological changes (BDNF upregulation, hippocampal neurogenesis, improved sleep architecture) are more durable than pharmacological effect alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cotman, C.W. &amp; Berchtold, N.C. (2002). &ldquo;Exercise: A behavioral intervention to enhance brain health.&rdquo; <em>Nature Reviews Neuroscience</em> 3(6); Erickson, K.I. et al. (2011). &ldquo;Exercise training increases size of hippocampus.&rdquo; <em>PNAS</em> 108(7); Blumenthal, J.A. et al. (1999). &ldquo;Effects of exercise training on older patients with major depression.&rdquo; <em>Archives of Internal Medicine</em> 159(19); Hillman, C.H. et al. (2009). &ldquo;Be smart, exercise your heart.&rdquo; <em>Nature Reviews Neuroscience</em> 9(1).</div>
+    </article>
+
+    <!-- CARD 10: INVESTING -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Do Good, Do Well? The Complicated Evidence on ESG Investing (環境、社會及管治投資) &mdash; Between Genuine Returns, Greenwashing (漂綠), and Inconvenient Theory</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If a large number of investors all decide to buy &ldquo;ethical&rdquo; companies and avoid &ldquo;unethical&rdquo; ones, what happens to the prices of each group over time? And does that price movement tell you anything about the <em>future</em> returns of ESG strategies?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/S_and_P_500_daily_linear_chart_1950_to_2016.png" alt="S&amp;P 500 daily linear chart 1950–2016" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">S&amp;P 500 (標準普爾500指數) 1950&ndash;2016 &mdash; ESG (環境、社會及管治) strategies seek to earn market returns while excluding companies failing ethical screens (道德篩選) &mdash; <a href="https://commons.wikimedia.org/wiki/File:S_and_P_500_daily_linear_chart_1950_to_2016.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <p>Environmental, Social, and Governance investing (ESG投資, 環境、社會及管治投資) &mdash; screening portfolios for companies meeting standards on carbon emissions (碳排放), labour practices, board diversity (董事會多元化), and corporate governance (企業管治) &mdash; grew from niche to mainstream, with ESG-labelled assets exceeding $35 trillion globally by 2022. The core thesis: companies with strong ESG practices are better managed, face fewer regulatory and reputational risks, and therefore generate superior long-run returns. A 2015 meta-analysis (統合分析) by Friede, Busse, and Bassen aggregated over 2,200 empirical studies and found roughly 63% showing a positive correlation (正相關) between ESG criteria and corporate financial performance, with 11% negative &mdash; seemingly decisive evidence for the &ldquo;do well by doing good&rdquo; thesis. ESG proponents cited this as proof that ethics and returns were aligned; from 2010 to 2021 many ESG-screened equity funds indeed outperformed broad benchmarks, particularly in the US tech-heavy era.</p>
+      <p>The academic picture is considerably more nuanced. Lubo&#353; P&aacute;stor (帕斯托爾), Robert Stambaugh, and Lucian Taylor published a counterintuitive model in the <em>Journal of Financial Economics</em> (2022) that reconciles the historical data: ESG stocks can produce positive <em>realised</em> returns during periods when investor demand for ESG is rising &mdash; because demand growth raises prices (估值) &mdash; while simultaneously carrying lower <em>expected</em> future returns, because those same stocks are now expensively priced relative to fundamentals. In other words, ESG&rsquo;s historical outperformance was partly a one-time re-rating (估值重估) as sustainable investing (可持續投資) went mainstream, not durable alpha (超額收益). Separately, Tariq Fancy (方西), former Chief Investment Officer for Sustainable Investing at BlackRock (貝萊克), published a scathing 2021 critique: ESG creates a cosmetic &ldquo;whiff of improvement&rdquo; while diverting attention from the systemic policy interventions &mdash; carbon taxes, hard regulation &mdash; that would actually constrain corporate externalities. Calling the fund &ldquo;ESG&rdquo; costs the manager nothing and may change nothing in the real economy.</p>
+      <p>The measurement problem is arguably the central issue. ESG ratings from MSCI (明晟), Sustainalytics, and Bloomberg differ so substantially that the correlation between any two major raters&rsquo; scores for the same company averages only 0.54 &mdash; meaning they frequently disagree about whether a company is &ldquo;good.&rdquo; Kotsantonis &amp; Serafeim (2019) documented that companies can game ratings by improving disclosure without improving underlying practice. The EU&rsquo;s Sustainable Finance Disclosure Regulation (SFDR, 歐盟可持續金融披露法規) created binding tiers (Article 8 &ldquo;light green&rdquo; vs Article 9 &ldquo;dark green&rdquo;); a 2022 reclassification saw hundreds of funds downgrade from Article 9 to Article 8 rather than meet the stricter standard. The practical investor distinction is between <em>material ESG</em> (重要性ESG) &mdash; sector-specific risk factors with demonstrated financial relevance, as systematised by the SASB (可持續會計準則委員會) framework &mdash; and <em>values-based screening</em> (價值觀篩選), which may align with ethics but has no reliable excess-return mechanism once widely adopted.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Environmental,_social,_and_corporate_governance" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; <strong>Takeaway:</strong> ESG&rsquo;s positive historical returns partly reflected a one-time re-rating as the strategy went mainstream; distinguish material ESG risk factors (sector-specific, financially relevant) from generic ethical screens that generate no reliable alpha once widely adopted.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did ESG funds outperform between 2010&ndash;2021, and why does P&aacute;stor, Stambaugh &amp; Taylor&rsquo;s (2022) model suggest this cannot simply continue?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">ESG funds benefited from a rising tide of new investor demand: as capital flooded into ESG-screened strategies, it bid up prices for those stocks, producing positive realised returns. P&aacute;stor et al. showed this is consistent with those same stocks now having lower expected future returns, because the price appreciation has already happened &mdash; higher prices today imply lower yields going forward. Continued outperformance would require a second, similarly large wave of new demand, which cannot be assumed. The past record reflects a structural demand shift, not durable alpha from superior fundamentals.</div>
+      </details>
+      <div class="source">&#x1F4D6; Friede, G. et al. (2015). &ldquo;ESG and financial performance: aggregated evidence.&rdquo; <em>Journal of Sustainable Finance &amp; Investment</em> 5(4); P&aacute;stor, &Lstrok;. et al. (2022). &ldquo;Dissecting green returns.&rdquo; <em>Journal of Financial Economics</em> 146(2); Kotsantonis, S. &amp; Serafeim, G. (2019). &ldquo;Four things no one will tell you about ESG data.&rdquo; <em>Journal of Applied Corporate Finance</em> 31(2); Fancy, T. (2021). &ldquo;Financial world greenwashing the public.&rdquo; <em>USA Today</em> (Opinion).</div>
+    </article>
+
+    <!-- CARD 11: POLITICAL ECONOMICS -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Dollar&rsquo;s Impossible Job: How the Triffin Dilemma (特里芬困境) Exposes the Structural Contradiction at the Heart of Dollar Hegemony (美元霸權)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If every country in the world wants to hold US dollars as a reserve, the US must supply those dollars &mdash; but how? And could the act of supplying enough dollars for the world actually undermine the very confidence that makes the dollar valuable?</div>
+      </details>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/USDnotesNew.png" alt="US dollar banknotes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US dollar banknotes (美元紙幣) &mdash; the world&rsquo;s primary reserve currency (全球主要儲備貨幣), comprising ~58% of global foreign exchange reserves (外匯儲備) as of 2024 &mdash; <a href="https://commons.wikimedia.org/wiki/File:USDnotesNew.png" target="_blank" rel="noopener" style="color:var(--muted);">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 2022, the US Federal Reserve (美聯儲) raised interest rates aggressively to combat 9.1% domestic inflation. Simultaneously, emerging market economies (新興市場) across South Asia, Latin America, and sub-Saharan Africa faced dollar shortages, currency crises, capital flight, and surging debt-service costs &mdash; not because their own policies had failed, but because the world&rsquo;s reserve currency (儲備貨幣) was being managed for domestic US objectives. The Sri Lanka crisis, Pakistan IMF rescue, and Egyptian pound collapse each bore the fingerprint of a dollar-tightening cycle.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4DA; Theory</div>
+        <div class="pe-body">Belgian-American economist Robert Triffin (特里芬, 1911&ndash;1993) testified to the US Congress in 1960: any country whose currency serves as the global reserve currency (全球儲備貨幣) must run persistent current account deficits (經常帳戶赤字) to supply enough of its currency to the rest of the world. But those same deficits progressively erode confidence in that currency&rsquo;s stability. The reserve-currency country faces an irresolvable contradiction: be prudent domestically (current account surplus) and starve the world of reserves, or supply enough reserves and undermine your own credibility. Triffin predicted this would eventually destroy the Bretton Woods system (布雷頓森林體系).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Triffin was correct that Bretton Woods would collapse &mdash; Nixon ended dollar-gold convertibility in August 1971. But his prediction that the dollar would subsequently lose reserve-currency status has not materialised over 50 years. Despite persistent US current account deficits since 1982, the dollar&rsquo;s share of global foreign exchange reserves (外匯儲備) has remained above 55%, and actually increased after Bretton Woods ended. The dollar earns what Giscard d&rsquo;Estaing (吉斯卡爾&middot;德斯坦) called an &ldquo;exorbitant privilege&rdquo; (超凡特權) &mdash; the ability to borrow in its own currency, run deficits without immediate market punishment, and export inflation to others.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9E9; Challenger</div>
+        <div class="pe-body">Gopinath &amp; Itskhoki&rsquo;s 2021 <em>Quarterly Journal of Economics</em> paper argues that network effects and invoicing inertia &mdash; the &ldquo;dominant currency paradigm&rdquo; (主導貨幣範式) &mdash; make switching reserve currencies far more costly than Triffin assumed. Over 60% of global trade is invoiced in dollars regardless of US involvement; financial contracts, commodity markets, and central bank systems are dollar-architected. China&rsquo;s RMB (人民幣) internationalisation has stalled below 3% of global reserves despite two decades of effort. The dollar&rsquo;s grip may endure not from US economic strength but from the prohibitive switching costs (轉換成本) of a 60-year global dollar infrastructure &mdash; raising the open question of whether any successor currency could emerge without a systemic financial crisis to force the transition.</div>
+      </div>
+      <div class="source">&#x1F4D6; Triffin, R. (1960). <em>Gold and the Dollar Crisis</em>. Yale UP; Eichengreen, B. (2011). <em>Exorbitant Privilege: The Rise and Fall of the Dollar</em>. Oxford UP; Gopinath, G. &amp; Itskhoki, O. (2021). &ldquo;Dominant Currency Paradigm.&rdquo; <em>Quarterly Journal of Economics</em> 136(3); IMF COFER Database (2024 Q2).</div>
+    </article>
+
+    <!-- CONNECTION OF THE DAY -->
+    <section class="connection-section" id="connection">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 8 &amp; 9 &mdash; Loneliness and BDNF: Two Routes to the Same Hippocampus</strong></p>
+      <p>Today&rsquo;s health and sports science cards converge on the same organ from opposite directions. Holt-Lunstad&rsquo;s research showed that chronic loneliness (孤獨感) maintains the body in low-grade stress arousal, elevating cortisol (皮質醇) &mdash; and cortisol chronically suppresses hippocampal neurogenesis (海馬體神經新生). Meanwhile, Cotman and Erickson showed that aerobic exercise dramatically upregulates BDNF (腦源性神經營養因子) in the hippocampus, actively driving new neuron growth and increasing hippocampal volume (海馬體體積). The hippocampus is both the brain&rsquo;s primary memory structure and its most plastic region &mdash; most vulnerable to chronic stress, and most responsive to exercise. Loneliness shrinks it; movement grows it.</p>
+      <p><strong>So what:</strong> The two most powerful, evidence-based, zero-cost interventions for protecting and growing your hippocampus are meaningful social connection (managing the cortisol load) and aerobic exercise (raising BDNF). They compound together: a group fitness class, a long walk with a friend, or a sports team gives you both simultaneously. Treating exercise and social engagement as medical necessities &mdash; not optional lifestyle choices &mdash; is the evidence-based position.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <details>
+    <summary>&#x1F4DA; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Astronomy):</strong> Smith, B.A. et al. (1989). &ldquo;Voyager 2 at Neptune.&rdquo; <em>Science</em> 246(4936); Agnor, C.B. &amp; Hamilton, D.P. (2006). <em>Nature</em> 441(7090); Stern, S.A. &amp; McKinnon, W.B. (2000). <em>Astronomical Journal</em> 119(2).</li>
+      <li><strong>Card 2 (Eastern History):</strong> 司馬遷《史記&middot;秦始皇本紀》；Lewis, M.E. (2007). <em>The Early Chinese Empires: Qin and Han</em>. Harvard UP; Bodde, D. (1938). <em>China&rsquo;s First Unifier</em>. E.J. Brill; Kern, M. (2000). <em>The Stele Inscriptions of Ch&rsquo;in Shih-huang</em>. American Oriental Society.</li>
+      <li><strong>Card 3 (Western History):</strong> Arrian (c.&nbsp;130 CE). <em>Anabasis of Alexander</em>. Loeb Classical Library; Green, P. (1991). <em>Alexander of Macedon</em>. UC Press; Bosworth, A.B. (1988). <em>Conquest and Empire</em>. Cambridge UP.</li>
+      <li><strong>Card 4 (Eastern Philosophy):</strong> 公孫龍《公孫龍子》；Fraser, C. (2020). &ldquo;School of Names.&rdquo; <em>Stanford Encyclopedia of Philosophy</em>; Graham, A.C. (1989). <em>Disputers of the Tao</em>. Open Court; 馮友蘭（1952）。《中國哲學史》上冊。</li>
+      <li><strong>Card 5 (Western Philosophy):</strong> Marx, K. (1867). <em>Das Kapital</em> Vol.1. Penguin Classics; Marx &amp; Engels (1848). <em>The Communist Manifesto</em>; McLellan, D. (1973). <em>Karl Marx: His Life and Thought</em>. Harper &amp; Row; Popper, K. (1945). <em>The Open Society and Its Enemies</em>. Routledge.</li>
+      <li><strong>Card 6 (Psychology):</strong> Rosenthal, R. &amp; Jacobson, L. (1968). <em>Pygmalion in the Classroom</em>. Holt; Rosenthal, R. (1994). <em>Current Directions in Psychological Science</em> 3(6); Livingston, J.S. (1969). <em>Harvard Business Review</em>.</li>
+      <li><strong>Card 7 (Physiology):</strong> Guyton, A.C. &amp; Hall, J.E. (2016). <em>Textbook of Medical Physiology</em> (13th ed.). Elsevier; Boyett, M.R. et al. (2000). <em>Cardiovascular Research</em> 47(4); January, C.T. et al. (2014). <em>Circulation</em> 130(23).</li>
+      <li><strong>Card 8 (Health):</strong> Holt-Lunstad, J. et al. (2015). <em>Perspectives on Psychological Science</em> 10(2); Cacioppo, J.T. &amp; Patrick, W. (2008). <em>Loneliness</em>. Norton; Holt-Lunstad, J. et al. (2017). <em>American Psychologist</em> 72(5); US Surgeon General (2023). <em>Our Epidemic of Loneliness</em>.</li>
+      <li><strong>Card 9 (Sports Science):</strong> Cotman, C.W. &amp; Berchtold, N.C. (2002). <em>Nature Reviews Neuroscience</em> 3(6); Erickson, K.I. et al. (2011). <em>PNAS</em> 108(7); Blumenthal, J.A. et al. (1999). <em>Archives of Internal Medicine</em> 159(19); Hillman, C.H. et al. (2009). <em>Nature Reviews Neuroscience</em> 9(1).</li>
+      <li><strong>Card 10 (Investing):</strong> Friede, G. et al. (2015). <em>Journal of Sustainable Finance &amp; Investment</em> 5(4); P&aacute;stor, &Lstrok;. et al. (2022). <em>Journal of Financial Economics</em> 146(2); Kotsantonis, S. &amp; Serafeim, G. (2019). <em>Journal of Applied Corporate Finance</em> 31(2); Fancy, T. (2021). <em>USA Today</em>.</li>
+      <li><strong>Card 11 (Political Economics):</strong> Triffin, R. (1960). <em>Gold and the Dollar Crisis</em>. Yale UP; Eichengreen, B. (2011). <em>Exorbitant Privilege</em>. Oxford UP; Gopinath, G. &amp; Itskhoki, O. (2021). <em>Quarterly Journal of Economics</em> 136(3); IMF COFER Database 2024 Q2.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent)</summary>
+    <ul>
+      <li>2026-06-30: Neptune &amp; Triton/Voyager 2, 秦始皇統一六國/書同文/焚書坑儒, Alexander the Great/Gaugamela/Hellenism, 公孫龍「白馬非馬」/名家, Karl Marx/Das Kapital/commodity fetishism, Pygmalion Effect (Rosenthal 1968), Cardiac Conduction System/SA node/AV node, Loneliness &amp; Mortality (Holt-Lunstad 2015), BDNF &amp; Exercise Brain Benefits/SMILE trial, ESG Investing (P&aacute;stor 2022; Fancy critique), Triffin Dilemma/Dollar Hegemony/Dominant Currency Paradigm</li>
+      <li>2026-06-29: Stephan&rsquo;s Quintet/JWST, 鄭成功收復台灣, Florence &amp; Medici, 周敦頤/太極圖說, Albert Camus/Absurdism, Moral Foundations Theory (Haidt), Leptin/Appetite Regulation, Seed Oils/Linoleic Acid, Training to Failure, Dollar-Cost Averaging vs Lump Sum, Great Moderation/Luck Hypothesis</li>
+      <li>2026-06-28: TRAPPIST-1, 藤原道長/平安攝關政治 (Heian/Japan), First Crusade, 淨土宗慧遠, Francis Bacon/Novum Organum, Overconfidence Effect/Planning Fallacy, RAAS, Artificial Sweeteners, Altitude Training/LHTL, Minsky Moment, Laffer Curve</li>
+      <li>2026-06-27: Jupiter GRS, 清軍入關/多爾袞, Napoleon 1812, 玄奘唯識, William James/Pragmatism, Peak-End Rule, Testosterone/AR, Posture/Back Pain, PAP, FX Carry Trade, Argentine Default</li>
+    </ul>
+  </details>
+  <p style="margin-top:1rem;">&copy; 2026 Edward&rsquo;s Daily Learning &mdash; <a href="index.html" style="color:var(--accent);">All Briefings</a> &middot; <a href="bookmarks.html" style="color:var(--accent);">My Bookmarks</a></p>
+</footer>
+
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-06-30.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-06-30.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 30 Jun 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script src="bm.js"></script></body>
+</html>
