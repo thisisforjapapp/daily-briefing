@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 1 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.spark-item em{font-style:italic;color:var(--muted);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+.fab-toolbar,.float-toolbar{display:none !important;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 1 July 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>30 June 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Moon That Shouldn&rsquo;t Exist: Triton</span>Voyager 2 revealed Triton&#x2019;s retrograde orbit proves it was captured from the Kuiper Belt; nitrogen geysers erupt from its surface, and tidal forces will tear it apart in ~3.6 billion years.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 天下一統：秦王嬴政</span>嬴政十年滅六國，書同文車同軌統一制度基礎，焚書坑儒留千古功罪爭議。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Alexander the Great</span>Alexander conquered the Persian Empire in eight years and spread Greek civilisation across three continents, founding cities that became centres of learning for centuries.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 白馬非馬：公孫龍</span>公孫龍以外延與內涵論證「白馬非馬」，開創中國最接近分析哲學的名辯傳統。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Karl Marx</span>Marx&#x2019;s Historical Materialism explained history through class struggle and surplus value extracted from labour &mdash; ideas that inspired both revolutions and fierce rebuttals for 160 years.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Pygmalion Effect</span>Rosenthal and Jacobson showed that labelling random students as &ldquo;bloomers&rdquo; caused teachers to unconsciously raise those children&#x2019;s IQ scores through four subtle channels of reinforcement.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; The Heart&rsquo;s Electrical Grid</span>The SA node fires 60&ndash;100 times per minute via funny current; the AV node adds a 0.12-second delay to protect the ventricles from atrial chaos before contraction.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Loneliness as Deadly as Smoking</span>Holt-Lunstad&#x2019;s 148-study meta-analysis found chronic loneliness raises mortality by 29%, driven by systemic inflammation and hypervigilance &mdash; quality of connection matters more than quantity.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Exercise Grows Your Brain</span>Aerobic exercise triggers BDNF release, stimulating hippocampal neurogenesis and growing hippocampal volume by 2% &mdash; with antidepressant effects comparable to sertraline.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; ESG Investing&rsquo;s Dilemma</span>Most studies find positive correlations between ESG and returns, but financial theory suggests a one-time re-rating means future expected returns for ESG assets will likely be lower.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Dollar&rsquo;s Impossible Job</span>The Triffin Dilemma shows the US must run perpetual trade deficits to supply global dollar reserves &mdash; yet those same deficits ultimately threaten confidence in the dollar itself.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Cosmic Ruler: How Henrietta Leavitt&rsquo;s (韓利達&middot;利維特) Discovery of Cepheid Variable Stars (造父變星) Unlocked the Scale of the Universe &mdash; and Created the First Reliable Yardstick to Measure Space</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before Cepheid variables were understood, astronomers had no reliable way to measure distances beyond our own galaxy. How do you think they solved the problem &mdash; what property of a star could possibly tell you how far away it is?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Heic1323a_-1243686232.jpg/3840px-Heic1323a_-1243686232.jpg" alt="Cepheid variable stars in a stellar field" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cepheid variable stars &mdash; pulsating cosmic distance markers. Credit: <a href="https://en.wikipedia.org/wiki/Cepheid_variable" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On a clear night, most stars look fixed. But some pulse &mdash; brightening and dimming over days or weeks in a rhythm as reliable as a metronome. These are Cepheid variables (造父變星), and in 1908 a woman working as a &ldquo;computer&rdquo; at Harvard Observatory &mdash; Henrietta Swan Leavitt (韓利達&middot;利維特) &mdash; noticed something extraordinary: the brighter a Cepheid truly was, the longer its pulsation period. By timing just one cycle, you could calculate the star&rsquo;s intrinsic luminosity (本徵亮度). Compare that to how faint it appears from Earth, and the inverse-square law (平方反比定律) gives you the distance. A measuring stick for the cosmos, built from a pulsation rhythm.</p>
+      <p>Leavitt&rsquo;s period-luminosity relation, formalised in 1912, became the first rung of the cosmic distance ladder (宇宙距離階梯). Edwin Hubble (哈勃) used it in 1923 to identify Cepheids inside the Andromeda Nebula (仙女星系) and prove &mdash; to the shock of most astronomers &mdash; that Andromeda was not a gas cloud inside the Milky Way (銀河系) but an entirely separate galaxy (星系) over two million light-years away. Overnight, the known universe expanded from a single galaxy to a cosmos of billions. Leavitt, who died in 1921 before the implications were fully realised, was reportedly nominated for a Nobel Prize that could no longer be awarded posthumously.</p>
+      <p>A persistent modern mystery has reopened the debate: the Hubble Tension (哈勃張力). Measurements of the Hubble constant (哈勃常數 H&#x2080;) via Cepheids and Type Ia supernovae (Ia型超新星) give ~73 km/s/Mpc; measurements from the Cosmic Microwave Background (宇宙微波背景輻射) via the Planck satellite (普朗克衛星) give ~67. In 2023 the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡, JWST) confirmed the Cepheid side of the discrepancy, ruling out systematic measurement error. The gap is now &gt;5-sigma &mdash; suggesting something genuinely missing from our cosmological model, perhaps new physics in the early universe.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cepheid_variable" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A pulsating star&rsquo;s rhythm encodes its distance &mdash; Leavitt&rsquo;s insight turned light curves into the ruler that measured the universe.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why could Henrietta Leavitt&rsquo;s period-luminosity relationship be used to measure distances to other galaxies?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because it linked a Cepheid&rsquo;s pulsation period to its true luminosity. By comparing true luminosity to apparent brightness from Earth, astronomers could calculate distance using the inverse-square law &mdash; no parallax or nearby reference required.</div>
+      </details>
+      <div class="source">&#x1F4D6; Leavitt, H.S. &amp; Pickering, E.C. (1912). &ldquo;Periods of 25 Variable Stars in the Small Magellanic Cloud.&rdquo; <em>Harvard College Observatory Circular</em> 173. Freedman, W.L. et al. (2001). HST Key Project. <em>ApJ</em>, 553, 47. Riess, A.G. et al. (2023). JWST Cepheid calibration. <em>ApJ Letters</em>, 951, L7.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>黃袍加身與杯酒釋兵權：宋太祖如何以一場政變奪天下，又以一杯溫酒化解武將功高震主之憂，奠定宋朝三百年文官治國之基</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">五代十國武將頻繁篡位。若你是剛剛稱帝的宋太祖，你會如何防止昔日兄弟的兵權威脅你的皇位——而又不引起流血衝突？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>趙匡胤（宋太祖）、石守信、王審琦（禁軍將領）、謀士趙普。</p>
+        <p><strong>事件：</strong>960年陳橋兵變建立宋朝；961–969年「杯酒釋兵權」系列政治操作。</p>
+        <p><strong>時代背景：</strong>五代十國（907–960年）武將更迭皇帝如換衣，五十三年間換了五個朝代、十四個皇帝，割據與政變已是常態，文官體系形同虛設。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Song_Taizu.jpg/3840px-Song_Taizu.jpg" alt="宋太祖趙匡胤畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">宋太祖趙匡胤畫像。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Song" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>五代十國兵荒馬亂，武將廢立皇帝乃家常便飯。後周顯德七年（960年），節度使趙匡胤率軍北征，行至陳橋驛，部下突然將黃袍披於其身，高呼萬歲——史稱「陳橋兵變」。趙匡胤心知此事或為親信刻意策劃，卻也無從拒絕，遂順勢返京，後周恭帝柴宗訓禪位，宋朝立國，年號建隆。趙匡胤廟號太祖，定都開封。與歷次兵變不同，此番基本未經流血，因為趙匡胤在軍中人望極隆，無人反抗。</p>
+      <p>稱帝翌年，趙匡胤宴請石守信、王審琦等手握重兵的結義兄弟，席間輕描淡寫道：「朕夜不能安枕，非汝等不忠，但一旦有人將黃袍加於汝身，雖不欲為，其可得乎？」眾將聞弦知意，次日紛紛稱病請辭兵權。宋太祖以豐厚賞賜、聯姻皇室作為補償——此即著名的「杯酒釋兵權」。謀士趙普在幕後謀劃此局，以暗示取代威脅，化兵權於無形，是中國政治史上極罕見的不流血收兵策略。</p>
+      <p>杯酒釋兵權的深遠後果是宋朝「重文輕武」國策的成型。趙匡胤以文官統帥替代節度使，擴大科舉取士名額，設殿前司、侍衛馬步軍司分割禁軍，皇帝直接掌兵。這一設計確實終結了武將割據，卻也埋下積弱禍根——宋軍面對遼、金、蒙古屢屢處於守勢，軍事戰略僵化。制度設計者的初心是穩固皇權，代價卻由邊境黎民與最終的江山承擔，宋朝於1279年在崖山亡於元軍，距趙匡胤稱帝整三百一十九年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Song" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 趙匡胤以一杯溫酒換百年穩定，卻也以文治壓抑武備，留下功過難分的歷史遺產。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>趙匡胤「杯酒釋兵權」如何解除武將威脅？此政策帶來何種長遠代價？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">趙匡胤以暗示兵變隱患，促使大將主動辭去兵權，換以厚賜聯姻。長遠代價是「重文輕武」體制固化，宋朝面對北方外患時武力薄弱，軍事長期守勢，最終亡於蒙古。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《宋史·太祖本紀》；司馬光：《涑水記聞》；王曾瑜：《宋朝兵制初探》（北京：中華書局，1983年）；余英時：《朱熹的歷史世界》（台北：允晨文化，2003年）。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Six Hundred Men Against an Empire: How Hern&aacute;n Cort&eacute;s (科爾特斯) Toppled the Aztec Empire (阿茲特克帝國) &mdash; and How Smallpox (天花) Killed Far More Aztecs Than Any Spanish Sword</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Hern&aacute;n Cort&eacute;s arrived in Mexico in 1519 with roughly 600 soldiers against an empire of millions. What factors &mdash; beyond guns and horses &mdash; do you think actually decided the outcome?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Hern&aacute;n Cort&eacute;s (科爾特斯), a minor Spanish nobleman from Extremadura; Moctezuma II (蒙特蘇馬二世), Aztec tlatoani; Do&ntilde;a Marina / Malinche (馬林切), Nahua-speaking interpreter.</p>
+        <p><strong>Event at stake:</strong> Spanish conquest of the Aztec Triple Alliance (阿茲特克三城同盟), 1519&ndash;1521, culminating in the fall of Tenochtitlan (特諾奇提特蘭).</p>
+        <p><strong>Big picture:</strong> Spain held Cuba since 1511; Cort&eacute;s&rsquo;s expedition was launched without full authorisation from the governor. The Aztecs extracted tribute from dozens of subject peoples who deeply resented them &mdash; potential allies waiting for an opportunity.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Conquista-de-M%C3%A9xico-por-Cort%C3%A9s-Tenochtitlan-Painting.png/330px-Conquista-de-M%C3%A9xico-por-Cort%C3%A9s-Tenochtitlan-Painting.png" alt="Painting of the Spanish conquest of Tenochtitlan" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Painting of the Spanish conquest of Tenochtitlan. Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When Hern&aacute;n Cort&eacute;s (科爾特斯) landed on the Mexican coast in April 1519 with roughly 600 soldiers, eleven ships, and sixteen horses, the idea that he could destroy Mesoamerica&rsquo;s most powerful empire was almost absurd. The Aztec Triple Alliance (阿茲特克三城同盟) controlled a population of perhaps five million; Tenochtitlan (特諾奇提特蘭) &mdash; an island city in Lake Texcoco (特斯科科湖), connected to shore by broad causeways &mdash; held over 200,000 inhabitants, making it larger than any city in contemporary Spain. Steel swords and firearms alone could never tip that balance.</p>
+      <p>Cort&eacute;s&rsquo;s decisive advantage was political, not military. He systematically recruited the Tlaxcalans (特拉斯卡拉人) &mdash; ancient enemies of the Aztecs &mdash; and dozens of other tributary peoples who saw in the Spaniards a potential liberator from Aztec sacrifice and taxation. His translator and companion Do&ntilde;a Marina (馬林切) &mdash; a Nahua-speaking woman of noble birth who had been enslaved &mdash; allowed him to navigate local alliances with precision no conquistador (征服者) had achieved before. Moctezuma II received Cort&eacute;s in Tenochtitlan and was placed under a form of house arrest within weeks; he died in 1520 under disputed circumstances, during the violent expulsion of the Spanish known as La Noche Triste (悲傷之夜).</p>
+      <p>The decisive weapon, however, was invisible: smallpox (天花). A single infected enslaved African man brought it ashore in late 1520. With no prior immunity (免疫力), the epidemic tore through Tenochtitlan, killing perhaps half the city&rsquo;s residents &mdash; including the successor emperor Cuitl&aacute;huac (奎特拉瓦克) &mdash; before Cort&eacute;s mounted his final siege. Smallpox devastated command structures and morale far faster than any Spanish weapon. By August 1521, the last ruler Cuauht&eacute;moc (夸烏特莫克) was captured on a canoe. The demographic collapse (人口崩潰) that followed &mdash; from perhaps 25 million to under one million by 1600 &mdash; remains one of the worst catastrophes in recorded human history.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The conquest of Mexico shows that technology (guns, horses) explains far less than political alliance-building &mdash; and epidemic disease was the empire&rsquo;s true destroyer.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did smallpox play a larger role than Spanish military strength in the fall of the Aztec Empire?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Aztec population had zero prior immunity, so smallpox killed potentially half of Tenochtitlan&rsquo;s residents before the final siege &mdash; including the successor emperor. It shattered command and morale far faster than Spanish weapons could; epidemic disease was the decisive factor.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hugh Thomas, <em>Conquest: Montezuma, Cort&eacute;s, and the Fall of Old Mexico</em> (1993). Matthew Restall, <em>When Montezuma Met Cort&eacute;s</em> (2018). Alfred W. Crosby, <em>The Columbian Exchange</em> (1972). Bernal D&iacute;az del Castillo, <em>The History of the Conquest of New Spain</em> (c. 1568).</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>形與神：南朝哲學家范縝如何以一把刀刃的比喻挑戰梁武帝的佛教信仰，成為中國古代最大膽的唯物主義宣言</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">若有人聲稱「靈魂不能離開肉體獨立存在」，在篤信佛教的南朝，這種主張會觸犯誰的利益？當時一位普通士人會承受多大的壓力？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>范縝（約450–515年），南朝齊梁儒士；梁武帝蕭衍，篤信佛教的皇帝護法。</p>
+        <p><strong>事件：</strong>《神滅論》約於507年成文，引發梁武帝召集七十二名王公高僧圍攻辯論。</p>
+        <p><strong>時代背景：</strong>六朝佛教盛行，「神不滅論」幾成思想共識，大量國家資源流入寺院。士人不信佛幾乎等同異類，范縝逆流而上，以哲學論證挑戰時代主流。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Liang_Wudi.jpg/3840px-Liang_Wudi.jpg" alt="梁武帝蕭衍畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">梁武帝蕭衍——范縝論辯的主要對手。來源：<a href="https://en.wikipedia.org/wiki/Liang_Wudi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>在佛教幾乎主宰南朝思想的時代，范縝以一篇《神滅論》掀起軒然大波。他的核心論點簡潔有力：「神即形也，形即神也。形存則神存，形謝則神滅。」翻譯成哲學語言，即精神（神）不能離開肉體（形）獨立存在。范縝以日常物件作比：「刃之利，猶形之神也。未聞刃沒而利存，豈容形亡而神在？」刀刃（形體）與鋒利（精神）不可分離——銷毀刀刃，鋒利隨之消失。此一「刃利之喻」成為中國哲學史上最著名的類比之一，徹底否定靈魂離體不滅之說。</p>
+      <p>梁武帝蕭衍視《神滅論》為異端，命王公貴族、高僧名儒七十二人撰文反駁，并親自下詔批評。然而范縝毫不退縮，逐一答辯，史載無一對手能令其折服。蕭衍最終以利誘——若肯改口，立授中書郎——范縝拒絕道：「賣論取官，非縝之業也。」此語令其清名千古流傳。范縝的堅持也揭示了論戰的政治本質：若靈魂死後即滅，因果報應便失去彼岸之依托，佈施積德的佛教動機亦隨之動搖，威脅到支撐六朝政治合法性的意識形態根基。</p>
+      <p>《神滅論》在思想史上有兩重意義。其一，它繼承了王充《論衡》的元氣自然論傳統，卻以更精煉的邏輯論證表達，開中國「形神一元論」哲學之先河。其二，它以哲學批判介入政治宗教議題，雖在當時以失敗告終，卻啟示後世儒家——尤其宋明理學家——重新反思佛道對中國思想的滲透。馮友蘭在《中國哲學史》中盛讚范縝為「古代最徹底的唯物主義者之一」，其論辯風骨在中國思想史上實屬罕見。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fan_Zhen_(philosopher)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 范縝告訴我們：真正的哲學勇氣，是以論證對抗時代主流，以名節拒絕利誘，千年之後仍令人肅然起敬。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>范縝的「刃利之喻」如何論證神滅論的核心主張？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">范縝以刀刃（形體）與鋒利（精神）作比：鋒利不能離開刀刃獨立存在，刀刃銷毀，鋒利即消失。同理，精神不能離開形體存在，形體死亡，精神亦隨之滅絕，故主張神滅。</div>
+      </details>
+      <div class="source">&#x1F4D6; 范縝：《神滅論》（收於《梁書·儒林傳》）；馮友蘭：《中國哲學史》下冊（北京：中華書局）；任繼愈主編：《中國哲學史》第二冊；W.T. de Bary &amp; Irene Bloom (eds.), <em>Sources of Chinese Tradition</em>, vol. 1 (Columbia UP, 1999).</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;One Is Not Born a Woman&rdquo;: How Simone de Beauvoir (西蒙&middot;波娃) Turned Existentialism (存在主義) Inside Out to Reveal Gender as History, Not Nature &mdash; and Sparked Second-Wave Feminism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">De Beauvoir published <em>The Second Sex</em> in 1949, when French women had only had the vote for five years. What argument do you think she made that so shocked the Catholic Church that it immediately placed the book on its Index of Forbidden Books?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Simone de Beauvoir (西蒙&middot;波娃), 1908&ndash;1986, French philosopher, novelist, and lifelong companion of Jean-Paul Sartre (沙特).</p>
+        <p><strong>Rival view:</strong> Biological essentialism (生物本質主義) &mdash; the view that femininity is natural, inevitable, and rooted in anatomy &mdash; defended by medical and psychoanalytic establishments alike.</p>
+        <p><strong>Moment:</strong> <em>Le Deuxi&egrave;me Sexe</em> (The Second Sex, 第二性) published 1949 &mdash; condemned by the Vatican, dismissed by many male intellectuals, yet secretly purchased by thousands of French women who felt it described their hidden reality.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Simone_De_Beauvoir_%28cropped%29.jpg/330px-Simone_De_Beauvoir_%28cropped%29.jpg" alt="Simone de Beauvoir photograph" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Simone de Beauvoir. Credit: <a href="https://en.wikipedia.org/wiki/Simone_de_Beauvoir" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Few books have transformed how human beings understand themselves more than <em>Le Deuxi&egrave;me Sexe</em> (The Second Sex, 第二性), published in 1949. Its opening argument is still electrifying: &ldquo;One is not born, but rather becomes, a woman.&rdquo; Simone de Beauvoir (西蒙&middot;波娃) was not making a point about chromosomes but a philosophical one: women&rsquo;s subordination is not a product of nature but of history, culture, and a specific set of social arrangements that could &mdash; in principle &mdash; be otherwise. The insight came from her existentialist (存在主義) framework and her collaborative intellectual life with Jean-Paul Sartre (沙特), though the book is entirely her own.</p>
+      <p>De Beauvoir&rsquo;s key concept was the &ldquo;Other&rdquo; (他者). Drawing on Hegel&rsquo;s (黑格爾) master-slave dialectic and Sartre&rsquo;s distinction between the for-itself (為己存在) &mdash; consciousness that is free and self-creating &mdash; and the in-itself (自在存在) &mdash; a thing defined by its factual properties &mdash; she argued that Western culture had historically positioned man as the universal Subject (主體) while defining woman as the &ldquo;Other,&rdquo; the deviation from the norm. Women internalise this: they come to see themselves through men&rsquo;s eyes, accepting their biological and social situation (facticity, 事實性) as destiny rather than as material to be transcended through free choice (自由選擇). This is, in de Beauvoir&rsquo;s terms, a form of bad faith (自欺欺人) &mdash; the same self-deception Sartre diagnosed in the café waiter who pretends he has no freedom.</p>
+      <p>The Vatican condemned the book; Albert Camus (卡繆) called it a dishonour to France. Yet Betty Friedan (貝蒂&middot;弗里丹) cited it as the catalyst for <em>The Feminine Mystique</em> (1963), and second-wave feminism (第二波女權主義) took de Beauvoir&rsquo;s philosophical framework as its bedrock. The deeper implication &mdash; that gender (性別) is a social construction (社會建構), not a biological given &mdash; is still at the centre of contemporary debates about gender identity, seventy-five years after publication. De Beauvoir did not resolve the question; she forced us to see that it was a question at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/The_Second_Sex" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Freedom is not given &mdash; it is chosen, again and again, against every structure that would define you as merely the Other.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did de Beauvoir mean by saying women exist as the &ldquo;Other&rdquo; in Western culture, and why did she consider this a form of bad faith?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">De Beauvoir argued culture positions man as the universal Subject while woman is defined only in relation to him &mdash; as deviation. Bad faith occurs when women internalise this label and treat biological or social facts as fixing their destiny, rather than exercising freedom to transcend them.</div>
+      </details>
+      <div class="source">&#x1F4D6; Simone de Beauvoir, <em>The Second Sex</em> (1949; Borde &amp; Malovany-Chevallier trans., 2010). Toril Moi, <em>Simone de Beauvoir: The Making of an Intellectual Woman</em> (1994). Stanford Encyclopedia of Philosophy, &ldquo;Simone de Beauvoir&rdquo; (2010, rev. 2023).</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Hidden Engine of Human Culture: How Terror Management Theory (恐懼管理理論) Reveals That the Awareness of Death (死亡意識) Silently Shapes Nationalism, Self-Esteem, and Everything We Call Civilisation</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Ernest Becker argued that most of human culture &mdash; art, religion, nationalism, war &mdash; is ultimately driven by one thing. What do you think that thing is?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Greek_uc_psi_icon.svg/120px-Greek_uc_psi_icon.svg.png" alt="Psychology symbol psi" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Terror Management Theory: mortality salience and worldview defence. Credit: <a href="https://en.wikipedia.org/wiki/Terror_management_theory" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1974, cultural anthropologist Ernest Becker (貝克) published <em>The Denial of Death</em>, arguing that the fundamental human terror &mdash; the awareness that we will die &mdash; is the engine behind most of human culture: art, religion, heroism, nationalism, even war. Three social psychologists &mdash; Jeff Greenberg, Sheldon Solomon (所羅門), and Tom Pyszczynski (皮斯金斯基) &mdash; took Becker&rsquo;s insight into the laboratory. In 1986 they published the first test of Terror Management Theory (恐懼管理理論, TMT): when people are briefly reminded of their own mortality, their attitudes and behaviours change in predictable, measurable ways.</p>
+      <p>The mortality salience (死亡顯著性) paradigm works like this: half the participants answer two short questions about their feelings about death; the other half answer about an unpleasant but non-fatal topic (dental pain is a classic control). All then complete a measure of the dependent variable &mdash; how harshly they judge a prostitute (moral transgressor), how much they donate to charity, or how favourably they rate a fellow citizen versus a foreign critic. Dozens of studies replicated across cultures find a consistent pattern: mortality salience intensifies in-group favouritism (內群體偏愛), worldview defence (文化世界觀捍衛), and self-esteem striving (自尊追求). Effect sizes are robust (typical d &asymp; 0.5&ndash;0.9). A 2010 meta-analysis by Burke, Martens, and Faucher across 277 studies confirmed the core effects.</p>
+      <p>TMT proposes two psychological buffers against death anxiety (死亡焦慮): cultural worldview (文化世界觀) &mdash; a shared symbolic system offering meaning and symbolic immortality (象徵性不朽) &mdash; and self-esteem (自尊), which tells you that you are a valued part of a meaningful universe. When either is threatened, people clutch the other more fiercely. This explains why people under existential threat become more religious, more nationalistic, and less tolerant of outsiders. Pyszczynski&rsquo;s team found that reminders of 9/11 increased support for extreme military responses among both US conservatives and liberals. The practical implication is unsettling: many of our most &ldquo;rational&rdquo; political and moral convictions may be, at their root, terror management strategies.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Terror_management_theory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your fear of death, not your reason, may be the hidden architect of your political and religious views &mdash; awareness of this is the first line of defence.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Terror Management Theory, what are the two psychological &ldquo;buffers&rdquo; against death anxiety, and how does threatening one affect the other?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The two buffers are cultural worldview (a shared meaning system offering symbolic immortality) and self-esteem (feeling valued within that worldview). When one is threatened &mdash; by criticism of your religion or identity &mdash; people compensate by clinging more fiercely to the other, explaining why existential threat intensifies extremism.</div>
+      </details>
+      <div class="source">&#x1F4D6; Greenberg, J., Pyszczynski, T., &amp; Solomon, S. (1986). &ldquo;The causes and consequences of a need for self-esteem: A terror management theory.&rdquo; <em>Public Self and Private Self</em>, 189&ndash;212. Burke, B., Martens, A., &amp; Faucher, E. (2010). &ldquo;Two decades of terror management theory.&rdquo; <em>Personality and Social Psychology Review</em>, 14(2), 155&ndash;195.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Don&rsquo;t Bleed to Death from a Paper Cut: The Coagulation Cascade (凝血瀑布), Vitamin K (維生素K), and the Razor-Thin Balance Between Clot and Catastrophe</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Blood clotting requires a chain reaction of over a dozen proteins firing in sequence. Why do you think blood doesn&rsquo;t clot spontaneously inside your vessels all the time? What keeps the system dormant until injury occurs?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Coagulation_in_vivo.png" alt="Diagram of the coagulation cascade" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The coagulation cascade in vivo. Credit: <a href="https://en.wikipedia.org/wiki/Coagulation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When you slice your finger, three systems spring into action in the right sequence and the right amount. First, the injured blood vessel constricts (vasoconstriction, 血管收縮) within seconds, narrowing the breach. Then platelets (血小板) &mdash; tiny disc-shaped cell fragments &mdash; rush to the site and stick to exposed collagen (膠原蛋白) via von Willebrand factor (馮&middot;威利布蘭德因子). The platelets activate, change shape, and release chemical signals recruiting more platelets, forming a loose plug. This primary haemostasis (初級止血) can slow bleeding within a minute. But without a second step, the plug is fragile and temporary.</p>
+      <p>Permanent clotting requires the coagulation cascade (凝血瀑布) &mdash; a chain reaction of clotting factors (凝血因子) where each protein activates the next. The extrinsic pathway (外在途徑), now understood as the dominant route in vivo, begins with tissue factor (組織因子), a protein exposed when the vessel wall is breached. This converges with the intrinsic pathway (內在途徑) at Factor X (第十凝血因子), which converts prothrombin (凝血酶原) into thrombin (凝血酶). Thrombin then converts fibrinogen (纖維蛋白原) &mdash; a soluble plasma protein &mdash; into fibrin (纖維蛋白): long threads that mesh over the platelet plug to form a stable, lasting clot. The clot also contracts, pulling wound edges together.</p>
+      <p>Vitamin K (維生素K) is the silent co-factor: without it, clotting factors II, VII, IX, and X cannot be properly carboxylated and activated, and the cascade fails. This is why warfarin (華法林) &mdash; which blocks Vitamin K recycling &mdash; is used as a blood thinner in patients with atrial fibrillation (心房顫動) or deep-vein thrombosis (深靜脈血栓, DVT). The balance is exquisitely fine: too little clotting causes haemophilia (血友病) or uncontrollable bleeding; too much causes DVT, pulmonary embolism (肺栓塞), or stroke. Once healing is complete, fibrinolysis (纖維蛋白溶解) &mdash; driven by plasmin (纖溶酶) &mdash; dissolves the clot, returning blood flow to normal.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Coagulation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Every successful clot is the product of more than a dozen protein reactions firing in sequence &mdash; Vitamin K quietly keeps them all active.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does warfarin prevent dangerous clotting, and what specific biochemical mechanism does it exploit?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Warfarin blocks an enzyme that recycles Vitamin K. Without active Vitamin K, clotting factors II, VII, IX, and X cannot be activated. This cripples the cascade&rsquo;s ability to generate thrombin and form fibrin clots &mdash; reducing pathological clotting in DVT and atrial fibrillation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Davie, E.W., Fujikawa, K., &amp; Kisiel, W. (1991). &ldquo;The coagulation cascade.&rdquo; <em>Biochemistry</em>, 30(43), 10363&ndash;10370. Riddel, J.P. et al. (2007). &ldquo;Theories of blood coagulation.&rdquo; <em>Journal of Pediatric Oncology Nursing</em>. Kearon, C. et al. (2012). &ldquo;Antithrombotic therapy for VTE disease.&rdquo; <em>Chest</em>, 141(2 Suppl), e419S&ndash;e494S.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Nutrients Your Gut Makes for Itself: How Dietary Fibre (膳食纖維) Feeds Your Microbiome (微生物組) to Produce Short-Chain Fatty Acids (短鏈脂肪酸) That Power Your Immune System, Colon, and Brain</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most people think fibre helps digestion by adding &ldquo;bulk.&rdquo; But the actual mechanism is entirely different &mdash; it has nothing to do with bulk. What do you think fibre is actually doing at the molecular level?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Fruit%2C_Vegetables_and_Grain_NCI_Visuals_Online.jpg" alt="Fruits, vegetables and grains rich in dietary fibre" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Fibre-rich foods: fruits, vegetables, and whole grains. Credit: <a href="https://en.wikipedia.org/wiki/Dietary_fiber" target="_blank" rel="noopener">Wikimedia Commons / NCI</a></div>
+      </div>
+      <p>Most people know fibre is &ldquo;good for you,&rdquo; but almost nobody knows why in molecular detail. The answer has little to do with bulk or &ldquo;cleansing.&rdquo; The real story is fermentation. When dietary fibre (膳食纖維) reaches the large intestine undigested, the roughly 38 trillion bacteria of your gut microbiome (腸道微生物組) ferment it. The main products are short-chain fatty acids (短鏈脂肪酸, SCFAs) &mdash; primarily butyrate (丁酸鹽), propionate (丙酸鹽), and acetate (乙酸鹽). These three molecules are not waste products. They are signals and fuels that your own cells actively depend on.</p>
+      <p>Butyrate is the most studied. Colonocytes (結腸細胞) &mdash; the cells lining your colon &mdash; derive up to 70% of their energy from butyrate, not from glucose. Without adequate butyrate, colonocytes die or function poorly, impairing the intestinal barrier (腸道屏障). A compromised barrier allows bacterial products to leak into the bloodstream, activating systemic inflammation (全身性炎症). Butyrate also directly inhibits NF-&kappa;B (核因子&kappa;B), a master pro-inflammatory signalling molecule, and promotes the differentiation of regulatory T-cells (調節性T細胞), helping calibrate immune responses. A 2020 meta-analysis by Dahl et al. in <em>The Lancet</em> &mdash; spanning 185 prospective studies &mdash; linked higher fibre intake to significant reductions in colorectal cancer (大腸癌), type 2 diabetes (二型糖尿病), and cardiovascular mortality.</p>
+      <p>Propionate is taken up by the liver (肝臟), where it inhibits cholesterol synthesis (膽固醇合成) and contributes to blood glucose regulation (血糖調節). Acetate &mdash; the most abundant SCFA &mdash; crosses the blood-brain barrier (血腦屏障), suppressing appetite signals in the hypothalamus (下丘腦). The key practical lesson from Justin Sonnenburg&rsquo;s (桑南堡) lab at Stanford: aim for <em>variety</em> of plant fibres (prebiotic diversity, 益生元多樣性), not just total grams. Different bacterial species ferment different fibre types, so dietary diversity drives microbiome (腸道微生物) diversity, which drives SCFA output. A high-fibre diet of just bread and pasta produces far fewer SCFAs than the same calories spread across twenty plant foods.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Short-chain_fatty_acid" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Fibre&rsquo;s benefit is not mechanical bulk &mdash; it feeds the microbiome that produces butyrate, the primary fuel of your colon cells and a brake on systemic inflammation.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How does butyrate, produced from dietary fibre fermentation, protect against colorectal cancer and systemic inflammation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Colonocytes use butyrate as their primary fuel (up to 70% of energy), supporting intestinal barrier integrity. Butyrate also inhibits NF-&kappa;B and promotes regulatory T-cells, dampening inflammation. A weakened barrier from inadequate butyrate allows bacterial products into circulation, driving the chronic inflammation linked to colorectal cancer and metabolic disease.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dahl, W.J. et al. (2020). &ldquo;Position of the Academy of Nutrition and Dietetics: Health Implications of Dietary Fiber.&rdquo; <em>JAND</em>. Wastyk, H.C. et al. (2021). &ldquo;Gut-microbiota-targeted diets modulate human immune status.&rdquo; <em>Cell</em>, 184, 4137&ndash;4153. Sonnenburg, J.L. &amp; B&auml;ckhed, F. (2016). &ldquo;Diet&ndash;microbiota interactions as moderators of human metabolism.&rdquo; <em>Nature</em>, 535, 56&ndash;64.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>How Pasta Night Became Science: The Physiology of Glycogen Supercompensation (糖原超量恢復), Its Real Limits, and Why the Classic Six-Day Carb-Load Protocol Has Been Dramatically Simplified Since 1967</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Marathon runners famously eat large pasta dinners the night before a race. Do you think this actually helps? And if so, for what type of event &mdash; and at what point does it stop making a difference?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Glycogen_structure.svg/330px-Glycogen_structure.svg.png" alt="Diagram of glycogen molecular structure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Glycogen structure &mdash; the body&rsquo;s primary carbohydrate storage molecule. Credit: <a href="https://en.wikipedia.org/wiki/Glycogen" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1967, Swedish physiologist Jonas Bergstr&ouml;m (貝格斯特羅姆) performed an elegant experiment: he took muscle biopsies from cyclists before and after exhaustive exercise, and again after various dietary recovery protocols. His finding: muscles depleted of glycogen (肌糖原) and then refed with carbohydrates did not merely return to baseline &mdash; they overshot it, accumulating glycogen at 150&ndash;200% of normal concentrations. This process, glycogen supercompensation (糖原超量恢復), became the scientific basis for the pre-race &ldquo;carb-loading&rdquo; strategies that marathoners, cyclists, and triathletes have used ever since. The biology is simple: deplete the tank, then overfill it.</p>
+      <p>Bergstr&ouml;m&rsquo;s original protocol was brutal: three days of glycogen depletion (exhaustive exercise plus low-carbohydrate diet) followed by three days of rest and very high carbohydrate intake (~70% of calories). The depletion phase brought fatigue, irritability, and impaired training. Sherman et al. (1981, <em>International Journal of Sports Medicine</em>) showed that trained athletes could achieve equivalent supercompensation by simply tapering training volume for three days while eating a high-carb diet &mdash; no depletion phase required. Further research by Bussau et al. (2002) found that even a single 24-hour protocol &mdash; one exhaustive session followed by 24 hours of very high carbohydrate intake &mdash; can achieve near-maximal supercompensation in well-trained athletes.</p>
+      <p>The practical rule today: carbohydrate loading (碳水化合物負荷) benefits only events lasting more than 90 minutes (長距離耐力項目). Below that threshold, normal glycogen stores are rarely the limiting factor. The target is 8&ndash;12g of carbohydrate per kilogram of body weight per day during the 24&ndash;48 hours before the event, combined with training reduction. Fat adaptation strategies (脂肪適應), popular in some ultra-endurance communities, do not produce superior performance for most athletes &mdash; fat oxidation (脂肪氧化) cannot sustain the power outputs needed for race accelerations, and Hawley &amp; Burke (2010) confirmed that high-fat diets impair high-intensity surge capacity. Carbohydrate remains the fastest-burning fuel biology has available.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Carbohydrate_loading" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Carb-load for events over 90 minutes: 8&ndash;12g carbohydrate per kg for 24&ndash;48 hours before, while cutting training volume. Skip the depletion phase &mdash; it&rsquo;s unnecessary suffering.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does glycogen supercompensation work, and for what type of athletic event is carbohydrate loading actually beneficial?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">When muscles are depleted of glycogen and refuelled with carbohydrates, they overshoot baseline storage (150&ndash;200% of normal), extending fuel availability in prolonged exercise. Carbohydrate loading benefits events lasting more than 90 minutes; below that threshold, normal glycogen stores rarely limit performance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bergstr&ouml;m, J. et al. (1967). &ldquo;Diet, muscle glycogen and physical performance.&rdquo; <em>Acta Physiologica Scandinavica</em>, 71, 140&ndash;150. Bussau, V.A. et al. (2002). &ldquo;Carbohydrate loading in human muscle.&rdquo; <em>EJAP</em>, 87(3), 290&ndash;295. Hawley, J.A. &amp; Burke, L.M. (2010). &ldquo;Carbohydrate availability and training adaptation.&rdquo; <em>Journal of Sports Sciences</em>, 28(sup1), S45&ndash;S54.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Mystery at the Heart of Finance: Why Stocks Have Returned 6&ndash;7% More Than Treasury Bills (國債) Per Year Since 1889 &mdash; and Why No Economist Has Satisfactorily Explained It After Forty Years of Trying</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Stocks have historically outperformed risk-free government bonds by roughly 6&ndash;7 percentage points per year. Standard economic theory says this &ldquo;equity premium&rdquo; should be much smaller. What might explain why investors demand so much extra return?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Comparison_of_three_stock_indices_after_1975.svg/960px-Comparison_of_three_stock_indices_after_1975.svg.png" alt="Comparison of stock index returns over time" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Long-run stock index outperformance over bonds. Credit: <a href="https://en.wikipedia.org/wiki/Stock_market_index" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1985, Rajnish Mehra (梅赫拉) and Edward Prescott (普雷斯科特) published a short paper that has embarrassed financial economists ever since. They documented that US stocks had outperformed risk-free Treasury bills (國債) by approximately 6&ndash;7 percentage points per year over the previous ninety years &mdash; a gap they called the equity premium (股票風險溢價). By itself, this is unsurprising: riskier assets should earn more. The puzzle is the magnitude. When they ran the numbers through the standard consumption-based CAPM (消費資本資產定價模型), which asks how much extra return rational investors would demand for bearing equity risk, the model could justify a premium of at most 0.35%. The actual premium is twenty times larger.</p>
+      <p>For the model to produce a 6&ndash;7% premium, investors would need an implausibly high coefficient of relative risk aversion (相對風險厭惡係數) of 30&ndash;40 &mdash; far above empirical estimates of 1&ndash;5. Three main explanations have competed. Habit formation models (習慣形成模型), pioneered by Campbell and Cochrane (1999, <em>Journal of Political Economy</em>), suggest investors fear consumption falling below their accustomed habits far more than below-average outcomes. Rare disaster risk models (Barro 2006, <em>Quarterly Journal of Economics</em>) argue investors price in catastrophic events like wars and depressions that appear rarely in the historical sample. Behavioural finance (行為金融學) offers a third answer: Benartzi and Thaler (1995) showed that investors who evaluate portfolios too frequently &mdash; myopic loss aversion (短視損失厭惡) &mdash; experience so much pain from frequent small losses that equities feel far riskier than they actually are over long horizons.</p>
+      <p>The practical implication matters enormously. Whether the forward-looking equity premium (前瞻性股票溢價) is 3% or 7% changes retirement projections, pension fund solvency calculations, and asset allocation (資產配置) decisions for hundreds of millions of people. Robert Shiller (席勒) argues elevated valuations mean lower future premiums. John Cochrane (科克倫) contends the premium compensates for macroeconomic risk standard models mismeasure. What all agree on: the premium exists; it is large; and you can only capture it by holding equities through their inevitable 40&ndash;50% crashes. The equity premium, as Mehra put it, is a reward &mdash; but only for those with the stomach to stay.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Equity_premium_puzzle" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The equity premium rewards long-term investors &mdash; but only those who don&rsquo;t panic in the crashes that make the premium so psychologically hard to earn.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is the equity premium called a &ldquo;puzzle,&rdquo; and what does this reveal about standard economic models of investor behaviour?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">US stocks have historically outperformed bonds by ~6&ndash;7% annually, but standard consumption-based models can justify only ~0.35%. To match the actual premium, investors would need implausibly high risk aversion (coefficient 30&ndash;40), suggesting standard utility models fundamentally mischaracterise how humans experience financial risk.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mehra, R. &amp; Prescott, E.C. (1985). &ldquo;The equity premium: A puzzle.&rdquo; <em>Journal of Monetary Economics</em>, 15(2), 145&ndash;161. Barro, R.J. (2006). &ldquo;Rare disasters and asset markets.&rdquo; <em>QJE</em>, 121(3), 823&ndash;866. Benartzi, S. &amp; Thaler, R.H. (1995). &ldquo;Myopic loss aversion and the equity premium puzzle.&rdquo; <em>QJE</em>, 110(1), 73&ndash;92.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Save bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Theory That Wouldn&rsquo;t Die: How Secular Stagnation (長期停滯) Predicted Permanently Low Rates, Seemed Defeated by Inflation &mdash; and Is Now Creeping Back</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Prof._Alvin_W._Hansen_of_Harvard_U._before_Senate_Unemployment_%26_Relief_Comm._Hearings_LCCN2016878028_%28cropped%29.jpg" alt="Alvin Hansen, originator of secular stagnation theory" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Alvin Hansen, who coined &ldquo;secular stagnation&rdquo; in 1938. Credit: <a href="https://en.wikipedia.org/wiki/Alvin_Hansen" target="_blank" rel="noopener">Wikimedia Commons / Library of Congress</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">After the 2008 financial crisis (2008金融危機), major economies sat near-zero interest rates for a decade yet struggled to reach full employment. Japan had lived this nightmare since the 1990s. In 2013, Larry Summers (薩默斯) named it: secular stagnation (長期停滯). Then in 2021&ndash;22, US inflation hit 9.1% and eurozone inflation hit 10.6% &mdash; the highest since the 1970s. Central banks hiked rates to 4&ndash;5%. Secular stagnation appeared dead.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Alvin Hansen (漢森) coined the term in his 1938 AEA presidential address, arguing that demographic ageing (人口老齡化) and declining investment opportunities push the natural interest rate (中性利率, r*) permanently below zero, leaving excess savings that demand cannot absorb. Summers&rsquo; 2013 revival added a post-crisis channel: deleveraging (去槓桿) and secular forces had pushed r* structurally negative after adjusting for inflation, meaning conventional monetary policy was chronically insufficient &mdash; full employment required either fiscal stimulus or negative real rates.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The 2021&ndash;2023 inflation surge seemed to shatter the theory: if r* were permanently low, how could inflation reach multi-decade highs? Central banks raised rates aggressively without triggering mass unemployment in most developed economies. Growth remained positive even as rates rose sharply, suggesting the economy was not as demand-constrained as secular stagnation predicted.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Summers himself argued in 2023 that the inflation surge was a supply-shock anomaly (supply chains, energy, fiscal transfers) &mdash; not evidence of permanently restored demand strength. As supply pressures eased, r* fell back. A competing challenger is Ben Bernanke&rsquo;s (伯南克) &ldquo;global savings glut (全球儲蓄過剩)&rdquo; hypothesis: low rates reflect excess savings from ageing Asia, not broken investment demand. Both predict renewed downward pressure on rates. With the US Fed and ECB beginning rate-cut cycles in 2024, the spectre of the zero lower bound (零利率下限) may be returning &mdash; the anomaly has generated competing hypotheses but no consensus. Open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Secular stagnation is not dead &mdash; the 2021 inflation spike was likely a supply shock, not a refutation. Watch r* as the key diagnostic variable.</div>
+      <div class="source">&#x1F4D6; Hansen, A. (1938). &ldquo;Economic progress and declining population growth.&rdquo; <em>American Economic Review</em>, 29(1), 1&ndash;15. Summers, L. (2014). &ldquo;U.S. economic prospects: Secular stagnation, hysteresis, and the zero lower bound.&rdquo; <em>Business Economics</em>, 49(2). Rachel, L. &amp; Summers, L. (2019). &ldquo;On secular stagnation in the industrialised world.&rdquo; <em>Brookings Papers on Economic Activity</em>.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 10 &mdash; Cosmic Yardsticks and Financial Puzzles:</strong> Henrietta Leavitt solved an astronomical mystery by finding a hidden regularity &mdash; a relationship between a star&rsquo;s period and its luminosity that nobody had thought to look for. Mehra and Prescott identified a financial regularity &mdash; the 6&ndash;7% equity premium &mdash; that has also resisted easy explanation for forty years. In both cases, the pattern is clear; the mechanism is disputed. Both remind us that empirical anomalies precede theoretical revolutions: the Hubble Tension and the equity premium puzzle are still waiting for their Einsteins.</p>
+      <p><strong>So what:</strong> When you encounter a robust pattern you cannot explain, resist the urge to dismiss it or force-fit it into existing theory. Anomalies &mdash; in science or markets &mdash; are where the next paradigm shift lives. Stay curious about the gaps.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1 (Astronomy):</strong> Leavitt &amp; Pickering (1912), Harvard College Observatory Circular 173; Freedman et al. (2001), <em>ApJ</em> 553; Riess et al. (2023), <em>ApJ Letters</em> 951, L7.</li>
+      <li><strong>Card 2 (Eastern History):</strong> 《宋史·太祖本紀》；司馬光《涑水記聞》；王曾瑜（1983）；余英時（2003）。</li>
+      <li><strong>Card 3 (Western History):</strong> Hugh Thomas (1993); Matthew Restall (2018); Alfred W. Crosby (1972); Bernal D&iacute;az del Castillo (c. 1568).</li>
+      <li><strong>Card 4 (Eastern Philosophy):</strong> 范縝《神滅論》（《梁書·儒林傳》）；馮友蘭《中國哲學史》；de Bary &amp; Bloom (1999).</li>
+      <li><strong>Card 5 (Western Philosophy):</strong> De Beauvoir (1949/2010); Toril Moi (1994); Stanford Encyclopedia of Philosophy (2023).</li>
+      <li><strong>Card 6 (Psychology):</strong> Greenberg, Pyszczynski &amp; Solomon (1986); Burke, Martens &amp; Faucher (2010), <em>PSPR</em> 14(2).</li>
+      <li><strong>Card 7 (Physiology):</strong> Davie, Fujikawa &amp; Kisiel (1991), <em>Biochemistry</em> 30(43); Kearon et al. (2012), <em>Chest</em> 141(2 Suppl).</li>
+      <li><strong>Card 8 (Health):</strong> Dahl et al. (2020), <em>JAND</em>; Wastyk et al. (2021), <em>Cell</em> 184; Sonnenburg &amp; B&auml;ckhed (2016), <em>Nature</em> 535.</li>
+      <li><strong>Card 9 (Sports Science):</strong> Bergstr&ouml;m et al. (1967), <em>Acta Physiol Scand</em> 71; Bussau et al. (2002), <em>EJAP</em> 87(3); Hawley &amp; Burke (2010), <em>J Sports Sci</em> 28(sup1).</li>
+      <li><strong>Card 10 (Investing):</strong> Mehra &amp; Prescott (1985), <em>JME</em> 15(2); Barro (2006), <em>QJE</em> 121(3); Benartzi &amp; Thaler (1995), <em>QJE</em> 110(1).</li>
+      <li><strong>Card 11 (Political Econ):</strong> Hansen (1938), <em>AER</em> 29(1); Summers (2014), <em>Business Economics</em> 49(2); Rachel &amp; Summers (2019), <em>Brookings Papers</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (recent)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-01: Cepheid Variables / Cosmic Distance Ladder &bull; 趙匡胤&middot;杯酒釋兵權 &bull; Fall of Tenochtitlan / Cort&eacute;s &bull; 范縝《神滅論》 &bull; Simone de Beauvoir / The Second Sex &bull; Terror Management Theory &bull; Coagulation Cascade &bull; Dietary Fibre &amp; SCFAs &bull; Carbohydrate Loading / Glycogen Supercompensation &bull; Equity Premium Puzzle &bull; Secular Stagnation</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-01.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-01.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 1 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
