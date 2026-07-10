@@ -1,375 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Daily Learning</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0f0f0f;--surface:#161616;--border:#272727;--text:#e8e6e0;--muted:#6a6a6a;--muted2:#888;--accent:#7eb8d4;--gold:#c8a96e;}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;font-weight:300;line-height:1.6;min-height:100vh;}
-    .site-header{border-bottom:1px solid var(--border);padding:3.5rem 2rem 2.5rem;max-width:780px;margin:0 auto;}
-    .header-eyebrow{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
-    .header-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;color:#fff;line-height:1.15;letter-spacing:-.01em;}
-    .header-title em{font-style:italic;color:var(--gold);}
-    .header-sub{margin-top:.9rem;font-size:.82rem;color:var(--muted2);font-weight:300;}
-    .header-bookmarks{display:inline-block;margin-top:1.1rem;font-size:.74rem;letter-spacing:.04em;color:var(--accent);text-decoration:none;border:1px solid var(--border);border-radius:6px;padding:.35rem .85rem;transition:color .18s,border-color .18s,background .18s;}
-    .header-bookmarks:hover{color:#fff;border-color:var(--accent);background:var(--surface);}
-    main{max-width:780px;margin:0 auto;padding:2.5rem 2rem 6rem;}
-    .date-group{margin-bottom:2rem;}
-    .date-label{padding-bottom:.5rem;margin-bottom:.4rem;border-bottom:1px solid var(--border);}
-    .date-label-text{font-size:.68rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
-    .entry-link{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem .9rem;border:1px solid transparent;border-radius:8px;text-decoration:none;color:inherit;transition:background .18s,border-color .18s;margin:.1rem 0;}
-    .entry-link:hover{background:var(--surface);border-color:var(--border);}
-    .entry-body{display:flex;flex-direction:column;gap:.2rem;min-width:0;}
-    .entry-title{font-family:'Cormorant Garamond',Georgia,serif;font-size:1.08rem;font-weight:600;color:var(--text);line-height:1.3;}
-    .categories{font-size:.7rem;color:var(--muted2);font-family:'Inter',sans-serif;font-weight:400;letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:560px;}
-    .entry-arrow{color:var(--muted);font-size:.85rem;flex-shrink:0;transition:color .18s,transform .18s;}
-    .entry-link:hover .entry-arrow{color:var(--accent);transform:translateX(3px);}
-    footer{border-top:1px solid var(--border);padding:2rem;max-width:780px;margin:0 auto;font-size:.72rem;color:var(--muted);letter-spacing:.04em;}
-    @media(max-width:600px){.site-header{padding:2.5rem 1.2rem 1.8rem;}main{padding:2rem 1.2rem 5rem;}.categories{max-width:220px;}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward's Daily Learning — All Briefings</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;padding:2rem 1rem 4rem;max-width:700px;margin:0 auto;}
+h1{font-size:1.3rem;margin-bottom:.3rem;}
+.sub{color:var(--muted);font-size:.85rem;margin-bottom:1.5rem;}
+a.bm-link{display:inline-block;margin-bottom:1.5rem;font-size:.85rem;color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:.35rem .8rem;border-radius:6px;}
+ul{list-style:none;}
+li{margin-bottom:.5rem;}
+li a{color:var(--text);text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:.6rem 1rem;display:block;font-size:.95rem;transition:border-color .18s,background .18s;}
+li a:hover{border-color:var(--accent);background:#1e1e2e;}
+</style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-eyebrow">Daily Briefing</div>
-    <h1 class="header-title"><em>Daily Learning</em></h1>
-    <p class="header-sub">Astronomy &middot; History &middot; Philosophy &middot; Psychology &middot; Science &middot; Economics</p>
-    <a class="header-bookmarks" href="bookmarks.html">&#x1F516; My Bookmarks</a>
-  </header>
-  <main>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Friday, 10 July 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-07-10-2.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning &mdash; Edition 2</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-          <a class="entry-link" href="daily-learning-2026-07-10.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology — Behavioral Economics · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Saturday, 4 July 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-07-04.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Friday, 3 July 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-07-03.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology — Behavioral Economics · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Thursday, 2 July 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-07-02.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Wednesday, 1 July 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-07-01.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Tuesday, 30 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-30.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Monday, 29 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-29.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Sunday, 28 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-28.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Saturday, 27 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-27.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Friday, 26 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-26.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Thursday, 25 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-25-2.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning &mdash; Edition 2</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-          <a class="entry-link" href="daily-learning-2026-06-25.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Wednesday, 24 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-24.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Tuesday, 23 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-23.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology — Behavioral Economics · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Monday, 22 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-22.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Sunday, 21 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-21.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Saturday, 20 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-20.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Friday, 19 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-19.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Thursday, 18 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-18.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology Behavioral Economics · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Wednesday, 17 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-17.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Tuesday, 16 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-16.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology — Decode Your Body · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Monday, 15 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-15.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology — Decode Your Body · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Sunday, 14 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-14.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology — Hidden Biology of Human Variation · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Saturday, 13 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-13.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · History — Western · 東方哲學 · Philosophy — Western · Psychology Behavioral Economics · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Friday, 12 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-12-2.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning &mdash; Edition 2</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-          <a class="entry-link" href="daily-learning-2026-06-12.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Thursday, 11 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-11-2.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning &mdash; Edition 2</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-          <a class="entry-link" href="daily-learning-2026-06-11.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Wednesday, 10 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-10.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 歷史 — 東方 · History — Western · 哲學 — 東方 · Philosophy — Western · Psychology · Physiology — Hidden Biology of Human Variation · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Tuesday, 9 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-09.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · Eastern History · Western History · Eastern Philosophy · Western Philosophy · Psychology · Physiology · Axis A: Decode Everyday Body Experiences · Health · Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Sunday, 7 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-07.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy · History · Philosophy · Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Wednesday, 3 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-03.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos Saturn Was Never Speeding Up. Its Own Northern Lights Were Lying to Us. · 東方歷史 鎖國的算盤：德川幕府關閉日本大門，其實是為了對付日本人 · Western History The Banned Book That Sold 20,000 Copies in a Year — and Helped Start a Revolution · 東方哲學 愛是可以計算的嗎？墨子的「兼愛」，與儒家那場兩千年的爭論 · Western Philosophy The Stoics' Secret Weapon: Negative Visualisation, and Why They Rehearsed Disaster for Breakfast · Psychology Why the First Number in Any Negotiation Has an Almost Unfair Amount of Power · Physiology Goosebumps: An Ancient Survival Reflex That Now Activates at Beethoven · Health The Knuckle Cracker's Vindication: What 60 Years of Cracking One Hand Proved · Sports Science Progressive Overload: The One Principle That Explains Why Your Body Adapts at All</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-        <div class="date-group">
-          <div class="date-label"><span class="date-label-text">Tuesday, 2 June 2026</span></div>
-          <a class="entry-link" href="daily-learning-2026-06-02.html">
-            <div class="entry-body">
-              <span class="entry-title">Daily Learning</span>
-              <span class="categories">Astronomy & Cosmos · 東方歷史 · Western History · 東方哲學 · Western Philosophy · Psychology · Physiology · Health · ️ Sports Science</span>
-            </div>
-            <span class="entry-arrow">&#x2192;</span>
-          </a>
-        </div>
-  </main>
-  <footer>&copy; 2026 Edward Chan &middot; Powered by curiosity</footer>
+<h1>Edward's Daily Learning</h1>
+<div class="sub">All briefings, newest first &middot; 35 editions</div>
+<a class="bm-link" href="bookmarks.html">&#x1F516; Saved Bookmarks</a>
+<ul>
+<li><a href="daily-learning-2026-07-10-2.html">10 July 2026 (Edition 2)</a></li>
+<li><a href="daily-learning-2026-07-10.html">10 July 2026</a></li>
+<li><a href="daily-learning-2026-07-05.html">5 July 2026</a></li>
+<li><a href="daily-learning-2026-07-04.html">4 July 2026</a></li>
+<li><a href="daily-learning-2026-07-03.html">3 July 2026</a></li>
+<li><a href="daily-learning-2026-07-02.html">2 July 2026</a></li>
+<li><a href="daily-learning-2026-07-01.html">1 July 2026</a></li>
+<li><a href="daily-learning-2026-06-30.html">30 June 2026</a></li>
+<li><a href="daily-learning-2026-06-29.html">29 June 2026</a></li>
+<li><a href="daily-learning-2026-06-28.html">28 June 2026</a></li>
+<li><a href="daily-learning-2026-06-27.html">27 June 2026</a></li>
+<li><a href="daily-learning-2026-06-26.html">26 June 2026</a></li>
+<li><a href="daily-learning-2026-06-25-2.html">25 June 2026 (Edition 2)</a></li>
+<li><a href="daily-learning-2026-06-25.html">25 June 2026</a></li>
+<li><a href="daily-learning-2026-06-24.html">24 June 2026</a></li>
+<li><a href="daily-learning-2026-06-23.html">23 June 2026</a></li>
+<li><a href="daily-learning-2026-06-22.html">22 June 2026</a></li>
+<li><a href="daily-learning-2026-06-21.html">21 June 2026</a></li>
+<li><a href="daily-learning-2026-06-20.html">20 June 2026</a></li>
+<li><a href="daily-learning-2026-06-19.html">19 June 2026</a></li>
+<li><a href="daily-learning-2026-06-18.html">18 June 2026</a></li>
+<li><a href="daily-learning-2026-06-17.html">17 June 2026</a></li>
+<li><a href="daily-learning-2026-06-16.html">16 June 2026</a></li>
+<li><a href="daily-learning-2026-06-15.html">15 June 2026</a></li>
+<li><a href="daily-learning-2026-06-14.html">14 June 2026</a></li>
+<li><a href="daily-learning-2026-06-13.html">13 June 2026</a></li>
+<li><a href="daily-learning-2026-06-12-2.html">12 June 2026 (Edition 2)</a></li>
+<li><a href="daily-learning-2026-06-12.html">12 June 2026</a></li>
+<li><a href="daily-learning-2026-06-11-2.html">11 June 2026 (Edition 2)</a></li>
+<li><a href="daily-learning-2026-06-11.html">11 June 2026</a></li>
+<li><a href="daily-learning-2026-06-10.html">10 June 2026</a></li>
+<li><a href="daily-learning-2026-06-09.html">9 June 2026</a></li>
+<li><a href="daily-learning-2026-06-07.html">7 June 2026</a></li>
+<li><a href="daily-learning-2026-06-03.html">3 June 2026</a></li>
+<li><a href="daily-learning-2026-06-02.html">2 June 2026</a></li>
+</ul>
 </body>
 </html>
