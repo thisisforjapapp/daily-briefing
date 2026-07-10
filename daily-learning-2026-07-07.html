@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 7 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.linkage-banner{font-size:.78rem;color:var(--accent);background:rgba(126,184,212,.08);border:1px solid var(--accent-dim);border-radius:6px;padding:.45rem .8rem;margin-bottom:.9rem;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 7 July 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>6 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; 51 Pegasi b</span>Existing theory held gas giants could only form far from their star, but 51 Pegasi b orbits in just 4.2 days, closer than Mercury &mdash; a "hot Jupiter" explained by planetary migration inward from a more distant birthplace.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 北魏孝文帝漢化改革</span>孝文帝遷都洛陽、禁鮮卑語胡服、改漢姓並鼓勵通婚，卻因留守六鎮軍人心生不滿，三十年後爆發六鎮之亂，但也為隋唐胡漢融合奠下基礎。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Franz Ferdinand Assassination</span>After a failed bomb attack, a changed motorcade route and a wrong turn placed the assassin directly in front of his target again, and the alliance system turned one death into a continental war within five weeks.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 惠施・濠梁之辯</span>惠施質疑莊子「子非魚，安知魚之樂」，莊子反擊「子非我，安知我不知魚之樂」，將惠施的邏輯反過來套用在惠施自己身上。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Machiavelli</span>Fear is a bond of self-interest a ruler directly controls, while love depends on subjects' fickle goodwill &mdash; Machiavelli's reasoning for why it's often better to be feared than loved.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Groupthink</span>After the Bay of Pigs, Kennedy restructured his advisory process to deliberately invite dissent, splitting advisors into subgroups and leaving the room himself &mdash; changes credited with the more careful Cuban Missile Crisis handling.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Hemoglobin / Bohr Effect</span>Rising CO2, acidity, temperature, and 2,3-BPG shift the oxygen dissociation curve rightward, making hemoglobin release oxygen more readily exactly where and when exercising muscle needs it most.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Herd Immunity</span>A disease's basic reproduction number (R0) sets its herd immunity threshold via 1&minus;1/R0 &mdash; measles needs roughly 95% immunity because it's so contagious, while influenza needs far less.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Sprint Force-Velocity Profiling</span>Two sprinters can post identical times while having opposite mechanical weaknesses &mdash; force-dominant vs velocity-dominant &mdash; meaning each needs training targeted at their specific deficit, not an identical programme.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Bitcoin Whitepaper</span>Nakamoto's blockchain solved the double-spending problem without a trusted central authority, using a decentralised network competing via proof of work to maintain one tamper-resistant public ledger.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Our Galaxy&#x2019;s Next Big Move: The Andromeda Galaxy (仙女座星系) and the Collision Nobody Alive Will See</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two spiral galaxies, each containing hundreds of billions of stars, are on a collision course with each other, approaching at roughly 110 kilometres per second. Given how densely packed stars seem in galaxy images, how many direct star-to-star collisions do you think will actually happen when the two galaxies merge?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Andromeda_Galaxy_2025.png/3840px-Andromeda_Galaxy_2025.png" alt="The Andromeda Galaxy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Andromeda Galaxy (仙女座星系, M31), our nearest large galactic neighbour, on a collision course with the Milky Way. Credit: <a href="https://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Andromeda Galaxy (仙女座星系, M31), our nearest large galactic neighbour at roughly 2.5 million light-years away, is approaching the Milky Way (銀河系) at about 110 kilometres per second &mdash; a blueshift first measured spectroscopically by Vesto Slipher in 1912, one of the earliest pieces of evidence that not all galaxies were simply receding from us. For decades, astronomers knew Andromeda was approaching but couldn't determine whether it would actually collide with the Milky Way or sweep past at an angle, because that required measuring its sideways (tangential) motion &mdash; extraordinarily difficult given the galaxy's vast distance.</p>
+      <p>In 2012, a team led by Roeland van der Marel used Hubble Space Telescope images taken years apart to measure Andromeda's tiny apparent sideways shift against background stars, finally confirming that Andromeda's sideways motion is small enough that a direct collision with the Milky Way is essentially certain, predicted to begin in roughly 4.5 billion years. Despite each galaxy containing several hundred billion stars, the collision (合併) will produce almost no direct star-to-star collisions at all &mdash; the distances between individual stars, even within a densely packed galaxy, are so vast relative to stellar size that the two galaxies will essentially pass through each other like two clouds of gnats, gravitationally interacting without physical impacts.</p>
+      <p>What will change dramatically is each galaxy's overall shape: tidal gravitational forces will strip stars into long streaming tails, distort both spiral structures beyond recognition over hundreds of millions of years, and eventually merge the two into a single, larger elliptical galaxy that astronomers have informally nicknamed "Milkomeda." Our own solar system will very likely survive the process largely intact, simply relocated to a different position within the merged galaxy, though the night sky humanity's distant descendants (if any remain) would see during the collision's peak would look dramatically different from today's.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two galaxies containing hundreds of billions of stars can collide almost without a single direct star-to-star impact &mdash; a vivid reminder of just how empty even a "crowded" galaxy actually is.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why will the collision between the Milky Way and Andromeda produce almost no direct star-to-star collisions, despite each galaxy containing hundreds of billions of stars?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The distances between individual stars, even within a densely packed galaxy, are vastly larger relative to the stars' physical size than most people intuitively expect &mdash; so the two galaxies will essentially pass through each other gravitationally, like two clouds of gnats, without individual stars actually colliding.</div>
+      </details>
+      <div class="source">&#x1F4D6; van der Marel, R.P. et al. (2012). "The M31 Velocity Vector." <em>Astrophysical Journal</em>, 753(1). NASA/ESA Hubble Space Telescope press release (2012).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>八萬對八十萬，一句「風聲鶴唳」如何讓百萬大軍不戰自潰：淝水之戰與東晉存亡的一夜逆轉</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你統率八十萬大軍南征，對方兵力不到你的十分之一，你會如何看待這場戰爭的勝負？如果我告訴你，這場仗最終竟是你自己的軍隊因誤判而自相踐踏潰散，你會相信嗎？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>前秦皇帝苻堅（率號稱百萬大軍南征）；東晉宰相謝安（坐鎮後方，指揮若定）；謝玄（前鋒都督，率北府兵迎戰）；朱序（前秦俘虜的東晉降將，暗中通風報信）。</p>
+        <p><strong>事件：</strong>383年，前秦大舉南征意圖統一中國，東晉以八萬北府兵在淝水（今安徽壽縣附近）大破前秦號稱八十萬大軍，前秦隨即土崩瓦解。</p>
+        <p><strong>時代背景：</strong>東晉偏安江南，前秦在苻堅治下統一北方，國力鼎盛，苻堅力排眾議決意南征，欲畢其功於一役統一天下；謝安則以「圍棋賭墅」的鎮定姿態穩定江東人心。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Battle_of_Fei_River.png" alt="淝水之戰示意圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">淝水之戰示意圖，383年前秦與東晉決戰。來源：<a href="https://en.wikipedia.org/wiki/Battle_of_Fei_River" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>383年，前秦皇帝苻堅集結號稱百萬（實際兵力仍為歷史學者爭論焦點，但確定遠超東晉）大軍南下，意圖一舉滅亡偏安江南的東晉、統一天下。東晉朝廷上下震動，宰相謝安臨危受命，任命姪子謝玄統率僅八萬人的北府兵迎戰。謝安本人則以出了名的鎮定著稱&mdash;&mdash;據《晉書》記載，捷報傳來時他正與客人下棋，看完戰報只淡然放在一旁繼續對弈，直到客人離去後才難掩喜色，「折屐齒」而不自知，這份沉著成為千古美談。</p>
+      <p>決定戰局的關鍵發生在兩軍隔淝水對峙之際。謝玄派人向苻堅提議：讓前秦軍隊稍向後退，騰出空間讓東晉軍隊渡河決戰。苻堅認為可趁東晉軍隊渡河渡到一半、進退兩難之際突然發動攻擊，遂下令大軍後撤。然而前秦大軍成分複雜，多為新近征服的異族部隊，軍心本就不穩，一聲「後退」的命令加上東晉降將朱序在陣後大喊「秦軍敗矣」，竟引發連鎖恐慌，數十萬大軍瞬間潰不成軍、自相踐踏，東晉趁勢渡河追擊，一舉大破前秦。</p>
+      <p>前秦潰兵在逃亡途中，「聞風聲鶴唳，皆以為晉軍且至」&mdash;&mdash;風吹草木與鶴鳴之聲都被誤認為追兵殺到，士兵們晝夜不敢停歇，這正是成語「風聲鶴唳」與「草木皆兵」的由來。淝水之戰後，前秦帝國迅速分崩離析，苻堅本人於兩年後被部下所殺，北方重新陷入十六國割據混戰局面，而東晉則因此役保住了半壁江山，中國南北分治的格局因這一場以少勝多的戰役又延續了近兩百年，直到隋朝重新統一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Fei_River" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 淝水之戰證明：龐大的軍隊若缺乏真正的凝聚力與士氣，一個謠言、一次誤判就足以讓百萬雄師土崩瓦解。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>淝水之戰中，前秦大軍為何在後撤時突然全面潰散？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">前秦大軍成分複雜、多為新征服異族、軍心本就不穩，謝玄提議讓前秦稍退以便東晉渡河決戰，苻堅意圖趁機半渡而擊，下令後撤；此時降將朱序在陣後大喊「秦軍敗矣」，引發連鎖恐慌，數十萬大軍瞬間自相踐踏潰散，東晉趁勢渡河追擊，一舉大破前秦。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《晉書·苻堅載記》《晉書·謝安傳》；田餘慶《東晉門閥政治》；呂思勉《兩晉南北朝史》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>&ldquo;The Nearest Run Thing You Ever Saw&rdquo;: The Battle of Waterloo (滑鐵盧戰役) and Napoleon&#x2019;s (拿破崙) Final Defeat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Napoleon Bonaparte, exiled to the island of Elba after his first defeat, escapes, returns to France, and rebuilds an army within just 100 days. He then fights his final battle against two separate allied armies that, if combined, would badly outnumber him &mdash; but only if they actually manage to combine in time. What do you think the entire outcome of this battle hinged on?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Napoleon Bonaparte (拿破崙), returning from exile on Elba; the Duke of Wellington (威靈頓公爵), commanding the Anglo-allied army; Gebhard von Bl&uuml;cher (布呂歇爾), commanding the Prussian army; Marshal Grouchy (格魯希元帥), sent to intercept the Prussians but failed to stop them.</p>
+        <p><strong>Event at stake:</strong> The Battle of Waterloo (滑鐵盧戰役), 18 June 1815, near modern-day Belgium.</p>
+        <p><strong>Big picture:</strong> Napoleon's escape from exile on Elba in early 1815 triggered the "Hundred Days" (百日王朝) &mdash; a frantic race to rebuild an army and strike before the assembled European coalition could combine their full forces against him.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Battle_of_Waterloo_1815.PNG" alt="The Battle of Waterloo, 1815" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Battle of Waterloo (滑鐵盧戰役), 18 June 1815. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Waterloo" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>After escaping exile on the island of Elba in February 1815, Napoleon (拿破崙) rapidly rebuilt an army and marched into Belgium, hoping to defeat the assembled British-led and Prussian armies separately before they could unite into an overwhelming combined force. His strategy nearly worked: at the Battle of Ligny two days before Waterloo, Napoleon's forces defeated Gebhard von Bl&uuml;cher's (布呂歇爾) Prussian army and drove it into retreat, and Napoleon dispatched Marshal Grouchy (格魯希元帥) with roughly a third of his remaining forces specifically to pursue and prevent the Prussians from regrouping and joining the Duke of Wellington's (威靈頓公爵) Anglo-allied army.</p>
+      <p>On 18 June 1815, Napoleon attacked Wellington's defensive position near the village of Waterloo (滑鐵盧), but a night of heavy rain had turned the battlefield to mud, delaying Napoleon's attack by several critical hours to let the ground firm up &mdash; time that proved decisive. Wellington's forces held their defensive line through repeated massed French infantry and cavalry assaults throughout the day, while Grouchy, failing to locate or effectively pin down the Prussian army, allowed Bl&uuml;cher to disengage and force-march his exhausted troops toward the sound of the guns at Waterloo. Prussian forces began arriving on Napoleon's flank in the late afternoon, forcing him to divert increasingly scarce reserves to hold them off.</p>
+      <p>By early evening, with his elite Imperial Guard's final assault repulsed and Prussian forces now attacking in strength, Napoleon's army disintegrated into a full rout. Wellington famously described the battle afterward as "the nearest run thing you ever saw in your life" &mdash; a description historians broadly endorse, given how narrowly the delayed attack, Grouchy's failure to intercept the Prussians, and the mud-slowed morning combined to determine the outcome. Napoleon abdicated for the second and final time days later, was exiled to the remote South Atlantic island of Saint Helena, and died there in 1821.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Waterloo" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Waterloo wasn't decided by any single grand strategic masterstroke &mdash; it hinged on a few hours of mud-delayed timing and one marshal's failure to intercept an army that arrived just late enough to nearly lose, and just early enough to win.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific factor allowed the Prussian army to arrive at Waterloo and turn the battle against Napoleon, despite having been defeated two days earlier at Ligny?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Marshal Grouchy, sent by Napoleon with roughly a third of his remaining forces to pursue and pin down the retreating Prussian army, failed to effectively locate or stop them. This allowed Gebhard von Bl&uuml;cher to disengage his Prussian forces and force-march them toward Waterloo, where they arrived on Napoleon's flank in the late afternoon and decisively tipped the battle against him.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, A. (2005). <em>Waterloo: Napoleon's Last Gamble</em>. Chandler, D. (1966). <em>The Campaigns of Napoleon</em>. Barbero, A. (2005). <em>The Battle: A New History of Waterloo</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「拔一毛而利天下，不為也」：楊朱的極端個人主義，如何在儒墨夾擊下幾乎從歷史中消失</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位思想家主張，即使拔下自己身上一根毫毛就能讓全天下人受益，他也不願意做&mdash;&mdash;這聽起來自私到極點，但假如他的真正論點其實是「不要用天下的名義來犧牲任何一個個體」，你會如何重新評價這個立場？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>楊朱（約前440&ndash;前360年），戰國早期思想家，其學說主要透過《孟子》的批評與《列子·楊朱篇》間接保存，本人原著已佚。</p>
+        <p><strong>核心思想：</strong>「為我」（一切從自身出發，重視個體生命與身體的完整）；「拔一毛而利天下，不為也」（極端個人主義的著名命題）；「貴己」「全生」（珍視自身生命的完整與自然壽命）。</p>
+        <p><strong>時代背景：</strong>戰國諸子百家爭鳴，孟子曾言「天下之言，不歸楊則歸墨」，可見楊朱學說在當時與墨家「兼愛」齊名、影響力極大，卻因缺乏系統性經典傳世，加上儒家強力批判，最終幾乎完全湮沒於歷史。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/76/Brooklyn_Museum_-_Calligraphy_Lieh_Tzu_Yang-chu_Chapter_-_Kojima_Soshin.jpg" alt="《列子·楊朱篇》書法" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《列子·楊朱篇》書法作品，楊朱思想主要透過此篇間接保存。來源：<a href="https://en.wikipedia.org/wiki/Yang_Zhu" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>楊朱是戰國早期與墨家「兼愛」思想並駕齊驅的顯學代表人物，孟子在《孟子·滕文公下》中曾感嘆「天下之言，不歸楊則歸墨」，足見楊朱學說在當時思想界的巨大影響力。然而楊朱本人並無著作傳世，其思想主要透過《孟子》的批評性引述，以及後出的《列子·楊朱篇》間接保存&mdash;&mdash;這也是為何楊朱思想至今仍是中國哲學史上爭議最大、最容易被誤解的學派之一：我們幾乎只能透過反對者的轉述，重建這位曾經與孟子、墨子並列的思想家的真實主張。</p>
+      <p>楊朱最著名、也最常被斷章取義的命題出自《孟子》的轉述：「楊子取為我，拔一毛而利天下，不為也。」表面上看，這是極端自私的宣言，孟子更直接批評楊朱「無君」&mdash;&mdash;不承認君主與國家可以要求個人犧牲，將楊朱與墨子的「兼愛」（無父）並列為對儒家倫理秩序的兩大威脅。但若換一個角度理解，楊朱真正的論點或許更接近：任何以「天下」「國家」之名要求個體犧牲身體或生命的訴求，都應該被高度懷疑&mdash;&mdash;他反對的不是「利他」本身，而是反對將個體生命工具化、當作可以任意犧牲的手段。</p>
+      <p>這種對個體生命完整性（「全生」「貴己」）的堅持，與後世西方自由主義對個人權利不可侵犯的論證，有著跨越兩千多年的隱約呼應，也是為何現代學者重新研究楊朱時，往往將他定位為中國思想史上罕見的「個體優先」聲音。然而楊朱學派最終未能像儒家、道家、墨家那樣留下完整經典體系，在漢代「罷黜百家，獨尊儒術」之後迅速式微，僅存的思想碎片散見於《列子》《莊子》《韓非子》等他派著作的轉述與批評之中&mdash;&mdash;一個曾與孟子分庭抗禮的顯學，最終幾乎完全消失於中國思想的主流敘事，僅留下「一毛不拔」這句被簡化、甚至扭曲原意的成語，流傳至今。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Yang_Zhu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 楊朱的「拔一毛不利天下」提醒我們：捍衛個體不被工具化的立場，往往在歷史上最容易被簡化成自私的笑柄。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>孟子如何批評楊朱的「為我」思想？楊朱的主張是否真的等同於自私自利？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">孟子批評楊朱「無君」，認為楊朱不承認君主與國家可以要求個人犧牲。然而楊朱的核心論點更接近反對將個體生命工具化&mdash;&mdash;他反對的是以「天下」之名犧牲任何個體，而非反對利他本身，這與現代個人權利不可侵犯的論證有隱約呼應，並非單純的自私自利。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《孟子·滕文公下》；《列子·楊朱篇》；馮友蘭《中國哲學史》；胡適《中國哲學史大綱》相關論述。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;This Is Not the Best of All Possible Worlds&rdquo;: Voltaire&#x2019;s (伏爾泰) Candide (憨第德) and the Satire That Answered Leibniz</h2>
+      <div class="linkage-banner">&#x1F517; Extends &ldquo;Leibniz &mdash; Monadology&rdquo;: today focuses on Voltaire's satirical demolition of the Leibnizian optimism that card only mentioned in passing.</div>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argues that because God is perfect, the world he created must logically be "the best of all possible worlds" &mdash; even earthquakes and suffering must somehow serve the greater good. A famous writer, horrified by a real catastrophic earthquake, wrote a satirical novel specifically to demolish this argument. What do you think his central counter-argument was?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Voltaire (伏爾泰, 1694&ndash;1778), pen name of Fran&ccedil;ois-Marie Arouet; Gottfried Wilhelm Leibniz (萊布尼茨), whose philosophical optimism the novel satirises; Jean Calas (讓&middot;卡拉斯), a Protestant merchant whose wrongful execution Voltaire later campaigned to overturn.</p>
+        <p><strong>Core ideas:</strong> <em>Candide, ou l'Optimisme</em> (憨第德，或樂觀主義, 1759); the satirical demolition of Leibnizian optimism ("the best of all possible worlds"); "il faut cultiver notre jardin" (we must cultivate our garden).</p>
+        <p><strong>Big picture:</strong> The devastating 1755 Lisbon earthquake, which killed tens of thousands on a religious holiday, shocked European intellectuals and became a flashpoint in the debate over whether a benevolent, all-powerful God's creation could truly be described as optimally good.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Nicolas_de_Largilli%C3%A8re_-_Portrait_de_Voltaire_%281694-1778%29_en_1718_-_P208_-_mus%C3%A9e_Carnavalet_-_5_%28cropped%29.jpg" alt="Portrait of Voltaire by Nicolas de Largilliere" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Voltaire (伏爾泰), portrait by Nicolas de Largilli&egrave;re, 1718. Credit: <a href="https://en.wikipedia.org/wiki/Voltaire" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Voltaire (伏爾泰) wrote <em>Candide</em> (憨第德, 1759) as a direct satirical response to the philosophical optimism (樂觀主義) of Gottfried Wilhelm Leibniz (萊布尼茨), who had argued that since God is perfect and necessarily chooses the best possible option, the actual world we live in &mdash; despite its evident suffering &mdash; must logically be "the best of all possible worlds" (最好的可能世界), with every apparent evil ultimately serving some greater, if invisible, good. Voltaire's disgust with this position sharpened dramatically after the catastrophic 1755 Lisbon earthquake (里斯本大地震), which killed tens of thousands of people, many crushed in churches on All Saints' Day &mdash; a tragedy that struck Voltaire as an obscene case study in exactly the kind of suffering no philosophical formula could adequately justify.</p>
+      <p>The novel follows its naively optimistic protagonist Candide (憨第德) and his tutor Dr. Pangloss (邦葛羅斯博士) &mdash; a relentless parody of Leibnizian philosophy &mdash; through an escalating sequence of increasingly absurd disasters: war, slavery, disease, shipwreck, the Lisbon earthquake itself, and the Inquisition's public burning of heretics, all of which Pangloss insists, with increasingly strained logic, must somehow be for the best. Voltaire's satirical technique wasn't simply to argue against optimism abstractly, but to relentlessly pile absurd, specific catastrophes onto his characters until the philosophical claim that "everything happens for the best" became self-evidently untenable through sheer narrative excess rather than formal counter-argument.</p>
+      <p>The novel's famous closing line, "il faut cultiver notre jardin" (我們必須耕耘自己的花園), has been interpreted many ways, but most commonly as Voltaire's practical alternative to grand metaphysical optimism: rather than constructing elaborate philosophical justifications for why suffering must serve some cosmic good, people should focus on concrete, achievable, local work within their own control. Voltaire's broader intellectual legacy extended well beyond <em>Candide</em> &mdash; he became one of the Enlightenment's most vocal advocates for religious tolerance, most famously campaigning for years to posthumously exonerate Jean Calas (讓&middot;卡拉斯), a Protestant merchant wrongfully tortured and executed by Catholic authorities in Toulouse, coining his rallying cry "&Eacute;crasez l'inf&acirc;me" (剷除卑鄙，粉碎謬妄) against religious fanaticism and institutional injustice.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Voltaire" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Voltaire's answer to grand metaphysical justifications for suffering wasn't a counter-philosophy &mdash; it was a call to stop theorising about the garden and just go cultivate it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Voltaire's satirical technique in Candide for undermining Leibniz's philosophical optimism?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Rather than arguing against optimism through abstract counter-argument, Voltaire relentlessly piled an escalating sequence of absurd, specific catastrophes onto his characters &mdash; war, slavery, disease, the Lisbon earthquake, the Inquisition &mdash; until the claim that "everything happens for the best" became self-evidently untenable through sheer narrative excess.</div>
+      </details>
+      <div class="source">&#x1F4D6; Voltaire (1759). <em>Candide, ou l'Optimisme</em>. Wootton, D. (ed.) (2000). <em>Candide and Related Texts</em>. Hackett. Stanford Encyclopedia of Philosophy: "Voltaire" (2021).</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why That Unfinished Task Keeps Nagging at You: Bluma Zeigarnik&#x2019;s (布魯瑪&middot;蔡加尼克) Discovery About Interrupted Tasks and Memory</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A psychologist notices something odd while sitting in a Vienna caf&eacute;: waiters seem to remember complex, unpaid orders in perfect detail, but forget those same orders almost instantly once the bill is settled. What do you think this pattern reveals about how memory actually works?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Bluma_Zeigarnik%2C_April_3%2C_1921.jpg/3840px-Bluma_Zeigarnik%2C_April_3%2C_1921.jpg" alt="Bluma Zeigarnik, 1921" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Bluma Zeigarnik (布魯瑪&middot;蔡加尼克), 1921, discoverer of the Zeigarnik effect. Credit: <a href="https://en.wikipedia.org/wiki/Bluma_Zeigarnik" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the 1920s, Soviet psychologist Bluma Zeigarnik (布魯瑪&middot;蔡加尼克) was inspired by an observation her mentor Kurt Lewin made at a Vienna caf&eacute;: waiters could recall long, complicated unpaid orders in remarkable detail, but forgot those same orders almost immediately once the bill had been paid and the task was complete. Zeigarnik designed a series of experiments to test this systematically, giving participants a series of simple tasks and interrupting roughly half of them before completion while letting the other half finish uninterrupted.</p>
+      <p>Zeigarnik's 1927 results confirmed the caf&eacute; observation: participants recalled interrupted, uncompleted tasks roughly twice as well as tasks they had been allowed to finish &mdash; a phenomenon that became known as the Zeigarnik effect (蔡加尼克效應). Her explanation centred on psychological tension (心理張力): beginning a task creates a kind of mental "open loop" or unresolved tension that keeps the task active in working memory, while completing a task resolves that tension and allows the mind to release and effectively forget the details, since there's no longer any unfinished goal keeping it psychologically "live."</p>
+      <p>The effect has practical applications across many domains: television dramas deliberately end episodes on cliffhangers to exploit the same unresolved-tension mechanism that keeps viewers thinking about the story between episodes; the effect is also cited as one explanation for why procrastination can paradoxically increase anxiety &mdash; an unstarted or incomplete task remains a nagging "open loop" that occupies mental bandwidth even when not actively being worked on. However, later replication attempts have found the effect is considerably less robust and more context-dependent than Zeigarnik's original findings suggested, with effect sizes varying substantially depending on task type, interruption method, and whether participants perceive the interruption as a genuine failure versus simply pausing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bluma_Zeigarnik" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If an unfinished task keeps nagging at your attention, that's not a character flaw &mdash; it's your mind keeping an "open loop" active, and often the fastest way to quiet it is simply writing down the next concrete step.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Zeigarnik propose as the psychological mechanism behind why interrupted tasks are remembered better than completed ones?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">She proposed that beginning a task creates a kind of mental "open loop" or unresolved psychological tension that keeps the task active in working memory. Completing a task resolves this tension, allowing the mind to release the details, whereas an interrupted task remains psychologically "live" and therefore better remembered.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zeigarnik, B. (1927). "Das Behalten erledigter und unerledigter Handlungen." <em>Psychologische Forschung</em>, 9(1). Baumeister, R.F. &amp; Tierney, J. (2011). <em>Willpower</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>How a Memory Physically Becomes Stronger: Long-Term Potentiation (長期增強作用) and the Synaptic Basis of Learning</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When you learn something new and it "sticks," an actual physical change happens at the connections between specific neurons in your brain. What kind of change do you think makes a synapse &mdash; the tiny junction between two neurons &mdash; better at transmitting signals after learning, compared to before?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/LTP_exemplar.jpg" alt="Diagram illustrating long-term potentiation" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Long-term potentiation (長期增強作用) strengthens the synaptic connection between two neurons. Credit: <a href="https://en.wikipedia.org/wiki/Long-term_potentiation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Long-term potentiation (長期增強作用, LTP) is a persistent strengthening of the connection (synapse) between two neurons, first discovered by Terje L&oslash;mo in 1966 and formally described with Timothy Bliss in 1973, working in the rabbit hippocampus (海馬體) &mdash; the brain region central to forming new memories. When a presynaptic neuron repeatedly and intensely stimulates a postsynaptic neuron in a short window of time, the connection between them becomes measurably stronger and stays that way for hours, days, or even longer, meaning future signals along that same pathway produce a larger response than they did before.</p>
+      <p>The core mechanism centres on two types of glutamate receptors on the postsynaptic neuron: AMPA receptors (AMPA受體), which handle routine fast signal transmission, and NMDA receptors (NMDA受體), which are normally blocked by a magnesium ion and only become unblocked when the postsynaptic neuron is already sufficiently depolarised &mdash; making NMDA receptors act as coincidence detectors (符合檢測器) that only trigger when presynaptic firing and postsynaptic activation happen together. This coincidence-detection property is the cellular basis of what neuroscientists call Hebbian learning (赫布式學習), often summarised by the phrase "cells that fire together, wire together," originally proposed by Donald Hebb in 1949 decades before the biological mechanism was identified.</p>
+      <p>When NMDA receptors activate, they trigger a calcium influx that sets off a cascade of biochemical changes, including inserting additional AMPA receptors into the postsynaptic membrane and, for lasting LTP, activating gene expression and new protein synthesis that physically strengthens and can even grow new synaptic connections &mdash; the biological substrate researchers believe underlies actual memory formation and storage. LTP's importance is reinforced by pharmacology: drugs that block NMDA receptors reliably impair the formation of new memories in animal studies, while conditions that impair LTP, including chronic stress and normal aging, are consistently associated with measurable memory deficits.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Long-term_potentiation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Learning isn't a metaphor for something happening in your brain &mdash; long-term potentiation shows it's a literal physical strengthening of specific synaptic connections, triggered specifically when two neurons fire in close, repeated coincidence.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do NMDA receptors act as "coincidence detectors" in the process of long-term potentiation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">NMDA receptors are normally blocked by a magnesium ion and only become unblocked when the postsynaptic neuron is already sufficiently depolarised from other activity. This means they only open and trigger their downstream effects when presynaptic neurotransmitter release and postsynaptic activation happen together in time &mdash; detecting the coincidence between the two, which is the cellular basis of Hebbian learning.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bliss, T.V.P. &amp; L&oslash;mo, T. (1973). "Long-lasting potentiation of synaptic transmission." <em>Journal of Physiology</em>, 232(2). Hebb, D.O. (1949). <em>The Organization of Behavior</em>. Malenka, R.C. &amp; Bear, M.F. (2004). "LTP and LTD." <em>Neuron</em>, 44(1).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Gut Hormone That Rewired Obesity Treatment: How GLP-1 Agonists (GLP-1受體促效劑) Like Ozempic Actually Work</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A class of drugs originally developed to treat type 2 diabetes turned out, almost by accident, to produce dramatic weight loss as a side effect &mdash; so dramatic that the drugs became one of the fastest-growing pharmaceutical categories in history. What do you think this hormone actually does inside the body that produces such a strong effect on appetite?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Ozempic_%2853899794358%29.jpg" alt="Ozempic (semaglutide) injection pen" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ozempic (semaglutide), a GLP-1 agonist (GLP-1受體促效劑) originally developed for type 2 diabetes. Credit: <a href="https://en.wikipedia.org/wiki/Semaglutide" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>GLP-1 (glucagon-like peptide-1, 類升糖素胜肽-1) is a natural gut hormone released after eating that stimulates insulin secretion, slows stomach emptying, and signals satiety to the brain's hypothalamus (下視丘) &mdash; but the natural hormone breaks down within minutes, limiting its clinical usefulness. GLP-1 agonists (GLP-1受體促效劑) like semaglutide (西馬魯肽, sold as Ozempic for diabetes and Wegovy for weight loss) are engineered to resist that rapid breakdown, remaining active in the body for roughly a week per injection while binding to and activating the same GLP-1 receptors as the natural hormone, producing a far more sustained effect on appetite and blood sugar regulation.</p>
+      <p>The clinical results triggered the category's explosive growth: the STEP trials (Semaglutide Treatment Effect in People with obesity), published starting 2021, found average weight loss of roughly 15% of body weight over 68 weeks in participants without diabetes &mdash; dramatically outperforming essentially all previous pharmacological weight-loss treatments, which typically produced only 3-5% loss. Beyond appetite suppression, GLP-1 agonists appear to reduce food-related "noise" &mdash; many patients report a marked reduction in intrusive food thoughts and cravings, suggesting the drugs act on brain reward circuitry (獎賞迴路) related to food, not just digestive-tract satiety signalling alone.</p>
+      <p>Significant concerns remain under active study: a meaningful proportion of weight lost during treatment is lean muscle mass rather than fat alone, raising concern especially for older or frail patients; weight typically returns once treatment stops, indicating the drugs manage rather than cure the underlying condition; and gastrointestinal side effects (nausea, vomiting) are common enough to cause meaningful discontinuation rates in real-world use. The drugs' enormous cost (often exceeding $1,000/month in the US without insurance coverage) and global manufacturing capacity constraints have also created significant access and equity concerns.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Semaglutide" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; GLP-1 agonists didn't invent a new mechanism &mdash; they took the body's own after-meal satiety hormone and engineered it to last a week instead of minutes, which turned out to be enough to produce results no prior weight-loss drug came close to matching.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was the key engineering change that made GLP-1 agonist drugs like semaglutide clinically useful, compared to the body's own natural GLP-1 hormone?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The natural GLP-1 hormone breaks down within minutes of release, limiting its usefulness as a drug. Semaglutide and similar GLP-1 agonists were engineered to resist that rapid breakdown, remaining active for roughly a week per injection while still binding to and activating the same GLP-1 receptors, producing a far more sustained effect on appetite and blood sugar.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wilding, J.P.H. et al. (2021). "Once-Weekly Semaglutide in Adults with Overweight or Obesity" (STEP 1). <em>New England Journal of Medicine</em>, 384(11). M&uuml;ller, T.D. et al. (2019). "Glucagon-like peptide 1 (GLP-1)." <em>Molecular Metabolism</em>, 30.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Hold That Builds Strength Without Moving: Isometric Training (等長訓練) and Why It Only Strengthens the Exact Angle You Train</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If you train pushing against an immovable object as hard as you can at a 90-degree elbow angle for several weeks, how much of that strength gain do you think would transfer to your strength at a completely different elbow angle, like 45 degrees or 135 degrees?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/A_U.S._Coast_Guard_recruit%2C_assigned_to_Company_Oscar_188%2C_performs_a_plank_during_incentive_training_at_Coast_Guard_Training_Center_Cape_May_in_Cape_May%2C_N.J.%2C_July_31%2C_2013_130731-G-WA946-943.jpg/3840px-thumbnail.jpg" alt="Isometric plank hold exercise" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A plank hold, a common isometric exercise (等長訓練) producing force without joint movement. Credit: <a href="https://en.wikipedia.org/wiki/Isometric_exercise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Isometric training (等長訓練) involves producing muscular force against an immovable resistance &mdash; pushing against a wall, holding a weighted position, or pressing against a fixed bar &mdash; without any visible joint movement or change in muscle length, distinguishing it from the concentric (shortening) and eccentric (lengthening) contractions involved in ordinary dynamic exercise. Because there's no external movement to measure, isometric strength is typically assessed as peak force or torque produced at a specific, fixed joint angle, usually using a force plate, load cell, or fixed dynamometer.</p>
+      <p>A well-established and somewhat counterintuitive finding in isometric research is joint-angle specificity (關節角度特異性): strength gains from isometric training transfer significantly better to joint angles close to the trained position than to angles further away, with research generally showing meaningful strength carryover within roughly 15-20 degrees of the trained angle but diminishing substantially beyond that range. This differs notably from dynamic resistance training, which typically produces strength gains across a fuller range of motion, because isometric training only ever exposes the neuromuscular system to force production at that one specific joint position.</p>
+      <p>Despite this specificity limitation, isometric training has clear practical applications: it's widely used in rehabilitation settings where joint movement is contraindicated because it can maintain or build strength without stressing the joint through a painful range of motion; it's also used by strength and powerlifting athletes as targeted "sticking point" training, holding isometric contractions specifically at the exact joint angle where they struggle most in a lift, since the specificity that's a limitation elsewhere becomes an advantage when the goal is improving one precise position. Research by Kubo et al. and others has also found isometric training can improve tendon stiffness, a benefit somewhat independent of the joint-angle specificity that limits pure strength transfer.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Isometric_exercise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Isometric training's biggest limitation &mdash; that strength gains barely transfer beyond the trained joint angle &mdash; is also its most useful feature when applied deliberately to fix a specific weak point, like a sticking point in a lift.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does strength gained from isometric training transfer poorly to joint angles far from the one that was trained?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Isometric training only exposes the neuromuscular system to force production at one fixed joint position, so the neural adaptations and motor learning involved are specific to that narrow angle range (roughly 15-20 degrees). This differs from dynamic resistance training, which moves the joint through a range of motion and therefore produces strength gains across a fuller range of angles.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kitai, T.A. &amp; Sale, D.G. (1989). "Specificity of joint angle in isometric training." <em>European Journal of Applied Physiology</em>, 58(7). Kubo, K. et al. (2001). "Effects of isometric training on the elasticity of human tendon structures in vivo." <em>Journal of Applied Physiology</em>, 91(1).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Valuation Metric That Predicts Decades, Not Days: Robert Shiller&#x2019;s (羅伯特&middot;席勒) CAPE Ratio (周期性調整本益比) and Its Limits</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A stock market valuation metric averages ten years of company earnings instead of just the most recent year, specifically to smooth out short-term profit swings. Given that this measure has historically correlated fairly well with long-term future stock returns, why do you think it's still nearly useless for deciding when to buy or sell in any given year?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Robert_J._Shiller_2017.jpg/330px-Robert_J._Shiller_2017.jpg" alt="Robert Shiller" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Robert Shiller (羅伯特&middot;席勒), developer of the CAPE ratio. Credit: <a href="https://en.wikipedia.org/wiki/Cyclically_adjusted_price-to-earnings_ratio" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The cyclically-adjusted price-to-earnings ratio (周期性調整本益比, CAPE, also called the Shiller P/E) was developed by economist Robert Shiller (羅伯特&middot;席勒), building on earlier work by Benjamin Graham, and divides a stock index's current price by the average of its inflation-adjusted earnings over the trailing ten years, rather than just the most recent single year's earnings used in a conventional P/E ratio. This averaging is specifically designed to smooth out short-term earnings volatility, producing a valuation measure less distorted by where a company or market happens to sit in the business cycle at any given moment.</p>
+      <p>Shiller's research found that CAPE has meaningful long-term predictive power: markets with historically high CAPE ratios have tended to deliver below-average real returns over the subsequent 10-20 years, and markets with historically low CAPE ratios have tended to deliver above-average long-term returns &mdash; a mean-reversion (均值回歸) relationship that formed a central part of Shiller's argument, in his 2000 book <em>Irrational Exuberance</em>, that the dot-com bubble's extraordinarily elevated CAPE levels signalled an overvalued market shortly before the 2000 crash. Shiller shared the 2013 Nobel Prize in Economics specifically for this research.</p>
+      <p>Despite this long-horizon relationship, CAPE has proven almost useless as a short-term or medium-term market timing tool: elevated CAPE ratios have persisted for years or even over a decade at a time without markets correcting downward, meaning investors who sold or stayed out of equities based purely on high CAPE readings missed substantial gains during those extended periods. Critics also point to structural changes that may partly explain persistently elevated modern CAPE levels &mdash; changed accounting standards, a shift toward more capital-light, high-margin technology businesses, and persistently low interest rates &mdash; raising an open question about whether CAPE's historical mean-reversion relationship still applies as reliably to the modern market.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cyclically_adjusted_price-to-earnings_ratio" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; CAPE can tell you something meaningful about likely returns over the next decade, but it tells you almost nothing about what the market will do next year &mdash; treating a long-horizon valuation signal as a short-term timing tool is a category error that has burned many investors.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does CAPE use a ten-year average of earnings instead of just the most recent year, and what is CAPE's main limitation as an investing tool?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">CAPE averages ten years of inflation-adjusted earnings specifically to smooth out short-term earnings volatility from recessions and booms, producing a valuation measure less distorted by the business cycle. Its main limitation is that while it shows meaningful correlation with returns over long horizons, it has proven nearly useless for short- or medium-term market timing, since elevated CAPE readings have persisted for years without markets correcting.</div>
+      </details>
+      <div class="source">&#x1F4D6; Shiller, R.J. (2000). <em>Irrational Exuberance</em>. Princeton University Press. Campbell, J.Y. &amp; Shiller, R.J. (1998). "Valuation Ratios and the Long-Run Stock Market Outlook." <em>Journal of Portfolio Management</em>. Nobel Prize in Economic Sciences 2013 press release.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Did the Marshall Plan (馬歇爾計劃) Actually Rebuild Europe, or Just Nudge It in the Right Direction?</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/General_George_C._Marshall%2C_official_military_photo%2C_1946_%28cropped%29%28c%29.JPEG" alt="General George C. Marshall, 1946" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">George Marshall (喬治&middot;馬歇爾), US Secretary of State, who proposed the European Recovery Program in 1947. Credit: <a href="https://en.wikipedia.org/wiki/Marshall_Plan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1948, the United States launched the Marshall Plan (馬歇爾計劃, formally the European Recovery Program), providing roughly $13 billion (well over $150 billion in today's terms) in economic aid to 16 Western European countries devastated by World War II, named after Secretary of State George Marshall (喬治&middot;馬歇爾), who proposed it in a 1947 Harvard commencement speech.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The dominant contemporary justification held that a direct capital injection was needed to restart European industrial economies crippled by wartime destruction, and that this economic reconstruction would simultaneously contain the spread of Soviet-aligned communism by demonstrating the tangible benefits of alignment with the US-led postwar order.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Economic historians J. Bradford De Long and Barry Eichengreen, in influential 1993 research, found that Marshall Plan aid was actually too small relative to recipient countries' GDP (averaging only around 2.5% of GDP annually) to mechanically explain the dramatic economic recovery &mdash; the "Wirtschaftswunder" (經濟奇蹟) &mdash; that Western Europe subsequently experienced, undermining the simple "capital injection caused the recovery" narrative many popular accounts still repeat.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">De Long and Eichengreen argued the Plan's real impact was primarily catalytic rather than purely financial: US aid was conditioned on recipient governments adopting market-oriented policies, liberalising trade and payments systems, and pursuing fiscal and monetary stabilisation &mdash; institutional and confidence-building reforms that mattered far more than the capital transfer's raw dollar volume. <strong>Open question:</strong> how much weight to assign the Plan's institutional conditionality versus purely internal European recovery factors (pent-up wartime savings, returning skilled labour, technological catch-up) that some economists argue would have driven substantial recovery regardless.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The Marshall Plan's own historical record complicates the story it's usually credited for &mdash; the aid was too small to mechanically explain Europe's recovery, suggesting its conditions and institutional pressure mattered more than its cash.</div>
+      <div class="source">&#x1F4D6; De Long, J.B. &amp; Eichengreen, B. (1993). "The Marshall Plan: History's Most Successful Structural Adjustment Program." NBER Working Paper. Judt, T. (2005). <em>Postwar: A History of Europe Since 1945</em>. Penguin.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 3 &amp; 11 &mdash; When the Small Thing Isn't What Wins the Day:</strong> Waterloo's outcome hinged on a few hours of mud-delayed timing, not any grand strategic masterstroke — a marginal, almost accidental factor decided history. The Marshall Plan tells a similar story from economics: De Long and Eichengreen found the aid itself was too small to mechanically explain Europe's recovery, meaning the real decisive factor was something more marginal and structural — institutional conditionality — rather than the large, visible headline number everyone remembers.</p>
+      <p><strong>So what:</strong> When trying to explain a big historical outcome, be suspicious of the most visible, most-discussed cause — often the real hinge point is a smaller, less dramatic factor operating underneath it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> van der Marel et al. (2012), Astrophysical Journal 753(1). NASA/ESA Hubble press release (2012).</li>
+      <li><strong>Card 2:</strong> 《晉書·苻堅載記》《晉書·謝安傳》；田餘慶《東晉門閥政治》；呂思勉《兩晉南北朝史》。</li>
+      <li><strong>Card 3:</strong> Roberts, Waterloo: Napoleon's Last Gamble (2005). Chandler, The Campaigns of Napoleon (1966). Barbero (2005).</li>
+      <li><strong>Card 4:</strong> 《孟子·滕文公下》《列子·楊朱篇》；馮友蘭《中國哲學史》；胡適《中國哲學史大綱》。</li>
+      <li><strong>Card 5:</strong> Voltaire (1759), Candide. Wootton (ed.) (2000). Stanford Encyclopedia of Philosophy (2021).</li>
+      <li><strong>Card 6:</strong> Zeigarnik (1927), Psychologische Forschung 9(1). Baumeister &amp; Tierney (2011), Willpower.</li>
+      <li><strong>Card 7:</strong> Bliss &amp; Lømo (1973), Journal of Physiology 232(2). Hebb (1949). Malenka &amp; Bear (2004), Neuron 44(1).</li>
+      <li><strong>Card 8:</strong> Wilding et al. (2021) STEP 1, NEJM 384(11). Müller et al. (2019), Molecular Metabolism 30.</li>
+      <li><strong>Card 9:</strong> Kitai &amp; Sale (1989), European Journal of Applied Physiology 58(7). Kubo et al. (2001), Journal of Applied Physiology 91(1).</li>
+      <li><strong>Card 10:</strong> Shiller (2000), Irrational Exuberance. Campbell &amp; Shiller (1998). Nobel Prize 2013 press release.</li>
+      <li><strong>Card 11:</strong> De Long &amp; Eichengreen (1993), NBER Working Paper. Judt (2005), Postwar.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-07 (backfilled 2026-07-10): Andromeda-Milky Way Collision &bull; 淝水之戰 &bull; Battle of Waterloo &bull; 楊朱・為我 &bull; Voltaire / Candide &bull; Zeigarnik Effect &bull; Long-Term Potentiation &bull; GLP-1 Agonists / Ozempic &bull; Isometric Training &bull; CAPE Ratio &bull; Marshall Plan</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-07.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-07.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 7 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
