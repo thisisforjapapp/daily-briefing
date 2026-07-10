@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 6 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 6 July 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>5 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Uranus / Axial Tilt</span>One or more massive impacts early in the solar system's formation likely knocked Uranus onto its side, giving it a 42-year season cycle instead of a normal day-night cycle.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 王莽篡漢</span>王莽長期經營道德聲望，並透過讖緯符命偽造「天命所歸」的輿論，讓篡位過程看似順應天意，卻在稱帝後因脫離現實的復古改革迅速崩潰，新朝僅存十五年。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Russian Revolution 1917</span>German officials arranged Lenin's return via sealed train to destabilise Russia's war effort, and the October Revolution succeeded not through mass uprising but a small faction seizing key buildings in one night.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 郭象「獨化論」</span>郭象論證「無」不能生「有」，也不存在推動萬物的先在者，因此萬物只能是自己如此、無待外因地自發生成，這便是「獨化」。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Adam Smith</span>The impartial spectator is an imagined, idealised observer we internalise through social experience, whose approval or disapproval we consult even when alone &mdash; Smith's explanation for conscience itself.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Growth Mindset</span>The 2019 National Study of Learning Mindsets found modest, inconsistent effects concentrated mainly among lower-achieving students &mdash; a more limited finding than the popularised version of growth mindset theory suggested.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Retronasal Olfaction</span>Most of what we call "flavour" actually comes from aroma molecules travelling from the back of the mouth up to nasal smell receptors while chewing, not from the tongue's five basic tastes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; PM2.5 Air Pollution</span>Ischemic heart disease and stroke together account for roughly 50-60% of deaths linked to outdoor air pollution, more than respiratory disease, because PM2.5 particles are small enough to cross directly into the bloodstream.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; VO2max</span>Cardiac output multiplied by arteriovenous oxygen difference determines VO2max, which predicted long-term mortality more strongly than smoking, diabetes, or established coronary artery disease in a 122,000-patient study.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Wisdom of Crowds</span>Galton's ox-weighing result depended on independence &mdash; guessers not influenced by each other's guesses &mdash; and the averaging effect breaks down badly once people start copying earlier guesses instead of forming their own.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Planet That Shouldn&#x2019;t Exist: 51 Pegasi b (飛馬座51b) and the 1995 Discovery That Rewrote Planet Formation Theory</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before 1995, astronomers had confidently predicted what planets orbiting other stars should look like, based entirely on our own solar system: small rocky worlds close in, giant gas planets far out. Then the first confirmed exoplanet around a Sun-like star turned out to violate this pattern in a very specific way. What do you think they found?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Artist_impression_of_the_exoplanet_51_Pegasi_b.jpg/3840px-Artist_impression_of_the_exoplanet_51_Pegasi_b.jpg" alt="Artist's impression of the exoplanet 51 Pegasi b" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Artist's impression of 51 Pegasi b (飛馬座51b), the first confirmed exoplanet orbiting a Sun-like star. Credit: <a href="https://en.wikipedia.org/wiki/51_Pegasi_b" target="_blank" rel="noopener">Wikimedia Commons / ESO</a></div>
+      </div>
+      <p>On 6 October 1995, Swiss astronomers Michel Mayor (米歇爾&middot;麥耶) and Didier Queloz (迪迪埃&middot;奎洛茲) announced the discovery of 51 Pegasi b (飛馬座51b), the first confirmed exoplanet (系外行星) orbiting a Sun-like star. They used the radial velocity method (徑向速度法): as a planet orbits, its gravity causes the host star to wobble slightly, producing a periodic Doppler shift (都卜勒位移) in the star's spectral lines &mdash; a tiny, rhythmic redshift-blueshift pattern that reveals an unseen companion's mass and orbital period, even though the planet itself is far too faint to photograph directly.</p>
+      <p>What made 51 Pegasi b shocking wasn't just its existence &mdash; it was its orbit. The planet is a gas giant roughly half Jupiter's mass, yet it completes a full orbit around its star in just 4.2 days, hugging orbits closer than Mercury does to our Sun, reaching surface temperatures over 1,000&deg;C. Existing planet formation theory, built entirely on our own solar system, held that gas giants could only form far from their star, where it's cold enough for ice and gas to accumulate &mdash; a "hot Jupiter" (熱木星) orbiting this close seemed to violate the physics of planet formation altogether.</p>
+      <p>The resolution came through a mechanism called planetary migration (行星遷移): 51 Pegasi b likely did form farther out in its system's protoplanetary disk, then gradually spiraled inward over millions of years through gravitational interactions with the surrounding gas disk, eventually settling into its current scorching-close orbit. This discovery triggered an explosion of exoplanet science &mdash; over 5,800 confirmed exoplanets have since been found using radial velocity, transit photometry, and direct imaging &mdash; and fundamentally overturned the assumption that our solar system's architecture was any kind of universal template. Mayor and Queloz shared the 2019 Nobel Prize in Physics for the discovery.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/51_Pegasi_b" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first exoplanet we ever confirmed around a Sun-like star immediately broke the rules we thought governed planet formation &mdash; a reminder that a sample size of one solar system was never enough to generalise from.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why was the discovery of 51 Pegasi b's orbit so surprising to astronomers in 1995?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Existing planet formation theory, based entirely on our own solar system, held that gas giants could only form far from their star where it's cold enough for gas and ice to accumulate. 51 Pegasi b instead orbits its star in just 4.2 days, closer than Mercury orbits the Sun &mdash; a "hot Jupiter" that seemed to violate the physics of planet formation until the mechanism of planetary migration was proposed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mayor, M. &amp; Queloz, D. (1995). "A Jupiter-mass companion to a solar-type star." <em>Nature</em>, 378(6555). Nobel Prize in Physics 2019 press release.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>遷都洛陽，禁胡服胡語：北魏孝文帝的漢化改革如何用一代人時間豪賭整個帝國的存續</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是北魏一位鮮卑貴族，皇帝突然下令全國禁止說鮮卑語、禁穿胡服、強迫改用漢姓，甚至將都城從你熟悉的平城遷至千里之外的洛陽&mdash;&mdash;你會全力支持這場改革，還是暗中抵制？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>北魏孝文帝拓跋宏（471&ndash;499年在位，後改姓元）；馮太后（孝文帝祖母，早期改革實際主導者）。</p>
+        <p><strong>事件：</strong>494年遷都洛陽，其後推行全面漢化：禁胡服、斷北語（三十歲以下官員限期改說漢語）、改胡姓為漢姓（拓跋改元）、鼓勵鮮卑貴族與漢人世族通婚、採用漢族典章制度。</p>
+        <p><strong>時代背景：</strong>北魏統一北方後，鮮卑貴族與漢人世族之間存在深刻文化與制度鴻溝；平城（今大同）地處偏北，經濟凋敝且易受柔然威脅，孝文帝欲藉遷都與漢化鞏固統治、爭奪華夏正統地位。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Emperor_Xiaowen_of_Northern_Wei.jpg" alt="北魏孝文帝畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">北魏孝文帝拓跋宏畫像。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Xiaowen_of_Northern_Wei" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>北魏孝文帝拓跋宏自幼由祖母馮太后撫養，深受漢文化薰陶。494年，他以「南伐」為名，率大軍南下至洛陽，行至此處突然宣布就地遷都，令隨行鮮卑貴族措手不及，卻也難以公開反對「已成事實」的遷都決定&mdash;&mdash;這種以出兵之名行遷都之實的手法，展現了孝文帝在推動重大改革時的政治手腕。遷都洛陽不僅是地理位置的轉移，更象徵北魏政權從邊陲游牧政權，轉向以中原正統自居的華夏帝國。</p>
+      <p>遷都之後，孝文帝隨即展開一系列徹底的漢化改革：下令三十歲以下的鮮卑官員必須在朝廷限期內改說漢語，違者降爵罷官；禁止穿著鮮卑傳統胡服，改著漢族衣冠；將包括皇族「拓跋」在內的一百多個鮮卑複姓改為單音漢姓（拓跋改姓「元」，孝文帝本人即改名元宏）；並大力鼓勵鮮卑貴族與漢人世族通婚，藉此打破族群界限，重新編訂鮮卑貴族的門第等級，使之與漢人士族體系接軌。這些改革幅度之大、速度之快，在中國歷史上罕見。</p>
+      <p>這場改革並非沒有代價&mdash;&mdash;留守北方六鎮的鮮卑軍人因遠離改革核心、地位相對下降，逐漸心懷不滿，這股積怨最終在孝文帝去世三十年後（523年）爆發為「六鎮之亂」，成為北魏分裂為東西魏的直接導火線。然而從長遠歷史來看，孝文帝的漢化改革奠定了此後隋唐帝國「胡漢融合」的制度與文化基礎&mdash;&mdash;隋唐兩朝皇室本身即帶有鮮卑血統與胡漢通婚背景，孝文帝這場豪賭雖然未能挽救北魏本身的國祚，卻為其後三百年的中華帝國重新統一，鋪下了關鍵的民族融合基石。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Xiaowen_of_Northern_Wei" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 孝文帝的漢化改革證明：文化融合的政治紅利往往要等下一個王朝才收成&mdash;&mdash;他親手鞏固了隋唐盛世的根基，卻未能保住自己王朝的存續。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>孝文帝的漢化改革包含哪些具體措施，這場改革又為北魏埋下了什麼隱患？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">改革包括遷都洛陽、限期禁止說鮮卑語、禁穿胡服改漢族衣冠、將鮮卑複姓改為漢姓、鼓勵鮮卑貴族與漢人通婚等。然而留守北方六鎮的鮮卑軍人因遠離改革核心、地位相對下降而心懷不滿，最終在孝文帝去世三十年後爆發「六鎮之亂」，成為北魏分裂為東西魏的導火線。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《魏書·高祖紀》；陳寅恪《隋唐制度淵源略論稿》；田餘慶《拓跋史探》；呂思勉《兩晉南北朝史》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>A Wrong Turn That Started a World War: How Gavrilo Princip&#x2019;s (加夫里洛&middot;普林西普) Sandwich Break Led to the Assassination That Triggered World War I (第一次世界大戰)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A group of assassins botches their plan, one bomb misses, and the plotters scatter believing they've failed. Then, purely by chance, the exact target's car takes a wrong turn and stops directly in front of one of the failed assassins. What do you think happened next, and how might a single moment of bad luck like this help explain how an entire world war began?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Archduke Franz Ferdinand (法蘭茲&middot;斐迪南大公), heir to the Austro-Hungarian throne; Gavrilo Princip (加夫里洛&middot;普林西普), 19-year-old Bosnian Serb nationalist; Kaiser Wilhelm II (威廉二世), German emperor who issued Austria-Hungary a "blank cheque."</p>
+        <p><strong>Event at stake:</strong> The assassination in Sarajevo (薩拉熱窩) on 28 June 1914, and the alliance-driven chain reaction that turned it into a continental war within five weeks.</p>
+        <p><strong>Big picture:</strong> By 1914, Europe's major powers were bound together by a tangled web of military alliances, nationalist tensions in the Balkans, and years of arms racing &mdash; meaning a regional crisis could plausibly cascade into a general war if any one alliance commitment were triggered.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/DC-1914-27-d-Sarajevo-cropped.jpg" alt="Archduke Franz Ferdinand and his wife Sophie in Sarajevo, 1914" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Archduke Franz Ferdinand (法蘭茲&middot;斐迪南大公) and his wife Sophie leaving Sarajevo's city hall shortly before the assassination. Credit: <a href="https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On the morning of 28 June 1914, a group of six young Bosnian Serb nationalists, armed and coordinated by the secret society known as the Black Hand (黑手社), positioned themselves along the motorcade route of Archduke Franz Ferdinand (法蘭茲&middot;斐迪南大公) through Sarajevo (薩拉熱窩). The plot nearly failed entirely: one conspirator lost his nerve, and another threw a bomb that bounced off the Archduke's car and exploded under the following vehicle, wounding bystanders but leaving Franz Ferdinand unharmed. Believing the assassination attempt had failed, the remaining conspirators, including 19-year-old Gavrilo Princip (加夫里洛&middot;普林西普), dispersed into the city, and Princip reportedly stopped at a nearby delicatessen.</p>
+      <p>Later that day, Franz Ferdinand insisted on visiting the hospital to check on those wounded by the earlier bomb &mdash; a decision that put his motorcade back on the streets. His driver, not informed of the changed route, took a wrong turn directly past the delicatessen where Princip happened to be standing. When the driver realised the mistake and stopped the car to reverse, it came to a halt just a few feet from Princip, who stepped forward and fired two shots at point-blank range, fatally wounding both the Archduke and his wife, Sophie (蘇菲公爵夫人).</p>
+      <p>Austria-Hungary, backed by a German "blank cheque" (空白支票) of unconditional support from Kaiser Wilhelm II (威廉二世), issued Serbia an ultimatum with deliberately unacceptable terms, then declared war on 28 July 1914. The rigid alliance system then activated in rapid succession: Russia mobilised in support of fellow Slavic Serbia, Germany declared war on Russia and France, and Germany's invasion of Belgium under the Schlieffen Plan (施里芬計劃) brought Britain into the war within days. What began as a regional assassination in the Balkans had, within five weeks, become a continental war involving every major European power &mdash; a chain reaction historians still debate as either the tragic result of rigid alliance commitments or a war several powers were, to varying degrees, actively willing to risk.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Assassination_of_Archduke_Franz_Ferdinand" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; World War I didn't begin because anyone planned a continental war &mdash; it began because a wrong turn put an assassin back in front of his target, and a web of alliance commitments turned one man's death into a war among empires.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific chain of events put Gavrilo Princip in position to assassinate Franz Ferdinand, after the earlier bomb attempt had already failed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">After the failed bomb attack, Franz Ferdinand insisted on visiting the wounded at hospital, changing his motorcade's route. His driver, not informed of the change, took a wrong turn directly past the delicatessen where Princip happened to be standing after the group had dispersed. When the car stopped to reverse out of the wrong turn, Princip found himself just feet away and fired the fatal shots.</div>
+      </details>
+      <div class="source">&#x1F4D6; MacMillan, M. (2013). <em>The War That Ended Peace</em>. Random House. Clark, C. (2012). <em>The Sleepwalkers: How Europe Went to War in 1914</em>. Fromkin, D. (2004). <em>Europe's Last Summer</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「子非魚，安知魚之樂？」惠施與莊子的濠梁之辯，如何揭示名家邏輯與道家直覺的根本分歧</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">兩位老朋友在橋上散步，一人說「魚游得真快樂」，另一人立刻反駁「你又不是魚，怎麼知道魚快樂？」&mdash;&mdash;這場看似輕鬆的鬥嘴，你覺得誰的邏輯站得住腳？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>惠施（約前370&ndash;前310年），名家代表人物，曾任魏國宰相，莊子摯友兼思想論敵；莊子（約前369&ndash;前286年），道家代表人物。</p>
+        <p><strong>核心思想：</strong>「歷物十事」（惠施提出的十個悖論式命題，探討空間、時間、同異的相對性，如「至大無外，謂之大一；至小無內，謂之小一」）；濠梁之辯（惠施與莊子關於「魚樂」能否被認知的著名辯論）。</p>
+        <p><strong>時代背景：</strong>戰國時期名家與道家分屬不同思想路徑&mdash;&mdash;名家長於邏輯思辨、概念分析，道家重視直觀體悟、萬物共感；惠施與莊子雖是至交好友，卻代表這兩種思維方式的正面交鋒。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Confucius_and_His_Disciples_Yanzi_and_Huizi_at_the_Apricot_Altar_%28Huizi%29.jpeg" alt="惠施相關古畫" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">古代繪畫中的惠施（名家代表人物）。來源：<a href="https://en.wikipedia.org/wiki/Hui_Shi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>惠施是戰國名家的代表人物，曾任魏國宰相，《莊子·天下篇》記載他提出「歷物十事」&mdash;&mdash;十個探討空間、時間、同異相對性的悖論式命題，如「至大無外，謂之大一；至小無內，謂之小一」（宇宙之大沒有邊界，粒子之小沒有內部）、「天與地卑，山與澤平」（從相對視角看，天地齊高，山澤齊平）、「今日適越而昔來」（時間的相對性）。這些命題大量運用邏輯悖論挑戰日常直覺對「大小」「同異」「今昔」的固定認知，展現名家對概念分析與邏輯思辨的高度重視，與同時代公孫龍「白馬非馬」的論證傳統一脈相承。</p>
+      <p>惠施與莊子雖分屬名家與道家兩種思維路徑，卻是終生摯友與思想論敵，兩人的交鋒最著名者莫過於《莊子·秋水》記載的「濠梁之辯」：莊子與惠施同遊濠水橋上，莊子見魚出遊從容，說「這是魚的快樂啊」，惠施立刻反駁：「子非魚，安知魚之樂？」（你又不是魚，怎麼知道魚是快樂的？）&mdash;&mdash;這是一個典型的名家式邏輯詰問，質疑跨物種認知的可能性。莊子則回應：「子非我，安知我不知魚之樂？」（你又不是我，怎麼知道我不知道魚的快樂？）以子之矛攻子之盾，將惠施的邏輯反過來套用在惠施自己身上。</p>
+      <p>惠施再進一步：「我非子，固不知子矣；子固非魚也，子之不知魚之樂，全矣！」（我不是你，固然不知道你；你本來就不是魚，你不知道魚的快樂，這是完全確定的！）試圖收緊邏輯的漏洞。莊子最後回到最初的問題本身：「請循其本。子曰『汝安知魚樂』云者，既已知吾知之而問我，我知之濠上也。」（請回到最初的問題：你問我「你怎麼知道魚快樂」，這句話本身就已經預設了你知道我知道，你才會這樣問我&mdash;&mdash;而我，就是在濠水橋上知道的。）這場辯論沒有邏輯上的絕對贏家，卻精準呈現了名家（強調概念分析、認知邊界的嚴格劃分）與道家（強調萬物一體、直觀體悟可以跨越主客界限）之間根本的思維差異，成為中國哲學史上最富哲學趣味的一場對話。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hui_Shi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 惠施與莊子的濠梁之辯提醒我們：邏輯分析與直觀體悟往往各自道出部分真相&mdash;&mdash;真正的智慧，或許不在於分出勝負，而在於看清兩種思維方式各自的邊界。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>在濠梁之辯中，惠施最初提出的邏輯質疑是什麼？莊子如何反駁？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">惠施質疑莊子說「子非魚，安知魚之樂？」（你不是魚，怎麼知道魚快樂），這是一個跨物種認知是否可能的邏輯詰問。莊子則以「子非我，安知我不知魚之樂？」反擊，將惠施用來質疑他的邏輯反過來套用在惠施身上&mdash;&mdash;你不是我，又怎麼知道我不知道魚的快樂呢？</div>
+      </details>
+      <div class="source">&#x1F4D6; 《莊子·秋水》；《莊子·天下篇》「歷物十事」；馮友蘭《中國哲學史》；牟宗三《名家與荀子》相關論述。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Better Feared Than Loved? Niccol&ograve; Machiavelli&#x2019;s (馬基維利) The Prince (君主論) and the Birth of Political Realism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A political advisor writes a guidebook arguing that rulers should be willing to lie, break promises, and use cruelty when necessary &mdash; not because morality doesn't matter, but because a ruler who always acts morally will lose power to those who don't. Do you think this advice describes how politics actually works, or does it risk becoming a self-fulfilling excuse for bad behaviour?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Niccol&ograve; Machiavelli (馬基維利, 1469&ndash;1527), Florentine diplomat and political theorist; Cesare Borgia (切薩雷&middot;波吉亞), the ruthless, effective prince Machiavelli held up as a model; Lorenzo de' Medici (羅倫佐&middot;德&middot;美第奇), to whom <em>The Prince</em> was dedicated.</p>
+        <p><strong>Core ideas:</strong> <em>The Prince</em> (君主論, written 1513, published 1532); virt&ugrave; (才能/氣魄) versus fortuna (命運); the ends justifying the means in statecraft; "it is better to be feared than loved, if you cannot be both."</p>
+        <p><strong>Big picture:</strong> Machiavelli wrote <em>The Prince</em> after being exiled and tortured following the fall of the Florentine Republic he had served, in a fractured Italy where city-states were constantly conquered, betrayed, and reshaped by more ruthless, unified rivals like France and Spain.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg" alt="Portrait of Niccolo Machiavelli by Santi di Tito" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Niccol&ograve; Machiavelli (馬基維利), portrait by Santi di Tito. Credit: <a href="https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Niccol&ograve; Machiavelli (馬基維利) served as a diplomat and civil servant for the Florentine Republic (佛羅倫斯共和國) for fourteen years, gaining firsthand experience observing rulers across Italy and Europe, including the notoriously ruthless Cesare Borgia (切薩雷&middot;波吉亞), whose swift, calculated consolidation of power in the Romagna region left a deep impression on him. When the Medici family retook power in Florence in 1512, Machiavelli was accused of conspiracy, imprisoned, and tortured; after his release, he retreated to his farm and wrote <em>The Prince</em> (君主論, 1513) &mdash; partly as a job application to the restored Medici rulers, partly as a distillation of everything he had observed about how power was actually won and kept, as opposed to how moral philosophy said it should be.</p>
+      <p><em>The Prince</em> broke decisively from the classical and Christian tradition of political writing, which had typically described how rulers ought to behave according to virtue and piety. Machiavelli instead described how rulers actually needed to behave to survive and succeed, introducing the concept of virt&ugrave; (才能/氣魄) &mdash; a ruler's skill, boldness, and adaptability in seizing opportunity &mdash; as the key to overcoming fortuna (命運), the unpredictable, often hostile force of circumstance. His most notorious argument was that a wise ruler must be willing to act against conventional morality when necessary: to break promises when keeping them would be disadvantageous, and, in his most quoted line, that "it is better to be feared than loved, if you cannot be both," because fear is a bond of self-interest a ruler controls, while love depends on the fickle goodwill of others.</p>
+      <p>The word "Machiavellian" (馬基維利式) entered common usage as a byword for cunning, amoral manipulation, but scholars have long debated whether Machiavelli was cynically endorsing tyranny or coldly diagnosing the realities of power to help readers see through it &mdash; some read <em>The Prince</em> alongside his other major work, the <em>Discourses on Livy</em> (論李維), which more explicitly favours republican government, and argue <em>The Prince</em> was a specific, situational analysis of how a new ruler consolidates power in unstable circumstances, not a universal moral philosophy. Regardless of his intent, Machiavelli's insistence on describing politics as it is, rather than as it should be, is widely credited as founding political realism (政治現實主義) &mdash; the enduring tradition, still influential in international relations theory today, of analysing power and statecraft without moral idealism obscuring the analysis.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Whether Machiavelli was endorsing ruthlessness or just diagnosing it, The Prince's real innovation was refusing to pretend politics runs on the same rules as private morality &mdash; a distinction political realists still argue over five centuries later.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Machiavelli, why is it often better for a ruler to be feared than loved, if he cannot be both?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Fear is a bond of self-interest that the ruler directly controls through the threat of punishment, whereas love depends on the fickle goodwill of subjects, which can evaporate whenever it becomes inconvenient for them. A ruler who depends only on being loved has no reliable enforcement mechanism when that goodwill fails.</div>
+      </details>
+      <div class="source">&#x1F4D6; Machiavelli, N. (1532). <em>The Prince</em>, trans. Bull, G. Penguin Classics. Skinner, Q. (1981). <em>Machiavelli: A Very Short Introduction</em>. Stanford Encyclopedia of Philosophy: "Niccol&ograve; Machiavelli" (2022).</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>How Smart People Made a Terrible Decision Together: Irving Janis&#x2019;s (歐文&middot;詹尼斯) Groupthink (群體迷思) and the Bay of Pigs Disaster</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A team of the most experienced, intelligent foreign policy advisors in the United States government approves a plan that even a moderately informed outside observer could see was almost certain to fail. How could a group of individually brilliant people collectively make such an obviously bad decision?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Attack_near_Playa_Giron._April_19%2C_1961._-_panoramio.jpg" alt="Bay of Pigs invasion aftermath, April 1961" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Aftermath near Playa Gir&oacute;n during the Bay of Pigs invasion (豬灣事件), April 1961. Credit: <a href="https://en.wikipedia.org/wiki/Bay_of_Pigs_Invasion" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1972, psychologist Irving Janis (歐文&middot;詹尼斯) coined the term groupthink (群體迷思) to describe a mode of thinking that occurs when a cohesive group's desire for consensus and harmony overrides its members' willingness to realistically evaluate alternative courses of action. His founding case study was the 1961 Bay of Pigs invasion (豬灣事件) &mdash; a covert CIA-backed plan to invade Cuba and overthrow Fidel Castro, approved by President John F. Kennedy's team of experienced, highly credentialed advisors, which collapsed within three days into a total military and diplomatic disaster that most independent military analysts, in hindsight, considered obviously flawed from the outset.</p>
+      <p>Janis identified eight specific symptoms that combine to produce groupthink, including an illusion of invulnerability (excessive optimism that encourages risk-taking), collective rationalisation of warning signs, an unquestioned belief in the group's inherent morality, stereotyped views of "enemy" outsiders as too weak or stupid to pose a real threat, direct pressure on dissenters to conform, self-censorship of doubts, an illusion of unanimity created by that self-censorship, and the emergence of self-appointed "mindguards" (心理防衛員) &mdash; members who actively shield the group from dissenting or unwelcome information. In the Bay of Pigs case, several advisors privately harboured serious doubts about the plan's feasibility but stayed silent, assuming their silence meant everyone else was more confident than they actually were.</p>
+      <p>Following the Bay of Pigs failure, Kennedy notably restructured his own decision-making process for the 1962 Cuban Missile Crisis (古巴導彈危機), deliberately inviting dissent, splitting advisors into competing subgroups, and sometimes leaving the room himself so that others would speak more freely without deferring to his presence &mdash; changes widely credited with contributing to a more successful, carefully weighed outcome the second time. Groupthink remains a foundational concept in organisational psychology and crisis management, though later research has qualified Janis's original theory: 't Hart (1990) and other scholars found not all of Janis's eight symptoms are always present together, and high cohesion alone does not reliably predict groupthink &mdash; it typically requires cohesion combined with insulation from outside opinion, directive leadership, and high stress.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bay_of_Pigs_Invasion" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If everyone in a decision-making group appears to agree, that's not necessarily reassuring &mdash; Janis's research suggests it might just mean everyone is quietly assuming their private doubts are the only doubts in the room.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What decision-making changes did Kennedy make after the Bay of Pigs disaster, before the Cuban Missile Crisis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He restructured his advisory process to deliberately invite dissent &mdash; splitting advisors into competing subgroups and sometimes leaving the room himself so others would speak more freely without deferring to his presence &mdash; changes widely credited with contributing to the more carefully weighed handling of the Cuban Missile Crisis a year later.</div>
+      </details>
+      <div class="source">&#x1F4D6; Janis, I.L. (1972). <em>Victims of Groupthink</em>. Houghton Mifflin. 't Hart, P. (1990). <em>Groupthink in Government</em>. Swets &amp; Zeitlinger. Kennedy, R.F. (1969). <em>Thirteen Days</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The S-Shaped Curve That Keeps You Alive: Hemoglobin&#x2019;s (血紅蛋白) Oxygen Dissociation Curve and the Bohr Effect (波爾效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Hemoglobin in your red blood cells needs to do two opposite jobs perfectly: grab onto oxygen tightly in the lungs, then let go of that same oxygen easily once it reaches your tissues. What kind of chemical trick would let the exact same molecule bind tightly in one place and release easily in another?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Oxy-Hemoglobin.jpg" alt="Oxygenated hemoglobin molecular structure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Oxygenated hemoglobin (血紅蛋白), the four-subunit protein behind the oxygen dissociation curve. Credit: <a href="https://en.wikipedia.org/wiki/Hemoglobin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Hemoglobin (血紅蛋白), the oxygen-carrying protein inside red blood cells, consists of four subunits, each containing a heme (血基質) group capable of binding one oxygen molecule. When plotted, the relationship between oxygen partial pressure and hemoglobin's oxygen saturation forms a distinctive S-shaped (sigmoidal) oxygen dissociation curve (氧解離曲線) rather than a simple straight line, because hemoglobin exhibits cooperative binding (協同結合): once the first oxygen molecule binds to one subunit, it triggers a conformational shape change that makes the remaining three subunits bind subsequent oxygen molecules more easily &mdash; and conversely, once one oxygen molecule releases, the other three release more readily too.</p>
+      <p>This S-shape solves hemoglobin's dual requirement elegantly: in the lungs, where oxygen partial pressure is high, the steep upper portion of the curve means hemoglobin becomes almost fully saturated (traditionally cited around 97-98%) even with modest pressure changes, ensuring near-complete oxygen loading. In peripheral tissues, where oxygen partial pressure is much lower, the curve's steep middle section means a relatively small drop in oxygen pressure causes a large amount of oxygen to unload &mdash; precisely the behaviour needed to deliver oxygen efficiently to metabolically active tissue without requiring an implausibly large pressure gradient.</p>
+      <p>The curve isn't fixed &mdash; it shifts rightward under conditions associated with actively metabolising tissue: increased carbon dioxide, increased acidity (lower pH), increased temperature, and increased 2,3-bisphosphoglycerate (2,3-BPG，一種紅血球內代謝產物), a phenomenon called the Bohr effect (波爾效應) after physiologist Christian Bohr (克里斯蒂安&middot;波爾), who first described it in 1904 (father of physicist Niels Bohr). A rightward shift means hemoglobin releases oxygen more readily at any given oxygen pressure &mdash; exactly what's needed in exercising muscle, which generates more CO2, acid, and heat, all of which conveniently signal hemoglobin to unload more oxygen precisely where and when it's most needed. Fetal hemoglobin (胎兒血紅蛋白, HbF) has a structurally different composition giving it a left-shifted curve with higher oxygen affinity than adult hemoglobin, allowing a fetus to pull oxygen across the placenta from the mother's own hemoglobin.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hemoglobin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Hemoglobin doesn't just passively carry oxygen &mdash; its S-shaped binding curve is precision-engineered to load up almost completely in the lungs and unload generously in exactly the tissues working hardest to need it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the Bohr effect, and why is a rightward shift in the oxygen dissociation curve useful during exercise?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Bohr effect describes how increased CO2, acidity, temperature, and 2,3-BPG shift the oxygen dissociation curve to the right, causing hemoglobin to release oxygen more readily at any given oxygen pressure. During exercise, active muscle produces more CO2, acid, and heat &mdash; all of which trigger this rightward shift, meaning hemoglobin conveniently unloads more oxygen exactly where and when the tissue needs it most.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bohr, C., Hasselbalch, K. &amp; Krogh, A. (1904). "Concerning a biologically important relationship." <em>Skand. Arch. Physiol.</em> Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>, 14th ed. Elsevier.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Why Some Diseases Need 95% Vaccination Coverage and Others Only Need 80%: The Maths Behind Herd Immunity (群體免疫)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two different infectious diseases each need enough of the population vaccinated to stop them spreading, but one requires vaccinating roughly 80% of people while the other requires roughly 95%. What single property of the disease itself determines this threshold?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Herd_immunity.svg/960px-Herd_immunity.svg.png" alt="Diagram illustrating herd immunity" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">How herd immunity (群體免疫) indirectly protects unvaccinated individuals once population coverage crosses a disease-specific threshold. Credit: <a href="https://en.wikipedia.org/wiki/Herd_immunity" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Herd immunity (群體免疫) occurs when a sufficiently high proportion of a population becomes immune to an infectious disease &mdash; through vaccination or prior infection &mdash; that sustained person-to-person transmission becomes statistically unlikely, indirectly protecting even the unvaccinated minority, including people who cannot be vaccinated for medical reasons such as immunocompromised patients or infants too young for certain vaccines. The critical threshold is calculated using a disease's basic reproduction number (基本傳染數, R0) &mdash; the average number of new infections one infectious person generates in a fully susceptible population &mdash; via the formula: herd immunity threshold = 1 &minus; 1/R0.</p>
+      <p>This formula explains why vaccination targets vary so dramatically between diseases: measles (麻疹), one of the most contagious diseases known, has an R0 of roughly 12-18, requiring around 95% population immunity to reliably interrupt transmission, while diseases with lower R0 values require correspondingly lower thresholds &mdash; seasonal influenza, with R0 typically around 1-2, needs a much smaller immune fraction to blunt sustained spread. This mathematical relationship means that even small drops in vaccination coverage below a disease's specific threshold can allow outbreaks to return, since herd immunity operates as a threshold effect rather than a smoothly declining protection.</p>
+      <p>A stark real-world demonstration occurred in Samoa (薩摩亞) in 2019: after vaccine hesitancy following a 2018 vaccine administration error dropped measles vaccination coverage to around 31%, a measles outbreak infected over 5,700 people and killed more than 80, mostly young children, in a population of roughly 200,000 &mdash; a consequence directly attributable to falling below the roughly 95% threshold measles requires. Herd immunity has firm limits, however: it cannot protect against diseases without an available vaccine (such as HIV), and immunity from either vaccination or infection can wane over time, requiring booster doses to maintain population-level protection.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Herd_immunity" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Herd immunity isn't a fixed percentage &mdash; it's a threshold set by how contagious a specific disease is, which is exactly why highly contagious diseases like measles can come roaring back the moment vaccination coverage dips even modestly below roughly 95%.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What single property of a disease determines its herd immunity threshold, and why does measles require a much higher vaccination rate than influenza?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The disease's basic reproduction number (R0) &mdash; the average number of people one infectious person infects in a fully susceptible population &mdash; determines the threshold via the formula 1 &minus; 1/R0. Measles has a very high R0 (roughly 12-18) because it's extremely contagious, requiring around 95% immunity to interrupt transmission, while influenza's much lower R0 (roughly 1-2) requires a smaller immune population fraction.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fine, P., Eames, K. &amp; Heymann, D.L. (2011). "'Herd immunity': a rough guide." <em>Clinical Infectious Diseases</em>, 52(7). WHO (2019). "Samoa measles outbreak" situation reports. Anderson, R.M. &amp; May, R.M. (1985). "Vaccination and herd immunity to infectious diseases." <em>Nature</em>, 318(6044).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Are You Missing Force or Missing Speed? Sprint Force-Velocity Profiling (力量-速度剖析) and Why Generic Sprint Training Wastes Half Your Potential</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two sprinters have identical 100-metre times, but one produces exceptional force off the ground while the other moves her limbs exceptionally fast. If you gave both athletes the exact same training programme to improve their sprint speed, why might it help one and barely help the other at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Usain_Bolt_smiling_Berlin_2009.JPG" alt="Sprinter Usain Bolt" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sprint performance combines two distinct mechanical qualities: horizontal force and movement velocity. Credit: <a href="https://en.wikipedia.org/wiki/Sprint_(running)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Sprint performance is fundamentally a product of two distinct mechanical capacities working together: the horizontal force (水平力量) an athlete can apply against the ground, and the velocity (速度) at which their limbs can move &mdash; captured together in what sports scientists Pierre Samozino and Jean-Beno&icirc;t Morin formalised as the force-velocity profile (力量-速度剖析), typically measured using timing gates or GPS across a short sprint (usually 30-40 metres) and modelled as an inverse relationship: athletes who can produce very high force generally do so at lower movement velocities, and vice versa, tracing out an individual force-velocity curve unique to each athlete.</p>
+      <p>Critically, two athletes with identical sprint times can have dramatically different force-velocity profiles: a "force-dominant" (力量主導型) sprinter produces high force but relatively low velocity, while a "velocity-dominant" (速度主導型) sprinter produces the opposite balance &mdash; meaning identical 100-metre times can mask entirely different underlying mechanical limitations. Samozino and Morin's research found that for any given athlete, there is a theoretical optimal force-velocity profile (最佳剖析) that maximises sprint performance for their specific body and strength characteristics, and most athletes deviate meaningfully from their own individual optimum in one direction or the other.</p>
+      <p>This has direct training implications: a force-dominant athlete who is already strong but lacks top-end speed typically benefits more from velocity-oriented training &mdash; lighter-resistance sprints, plyometrics, and maximal-velocity technical work &mdash; while a velocity-dominant athlete who moves fast but lacks force typically benefits more from heavy resisted sprints, sled pulls, and traditional strength training, rather than more of the same generic sprint work both athletes might otherwise be prescribed identically. Since the profile is measurable with basic equipment, force-velocity profiling has moved from elite sports science labs into practical use by team coaches, allowing individualised training prescription rather than a one-size-fits-all sprint programme.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sprint_(running)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two athletes with the same sprint time can have opposite underlying weaknesses &mdash; force-velocity profiling identifies which one you actually have, so your training time goes toward the deficit that's actually limiting you.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can two sprinters with identical 100-metre times require completely different training programmes to improve further?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because sprint speed is produced by two distinct mechanical qualities &mdash; horizontal force production and movement velocity &mdash; that combine differently in different athletes. A "force-dominant" sprinter and a "velocity-dominant" sprinter can post the same overall time while having opposite underlying strengths and weaknesses, meaning each needs training targeted at their specific deficit rather than an identical generic programme.</div>
+      </details>
+      <div class="source">&#x1F4D6; Samozino, P. et al. (2016). "A simple method for measuring power, force, velocity properties, and mechanical effectiveness in sprint running." <em>Scandinavian Journal of Medicine &amp; Science in Sports</em>, 26(6). Morin, J.B. &amp; Samozino, P. (2016). "Interpreting power-force-velocity profiles." <em>International Journal of Sports Physiology and Performance</em>, 11(2).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>A Pseudonym, a Nine-Page PDF, and $1.9 Trillion Later: Satoshi Nakamoto&#x2019;s (中本聰) 2008 Bitcoin (比特幣) Whitepaper and What It Actually Solved</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the middle of the 2008 financial crisis, an anonymous author published a nine-page technical paper proposing a currency with no central bank, no government backing, and no physical form at all. What specific technical problem had prevented digital currency from working before, that this paper claimed to finally solve?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Bust_of_Satoshi_Nakamoto_in_Budapest.jpg" alt="Bust of Satoshi Nakamoto in Budapest" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A bust honouring the pseudonymous Satoshi Nakamoto (中本聰) in Budapest. Credit: <a href="https://en.wikipedia.org/wiki/Bitcoin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 31 October 2008 &mdash; in the middle of the global financial crisis, weeks after Lehman Brothers' collapse &mdash; a pseudonymous author or group using the name Satoshi Nakamoto (中本聰) published a nine-page paper titled "Bitcoin: A Peer-to-Peer Electronic Cash System" to a small cryptography mailing list. The paper solved a problem that had stumped computer scientists for decades: the double-spending problem (雙重支付問題) &mdash; how to prevent someone from spending the same digital currency twice, without relying on a trusted central authority like a bank to verify each transaction. Nakamoto's identity has never been definitively established, despite intense investigation and several disputed claims.</p>
+      <p>The solution was the blockchain (區塊鏈): a public, distributed ledger (分布式帳本) maintained not by any single institution but by a decentralised network of computers, each competing to solve a computationally difficult puzzle in a process called proof of work (工作量證明) &mdash; the first to solve it gets to add the next "block" of verified transactions to the chain, earning newly minted bitcoin as a reward, while every other participant's copy of the ledger updates to match. Because each block cryptographically references the previous one, altering any past transaction would require redoing all the computational work for every subsequent block simultaneously across a majority of the network &mdash; a feat that becomes exponentially more difficult as the chain grows longer, making the historical record effectively tamper-resistant.</p>
+      <p>The genesis block (創世區塊), mined by Nakamoto on 3 January 2009, embedded a specific newspaper headline in its code: "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks" &mdash; widely interpreted as a pointed commentary on the traditional banking system's fragility and the political motivation behind creating an alternative outside government or bank control. From an asset worth fractions of a cent in 2010, Bitcoin's total market capitalisation had grown to roughly $1.9 trillion by 2025, alongside enormous volatility, high-profile exchange collapses (Mt. Gox 2014, FTX 2022), and an ongoing, unresolved debate among economists over whether Bitcoin functions primarily as a currency, a speculative asset, or a novel form of digital property distinct from both.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bitcoin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Bitcoin's core technical achievement wasn't creating digital money &mdash; earlier attempts had done that &mdash; it was solving the double-spending problem without a trusted central authority, using a public ledger that gets more tamper-resistant the longer it exists.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific technical problem had prevented earlier digital currency proposals from working, that Nakamoto's blockchain design claimed to solve?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The double-spending problem &mdash; preventing someone from spending the same unit of digital currency twice &mdash; had previously required a trusted central authority, like a bank, to verify each transaction. Nakamoto's blockchain solved this without any central authority, using a decentralised network of computers competing via proof of work to maintain a single, tamper-resistant public ledger.</div>
+      </details>
+      <div class="source">&#x1F4D6; Nakamoto, S. (2008). "Bitcoin: A Peer-to-Peer Electronic Cash System." Narayanan, A. et al. (2016). <em>Bitcoin and Cryptocurrency Technologies</em>. Princeton University Press.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Tax Almost Every Economist Loves and Almost No Country Has Adopted: Henry George (亨利&middot;喬治) and the Land Value Tax (土地價值稅)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Henry_George_c1885_retouched.jpg" alt="Henry George, circa 1885" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Henry George (亨利&middot;喬治), c. 1885, author of Progress and Poverty. Credit: <a href="https://en.wikipedia.org/wiki/Henry_George" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1879, American economist and journalist Henry George (亨利&middot;喬治) published <em>Progress and Poverty</em> (進步與貧困), a book arguing that rising land values &mdash; not general economic progress &mdash; were the primary cause of persistent poverty even amid growing wealth. The book became one of the best-selling books of the 19th century, selling millions of copies and sparking a mass political movement.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">George proposed a land value tax (土地價值稅, LVT) as a near-ideal replacement for most other taxes: because the supply of land is fixed, taxing its unimproved value cannot discourage its production the way taxing labour, income, or buildings does &mdash; and since land value rises largely from surrounding public infrastructure and community development rather than any effort by the landowner, taxing that value simply recaptures unearned gains rather than distorting productive economic activity.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Despite near-universal praise from economists across the ideological spectrum &mdash; including Milton Friedman calling it "the least bad tax" &mdash; land value tax has almost never been adopted at full national scale anywhere in the world, remaining limited to partial or municipal implementations such as parts of Pennsylvania (including Pittsburgh's historical split-rate system) and Estonia's land tax, despite decades of theoretical consensus on its efficiency advantages.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Modern "Georgist" (喬治主義) economists and the YIMBY housing movement have revived interest in land value tax as a tool against housing unaffordability and urban land speculation, but practical obstacles remain significant: separating "land value" from "improvement value" requires complex assessment systems prone to dispute, and concentrated landowner political opposition has historically proven more powerful than the diffuse public benefit of implementation. <strong>Open question:</strong> whether rising urban land-value data availability and computational assessment tools can finally overcome the practical implementation barriers that blocked George's proposal for over a century.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Land value tax may be the rare policy nearly every economist agrees is efficient &mdash; proof that being right in theory and being politically adoptable are two entirely different achievements.</div>
+      <div class="source">&#x1F4D6; George, H. (1879). <em>Progress and Poverty</em>. Friedman, M. (1978). Interview, widely quoted as "least bad tax." Andelson, R.V. (ed.) (2000). <em>Land-Value Taxation Around the World</em>. Blackwell.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; When Groups Convince Themselves They're Being Realistic:</strong> Machiavelli argued that a ruler must sometimes override conventional morality to survive in a hostile political world. Janis's groupthink describes a related trap: cohesive groups convince themselves their in-group is inherently moral and their opponents too weak or foolish to matter &mdash; the same self-serving certainty Machiavellian realism warns against, just arrived at collectively and unconsciously rather than as a deliberate strategic choice.</p>
+      <p><strong>So what:</strong> Strategic ruthlessness and self-deceiving overconfidence can look similar from the outside — the difference is whether the group is honestly weighing hard tradeoffs or just telling itself a flattering story that happens to justify the easy choice.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Mayor &amp; Queloz (1995), Nature 378(6555). Nobel Prize in Physics 2019 press release.</li>
+      <li><strong>Card 2:</strong> 《魏書·高祖紀》；陳寅恪《隋唐制度淵源略論稿》；田餘慶《拓跋史探》；呂思勉《兩晉南北朝史》。</li>
+      <li><strong>Card 3:</strong> MacMillan, The War That Ended Peace (2013). Clark, The Sleepwalkers (2012). Fromkin, Europe's Last Summer (2004).</li>
+      <li><strong>Card 4:</strong> 《莊子·秋水》《莊子·天下篇》；馮友蘭《中國哲學史》；牟宗三《名家與荀子》。</li>
+      <li><strong>Card 5:</strong> Machiavelli (1532), The Prince. Skinner (1981), Machiavelli: A Very Short Introduction. Stanford Encyclopedia of Philosophy (2022).</li>
+      <li><strong>Card 6:</strong> Janis (1972), Victims of Groupthink. 't Hart (1990), Groupthink in Government. Kennedy (1969), Thirteen Days.</li>
+      <li><strong>Card 7:</strong> Bohr, Hasselbalch &amp; Krogh (1904), Skand. Arch. Physiol. Guyton &amp; Hall, Textbook of Medical Physiology, 14th ed.</li>
+      <li><strong>Card 8:</strong> Fine, Eames &amp; Heymann (2011), Clinical Infectious Diseases 52(7). WHO (2019) Samoa reports. Anderson &amp; May (1985), Nature 318(6044).</li>
+      <li><strong>Card 9:</strong> Samozino et al. (2016), Scandinavian Journal of Medicine &amp; Science in Sports 26(6). Morin &amp; Samozino (2016), IJSPP 11(2).</li>
+      <li><strong>Card 10:</strong> Nakamoto (2008), Bitcoin whitepaper. Narayanan et al. (2016), Bitcoin and Cryptocurrency Technologies.</li>
+      <li><strong>Card 11:</strong> George (1879), Progress and Poverty. Friedman (1978) interview. Andelson (2000), Land-Value Taxation Around the World.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-06 (backfilled 2026-07-10): 51 Pegasi b &bull; 北魏孝文帝漢化改革 &bull; Assassination of Franz Ferdinand / Outbreak of WWI &bull; 惠施・濠梁之辯 &bull; Machiavelli / The Prince &bull; Groupthink (Bay of Pigs) &bull; Hemoglobin Oxygen Dissociation Curve &bull; Herd Immunity &bull; Sprint Force-Velocity Profiling &bull; Bitcoin Whitepaper &bull; Henry George / Land Value Tax</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-06.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-06.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 6 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
