@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 3 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Serif HK','Noto Serif',Georgia,serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 3 July 2026 &nbsp;&middot;&nbsp; Edition 1 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>2 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Halley&#x2019;s Comet</span>Halley used Newton&#x2019;s laws to predict a comet last seen in 1682 would return in 1758 &mdash; dying 16 years before his prediction was proven right.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 澶淵之盟</span>寇準力諫宋真宗御駕親征澶州，宋遼訂立盟約換來百廿年和平，卻埋下歲幣文弱之因。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Lepanto</span>Venetian galleasses broke the Ottoman fleet's formation at Lepanto in 1571, ending Ottoman naval dominance in the last major galley battle in history.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 阮籍・竹林七賢</span>阮籍以醉酒佯狂避開司馬氏政治迫害，提出「越名教而任自然」，與嵇康的剛烈抗爭形成魏晉風度的兩極。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Karl Popper</span>Popper argued a theory only counts as scientific if it can be falsified &mdash; contrasting Einstein's risky, testable predictions with Marxism and psychoanalysis, which explained everything and therefore nothing.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Halo Effect</span>Thorndike found a single positive impression, like attractiveness, bleeds into unrelated judgements of intelligence and character, distorting evaluations from hiring to sentencing.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Nephron</span>Kidneys filter your entire blood plasma roughly 60 times a day, producing 180 litres of filtrate &mdash; but the tubules reabsorb nearly all of it, leaving just 1.5 litres of urine.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Salt &amp; Hypertension</span>The DASH-Sodium trial showed cutting salt lowers blood pressure most in people already hypertensive &mdash; but individual salt sensitivity varies enormously.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Deload Weeks</span>Planned reduced-volume weeks let the nervous system recover before accumulated fatigue tips into overtraining syndrome, protecting the gains hard training already built.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Harry Markowitz</span>Markowitz's 1952 paper showed portfolio risk depends on how assets move together, not each asset in isolation &mdash; the mathematical birth of modern diversification.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Argentina's Convertibility Plan</span>Argentina's 1991 dollar peg ended hyperinflation but removed its ability to absorb external shocks, collapsing into default and 25% unemployment by 2001.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Landing on a Comet Travelling 135,000 km/h: How Rosetta (羅塞塔號) and Philae (菲萊號) Chased Comet 67P for a Decade &mdash; and Found the Building Blocks of Life</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A robotic probe launches toward a comet, but the comet won&#x2019;t arrive at the right point in its orbit for ten years. What kind of trajectory would let a spacecraft catch up to a target moving at over 100,000 km/h, using only the fuel it launched with?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Philae_lander_%28transparent_bg%29.png" alt="Philae lander" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Philae (菲萊號), the first spacecraft to make a controlled landing on a comet nucleus. Credit: <a href="https://en.wikipedia.org/wiki/Rosetta_(spacecraft)" target="_blank" rel="noopener">Wikimedia Commons / ESA</a></div>
+      </div>
+      <p>In March 2004, the European Space Agency (歐洲太空總署) launched Rosetta (羅塞塔號) on a decade-long journey to rendezvous with comet 67P/Churyumov&ndash;Gerasimenko (楚留莫夫&ndash;格拉希門克彗星), a duck-shaped, 4-kilometre-wide ball of ice and rock. Because Rosetta couldn&#x2019;t carry enough fuel to reach the comet directly, engineers used a series of gravitational slingshot manoeuvres (重力彈弓效應) around Earth and Mars, three in total, to build up enough speed over ten years &mdash; arriving in August 2014 having travelled 6.4 billion kilometres to intercept a target moving at roughly 135,000 km/h relative to the Sun.</p>
+      <p>On 12 November 2014, Rosetta released the washing-machine-sized lander Philae (菲萊號) toward the comet&#x2019;s surface &mdash; the first controlled landing on a comet nucleus in history. The landing went wrong in a now-famous way: Philae&#x2019;s harpoons, designed to anchor it to the surface, failed to fire, and the lander bounced twice across the low-gravity surface before settling in a shadowed crevice where its solar panels couldn&#x2019;t recharge its batteries. Despite only about 60 hours of operation before power ran out, Philae&#x2019;s instruments detected 16 organic compounds (有機化合物) on the comet&#x2019;s surface, including several never previously identified on a comet.</p>
+      <p>Rosetta continued orbiting and studying 67P for two more years, discovering that the comet&#x2019;s water had a different isotopic ratio than Earth&#x2019;s oceans &mdash; evidence against the once-popular theory that comets alone delivered Earth&#x2019;s water &mdash; while confirming the presence of glycine (甘胺酸), a simple amino acid, and phosphorus (磷), both essential ingredients for life as we know it. The mission ended deliberately in September 2016, with Rosetta itself descending onto the comet&#x2019;s surface for a final close-up scan before its instruments went permanently silent, ending a 12-year, 6.4-billion-kilometre journey that reshaped scientific understanding of what comets actually carry.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Rosetta_(spacecraft)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Philae&#x2019;s &ldquo;failed&rdquo; landing still delivered a scientific triumph &mdash; proof that even a mission that goes wrong in the field can still succeed in its purpose.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why couldn&#x2019;t Rosetta fly directly to comet 67P, and how did it solve that problem?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Rosetta didn&#x2019;t carry enough fuel for a direct trajectory, so engineers used three gravitational slingshot manoeuvres around Earth and Mars over ten years to build up enough speed to intercept the comet, which was travelling at roughly 135,000 km/h.</div>
+      </details>
+      <div class="source">&#x1F4D6; Glassmeier, K.H. et al. (2007). &ldquo;The Rosetta Mission.&rdquo; <em>Space Science Reviews</em>, 128. ESA Rosetta Mission press releases (2014&ndash;2016). Altwegg, K. et al. (2015). &ldquo;Prebiotic chemicals in comet 67P.&rdquo; <em>Science Advances</em>, 1(9).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History (Japan, Showa) -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一千四百名叛軍佔領東京心臟地帶：二二六事件如何暴露昭和日本軍部凌駕文官政府的致命裂縫</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是年輕軍官，深信財閥與腐敗政客正在出賣國家，而你手握軍隊、決心以武力「清君側」，你會如何說服其他軍人跟隨你發動政變？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>磯部淺一、栗原安秀等皇道派青年軍官；高橋是清（大藏大臣，遇刺身亡）；齋藤實（內大臣，遇刺身亡）；昭和天皇（親自下令鎮壓）。</p>
+        <p><strong>事件：</strong>昭和十一年（1936年）2月26日，「二・二六事件」，約一千四百名皇道派士兵發動政變，佔領東京中心地帶，刺殺多名重臣。</p>
+        <p><strong>時代背景：</strong>1930年代日本經濟蕭條，農村極度貧困，陸軍內部分裂為主張漸進改革的「統制派」與主張直接行動、天皇親政的「皇道派」。皇道派青年軍官深受國家主義思想影響，認為財閥與「奸臣」蒙蔽天皇，唯有武力肅清才能實現「昭和維新」。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Lt_Nibu_Masatada_Rebels_Feb_26_Incident_1936.png" alt="二二六事件叛軍照片" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">1936年二二六事件期間的叛軍。來源：<a href="https://en.wikipedia.org/wiki/February_26_incident" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1936年2月26日凌晨，東京降下大雪。約一千四百名陸軍第一師團士兵，在磯部淺一、栗原安秀等皇道派青年軍官率領下，突襲多名政府重臣官邸，發動震驚全國的政變。叛軍當夜刺殺大藏大臣高橋是清&#x2014;&#x2014;這位曾多次以財政政策抑制軍費膨脹的老臣，在睡夢中遭亂槍射殺；內大臣齋藤實與陸軍教育總監渡邊錠太郎亦相繼遇害。首相岡田啟介僥倖逃過一劫，躲藏在儲物室中，叛軍誤殺其連襟松尾傳藏，一度以為首相已死。</p>
+      <p>叛軍迅速佔領國會議事堂、警視廳及首相官邸周邊的東京心臟地帶，並向陸軍高層遞交檄文，要求肅清「君側之奸」（財閥、政黨政客及部分軍中「統制派」高官），實現所謂「昭和維新」&#x2014;&#x2014;回歸天皇親政、剷除資本主義腐敗。叛軍原本期待陸軍高層默許其行動，甚至順勢接管政權，然而昭和天皇對政變震怒異常，親自下令：「朕自率近衛師團平定叛亂」，這是天皇罕有直接介入軍事行動的舉措，徹底打破了叛軍「聖斷支持」的幻想。</p>
+      <p>在天皇明確表態鎮壓的壓力下，陸軍高層轉而全力平叛，出動戰車與飛機包圍叛軍陣地，並透過廣播勸降。2月29日，叛軍在得知已被定性為「叛亂軍」、天皇堅拒任何妥協後陸續投降，事件僅維持四日便告終結。事後，磯部淺一、栗原安秀等首謀者遭軍事法庭秘密審判，於同年7月處決；皇道派勢力自此在陸軍中徹底瓦解，統制派全面掌控軍部。二二六事件的真正遺產，是文官政府自此對軍部言聽計從&#x2014;&#x2014;沒有人再敢挑戰軍方，日本自此加速滑向全面對外擴張與太平洋戰爭的深淵。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/February_26_incident" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 二二六事件證明：一場失敗的政變，有時比成功的政變更能鞏固軍方權力&#x2014;&#x2014;因為此後再無人敢反對軍部。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>昭和天皇的介入如何直接扭轉二二六事件的結局？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">天皇罕有地親自下令鎮壓叛軍，並拒絕任何妥協，徹底打破了叛軍期待陸軍高層默許甚至接管政權的幻想，使陸軍高層轉而全力平叛，事件在四日內迅速瓦解。</div>
+      </details>
+      <div class="source">&#x1F4D6; 半藤一利《昭和史》；Shillony, B.A. (1973). <em>Revolt in Japan: The Young Officers and the February 26, 1936 Incident</em>. Princeton University Press；秦郁彦《軍ファシズム運動史》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Four Carriers Sunk in One Morning: How American Codebreakers and a Ten-Minute Window Turned the Tide of the Pacific War at Midway</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&#x2019;re a naval commander who has broken the enemy&#x2019;s secret codes and knows their attack plan in advance &mdash; but your fleet is still outnumbered in ships, aircraft, and combat experience. How much of an advantage does knowing the plan actually give you?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Admiral Chester Nimitz (尼米茲), US Pacific Fleet commander; Admiral Isoroku Yamamoto (山本五十六), Japanese Combined Fleet commander; the codebreakers of Station HYPO (夏威夷密碼破譯站), led by Joseph Rochefort.</p>
+        <p><strong>Event at stake:</strong> Battle of Midway (中途島海戰), 4&ndash;7 June 1942, near Midway Atoll (中途島環礁) in the central Pacific.</p>
+        <p><strong>Big picture:</strong> Six months after Pearl Harbor (珍珠港), Japan&#x2019;s navy had won every major engagement. Yamamoto planned to lure the remaining US carriers into a decisive battle at Midway, aiming to destroy American naval power in the Pacific for good.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/USS_Yorktown_%28CV-5%29_is_hit_by_a_torpedo_on_4_June_1942.jpg/330px-USS_Yorktown_%28CV-5%29_is_hit_by_a_torpedo_on_4_June_1942.jpg" alt="USS Yorktown hit by a torpedo at the Battle of Midway, 1942" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">USS Yorktown (約克鎮號) struck by a torpedo during the Battle of Midway, 4 June 1942. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Midway" target="_blank" rel="noopener">Wikimedia Commons / US Navy</a></div>
+      </div>
+      <p>By mid-1942, Japan&#x2019;s Combined Fleet (聯合艦隊) had dominated the Pacific since Pearl Harbor (珍珠港) six months earlier. Admiral Yamamoto (山本五十六) planned to seize Midway Atoll (中途島環礁), luring America&#x2019;s remaining carriers into a decisive trap. What Yamamoto didn&#x2019;t know was that American codebreakers at Station HYPO (夏威夷密碼破譯站) in Hawaii, led by Joseph Rochefort, had partially broken the Japanese naval code JN-25, and through a deliberate ruse &mdash; having Midway radio a fake message about a water shortage, then intercepting the Japanese report referencing exactly that location &mdash; confirmed Midway as the target with near certainty, days before the attack.</p>
+      <p>Admiral Nimitz (尼米茲) positioned three American carriers, including the hastily repaired USS Yorktown (約克鎮號) &mdash; patched up in 72 hours after being severely damaged weeks earlier, a repair Japanese intelligence assumed impossible &mdash; in ambush position northeast of Midway. On 4 June, American dive bombers arrived at the critical moment when Japanese carriers had their flight decks packed with fuelled aircraft and exposed munitions, mid-rearming between strikes. Within roughly ten minutes, American SBD Dauntless dive bombers (無畏式俯衝轟炸機) struck and fatally damaged three Japanese fleet carriers &mdash; Akagi, Kaga, and S&#x14D;ry&#x16B; &mdash; in near-simultaneous attacks; a fourth, Hiry&#x16B;, was sunk later that day.</p>
+      <p>Midway (中途島海戰) destroyed four of Japan&#x2019;s six large fleet carriers along with irreplaceable veteran aircrews, permanently shifting the naval balance of the Pacific War in America&#x2019;s favour after only six months of fighting. Historians consider it the single most consequential naval battle of the Pacific theatre, largely because of the ten-minute window in which the outcome flipped from a likely Japanese victory to a decisive American one. The victory is widely credited to the combination of signals intelligence (情報破譯), calculated risk-taking by Nimitz, and &mdash; as naval historians increasingly emphasise &mdash; considerable luck in the timing of the dive-bomber attacks.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Midway" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Midway turned on roughly ten minutes: codebreaking gave America the where and when, but the actual outcome still hinged on split-second timing during the attack itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did American codebreakers confirm Midway was the actual target of Japan&#x2019;s planned attack?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Station HYPO had partially broken Japan&#x2019;s naval code and suspected Midway was referenced by a codename; they had Midway broadcast a fake message about a water shortage, then intercepted a Japanese report referencing exactly that detail, confirming Midway as the target days before the attack.</div>
+      </details>
+      <div class="source">&#x1F4D6; Parshall, J. &amp; Tully, A. (2005). <em>Shattered Sword: The Untold Story of the Battle of Midway</em>. Potomac Books. Symonds, C.L. (2011). <em>The Battle of Midway</em>. Oxford University Press. Prange, G.W. (1982). <em>Miracle at Midway</em>. McGraw-Hill.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>破郭象舊解，開一代新義：支遁如何以佛理重新詮釋莊子〈逍遙遊〉，震驚整個東晉清談界</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如「逍遙」的意思是「順著自己的本性做事，就是自由」，那麼一隻大鵬鳥順性高飛是逍遙，一隻小鳥順性低飛也是逍遙&#x2014;&#x2014;這樣講得通嗎？如果一個暴君「順著本性」為所欲為，那也算逍遙自在嗎？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>支遁（支道林，314&ndash;366年），東晉佛教高僧兼玄學家；郭象（西晉玄學家，舊注《莊子》代表人物）；王羲之（蘭亭雅集主人，與支遁交好）；謝安（東晉名相，支遁座上常客）。</p>
+        <p><strong>核心思想：</strong>〈逍遙遊〉「新義」；批判郭象「適性即逍遙」舊解；以般若性空思想重新詮釋「至人無己」；〈即色遊玄論〉（色即是空之東晉版本）。</p>
+        <p><strong>時代背景：</strong>東晉清談之風極盛，《莊子》〈逍遙遊〉的詮釋權是玄學界公認的思想高地。郭象注早已成為權威定論近百年，士人相沿成習，鮮有質疑。支遁以僧人身分躋身建康、會稽名士圈，其佛學背景讓他從全新角度切入這個老問題。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Meandering_Stream_at_Lan-ting_Yamamoto_Jakurin_Hanging_scroll_color_on_silk.jpg" alt="蘭亭雅集圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">蘭亭雅集圖&#x2014;&#x2014;支遁活躍的東晉會稽名士清談圈。來源：<a href="https://en.wikipedia.org/wiki/Zhi_Dun" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>西晉玄學家郭象注《莊子》〈逍遙遊〉，提出「適性逍遙」說：大鵬鳥高飛九萬里是順其本性，斥鴳（小鳥）低飛數尺同樣是順其本性，只要「各適其性」，大小雖殊，逍遙則一。這一詮釋在東晉清談界流行近百年，幾乎無人質疑。支遁（支道林）僧人出身，卻精通《莊子》《老子》，遊走於建康、會稽（今浙江紹興）名士圈，與王羲之、謝安等當代名流交好。他讀到郭象注時，敏銳地發現一個致命漏洞：若「適性」即是逍遙，那麼夏桀、商紂順其暴虐本性為所欲為，豈非也算逍遙？這顯然荒謬。</p>
+      <p>支遁於是提出「逍遙新義」，直指郭象注的根本問題在於混淆了「滿足慾望」與「真正自由」。他借用佛教般若學「性空」思想重新詮釋：真正的逍遙，並非任由本能或慾望驅使（那只是「有待」，即依賴外物或本能才能滿足），而是要像至人一樣「無待」&#x2014;&#x2014;超越一切對外物、名利乃至自我本能的依賴，達到心靈的絕對自由。支遁「新義」一出，據《世說新語》記載，「群儒舊學，莫不歎服」，當時清談名士聽聞此說，無不驚嘆折服，郭象數十年的權威定論就此被撼動。</p>
+      <p>支遁的逍遙新義，是佛教般若學與中國玄學正面交鋒、深度融合的經典案例&#x2014;&#x2014;他將印度佛教「空」的智慧，嫁接到中國本土最核心的哲學命題之上，開創了「格義佛教」向更成熟階段過渡的先聲。他的另一名篇〈即色遊玄論〉，進一步論證「色即為空，色復異空」，被視為東晉般若學「六家七宗」中最具創見的一支，直接影響後來僧肇對「空」義更精密的辨析。支遁晚年隱居剡山（今浙江嵊州），養鶴放鶴，其「愛而不畜」的名士風流軼事，與其哲學思想中「無待」的逍遙境界互相輝映，成為後世談論魏晉風度時的經典意象。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhi_Dun" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 支遁提醒我們：「順性而為」不等於自由&#x2014;&#x2014;真正的逍遙，是連對本能與慾望的依賴都能超越。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>支遁如何指出郭象「適性逍遙」說的根本漏洞？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他指出若「適性」即是逍遙，那麼暴君順其暴虐本性為所欲為也應算逍遙，這顯然荒謬；真正的逍遙不是滿足本能慾望的「有待」，而是超越一切依賴、達到心靈絕對自由的「無待」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《世說新語·文學》；湯用彤《漢魏兩晉南北朝佛教史》；許抗生《魏晉玄學史》；馮友蘭《中國哲學史新編》相關論述。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Is the Present King of France Bald? Bertrand Russell&#x2019;s (羅素) Theory of Descriptions (摹狀詞理論) and the Sentence That Reshaped Logic</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Is the sentence &ldquo;The present King of France is bald&rdquo; true or false? There is no King of France right now. Before you answer, notice that both &ldquo;true&rdquo; and &ldquo;false&rdquo; feel wrong somehow &mdash; what&#x2019;s actually going on with a sentence that refers to something that doesn&#x2019;t exist?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Bertrand Russell (羅素, 1872&ndash;1970), British philosopher and logician; Alexius Meinong (邁農), Austrian philosopher whose theory of non-existent objects Russell was reacting against; Gottlob Frege (弗雷格), whose work on sense and reference set up the puzzle.</p>
+        <p><strong>Core ideas:</strong> Definite descriptions (限定摹狀詞) &mdash; phrases like &ldquo;the present King of France&rdquo;; the theory of descriptions (摹狀詞理論), 1905; logical form (邏輯形式) versus grammatical form.</p>
+        <p><strong>Big picture:</strong> Philosophers of language were grappling with how sentences about non-existent or fictional things could be meaningful at all, without requiring a bizarre ontology of &ldquo;things that don&#x2019;t exist but still have properties.&rdquo;</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Bertrand_Russell_smoking_in_1936.jpg/330px-Bertrand_Russell_smoking_in_1936.jpg" alt="Bertrand Russell in 1936" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Bertrand Russell (羅素), whose 1905 theory of descriptions became a foundational method in analytic philosophy. Credit: <a href="https://en.wikipedia.org/wiki/Bertrand_Russell" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his 1905 paper &ldquo;On Denoting,&rdquo; Bertrand Russell (羅素) tackled a puzzle that had troubled logicians for years: what does the sentence &ldquo;The present King of France is bald&rdquo; actually mean, given that France had no king in 1905? One response, associated with Alexius Meinong (邁農), was to say the sentence refers to a genuine, if non-existent, entity &mdash; &ldquo;the present King of France&rdquo; &mdash; which really does possess the property of baldness or its absence. Russell found this deeply unsatisfying: it seemed to populate the world with a strange menagerie of subsistent non-existent objects just to keep our grammar tidy.</p>
+      <p>Russell&#x2019;s solution was radical: the grammatical form of a sentence can seriously mislead us about its actual logical form (邏輯形式). &ldquo;The present King of France is bald&rdquo; isn&#x2019;t really a simple subject-predicate sentence at all &mdash; properly analysed, it asserts three separate claims joined together: there exists an entity that is King of France; there is only one such entity; and that entity is bald. Since the first claim is false &mdash; no such entity exists &mdash; the entire conjunction is false, cleanly and without requiring any mysterious non-existent objects. The definite description (限定摹狀詞) &ldquo;the present King of France&rdquo; isn&#x2019;t a name referring to something; it&#x2019;s a disguised existence claim.</p>
+      <p>The theory of descriptions (摹狀詞理論) became, in philosopher Frank Ramsey&#x2019;s words, &ldquo;a paradigm of philosophy&rdquo; &mdash; a model for how careful logical analysis could dissolve apparent metaphysical puzzles by exposing hidden structure beneath ordinary language. It directly shaped Russell and Alfred North Whitehead&#x2019;s <em>Principia Mathematica</em> (數學原理) and became foundational to analytic philosophy&#x2019;s core method: treating philosophical problems as often arising from mistaking grammatical form for logical form. The theory remains debated &mdash; philosophers like Peter Strawson (斯特勞森) later argued Russell conflated meaning with truth-value in ways ordinary language doesn&#x2019;t actually support &mdash; but its influence on 20th-century logic and philosophy of language remains foundational.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bertrand_Russell" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A sentence can look grammatically simple while hiding a more complex logical structure underneath &mdash; Russell&#x2019;s method was to expose that structure rather than trust the surface grammar.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Russell, why is &ldquo;The present King of France is bald&rdquo; simply false, rather than meaningless or requiring some strange non-existent entity?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Russell analysed the sentence as secretly asserting three claims: that an entity exists which is King of France, that there is exactly one such entity, and that it is bald. Since no King of France exists, the first claim is false, making the entire conjunction false &mdash; without needing to posit any bizarre non-existent objects.</div>
+      </details>
+      <div class="source">&#x1F4D6; Russell, B. (1905). &ldquo;On Denoting.&rdquo; <em>Mind</em>, 14(56), 479&ndash;493. Stanford Encyclopedia of Philosophy: &ldquo;Descriptions&rdquo; (2023). Strawson, P.F. (1950). &ldquo;On Referring.&rdquo; <em>Mind</em>, 59(235).</div>
+    </article>
+
+    <!-- CARD 6: Psychology (Behavioral Econ) -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology &mdash; &#x1F3AF; Behavioral Economics</div>
+      <h2>Why We Keep Watching a Bad Movie Because We Already Paid for It: The Sunk Cost Fallacy (沉沒成本謬誤) and the Money Trap You Can&#x2019;t Get Back</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&#x2019;ve paid $200 for a concert ticket. On the night of the show, you develop a bad flu and would honestly rather stay home even if the ticket were free. Does the fact that you already paid $200 change whether going is the right decision tonight?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Richard_Thaler_Chatham.jpg" alt="Richard Thaler, behavioral economist" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Richard Thaler (塞勒), whose research popularised the sunk cost fallacy and mental accounting. Credit: <a href="https://en.wikipedia.org/wiki/Sunk_cost" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1985, psychologists Hal Arkes and Catherine Blumer published a landmark study demonstrating the sunk cost fallacy (沉沒成本謬誤): the tendency to continue investing in a decision because of resources already spent &mdash; money, time, effort &mdash; even when those resources can never be recovered regardless of what happens next. In their theatre-ticket experiment, participants who had paid full price for a season ticket attended significantly more performances than those who received the identical ticket at a discount, even though the price already paid was completely irrelevant to whether any individual show was worth attending on a given night.</p>
+      <p>The economically rational response to sunk costs is straightforward: ignore them entirely. A cost that cannot be recovered regardless of your future choice should have zero influence on that choice &mdash; only future costs and benefits matter. Yet humans routinely violate this principle, driven partly by loss aversion (損失規避, the pain of &ldquo;wasting&rdquo; the initial investment) and partly by a desire for consistency &mdash; abandoning a costly commitment can feel like publicly admitting the original decision was a mistake, which carries its own psychological cost independent of the money itself. This is sometimes called the &ldquo;Concorde fallacy&rdquo; (協和謬誤), after the British and French governments continued funding the commercially unviable supersonic jet years after its failure was evident, partly because of the billions already invested.</p>
+      <p>The sunk cost fallacy shapes decisions far beyond entertainment: it keeps people in failing relationships, unprofitable business ventures, and poorly performing investments longer than a fresh, unbiased analysis would justify. The most effective countermeasure is a simple reframing exercise: ask &ldquo;if I were starting from scratch today, knowing everything I now know, would I choose to begin this?&rdquo; If the answer is no, the sunk cost &mdash; no matter how large &mdash; provides no rational reason to continue. Organisations that build in pre-committed &ldquo;stop-loss&rdquo; rules or bring in outside decision-makers unattached to the original investment tend to escape sunk cost traps more reliably than individuals relying on willpower alone.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sunk_cost" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Money and time already spent are gone regardless of what you do next &mdash; the only question that should matter is whether continuing is still the best choice from today forward.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Arkes and Blumer&#x2019;s 1985 theatre-ticket experiment, what specifically differed between the group that attended more performances and the group that attended fewer?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The two groups received identical season tickets, differing only in whether they paid full price or a discounted price &mdash; those who paid full price attended more performances, showing that the sunk cost itself, not the value of the shows, drove attendance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Arkes, H.R. &amp; Blumer, C. (1985). &ldquo;The psychology of sunk cost.&rdquo; <em>Organizational Behavior and Human Decision Processes</em>, 35(1), 124&ndash;140. Thaler, R.H. (1980). <em>Journal of Economic Behavior &amp; Organization</em>, 1(1). Staw, B.M. (1976). &ldquo;Knee-deep in the big muddy.&rdquo; <em>Organizational Behavior and Human Performance</em>, 16(1).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Only Get Chickenpox Once: Adaptive Immune Memory (適應性免疫記憶) and the Cellular Trick That Makes Vaccines Work</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The first time your body encounters a specific virus, it can take a week or more to mount an effective immune response &mdash; long enough to get seriously sick. The second time you encounter the exact same virus, your immune system often clears it before you notice any symptoms at all. What changed inside your body between the first and second exposure?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Original_antigenic_sin.svg/250px-Original_antigenic_sin.svg.png" alt="Diagram of immune memory response" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Memory B and T cells (記憶細胞) enable a faster, stronger immune response on re-exposure to a pathogen. Credit: <a href="https://en.wikipedia.org/wiki/Immunological_memory" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The adaptive immune system (適應性免疫系統) has a remarkable property the faster-acting innate immune system (先天免疫系統) lacks: memory. When a pathogen is first encountered, specialised white blood cells called B cells (B細胞) and T cells (T細胞) that happen to recognise it are activated and multiply rapidly &mdash; a process called clonal expansion (克隆擴增) &mdash; mounting a primary immune response that typically takes one to two weeks to peak, which is why first infections are often symptomatic and sometimes severe. Crucially, a subset of these activated cells don&#x2019;t die off after the infection clears; they become long-lived memory B cells and memory T cells (記憶細胞), some persisting for decades.</p>
+      <p>On re-exposure to the same pathogen, these memory cells enable a secondary immune response that is faster, larger, and more targeted &mdash; often clearing the pathogen within hours to a couple of days, before symptoms have time to develop at all. Memory B cells also undergo a refinement process called affinity maturation (親和力成熟), progressively producing antibodies (抗體) that bind the pathogen more precisely with each subsequent exposure. This is the entire mechanistic basis of vaccination (疫苗接種): a vaccine exposes the immune system to a harmless version, fragment, or genetic blueprint of a pathogen, triggering the formation of memory cells without requiring the person to suffer the actual disease first.</p>
+      <p>Not all immune memory lasts equally long, which explains why some vaccines require boosters and others don&#x2019;t: measles vaccination typically provides lifelong immunity because the memory B cell response is unusually robust and long-lasting, while influenza vaccines require annual reformulation partly because the virus itself mutates rapidly (antigenic drift, 抗原漂移), evading previously formed memory. Understanding this mechanism also explains &ldquo;original antigenic sin&rdquo; (最初抗原原罪) &mdash; the tendency for the immune system&#x2019;s memory response to a first viral strain to sometimes blunt its ability to respond optimally to a related but distinct later strain, a phenomenon actively studied in both influenza and COVID-19 vaccine research.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Immunological_memory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Vaccines don&#x2019;t trick your immune system &mdash; they give it a safe first exposure so the memory cells that make your second response fast and effective are already waiting before you ever meet the real pathogen.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is a person&#x2019;s second immune response to a pathogen typically much faster than the first?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The first exposure creates long-lived memory B cells and T cells that persist after the infection clears. On re-exposure, these memory cells allow a much faster, larger, and more targeted secondary immune response, often clearing the pathogen before symptoms develop, unlike the slower one-to-two-week primary response.</div>
+      </details>
+      <div class="source">&#x1F4D6; Murphy, K. &amp; Weaver, C. <em>Janeway&#x2019;s Immunobiology</em>, 9th ed. Garland Science. Akondy, R.S. et al. (2017). &ldquo;Origin and differentiation of human memory CD8 T cells.&rdquo; <em>Nature</em>, 552(7685). Plotkin, S.A. (2008). <em>Clinical Infectious Diseases</em>, 47(3).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The 1945 Experiment That Changed Every Toothpaste Tube: Water Fluoridation (水氟化), the Grand Rapids Trial, and Why the Controversy Persists</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A single mineral added to drinking water at roughly 1 part per million reduced childhood cavities by over 60% in the first large-scale trial. Given that dramatic a result, why do you think water fluoridation remains one of the most publicly contested public health interventions today, over 75 years later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Dental_Caries_Cavity_2.JPG" alt="Dental caries / tooth decay" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Dental caries (齲齒) &mdash; the condition water fluoridation was designed to reduce. Credit: <a href="https://en.wikipedia.org/wiki/Water_fluoridation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1945, Grand Rapids, Michigan became the first city in the world to fluoridate its public water supply, adding fluoride (氟化物) to roughly 1 part per million as a controlled public health experiment, with nearby Muskegon serving as an unfluoridated comparison city. By 1950, children born after fluoridation began in Grand Rapids showed roughly 60% fewer cavities (齲齒) than children in Muskegon &mdash; a result so striking that the study helped drive fluoridation across the United States, and later worldwide, over the following decades. The mechanism is now well understood: fluoride incorporates into developing tooth enamel (琺瑯質) as fluorapatite, significantly more resistant to acid dissolution from oral bacteria than the natural hydroxyapatite it replaces, and it also helps remineralise (再礦化) early, microscopic decay before cavities fully form.</p>
+      <p>The controversy that persists today centres on a real, if narrow, risk-benefit tradeoff: dental fluorosis (氟斑牙) &mdash; faint white mottling of tooth enamel &mdash; occurs at a dose-dependent rate when children ingest excess fluoride during tooth development, typically before age 8. Most cases are mild and cosmetic only, but this genuine risk, combined with broader public distrust of mass medication without individual consent, fuels much of the ongoing opposition. A 2015 Cochrane systematic review confirmed water fluoridation meaningfully reduces cavities in children, though the magnitude of benefit measured in more recent studies is somewhat smaller than in the original mid-20th-century trials &mdash; plausibly because fluoride toothpaste, introduced widely from the 1970s onward, now provides much of the population-level protection fluoridation once uniquely delivered.</p>
+      <p>Current scientific consensus, reflected in WHO and CDC guidance, still supports community water fluoridation at controlled, low concentrations as safe and effective, particularly benefiting children in lower-income households with less consistent access to dental care or fluoride toothpaste. Separately, a 2024 National Toxicology Program review examining fluoride exposure at levels roughly twice the recommended US fluoridation standard found a possible association with lower IQ in children, a finding actively debated within the scientific community over methodology and dose-relevance to normal fluoridated water levels &mdash; a live area of ongoing research rather than a settled question, distinct from the well-established dental benefit at standard recommended concentrations.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Water_fluoridation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Fluoride toothpaste alone provides substantial cavity protection today &mdash; but community water fluoridation still meaningfully helps people with the least consistent access to dental care.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made the original 1945 Grand Rapids fluoridation trial such compelling evidence, from a study design perspective?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It used a controlled comparison against the unfluoridated city of Muskegon, tracking children born after fluoridation began, which allowed researchers to attribute the roughly 60% reduction in cavities specifically to the fluoride intervention rather than other confounding factors.</div>
+      </details>
+      <div class="source">&#x1F4D6; Ast, D.B. &amp; Schlesinger, E.R. (1956). &ldquo;The Newburgh-Kingston caries-fluorine study.&rdquo; <em>American Journal of Public Health</em>, 46(3). Iheozor-Ejiofor, Z. et al. (2015). Cochrane Database of Systematic Reviews. National Toxicology Program (2024). &ldquo;Fluoride exposure and neurodevelopment.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Break the Set, Keep the Power: How Cluster Sets (集群組訓練) Let You Lift More Weight With Better Technique by Adding Tiny Rest Pauses</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A standard set of 5 heavy reps is typically performed back-to-back with no rest between reps. What do you think would happen to bar speed, technique, and total weight moved if you inserted just 15&ndash;30 seconds of rest between each individual rep within that same set?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/TwoDumbbells.JPG" alt="Dumbbells used for resistance training" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cluster sets restructure rest periods within a set to preserve bar speed and power output. Credit: <a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a traditional set, repeated repetitions performed back-to-back without rest cause progressive fatigue within the set itself &mdash; bar speed slows, technique often degrades, and the last few repetitions are typically performed under significantly more neuromuscular stress than the first. Cluster sets (集群組訓練) restructure this by inserting short intra-set rest periods &mdash; commonly 15 to 45 seconds &mdash; between individual repetitions or small groups of repetitions (clusters) within what would otherwise be one continuous set, allowing partial recovery of phosphocreatine (磷酸肌酸) stores, the primary immediate fuel source for maximal-effort lifting, between each cluster.</p>
+      <p>The practical effect, demonstrated across multiple studies including work by G. Gregory Haff and colleagues, is that lifters using cluster sets can maintain significantly higher bar velocity and power output (功率輸出) across an entire set compared to traditional sets performed at the same total volume and load, because each cluster begins from a partially recovered state rather than an increasingly fatigued one. This matters most for power-and-velocity-dependent training goals &mdash; Olympic lifts, jump training, and speed-strength work &mdash; where technique breakdown under fatigue not only reduces training quality but can meaningfully increase injury risk, particularly in complex, technical movements performed near maximal loads.</p>
+      <p>The tradeoff is time: cluster sets take noticeably longer to complete than traditional sets of equivalent volume, because the accumulated intra-set rest adds up across a full session. For pure hypertrophy-focused training, where accumulated metabolic stress and time under tension may partly drive muscle growth, the evidence for cluster sets over traditional sets is more mixed &mdash; some research suggests they may slightly blunt the metabolic stimulus that contributes to size gains. Cluster sets are best deployed strategically rather than universally: for technical power work, heavy strength work near a lifter&#x2019;s one-rep max, or when injury risk from fatigue-driven technique breakdown is a specific concern, not as a default replacement for all training.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Use cluster sets for power and technical lifts where fatigue degrades form and risks injury &mdash; not as a blanket replacement for standard hypertrophy training.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific physiological resource do the short intra-set rest periods in cluster sets primarily allow to partially recover?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They primarily allow partial recovery of phosphocreatine stores, the primary immediate energy source for maximal-effort lifting, which is why cluster sets help maintain higher bar velocity and power output across a set compared to traditional continuous sets.</div>
+      </details>
+      <div class="source">&#x1F4D6; Haff, G.G. et al. (2003). &ldquo;Cluster training: A novel method for introducing training program variation.&rdquo; <em>Strength and Conditioning Journal</em>, 25(4). Tufano, J.J. et al. (2017). <em>Sports Medicine</em>, 47(12). Oliver, J.M. et al. (2013). <em>Journal of Strength and Conditioning Research</em>, 27(11).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Doctor Who Bet Against the Housing Market: Michael Burry (麥可・貝瑞), Credit Default Swaps (信用違約掉期), and Being Right Two Years Too Early</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&#x2019;ve identified, using publicly available data, that millions of mortgages are almost certain to default within a few years &mdash; but no financial product exists yet that lets you bet against them directly, and even your own investors are demanding their money back because your fund is losing money before you&#x2019;re proven right. What would it take to hold your position anyway?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/2f/Big-short-inside-the-doomsday-machine.jpg" alt="The Big Short book cover" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Michael Lewis&#x2019;s <em>The Big Short</em>, which popularised Michael Burry&#x2019;s subprime mortgage bet. Credit: <a href="https://en.wikipedia.org/wiki/Michael_Burry" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2005, Michael Burry (麥可・貝瑞), a former physician running the hedge fund Scion Capital (賽恩資本), read through hundreds of pages of mortgage-backed securities (抵押貸款證券化商品, MBS) prospectuses &mdash; a level of due diligence almost no one else on Wall Street bothered with &mdash; and concluded that millions of subprime mortgages (次級房貸), especially adjustable-rate loans with low &ldquo;teaser&rdquo; introductory rates, were structurally certain to default once those rates reset higher, typically within two to three years of origination. No financial instrument existed at the time to bet against individual mortgage bonds directly, so Burry approached major investment banks and effectively persuaded them to create credit default swaps (信用違約掉期, CDS) on mortgage bonds &mdash; insurance-like contracts that would pay out if the underlying bonds defaulted.</p>
+      <p>Burry&#x2019;s timing proved painfully premature in the short term: he began purchasing these swaps in 2005, but the housing market kept rising through 2006 and into 2007, meaning Scion Capital paid ongoing premiums on the swaps while showing paper losses, since the bonds hadn&#x2019;t yet defaulted. His investors, unable to see the underlying logic and frustrated by mounting losses, demanded withdrawals and threatened legal action; Burry, believing his analysis was sound, controversially locked investor capital in place to prevent a forced unwind of the position before the thesis could play out &mdash; a decision that alienated many clients even as it ultimately protected the fund&#x2019;s eventual gains.</p>
+      <p>When the subprime mortgage crisis (次貸危機) fully materialised in 2007&ndash;2008, Scion Capital&#x2019;s credit default swap positions paid off dramatically, returning approximately 489% net of fees to investors who stayed the course through 2008, while the broader financial system experienced its worst crisis since the Great Depression. Burry&#x2019;s story, popularised in Michael Lewis&#x2019;s book and the 2015 film &ldquo;The Big Short,&rdquo; is frequently cited as an illustration of economist John Maynard Keynes&#x2019;s observation that &ldquo;markets can remain irrational longer than you can remain solvent&rdquo; &mdash; being correct about an eventual outcome is not sufficient for investment success; surviving the interval before being proven right, financially and psychologically, is an equally decisive skill.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Michael_Burry" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Being right about where a market is headed isn&#x2019;t enough &mdash; you also have to survive, financially and psychologically, the possibly long stretch before the market agrees with you.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Michael Burry&#x2019;s credit default swap position generate paper losses for roughly two years before eventually paying off?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He purchased the swaps starting in 2005 based on his analysis that subprime mortgages would eventually default, but housing prices kept rising through 2006&ndash;2007, meaning the underlying bonds hadn&#x2019;t defaulted yet, so his fund kept paying ongoing premiums without any payout &mdash; until the crisis materialised in 2007&ndash;2008.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lewis, M. (2010). <em>The Big Short: Inside the Doomsday Machine</em>. W.W. Norton. Financial Crisis Inquiry Commission (2011). <em>The Financial Crisis Inquiry Report</em>. Zuckerman, G. (2009). <em>The Greatest Trade Ever</em>. Broadway Books.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Was QWERTY Really a Market Failure? Path Dependence (路徑依賴), the QWERTY Keyboard, and a Famous Debate That Backfired</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/KB_United_States_Dvorak.svg/960px-KB_United_States_Dvorak.svg.png" alt="Dvorak Simplified Keyboard layout" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Dvorak Simplified Keyboard (德弗札克鍵盤), the alternative layout that never displaced QWERTY. Credit: <a href="https://en.wikipedia.org/wiki/QWERTY" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">The QWERTY keyboard layout (QWERTY鍵盤佈局), designed in the 1870s partly to slow typists and reduce mechanical typebar jams on early typewriters, remains the dominant keyboard layout worldwide today, despite the underlying mechanical constraint disappearing decades ago with electronic keyboards. The Dvorak Simplified Keyboard (德弗札克鍵盤, patented 1936), claiming faster typing and reduced finger movement, has existed for nearly a century yet never achieved meaningful adoption.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard neoclassical economics predicts competitive markets converge on efficient outcomes over time: if a superior alternative exists and switching costs are reasonable, rational actors should eventually adopt it, and inefficient standards should be competed away.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Economist Paul David&#x2019;s influential 1985 paper &ldquo;Clio and the Economics of QWERTY&rdquo; argued QWERTY&#x2019;s persistence despite Dvorak&#x2019;s claimed superiority demonstrates technological lock-in (技術鎖定) and path dependence (路徑依賴): once typists, manufacturers, and training infrastructure standardised on QWERTY, switching costs became prohibitive even if Dvorak were genuinely better &mdash; a canonical example of market failure through historical accident rather than efficient selection.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Liebowitz &amp; Margolis (1990) directly challenged this narrative, re-examining the original Dvorak-superiority studies and finding most were poorly controlled or conducted by parties with a vested interest in the results; more rigorous later comparisons found QWERTY and Dvorak roughly equivalent in real-world typing speed. Their conclusion: QWERTY&#x2019;s dominance may reflect a rational equilibrium given genuinely comparable alternatives, not inefficient path dependence &mdash; a challenge to path dependence as a general theory of market failure, still actively debated among economic historians.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; QWERTY&#x2019;s survival was economists&#x2019; favourite example of market failure for years &mdash; until closer scrutiny suggested the &ldquo;obviously superior&rdquo; alternative might never have been superior at all.</div>
+      <div class="source">&#x1F4D6; David, P.A. (1985). &ldquo;Clio and the Economics of QWERTY.&rdquo; <em>American Economic Review</em>, 75(2), 332&ndash;337. Liebowitz, S.J. &amp; Margolis, S.E. (1990). &ldquo;The Fable of the Keys.&rdquo; <em>Journal of Law and Economics</em>, 33(1), 1&ndash;25. Arthur, W.B. (1989). &ldquo;Competing technologies, increasing returns.&rdquo; <em>Economic Journal</em>, 99(394).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 3 &amp; 10 &mdash; When the Underlying Reality Finally Catches Up:</strong> At Midway, Japan's carriers looked dominant right up until a ten-minute window exposed how exposed they actually were. Michael Burry's subprime bet looked wrong for nearly two years precisely because the housing market's underlying fragility hadn't yet become visible to everyone else. In both cases, the gap between appearance and underlying reality persisted right up until a specific triggering moment collapsed it all at once.</p>
+      <p><strong>So what:</strong> When you're confident in an analysis that the crowd disagrees with, ask whether you're wrong or simply early &mdash; and whether you have the resources, financial or otherwise, to survive the gap between being right and being proven right.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Glassmeier et al. (2007), Space Science Reviews 128. ESA Rosetta Mission press releases (2014&ndash;2016). Altwegg et al. (2015), Science Advances 1(9).</li>
+      <li><strong>Card 2:</strong> 半藤一利《昭和史》；Shillony, Revolt in Japan (Princeton, 1973)；秦郁彦《軍ファシズム運動史》。</li>
+      <li><strong>Card 3:</strong> Parshall &amp; Tully, Shattered Sword (2005). Symonds, The Battle of Midway (2011). Prange, Miracle at Midway (1982).</li>
+      <li><strong>Card 4:</strong> 《世說新語·文學》；湯用彤《漢魏兩晉南北朝佛教史》；許抗生《魏晉玄學史》；馮友蘭《中國哲學史新編》。</li>
+      <li><strong>Card 5:</strong> Russell (1905), Mind 14(56). Stanford Encyclopedia of Philosophy (2023). Strawson (1950), Mind 59(235).</li>
+      <li><strong>Card 6:</strong> Arkes &amp; Blumer (1985), OBHDP 35(1). Thaler (1980), JEBO 1(1). Staw (1976), OBHP 16(1).</li>
+      <li><strong>Card 7:</strong> Murphy &amp; Weaver, Janeway's Immunobiology, 9th ed. Akondy et al. (2017), Nature 552(7685). Plotkin (2008), Clinical Infectious Diseases 47(3).</li>
+      <li><strong>Card 8:</strong> Ast &amp; Schlesinger (1956), AJPH 46(3). Iheozor-Ejiofor et al. (2015), Cochrane. National Toxicology Program (2024).</li>
+      <li><strong>Card 9:</strong> Haff et al. (2003), Strength and Conditioning Journal 25(4). Tufano et al. (2017), Sports Medicine 47(12). Oliver et al. (2013), JSCR 27(11).</li>
+      <li><strong>Card 10:</strong> Lewis, The Big Short (2010). Financial Crisis Inquiry Commission (2011). Zuckerman, The Greatest Trade Ever (2009).</li>
+      <li><strong>Card 11:</strong> David (1985), American Economic Review 75(2). Liebowitz &amp; Margolis (1990), Journal of Law and Economics 33(1). Arthur (1989), Economic Journal 99(394).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-03 (backfilled 2026-07-10): Rosetta / Philae &bull; 二二六事件（昭和） &#x2705; Japan &bull; Battle of Midway &bull; 支遁・逍遙義 &bull; Bertrand Russell / Theory of Descriptions &bull; Sunk Cost Fallacy &#x2705; Behavioral Econ &bull; Adaptive Immune Memory &bull; Water Fluoridation &bull; Cluster Sets &bull; Michael Burry / The Big Short &bull; QWERTY / Path Dependence</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-03.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-03.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 3 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
