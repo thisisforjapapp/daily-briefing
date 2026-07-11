@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 11 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 11 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>10 July 2026 (Edition 2)</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Crab Nebula / SN 1054</span>Song-dynasty astronomers recorded a &ldquo;guest star&rdquo; in 1054 CE, giving modern astronomers an exact birth date for the Crab Nebula and its spinning pulsar.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 土木堡之變</span>王振兩次改道失誤，致明英宗兵敗被俘於土木堡。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Trafalgar</span>Nelson broke the traditional line-of-battle tactic with a perpendicular attack, destroying Napoleon&#x2019;s navy at the cost of his own life.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 僧肇〈不真空論〉</span>僧肇融合般若空觀與玄學，主張觸事而真、即物論空。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Thomas Aquinas / Five Ways</span>Aquinas built five reason-based arguments for God&#x2019;s existence, fusing Aristotelian logic with Christian theology.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Stereotype Threat</span>Simply framing a test as measuring &ldquo;ability&rdquo; widened a racial score gap that vanished when the identical test was described neutrally.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Cochlea / Hair Cells</span>The cochlea&#x2019;s graded stiffness creates a physical frequency map, and its hair cells perform the fastest sensory transduction in the human body.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Sunscreen &amp; Skin Cancer</span>A 10-year Australian randomised trial proved daily sunscreen use causally cuts melanoma risk by half, not just correlates with it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Compression Garments</span>Meta-analyses show modest, mostly perceptual soreness relief from compression wear, with weaker evidence on objective muscle-damage markers.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; EMH vs Shiller</span>Fama and Shiller shared a Nobel for showing markets are efficient enough to be hard to beat, yet volatile enough that real anomalies exist.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Middle-Income Trap</span>Only a handful of countries have escaped stalling at middle-income status, and economists still dispute whether institutions or industrial policy matter more.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Day Humanity Photographed the Unphotographable: How Eight Telescopes Spanning the Planet Captured the First-Ever Image of a Black Hole (黑洞)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2019, scientists released the first-ever photograph of a black hole (黑洞) &mdash; an object whose gravity is so strong that not even light can escape it. If light can&#x2019;t escape a black hole, what do you think an image of one could possibly show?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/330px-Black_hole_-_Messier_87_crop_max_res.jpg" alt="First-ever image of a black hole, M87*, captured by the Event Horizon Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">M87* &mdash; the first-ever image of a black hole, released 10 April 2019 by the Event Horizon Telescope collaboration. Credit: <a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Wikimedia Commons / EHT Collaboration</a></div>
+      </div>
+      <p>On 10 April 2019, the Event Horizon Telescope (事件視界望遠鏡, EHT) collaboration released an image scientists had long assumed was physically impossible to capture. By linking eight radio telescopes across the globe &mdash; from Hawaii to the South Pole &mdash; using very-long-baseline interferometry (甚長基線干涉測量法), astronomers turned Earth itself into a virtual telescope the size of the planet. Their target was M87* (M87星系中心超大質量黑洞), a supermassive black hole roughly 6.5 billion times the Sun&rsquo;s mass, sitting 55 million light-years away at the centre of the galaxy Messier 87 (梅西耶87星系).</p>
+      <p>What the image actually shows is not the black hole itself but its &ldquo;shadow&rdquo; (陰影) silhouetted against superheated, glowing plasma swirling around it at close to the speed of light &mdash; a bright ring bent and magnified by extreme gravity into roughly twice the size of the true event horizon (事件視界). Reconstructing this image from petabytes of raw data required Katie Bouman&rsquo;s (凱蒂&middot;鮑曼) CHIRP algorithm; because the South Pole telescope lacked sufficient internet bandwidth, hard drives of data were physically flown to processing centres and synchronised using atomic clocks accurate to a fraction of a second.</p>
+      <p>The image confirmed predictions of Einstein&rsquo;s general relativity (廣義相對論) in the most extreme gravitational environment ever directly observed, and validated the imaging technique that produced 2022&rsquo;s image of Sagittarius A* (人馬座A*), the much smaller black hole at our own Milky Way&rsquo;s centre. Together the two images opened an entirely new observational field &mdash; black hole imaging astronomy &mdash; turning a century-old mathematical prediction into something scientists could finally point a camera at.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; We didn&rsquo;t photograph a black hole &mdash; we photographed the light bent around one, proving Einstein&rsquo;s century-old equations still hold at the edge of the universe.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Given that light cannot escape a black hole, what did the 2019 EHT image actually capture?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It captured the black hole&rsquo;s &ldquo;shadow&rdquo; &mdash; a dark silhouette cast against a bright ring of superheated plasma orbiting near the speed of light, with gravity bending that light into a ring roughly twice the size of the true event horizon.</div>
+      </details>
+      <div class="source">&#x1F4D6; Event Horizon Telescope Collaboration (2019). &ldquo;First M87 Event Horizon Telescope Results.&rdquo; <em>The Astrophysical Journal Letters</em>, 875(1). NASA/ESA press releases (2019, 2022). Bouman, K. et al. (2016), CHIRP algorithm, MIT.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「立木為信」與連坐酷法：商鞅如何以鐵腕變法將弱秦鍛造成虎狼之國，卻死於自己制定的刑律</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是秦孝公，明知舊貴族必定反對變法，你會如何說服全國百姓相信新法必定執行？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>商鞅（衛鞅／公孫鞅）、秦孝公、太子（後來的秦惠文王）、公子虔（太子師傅，受劓刑）。</p>
+        <p><strong>事件：</strong>西元前359年至338年，商鞅在秦國推行兩次變法，最終因政敵誣告而出逃被殺。</p>
+        <p><strong>時代背景：</strong>戰國七雄爭霸，秦國地處西陲，被中原諸國視為蠻夷，國力積弱；秦孝公即位後求賢若渴，商鞅攜法家治國之術入秦，力主以嚴刑峻法快速富國強兵。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Statue_of_Shang_Yang.jpg" alt="商鞅塑像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">商鞅塑像。來源：<a href="https://en.wikipedia.org/wiki/Shang_Yang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>秦孝公元年（前361年），商鞅（衛鞅）攜李悝《法經》入秦，向秦孝公獻「霸道」之術，主張以嚴刑峻法、獎勵耕戰快速富國強兵。孝公力排眾議，於前359年任商鞅為左庶長，推行第一次變法：編訂什伍連坐制度，五家為伍、十家為什，一家犯法、鄰里連坐；廢除世卿世祿，按軍功授爵；重農抑商，獎勵耕織。變法初期，貴族多有怨言，商鞅乃在國都南門立三丈之木，宣稱能將木頭搬至北門者賞十金，百姓將信將疑，無人敢動，商鞅遂加賞至五十金，終有一人試搬，即獲重賞——「立木為信」自此樹立新法必行的威信。</p>
+      <p>前350年，商鞅推行第二次變法，遷都咸陽，廢井田、開阡陌，承認土地私有買賣；統一度量衡；推行縣制，將全國劃分為三十一縣，由國君直接委派縣令，削弱貴族封地特權。太子（後來的秦惠文王）觸犯新法，商鞅認為「法之不行，自上犯之」，因太子為儲君不能施刑，遂重罰太子師傅公子虔，處以劓刑（割鼻）；另一師傅公孫賈則被黥面（刺字）。此舉震動朝野，自此秦國「道不拾遺，山無盜賊」，變法雷厲風行，貴族卻對商鞅恨之入骨。</p>
+      <p>前338年，秦孝公去世，太子繼位為秦惠文王，公子虔一黨隨即誣告商鞅謀反。商鞅出逃至邊境，欲投宿旅舍，店主以「商君之法，舍人無驗者坐之」為由拒絕收留——商鞅作法自斃，被自己制定的連坐法所困，最終兵敗被殺，屍身遭車裂示眾，全家亦被誅滅。然而商鞅雖死，其變法制度並未廢除，秦國因此奠定耕戰體制與中央集權基礎，此後歷代秦君蕭規曹隨，終使秦國由西陲弱國蛻變為橫掃六合的統一帝國。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Shang_Yang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 商鞅以「立木為信」樹立法治威信，卻因自己制定的酷法而喪命——變法者往往是自己制度最早的犧牲品。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>商鞅如何用「立木為信」建立百姓對新法的信任？他最終為何死於自己制定的連坐法？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">商鞅在南門立木，聲言搬木至北門可獲重賞，起初無人相信，後加碼至五十金終有人嘗試並獲賞，藉此樹立新法必行的公信力。孝公死後商鞅遭誣告出逃，卻因自己制定的「舍人無驗連坐」法例被旅店拒收，最終兵敗被殺、車裂示眾。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《史記·商君列傳》（司馬遷）；《商君書》；杜正勝《編戶齊民：傳統政治社會結構之形成》；許倬雲相關戰國史論述。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>One Arrow, One Kingdom: How William the Conqueror (征服者威廉) Won England at Hastings (黑斯廷斯) in a Single Day &mdash; and Left a Scar Still Visible in English Today</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An invading army with no legal claim to the throne defeats the crowned king of England in a single nine-hour battle. Nearly a thousand years later, the English language still carries the scar. What do you think that scar looks like?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> William, Duke of Normandy (諾曼第公爵威廉, later William the Conqueror 征服者威廉); Harold Godwinson (哈羅德&middot;戈德溫森), crowned King of England in January 1066; Harald Hardrada (哈拉爾三世), King of Norway, whose simultaneous invasion in the north exhausted Harold&rsquo;s army before Hastings.</p>
+        <p><strong>Event at stake:</strong> Battle of Hastings (黑斯廷斯戰役), 14 October 1066, near Hastings, southern England.</p>
+        <p><strong>Big picture:</strong> Edward the Confessor (懺悔者愛德華) died childless in January 1066, triggering a three-way succession crisis that forced Harold to fight two full-scale invasions within three weeks.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Bayeux_Tapestry_scene57_Harold_death.jpg/330px-Bayeux_Tapestry_scene57_Harold_death.jpg" alt="Bayeux Tapestry scene depicting the death of King Harold at Hastings" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Bayeux Tapestry&rsquo;s (貝葉掛毯) depiction of King Harold&rsquo;s death at Hastings. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Hastings" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 5 January 1066, Edward the Confessor (懺悔者愛德華) died without an heir, and Harold Godwinson (哈羅德&middot;戈德溫森) was crowned king the next day. William of Normandy (諾曼第公爵威廉) claimed Edward had promised him the throne years earlier, and that Harold had personally sworn an oath supporting that claim. Norway&rsquo;s Harald Hardrada (哈拉爾三世) also invaded, landing in the north first &mdash; Harold marched his army roughly 300km in four days, crushing Hardrada at Stamford Bridge (斯坦福橋戰役) on 25 September, only to learn William had landed in the south three days later, forcing an immediate exhausting march back.</p>
+      <p>Harold&rsquo;s battered army formed a shield wall (盾牆) on Senlac Hill, while William&rsquo;s Norman forces used cavalry charges and repeated feigned retreats (詐退戰術) to lure defenders out of formation and pick them off. The fighting lasted roughly nine hours. According to the Bayeux Tapestry (貝葉掛毯), an arrow struck Harold in the eye &mdash; a detail historians still debate &mdash; before Norman cavalry finally broke through the weakened shield wall. Harold was killed and English resistance collapsed by nightfall.</p>
+      <p>William was crowned King of England on Christmas Day 1066 at Westminster Abbey (西敏寺), and within a generation the Anglo-Saxon aristocracy was almost entirely replaced by Norman lords, formalised through the Domesday Book (末日審判書) land survey of 1086. French became the language of court, law, and cuisine for three centuries while English persisted among commoners &mdash; which is why English today keeps Anglo-Saxon names for farm animals (cow, pig) but French-derived names for the meat served at the table (beef, pork).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Hastings" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; English still carries Hastings&rsquo; scar in its vocabulary: farmyard animals kept their Anglo-Saxon names, but the meat on the lord&rsquo;s table took French ones.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Harold&rsquo;s army arrive at Hastings already exhausted, and how did that shape the battle?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Harold had just force-marched roughly 300km north to defeat Hardrada at Stamford Bridge, then marched south again within days to meet William &mdash; giving his army no time to rest or fully regroup before facing a fresh Norman force.</div>
+      </details>
+      <div class="source">&#x1F4D6; The Bayeux Tapestry (11th century). Douglas, D.C. (1964). <em>William the Conqueror</em>. University of California Press. English Heritage, &ldquo;The Battle of Hastings 1066.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>萬法唯識：玄奘西行十七年偷渡取經，如何將印度唯識學帶回長安，開創法相宗</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你窮盡一生所學，卻發現漢譯佛經義理含混、眾說紛紜，你會甘於現狀，還是甘冒殺頭之罪偷渡出關，只為求得原典真義？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>玄奘（602–664年）；戒賢法師（那爛陀寺住持，唯識學權威）；唐太宗（後期支持譯經事業）。</p>
+        <p><strong>核心思想：</strong>唯識宗（法相宗）；「萬法唯識」；八識（前五識、意識、末那識、阿賴耶識）；《成唯識論》。</p>
+        <p><strong>時代背景：</strong>唐初佛教義理紛雜，各家漢譯經典術語不一，玄奘研讀舊譯典籍時深感疑義叢生，決心西行天竺直探原典，糾正翻譯訛誤。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Xuanzang_w.jpg/330px-Xuanzang_w.jpg" alt="玄奘畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">玄奘畫像。來源：<a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>貞觀元年（627年），玄奘因深感國內佛經翻譯歧義叢生、義理難通，上表請求西行求法未獲批准，遂「冒越憲章，私往天竺」，隻身偷渡出玉門關。途經高昌國，國王麴文泰盛情挽留甚至威脅，玄奘絕食明志，最終結為兄弟放行；穿越塔克拉瑪干沙漠時四日五夜滴水未進，幾乎喪命；翻越帕米爾高原冰川，隨行者多人凍死。歷經三年跋涉，終於抵達印度那爛陀寺，拜入戒賢法師門下，成為其最後一位嫡傳弟子，專攻唯識學（瑜伽行派）。</p>
+      <p>玄奘在那爛陀寺潛修五年，遍習《瑜伽師地論》《成唯識論》等唯識經典，後又遊歷全印度求教諸師，聲名遠播，曾在戒日王主持的曲女城辯論大會上舌戰十八國高僧與外道，無人能難倒他，獲「大乘天」尊號。貞觀十九年（645年），玄奘攜六百五十七部梵文經典返抵長安，唐太宗雖為其擅自出關震怒，卻為其學問折服，敕命在長安設譯場，集全國高僧協助翻譯，玄奘親自主持譯出經論七十五部、一千三百餘卷，並口述西行見聞成《大唐西域記》。</p>
+      <p>玄奘據唯識學說創立法相宗，核心主張「萬法唯識」——外境並非獨立實有，一切現象皆由第八識「阿賴耶識」（藏識）所變現；修行關鍵在於轉識成智，將染污的末那識、阿賴耶識轉化為清淨智慧。法相宗理論體系極其精密，卻因術語繁瑣、義理高深，傳承僅三代即告式微，遠不及禪宗、淨土宗普及；但其譯經事業奠定後世漢傳佛教經典基礎，玄奘西行取經的傳奇更成為明代小說《西遊記》的原型。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 玄奘用十七年證明：真正的求知，有時需要先違反規矩，才能帶回改變整個文明的答案。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>玄奘創立的法相宗，其核心主張「萬法唯識」是什麼意思？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">法相宗主張外在世界並非獨立實有，一切現象皆由第八識「阿賴耶識」所變現；修行的關鍵在於「轉識成智」，將染污的心識轉化為清淨智慧，而非向外尋求真理。</div>
+      </details>
+      <div class="source">&#x1F4D6; 玄奘《大唐西域記》；《成唯識論》；湯用彤《隋唐佛教史稿》；方立天《中國佛教哲學要義》；季羨林〈玄奘與《大唐西域記》〉相關研究。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>From Slave to Sage: How Epictetus (愛比克泰德) Turned a Crippled Leg and a Life in Chains Into the Stoic (斯多葛學派) Philosophy That Still Runs Self-Help Today</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You have almost no control over what happens to your body, your reputation, or your circumstances. Epictetus, born enslaved, claimed you have complete control over one single thing that determines your peace of mind. What do you think that one thing is?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Epictetus (愛比克泰德, c. 50&ndash;135 CE), born enslaved in Hierapolis (希拉波利斯), later a leading Stoic teacher; Arrian (阿里安), his student who transcribed his lectures since Epictetus wrote nothing himself; Marcus Aurelius (馬可&middot;奧理略), Roman emperor whose <em>Meditations</em> was deeply shaped by Epictetus decades after his death.</p>
+        <p><strong>Core ideas:</strong> Stoicism (斯多葛學派); the dichotomy of control (控制二分法); the <em>Enchiridion</em> (道德手冊, &ldquo;Handbook&rdquo;).</p>
+        <p><strong>Big picture:</strong> Epictetus lived as an enslaved man under a secretary to Emperor Nero (尼祿), reportedly enduring abuse that left him permanently lame, before being freed and founding his own school in Nicopolis (尼科波利斯), Greece.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Epicteti_Enchiridion_Latinis_versibus_adumbratum_%28Oxford_1715%29_frontispiece_%28cropped%29.jpg" alt="Frontispiece of a 1715 Oxford edition of Epictetus's Enchiridion" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Frontispiece of a 1715 Oxford edition of the <em>Enchiridion</em> (道德手冊), Epictetus&rsquo;s teachings as recorded by his student Arrian. Credit: <a href="https://en.wikipedia.org/wiki/Epictetus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Epictetus (愛比克泰德) was born enslaved around 50 CE in Hierapolis (希拉波利斯), in present-day Turkey, owned by Epaphroditus (埃帕弗羅狄圖斯), a wealthy secretary to Emperor Nero (尼祿). Ancient sources claim his leg was permanently crippled by his master&rsquo;s cruelty, though the details are disputed. Despite his status, he studied Stoic philosophy (斯多葛哲學) under Musonius Rufus (穆索尼烏斯&middot;魯弗斯) and was eventually freed. When Emperor Domitian (圖密善) banished philosophers from Rome around 93 CE, Epictetus relocated to Nicopolis (尼科波利斯) in Greece, founding a school that attracted students from across the empire.</p>
+      <p>Epictetus never wrote anything himself; everything we know comes from lecture notes taken by his student Arrian (阿里安), compiled into the <em>Discourses</em> (講錄) and the shorter <em>Enchiridion</em> (手冊). His central teaching is the dichotomy of control (控制二分法): some things are &ldquo;up to us&rdquo; (在我們掌控之中) &mdash; our judgments, desires, and reactions &mdash; and everything else, including our body, wealth, and reputation, is not. Suffering, he argued, comes not from events themselves but from mistakenly believing we control things we don&rsquo;t, then being distressed when reality fails to comply.</p>
+      <p>The philosophy proved remarkably portable: born from the experience of literal slavery, it appealed equally to Marcus Aurelius (馬可&middot;奧理略), the most powerful man in the world, whose private journal <em>Meditations</em> (沉思錄) repeatedly echoes Epictetus&rsquo;s language, despite Epictetus having died decades before Marcus took the throne. This cross-class appeal is the point: control over one&rsquo;s own judgments is equally available to an enslaved teacher and a Roman emperor, which is largely why Stoic techniques resurface today in cognitive behavioural therapy (認知行為治療).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Epictetus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Epictetus&rsquo;s test for anxiety: ask whether the thing worrying you is actually up to you &mdash; if it isn&rsquo;t, your distress is optional.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Epictetus&rsquo;s dichotomy of control, what actually determines whether something brings peace of mind or suffering?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Whether it falls into the category of things &ldquo;up to us&rdquo; &mdash; our own judgments and reactions &mdash; versus things outside our control, like our body or reputation; suffering comes from mistakenly believing we control the latter.</div>
+      </details>
+      <div class="source">&#x1F4D6; Epictetus, <em>Enchiridion &amp; Discourses</em> (transcribed by Arrian, c. 108 CE). Long, A.A. (2002). <em>Epictetus: A Stoic and Socratic Guide to Life</em>. Oxford University Press. Stanford Encyclopedia of Philosophy, &ldquo;Epictetus.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Plane Crashes Feel Scarier Than Car Crashes: The Availability Heuristic (可得性捷思法) and How Your Brain Confuses &ldquo;Memorable&rdquo; With &ldquo;Likely&rdquo;</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Which do you think kills more people each year: shark attacks, or falling coconuts? Most people confidently guess wrong &mdash; why do you think our gut instinct about risk is so unreliable?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Amos_Tversky.jpg" alt="Amos Tversky, co-discoverer of the availability heuristic" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Amos Tversky (特沃斯基), who with Daniel Kahneman identified the availability heuristic. Credit: <a href="https://en.wikipedia.org/wiki/Availability_heuristic" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1973, Amos Tversky (特沃斯基) and Daniel Kahneman (康納曼) identified a mental shortcut they called the availability heuristic (可得性捷思法): people estimate how likely or frequent something is based on how easily examples come to mind, not on actual statistical frequency. In one classic experiment, they asked whether more English words begin with the letter K or have K as the third letter &mdash; most guessed &ldquo;begins with K,&rdquo; even though roughly three times as many words actually have K in the third position. Words starting with K are simply easier to recall, so people mistook retrieval ease for actual frequency.</p>
+      <p>The effect explains why vivid, recent, or emotionally striking events distort risk perception far more than statistics justify. A 1979 study by Combs and Slovic found that people&rsquo;s estimates of death causes tracked newspaper coverage far more closely than actual mortality data &mdash; homicides and plane crashes (heavily reported) were wildly overestimated relative to strokes and diabetes (rarely reported, far deadlier). This is why a single dramatic shark-attack story can measurably reduce beach attendance nationwide, while the genuinely larger risk of the drive to the beach barely registers.</p>
+      <p>The availability heuristic isn&rsquo;t a flaw to be embarrassed about &mdash; it&rsquo;s a fast, usually-useful shortcut that breaks down specifically when media coverage or vividness decouples from actual base rates (基本比率). Practical countermeasures include deliberately seeking base-rate statistics before major decisions &mdash; insurance, investing, health choices &mdash; and noticing when a fear feels urgent mainly because a story about it is fresh in memory, not because the underlying probability has actually changed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Availability_heuristic" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If a risk feels urgent right after you saw a dramatic news story about it, that&rsquo;s the availability heuristic talking &mdash; check the base rate before you act.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Tversky and Kahneman&rsquo;s &ldquo;K&rdquo; letter experiment reveal about how people estimate frequency?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">People judged K to be more common as a first letter than a third letter, even though the opposite is statistically true, because words starting with K are easier to recall &mdash; showing people substitute &ldquo;ease of recall&rdquo; for actual frequency.</div>
+      </details>
+      <div class="source">&#x1F4D6; Tversky, A. &amp; Kahneman, D. (1973). &ldquo;Availability: A heuristic for judging frequency and probability.&rdquo; <em>Cognitive Psychology</em>, 5(2). Combs, B. &amp; Slovic, P. (1979). <em>Journalism Quarterly</em>, 56(4).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Actually Gasp for Air: The Carotid Bodies (頸動脈體), CO&#8322; Sensors, and the Surprising Reason Holding Your Breath Isn&rsquo;t About Oxygen at All</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When you hold your breath, what do you think finally forces you to gasp &mdash; running out of oxygen (氧氣), or something else building up in your blood?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Gray1186.png" alt="Anatomical diagram showing the carotid sinus and carotid body" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The carotid body (頸動脈體) and carotid sinus, key chemoreceptor sites that regulate breathing. Credit: <a href="https://en.wikipedia.org/wiki/Carotid_body" target="_blank" rel="noopener">Wikimedia Commons / Gray&rsquo;s Anatomy</a></div>
+      </div>
+      <p>Most people assume the urge to breathe is your body detecting falling oxygen (缺氧), but the dominant trigger is actually rising carbon dioxide (二氧化碳). Central chemoreceptors (中樞化學感受器) in the medulla oblongata (延髓) continuously monitor the pH of cerebrospinal fluid (腦脊髓液), which drops as CO&#8322; diffuses across the blood-brain barrier and forms carbonic acid (碳酸). This pH shift, not oxygen level, is the primary signal driving your automatic breathing rate &mdash; which is why breathing feels urgent within a minute of holding your breath, long before oxygen saturation drops to dangerous levels.</p>
+      <p>A secondary, faster-acting system sits in the carotid bodies (頸動脈體) &mdash; small clusters of specialised cells at the fork of each carotid artery in the neck, alongside similar aortic bodies (主動脈體) near the heart. These peripheral chemoreceptors (周邊化學感受器) detect both CO&#8322;/pH changes and, more directly than the brain&rsquo;s central sensors, genuine drops in blood oxygen (低血氧), sending rapid signals via the glossopharyngeal nerve (舌咽神經) that can override breathing rate within seconds &mdash; the system that reacts fastest to altitude or suffocation.</p>
+      <p>This explains a well-known freediving (自由潛水) risk: hyperventilating before a dive lowers CO&#8322; levels without meaningfully raising oxygen storage, delaying the urge to breathe past the point where oxygen has actually become dangerously low &mdash; the mechanism behind shallow water blackout (淺水昏迷), a genuine drowning risk even among trained swimmers. Elite breath-hold divers train for years to raise their CO&#8322; tolerance through repeated controlled exposure, not to hold more oxygen, since lung capacity plays a smaller role than most people assume.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Carotid_body" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The panic to breathe is your brain reacting to rising CO&#8322;, not falling oxygen &mdash; which is exactly why pre-dive hyperventilating is dangerous, not helpful.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does hyperventilating before holding your breath create a genuine drowning risk (shallow water blackout)?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It lowers CO&#8322; levels without significantly raising oxygen stores, delaying the urge-to-breathe signal &mdash; which is triggered mainly by rising CO&#8322; &mdash; past the point where oxygen has already dropped to dangerously low levels.</div>
+      </details>
+      <div class="source">&#x1F4D6; West, J.B. <em>Respiratory Physiology: The Essentials</em>, 10th ed. Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Lindholm, P. &amp; Lundgren, C.E.G. (2009). <em>Journal of Applied Physiology</em>, 106(1).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Can Sitting in Extreme Heat Protect Your Heart? What a 20-Year Finnish Study Found About Sauna Bathing (桑拿浴) and Cardiovascular Death</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Sitting in an 80&deg;C sauna raises your heart rate almost as much as brisk exercise. Do you think that&rsquo;s harmful stress on the heart, or could it actually work like a form of cardiovascular training?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Sauna_2.jpg" alt="Interior of a traditional Finnish sauna" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A traditional Finnish sauna (桑拿), the setting for the KIHD cardiovascular cohort study. Credit: <a href="https://en.wikipedia.org/wiki/Sauna" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The strongest evidence on sauna bathing (桑拿浴) and health comes from the Kuopio Ischaemic Heart Disease Risk Factor Study (KIHD), a Finnish cohort tracking over 2,300 middle-aged men for roughly 20 years. Laukkanen et al. (2015), published in <em>JAMA Internal Medicine</em>, found a clear dose-response relationship: men who used a sauna 4&ndash;7 times per week had a 50% lower risk of fatal cardiovascular disease and 40% lower all-cause mortality compared with men who used one just once a week, even after adjusting for other cardiovascular risk factors like blood pressure and cholesterol.</p>
+      <p>The proposed mechanism resembles moderate exercise: sauna heat raises core body temperature and heart rate to levels comparable with brisk walking, causing blood vessels to dilate (血管擴張) and improving vascular function (血管功能) over repeated sessions, similar to how repeated cardio training improves endothelial health. Heat exposure also triggers heat shock proteins (熱休克蛋白), which help repair damaged proteins and may reduce inflammation; researchers draw a direct parallel to cardiovascular adaptations seen with regular aerobic exercise, though sauna use should complement, not replace, physical activity.</p>
+      <p>Caution is warranted about over-interpreting this evidence: the KIHD cohort was entirely Finnish men habituated to sauna use since childhood, so causality and generalisability remain genuinely uncertain, and reverse causation is possible &mdash; healthier men may simply have had the stamina to sauna more often. Still, the dose-response pattern and biological plausibility have prompted interest in heat therapy as a low-cost cardiovascular intervention, alongside standard caution: avoid combining sauna with alcohol, and anyone with unstable cardiovascular conditions should consult a doctor first.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sauna" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Regular sauna use &mdash; several times a week &mdash; is associated with meaningfully lower cardiovascular death risk, but it works alongside exercise, not as a replacement for it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the KIHD Finnish cohort study find about sauna frequency and cardiovascular death risk?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A clear dose-response relationship: men who used a sauna 4&ndash;7 times per week had roughly 50% lower fatal cardiovascular disease risk than those who used one just once a week, even after adjusting for standard cardiovascular risk factors.</div>
+      </details>
+      <div class="source">&#x1F4D6; Laukkanen, T. et al. (2015). &ldquo;Association Between Sauna Bathing and Fatal Cardiovascular and All-Cause Mortality Events.&rdquo; <em>JAMA Internal Medicine</em>, 175(4), 542&ndash;548. Laukkanen, J.A. &amp; Laukkanen, T. (2018). <em>Mayo Clinic Proceedings</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Your Handshake Might Predict How Long You Live: Why Grip Strength (握力) Has Become One of the Best-Studied Biomarkers of Ageing</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Between resting blood pressure and grip strength, which do you think is the better predictor of a person&rsquo;s risk of death in the following years? The answer surprises most doctors.</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/1025_Atrophy.png" alt="Diagram illustrating muscle atrophy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Muscle atrophy (肌肉萎縮) &mdash; the loss of muscle mass and function that grip strength testing is used to screen for. Credit: <a href="https://en.wikipedia.org/wiki/Sarcopenia" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Grip strength (握力), measured with a simple hand dynamometer (握力計), has become one of the most consistently replicated predictors of mortality and disability in ageing research. The landmark PURE study (Prospective Urban Rural Epidemiology), led by Leong et al. (2015) and published in <em>The Lancet</em>, followed nearly 140,000 adults across 17 countries and found that every 5kg reduction in grip strength was associated with roughly a 16% higher risk of all-cause mortality and a 17% higher risk of cardiovascular death &mdash; a stronger predictor than systolic blood pressure in the same cohort.</p>
+      <p>Grip strength works as a proxy for overall muscle quality and neuromuscular function (神經肌肉功能) rather than being uniquely important on its own &mdash; weak grip correlates with reduced strength throughout the body, slower nerve conduction, and lower physiological reserve, all markers of sarcopenia (肌少症), the age-related loss of muscle mass that typically accelerates after age 50. Because grip strength is fast, cheap, and non-invasive to measure, it has become a standard screening tool in geriatric medicine (老年醫學) worldwide.</p>
+      <p>The practical takeaway isn&rsquo;t to train grip in isolation with hand grippers, but to build whole-body strength through compound resistance exercises, since grip strength largely tracks general strength and muscle mass. Deadlifts (硬舉), farmer&rsquo;s carries (農夫走路), and pull-ups all demand strong grip as a side effect of training major muscle groups, and progressive resistance training (漸進式阻力訓練) reliably improves grip strength alongside broader function &mdash; directly targeting one of the best-validated predictors of healthy longevity available.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sarcopenia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Grip strength isn&rsquo;t just about your hands &mdash; it&rsquo;s a cheap proxy for whole-body muscle quality, and one of the strongest predictors of healthy ageing we have.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the PURE study find about grip strength compared to blood pressure as a mortality predictor?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Every 5kg reduction in grip strength was associated with roughly 16% higher all-cause mortality risk, making it a stronger predictor of death in that cohort than systolic blood pressure &mdash; despite blood pressure being far more commonly measured in clinical practice.</div>
+      </details>
+      <div class="source">&#x1F4D6; Leong, D.P. et al. (2015). &ldquo;Prognostic value of grip strength: findings from the PURE study.&rdquo; <em>The Lancet</em>, 386(9990), 266&ndash;273. Bohannon, R.W. (2019). <em>Clinical Interventions in Aging</em>.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Building a Portfolio That Doesn&rsquo;t Care Which Way the Economy Turns: Ray Dalio&rsquo;s (瑞&middot;達利歐) All Weather Portfolio (全天候投資組合) and the Risk Parity (風險平價) Idea Behind It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most portfolios are built around a simple ratio of stocks to bonds. Ray Dalio built one designed to hold up reasonably well in inflation, deflation, growth, and recession alike. What do you think the key design principle behind it had to be?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Web_Summit_2018_-_Forum_-_Day_2%2C_November_7_HM1_7481_%2844858045925%29.jpg/330px-Web_Summit_2018_-_Forum_-_Day_2%2C_November_7_HM1_7481_%2844858045925%29.jpg" alt="Ray Dalio speaking at Web Summit 2018" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ray Dalio (瑞&middot;達利歐), founder of Bridgewater Associates and creator of the All Weather portfolio. Credit: <a href="https://en.wikipedia.org/wiki/Ray_Dalio" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Ray Dalio (瑞&middot;達利歐) founded Bridgewater Associates (橋水基金) in 1975, growing it into the world&rsquo;s largest hedge fund by assets under management. His central insight, developed through his &ldquo;economic machine&rdquo; framework, is that markets move primarily along two axes: growth (higher or lower than expected) and inflation (higher or lower than expected). A traditional 60/40 stock-bond portfolio, Dalio argued, is actually far riskier than it looks, because stocks contribute the overwhelming majority of total portfolio volatility (波動性) despite being only 60% of the dollar allocation.</p>
+      <p>Risk parity (風險平價) is Dalio&rsquo;s proposed fix: instead of allocating capital equally across asset classes, allocate risk equally, which typically means holding a much larger dollar allocation to historically calmer assets like long-term bonds (長期債券) and commodities (大宗商品), often using leverage (槓桿) to bring their risk contribution up to match equities. The resulting All Weather portfolio holds assets expected to perform well in each of the four growth/inflation quadrants, so no single economic surprise can devastate the whole portfolio.</p>
+      <p>The approach performed impressively through the 2008 financial crisis, when Bridgewater&rsquo;s flagship strategies avoided the worst losses that hit conventional portfolios. But 2022 exposed a genuine weakness: rising interest rates hurt both stocks and bonds simultaneously, and leveraged fixed-income positions amplified the pain, producing one of the strategy&rsquo;s worst years on record &mdash; a reminder that diversification (分散投資) frameworks reduce vulnerability to the historical scenarios they were designed around, but no framework is immune to genuinely novel correlation regimes.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ray_Dalio" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Risk parity&rsquo;s insight &mdash; that a 60/40 portfolio is riskier than it looks because stocks dominate volatility &mdash; is sound, but 2022 proved even sophisticated diversification isn&rsquo;t immune to new correlation regimes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Ray Dalio argue a traditional 60/40 stock-bond portfolio is riskier than its allocation percentages suggest?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because stocks contribute a hugely disproportionate share of total portfolio volatility relative to their 60% dollar allocation, meaning the portfolio&rsquo;s actual risk is far more concentrated in equities than the simple 60/40 split implies.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dalio, R. (2011). &ldquo;Engineering Targeted Returns and Risk.&rdquo; Bridgewater Associates whitepaper. Anderson, R.M. et al. (2012). &ldquo;Is Modern Portfolio Theory Wrong?&rdquo; <em>Journal of Portfolio Management</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Spreadsheet Error That Shaped Global Austerity Policy: Reinhart &amp; Rogoff&rsquo;s (萊因哈特與羅格夫) 90% Debt Threshold and the Graduate Student Who Found the Flaw</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Share_of_government_expenditure_going_to_interest_payments%2C_World%2C_2024_%28cropped%29.svg/960px-Share_of_government_expenditure_going_to_interest_payments%2C_World%2C_2024_%28cropped%29.svg.png" alt="Chart of government interest payments as a share of expenditure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Government debt-servicing burden as a share of spending &mdash; the backdrop against which debt-threshold theories are debated. Credit: <a href="https://en.wikipedia.org/wiki/Government_debt" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">After the 2008 financial crisis, governments across Europe and the US cited a single number &mdash; 90% of GDP &mdash; as a dangerous debt threshold beyond which growth collapses, using it to justify austerity policies (緊縮政策) during a fragile recovery.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economists Carmen Reinhart (萊因哈特) and Kenneth Rogoff (羅格夫), in a 2010 paper analysing 44 countries, found average growth turned sharply negative once government debt exceeded 90% of GDP &mdash; cited by EU officials and US Congressman Paul Ryan to justify fiscal tightening.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">In 2013, UMass Amherst graduate student Thomas Herndon, replicating the results for a class assignment, found a spreadsheet coding error that excluded several high-debt, solid-growth countries including New Zealand and Canada. Corrected, the 90% &ldquo;cliff&rdquo; disappeared &mdash; growth declined gradually, not sharply &mdash; and the causal direction stayed unresolved: does high debt cause low growth, or the reverse?</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Olivier Blanchard&rsquo;s &ldquo;r &lt; g&rdquo; framework argues sustainability depends less on the debt level than on whether borrowing rates stay below GDP growth &mdash; true for most advanced economies through the 2010s. <strong>Open question:</strong> whether this still holds in the post-2022 higher-rate world.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A single spreadsheet error helped shape years of austerity policy across two continents &mdash; a reminder that an influential number is often less settled than the policy built on top of it.</div>
+      <div class="source">&#x1F4D6; Reinhart, C.M. &amp; Rogoff, K.S. (2010). &ldquo;Growth in a Time of Debt.&rdquo; <em>American Economic Review</em>, 100(2). Herndon, T., Ash, M. &amp; Pollin, R. (2013). <em>Cambridge Journal of Economics</em>, 38(2). Blanchard, O. (2019). &ldquo;Public Debt and Low Interest Rates.&rdquo; <em>American Economic Review</em>, 109(4).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 11 &mdash; When a Number Feels More True Than It Is:</strong> The availability heuristic shows we treat vivid, easy-to-recall information as more probable than boring statistics justify &mdash; a shark-attack headline outweighs mundane mortality tables in our gut sense of risk. The Reinhart-Rogoff episode shows the same distortion at policy scale: a single striking number, &ldquo;90% of GDP,&rdquo; became a policy anchor cited by officials across two continents for years, well after a graduate student&rsquo;s spreadsheet check revealed it rested on a coding error excluding inconvenient countries.</p>
+      <p><strong>So what:</strong> Before treating any striking statistic &mdash; in your portfolio, your health decisions, or a policy debate you read about &mdash; as settled fact, ask whether anyone has actually tried to replicate it, or whether it simply feels true because it's the version you remember.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Event Horizon Telescope Collaboration (2019), <em>The Astrophysical Journal Letters</em> 875(1). NASA/ESA press releases (2019, 2022). Bouman et al. (2016), CHIRP algorithm, MIT.</li>
+      <li><strong>Card 2:</strong> 《史記·商君列傳》；《商君書》；杜正勝《編戶齊民》；許倬雲相關戰國史論述。</li>
+      <li><strong>Card 3:</strong> The Bayeux Tapestry (11th c.). Douglas, <em>William the Conqueror</em> (1964), UC Press. English Heritage, &ldquo;The Battle of Hastings 1066.&rdquo;</li>
+      <li><strong>Card 4:</strong> 玄奘《大唐西域記》；《成唯識論》；湯用彤《隋唐佛教史稿》；方立天《中國佛教哲學要義》；季羨林相關研究。</li>
+      <li><strong>Card 5:</strong> Epictetus, <em>Enchiridion &amp; Discourses</em> (c. 108 CE). Long (2002), <em>Epictetus: A Stoic and Socratic Guide to Life</em>, Oxford. Stanford Encyclopedia of Philosophy, &ldquo;Epictetus.&rdquo;</li>
+      <li><strong>Card 6:</strong> Tversky &amp; Kahneman (1973), <em>Cognitive Psychology</em> 5(2). Combs &amp; Slovic (1979), <em>Journalism Quarterly</em> 56(4).</li>
+      <li><strong>Card 7:</strong> West, <em>Respiratory Physiology: The Essentials</em>, 10th ed. Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Lindholm &amp; Lundgren (2009), <em>Journal of Applied Physiology</em> 106(1).</li>
+      <li><strong>Card 8:</strong> Laukkanen et al. (2015), <em>JAMA Internal Medicine</em> 175(4). Laukkanen &amp; Laukkanen (2018), <em>Mayo Clinic Proceedings</em>.</li>
+      <li><strong>Card 9:</strong> Leong et al. (2015), <em>The Lancet</em> 386(9990). Bohannon (2019), <em>Clinical Interventions in Aging</em>.</li>
+      <li><strong>Card 10:</strong> Dalio (2011), Bridgewater Associates whitepaper. Anderson et al. (2012), <em>Journal of Portfolio Management</em>.</li>
+      <li><strong>Card 11:</strong> Reinhart &amp; Rogoff (2010), <em>American Economic Review</em> 100(2). Herndon, Ash &amp; Pollin (2013), <em>Cambridge Journal of Economics</em> 38(2). Blanchard (2019), <em>American Economic Review</em> 109(4).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-11: Event Horizon Telescope / M87* Black Hole &bull; 商鞅變法 (Qin) &bull; Battle of Hastings 1066 &bull; 玄奘與唯識宗 &bull; Epictetus / Stoic Dichotomy of Control &bull; Availability Heuristic (Tversky &amp; Kahneman) &bull; Carotid Bodies / Breathing Control &bull; Sauna Bathing &amp; Cardiovascular Health (KIHD) &bull; Grip Strength &amp; Longevity (PURE Study) &bull; Ray Dalio / Risk Parity &bull; Reinhart-Rogoff 90% Debt Threshold</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-11.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-11.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 11 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
