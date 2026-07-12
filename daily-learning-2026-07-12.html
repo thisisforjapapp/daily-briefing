@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 12 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 12 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>11 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Event Horizon Telescope / M87*</span>Astronomers linked eight telescopes worldwide to capture the first-ever photograph of a black hole&rsquo;s shadow, confirming Einstein&rsquo;s general relativity.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 商鞅變法</span>商鞅立木為信變法，終死於自訂連坐酷法。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Hastings 1066</span>William of Normandy defeated an exhausted King Harold at Hastings in a single day, ending Anglo-Saxon rule of England.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 玄奘與唯識宗</span>玄奘西行取唯識真經，創立法相宗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Epictetus</span>Epictetus, born enslaved, taught that peace of mind depends only on controlling our own judgments, not external events.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Availability Heuristic</span>Tversky and Kahneman showed people judge risk by how easily examples come to mind, not by actual statistical frequency.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Carotid Bodies</span>The urge to breathe comes mainly from rising CO&#8322; detected by carotid bodies, not falling oxygen levels.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Sauna Bathing</span>A 20-year Finnish study found frequent sauna use was linked to roughly 50% lower fatal cardiovascular disease risk.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Grip Strength</span>The PURE study found declining grip strength predicts mortality risk even more strongly than blood pressure does.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Ray Dalio / Risk Parity</span>Ray Dalio&rsquo;s All Weather portfolio balances risk, not dollars, across assets to survive any inflation-growth economic environment.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Reinhart-Rogoff</span>A spreadsheet error behind the famous &ldquo;90% debt threshold&rdquo; was exposed by a graduate student, undermining years of austerity policy.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Towers of Gas Three Light-Years Tall: How the Pillars of Creation (創生之柱) Became Astronomy&rsquo;s Most Famous Photograph &mdash; Twice</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1995, the Hubble Space Telescope (哈勃太空望遠鏡) pointed at a seemingly unremarkable patch of the Eagle Nebula (鷹狀星雲) 6,500 light-years away. What do you think made the resulting image so famous that NASA photographed the exact same spot again nearly 30 years later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg" alt="The Pillars of Creation within the Eagle Nebula, photographed by the Hubble Space Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Pillars of Creation (創生之柱) within the Eagle Nebula (鷹狀星雲), photographed by Hubble in 1995. Credit: <a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Wikimedia Commons / NASA, ESA, STScI</a></div>
+      </div>
+      <p>In April 1995, the Hubble Space Telescope captured three towering columns of interstellar gas (星際氣體) and dust within the Eagle Nebula (鷹狀星雲, also called M16), a star-forming region roughly 6,500 light-years away in the constellation Serpens (巨蛇座). The image, quickly nicknamed the &ldquo;Pillars of Creation&rdquo; (創生之柱), showed the tallest column stretching about four light-years &mdash; nearly the distance from the Sun to its nearest star &mdash; sculpted by radiation and stellar winds from a nearby cluster of massive young stars. Photojournalists ran it on front pages worldwide; it remains one of the most reproduced astronomical images ever taken.</p>
+      <p>The pillars are stellar nurseries (恆星育嬰室): dense knots of gas within them, nicknamed &ldquo;EGGs&rdquo; (evaporating gaseous globules), are collapsing under gravity to form new stars, while radiation from outside is simultaneously eroding the columns away in a process called photoevaporation (光致蒸發). In 2007, infrared data from the Spitzer Space Telescope hinted that a supernova (超新星) may have already destroyed the pillars several thousand years ago, though the visible light we see today is delayed by the light&rsquo;s travel time, so any such shockwave would not reach Earth&rsquo;s view for roughly another millennium.</p>
+      <p>In 2014, Hubble revisited the site with a sharper camera, and in 2022 the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) imaged it again in infrared (紅外線), piercing through obscuring dust to reveal thousands of previously hidden stars embedded within the columns. Comparing the three images across nearly three decades lets astronomers directly measure how quickly the pillars are eroding, turning one beautiful photograph into a working scientific timelapse of star birth still in progress.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Pillars of Creation are being born and destroyed at the same time &mdash; new stars forming inside while radiation slowly erodes the columns away.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What process is simultaneously creating new stars within the Pillars of Creation while also eroding the pillars themselves?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Gravitational collapse inside dense gas knots (EGGs) is forming new stars, while radiation and stellar winds from nearby massive young stars are simultaneously eroding the pillars through photoevaporation &mdash; creation and destruction happening at once.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA Hubble press releases (1995, 2015); James Webb Space Telescope press release (2022). Hester, J.J. et al. (1996). <em>Astronomical Journal</em>, 111.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「百日維新」：光緒帝與康有為如何在慈禧太后眼皮下推行變法，最終功敗垂成、六君子喋血菜市口</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是光緒帝，明知太后掌握實權，你會如何在一百零三日內推行足以觸怒整個舊體制的改革？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>光緒帝、康有為、梁啟超、譚嗣同、慈禧太后、袁世凱。</p>
+        <p><strong>事件：</strong>1898年6月至9月，光緒帝頒布一系列變法詔書，史稱「戊戌變法」或「百日維新」，最終因慈禧太后發動政變而失敗。</p>
+        <p><strong>時代背景：</strong>甲午戰爭（1894–95年）慘敗於日本，《馬關條約》割地賠款震動朝野，康有為等維新派主張仿效日本明治維新變法圖強，光緒帝銳意求變，卻與掌握實權的慈禧太后及守舊派勢力形成尖銳對立。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/%E5%85%89%E7%BB%AA%E5%B8%9D.jpg" alt="光緒帝畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">光緒帝畫像。來源：<a href="https://en.wikipedia.org/wiki/Guangxu_Emperor" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>甲午戰後，中國割讓台灣、賠款二萬萬兩白銀，舉國震動。光緒二十四年（1898年）四月，康有為聯合梁啟超等人上書，力主變法自強，光緒帝深受觸動，於四月二十三日頒布〈明定國是詔〉，正式啟動變法，任命康有為在總理衙門章京上行走，籌劃新政。短短一百零三日內，光緒帝連下逾百道詔書，內容涵蓋廢八股改試策論、設立京師大學堂、裁撤冗官冗衙、獎勵工商實業、編練新式陸軍，銳意仿效日本明治維新模式，全面革新舊制。</p>
+      <p>變法觸動了大批守舊官僚的既得利益，裁撤衙門令數千官員一夕失業，改試策論觸怒天下士子，反對聲浪迅速匯聚到頤和園的慈禧太后身邊。光緒帝深知處境凶險，密召譚嗣同游說手握新建陸軍兵權的袁世凱，希望袁世凱出兵包圍頤和園、誅殺榮祿，助光緒帝奪回實權。袁世凱表面應允，卻在九月十八日返回天津後向榮祿告密，慈禧太后聞訊震怒，於九月二十一日突然從頤和園返回紫禁城，發動政變，宣布「臨朝訓政」，將光緒帝幽禁於瀛台。</p>
+      <p>政變後，慈禧太后下令搜捕維新派，康有為、梁啟超及時逃往香港、日本，譚嗣同卻拒絕逃亡，稱「各國變法無不從流血而成，今中國未聞有因變法而流血者，此國之所以不昌也，有之，請自嗣同始」，與楊銳、林旭、劉光第、楊深秀、康廣仁六人同被斬於北京菜市口，史稱「戊戌六君子」。變法新政除京師大學堂外幾乎全數廢除，光緒帝終身被軟禁，直至1908年去世，百日維新雖然失敗，卻為十餘年後的清末新政與辛亥革命埋下伏筆。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hundred_Days%27_Reform" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 譚嗣同用自己的性命證明：他相信中國需要「流血的變法」才能喚醒沉睡的舊體制。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>袁世凱的告密如何直接導致戊戌變法失敗？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">光緒帝密謀讓袁世凱出兵包圍頤和園以助其奪回實權，但袁世凱返回天津後向榮祿告密，慈禧太后聞訊立即發動政變，幽禁光緒帝並下令搜捕維新派，變法因此徹底失敗。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《清史稿》；茅海建《戊戌變法史事考》；黃彰健《戊戌變法史研究》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Cannon That Ended an Empire: How Mehmed II (穆罕默德二世) Used a Hungarian Gunsmith&rsquo;s Bombard to Bring Down Constantinople (君士坦丁堡) After 1,000 Years</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A city whose walls had turned back every siege for over a thousand years finally falls in 1453. What single new piece of military technology do you think made the difference?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Mehmed II (穆罕默德二世), the 21-year-old Ottoman sultan; Constantine XI Palaiologos (君士坦丁十一世), the last Byzantine emperor; Orban (奧爾班), a Hungarian cannon founder who built Mehmed&rsquo;s giant siege guns after Byzantium could not afford his services.</p>
+        <p><strong>Event at stake:</strong> The Siege of Constantinople (君士坦丁堡圍城戰), April&ndash;May 1453.</p>
+        <p><strong>Big picture:</strong> By 1453 the Byzantine Empire (拜占庭帝國) had shrunk to little more than the city itself, its ancient walls its last real defense, while the Ottoman Empire (鄂圖曼帝國) controlled almost all surrounding territory.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg/3840px-Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg" alt="Fresco depicting the siege of Constantinople" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A later fresco depicting the 1453 siege of Constantinople (君士坦丁堡). Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 1453, the Byzantine Empire (拜占庭帝國), heir to Rome itself, had dwindled to Constantinople (君士坦丁堡) and a handful of scattered outposts, surrounded on all sides by the rapidly expanding Ottoman Empire (鄂圖曼帝國). The city&rsquo;s Theodosian Walls (狄奧多西城牆), a triple line of fortifications built a thousand years earlier, had repelled every siege attempt since the fifth century. The 21-year-old Sultan Mehmed II (穆罕默德二世) resolved to succeed where his predecessors failed, and commissioned Orban (奧爾班), a Hungarian engineer who had first offered his cannon-founding skills to Constantine XI (君士坦丁十一世) but was turned away for lack of funds, to build the largest siege guns the world had yet seen.</p>
+      <p>Orban&rsquo;s largest bombard (攻城炮), nicknamed &ldquo;Basilica,&rdquo; reportedly measured over eight metres long and could hurl stone balls weighing half a tonne, requiring dozens of oxen and hundreds of men just to move it into position. Constantine XI had perhaps 7,000 defenders against an Ottoman force of tens of thousands; he also ordered a massive chain (鐵鍊) stretched across the Golden Horn (金角灣) harbour to block naval entry, so Mehmed had his ships hauled overland on greased logs by night to bypass it entirely &mdash; a manoeuvre that stunned the defenders when they woke to find an Ottoman fleet already inside the harbour.</p>
+      <p>After weeks of continuous bombardment, the walls finally gave way on 29 May 1453; Constantine XI reportedly tore off his imperial regalia and died fighting in the breach alongside his soldiers, his body never conclusively identified. Mehmed II entered the city and converted the Hagia Sophia (聖索菲亞大教堂) into a mosque, ending the Byzantine Empire&rsquo;s 1,000-year existence and, in the eyes of many historians, marking the symbolic close of the medieval period &mdash; while also cutting off traditional overland trade routes to Asia, one of several pressures that pushed European powers toward the ocean voyages of the Age of Exploration (大航海時代).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A city that survived 1,000 years of sieges fell to a combination of a Hungarian engineer&rsquo;s cannon and ships hauled overland by night &mdash; technology and audacity beat walls.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did Mehmed II get his fleet into the Golden Horn despite the defensive chain blocking its entrance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He had his ships hauled overland at night on greased wooden logs, bypassing the chain entirely and placing an Ottoman fleet inside the harbour by morning &mdash; stunning the city&rsquo;s defenders.</div>
+      </details>
+      <div class="source">&#x1F4D6; Runciman, S. (1965). <em>The Fall of Constantinople 1453</em>. Cambridge University Press. Crowley, R. (2005). <em>1453: The Holy War for Constantinople</em>. Britannica, &ldquo;Fall of Constantinople.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>龍場悟道：王陽明如何在瘴癘蠻荒中頓悟「心即理」，開創陽明心學「知行合一」</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你被貶謫至萬里之外的蠻荒之地，隨從相繼病死，你會如何在絕境中尋找安身立命之道？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王陽明（王守仁，1472–1529年）；朱熹（理學集大成者，陽明早年格竹失敗即受其「格物窮理」說影響）；劉瑾（陷害王陽明的宦官）。</p>
+        <p><strong>核心思想：</strong>心學；心即理；知行合一；致良知。</p>
+        <p><strong>時代背景：</strong>明代官方以朱熹理學為正統，講求「格物窮理」，王陽明早年篤信此說，曾對竹「格物」七日七夜而病倒，其後因得罪權宦劉瑾被貶至貴州龍場驛，於瘴癘蠻荒之地反覆思索「格物」真義，終在絕境中頓悟。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王陽明（王守仁）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王陽明（王守仁）畫像。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王陽明早年恪守朱熹「格物窮理」之說，相信萬物皆蘊含至理，只要窮究外物便能致知。他曾與友人「格竹」，對著竹子靜坐冥想七日七夜，欲窮竹之理，結果一無所獲，反而病倒，自此對朱子格物之說心生疑惑。正德元年（1506年），王陽明因上疏觸怒權宦劉瑾，被廷杖四十，貶謫至貴州龍場（今貴陽附近）擔任驛丞，龍場地處萬山叢薄、瘴癘橫行，隨行僕從相繼病死，王陽明只得親自砍柴汲水照料病者，處境極為艱困。</p>
+      <p>正德三年（1508年）某夜，王陽明在龍場的石棺中靜坐沉思，忽然大悟格物致知之旨，史稱「龍場悟道」。他頓悟「聖人之道，吾性自足，向之求理於事物者誤也」——天理並非存在於外在事物之中，而是本自具足於每個人的心中，此即「心即理」。這一頓悟徹底扭轉了他早年格竹失敗的困惑：不是外物有理待人窮究，而是心之本體自有良知，只須向內體認，不必外求。</p>
+      <p>王陽明由此發展出「知行合一」學說，主張知與行本是一體，真正的「知」必然表現為「行」，若只是口頭上知曉道理卻未能實踐，便根本稱不上真知；晚年他進一步提出「致良知」，主張人人心中皆有良知，為學工夫只在於將此良知推致到日常事事物物之中。陽明心學後來廣泛流傳，門下弟子遍及全國，甚至影響及於日本江戶時代的陽明學派，成為與朱熹理學分庭抗禮的另一儒學主流。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王陽明用「龍場悟道」證明：有些真理不是格物格出來的，而是在絕境中向內心求索出來的。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>王陽明「龍場悟道」頓悟的核心內容是什麼？這與他早年「格竹」失敗有何關聯？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他頓悟「聖人之道，吾性自足」，天理本自具足於心中而非存在於外物，即「心即理」；這正好推翻了他早年格竹七日卻一無所獲的困惑——原來不是外物有理待窮究，而是應向內心體認良知。</div>
+      </details>
+      <div class="source">&#x1F4D6; 王陽明《傳習錄》；《王陽明年譜》；牟宗三《從陸象山到劉蕺山》；陳來《有無之境：王陽明哲學的精神》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Leap Beyond Reason: How S&oslash;ren Kierkegaard (祈克果) Used Abraham and Isaac to Argue That Faith Requires Suspending Ethics Itself</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A father raises a knife to kill his own son because he believes God commanded it &mdash; and this story is held up as the highest example of faith, not madness. What do you think distinguishes the two?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> S&oslash;ren Kierkegaard (祈克果, 1813&ndash;1855), Danish philosopher often called the father of existentialism (存在主義); Regine Olsen (雷吉娜&middot;奧爾森), his broken engagement that shaped much of his writing; Georg Wilhelm Friedrich Hegel (黑格爾), whose all-encompassing rational system Kierkegaard wrote much of his work against.</p>
+        <p><strong>Core ideas:</strong> The teleological suspension of the ethical (倫理的目的論懸置); the leap of faith (信仰之躍); the three stages of existence (存在的三個階段).</p>
+        <p><strong>Big picture:</strong> Writing in Copenhagen (哥本哈根) under pseudonyms, Kierkegaard reacted against Hegel&rsquo;s confidence that reason could systematise all of existence, including religious faith, into a single logical framework.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/S%C3%B8ren_Kierkegaard_%281813-1855%29_-_%28cropped%29.jpg" alt="Portrait sketch of S&oslash;ren Kierkegaard" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">S&oslash;ren Kierkegaard (祈克果), 1813&ndash;1855. Credit: <a href="https://en.wikipedia.org/wiki/S%C3%B8ren_Kierkegaard" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>Fear and Trembling</em> (恐懼與顫慄, 1843), published under the pseudonym Johannes de Silentio, Kierkegaard (祈克果) returned obsessively to the Biblical story of Abraham (亞伯拉罕), commanded by God to sacrifice his son Isaac (以撒) on Mount Moriah. Read as straightforward ethics, Abraham&rsquo;s willingness to kill his own child is simply murder; yet religious tradition celebrates him as the &ldquo;father of faith.&rdquo; Kierkegaard argued this apparent contradiction reveals something philosophy had glossed over: genuine religious faith sometimes requires a &ldquo;teleological suspension of the ethical&rdquo; (倫理的目的論懸置) &mdash; placing one&rsquo;s direct, unmediated relationship with God above even universal moral law.</p>
+      <p>This directly opposed the dominant philosophy of Kierkegaard&rsquo;s era, Hegel&rsquo;s (黑格爾) system, which held that individual conscience and universal ethics could always ultimately be reconciled through reason. Kierkegaard insisted faith could never be fully rationalised or justified to an outside observer &mdash; Abraham could not explain his actions to Sarah, to Isaac, or to anyone, because the demand came from a private relationship with the absolute that logic simply cannot process. He called the moment of committing to such faith without rational certainty the &ldquo;leap of faith&rdquo; (信仰之躍) &mdash; not a conclusion reasoned toward, but a decision made in spite of reason&rsquo;s silence.</p>
+      <p>Kierkegaard mapped this onto three stages of existence (存在的三個階段): the aesthetic life, chasing pleasure and novelty; the ethical life, governed by universal moral duty; and the religious life, where the individual stands in a relationship with God that can override ethical norms entirely. Writing largely in reaction to his own broken engagement to Regine Olsen (雷吉娜&middot;奧爾森) and against what he saw as Denmark&rsquo;s comfortable, nominal Christianity, Kierkegaard&rsquo;s emphasis on subjective truth and individual choice over abstract systems later made him a foundational figure for 20th-century existentialism (存在主義), influencing thinkers from Sartre to Heidegger.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/S%C3%B8ren_Kierkegaard" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Kierkegaard&rsquo;s Abraham shows faith isn&rsquo;t rational agreement &mdash; it&rsquo;s a leap made precisely where reason and universal ethics run out.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Kierkegaard, why couldn&rsquo;t Abraham simply explain or justify his willingness to sacrifice Isaac to anyone else?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">His faith rested on a private, unmediated relationship with God that &ldquo;suspended&rdquo; universal ethics &mdash; a demand that could not be translated into rational, universally justifiable terms, which is precisely what made it faith rather than ordinary moral reasoning.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kierkegaard, S. (1843). <em>Fear and Trembling</em> (trans. Hong &amp; Hong, Princeton University Press). Stanford Encyclopedia of Philosophy, &ldquo;S&oslash;ren Kierkegaard.&rdquo; Britannica, &ldquo;S&oslash;ren Kierkegaard.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Cult That Predicted the End of the World &mdash; and What Happened When It Didn&rsquo;t: Leon Festinger&rsquo;s (利昂&middot;費斯汀格) Theory of Cognitive Dissonance (認知失調)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A doomsday cult&rsquo;s prophecy fails to come true right in front of its members. Do you think this made the believers quit &mdash; or believe even harder?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/Leon_Festinger.jpg" alt="Leon Festinger, psychologist who developed cognitive dissonance theory" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Leon Festinger (利昂&middot;費斯汀格), who developed the theory of cognitive dissonance. Credit: <a href="https://en.wikipedia.org/wiki/Cognitive_dissonance" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1954, psychologist Leon Festinger (利昂&middot;費斯汀格) and colleagues secretly infiltrated a small Chicago group led by &ldquo;Marian Keech,&rdquo; who believed aliens had told her the world would end in a flood on a specific December date, with only true believers rescued by flying saucer. Festinger wanted to observe what happens when a strongly held belief is directly disconfirmed by reality. When the predicted date passed uneventfully, most outside observers assumed the group would disband in embarrassment &mdash; instead, many members&rsquo; commitment intensified, and they began actively proselytizing for the first time, reinterpreting the non-event as proof their faith had saved the world from destruction.</p>
+      <p>Festinger explained this in <em>When Prophecy Fails</em> (1956) and his subsequent <em>A Theory of Cognitive Dissonance</em> (1957): humans experience real psychological discomfort (dissonance, 失調) when they hold two contradictory beliefs, or when their actions contradict their beliefs, and are strongly motivated to reduce that discomfort &mdash; often not by changing the original belief, but by generating a new belief that resolves the contradiction. Since the believers had already made irreversible sacrifices for the prophecy, abandoning the belief would mean admitting those sacrifices were foolish; reinterpreting the failed prophecy as a success was psychologically easier than admitting the error.</p>
+      <p>Cognitive dissonance has since been replicated across hundreds of studies, from Festinger and Carlsmith&rsquo;s 1959 experiment (paying subjects $1 versus $20 to lie about a boring task, finding the $1 group changed their genuine attitude more, since they had less external justification for the lie) to modern research on decision-making and self-justification. The practical lesson cuts against intuition: presenting someone with clear evidence contradicting a deeply held, costly belief does not reliably change their mind &mdash; it can just as easily make them defend it more fiercely, especially once they&rsquo;ve already invested time, money, or identity in believing it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cognitive_dissonance" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The more someone has sacrificed for a belief, the less likely contradicting evidence is to change their mind &mdash; it just raises the psychological cost of admitting they were wrong.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Festinger&rsquo;s $1 vs. $20 experiment, why did the group paid less money show a bigger genuine change in attitude?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The $1 group had insufficient external justification for lying, so to reduce the dissonance between &ldquo;I lied&rdquo; and their self-image, they unconsciously convinced themselves the task really had been enjoyable &mdash; the $20 group could simply blame the money instead.</div>
+      </details>
+      <div class="source">&#x1F4D6; Festinger, L., Riecken, H. &amp; Schachter, S. (1956). <em>When Prophecy Fails</em>. University of Minnesota Press. Festinger, L. &amp; Carlsmith, J.M. (1959). <em>Journal of Abnormal and Social Psychology</em>, 58(2).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You See Stars When You Stand Up Too Fast: The Baroreflex (壓力反射) and the Ten-Second Blood Pressure Scramble Behind Head Rushes</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When you spring up from lying down and briefly feel dizzy or see spots, what do you think your body is actually failing to do fast enough?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Gray513.png" alt="Anatomical diagram of the carotid sinus region" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The carotid sinus (頸動脈竇) region, home to key baroreceptors that regulate blood pressure. Credit: <a href="https://en.wikipedia.org/wiki/Baroreflex" target="_blank" rel="noopener">Wikimedia Commons / Gray&rsquo;s Anatomy</a></div>
+      </div>
+      <p>When you stand up, gravity instantly pulls roughly 500&ndash;800ml of blood down into your legs and abdomen, reducing the blood returning to your heart and briefly dropping blood pressure and blood flow to your brain &mdash; the physiological cause of the light-headed &ldquo;head rush&rdquo; many people feel on standing too quickly, a condition called orthostatic hypotension (姿勢性低血壓). Left uncorrected for more than a few seconds, this drop can starve the brain of oxygen (缺氧) enough to cause fainting (暈厥).</p>
+      <p>The correction comes from the baroreflex (壓力反射), a fast neural feedback loop centred on baroreceptors (壓力感受器) &mdash; stretch-sensitive nerve endings embedded in the walls of the carotid sinus (頸動脈竇) and aortic arch (主動脈弓). These sense the drop in arterial wall stretch within a fraction of a second and signal the brainstem&rsquo;s medulla (延髓), which responds by simultaneously increasing heart rate, tightening blood vessels via sympathetic nervous system (交感神經系統) activation, and reducing parasympathetic (副交感神經) inhibition &mdash; normally restoring blood pressure within about 10&ndash;15 seconds, fast enough that most people never consciously notice.</p>
+      <p>The reflex weakens with age, dehydration, certain blood pressure medications, and prolonged bed rest, which is why orthostatic hypotension and standing-related fainting become dramatically more common in elderly patients &mdash; a leading cause of falls and hospital-reported dizziness. Simple countermeasures exploit the same mechanism: standing up in stages, tensing leg muscles, or drinking water beforehand all help maintain venous return and blood pressure while the baroreflex catches up, reducing the risk of a fall.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Baroreflex" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; That head-rush feeling isn&rsquo;t random &mdash; it&rsquo;s your baroreflex racing to correct a real, physical blood pressure drop within about 10 seconds of standing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What do baroreceptors in the carotid sinus and aortic arch detect, and how fast does the baroreflex typically correct a standing-induced blood pressure drop?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They detect changes in the stretch of the arterial walls caused by blood pressure changes, and the baroreflex typically restores blood pressure within about 10&ndash;15 seconds via increased heart rate and blood vessel constriction.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Freeman, R. (2008). &ldquo;Neurogenic Orthostatic Hypotension.&rdquo; <em>New England Journal of Medicine</em>, 358(6).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Is Intermittent Fasting (間歇性斷食) Actually Special, or Just Calorie Restriction in Disguise? What the Trials Actually Show</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two groups eat the exact same total calories, but one group only eats within an 8-hour window each day. Do you think the time-restricted group loses more weight than the group eating the same food spread across the whole day?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Empty_table_setting_plate_fork_knife_%2842585288225%29.jpg/3840px-Empty_table_setting_plate_fork_knife_%2842585288225%29.jpg" alt="Empty table setting representing a fasting window" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Intermittent fasting (間歇性斷食) restricts the daily eating window rather than necessarily total calories. Credit: <a href="https://en.wikipedia.org/wiki/Intermittent_fasting" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Intermittent fasting (間歇性斷食) covers several distinct eating patterns &mdash; time-restricted eating (限時進食, e.g. eating only within an 8-hour daily window), alternate-day fasting (隔日斷食), and the 5:2 method (每週兩日限熱量法) &mdash; all promoted for weight loss and metabolic benefits beyond simple calorie counting. The central scientific question is whether timing itself matters independent of total calories consumed, since fasting protocols often lead people to eat less overall simply by shrinking the available eating window.</p>
+      <p>Well-controlled trials that carefully match total calorie and protein intake between groups &mdash; rather than just comparing self-selected fasters to non-fasters &mdash; generally find intermittent fasting produces weight loss roughly comparable to standard continuous calorie restriction (持續性熱量限制), not meaningfully more. A widely cited 2020 <em>JAMA Internal Medicine</em> trial by Lowe et al. found time-restricted eating produced no significant weight-loss advantage over regular eating patterns when calories weren&rsquo;t deliberately restricted, and a 2022 <em>New England Journal of Medicine</em> trial found similar weight loss whether calories were restricted throughout the day or confined to a window.</p>
+      <p>This doesn&rsquo;t make intermittent fasting useless &mdash; for many people, a defined eating window is simply an easier, more sustainable way to naturally eat less without counting every calorie, and some evidence suggests modest independent benefits for insulin sensitivity (胰島素敏感度) in certain populations. The practical, evidence-based takeaway: intermittent fasting is a legitimate tool for people who find it easier to stick to than continuous restriction, but it is not metabolically superior to any other method of eating fewer calories overall &mdash; the &ldquo;magic&rdquo; is adherence, not the clock.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Intermittent_fasting" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Intermittent fasting works about as well as any other diet that gets you to eat less overall &mdash; it&rsquo;s a tool for adherence, not a metabolic hack.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> When calorie and protein intake are carefully matched between groups, how does intermittent fasting&rsquo;s weight-loss effect compare to standard continuous calorie restriction?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It&rsquo;s roughly equivalent &mdash; well-controlled trials find no meaningful weight-loss advantage for time-restricted eating over continuous calorie restriction when total calories are matched, suggesting the timing itself isn&rsquo;t the active ingredient.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lowe, D.A. et al. (2020). <em>JAMA Internal Medicine</em>, 180(11). Liu, D. et al. (2022). <em>New England Journal of Medicine</em>, 386(16).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The &ldquo;Anabolic Window&rdquo; (合成代謝窗口) Isn&rsquo;t 30 Minutes &mdash; It&rsquo;s Much Wider Than the Supplement Industry Wants You to Think</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&rsquo;ve probably heard you must drink a protein shake within 30 minutes of finishing a workout or &ldquo;miss the window&rdquo; for muscle growth. How wide do you think that window actually is, according to the research?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Whey_powder.jpg" alt="Whey protein powder, commonly marketed for post-workout consumption" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Whey protein powder, often marketed around a strict post-workout &ldquo;anabolic window&rdquo; (合成代謝窗口). Credit: <a href="https://en.wikipedia.org/wiki/Nutrient_timing" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &ldquo;anabolic window&rdquo; (合成代謝窗口) refers to the idea that protein must be consumed within a narrow post-workout timeframe &mdash; often cited as 30 to 60 minutes &mdash; to maximise muscle protein synthesis (肌肉蛋白質合成) and hypertrophy (肌肉增生). This idea became gym orthodoxy partly through supplement marketing, since a strict timing requirement conveniently increases sales of fast-absorbing protein shakes.</p>
+      <p>An influential 2013 meta-analysis by Schoenfeld, Aragon and Krieger, published in the <em>Journal of the International Society of Sports Nutrition</em>, reviewed available controlled trials and found no significant difference in muscle growth between groups consuming protein immediately post-workout versus several hours later, once total daily protein intake (每日總蛋白質攝取量) was equated between groups. Muscle protein synthesis actually stays measurably elevated for roughly 24&ndash;48 hours after resistance training, not just the first half hour &mdash; making the &ldquo;window&rdquo; far wider than commonly advertised.</p>
+      <p>What actually matters more than precise timing is hitting adequate total daily protein &mdash; commonly cited research supports roughly 1.6&ndash;2.2 grams per kilogram of bodyweight for people doing resistance training &mdash; spread reasonably across several meals throughout the day, alongside consistent progressive overload (漸進式超負荷) training. Eating a normal protein-containing meal within a few hours of training, before or after, satisfies essentially all of the practical benefit; obsessing over drinking a shake within a specific number of minutes is not supported by the actual evidence.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Nutrient_timing" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Total daily protein and consistent training matter far more than hitting a supposed 30-minute post-workout window &mdash; that window is closer to a full day.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Schoenfeld et al.&rsquo;s 2013 meta-analysis, what mattered more for muscle growth than the precise timing of post-workout protein, and how long does muscle protein synthesis actually stay elevated after training?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Total daily protein intake mattered far more than precise timing, and muscle protein synthesis stays measurably elevated for roughly 24&ndash;48 hours post-workout, not just the first 30&ndash;60 minutes commonly claimed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schoenfeld, B.J., Aragon, A.A. &amp; Krieger, J.W. (2013). <em>Journal of the International Society of Sports Nutrition</em>, 10(53). Aragon, A.A. &amp; Schoenfeld, B.J. (2013). <em>Journal of the International Society of Sports Nutrition</em>, 10(5).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>When Two Nobel Laureates Broke the Bond Market: The Rise and Spectacular Collapse of Long-Term Capital Management (長期資本管理公司)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A hedge fund is run by two Nobel Prize-winning economists, a legendary bond trader, and a former Federal Reserve vice chairman &mdash; as close to a financial &ldquo;dream team&rdquo; as has ever existed. What do you think brought it down within a matter of weeks?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Myron_Scholes_2008_in_Lindau.png" alt="Myron Scholes, Nobel laureate and LTCM partner" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Myron Scholes (邁倫&middot;舒爾斯), Nobel laureate and Long-Term Capital Management partner. Credit: <a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Long-Term Capital Management (長期資本管理公司, LTCM) was founded in 1994 by star bond trader John Meriwether (約翰&middot;梅利韋瑟), formerly of Salomon Brothers, and staffed with a roster that included Myron Scholes (邁倫&middot;舒爾斯) and Robert C. Merton (羅伯特&middot;默頓) &mdash; who would jointly win the 1997 Nobel Memorial Prize in Economic Sciences for their options-pricing work &mdash; alongside a former vice-chairman of the US Federal Reserve. The fund used enormously sophisticated mathematical models to identify tiny, statistically reliable pricing discrepancies (定價差異) between related bonds, then applied massive leverage (槓桿), reportedly over 25-to-1, to turn small price gaps into large profits.</p>
+      <p>The strategy worked spectacularly for its first several years, returning over 40% annually after fees. But in August 1998, Russia unexpectedly defaulted on its government debt (俄羅斯債務違約), triggering a global flight to safety that caused the exact opposite of what LTCM&rsquo;s models predicted: instead of related bond prices converging as history suggested they eventually would, spreads widened dramatically as panicked investors fled to the safest, most liquid assets regardless of underlying valuation. With leverage north of 25-to-1, even modest losses on paper translated into catastrophic real losses, and LTCM&rsquo;s equity collapsed by roughly 90% within weeks.</p>
+      <p>Fearing that LTCM&rsquo;s forced liquidation of its enormous, illiquid positions could trigger a chain reaction across the entire global financial system, the Federal Reserve Bank of New York organised &mdash; but did not directly fund &mdash; a $3.6 billion private-sector bailout among 14 major banks in September 1998 to unwind the fund&rsquo;s positions in an orderly way. The episode became a foundational case study in &ldquo;tail risk&rdquo; (尾部風險): it demonstrated that historically reliable statistical correlations can break down entirely during genuine crises, precisely when a hedge strategy needs them most, and that excessive leverage turns small modelling errors into systemic threats.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; LTCM&rsquo;s models were mathematically brilliant and historically accurate &mdash; but 25-to-1 leverage meant a single unprecedented event turned a small modelling error into a near-systemic collapse.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did LTCM&rsquo;s bond-spread strategy fail catastrophically after Russia&rsquo;s 1998 default, when the underlying pricing relationships had held reliably for years?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Instead of related bond prices converging as historical patterns predicted, the crisis triggered a global flight to safety that made spreads widen further, and LTCM&rsquo;s roughly 25-to-1 leverage turned that historically small deviation into losses large enough to wipe out most of the fund&rsquo;s equity within weeks.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lowenstein, R. (2000). <em>When Genius Failed</em>. Random House. MacKenzie, D. (2003). &ldquo;Long-Term Capital Management and the Sociology of Arbitrage.&rdquo; <em>Economy and Society</em>, 32(3).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Curve That Broke in the 1970s: The Phillips Curve (菲利普斯曲線), Stagflation, and the Fight Over Whether Expectations Change Everything</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Professor_A.W.H_%28Bill%29_Phillips.jpg" alt="A.W. Phillips, economist who documented the Phillips curve" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A.W. Phillips (菲利普斯), whose 1958 paper documented the original unemployment-inflation relationship. Credit: <a href="https://en.wikipedia.org/wiki/Phillips_curve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In the 1970s, the US and UK suffered stagflation (滯脹) &mdash; high unemployment and high inflation together &mdash; a combination the era&rsquo;s dominant economic model insisted could not happen simultaneously.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">A.W. Phillips (菲利普斯), in a 1958 paper, found a stable inverse relationship in UK data: lower unemployment came with higher wage inflation, suggesting policymakers could trade a bit more inflation for less unemployment, or vice versa.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Through the 1970s oil shocks, US unemployment and inflation rose together for years, flatly contradicting the predicted tradeoff &mdash; the original relationship simply broke down, embarrassing policymakers who had built decisions around it.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Milton Friedman (米爾頓&middot;佛利民) and Edmund Phelps (埃德蒙&middot;費爾普斯) had already argued the tradeoff was illusory once workers adjusted their inflation expectations (通脹預期) &mdash; exploiting it would only shift the curve, not move along it. Their &ldquo;expectations-augmented&rdquo; version became the new orthodoxy, though the curve&rsquo;s shape at very low unemployment remains actively disputed.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The Phillips Curve wasn&rsquo;t wrong so much as incomplete &mdash; it ignored that people adjust their expectations once they catch on to sustained inflation.</div>
+      <div class="source">&#x1F4D6; Phillips, A.W. (1958). <em>Economica</em>, 25(100). Friedman, M. (1968). &ldquo;The Role of Monetary Policy.&rdquo; <em>American Economic Review</em>, 58(1). Phelps, E.S. (1967). <em>Economica</em>, 34(135).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 8 &amp; 9 &mdash; When Timing Myths Outlive the Evidence:</strong> Health&rsquo;s intermittent fasting and Sports Science&rsquo;s &ldquo;anabolic window&rdquo; are mirror-image myths: both promise that precisely <em>when</em> you eat matters as much as <em>how much</em>. In both cases, well-controlled trials that equalise total calories or total daily protein find no meaningful timing advantage &mdash; intermittent fasting works about as well as any diet that gets you to eat less, and post-workout protein works about as well within a day-long window as within 30 minutes.</p>
+      <p><strong>So what:</strong> Before adopting a rigid timing rule around eating, ask what the trial actually controlled for &mdash; a real effect should survive once total quantity is held constant; if it disappears, you&rsquo;ve probably found marketing, not physiology.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA Hubble press releases (1995, 2015); James Webb Space Telescope press release (2022). Hester, J.J. et al. (1996), <em>Astronomical Journal</em> 111.</li>
+      <li><strong>Card 2:</strong> 《清史稿》；茅海建《戊戌變法史事考》；黃彰健《戊戌變法史研究》。</li>
+      <li><strong>Card 3:</strong> Runciman, <em>The Fall of Constantinople 1453</em> (1965), Cambridge UP. Crowley, <em>1453: The Holy War for Constantinople</em> (2005). Britannica, &ldquo;Fall of Constantinople.&rdquo;</li>
+      <li><strong>Card 4:</strong> 王陽明《傳習錄》；《王陽明年譜》；牟宗三《從陸象山到劉蕺山》；陳來《有無之境》。</li>
+      <li><strong>Card 5:</strong> Kierkegaard, <em>Fear and Trembling</em> (1843). Stanford Encyclopedia of Philosophy, &ldquo;S&oslash;ren Kierkegaard.&rdquo; Britannica, &ldquo;S&oslash;ren Kierkegaard.&rdquo;</li>
+      <li><strong>Card 6:</strong> Festinger, Riecken &amp; Schachter (1956), <em>When Prophecy Fails</em>. Festinger &amp; Carlsmith (1959), <em>Journal of Abnormal and Social Psychology</em> 58(2).</li>
+      <li><strong>Card 7:</strong> Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Freeman (2008), <em>New England Journal of Medicine</em> 358(6).</li>
+      <li><strong>Card 8:</strong> Lowe et al. (2020), <em>JAMA Internal Medicine</em> 180(11). Liu et al. (2022), <em>New England Journal of Medicine</em> 386(16).</li>
+      <li><strong>Card 9:</strong> Schoenfeld, Aragon &amp; Krieger (2013), <em>Journal of the International Society of Sports Nutrition</em> 10(53). Aragon &amp; Schoenfeld (2013), <em>ibid.</em> 10(5).</li>
+      <li><strong>Card 10:</strong> Lowenstein, <em>When Genius Failed</em> (2000). MacKenzie (2003), <em>Economy and Society</em> 32(3).</li>
+      <li><strong>Card 11:</strong> Phillips (1958), <em>Economica</em> 25(100). Friedman (1968), <em>American Economic Review</em> 58(1). Phelps (1967), <em>Economica</em> 34(135).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-12: Pillars of Creation (Eagle Nebula) &bull; 戊戌變法／百日維新 (Qing) &bull; Fall of Constantinople 1453 &bull; 王陽明・龍場悟道／知行合一 &bull; S&oslash;ren Kierkegaard / Leap of Faith &bull; Cognitive Dissonance (Festinger) &bull; Baroreflex / Orthostatic Hypotension &bull; Intermittent Fasting &bull; Anabolic Window / Protein Timing Myth &bull; Long-Term Capital Management Collapse &bull; Phillips Curve / Stagflation</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-12.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-12.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 12 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
