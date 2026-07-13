@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 13 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 13 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>12 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Pillars of Creation</span>Hubble&rsquo;s 1995 image of gas pillars in the Eagle Nebula showed star birth and erosion happening at once, re-imaged by Webb in 2022.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 戊戌變法／百日維新</span>光緒帝百日維新因袁世凱告密而失敗，六君子喋血菜市口。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Fall of Constantinople</span>Mehmed II breached Constantinople&rsquo;s ancient walls using a giant cannon and ships hauled overland, ending the Byzantine Empire.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 王陽明・龍場悟道</span>王陽明貶謫龍場頓悟「心即理」，提出知行合一學說。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; S&oslash;ren Kierkegaard</span>Kierkegaard used Abraham&rsquo;s near-sacrifice of Isaac to argue true faith requires a &ldquo;leap&rdquo; beyond rational ethics.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Cognitive Dissonance</span>Festinger found a doomsday cult grew more devoted, not less, after its prophecy failed to come true.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Baroreflex</span>Standing up triggers baroreceptors to correct a real blood-pressure drop within about 10 seconds, explaining head rushes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Intermittent Fasting</span>Controlled trials show intermittent fasting works about as well as any diet that reduces total calories &mdash; timing isn&rsquo;t magic.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Anabolic Window</span>Muscle protein synthesis stays elevated 24&ndash;48 hours post-workout, far longer than the mythical 30-minute shake window.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; LTCM</span>Two Nobel laureates&rsquo; hedge fund collapsed in weeks when Russia&rsquo;s 1998 default broke its statistical models under 25-to-1 leverage.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Phillips Curve</span>1970s stagflation broke the inflation-unemployment tradeoff until Friedman and Phelps added inflation expectations.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Star That Song Dynasty Astronomers Watched Explode in 1054 &mdash; What&rsquo;s Left of It Today: The Crab Nebula (蟹狀星雲)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July 1054, Chinese court astronomers recorded a &ldquo;guest star&rdquo; bright enough to see in daylight for over three weeks, then it faded from view within two years. What do you think that star actually was, and what do you think remains of it today?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Crab_Nebula.jpg/3840px-Crab_Nebula.jpg" alt="The Crab Nebula, remnant of the 1054 supernova, photographed by the Hubble Space Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Crab Nebula (蟹狀星雲), remnant of the supernova recorded in 1054. Credit: <a href="https://en.wikipedia.org/wiki/Crab_Nebula" target="_blank" rel="noopener">Wikimedia Commons / NASA, ESA</a></div>
+      </div>
+      <p>On 4 July 1054, imperial astronomers of the Song dynasty (宋朝) recorded a &ldquo;guest star&rdquo; (客星) suddenly blazing near the constellation Taurus (金牛座), bright enough to be visible in daylight for over three weeks and remaining visible at night for nearly two years, according to records preserved in the official <em>History of Song</em> (宋史). Similar sightings appear in contemporary Japanese court diaries. Unknown to these observers, they were watching a supernova (超新星) &mdash; the catastrophic death explosion of a massive star, its outer layers blasted outward at thousands of kilometres per second, briefly outshining every other star in the sky.</p>
+      <p>What remains today is the Crab Nebula (蟹狀星雲, also called M1), an expanding cloud of glowing gas and dust roughly 6,500 light-years away, still growing outward at about 1,500 kilometres per second nearly a thousand years later. At its centre sits the Crab Pulsar (蟹狀星雲脈衝星) &mdash; a neutron star (中子星) barely 20 kilometres wide but denser than the Sun, spinning roughly 30 times per second and sweeping a beam of radiation past Earth like a cosmic lighthouse, discovered by radio astronomers in 1968 shortly after pulsars themselves were first identified.</p>
+      <p>Modern telescopes reveal the nebula in ways Song astronomers never could: Hubble&rsquo;s visible-light images show delicate orange filaments of expelled gas, Chandra&rsquo;s X-ray imaging (錢德拉X射線天文台) reveals the pulsar&rsquo;s energetic wind sculpting the nebula&rsquo;s interior, and Spitzer&rsquo;s infrared data traces cooler dust. By measuring the nebula&rsquo;s current expansion rate and tracing it backward, astronomers calculated an explosion date matching the historical 1054 sighting almost exactly &mdash; a rare case where a written human record and a physical measurement independently confirm the same event across nearly a millennium.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Crab_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A thousand-year-old court record and a modern telescope measurement agree on the exact same explosion &mdash; history and physics checking each other&rsquo;s work.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two independent kinds of evidence confirm that the Crab Nebula&rsquo;s supernova occurred in 1054 CE?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Written historical records from Song dynasty and Japanese court astronomers describing a bright &ldquo;guest star,&rdquo; and modern measurements of the nebula&rsquo;s expansion rate traced backward to calculate its explosion date &mdash; both independently point to the same year.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/Chandra X-ray Observatory and Hubble Space Telescope press releases. 《宋史&middot;天文志》. Stephenson, F.R. &amp; Green, D.A. (2002). <em>Historical Supernovae and Their Remnants</em>. Oxford University Press.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「霸王別姬」與「約法三章」：項羽劉邦楚漢相爭如何決定漢朝四百年基業</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是鴻門宴上的項羽，明知劉邦是最大威脅，卻選擇放他一馬，你認為這是仁慈，還是致命的政治誤判？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>項羽（西楚霸王）、劉邦（漢高祖）、范增（項羽謀士）、張良／蕭何／韓信（劉邦「漢初三傑」）。</p>
+        <p><strong>事件：</strong>西元前206年至前202年楚漢相爭，劉邦最終於垓下之戰擊敗項羽，建立漢朝。</p>
+        <p><strong>時代背景：</strong>秦朝滅亡後，項羽自立西楚霸王，大封十八路諸侯，劉邦受封漢中卻暗中積蓄實力，雙方由滅秦盟友迅速演變為爭奪天下的死敵。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Portraits_of_Famous_Men_-_Xiang_Wang.jpg" alt="項羽畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">項羽畫像。來源：<a href="https://en.wikipedia.org/wiki/Xiang_Yu" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>秦亡之後，項羽率諸侯聯軍入關，聽聞劉邦已先入咸陽並派兵把守函谷關，勃然大怒，於鴻門設宴，意欲藉機除去劉邦。宴上范增數次以眼色及玉玦暗示項羽下令，項羽猶豫不決；范增遂命項莊舞劍助興，實則伺機刺殺劉邦，項伯察覺後起身對舞掩護。劉邦藉如廁之機，在張良、樊噲協助下抄小路逃回軍營，僅留張良代為辭謝，項羽終究未能痛下殺手，錯失了此後楚漢相爭中唯一能輕易除去劉邦的機會。</p>
+      <p>項羽分封諸侯後自恃武力天下無敵，卻屢屢失於政治謀略；劉邦入關時已與關中父老「約法三章」——殺人者死，傷人及盜抵罪，餘悉除去秦朝苛法——迅速贏得民心。楚漢相爭期間，劉邦任用韓信為大將，韓信明修棧道、暗度陳倉奪取關中，其後在井陘背水一戰，以寡擊眾大破趙軍，展現驚人軍事才能；項羽雖屢戰屢勝，卻疲於在各戰線奔波應付，糧道亦屢遭截斷，雙方一度議和，以鴻溝為界，中分天下。</p>
+      <p>劉邦背約追擊，聯合韓信、彭越大軍將項羽合圍於垓下，韓信布下十面埋伏之陣。夜裡漢軍四面唱起楚地歌謠，楚軍士卒聞歌思鄉，鬥志盡失，紛紛逃散，史稱「四面楚歌」。項羽自知大勢已去，與愛姬虞姬訣別，慷慨悲歌「力拔山兮氣蓋世」，是為「霸王別姬」。項羽率殘部突圍至烏江畔，自覺無顏再見江東父老，拔劍自刎，年僅三十一歲。劉邦統一天下，建立漢朝，開啟其後四百餘年的基業。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xiang_Yu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 鴻門宴上放走劉邦的一念之仁，最終讓項羽在垓下付出了整個天下的代價。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>項羽在鴻門宴上為何最終沒有下令殺死劉邦？這個決定對楚漢相爭的結局有何影響？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">項羽對范增的暗示猶豫不決，未下令動手，劉邦則趁機在張良、樊噲協助下逃脫；這個猶豫讓項羽錯失了此後唯一能輕易除去劉邦的機會，劉邦其後坐大，最終在垓下之戰擊敗項羽，統一天下。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&middot;項羽本紀》、《史記&middot;高祖本紀》；李開元《楚亡：從項羽到韓信》；田余慶《秦漢魏晉史探微》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>When Athens&rsquo;s Own Democracy Voted for Disaster: The Peloponnesian War (伯羅奔尼撒戰爭) and the Sicilian Expedition</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Athens (雅典), the wealthiest and most powerful city in Greece, votes to send its fleet on a risky invasion far from home &mdash; against the warnings of its most cautious general. What do you think convinced the assembly to go ahead anyway?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Pericles (伯里克利), Athenian statesman who shaped early war strategy; Alcibiades (亞西比德), a brilliant but reckless general who championed the invasion; Nicias (尼西阿斯), the cautious commander who opposed it yet was placed in charge; Thucydides (修昔底德), Athenian general turned historian and eyewitness.</p>
+        <p><strong>Event at stake:</strong> The Peloponnesian War (伯羅奔尼撒戰爭, 431&ndash;404 BCE) between Athens (雅典) and Sparta (斯巴達), particularly the disastrous Sicilian Expedition (西西里遠征, 415&ndash;413 BCE).</p>
+        <p><strong>Big picture:</strong> Athens&rsquo;s naval empire had made it rich and dominant after defeating Persia decades earlier, while Sparta&rsquo;s land-based alliance grew increasingly alarmed by Athenian expansion.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Pelop_war_en.png/330px-Pelop_war_en.png" alt="Map of the Peloponnesian War alliances" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The opposing alliances of the Peloponnesian War (伯羅奔尼撒戰爭). Credit: <a href="https://en.wikipedia.org/wiki/Peloponnesian_War" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Thucydides (修昔底德) famously wrote that &ldquo;what made war inevitable was the growth of Athenian power and the fear this caused in Sparta (斯巴達).&rdquo; Pericles (伯里克利) initially urged Athens (雅典) to avoid pitched land battles against Sparta&rsquo;s superior army, retreating the population behind the city&rsquo;s Long Walls (長牆) and relying on naval superiority instead &mdash; a strategy upended when a devastating plague swept through the overcrowded city in 430 BCE, killing perhaps a quarter to a third of the population, including Pericles himself the following year.</p>
+      <p>In 415 BCE, the charismatic Alcibiades (亞西比德) persuaded the Athenian assembly to launch a massive invasion of Syracuse (敘拉古) in Sicily, promising glory and resources despite Nicias&rsquo;s (尼西阿斯) explicit warnings that the expedition was reckless overreach; political maneuvering placed Nicias in joint command of a campaign he had argued against. Days after the fleet sailed, Alcibiades was recalled to face criminal charges and defected to Sparta instead, leaving command to the far more cautious Nicias, whose hesitation let Syracuse&rsquo;s defenses strengthen for months.</p>
+      <p>The expedition dragged on for two disastrous years; Athens&rsquo;s fleet was ultimately trapped and destroyed in Syracuse&rsquo;s harbour, and the retreating land army was annihilated attempting to march overland, wiping out virtually the entire expeditionary force. Sparta, now funded by Persian gold, built a navy capable of challenging Athens directly and eventually blockaded and starved the city into surrender in 404 BCE. Thucydides&rsquo;s unfinished <em>History of the Peloponnesian War</em> (伯羅奔尼撒戰爭史) became a founding text of political realism, documenting how a democracy&rsquo;s own ambition and internal politics could prove more destructive than any external enemy.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Peloponnesian_War" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A democracy&rsquo;s own greed and internal politics destroyed Athens more effectively than Sparta&rsquo;s army ever could.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did removing Alcibiades from command just after the Sicilian Expedition set sail prove so damaging to Athens?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It left the cautious Nicias, who had opposed the invasion from the start, as sole commander; his hesitant leadership gave Syracuse time to strengthen its defenses, and the expedition ultimately ended with Athens&rsquo;s entire fleet and army destroyed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Thucydides, <em>History of the Peloponnesian War</em>. Kagan, D. (2003). <em>The Peloponnesian War</em>. Viking. Britannica, &ldquo;Peloponnesian War.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「白馬非馬」：公孫龍與名家如何用邏輯詭辯挑戰常識，卻為中國邏輯學開先河</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">如果有人堅稱「白馬不是馬」，並且言之成理地說服你無法反駁，你認為這只是強詞奪理，還是真正觸及了語言與邏輯的深層問題？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>公孫龍（約公元前320至前250年，戰國時期趙國人）；惠施（名家另一代表，以「歷物十事」聞名）；孔穿（孔子六世孫，曾與公孫龍當面辯論「白馬非馬」）。</p>
+        <p><strong>核心思想：</strong>名家；白馬非馬論；堅白論（離堅白）。</p>
+        <p><strong>時代背景：</strong>戰國時期百家爭鳴，各國君主延攬辯士游說天下，公孫龍曾為趙國平原君門客；名家以析辭辯理、探究「名」與「實」之間的關係著稱，卻因論證看似違反常識而屢遭儒家、墨家批評為「苛察繳繞」的詭辯之學。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Birth_Places_of_Chinese_Philosophers.png" alt="中國先秦諸子出生地地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">先秦諸子百家出生地地圖，名家人物亦包含其中。來源：<a href="https://en.wikipedia.org/wiki/School_of_Names" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>公孫龍在趙國平原君門下時，提出「白馬非馬」這一著名命題，震動當時的辯論場。他的論證是：「馬」這個名指涉的是形狀，「白」這個名指涉的是顏色，「白馬」則是形與色合一而成的複合概念，其內涵已與單純的「馬」不同——一個指涉形狀本身，一個指涉「形加色」的組合，兩者在「名」的層次上並不完全等同，因此嚴格而言「白馬」不能簡單等同於「馬」。這個論證聽起來違反常識，卻迫使聽者認真思考「名」與「實」究竟是否真的一一對應。</p>
+      <p>公孫龍另有「堅白論」，以一塊又白又堅硬的石頭為例：眼睛看見石頭的白色，卻感受不到它的堅硬；手觸摸感受到石頭的堅硬，卻看不見它的顏色。既然人的感官無法同時、同一地把握「堅」與「白」兩種屬性，公孫龍便主張「堅」與「白」在認識論上其實是彼此分離的，稱為「離堅白」。這一論證進一步延伸出「名」是否能完整對應「實」、感官經驗的局限如何影響我們對世界的認識等哲學問題，觸及了語言與知識論的核心。</p>
+      <p>公孫龍曾與孔子六世孫孔穿當面辯論「白馬非馬」，孔穿最終未能駁倒他的論證，卻仍被平原君嘲笑「以文亂法」。荀子在《正名篇》中批評名家「甚察而不惠，辯而無用，多事而寡功」，認為這類辯論徒逞口舌之能，無益於治國安邦。名家其後迅速衰落，未能形成如儒墨般的長期學派，但「白馬非馬」的命題並未因此被遺忘——近代學者馮友蘭、胡適等重新評價名家，肯定公孫龍在概念分析與邏輯思辨上的貢獻，視其為中國邏輯學與語言哲學的重要先驅。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/School_of_Names" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 公孫龍用一句看似荒謬的話，逼所有人重新思考「名」與「實」到底是不是同一回事。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>公孫龍「白馬非馬」論證的邏輯核心是什麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他主張「馬」指涉形狀，「白」指涉顏色，「白馬」是形色合一的複合概念，其內涵與單純的「馬」不同，因此在「名」的層次上，「白馬」不能完全等同於「馬」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《公孫龍子&middot;白馬論》、《公孫龍子&middot;堅白論》；馮友蘭《中國哲學史》；胡適《中國哲學史大綱》；荀子《正名篇》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Better to Be Feared Than Loved? Niccol&ograve; Machiavelli (馬基維利) and the Birth of Political Realism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A political advisor writes a handbook openly explaining how rulers should lie, betray allies, and use calculated cruelty to hold onto power &mdash; and it becomes one of the most influential books in Western political thought. Do you think Machiavelli was endorsing evil, or simply describing how power actually works?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Niccol&ograve; Machiavelli (馬基維利, 1469&ndash;1527), Florentine (佛羅倫斯) diplomat and political theorist; Cesare Borgia (凱撒&middot;波吉亞), the ruthless Renaissance prince Machiavelli held up as a model of effective rule; the Medici family (美第奇家族), who imprisoned and tortured Machiavelli before he wrote his most famous work seeking their favour.</p>
+        <p><strong>Core ideas:</strong> virt&ugrave; (德才, the skill and boldness to seize opportunity) versus fortuna (命運, fortune or chance); the argument that political success must be judged by outcomes, not conventional morality.</p>
+        <p><strong>Big picture:</strong> Written in 1513 after Machiavelli lost his government post and was tortured on suspicion of conspiracy, at a time when Italy&rsquo;s fractured city-states were repeatedly invaded by France and Spain.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Portrait_of_Niccol%C3%B2_Machiavelli_by_Santi_di_Tito.jpg" alt="Portrait of Niccol&ograve; Machiavelli by Santi di Tito" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Niccol&ograve; Machiavelli (馬基維利), portrait by Santi di Tito. Credit: <a href="https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Machiavelli (馬基維利) served the Florentine Republic (佛羅倫斯共和國) as a diplomat for over a decade, during which he closely observed Cesare Borgia (凱撒&middot;波吉亞) ruthlessly but effectively consolidate control over the Romagna region &mdash; an episode he later recounted almost admiringly in <em>The Prince</em> (君主論). After the Medici family (美第奇家族) returned to power in 1512 and the Republic fell, Machiavelli was accused of conspiracy, imprisoned, and tortured on the strappado before being exiled to the countryside; he wrote <em>The Prince</em> partly hoping to win back Medici favour, dedicating it to Lorenzo de&rsquo; Medici.</p>
+      <p><em>The Prince</em> broke sharply from the earlier &ldquo;mirrors for princes&rdquo; tradition, which instructed rulers to govern according to Christian virtue. Machiavelli argued instead that a ruler who always keeps his word and acts justly will be destroyed by rivals who do not; his famous line holds it is &ldquo;better to be feared than loved, if you cannot be both&rdquo; &mdash; though he warns fear must never curdle into hatred, which breeds conspiracy. Virt&ugrave; (德才) is the skill to master fortuna (命運), which he compares to a violent river: uncontrollable in flood, yet manageable if one builds dikes and channels before the water rises.</p>
+      <p>The term &ldquo;Machiavellian&rdquo; became shorthand for cunning, amoral manipulation, though scholars still debate whether he was cynically describing power as it actually operates, a proto-realist, or covertly satirising tyranny &mdash; his other major work, <em>Discourses on Livy</em> (論李維), praises republican government at length. Either way, <em>The Prince</em> founded political realism (政治現實主義) by treating politics as a domain with its own logic, separate from conventional morality, influencing thinkers from Thomas Hobbes (霍布斯) to modern international relations theory.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Machiavelli didn&rsquo;t invent ruthless politics &mdash; he was simply the first to write down its actual rules instead of pretending rulers followed nicer ones.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Machiavelli, why is it dangerous for a ruler to always keep his promises and act by conventional morality?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Rivals who don&rsquo;t follow the same rules will exploit that consistency to destroy him; effective rulers need virt&ugrave; &mdash; the adaptability to break promises when necessary &mdash; while still avoiding actions extreme enough to provoke outright hatred and rebellion.</div>
+      </details>
+      <div class="source">&#x1F4D6; Machiavelli, N. (1532/1998). <em>The Prince</em> (trans. Harvey Mansfield). University of Chicago Press. Stanford Encyclopedia of Philosophy, &ldquo;Niccol&ograve; Machiavelli.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Repeating a Claim Makes It Feel True: The Illusory Truth Effect (錯覺真相效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You hear the same claim three separate times over a month, from three different sources. Do you think simply hearing it repeated makes you more likely to believe it &mdash; even if you&rsquo;re generally sharp and skeptical?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/54/The_Ladies%27_home_journal_%281948%29_%2814785694143%29.jpg" alt="Vintage magazine advertising, an early study ground for the illusory truth effect" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Repeated advertising claims exploit the same fluency shortcut behind the illusory truth effect (錯覺真相效應). Credit: <a href="https://en.wikipedia.org/wiki/Advertising" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a 1977 study, psychologists Lynn Hasher, David Goldstein and Thomas Toppino (哈舍、戈爾茨坦與托皮諾) had participants rate the plausibility of trivia statements across three separate sessions spaced weeks apart. Statements repeated across sessions were consistently rated as more truthful than new statements &mdash; regardless of whether they were actually true. Participants weren&rsquo;t tracking accuracy at all; mere repetition alone was enough to shift their judgment toward &ldquo;true,&rdquo; even for claims they had no independent way to verify.</p>
+      <p>The mechanism is processing fluency (加工流暢度): a statement heard before is easier and faster for the brain to process the second time, and the brain misreads that ease as a signal of accuracy &mdash; an evolutionarily efficient but easily fooled shortcut. The effect persists even for statements that are obviously false or absurd once they&rsquo;ve been repeated enough times, and it operates largely below conscious awareness, meaning people rarely notice familiarity is doing the persuading rather than evidence.</p>
+      <p>A 2015 study by Lisa Fazio and colleagues in the <em>Journal of Experimental Psychology: General</em> found the effect persists even among people who already possess the correct, contradicting knowledge &mdash; prior expertise doesn&rsquo;t fully protect against the fluency-driven illusion. This has direct implications for misinformation (虛假資訊) spreading across multiple sources: a false claim repeated by several separate outlets can feel independently verified purely because it feels familiar, even when no single source actually checked the facts.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Illusory_truth_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If a claim feels obviously true, ask whether that&rsquo;s because you&rsquo;ve verified it &mdash; or just heard it enough times.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Fazio and colleagues&rsquo; 2015 study find that was surprising, even for people who already knew the correct answer to a question?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Repetition still increased how truthful people rated false statements, even among participants who possessed the correct, contradicting knowledge beforehand &mdash; existing expertise did not fully protect against the illusory truth effect.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hasher, L., Goldstein, D. &amp; Toppino, T. (1977). <em>Journal of Verbal Learning and Verbal Behavior</em>, 16(1). Fazio, L.K. et al. (2015). <em>Journal of Experimental Psychology: General</em>, 144(5).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Two Hormones Arguing Inside Your Brain Every Time You Decide to Eat: Ghrelin (飢餓素) and Leptin (瘦素)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your stomach growls right on schedule before lunch, even on a day you skipped breakfast entirely. What do you think is actually driving that timed hunger signal &mdash; is it really just an empty stomach?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Leptin.png" alt="Molecular structure of leptin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Leptin (瘦素), the fat-derived hormone that signals satiety to the brain. Credit: <a href="https://en.wikipedia.org/wiki/Leptin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Ghrelin (飢餓素) is produced mainly by the lining of the stomach (胃) and rises sharply before habitual mealtimes &mdash; often anticipating your usual eating schedule rather than responding purely to actual energy need &mdash; then signals the arcuate nucleus (弓狀核) within the hypothalamus (下丘腦) to stimulate appetite and food-seeking behaviour. Discovered in 1999 by Kojima and colleagues, ghrelin is often called the body&rsquo;s &ldquo;hunger hormone,&rdquo; and its levels typically fall again once a meal begins, well before digestion has meaningfully progressed.</p>
+      <p>Leptin (瘦素) works in the opposite direction, produced by fat cells (脂肪細胞) in rough proportion to total body fat stores, signalling the same hypothalamic circuits to suppress appetite and increase long-term energy expenditure. It was discovered through the 1994 study of genetically obese &ldquo;ob/ob&rdquo; mice by Jeffrey Friedman&rsquo;s laboratory, whose classic parabiosis experiments &mdash; surgically joining the blood circulation of two mice &mdash; showed a missing satiety signal, not just missing willpower, was driving their compulsive overeating.</p>
+      <p>In obesity, leptin levels are actually high, proportional to expanded fat stores, but the brain becomes progressively less responsive to the signal &mdash; a phenomenon called leptin resistance (瘦素抵抗), analogous to insulin resistance (胰島素抵抗). This helps explain why sustained weight loss through willpower alone is so difficult: the brain&rsquo;s hunger-suppressing feedback loop is effectively broken despite abundant fuel reserves. Sleep deprivation compounds the problem, measurably lowering leptin and raising ghrelin within as little as two nights of poor sleep.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Leptin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Chronic hunger in obesity often isn&rsquo;t a missing &ldquo;stop eating&rdquo; signal &mdash; it&rsquo;s a brain that has stopped listening to one it&rsquo;s already receiving.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why doesn&rsquo;t the high leptin found in people with obesity suppress their appetite the way it normally should?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Chronically elevated leptin leads to leptin resistance in the hypothalamus, where receptors become less responsive to the hormone&rsquo;s satiety signal, similar to insulin resistance &mdash; so appetite suppression fails despite abundant circulating leptin.</div>
+      </details>
+      <div class="source">&#x1F4D6; Friedman, J.M. (2000). <em>Nature</em>, 404. Kojima, M. et al. (1999). <em>Nature</em>, 402. Zhang, Y. et al. (1994). <em>Nature</em>, 372.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Why Your Doctor Won&rsquo;t Give You Antibiotics for a Cold &mdash; And Why That&rsquo;s Actually Good For You</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&rsquo;ve got a bad cold with a sore throat and thick green mucus. You ask your doctor for antibiotics &ldquo;just in case.&rdquo; Do you think antibiotics will actually speed up your recovery?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Antibiotic_sensitivity_and_resistance.jpg/330px-Antibiotic_sensitivity_and_resistance.jpg" alt="Bacterial culture plate showing antibiotic sensitivity and resistance" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A bacterial culture testing antibiotic sensitivity and resistance (抗藥性). Credit: <a href="https://en.wikipedia.org/wiki/Antimicrobial_resistance" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Antibiotics (抗生素) work by disrupting mechanisms specific to bacterial (細菌) cells &mdash; cell wall synthesis, bacterial protein synthesis, or bacterial DNA replication &mdash; but the common cold, most cases of flu, and the large majority of sore throats and bronchitis are caused by viruses (病毒), which lack cell walls and independent metabolic machinery for antibiotics to target. Taking antibiotics for a viral infection provides no clinical benefit whatsoever for how quickly or completely you recover from the illness itself.</p>
+      <p>Despite this, unnecessary prescribing remains common &mdash; the US Centers for Disease Control and Prevention (CDC, 美國疾病控制與預防中心) estimates roughly 30% of outpatient antibiotic prescriptions are inappropriate, often driven by patient expectation and diagnostic time pressure rather than genuine bacterial infection. Every unnecessary course of antibiotics directly contributes to antibiotic resistance (抗藥性): surviving bacteria exposed to the drug pass resistance genes to their offspring, gradually reducing how well antibiotics work for everyone &mdash; a problem the World Health Organization (世界衛生組織) lists among the top global public health threats.</p>
+      <p>A persistent myth holds that green or yellow mucus proves a bacterial infection &mdash; it doesn&rsquo;t. The colour comes from enzymes released by immune cells (neutrophils, 嗜中性白血球) fighting the infection, present regardless of whether the underlying cause is viral or bacterial. Most sore throats are viral; only an estimated 5&ndash;15% of adult pharyngitis cases are bacterial strep throat, which requires a rapid strep test to confirm, not visual inspection. For genuinely viral illness, rest, fluids, and symptom relief remain the actual evidence-based treatment.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Antimicrobial_resistance" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Colored mucus and antibiotics both feel like signs of progress, but neither one actually tells you whether an infection is bacterial.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is thick green or yellow mucus not reliable proof that an infection is bacterial and needs antibiotics?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The color comes from enzymes in immune cells (neutrophils) present in mucus regardless of whether the infection is viral or bacterial, so it doesn&rsquo;t reliably distinguish between the two &mdash; unnecessary antibiotics for viral infections provide no benefit and contribute to antibiotic resistance.</div>
+      </details>
+      <div class="source">&#x1F4D6; CDC, &ldquo;Antibiotic Use in Outpatient Settings.&rdquo; WHO, &ldquo;Antimicrobial Resistance&rdquo; fact sheet (2023). Fine, A.M. et al. (2012). <em>Pediatrics</em>, 130(6).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Elite Runners Train Where the Air Is Thin: Altitude Training (高原訓練) and &ldquo;Live High, Train Low&rdquo;</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Athletes fly to mountain towns like Kenya&rsquo;s Iten or Colorado&rsquo;s Boulder to train where there&rsquo;s less oxygen available per breath. Why would training somewhere your body performs worse actually help you perform better later, back at sea level?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Swiss_Olympic_training_base.jpg" alt="A high-altitude Olympic training base" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A high-altitude training base (高原訓練), used to trigger red blood cell adaptations. Credit: <a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Reduced oxygen partial pressure (氧分壓) at altitude triggers the kidneys to release erythropoietin (紅血球生成素, EPO), a hormone that stimulates bone marrow to produce more red blood cells (紅血球) over roughly two to three weeks, increasing the blood&rsquo;s oxygen-carrying capacity. This is the same natural hormone whose synthetic version fuelled major doping scandals in endurance sports like professional cycling (自行車運動), since artificially boosting EPO produces the same blood-oxygen advantage without the weeks of altitude exposure.</p>
+      <p>A landmark 1997 study by Benjamin Levine and James Stray-Gundersen found athletes who lived at moderate altitude (roughly 2,500 metres) but travelled down to train at lower altitude gained the red-blood-cell benefit without sacrificing training intensity &mdash; since thin air at altitude makes it harder to hit top speeds and power outputs during hard workouts. Pure &ldquo;live high, train high&rdquo; protocols showed smaller overall benefit, because impaired training quality partly cancelled out the blood adaptation gains.</p>
+      <p>The benefits fade within about two to three weeks of returning to sea level as red blood cell counts normalise, so competition timing matters considerably. Altitude tents and hypoxic chambers attempt to simulate the &ldquo;live high&rdquo; sleeping effect without relocating entire training camps, though individual response varies significantly &mdash; some athletes are measurable &ldquo;non-responders.&rdquo; Crucially, the body&rsquo;s natural EPO response has a genetic ceiling, unlike synthetic doping, which is why altitude training remains legal while injected EPO does not.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Altitude training doesn&rsquo;t make you fitter directly &mdash; it tricks your body into building more oxygen-carrying blood cells that keep paying off once you&rsquo;re back at sea level.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the &ldquo;Live High, Train Low&rdquo; strategy outperform simply living and training at high altitude the whole time?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Living at altitude still produced the EPO-driven red blood cell increase, but training at lower altitude let athletes maintain higher training intensity and speed, avoiding the performance-limiting effect that low oxygen has during actual hard workouts &mdash; combining both benefits at once.</div>
+      </details>
+      <div class="source">&#x1F4D6; Levine, B.D. &amp; Stray-Gundersen, J. (1997). <em>Journal of Applied Physiology</em>, 83(1). Wilber, R.L. (2007). <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 39(9).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Doctor Who Bet Against the Housing Market &mdash; and Nearly Lost His Fund Before Being Proven Right: Michael Burry (邁克爾&middot;貝瑞)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An investor spends years correctly predicting the 2008 housing crash and buys contracts that will pay off massively once it happens &mdash; yet his own investors nearly force him to sell before the crash even arrives. What do you think almost broke his fund before he was proven right?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Lehman_Brothers_Times_Square_by_David_Shankbone.jpg" alt="Lehman Brothers building, a symbol of the 2008 financial crisis" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The 2008 financial crisis (金融海嘯) that Michael Burry&rsquo;s trade predicted years in advance. Credit: <a href="https://en.wikipedia.org/wiki/Michael_Burry" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Michael Burry (邁克爾&middot;貝瑞), a former neurologist turned value investor, founded Scion Capital (西恩資本) largely from his own garage. Around 2005, he personally read through thousands of pages of subprime mortgage bond (次級房屋抵押貸款債券) prospectuses that few other investors bothered examining in such depth, discovering that the underlying loan quality was deteriorating badly &mdash; adjustable-rate &ldquo;teaser&rdquo; loans were approaching resets that borrowers plainly couldn&rsquo;t afford &mdash; despite the bonds themselves still carrying high credit ratings. He concluded a housing market (房地產市場) crash was coming.</p>
+      <p>Since no product existed to bet directly against individual mortgage bonds, Burry persuaded Goldman Sachs (高盛) and other banks to create custom credit default swaps (信用違約掉期, CDS) &mdash; essentially insurance contracts that would pay out only if the underlying bonds defaulted. He had to pay ongoing premiums for over a year while housing prices kept rising and the bonds kept performing normally, causing Scion&rsquo;s reported paper value to fall even though Burry&rsquo;s underlying thesis about eventual defaults remained unchanged.</p>
+      <p>Scion&rsquo;s investors, unable to independently verify Burry&rsquo;s illiquid, hard-to-price positions, grew alarmed and demanded redemptions; Burry controversially suspended withdrawals to prevent a forced unwind before his bet could pay off, straining relationships badly. When the subprime mortgage market (次級房貸市場) collapsed in 2007, Scion&rsquo;s credit default swap positions ultimately returned roughly 489% net to investors &mdash; yet Burry closed the fund shortly afterward, worn down by years of hostile investor pressure endured while waiting to be proven right.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Michael_Burry" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Being right early in markets can look identical to being wrong &mdash; the hardest part of Burry&rsquo;s trade wasn&rsquo;t the analysis, it was surviving his own investors&rsquo; patience running out first.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Michael Burry&rsquo;s fund show paper losses for over a year even though his analysis of the subprime mortgage market was ultimately correct?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He had to pay ongoing premiums on credit default swaps betting against mortgage bonds while housing prices kept rising and the bonds kept performing normally, so the position&rsquo;s reported value fell even though the underlying thesis about eventual defaults was accurate.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lewis, M. (2010). <em>The Big Short</em>. W.W. Norton. Zuckerman, G. (2009). <em>The Greatest Trade Ever</em>. Broadway Books.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Dollar&rsquo;s Impossible Job: Robert Triffin (特里芬) and the Paradox at the Heart of the Global Reserve Currency</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Obverse_of_the_series_2021_%241_Federal_Reserve_Note.jpg" alt="A US one-dollar Federal Reserve Note" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The US dollar (美元), the world&rsquo;s dominant reserve currency (儲備貨幣). Credit: <a href="https://en.wikipedia.org/wiki/Triffin_dilemma" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Decades of persistent U.S. current account deficits (經常帳赤字) coexist with the U.S. dollar (美元) remaining the world&rsquo;s dominant reserve currency (儲備貨幣) &mdash; the opposite of what earlier economic theory predicted would happen to a currency running such sustained deficits.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Robert Triffin (羅伯特&middot;特里芬), testifying to the U.S. Congress in 1960, argued the country issuing the world&rsquo;s reserve currency faces a built-in conflict: it must run deficits to supply the world with enough dollars for trade and reserves, yet doing so indefinitely erodes confidence in that currency&rsquo;s value.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Despite the U.S. running current account deficits for over 40 consecutive years, the dollar has not lost reserve status &mdash; it still comprises roughly 58% of global reserves per IMF data, far ahead of any rival, defying the confidence collapse Triffin&rsquo;s logic implies.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Barry Eichengreen&rsquo;s (巴里&middot;艾肯格林) &ldquo;exorbitant privilege&rdquo; (過度特權) framework argues deep U.S. capital markets, network effects, and the lack of a credible alternative (a fragmented euro, a not-fully-convertible yuan) sustain dollar dominance regardless of Triffin&rsquo;s logic; whether this is a stable equilibrium or merely a delayed reckoning remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The dollar&rsquo;s continued dominance may not prove Triffin was wrong &mdash; it may just mean the reckoning he predicted hasn&rsquo;t arrived yet.</div>
+      <div class="source">&#x1F4D6; Triffin, R. (1960). <em>Gold and the Dollar Crisis</em>. Yale University Press. Eichengreen, B. (2011). <em>Exorbitant Privilege</em>. Oxford University Press. IMF COFER database (2024).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 8 &mdash; When a Convenient Signal Replaces Real Verification:</strong> Psychology&rsquo;s illusory truth effect and Health&rsquo;s antibiotic myth are the same shortcut wearing different clothes: a claim that &ldquo;just sounds familiar&rdquo; and mucus that &ldquo;just looks infected&rdquo; both give the brain an easy, fluent signal that feels like evidence but isn&rsquo;t. Repetition never checks a fact against reality, and colour never checks a pathogen against a lab test &mdash; both let processing ease substitute for genuine verification.</p>
+      <p><strong>So what:</strong> Before trusting a claim or a symptom because it &ldquo;feels obviously true,&rdquo; ask what would actually need to be checked to know for sure &mdash; a second, independent source for a fact; a rapid strep test for a sore throat &mdash; rather than accepting the fluent-feeling shortcut.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/Chandra X-ray Observatory and Hubble Space Telescope press releases. 《宋史&middot;天文志》. Stephenson &amp; Green (2002), <em>Historical Supernovae and Their Remnants</em>.</li>
+      <li><strong>Card 2:</strong> 司馬遷《史記&middot;項羽本紀》、《史記&middot;高祖本紀》；李開元《楚亡：從項羽到韓信》；田余慶《秦漢魏晉史探微》。</li>
+      <li><strong>Card 3:</strong> Thucydides, <em>History of the Peloponnesian War</em>. Kagan (2003), <em>The Peloponnesian War</em>. Britannica, &ldquo;Peloponnesian War.&rdquo;</li>
+      <li><strong>Card 4:</strong> 《公孫龍子&middot;白馬論》、《公孫龍子&middot;堅白論》；馮友蘭《中國哲學史》；胡適《中國哲學史大綱》。</li>
+      <li><strong>Card 5:</strong> Machiavelli, <em>The Prince</em> (1532/1998). Stanford Encyclopedia of Philosophy, &ldquo;Niccol&ograve; Machiavelli.&rdquo;</li>
+      <li><strong>Card 6:</strong> Hasher, Goldstein &amp; Toppino (1977), <em>Journal of Verbal Learning and Verbal Behavior</em> 16(1). Fazio et al. (2015), <em>Journal of Experimental Psychology: General</em> 144(5).</li>
+      <li><strong>Card 7:</strong> Friedman (2000), <em>Nature</em> 404. Kojima et al. (1999), <em>Nature</em> 402. Zhang et al. (1994), <em>Nature</em> 372.</li>
+      <li><strong>Card 8:</strong> CDC, &ldquo;Antibiotic Use in Outpatient Settings.&rdquo; WHO, &ldquo;Antimicrobial Resistance&rdquo; (2023). Fine et al. (2012), <em>Pediatrics</em> 130(6).</li>
+      <li><strong>Card 9:</strong> Levine &amp; Stray-Gundersen (1997), <em>Journal of Applied Physiology</em> 83(1). Wilber (2007), <em>Medicine &amp; Science in Sports &amp; Exercise</em> 39(9).</li>
+      <li><strong>Card 10:</strong> Lewis (2010), <em>The Big Short</em>. Zuckerman (2009), <em>The Greatest Trade Ever</em>.</li>
+      <li><strong>Card 11:</strong> Triffin (1960), <em>Gold and the Dollar Crisis</em>. Eichengreen (2011), <em>Exorbitant Privilege</em>. IMF COFER database (2024).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-13: Crab Nebula / SN 1054 &bull; 楚漢相爭（鴻門宴／垓下之戰） &bull; Peloponnesian War / Sicilian Expedition &bull; 公孫龍・白馬非馬（名家） &bull; Niccol&ograve; Machiavelli / The Prince &bull; Illusory Truth Effect &bull; Ghrelin &amp; Leptin &bull; Antibiotics &amp; Viral Infections Myth &bull; Altitude Training / Live High Train Low &bull; Michael Burry / The Big Short &bull; Triffin Dilemma</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-13.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-13.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 13 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
