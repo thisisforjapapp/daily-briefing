@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 9 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 9 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>8 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; SN 1987A</span>Three underground neutrino detectors registered a supernova&rsquo;s death burst three hours before any telescope saw its light, confirming core-collapse theory.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 朱溫篡唐</span>朱溫弒唐哀帝、篡奪帝位建立後梁，終結近三百年唐朝，開啟五代十國亂世。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Actium</span>Cleopatra&rsquo;s mid-battle withdrawal led Antony to abandon his fleet, handing Octavian sole rule and ending the Roman Republic.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 菩提達摩</span>達摩答梁武帝「並無功德」，其後面壁九年，開啟禪宗直指人心的修行傳統。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Mary Wollstonecraft</span>Wollstonecraft argued women only seemed less rational because they were denied the same education men received.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Choice Overload</span>More jam flavours drew more browsers but sold far less &mdash; proving too many options can paralyse decisions.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Cytochrome P450</span>Grapefruit juice can turn a normal drug dose into an overdose by disabling a key liver detox enzyme.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Multivitamins</span>The largest trials found daily multivitamins don&rsquo;t meaningfully cut disease risk in already well-nourished adults.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Specificity Principle</span>The body adapts to the exact demands placed on it, which is why marathon training barely transfers to squat strength.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; 1929 Crash</span>Heavy margin borrowing turned an ordinary 1929 correction into a self-reinforcing crash that erased 89% of market value by 1932.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Anticommons</span>Too many overlapping patent holders can block valuable innovations that no single owner alone would have stopped.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Eclipse That Proved Einstein Right: Arthur Eddington&rsquo;s (愛丁頓) 1919 Expedition</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1919, a British astronomer sails to a remote island off the coast of Africa to photograph a total solar eclipse. What could a few minutes of darkness possibly prove about the fundamental nature of space itself?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Highest_resolution_image_of_the_1919_solar_eclipse.tif/lossy-page1-3840px-Highest_resolution_image_of_the_1919_solar_eclipse.tif.jpg" alt="Photograph of the 1919 solar eclipse used to test general relativity" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">One of Eddington&rsquo;s 1919 eclipse photographs, used to test Einstein&rsquo;s general relativity (廣義相對論). Credit: <a href="https://en.wikipedia.org/wiki/Eddington_experiment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Einstein&rsquo;s general relativity (廣義相對論), published in 1915, predicted that light bends as it passes near a massive object &mdash; and by an amount exactly double what Newtonian physics would predict. The only way to test this was during a total solar eclipse, when stars near the Sun&rsquo;s disk briefly become visible against a darkened sky. Arthur Eddington (亞瑟&middot;愛丁頓), a British astrophysicist and Quaker pacifist, organised two expeditions for the 29 May 1919 eclipse: one to the island of Príncipe (普林西比島) off West Africa, another to Sobral (索布拉爾), Brazil.</p>
+      <p>Eddington&rsquo;s team photographed stars in the Hyades cluster (畢宿星團) near the eclipsed Sun, comparing their apparent positions to their known positions when the Sun wasn&rsquo;t nearby. Weather at Príncipe was poor, leaving Eddington with only a few usable plates, but combined with the clearer results from Sobral, the measured deflection matched Einstein&rsquo;s relativistic prediction of 1.75 arcseconds far better than the Newtonian half-value &mdash; direct observational evidence that mass genuinely warps the geometry of space itself.</p>
+      <p>The dramatic announcement on 6 November 1919, at a joint meeting of the Royal Society (皇家學會) and Royal Astronomical Society in London, made headlines worldwide, instantly transforming Einstein from a respected but relatively obscure physicist into a global celebrity &mdash; <em>The Times</em> ran &ldquo;Revolution in Science&rdquo; as its headline. The episode also became a celebrated symbol of postwar scientific reconciliation: a British Quaker confirming a German-Jewish scientist&rsquo;s theory barely a year after the two nations had been at war, though later reanalyses have debated the precision of the Príncipe plates specifically.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Eddington_experiment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A few minutes of eclipse darkness in 1919 turned Einstein from an obscure physicist into a global celebrity overnight.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specifically did Eddington&rsquo;s 1919 eclipse expeditions measure, and why did it require a total solar eclipse to do so?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They measured the apparent shift in position of stars whose light passed close to the Sun during the eclipse, comparing it to the stars&rsquo; normal positions; a total eclipse was required because it was the only time stars near the Sun&rsquo;s disk become visible at all, since the Sun&rsquo;s own brightness normally overwhelms them.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dyson, F.W., Eddington, A.S. &amp; Davidson, C. (1920). <em>Philosophical Transactions of the Royal Society A</em>, 220. Kennefick, D. (2019). <em>No Shadow of a Doubt</em>. Princeton University Press.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「稱帝建國，創制文字」：李元昊如何在宋遼夾縫中建立西夏</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是党項族首領李元昊，明知宋朝與遼國都是龐然大物，你會選擇繼續臣服稱臣，還是冒險稱帝建國、自創文字宣示獨立？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李元昊（西夏開國皇帝，夏景宗）、宋仁宗（北宋皇帝）、遼興宗（遼國皇帝）。</p>
+        <p><strong>事件：</strong>西元1038年，党項族首領李元昊正式稱帝，建立大夏（史稱西夏），並創制西夏文字，與宋、遼形成三國鼎立之勢。</p>
+        <p><strong>時代背景：</strong>党項族原臣服於唐、宋，居於今甘肅、寧夏一帶，李元昊之父李德明奉行「依遼和宋」政策，李元昊即位後不甘臣服，銳意改革軍政制度，積極籌備稱帝獨立。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Song-Liao-Xixia-1111.png" alt="1111年宋、遼、西夏三國疆域地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">1111年宋、遼、西夏三國鼎立疆域地圖。來源：<a href="https://en.wikipedia.org/wiki/Western_Xia" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>李元昊自幼習漢文、通兵法，即位為党項首領後，一改其父對宋遼「兩面稱臣」的政策，積極推行黨項化改革：下令部眾禿髮（剃光頭頂周圍留髮辮），恢復党項傳統服飾，同時仿照漢制建立完整的官制、兵制與稅制，並命大臣野利仁榮創制西夏文字——這是一套仿照漢字結構、卻自成一格的獨立文字系統，用以書寫党項語，象徵政權的文化獨立。</p>
+      <p>西元1038年，李元昊正式稱帝，國號「大夏」（史稱西夏），定都興慶府（今寧夏銀川），改元「天授禮法延祚」。宋仁宗震怒，拒絕承認，雙方隨即爆發長達數年的宋夏戰爭，李元昊在三川口、好水川、定川寨等戰役中連番擊敗宋軍，展現出色軍事才能，迫使宋朝最終於1044年簽訂「慶曆和議」，宋廷每年賜予西夏銀、絹、茶等「歲賜」，換取名義上的臣屬關係，實質上承認西夏獨立地位。</p>
+      <p>西夏立國近190年（1038&ndash;1227），先後與北宋、遼、南宋、金並立，長期周旋於各大勢力之間，發展出獨特的党項文化與佛教藝術，敦煌、黑水城等地留下大量西夏文文獻與壁畫。李元昊晚年猜忌多疑，寵信奸臣，最終於1048年被親子寧令哥刺殺，年僅四十六歲；西夏其後歷經多次宮廷政變，國力逐漸衰落，最終於1227年被成吉思汗率領的蒙古大軍所滅。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Western_Xia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 李元昊用一套自創文字宣示了党項民族的文化獨立，讓西夏在宋遼兩大強權夾縫中屹立近兩百年。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>李元昊建立西夏後，宋朝起初的反應是什麼？最終雙方如何解決衝突？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">宋仁宗震怒，拒絕承認西夏獨立地位，雙方隨即爆發宋夏戰爭；李元昊在多場戰役中擊敗宋軍，最終雙方於1044年簽訂「慶曆和議」，宋朝每年賜予西夏銀絹茶等歲賜，換取名義臣屬，實質承認西夏獨立。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《宋史&middot;夏國傳》；吳天墀《西夏史稿》；李蔚《西夏史研究》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Emperor Who Waited Three Days Barefoot in the Snow: Henry IV (亨利四世) and the Walk to Canossa (卡諾莎之行), 1077</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The most powerful ruler in Western Europe travels across the Alps in winter to stand barefoot outside a castle for three days, begging forgiveness from a man with no army of his own. What kind of power could force an emperor to do that?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Henry IV (亨利四世), Holy Roman Emperor (神聖羅馬帝國皇帝); Pope Gregory VII (教宗額我略七世), church reformer; Matilda of Tuscany (托斯卡納的瑪蒂爾達), whose castle at Canossa hosted the encounter.</p>
+        <p><strong>Event at stake:</strong> The Investiture Controversy (敘任權鬥爭) and Henry&rsquo;s penitential walk to Canossa (卡諾莎), January 1077.</p>
+        <p><strong>Big picture:</strong> Pope Gregory VII&rsquo;s reforms challenged centuries of established practice in which secular rulers appointed bishops and abbots, striking directly at the overlapping foundations of royal and church power across medieval Europe.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Schwoiser_Heinrich_vor_Canossa.jpg" alt="Painting of Henry IV standing penitent before Canossa" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Henry IV (亨利四世) standing penitent outside Canossa (卡諾莎), January 1077. Credit: <a href="https://en.wikipedia.org/wiki/Road_to_Canossa" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Pope Gregory VII (教宗額我略七世) sought to end lay investiture (俗人敘任權) &mdash; the long-standing practice of kings and emperors personally appointing bishops, often to loyal nobles who paid for the position, entangling church offices with royal politics and patronage. Henry IV (亨利四世), who depended heavily on bishops as administrators and needed control over church appointments to manage his fractious German nobility, refused to accept the reform and continued appointing bishops as before, triggering an escalating standoff between emperor and pope.</p>
+      <p>When Gregory excommunicated Henry in 1076, German nobles seized the opportunity to challenge his rule directly, threatening to elect a rival king unless Henry resolved his excommunication within a year. Facing the collapse of his own authority at home rather than any direct papal army, Henry crossed the Alps in the depths of winter and, according to tradition, stood barefoot in penitential garb outside the gates of Countess Matilda&rsquo;s (托斯卡納的瑪蒂爾達) castle at Canossa (卡諾莎) for three days before Gregory finally granted absolution and readmitted him to the church.</p>
+      <p>The reconciliation proved temporary &mdash; Henry later returned to Italy with an army, installed a rival pope, and forced Gregory into exile, where he died in 1085. The underlying Investiture Controversy (敘任權鬥爭) dragged on for decades after both men were dead, finally resolved by compromise in the Concordat of Worms (沃爾姆斯宗教協定, 1122), which separated spiritual and secular authority over church appointments. &ldquo;Going to Canossa&rdquo; entered European language as a lasting phrase for humiliating capitulation, even though Henry&rsquo;s submission was, in the end, a calculated political manoeuvre rather than simple defeat.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Road_to_Canossa" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Henry&rsquo;s barefoot walk to Canossa looked like total humiliation, yet it was a calculated political move that let him keep his throne and later strike back.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Henry IV travel to Canossa to seek papal forgiveness, rather than simply ignoring his excommunication?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">German nobles used his excommunication as an opportunity to threaten his rule, warning they would elect a rival king unless he resolved it within a year &mdash; so Henry sought absolution primarily to save his own political authority at home, not because he had no other options.</div>
+      </details>
+      <div class="source">&#x1F4D6; Robinson, I.S. (1999). <em>Henry IV of Germany 1056&ndash;1106</em>. Cambridge University Press. Blumenthal, U.R. (1988). <em>The Investiture Controversy</em>. University of Pennsylvania Press.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「五德終始」：鄒衍如何用一套宇宙循環理論，為此後兩千年的改朝換代提供合法性</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位戰國時期的思想家提出，每個朝代都對應著金木水火土五種「德性」中的一種，且五德按固定順序循環相剋。你認為這套理論，最終會被統治者用來做什麼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>鄒衍（約公元前305至前240年，戰國時期齊國陰陽家代表人物）。</p>
+        <p><strong>核心思想：</strong>五德終始說；陰陽五行；大九州說。</p>
+        <p><strong>時代背景：</strong>戰國末期各國爭霸，思想家紛紛提出治國理論以遊說諸侯，鄒衍將陰陽五行學說系統化為一套解釋王朝興替的宇宙論框架，主張每個朝代對應五行（金木水火土）中的一「德」，五德按相剋順序終而復始地循環，為政權更替提供了一套看似客觀的天道解釋。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Han_Dynasty_2_BC_%28cropped%29.svg/960px-Han_Dynasty_2_BC_%28cropped%29.svg.png" alt="漢朝疆域地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">漢朝疆域地圖；歷代開國君主皆援引鄒衍五德學說宣示正統。來源：<a href="https://en.wikipedia.org/wiki/Zou_Yan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>鄒衍為戰國時期齊國稷下學宮的重要學者，屬於「陰陽家」一派。他觀察自然界金、木、水、火、土五種元素相生相剋的關係，將其系統化推演至人事與朝代興替，提出「五德終始說」：每個朝代都對應五行中的一「德」，例如黃帝屬土德、夏朝屬木德、商朝屬金德、周朝屬火德，新朝代之所以能取代舊朝代，是因為其所屬之「德」按照五行相剋的順序（木剋土、金剋木、火剋金、水剋火、土剋水）壓倒了前朝之德，如此循環往復，終而復始。</p>
+      <p>鄒衍的理論之所以極具政治吸引力，在於它將赤裸裸的武力奪權，包裝成一套順應「天道」自然規律的必然過程——新政權的建立不再只是勝者為王的暴力結果，而是五德循環中命中注定的一環，統治者只需宣稱自己承接了正確的「德」，便能為自身統治披上天命所歸的合法外衣。鄒衍另有「大九州說」，主張中國（赤縣神州）僅是天下八十一州之一，展現出超越傳統中原中心觀的宏大地理想像。</p>
+      <p>五德終始說對此後兩千年中國政治產生深遠影響：秦始皇統一六國後，自認周屬火德，遂以水德自居（水剋火），因此崇尚黑色、以十月為歲首；漢初一度沿用秦制，其後漢武帝改採土德，此後歷代開國君主幾乎都要援引五德學說，重新排定自身所屬之德以宣示政權正統性，直至宋代以後才逐漸淡出官方意識形態，但其「天命循環」的思維方式，早已深植於中國傳統政治文化之中。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zou_Yan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 鄒衍用一套五行相剋的宇宙循環理論，讓此後歷代開國君主都能為自己的武力奪權披上「天命所歸」的外衣。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>鄒衍的「五德終始說」為什麼對歷代開國君主特別具有政治吸引力？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">因為這套理論將武力奪權包裝成順應「天道」自然規律的必然過程——新政權只需宣稱自己承接了五行相剋順序中正確的「德」，便能為自身統治披上天命所歸的合法外衣，而不只是單純的勝者為王。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《史記&middot;孟子荀卿列傳》；顧頡剛《五德終始說下的政治和歷史》；馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Mathematician Who Bet His Life on God: Blaise Pascal (帕斯卡) and Pascal&rsquo;s Wager (帕斯卡的賭注)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A brilliant mathematician who helped invent probability theory argues that believing in God is simply the smartest bet available, regardless of whether God actually exists. Do you think reasoning about religious belief the way you&rsquo;d reason about a wager actually makes sense?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Blaise Pascal (帕斯卡, 1623&ndash;1662), French (法國) mathematician, physicist, and philosopher; Pierre de Fermat (費馬), Pascal&rsquo;s correspondent in founding probability theory; the Jansenists (詹森派) at Port-Royal, the austere Catholic reform movement Pascal joined.</p>
+        <p><strong>Core ideas:</strong> Pascal&rsquo;s Wager (帕斯卡的賭注); the &ldquo;God-shaped vacuum&rdquo; in every person; reason&rsquo;s limits versus &ldquo;the heart has its reasons which reason does not know.&rdquo;</p>
+        <p><strong>Big picture:</strong> Written in fragments later published posthumously as the <em>Pensées</em> (思想錄) after a 1654 religious conversion experience redirected Pascal from mathematics and science toward theology for the rest of his short life.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Blaise_Pascal_Versailles.JPG" alt="Portrait of Blaise Pascal" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Blaise Pascal (帕斯卡, 1623&ndash;1662), mathematician, physicist, and philosopher. Credit: <a href="https://en.wikipedia.org/wiki/Blaise_Pascal" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Before turning to theology, Pascal (帕斯卡) had already made major contributions to mathematics and physics: his correspondence with Pierre de Fermat (費馬) over a gambling problem helped found modern probability theory (概率論), and he built one of the first mechanical calculators and demonstrated principles of fluid pressure still named after him. His Wager applies this same probabilistic, decision-theory mindset directly to religious belief, treating the choice to believe or disbelieve in God as a bet made under genuine uncertainty rather than a question that could be settled by rational proof alone.</p>
+      <p>The argument runs as a decision matrix: if God exists and you believe, you gain infinite reward; if God exists and you don&rsquo;t believe, you risk infinite loss; if God doesn&rsquo;t exist, believing costs you comparatively little, and disbelieving gains comparatively little either way. Since one side of the wager offers infinite expected gain and the other doesn&rsquo;t, Pascal argued that believing is the rational choice regardless of one&rsquo;s actual private conviction &mdash; reason alone might not prove God&rsquo;s existence, but reason can still show that betting on belief is the wiser strategy.</p>
+      <p>Critics raised lasting objections: the &ldquo;many gods&rdquo; problem notes the wager doesn&rsquo;t specify which religion&rsquo;s God to bet on, since different faiths demand mutually exclusive beliefs; philosophers have also questioned whether belief can genuinely be chosen as a strategic decision at all, rather than arising from actual conviction. Pascal anticipated some of this, suggesting that acting as if one believed &mdash; through ritual and practice &mdash; could eventually produce genuine faith. The Wager remains one of the earliest and most influential applications of decision theory (決策理論) to a question well outside mathematics.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Blaise_Pascal" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Pascal treated belief in God not as a question of proof, but as a bet under uncertainty &mdash; arguably history&rsquo;s first application of decision theory to theology.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Pascal&rsquo;s Wager, why is believing in God the rational choice even if you can&rsquo;t be certain God exists?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because the potential payoff structure is asymmetric: believing offers infinite potential reward if God exists and only modest cost if God doesn&rsquo;t, while disbelieving risks infinite loss if God exists and offers only modest gain if God doesn&rsquo;t &mdash; making belief the higher expected-value bet regardless of actual certainty.</div>
+      </details>
+      <div class="source">&#x1F4D6; Pascal, B. (1670/1995). <em>Pensées</em> (trans. A.J. Krailsheimer). Penguin Classics. Hájek, A. (2003). &ldquo;Waging War on Pascal&rsquo;s Wager,&rdquo; <em>Philosophical Review</em>, 112(1).</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why One Piece of Criticism Outweighs Ten Compliments: The Negativity Bias (消極偏誤)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You receive ten pieces of positive feedback on a project and one harsh criticism. Do you think that single negative comment will stick in your memory longer and affect you more strongly than all ten compliments combined?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Roy_Baumeister.jpg" alt="Psychologist Roy Baumeister" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Roy Baumeister (羅伊&middot;鮑邁斯特), co-author of &ldquo;Bad Is Stronger Than Good&rdquo; (2001). Credit: <a href="https://en.wikipedia.org/wiki/Negativity_bias" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In an influential 2001 paper titled &ldquo;Bad Is Stronger Than Good,&rdquo; psychologists Roy Baumeister (羅伊&middot;鮑邁斯特) and colleagues reviewed evidence across emotion, memory, relationships, and learning, concluding that negative events, information, and experiences consistently affect people more powerfully than equivalent positive ones &mdash; a pattern they termed the negativity bias (消極偏誤). Bad first impressions are harder to reverse than good ones, a single betrayal can undo years of trust-building, and people generally remember insults longer and more vividly than compliments.</p>
+      <p>Psychologists Paul Rozin and Edward Royzman (羅辛與羅伊茲曼) proposed an evolutionary explanation in a 2001 review: organisms that failed to notice and react strongly to threats &mdash; predators, poison, betrayal &mdash; paid with their lives, while those who failed to notice equally strong positive opportunities usually just missed a bonus rather than dying. This asymmetric cost, repeated across countless generations, plausibly wired the brain to weight negative information more heavily by default, a bias that made excellent evolutionary sense in a dangerous ancestral environment but often misfires in modern life.</p>
+      <p>The bias has direct practical consequences: relationship researcher John Gottman&rsquo;s (約翰&middot;戈特曼) marital studies found stable couples needed roughly five positive interactions to offset the damage of a single negative one; news outlets exploit the same asymmetry, since negative headlines reliably draw more attention than positive ones. Awareness of the bias doesn&rsquo;t eliminate it, but it does explain why deliberately overweighting positive feedback and consciously counteracting a single criticism with proportionate perspective are recurring themes in psychological approaches to relationships and resilience.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Negativity_bias" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Negative experiences aren&rsquo;t just remembered as strongly as positive ones &mdash; they&rsquo;re wired to hit several times harder, which is why one criticism can outweigh a room full of compliments.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Rozin and Royzman&rsquo;s evolutionary explanation, why did the brain likely evolve to weight negative information more heavily than positive information?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Across evolutionary history, failing to notice and react to threats like predators or poison could be fatal, while failing to notice an equivalent positive opportunity usually just meant missing a bonus rather than dying &mdash; this asymmetric cost plausibly wired the brain to weight negative information more heavily by default.</div>
+      </details>
+      <div class="source">&#x1F4D6; Baumeister, R.F. et al. (2001). <em>Review of General Psychology</em>, 5(4). Rozin, P. &amp; Royzman, E.B. (2001). <em>Personality and Social Psychology Review</em>, 5(4).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The 90-Minute Cycle Your Brain Repeats All Night: Sleep Architecture (睡眠結構) and REM (快速動眼期) Sleep</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You might assume sleep is one continuous, uniform state from the moment you drift off until you wake. What do you think is actually happening if your brain cycles through several completely different states multiple times each night?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Sleep_Hypnogram.svg/960px-Sleep_Hypnogram.svg.png" alt="Hypnogram showing sleep stages across a night" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A hypnogram tracing sleep stages (睡眠結構) across a typical night, cycling roughly every 90 minutes. Credit: <a href="https://en.wikipedia.org/wiki/Sleep_cycle" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1953, researchers Eugene Aserinsky (阿塞林斯基) and Nathaniel Kleitman (克萊特曼) discovered that sleep is not a single uniform state, noticing periods of rapid eye movement (快速動眼期, REM) accompanied by brain activity resembling wakefulness, even though the body remained deeply asleep. This revealed that a full night&rsquo;s sleep instead cycles through distinct stages roughly every 90 minutes: light non-REM sleep, deep slow-wave sleep (慢波睡眠), and REM sleep, repeating this full cycle four to six times across a typical night.</p>
+      <p>Each stage serves different apparent functions, and the balance shifts across the night: deep slow-wave sleep dominates earlier cycles and is associated with physical restoration, growth hormone release, and clearing metabolic waste from the brain via the glymphatic system (類淋巴系統), while REM sleep periods lengthen progressively toward morning and are associated with vivid dreaming, emotional processing, and memory consolidation. During REM, the body enters a state of near-total muscle paralysis (REM肌肉麻痺), thought to prevent people from physically acting out their dreams, while the brain itself shows activity resembling wakefulness.</p>
+      <p>Because deep sleep concentrates in the earlier cycles and REM concentrates in the later ones, cutting a night short doesn&rsquo;t just reduce total sleep proportionally &mdash; it disproportionately cuts into REM sleep specifically, since those later cycles get sacrificed first. This is one reason chronically shortened sleep is linked to impaired emotional regulation and memory consolidation even when total deep-sleep time looks relatively preserved: the missing REM sleep does distinct work that earlier deep-sleep stages simply don&rsquo;t replace.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sleep_cycle" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Skipping the last few hours of sleep doesn&rsquo;t cut your night&rsquo;s rest evenly &mdash; it disproportionately steals REM sleep specifically, since those cycles are backloaded toward morning.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does cutting sleep short by a few hours disproportionately reduce REM sleep rather than affecting all sleep stages equally?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Deep slow-wave sleep concentrates in the earlier sleep cycles of the night, while REM sleep periods lengthen and concentrate progressively toward the later cycles near morning &mdash; so shortening the night sacrifices those later, REM-heavy cycles first, cutting REM sleep disproportionately compared to deep sleep.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aserinsky, E. &amp; Kleitman, N. (1953). <em>Science</em>, 118(3062). Carskadon, M.A. &amp; Dement, W.C. (2011). <em>Principles and Practice of Sleep Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>What Coffee Actually Does to Your Body, Beyond the Caffeine Jolt</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Beyond the caffeine buzz, large long-term studies have tracked millions of coffee drinkers for decades. Do you think regular coffee drinkers, on average, live shorter or longer lives than non-drinkers?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Latte_and_dark_coffee.jpg/330px-Latte_and_dark_coffee.jpg" alt="Cups of coffee" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Coffee (咖啡), one of the most heavily studied beverages in nutritional epidemiology. Credit: <a href="https://en.wikipedia.org/wiki/Coffee" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Coffee (咖啡) is one of the most heavily studied beverages in nutritional epidemiology, and large prospective cohort studies consistently find a J-shaped or inverse association between coffee consumption and all-cause mortality (全因死亡率) &mdash; moderate drinkers (roughly 2&ndash;4 cups daily) tend to show somewhat lower mortality risk than either non-drinkers or very heavy drinkers, though as an observational finding this can&rsquo;t fully rule out that healthier people simply happen to drink more coffee. Notably, this pattern holds even after researchers statistically adjust for smoking, exercise, and other major confounding lifestyle factors.</p>
+      <p>Much of coffee&rsquo;s apparent benefit likely comes from compounds beyond caffeine (咖啡因) itself: chlorogenic acid (綠原酸), coffee&rsquo;s most abundant polyphenol, and other antioxidant compounds appear to improve insulin sensitivity and reduce inflammation markers in trials, which may help explain a fairly consistent finding across multiple large cohort studies that regular coffee drinkers show meaningfully lower rates of developing Type 2 diabetes (第二型糖尿病) &mdash; a benefit seen even with decaffeinated coffee, pointing toward these non-caffeine compounds rather than caffeine itself as a key driver.</p>
+      <p>The picture isn&rsquo;t uniformly positive: coffee can worsen anxiety and disrupt sleep in sensitive individuals, and very high intake has been linked to modestly elevated blood pressure in some studies, alongside genuine individual variation in caffeine metabolism speed via the CYP1A2 liver enzyme that changes how strongly any given person experiences these effects. Pregnant women are generally advised to limit intake given links to lower birth weight at high doses. For most healthy adults, moderate coffee consumption appears to be neutral-to-beneficial rather than something to actively avoid.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Coffee" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Coffee&rsquo;s apparent health benefits likely come more from chlorogenic acid and other polyphenols than from caffeine itself &mdash; decaf drinkers see some of the same effects.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What evidence suggests coffee&rsquo;s link to lower Type 2 diabetes risk isn&rsquo;t driven mainly by caffeine?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The reduced Type 2 diabetes risk seen in regular coffee drinkers across multiple large cohort studies is also observed with decaffeinated coffee, pointing toward other compounds &mdash; particularly chlorogenic acid and related polyphenols &mdash; as the more likely drivers rather than caffeine itself.</div>
+      </details>
+      <div class="source">&#x1F4D6; Poole, R. et al. (2017). <em>BMJ</em>, 359. van Dam, R.M. &amp; Hu, F.B. (2005). <em>JAMA</em>, 294(1). Ding, M. et al. (2014). <em>Diabetes Care</em>, 37(2).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why One Leg Can Sometimes Outlift Two: The Bilateral Deficit (雙側缺陷) and Unilateral Training</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&rsquo;d expect squatting with both legs to let you lift roughly twice what you could lift on one leg alone. In many people, the two-legged lift actually falls short of double the single-leg number. What do you think explains the shortfall?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/First_Lt._Jennifer_Silvers_does_bicep_curls_at_Air_Station_Fitness_Center_USMC-110816-F-2786W-001.jpg" alt="Athlete performing single-arm strength training" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Unilateral training (單側訓練) can reveal strength asymmetries that two-limb exercises tend to mask. Credit: <a href="https://en.wikipedia.org/wiki/Cross_education" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The bilateral deficit (雙側缺陷), first documented by researchers Henry and Enoka in the 1980s, describes a measurable phenomenon in which the force a person can produce using both limbs simultaneously is often less than the sum of the force each limb can produce individually. The effect appears to originate in the nervous system rather than the muscles themselves &mdash; when both limbs contract together, neural inhibition (神經抑制) somewhat reduces the drive sent to each side compared to when that same limb works alone, though the exact mechanism and its evolutionary purpose remain debated among researchers.</p>
+      <p>The size of the bilateral deficit varies considerably between individuals and training backgrounds: athletes in unilateral-dominant sports (running, cycling, most field sports, where limbs largely work independently) tend to show a larger deficit, while athletes who train bilateral lifts extensively (Olympic weightlifters, powerlifters) show a smaller deficit or occasionally a slight bilateral facilitation instead, suggesting the nervous system&rsquo;s coordination pattern is itself trainable and adapts specifically to the movement patterns practised most.</p>
+      <p>This has practical implications for training design: unilateral exercises (單側訓練) such as single-leg presses, split squats, and single-arm rows can reveal and help correct strength asymmetries between limbs that bilateral exercises tend to mask, since a stronger limb can compensate for a weaker one during a two-limb lift without either lifter or coach noticing. Unilateral training is also standard in rehabilitation after injury to one limb, partly because of the cross-education effect (交叉教育效應), in which training an uninjured limb produces modest strength carryover to the opposite, immobilised limb.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cross_education" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two legs together sometimes lift less than double what one leg can &mdash; a neural quirk that makes unilateral training useful for finding and fixing hidden strength imbalances.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does the bilateral deficit occur, and what does that suggest about training it away?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The bilateral deficit appears to originate in the nervous system, where contracting both limbs together triggers neural inhibition that reduces the drive sent to each limb compared to working alone &mdash; because it&rsquo;s a neural coordination pattern rather than a fixed muscular limit, it&rsquo;s trainable, and athletes who regularly practise bilateral lifts show a smaller deficit.</div>
+      </details>
+      <div class="source">&#x1F4D6; Henry, F.M. &amp; Enoka, R.M., publications on bilateral deficit. Jakobi, J.M. &amp; Chilibeck, P.D. (2001). <em>Canadian Journal of Applied Physiology</em>, 26(1).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>When &ldquo;Hot Money&rdquo; Runs for the Exit: The 1997 Asian Financial Crisis (1997年亞洲金融風暴)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Throughout the mid-1990s, foreign investors poured huge sums of short-term capital into fast-growing Southeast Asian economies pegged to the US dollar. What do you think happens to a country&rsquo;s currency and economy when that capital suddenly decides to leave all at once?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Asienkrise.svg/960px-Asienkrise.svg.png" alt="Map showing countries affected by the 1997 Asian financial crisis" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Countries affected by the 1997 Asian Financial Crisis (1997年亞洲金融風暴). Credit: <a href="https://en.wikipedia.org/wiki/1997_Asian_financial_crisis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Through the early-to-mid 1990s, countries including Thailand (泰國), Indonesia (印尼), South Korea (南韓), and Malaysia (馬來西亞) &mdash; sometimes dubbed the &ldquo;Asian Tigers&rdquo; (亞洲老虎) &mdash; attracted enormous inflows of short-term foreign capital (熱錢, &ldquo;hot money&rdquo;), partly drawn by currencies pegged to the US dollar that appeared to offer high local returns with seemingly low currency risk. Much of this capital financed rapid but increasingly speculative real estate and stock market investment rather than productive long-term industrial capacity, building fragility beneath the region&rsquo;s celebrated growth story.</p>
+      <p>In July 1997, Thailand&rsquo;s central bank, unable to keep defending the baht&rsquo;s dollar peg against speculative pressure and dwindling foreign reserves, was forced to let the currency float, and it immediately collapsed in value. Foreign investors, spooked by Thailand&rsquo;s crisis, rapidly withdrew capital from other regional economies with similar vulnerabilities, triggering a cascading regional panic &mdash; currencies across Indonesia, South Korea, Malaysia and beyond collapsed in turn, and companies that had borrowed heavily in now-suddenly-much-more-expensive US dollars faced sudden insolvency even if their underlying businesses remained sound.</p>
+      <p>The International Monetary Fund (國際貨幣基金組織, IMF) extended large bailout packages to Thailand, Indonesia, and South Korea, but attached conditions requiring austerity and structural reforms that many economists &mdash; including former World Bank chief economist Joseph Stiglitz (約瑟夫&middot;史迪格里茲) &mdash; later argued worsened the initial downturn. Malaysia notably rejected IMF assistance, imposing capital controls instead, a choice initially criticised but later reassessed by some economists as a reasonably effective alternative.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/1997_Asian_financial_crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Currencies pegged to the dollar and financed by fast-moving foreign capital can look stable for years right up until the moment that capital decides to leave all at once.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Thailand&rsquo;s central bank abandoning its currency peg in July 1997 trigger a crisis across the wider region, not just within Thailand?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Thailand&rsquo;s collapse spooked foreign investors who held similar assumptions about other regional economies with comparable vulnerabilities &mdash; pegged currencies financed by short-term foreign capital &mdash; prompting them to rapidly withdraw capital from Indonesia, South Korea, Malaysia and beyond as well, triggering a cascading regional panic rather than an isolated national crisis.</div>
+      </details>
+      <div class="source">&#x1F4D6; Radelet, S. &amp; Sachs, J. (1998). <em>Brookings Papers on Economic Activity</em>. Stiglitz, J.E. (2002). <em>Globalization and Its Discontents</em>. W.W. Norton.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Doesn&rsquo;t Money Flow to Where It&rsquo;s Needed Most? The Lucas Paradox (盧卡斯悖論)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/IMF-Seal_ENG_RGB.svg/960px-IMF-Seal_ENG_RGB.svg.png" alt="Seal of the International Monetary Fund" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The International Monetary Fund (國際貨幣基金組織), central to debates over global capital flows. Credit: <a href="https://en.wikipedia.org/wiki/Lucas_paradox" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Standard economic theory predicts capital should flow heavily from capital-rich developed countries to capital-poor developing countries, where it should theoretically earn far higher returns &mdash; yet the overwhelming majority of global investment capital flows between rich countries instead, largely bypassing the poorest nations that would seem to need it most.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Neoclassical growth theory (新古典增長理論) predicts capital-scarce countries should offer higher investment returns, since each additional dollar of capital is more productive where capital is relatively rare. Nobel laureate Robert Lucas (羅伯特&middot;盧卡斯) formalised this puzzle in a widely cited 1990 paper asking directly why so little capital flows from rich to poor countries.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Capital flows overwhelmingly favour already-rich economies rather than following the higher theoretical returns available in poor countries, directly contradicting the simple model&rsquo;s prediction.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Research by Alfaro, Kalemli-Ozcan and Volosovych (2008) attributes the gap mainly to institutional quality (制度品質) &mdash; weak property rights, political risk, and human capital gaps &mdash; rather than capital scarcity itself; poor countries may simply not be able to use capital as productively once these institutional constraints are properly accounted for.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Capital doesn&rsquo;t just chase raw scarcity &mdash; it chases scarcity that institutions can actually turn into reliable returns.</div>
+      <div class="source">&#x1F4D6; Lucas, R.E. (1990). <em>American Economic Review</em>, 80(2). Alfaro, L., Kalemli-Ozcan, S. &amp; Volosovych, V. (2008). <em>Review of Economics and Statistics</em>, 90(2).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; Panic Travels Faster Than Confidence:</strong> Negativity bias explains at the individual level why bad news registers faster and hits harder than good news; the 1997 Asian Financial Crisis showed the same asymmetry at the scale of an entire financial system &mdash; fear about Thailand&rsquo;s collapse spread through investor psychology to otherwise-unrelated economies far faster than confidence had built up during the preceding boom years.</p>
+      <p><strong>So what:</strong> When something goes wrong &mdash; whether a single piece of feedback or a regional financial shock &mdash; expect it to spread and register more forcefully than an equivalent positive signal would; corrective action often has to work harder than the original problem to restore balance.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Dyson, Eddington &amp; Davidson (1920), <em>Philosophical Transactions of the Royal Society A</em> 220. Kennefick (2019), <em>No Shadow of a Doubt</em>.</li>
+      <li><strong>Card 2:</strong> 《宋史&middot;夏國傳》；吳天墀《西夏史稿》；李蔚《西夏史研究》。</li>
+      <li><strong>Card 3:</strong> Robinson (1999), <em>Henry IV of Germany 1056&ndash;1106</em>. Blumenthal (1988), <em>The Investiture Controversy</em>.</li>
+      <li><strong>Card 4:</strong> 《史記&middot;孟子荀卿列傳》；顧頡剛《五德終始說下的政治和歷史》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Pascal (1670/1995), <em>Pensées</em>. Hájek (2003), <em>Philosophical Review</em> 112(1).</li>
+      <li><strong>Card 6:</strong> Baumeister et al. (2001), <em>Review of General Psychology</em> 5(4). Rozin &amp; Royzman (2001), <em>Personality and Social Psychology Review</em> 5(4).</li>
+      <li><strong>Card 7:</strong> Aserinsky &amp; Kleitman (1953), <em>Science</em> 118(3062). Carskadon &amp; Dement (2011), <em>Principles and Practice of Sleep Medicine</em>.</li>
+      <li><strong>Card 8:</strong> Poole et al. (2017), <em>BMJ</em> 359. van Dam &amp; Hu (2005), <em>JAMA</em> 294(1). Ding et al. (2014), <em>Diabetes Care</em> 37(2).</li>
+      <li><strong>Card 9:</strong> Henry &amp; Enoka, publications on bilateral deficit. Jakobi &amp; Chilibeck (2001), <em>Canadian Journal of Applied Physiology</em> 26(1).</li>
+      <li><strong>Card 10:</strong> Radelet &amp; Sachs (1998), <em>Brookings Papers on Economic Activity</em>. Stiglitz (2002), <em>Globalization and Its Discontents</em>.</li>
+      <li><strong>Card 11:</strong> Lucas (1990), <em>American Economic Review</em> 80(2). Alfaro, Kalemli-Ozcan &amp; Volosovych (2008), <em>Review of Economics and Statistics</em> 90(2).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-09 (backfilled 2026-07-14): Eddington 1919 Eclipse Expedition &bull; 李元昊建立西夏 &bull; Walk to Canossa 1077 &bull; 鄒衍五德終始說 &bull; Blaise Pascal / Pascal&rsquo;s Wager &bull; Negativity Bias &bull; Sleep Architecture (REM/Non-REM) &bull; Coffee &amp; Health &bull; Bilateral Deficit / Unilateral Training &bull; 1997 Asian Financial Crisis &bull; Lucas Paradox</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-09.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-09.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 9 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
