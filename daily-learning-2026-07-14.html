@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 14 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 14 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>13 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Crab Nebula / SN 1054</span>Song-dynasty astronomers recorded a &ldquo;guest star&rdquo; in 1054 CE; its expansion rate today confirms the exact same explosion date.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 楚漢相爭</span>項羽鴻門宴猶豫不決放走劉邦，終致垓下兵敗，四面楚歌，烏江自刎。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Peloponnesian War</span>Athens&rsquo;s own reckless Sicilian Expedition, not Sparta&rsquo;s army, destroyed its fleet and doomed the war effort.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 公孫龍・白馬非馬</span>公孫龍以「白馬非馬」論證「名」與「實」未必一一對應，開中國邏輯學先河。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Machiavelli</span>Machiavelli argued rulers who always keep promises get destroyed by rivals who don&rsquo;t &mdash; founding political realism.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Illusory Truth Effect</span>Simply repeating a claim makes it feel truer, even to people who already know it&rsquo;s false.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Ghrelin &amp; Leptin</span>Obesity often means the brain has stopped listening to abundant leptin, not that a hunger signal is missing.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Antibiotics &amp; Viral Myth</span>Green mucus doesn&rsquo;t prove a bacterial infection &mdash; most colds and sore throats are viral, and antibiotics won&rsquo;t help.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Altitude Training</span>&ldquo;Live High, Train Low&rdquo; boosts red blood cells from altitude while preserving sea-level training intensity.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Michael Burry</span>Burry&rsquo;s subprime bet showed paper losses for over a year before being proven spectacularly right in 2008.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Triffin Dilemma</span>The dollar keeps dominating reserves despite decades of deficits Triffin&rsquo;s theory said should erode confidence in it.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Loneliest Snowman in the Solar System: New Horizons and the Discovery of Arrokoth (阿羅科斯)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On New Year&rsquo;s Day 2019, a spacecraft flew past an object 6.6 billion kilometres from Earth &mdash; the most distant world ever explored up close. What do you think it looked like, and what could studying something so remote and undisturbed teach scientists that nearby planets can&rsquo;t?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/New_Horizons_spacecraft_model_1.png" alt="Model of the New Horizons spacecraft that photographed Arrokoth" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">NASA&rsquo;s New Horizons (新視野號) spacecraft, which photographed Arrokoth (阿羅科斯) on 1 January 2019. Credit: <a href="https://en.wikipedia.org/wiki/Arrokoth" target="_blank" rel="noopener">Wikimedia Commons / NASA</a></div>
+      </div>
+      <p>NASA&rsquo;s New Horizons (新視野號) spacecraft, fresh off its historic 2015 Pluto (冥王星) flyby, pressed on another 1.6 billion kilometres deeper into the Kuiper belt (柯伊伯帶) &mdash; the icy debris field beyond Neptune (海王星) &mdash; toward a second target selected only after the Pluto encounter succeeded. On 1 January 2019, it swept within 3,500 kilometres of a small object then nicknamed Ultima Thule, later formally renamed Arrokoth (meaning &ldquo;sky&rdquo; in the Powhatan/Algonquian language). The images beamed back showed something almost cartoonish: two lobes fused end to end into an unmistakable reddish snowman roughly 36 kilometres long.</p>
+      <p>What made Arrokoth remarkable wasn&rsquo;t just its shape but how gently it formed. The two lobes show minimal flattening or deformation where they meet, and their alignment suggests they merged at walking-pace relative velocity rather than colliding violently. That finding challenged older models of planetesimal (星子) formation, which assumed small bodies grew mainly through energetic collisions. Arrokoth instead points toward gentle gravitational collapse (重力坍縮) of a slowly rotating cloud of pebble-sized particles &mdash; two clumps spiralling inward and settling softly together rather than smashing apart.</p>
+      <p>Arrokoth&rsquo;s deep red colour comes from tholins (托林), organic compounds formed when cosmic rays (宇宙射線) irradiate simple ices over billions of years. Because it orbits far from the Sun&rsquo;s warmth and has never been disturbed by a close solar pass, scientists consider Arrokoth essentially frozen since the solar system&rsquo;s formation 4.5 billion years ago &mdash; the most primitive, least altered object any spacecraft has ever visited. New Horizons remains operational, still transmitting data as it studies the heliosphere (日球層) on its outward journey, with its next possible target still under consideration.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Arrokoth" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A world untouched for 4.5 billion years can teach scientists more about our solar system&rsquo;s origins than almost any planet.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does Arrokoth&rsquo;s two-lobed &ldquo;contact binary&rdquo; shape suggest it formed gently rather than through a violent collision?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The two lobes show minimal deformation or flattening where they touch, and their alignment indicates they merged at very low relative velocity &mdash; consistent with slow gravitational collapse of orbiting material rather than a high-speed impact.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA New Horizons mission press releases. Stern, S.A. et al. (2019). <em>Science</em>, 364(6441). McKinnon, W.B. et al. (2020). <em>Science</em>, 367(6481).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「胡惟庸案」：朱元璋如何用一場謀反罪名，廢除延續一千五百年的宰相制度</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是明太祖朱元璋，最信任的開國丞相被控謀反，你會選擇徹查真相，還是趁機一舉廢除整個丞相制度？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>朱元璋（明太祖）、胡惟庸（開國丞相）、李善長（胡惟庸恩主，開國元勳）。</p>
+        <p><strong>事件：</strong>洪武十三年（1380年）胡惟庸案爆發，朱元璋以謀反罪名處死胡惟庸及其黨羽，牽連前後達三萬餘人，史稱「胡黨之獄」。</p>
+        <p><strong>時代背景：</strong>明朝建國初期，朱元璋出身寒微，對開國功臣及丞相集權早已心存猜忌；中書省丞相制度自秦漢以來延續逾千五百年，權力與皇權時有摩擦。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Portrait_assis_de_l%27empereur_Ming_Taizu.jpg/3840px-Portrait_assis_de_l%27empereur_Ming_Taizu.jpg" alt="明太祖朱元璋畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">明太祖朱元璋畫像，胡惟庸案發生時在位的皇帝。來源：<a href="https://en.wikipedia.org/wiki/Hongwu_Emperor" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>胡惟庸原為李善長同鄉舊部，洪武六年（1373年）拜為丞相，位高權重，逐漸驕橫跋扈，生殺廢黜大事往往先斬後奏，甚至截留內外奏章，不呈御覽者甚眾，朝中大臣紛紛依附其門下，結黨營私之風日盛。朱元璋出身淮右布衣，深知權臣坐大之患，對胡惟庸的專擅早已心存芥蒂，只是隱忍未發，暗中觀察其黨羽動向，等待時機一舉清算。</p>
+      <p>洪武十三年正月，御史中丞塗節告發胡惟庸謀反，朱元璋隨即以此為由，將胡惟庸及其黨羽處死抄家。案件其後牽連日廣，前後歷時逾十年，株連功臣宿將、地方官吏達三萬餘人，開國元勳李善長亦於洪武二十三年（1390年）以「知逆謀不舉」罪名，全家七十餘口賜死，史稱「胡黨之獄」，成為明初四大案之一，株連之廣，前所未見。</p>
+      <p>胡惟庸伏誅後，朱元璋隨即下詔廢除中書省及丞相一職，將原本由丞相統轄的政務直接分歸六部，由皇帝親自裁決，並訓誡後世子孫「以後嗣君毋得議置丞相」。自秦漢以來延續逾千五百年的丞相制度自此廢止，皇權高度集中；明朝中後期逐漸發展出內閣制度，以大學士協理政務，但終明一代再無正式丞相之名，皇帝親理萬機成為定制。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hu_Weiyong_case" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場謀反案的真假已難盡考，卻永遠改寫了此後五百餘年中國的政治制度。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>胡惟庸案發生後，朱元璋對中國政治制度做出了什麼根本性的改變？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱元璋廢除中書省及丞相一職，將政務直接分歸六部由皇帝親自裁決，終結了自秦漢以來延續逾千五百年的丞相制度，皇權自此高度集中。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《明史&middot;胡惟庸傳》；吳晗《朱元璋傳》；錢穆《國史大綱》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Cavalry Charge That Saved a Continent: The Battle of Vienna (維也納之戰), 1683</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An army of roughly 150,000 Ottoman (鄂圖曼) troops has besieged Vienna (維也納) for two months, and the city&rsquo;s food and gunpowder are nearly exhausted. What do you think finally broke the siege &mdash; and why might historians call it a turning point for an entire continent?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Kara Mustafa Pasha (卡拉&middot;穆斯塔法帕夏), the Ottoman grand vizier who commanded the siege; Jan III Sobieski (揚&middot;索別斯基), King of Poland (波蘭), who led the relief army; Ernst Rüdiger von Starhemberg, the Habsburg (哈布斯堡) commander who held the city.</p>
+        <p><strong>Event at stake:</strong> The Battle of Vienna (維也納之戰), 12 September 1683, when a Holy Roman Empire coalition broke a two-month Ottoman siege of Vienna.</p>
+        <p><strong>Big picture:</strong> The Ottoman Empire (鄂圖曼帝國) had pushed deep into Central Europe over two centuries; Vienna&rsquo;s fall threatened to open the road toward southern Germany, making this the empire&rsquo;s furthest westward reach.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Schultz_John_III_Sobieski.jpg/330px-Schultz_John_III_Sobieski.jpg" alt="Portrait of Jan III Sobieski, King of Poland" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jan III Sobieski (揚&middot;索別斯基), who personally led the relief cavalry at Vienna. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Vienna" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Kara Mustafa Pasha (卡拉&middot;穆斯塔法帕夏) laid siege to Vienna in July 1683 with an army of roughly 150,000, digging mining tunnels beneath the city&rsquo;s bastions and slowly collapsing its outer defences. Emperor Leopold I (利奧波德一世) had already fled the city, leaving Starhemberg&rsquo;s garrison of barely 15,000 to hold on through repeated breaches, disease, and dwindling supplies. By early September, defenders were rationing gunpowder and food so severely that the city seemed days from collapse, its walls breached in several places and morale nearly broken.</p>
+      <p>A relief coalition of Habsburg, Polish (波蘭), and German forces gathered under overall command of Sobieski, marching through the Vienna Woods (維也納森林) to approach the besieging army from high ground undetected. On the afternoon of 12 September, Sobieski personally led what became the largest cavalry charge in recorded history &mdash; roughly 18,000 horsemen thundering downhill, spearheaded by the winged hussars (翼騎兵), Polish heavy cavalry famous for wooden wing-frames mounted on their backs that produced an eerie whistling roar as they rode.</p>
+      <p>The Ottoman army, caught between the charging relief force and a simultaneous sortie from the exhausted garrison, broke and fled within hours, abandoning its camp, treasury, and artillery. Kara Mustafa was later strangled by the Sultan&rsquo;s order for the humiliating defeat. Pope Innocent XI hailed Sobieski as the saviour of Christendom, and the battle marked the start of a sustained Ottoman retreat from Central Europe, formalised sixteen years later in the Treaty of Karlowitz (卡爾洛維茨條約, 1699) &mdash; while Viennese legend credits the siege&rsquo;s abandoned coffee sacks with launching the city&rsquo;s famous coffeehouse culture.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Vienna" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The largest cavalry charge in history broke a siege that had brought Vienna within days of falling, and reversed two centuries of Ottoman advance into Europe.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What tactical advantage let Sobieski&rsquo;s relief army surprise the besieging Ottoman force at Vienna?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The relief coalition marched through the Vienna Woods to approach from high ground, allowing Sobieski to launch a massive downhill cavalry charge that caught the besieging army off guard, sandwiched between the charge and a sortie from the city&rsquo;s garrison.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wheatcroft, A. (2008). <em>The Enemy at the Gate</em>. Basic Books. Britannica, &ldquo;Battle of Vienna.&rdquo; Stoye, J. (2000). <em>The Siege of Vienna</em>. Birlinn.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「以無為本」：二十四歲早逝的天才王弼，如何重新奠定道家玄學根基</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位二十歲出頭的青年學者，同時為《老子》與《易經》作注，其詮釋影響後世玄學逾千年。你認為他所主張的「無」，究竟是什麼都沒有，還是另有深意？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王弼（226&ndash;249年，魏晉玄學創始人物之一）、何晏（同期玄學代表，與王弼並稱「王何」）、郭象（後來對王弼「貴無論」提出反駁的西晉玄學家）。</p>
+        <p><strong>核心思想：</strong>貴無論；以無為本；得意忘言。</p>
+        <p><strong>時代背景：</strong>東漢末年儒學章句訓詁流於瑣碎僵化，加以漢末大亂、名教危機，士人轉而探求宇宙本體與人生安頓之道，形成清談玄學之風，王弼與何晏同為早期玄學代表人物。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/I_Ching_Song_Dynasty_print.jpg/330px-I_Ching_Song_Dynasty_print.jpg" alt="宋代《周易》印本書影" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">宋代《周易》刻本書影，王弼《周易注》為此經最重要註本之一。來源：<a href="https://en.wikipedia.org/wiki/Wang_Bi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王弼出身官宦世家，自幼穎悟過人，尚未及冠已與當時清談領袖何晏辯論玄理，何晏聽後嘆服，自認所論不及。王弼注《老子》與《周易》，提出萬物雖繁多殊異，其根源卻可歸於一個共同的本體——「無」。他所謂的「無」，並非空無所有，而是指萬物生成變化之前那個無形無象、卻能生成一切的根源狀態，一切具體事物（「有」）皆由此「無」而產生、依此「無」而存在。</p>
+      <p>王弼進一步提出「以無為本，以有為末」，主張聖人治國、萬物運行皆須把握這個根本的「無」，才能因應萬變而不失其序；他又提出「得意忘言」的詮釋方法，主張言語、卦象只是把握義理的工具，一旦領悟義理本身，便不應執著於言語文字表面。這種方法論深刻影響後世對經典的詮釋方式，遠超出玄學範圍，成為中國詮釋學史上的重要轉折。</p>
+      <p>王弼英年早逝，二十四歲便因疫疾去世，未及見其學說開枝散葉。西晉郭象其後在《莊子注》中提出「獨化論」，正面反駁貴無論，主張萬物「自生」而非由「無」所生，二人一貴無、一崇有，成為魏晉玄學史上最重要的理論交鋒之一。王弼雖英年早逝，卻留下影響深遠的《老子注》與《周易注》，至今仍是研究道家與易學不可繞過的重要文本。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Bi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一個二十多歲便英年早逝的青年，用「以無為本」四個字，重新定義了此後千年中國人理解宇宙的方式。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>王弼所主張的「無」，與我們日常所理解「什麼都沒有」有何不同？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王弼所說的「無」並非空無所有，而是指萬物生成之前無形無象、卻能生成萬物的根源本體，一切具體事物（「有」）皆由此「無」而產生、依此而存在，是萬物的根本而非虛無。</div>
+      </details>
+      <div class="source">&#x1F4D6; 王弼《老子注》、《周易注》；湯用彤《魏晉玄學論稿》；馮友蘭《中國哲學史新編》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;One Is Not Born, But Rather Becomes, a Woman&rdquo;: Simone de Beauvoir (西蒙&middot;波娃) and Existentialist Feminism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argues that womanhood isn&rsquo;t simply something you&rsquo;re born with, but something gradually constructed and imposed by society through countless small expectations. Do you think biology or culture does more to shape what &ldquo;being a woman&rdquo; actually means?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Simone de Beauvoir (西蒙&middot;波娃, 1908&ndash;1986), French (法國) philosopher and writer; Jean-Paul Sartre (讓-保羅&middot;沙特), her lifelong intellectual partner and fellow existentialist (存在主義者).</p>
+        <p><strong>Core ideas:</strong> &ldquo;One is not born, but rather becomes, a woman&rdquo;; the Self (主體) versus the Other (他者); situation (處境) as the lens for understanding freedom under constraint.</p>
+        <p><strong>Big picture:</strong> Written in 1949, when women in France had only just gained the vote (1944) and post-war society was reasserting traditional domestic roles &mdash; and while Beauvoir&rsquo;s own reputation still lived somewhat in Sartre&rsquo;s shadow.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg" alt="Portrait photograph of Simone de Beauvoir" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Simone de Beauvoir (西蒙&middot;波娃), author of <em>The Second Sex</em> (1949). Credit: <a href="https://en.wikipedia.org/wiki/Simone_de_Beauvoir" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Beauvoir opens <em>The Second Sex</em> (第二性) with an audacious move: rather than asking what a woman is, biologically or psychologically, she asks how women come to be positioned as the Other (他者) relative to men, who occupy the default position of Self (主體) or universal human. Drawing on Sartrean existentialism (存在主義), she argues existence precedes essence &mdash; there is no fixed female &ldquo;nature&rdquo; dictating destiny. What gets called femininity is instead built through countless cultural pressures: the dolls handed to little girls, fairy tales, the assumption a woman&rsquo;s body is a burden rather than a vehicle of freedom.</p>
+      <p>Central to her argument is situation (處境): freedom is never exercised in the abstract but always within concrete historical and social constraints. Women&rsquo;s historical situation included legal dependency on fathers and husbands, exclusion from economic independence, and reproduction without reliable contraception. Crucially, Beauvoir never denies biological facts like menstruation or pregnancy &mdash; she denies that those facts determine their own meaning. It is patriarchal society, she argues, that decides what those bodily facts are made to signify about a woman&rsquo;s capabilities and proper role.</p>
+      <p>The book was condemned on publication, added to the Vatican&rsquo;s Index of banned books, and dismissed by some critics as scandalous, yet it became a foundational text of second-wave feminism (第二波女性主義) a decade later. Beauvoir&rsquo;s own relationship with Sartre &mdash; unmarried, non-monogamous, built around a distinction between &ldquo;essential&rdquo; and merely &ldquo;contingent&rdquo; loves &mdash; was itself a lived experiment in refusing conventional domestic roles. Her framework of the Other later proved influential well beyond gender, applied by later thinkers to race, colonialism, and disability.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Simone_de_Beauvoir" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Beauvoir&rsquo;s insight wasn&rsquo;t that biology is irrelevant &mdash; it&rsquo;s that no biological fact determines its own meaning; society always does that work.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Beauvoir, what did it actually mean to say a woman &ldquo;becomes&rdquo; rather than is &ldquo;born&rdquo;?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Femininity as commonly experienced isn&rsquo;t a fixed biological destiny but something progressively constructed through cultural pressures and social expectations imposed on girls and women from birth onward &mdash; biology alone doesn&rsquo;t determine what womanhood means.</div>
+      </details>
+      <div class="source">&#x1F4D6; de Beauvoir, S. (1949/2011). <em>The Second Sex</em> (trans. Borde &amp; Malovany-Chevallier). Vintage. Stanford Encyclopedia of Philosophy, &ldquo;Simone de Beauvoir.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Smart People Still Fall for Their Own Beliefs: Confirmation Bias (確認偏誤)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&rsquo;re convinced a particular diet, investment, or claim is correct. When new evidence appears, do you think you search for information that could prove you wrong just as eagerly as you search for information confirming you&rsquo;re right?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Wason_selection_task_cards.svg/330px-Wason_selection_task_cards.svg.png" alt="Illustration of the Wason selection task cards" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Wason selection task (華生選擇任務), the classic 1960 experiment that revealed confirmation bias. Credit: <a href="https://en.wikipedia.org/wiki/Wason_selection_task" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1960, psychologist Peter Wason (彼得&middot;華生) devised a simple test now called the Wason selection task (華生選擇任務): participants were given a rule &mdash; for instance, &ldquo;if a card has a vowel on one side, it has an even number on the other&rdquo; &mdash; and asked which cards to flip to test it. Most people chose cards that could only confirm the rule, ignoring the one card capable of actually disproving it. Wason used the results to describe confirmation bias (確認偏誤): our systematic tendency to seek, interpret, and remember information that supports existing beliefs while overlooking evidence against them.</p>
+      <p>The bias operates at every stage of reasoning &mdash; which information we search for, how we interpret ambiguous evidence, and what we later remember. A landmark 1979 study by Charles Lord, Lee Ross and Mark Lepper (羅德、羅斯與萊珀) showed both supporters and opponents of capital punishment (死刑), when shown identical mixed evidence, each rated it as supporting their own prior position more strongly &mdash; and became more polarised, not less, after seeing the very same data. Confirmation bias doesn&rsquo;t just filter incoming evidence; it can actively widen disagreement between people looking at facts everyone agrees on.</p>
+      <p>A widely cited 1998 review by Raymond Nickerson (雷蒙德&middot;尼克森) in <em>Review of General Psychology</em> called confirmation bias possibly the most pervasive bias affecting human reasoning, showing up in medical diagnosis, scientific hypothesis testing, jury decisions, and political polarisation (政治極化) alike. The remedy isn&rsquo;t simply more information &mdash; it&rsquo;s deliberately searching for disconfirming evidence, actively asking &ldquo;what would prove me wrong,&rdquo; a habit few people practise naturally even after being explicitly taught about the bias.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Confirmation_bias" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The strongest evidence against your belief is worth actively searching for &mdash; your brain won&rsquo;t volunteer it on its own.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Wason&rsquo;s original card experiment, what mistake did most participants make when choosing which cards to flip?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They chose cards that could only confirm the stated rule rather than the one card capable of actually falsifying it &mdash; revealing a built-in preference for confirming over disconfirming evidence.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wason, P.C. (1960). <em>Quarterly Journal of Experimental Psychology</em>, 12(3). Nickerson, R.S. (1998). <em>Review of General Psychology</em>, 2(2). Lord, C.G., Ross, L. &amp; Lepper, M.R. (1979). <em>Journal of Personality and Social Psychology</em>, 37(11).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Hidden Hormone Cascade That Decides Your Blood Pressure: The Renin-Angiotensin-Aldosterone System (腎素&mdash;血管收縮素&mdash;醛固酮系統)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your blood pressure barely moves even when you stand up suddenly, sweat heavily, or lose a little blood. What kind of internal system do you think is quietly making constant adjustments to keep it stable?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Renin-angiotensin_system_in_man_shadow.svg/1280px-Renin-angiotensin_system_in_man_shadow.svg.png" alt="Diagram of the renin-angiotensin-aldosterone system" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The renin-angiotensin-aldosterone system (腎素&mdash;血管收縮素&mdash;醛固酮系統), the body&rsquo;s long-term blood pressure regulator. Credit: <a href="https://en.wikipedia.org/wiki/Renin%E2%80%93angiotensin_system" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When blood pressure or blood flow reaching the kidneys (腎臟) drops, specialised cells in the kidney&rsquo;s juxtaglomerular apparatus (近球小體) release an enzyme called renin (腎素) into the bloodstream. Renin converts angiotensinogen (血管收縮素原) &mdash; a protein continuously produced by the liver (肝臟) &mdash; into angiotensin I, a relatively inactive precursor. As blood passes through the lungs (肺), an enzyme called ACE (血管收縮素轉化酶, angiotensin-converting enzyme) converts angiotensin I into angiotensin II, a remarkably potent vasoconstrictor that narrows blood vessels almost immediately.</p>
+      <p>Angiotensin II raises blood pressure directly by constricting vessels, but it also triggers the adrenal cortex (腎上腺皮質) to release aldosterone (醛固酮), a hormone acting on kidney tubules to reabsorb sodium and water back into the bloodstream rather than excreting them as urine. That reabsorption gradually increases total blood volume, reinforcing the pressure rise. Angiotensin II additionally stimulates thirst and antidiuretic hormone (抗利尿激素) release, meaning this cascade works over minutes to hours &mdash; slower than nervous-system reflexes, but with effects that last considerably longer.</p>
+      <p>This exact cascade is the target of some of the world&rsquo;s most widely prescribed medications: ACE inhibitors (血管收縮素轉化酶抑制劑) and angiotensin receptor blockers both interrupt the pathway to treat hypertension (高血壓) and heart failure (心臟衰竭). The system also explains why chronic kidney disease or dehydration can trigger persistent high blood pressure &mdash; when kidneys chronically sense reduced blood flow, they keep the cascade switched on, reabsorbing sodium and water long after the original trigger has passed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Renin%E2%80%93angiotensin_system" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Every ACE-inhibitor blood pressure pill works by interrupting a hormone chain most people who take it have never heard of.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggers the kidneys to release renin, and what is the final effect of the resulting hormone cascade?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A drop in blood pressure or blood flow reaching the kidneys triggers renin release; the resulting cascade produces angiotensin II, which constricts blood vessels and triggers aldosterone release, ultimately raising blood pressure through increased vessel tone and sodium/water retention.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guyton, A.C. &amp; Hall, J.E. <em>Textbook of Medical Physiology</em>. Sparks, M.A. et al. (2014). <em>Comprehensive Physiology</em>, 4(3).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Ice Baths Actually Help You Recover &mdash; Or Are They Blunting Your Gains?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You finish a brutal leg workout and jump into a tub of ice water because you&rsquo;ve heard it speeds recovery. Do you think this actually helps your muscles adapt and grow stronger over time?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Karyn_Marshall_Ice_Bath.jpg" alt="An athlete sitting in an ice bath for recovery" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold-water immersion (冷水浸泡), popular among athletes for perceived recovery benefits. Credit: <a href="https://en.wikipedia.org/wiki/Ice_bath" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold-water immersion (冷水浸泡), popularised by elite athletes and now a fixture of gym culture, is claimed to speed recovery through vasoconstriction (血管收縮) that reduces swelling and numbs pain perception. Some reviews do find modest short-term relief for perceived muscle soreness after intense exercise, which is why the practice spread so widely &mdash; it genuinely can make sore muscles feel better within the first day or two after a hard session, particularly for endurance athletes needing quick turnaround between events.</p>
+      <p>But a 2015 randomised trial by Llion Roberts and colleagues published in <em>The Journal of Physiology</em> found something less flattering: athletes who did cold-water immersion after resistance training showed blunted long-term muscle hypertrophy (肌肥大) and strength gains compared to those who did active recovery instead. The likely mechanism is that exercise-induced inflammation (發炎反應), while uncomfortable, is part of the signalling pathway &mdash; involving satellite cell activation and mTOR signalling &mdash; that drives muscle repair and growth. Suppressing that inflammation with cold may suppress the very adaptation being trained for.</p>
+      <p>The practical nuance matters: ice baths remain reasonable for reducing perceived soreness before a competition or a tournament&rsquo;s next match, where feeling fresh matters more than maximising long-term adaptation. But during a dedicated hypertrophy or strength-building training block, regularly icing straight after lifting sessions may be working directly against the goal. Separating cold exposure from training sessions by several hours, rather than doing them immediately back to back, appears to reduce this interference.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ice_bath" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Ice baths can dull soreness, but doing them right after a strength session may be sabotaging the very adaptation you&rsquo;re training for.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why might taking an ice bath right after a strength-training session reduce long-term muscle growth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The exercise-induced inflammation that cold water suppresses is part of the signalling pathway that triggers muscle repair and growth; blunting that inflammatory response appears to blunt the adaptive stimulus itself, reducing long-term strength and hypertrophy gains.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015). <em>The Journal of Physiology</em>, 593(18). Bleakley, C.M. et al. (2012). <em>Cochrane Database of Systematic Reviews</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why a Cranky Tendon Needs Loading, Not Rest: Tendon Adaptation and the Alfredson Protocol</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You&rsquo;ve got nagging Achilles or patellar tendon pain that&rsquo;s lasted months. Conventional wisdom says rest it &mdash; but physiotherapists increasingly prescribe more loading, not less. What do you think a painful tendon actually needs to heal?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Achilles-tendon.jpg" alt="Anatomical illustration of the Achilles tendon" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Achilles tendon (阿基里斯腱), one of the most common sites of chronic tendinopathy. Credit: <a href="https://en.wikipedia.org/wiki/Tendinopathy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Tendons (肌腱) are collagen-rich connective tissue linking muscle to bone, transmitting enormous forces but with relatively poor blood supply, which makes healing slow. Chronic tendon pain was historically diagnosed as &ldquo;tendinitis,&rdquo; implying active inflammation, until biopsy studies revealed something different: painful tendons show disorganised collagen fibres and degenerative changes with little to no inflammatory cells present. That finding, formalised in Jill Cook and Craig Purdam&rsquo;s 2009 tendinopathy (肌腱病變) continuum model, explains why anti-inflammatory treatment often fails to fix the underlying problem.</p>
+      <p>In 1998, Swedish researcher Håkan Alfredson developed a heavy-slow eccentric loading protocol for chronic Achilles tendinopathy: three sets of fifteen slow, controlled heel-drop exercises, performed twice daily for twelve weeks. Patients previously headed for surgery achieved roughly 90% pain reduction and returned to sport. The mechanism appears to be mechanical loading stimulating tenocytes (肌腱細胞), the cells responsible for tendon maintenance, to reorganise disorganised collagen fibres along the tendon&rsquo;s natural lines of mechanical stress.</p>
+      <p>More recent research by Ebonie Rio and colleagues in 2015 found isometric contractions (等長收縮) &mdash; holding a loaded position without movement &mdash; provide immediate, same-session pain relief, likely through cortical inhibition (皮質抑制) at the spinal-cord level, making them useful before competition or between eccentric loading sessions. Many clinicians now prefer heavy-slow resistance training over pure eccentric loading, achieving comparable results with less daily time commitment. Complete rest, by contrast, allows tendon stiffness and load-bearing capacity to decline further rather than improve.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tendinopathy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Painful tendons usually need progressive loading to remodel, not rest &mdash; inactivity often makes chronic tendinopathy worse, not better.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did biopsy studies change how doctors think about &ldquo;tendinitis,&rdquo; to the point of renaming it tendinopathy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Biopsies of chronically painful tendons showed disorganised collagen and degenerative changes with little to no inflammatory cells present, contradicting the &ldquo;-itis&rdquo; assumption of active inflammation &mdash; which is why anti-inflammatory treatments often fail and progressive loading protocols work better.</div>
+      </details>
+      <div class="source">&#x1F4D6; Alfredson, H. et al. (1998). <em>American Journal of Sports Medicine</em>, 26(3). Cook, J.L. &amp; Purdam, C.R. (2009). <em>British Journal of Sports Medicine</em>, 43(6). Rio, E. et al. (2015). <em>British Journal of Sports Medicine</em>, 49(19).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Nobel-Winning Model That Questioned Whether Stock-Picking Skill Is an Illusion: Eugene Fama (尤金&middot;法馬) and the Three-Factor Model</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A mutual fund manager beats the market for five straight years. Do you think that proves genuine stock-picking skill, or could it be explained by the specific type of stocks they happened to hold?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/New_York_Stock_Exchange_Facade_2015.jpg/3840px-New_York_Stock_Exchange_Facade_2015.jpg" alt="Facade of the New York Stock Exchange" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The New York Stock Exchange (紐約證券交易所), where Fama and French&rsquo;s factor research reshaped how investors think about returns. Credit: <a href="https://en.wikipedia.org/wiki/Eugene_Fama" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Building on his own 1970 efficient-market hypothesis (效率市場假說), Eugene Fama (尤金&middot;法馬) teamed with Kenneth French (肯尼斯&middot;法蘭奇) in a landmark 1992&ndash;1993 <em>Journal of Finance</em> paper showing that a single market-risk factor from the older Capital Asset Pricing Model (資本資產定價模型, CAPM) explained stock returns poorly. Instead, two additional systematic factors &mdash; company size and value (股票的帳面市值比) &mdash; captured most of the differences in average returns across diversified portfolios: small, cheap &ldquo;value&rdquo; stocks (價值股) had reliably outperformed large &ldquo;growth&rdquo; stocks (增長股) over long periods.</p>
+      <p>The interpretation sparked lasting debate. Fama himself argued the size and value premiums simply compensate investors for bearing extra systematic risk &mdash; markets remain efficient, just multi-dimensional; behavioural economists countered that the value premium instead reflects investors overreacting to distressed-looking cheap stocks, later corrected as prices normalised. Either way, the practical implication was identical: a fund manager&rsquo;s apparent &ldquo;outperformance&rdquo; often disappears once properly adjusted for how much size and value exposure their portfolio carried &mdash; much of what looked like stock-picking skill was really just factor exposure in disguise.</p>
+      <p>The model spawned an entire &ldquo;factor investing&rdquo; industry and a wave of smart-beta ETFs, later extended in 2015 to a five-factor version adding profitability and investment factors. Growth stocks&rsquo; dramatic outperformance during the 2010s, driven by mega-cap technology companies, challenged the value premium&rsquo;s reliability, reigniting debate over whether the factor had weakened structurally or investors simply endured an unusually long unlucky stretch. Fama shared the 2013 Nobel Memorial Prize in Economic Sciences partly for this body of work on asset pricing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Eugene_Fama" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Before crediting a fund manager&rsquo;s genius, check how much of their &ldquo;outperformance&rdquo; simply came from which type of stocks they happened to hold.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the Fama-French model, what two factors beyond overall market risk helped explain differences in stock returns?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Company size (small-cap stocks tending to outperform large-cap) and value (stocks with high book-to-market ratios tending to outperform growth stocks) &mdash; together with market risk, these three factors explained portfolio returns far better than the single-factor CAPM model alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fama, E.F. &amp; French, K.R. (1992). <em>Journal of Finance</em>, 47(2). Fama, E.F. &amp; French, K.R. (1993). <em>Journal of Financial Economics</em>, 33(1).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Growth That Never Came Back: Secular Stagnation (長期停滯) and the Puzzle of Persistently Low Interest Rates</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Lawrence_Summers_2012_%28cropped%29.jpg" alt="Portrait of economist Lawrence Summers" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Lawrence Summers (勞倫斯&middot;薩默斯), who revived the term &ldquo;secular stagnation&rdquo; after 2008. Credit: <a href="https://en.wikipedia.org/wiki/Secular_stagnation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In the decade following the 2008 financial crisis (金融海嘯), major advanced economies saw persistently weak growth, low inflation, and interest rates (利率) near or below zero for years &mdash; even after central banks deployed unprecedented monetary stimulus &mdash; despite standard models predicting a far faster return to normal conditions.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Alvin Hansen (阿爾文&middot;漢森) first proposed &ldquo;secular stagnation&rdquo; (長期停滯) in 1938, arguing mature economies could face chronic excess savings relative to investment demand, pushing the natural interest rate persistently low. Harvard economist Lawrence Summers (勞倫斯&middot;薩默斯) revived the term in 2013 to describe the post-2008 world.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Standard models expected near-zero rates to eventually spur enough investment and inflation to normalise policy; instead, real interest rates kept drifting lower across multiple developed economies for over a decade, resisting explanation by demographic ageing or debt overhang alone.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Robert Gordon (羅伯特&middot;戈登) attributes the slowdown instead to a genuine productivity and innovation slowdown (生產力增長放緩), not merely a savings-investment imbalance &mdash; whether monetary policy alone can fix a structural growth problem remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Cheap money for over a decade couldn&rsquo;t reignite growth on its own &mdash; suggesting the problem may be structural, not just monetary.</div>
+      <div class="source">&#x1F4D6; Hansen, A. (1939). <em>American Economic Review</em>, 29(1). Summers, L.H. (2014). <em>Business Economics</em>, 49(2). Gordon, R.J. (2016). <em>The Rise and Fall of American Growth</em>. Princeton University Press.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 8 &amp; 9 &mdash; Comfort Now, Cost Later:</strong> Both cases reveal the same physiological trap: reducing acute discomfort &mdash; icing away exercise-induced inflammation, or resting a painful tendon completely &mdash; removes exactly the mechanical or inflammatory stimulus the tissue needs to adapt and strengthen. Short-term relief works against long-term resilience in strikingly similar ways, whether the tissue is muscle or tendon.</p>
+      <p><strong>So what:</strong> Before reaching for the fastest way to feel better after training or injury, ask whether the discomfort itself might be doing useful signalling work &mdash; sometimes progressive loading, not avoidance, is the actual path to recovery.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA New Horizons mission press releases. Stern et al. (2019), <em>Science</em> 364(6441). McKinnon et al. (2020), <em>Science</em> 367(6481).</li>
+      <li><strong>Card 2:</strong> 《明史&middot;胡惟庸傳》；吳晗《朱元璋傳》；錢穆《國史大綱》。</li>
+      <li><strong>Card 3:</strong> Wheatcroft (2008), <em>The Enemy at the Gate</em>. Britannica, &ldquo;Battle of Vienna.&rdquo; Stoye (2000), <em>The Siege of Vienna</em>.</li>
+      <li><strong>Card 4:</strong> 王弼《老子注》、《周易注》；湯用彤《魏晉玄學論稿》；馮友蘭《中國哲學史新編》。</li>
+      <li><strong>Card 5:</strong> de Beauvoir (1949/2011), <em>The Second Sex</em>. Stanford Encyclopedia of Philosophy, &ldquo;Simone de Beauvoir.&rdquo;</li>
+      <li><strong>Card 6:</strong> Wason (1960), <em>Quarterly Journal of Experimental Psychology</em> 12(3). Nickerson (1998), <em>Review of General Psychology</em> 2(2). Lord, Ross &amp; Lepper (1979), <em>JPSP</em> 37(11).</li>
+      <li><strong>Card 7:</strong> Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Sparks et al. (2014), <em>Comprehensive Physiology</em> 4(3).</li>
+      <li><strong>Card 8:</strong> Roberts et al. (2015), <em>The Journal of Physiology</em> 593(18). Bleakley et al. (2012), <em>Cochrane Database of Systematic Reviews</em>.</li>
+      <li><strong>Card 9:</strong> Alfredson et al. (1998), <em>American Journal of Sports Medicine</em> 26(3). Cook &amp; Purdam (2009), <em>BJSM</em> 43(6). Rio et al. (2015), <em>BJSM</em> 49(19).</li>
+      <li><strong>Card 10:</strong> Fama &amp; French (1992), <em>Journal of Finance</em> 47(2); (1993), <em>Journal of Financial Economics</em> 33(1).</li>
+      <li><strong>Card 11:</strong> Hansen (1939), <em>American Economic Review</em> 29(1). Summers (2014), <em>Business Economics</em> 49(2). Gordon (2016), <em>The Rise and Fall of American Growth</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-14: Arrokoth / New Horizons &bull; 胡惟庸案 &bull; Battle of Vienna 1683 &bull; 王弼「貴無論」 &bull; Simone de Beauvoir / The Second Sex &bull; Confirmation Bias &bull; Renin-Angiotensin-Aldosterone System &bull; Cold-Water Immersion / Ice Baths &bull; Tendon Adaptation / Alfredson Protocol &bull; Fama-French Three-Factor Model &bull; Secular Stagnation</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-14.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-14.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 14 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
