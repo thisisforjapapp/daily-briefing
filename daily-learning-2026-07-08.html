@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 8 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 8 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>7 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Andromeda Galaxy</span>The Milky Way and Andromeda are on a slow-motion collision course, though almost no individual stars are likely to actually collide when they merge.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 淝水之戰</span>苻堅八十萬大軍因「風聲鶴唳，草木皆兵」不戰自潰，前秦帝國一夜崩潰。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Waterloo</span>Napoleon&rsquo;s final defeat turned on Blücher&rsquo;s late-afternoon arrival, in what Wellington called &ldquo;the nearest run thing you ever saw.&rdquo;</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 楊朱「為我」</span>楊朱主張「拔一毛而利天下不為也」，其極端個人主義思想幾乎在儒墨夾擊下失傳。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Voltaire&rsquo;s Candide</span>Voltaire&rsquo;s Candide mocked Leibniz&rsquo;s claim this is &ldquo;the best of all possible worlds&rdquo; after the 1755 Lisbon earthquake.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Zeigarnik Effect</span>Unfinished tasks nag at memory more than completed ones, a pattern traced back to a café waiter&rsquo;s uncanny order recall.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Long-Term Potentiation</span>Repeated synaptic firing physically strengthens neural connections &mdash; the cellular basis of how memories form.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; GLP-1 Agonists</span>Drugs like Ozempic mimic a gut hormone to reduce appetite, driving roughly 15% weight loss in major clinical trials.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Isometric Training</span>Holding a static contraction builds strength mainly at the exact joint angle trained, with limited carryover elsewhere.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; CAPE Ratio</span>Shiller&rsquo;s cyclically-adjusted P/E predicts decade-long returns reasonably well but is nearly useless for short-term timing.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Marshall Plan</span>Historians debate whether Marshall Plan aid was too small to mechanically rebuild Europe, working instead as a confidence signal.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Star That Exploded Right As We Were Watching: Supernova 1987A (超新星1987A)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 23 February 1987, three separate neutrino detectors deep underground around the world recorded a burst of ghostly particles within minutes of each other &mdash; hours before any telescope saw anything unusual in the sky. What do you think those particles were, and why would they arrive before the light did?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/New_Hubble_Observations_of_Supernova_1987A_Trace_Shock_Wave_%284954621859%29.jpg" alt="Hubble Space Telescope image of the rings around Supernova 1987A" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Supernova 1987A (超新星1987A) and its glowing ring structures, imaged by the Hubble Space Telescope. Credit: <a href="https://en.wikipedia.org/wiki/SN_1987A" target="_blank" rel="noopener">Wikimedia Commons / NASA, ESA</a></div>
+      </div>
+      <p>On 23 February 1987, astronomer Ian Shelton (伊恩&middot;謝爾頓) at Las Campanas Observatory (拉斯坎帕納斯天文台) in Chile noticed a new bright point of light in the Large Magellanic Cloud (大麥哲倫雲), a satellite galaxy of the Milky Way (銀河系) roughly 168,000 light-years away. It was Supernova 1987A (超新星1987A), the nearest supernova observed in nearly four centuries and the first since the invention of the telescope close enough to study in extraordinary detail &mdash; bright enough to be visible to the naked eye from the Southern Hemisphere for months afterward.</p>
+      <p>Three underground neutrino detectors &mdash; Kamiokande II (神岡探測器) in Japan, IMB in the United States, and Baksan in the Soviet Union &mdash; independently recorded a burst of around twenty neutrinos (中微子) within a thirteen-second window, arriving roughly three hours before any visible light reached Earth. This confirmed core-collapse supernova (核心坍縮超新星) theory directly: neutrinos escape a dying star&rsquo;s collapsing core almost instantly, while light takes far longer to fight its way out through the star&rsquo;s dense outer layers &mdash; a landmark early moment in what astronomers now call multi-messenger astronomy (多信使天文學).</p>
+      <p>Hubble&rsquo;s later imaging revealed a striking triple-ring structure, its inner ring lighting up progressively over decades as the supernova&rsquo;s expanding shockwave collided with material the dying star had ejected tens of thousands of years before exploding. One enduring mystery lingered for over three decades: theory predicted the collapse should leave behind a neutron star (中子星), yet none was directly detected. In 2024, JWST observations finally found strong evidence of warm dust consistent with a hidden neutron star at the remnant&rsquo;s centre, closing a puzzle nearly as old as the supernova itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/SN_1987A" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A supernova&rsquo;s neutrinos escape and race ahead of its own light &mdash; meaning three underground tanks of water knew a star had died hours before any telescope did.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did neutrino detectors on Earth register a burst of particles from SN 1987A roughly three hours before any telescope saw the supernova&rsquo;s light?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Neutrinos are produced deep in the star&rsquo;s collapsing core and pass through the surrounding stellar material almost unimpeded, escaping nearly instantly, while the explosion&rsquo;s light has to fight its way out through the star&rsquo;s dense outer layers, delaying its arrival by hours.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hubble Space Telescope press releases (STScI). Arnett, W.D. et al. (1989). <em>Annual Review of Astronomy and Astrophysics</em>, 27. Bionta, R.M. et al. (1987). <em>Physical Review Letters</em>, 58(14).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「朱溫篡唐」：一場弒君奪位，如何終結近三百年大唐帝國，開啟五代十國亂世</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是唐朝末年權傾天下的節度使朱溫，眼見皇帝已成傀儡，你會選擇繼續挾天子以令諸侯，還是乾脆自己稱帝？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>朱溫（後梁太祖，原名朱全忠）、唐昭宗（先被弒殺的皇帝）、唐哀帝（末代傀儡皇帝）。</p>
+        <p><strong>事件：</strong>西元907年，宣武節度使朱溫篡奪唐朝帝位，建立後梁，唐朝自此滅亡，中國進入五代十國分裂時期。</p>
+        <p><strong>時代背景：</strong>唐末藩鎮割據、黃巢之亂重創中央權威，各地節度使擁兵自重，朱溫原為黃巢部將，降唐後憑軍功坐大，逐漸成為挾天子以令諸侯的最大實力派。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Zhu_Wen_%28Liang_Taizu%29.jpg" alt="朱溫（後梁太祖）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">朱溫（後梁太祖）畫像。來源：<a href="https://en.wikipedia.org/wiki/Zhu_Wen" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>朱溫早年參與黃巢起義，其後叛降唐朝，因鎮壓黃巢餘部有功，獲賜名「全忠」，逐漸壯大為宣武節度使，勢力橫跨中原。天祐元年（904年），朱溫挾持唐昭宗遷都洛陽，其後更派人弒殺昭宗，改立年僅十三歲的唐哀帝為傀儡，朝政大權盡歸朱溫一人掌握，唐室僅存空名，滿朝文武噤若寒蟬。</p>
+      <p>天祐四年（907年），朱溫逼迫唐哀帝「禪讓」帝位，改國號為「梁」，史稱後梁，自立為帝，是為後梁太祖，並將唐哀帝貶為濟陰王，翌年更遣人將其毒殺，斬草除根。延續近三百年、歷經二十一位皇帝的大唐帝國自此正式滅亡，中國隨即進入五代十國（907&ndash;979年）的分裂割據時期，中原地區短短數十年間先後更替後梁、後唐、後晉、後漢、後周五個朝代。</p>
+      <p>朱溫篡唐雖然終結了唐朝，卻未能建立長治久安的新秩序，後梁國祚僅十六年便被後唐所滅，朱溫本人也在稱帝六年後被親子朱友珪弒殺，骨肉相殘。五代十國期間武將擁兵篡位成為常態，「有槍便是草頭王」的邏輯延續數十年，直至後周世宗柴榮改革奠基、其後趙匡胤陳橋兵變建立宋朝，中國才重新走向統一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhu_Wen" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 朱溫用一場弒君篡位終結了大唐，卻也親手為此後半個世紀的軍閥混戰立下了先例。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>朱溫篡唐建立後梁後，對唐哀帝採取了什麼行動，這反映了當時政治的什麼特點？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱溫先貶唐哀帝為濟陰王，翌年更將其毒殺，斬草除根；這反映了唐末五代武將擁兵奪位後往往斬盡前朝皇室、以絕後患的殘酷政治現實，也預示了此後五代十國武力篡位頻繁的亂局。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《舊五代史&middot;梁太祖紀》；《資治通鑑》卷二百六十五；王賡武《五代時期北方中國的權力結構》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Naval Battle That Ended the Roman Republic: The Battle of Actium (亞克興角海戰), 31 BCE</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two of Rome&rsquo;s most powerful figures &mdash; one commanding legions across the eastern Mediterranean, the other controlling Italy itself &mdash; meet in a single naval battle to decide who rules the Roman world. What do you think tipped the balance, and why might a single naval battle matter more than any land campaign before it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Octavian (屋大維), Julius Caesar&rsquo;s adopted heir; Mark Antony (安東尼), Octavian&rsquo;s rival; Cleopatra VII (克麗奧佩脫拉七世), Ptolemaic Egypt&rsquo;s (托勒密埃及) queen and Antony&rsquo;s ally; Marcus Vipsanius Agrippa (阿格里帕), Octavian&rsquo;s naval commander.</p>
+        <p><strong>Event at stake:</strong> The Battle of Actium (亞克興角海戰), 2 September 31 BCE, off the western coast of Greece.</p>
+        <p><strong>Big picture:</strong> Following Julius Caesar&rsquo;s assassination in 44 BCE, Rome had split into rival power bases &mdash; Octavian controlling Italy and the west, Antony and Cleopatra controlling Egypt and the eastern provinces &mdash; heading toward an inevitable final confrontation.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Medinaceli_Actium_reliefs_06.jpg" alt="Ancient relief depicting the Battle of Actium" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A relief depicting the Battle of Actium (亞克興角海戰), 31 BCE. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Actium" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Antony (安東尼) and Cleopatra (克麗奧佩脫拉七世) assembled a fleet of some 500 ships and a large land army in western Greece, hoping to draw Octavian (屋大維) into a decisive engagement on favourable terms. But Agrippa (阿格里帕), Octavian&rsquo;s highly capable naval commander, spent months beforehand systematically cutting off Antony&rsquo;s supply lines and blockading key harbours, leaving Antony&rsquo;s fleet undermanned, disease-ridden, and increasingly desperate by the time battle was finally joined in the Ambracian Gulf.</p>
+      <p>Antony&rsquo;s ships were larger and more heavily built, while Octavian&rsquo;s were faster and more manoeuvrable, favouring a war of attrition over a single decisive clash. Partway through the fighting, Cleopatra&rsquo;s squadron withdrew with the treasury ships, and Antony, seeing her retreat, abandoned his own flagship and followed her rather than continuing the battle &mdash; a decision the ancient historian Plutarch (普魯塔克) frames as devotion overriding strategy, though modern historians debate whether it was actually a pre-planned breakout rather than desertion.</p>
+      <p>Most of Antony&rsquo;s remaining fleet and army surrendered without further fighting once its commander had fled the scene. Antony and Cleopatra retreated to Egypt, both dying by suicide the following year as Octavian&rsquo;s forces closed in on Alexandria (亞歷山大港). Octavian returned to Rome as sole ruler of the Roman world, and in 27 BCE the Senate granted him the title Augustus (奧古斯都), marking the effective end of the Roman Republic (羅馬共和國) and the beginning of the Roman Empire (羅馬帝國), which endured in the west for nearly five more centuries.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Actium" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single afternoon&rsquo;s naval battle in the Ambracian Gulf ended five hundred years of Roman republican government and installed an emperor.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What happened partway through the Battle of Actium that effectively decided its outcome?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cleopatra&rsquo;s squadron withdrew from the battle with the treasury ships, and when Antony saw her retreating he abandoned his own flagship to follow her rather than continuing to fight &mdash; after which most of his remaining fleet and army surrendered to Octavian without further resistance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Plutarch, <em>Life of Antony</em>. Kleiner, D.E.E. (2005). <em>Cleopatra and Rome</em>. Harvard University Press. Britannica, &ldquo;Battle of Actium.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「一葦渡江，面壁九年」：菩提達摩如何從印度僧人成為中國禪宗的傳奇初祖</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位從印度遠渡重洋而來的僧人，見到當時最崇佛的皇帝，卻因一句話不歡而散，隨即獨自面壁靜坐九年。你認為他所堅持的，究竟是什麼樣的修行方式，讓禪宗自此走上截然不同的道路？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>菩提達摩（南天竺僧人，禪宗東土初祖）、梁武帝（南朝篤信佛教的皇帝）、慧可（達摩弟子，禪宗二祖）。</p>
+        <p><strong>核心思想：</strong>教外別傳；不立文字；直指人心，見性成佛；面壁禪定。</p>
+        <p><strong>時代背景：</strong>南北朝時期佛教在中國已流傳數百年，義理宗派林立，講經注疏之風盛行，達摩所傳強調捨棄文字義理、直接透過禪定體悟本心的修行方式，與當時盛行的講經傳統形成鮮明對比。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a2/BodhidharmaYoshitoshi1887.jpg" alt="菩提達摩畫像，月岡芳年繪" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">菩提達摩畫像，月岡芳年繪（1887年）。來源：<a href="https://en.wikipedia.org/wiki/Bodhidharma" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>相傳菩提達摩為南天竺（今南印度）僧人，於南朝梁普通年間（約520年前後）泛海來到中國，先至廣州，其後北上見梁武帝。梁武帝篤信佛教，即位以來廣建寺院、供養僧侶、親自講經，自認功德無量，遂問達摩：「朕即位以來，造寺寫經度僧不可勝紀，有何功德？」達摩卻答：「並無功德。」武帝大惑不解，追問其故，達摩解釋此等作為僅屬人天小果、有漏之因，如影隨形，並非真實功德，二人話不投機，達摩遂渡江北上，傳說「一葦渡江」，僅憑一根蘆葦便渡過長江天險，充滿神話色彩。</p>
+      <p>達摩其後至少林寺附近，面壁靜坐九年，史稱「面壁九年」，其間弟子慧可為求開悟，相傳曾自斷左臂以示求法決心，方獲達摩傳授心法，是為禪宗二祖。達摩所傳強調「教外別傳，不立文字，直指人心，見性成佛」——修行的核心不在鑽研經典義理或累積外在功德，而在透過禪定直接體悟自身本具的佛性，這種強調頓悟本心、捨棄繁瑣義理辯論的取向，與當時中國佛教盛行的講經注疏傳統形成強烈對比。</p>
+      <p>達摩傳法予慧可後行蹤成謎，相傳其後不知所終，甚至有「隻履西歸」的傳說，稱有人在蔥嶺遇見達摩隻身攜一鞋西行。達摩雖然生平事蹟真偽難考，其形象在後世逐漸被神化為禪宗東土初祖，其「直指人心」的修行取向經慧可、僧璨、道信、弘忍代代相傳，至六祖慧能發展出「頓悟」法門，深刻影響此後中國佛教乃至東亞禪宗（包括日本禪宗與韓國禪宗）的發展方向。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bodhidharma" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 達摩一句「並無功德」，點破了外在善行與內在覺悟之間的根本區別，開啟了此後禪宗「直指人心」的修行傳統。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>達摩回答梁武帝「並無功德」，他真正想表達的核心觀點是什麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">達摩認為梁武帝造寺寫經度僧等外在作為僅屬人天小果、有漏之因，如影隨形，並非真實功德；真正的覺悟必須透過禪定直接體悟自身本具的佛性，而非依靠累積外在善行或鑽研經典義理。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《景德傳燈錄》卷三；《續高僧傳&middot;菩提達摩傳》；印順《中國禪宗史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Women Weren&rsquo;t Naturally Inferior &mdash; They Were Denied an Education: Mary Wollstonecraft (瑪麗&middot;沃斯通克拉夫特)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1792, a philosopher argues that women only appear less rational than men because society systematically denies them the same education &mdash; not because of any natural inferiority. Do you think this argument would have been seen as radical or obvious at the time, and why?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Mary Wollstonecraft (瑪麗&middot;沃斯通克拉夫特, 1759&ndash;1797), English (英國) writer and philosopher; Jean-Jacques Rousseau (盧梭), whose views on female education she directly attacked; William Godwin (威廉&middot;戈德溫), fellow philosopher and her husband.</p>
+        <p><strong>Core ideas:</strong> Rational education as the foundation of virtue; critique of women being raised for &ldquo;pleasing&rdquo; rather than reasoning; rights grounded in shared rational capacity rather than gender.</p>
+        <p><strong>Big picture:</strong> Published in 1792 in the immediate aftermath of the French Revolution (法國大革命), amid heated debate over natural rights (天賦人權) &mdash; while those rights were being extended to men, Wollstonecraft asked why they stopped there.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_Vindication_of_the_Rights_of_Woman_title_page.jpg/330px-A_Vindication_of_the_Rights_of_Woman_title_page.jpg" alt="Title page of A Vindication of the Rights of Woman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Title page of Mary Wollstonecraft&rsquo;s <em>A Vindication of the Rights of Woman</em> (1792). Credit: <a href="https://en.wikipedia.org/wiki/Mary_Wollstonecraft" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>A Vindication of the Rights of Woman</em> (女權辯護), Wollstonecraft directly attacked Rousseau&rsquo;s (盧梭) hugely influential <em>Émile</em> (愛彌兒), which argued girls should be educated specifically to please and serve men rather than to reason independently. Wollstonecraft countered that women only appeared less rational than men because they were systematically denied serious education from childhood &mdash; trained instead in ornamental accomplishments and taught to value beauty and charm over judgment. If women seemed frivolous, she argued, society had manufactured that frivolity and then used it as proof of natural inferiority.</p>
+      <p>Central to her argument was that virtue and reason (理性) are not gendered qualities &mdash; the same rational faculties that justified extending rights to men logically extended to women as well. She was not arguing for identical social roles between the sexes, but for equal educational opportunity and the recognition that women, like men, were rational beings capable of moral judgment, deserving respect on that basis rather than being valued primarily for beauty or obedience within marriage &mdash; a strikingly direct claim for its time.</p>
+      <p>The book was praised in progressive circles but also mocked and scandalised by critics who focused on Wollstonecraft&rsquo;s unconventional personal life &mdash; an illegitimate daughter, a suicide attempt, and her eventual marriage to fellow philosopher William Godwin (威廉&middot;戈德溫) despite both opposing marriage in principle. She died of complications from childbirth in 1797, days after giving birth to her second daughter, Mary Shelley (瑪麗&middot;雪萊), future author of <em>Frankenstein</em>. Wollstonecraft&rsquo;s arguments were largely forgotten for decades before being rediscovered as a foundational text of first-wave feminism (第一波女性主義).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mary_Wollstonecraft" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Wollstonecraft&rsquo;s radical claim wasn&rsquo;t that women and men were identical &mdash; it was that their apparent difference in reasoning ability was manufactured by unequal education, not fixed by nature.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Wollstonecraft, why did women in her time seem less rational or capable of serious thought than men?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">She argued this apparent difference wasn&rsquo;t natural but manufactured &mdash; women were systematically denied serious education and trained instead in ornamental accomplishments meant to please men, and society then used that manufactured frivolity as false proof of innate female inferiority.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wollstonecraft, M. (1792/2004). <em>A Vindication of the Rights of Woman</em>. Penguin Classics. Stanford Encyclopedia of Philosophy, &ldquo;Mary Wollstonecraft.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why More Options Can Leave You Less Satisfied: Choice Overload (選擇過載) and the Paradox of Choice</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A grocery store sets up two tasting booths &mdash; one offering 24 flavours of jam, the other just 6. Which booth do you think drew more visitors, and which one actually sold more jam?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Sheena_Iyengar.jpg" alt="Sheena Iyengar, psychologist behind the jam-tasting choice overload study" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sheena Iyengar (希娜&middot;艾恩嘉), co-author of the classic 2000 jam-tasting choice overload study. Credit: <a href="https://en.wikipedia.org/wiki/Overchoice" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a now-famous 2000 study, psychologists Sheena Iyengar (希娜&middot;艾恩嘉) and Mark Lepper (馬克&middot;萊珀) set up jam-tasting booths in an upscale grocery store, alternating between a display of 24 varieties and a smaller display of just 6. The larger display attracted more browsers &mdash; about 60% of shoppers stopped to look, compared to 40% for the smaller one &mdash; but only 3% of those who sampled from the 24-jam table actually made a purchase, compared to 30% from the 6-jam table. More choice drew more attention but converted into dramatically fewer sales.</p>
+      <p>Psychologist Barry Schwartz&rsquo;s (貝瑞&middot;施瓦茨) 2004 book <em>The Paradox of Choice</em> (選擇的弔詭) extended the finding, distinguishing &ldquo;maximizers&rdquo; who exhaustively compare every option seeking the best from &ldquo;satisficers&rdquo; who choose the first option that&rsquo;s good enough. Maximizers report lower satisfaction and higher regret even when they objectively choose better options, since more alternatives raise the psychological cost of comparison and the nagging fear that something better was missed &mdash; too many options increases cognitive load and the fear of making the &ldquo;wrong&rdquo; choice.</p>
+      <p>A 2010 meta-analysis by Benjamin Scheibehenne found the choice overload effect is real but smaller and less consistent than the original study suggested, appearing most strongly when options are complex, hard to compare, or when choosers lack clear prior preferences. Retailers have since applied the finding deliberately, curating smaller &ldquo;recommended&rdquo; subsets rather than displaying every possible option, on platforms ranging from streaming services to online retail &mdash; a direct commercial response to a psychological finding.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Overchoice" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Offering people more choices can feel generous, but past a certain point it makes deciding &mdash; and enjoying the decision &mdash; measurably harder.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Iyengar and Lepper&rsquo;s jam study, what was the key difference between the 24-jam display and the 6-jam display in terms of actual outcomes?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The 24-jam display attracted more browsers but converted far fewer into buyers &mdash; only about 3% purchased, compared to roughly 30% of those who sampled from the smaller 6-jam display &mdash; showing that more choice increased attention but sharply reduced actual purchase behaviour.</div>
+      </details>
+      <div class="source">&#x1F4D6; Iyengar, S.S. &amp; Lepper, M.R. (2000). <em>Journal of Personality and Social Psychology</em>, 79(6). Schwartz, B. (2004). <em>The Paradox of Choice</em>. Ecco. Scheibehenne, B. et al. (2010). <em>Journal of Consumer Research</em>, 37(3).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Two-Stage Chemical Factory Inside Your Liver: Cytochrome P450 (細胞色素P450) and Drug Metabolism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Grapefruit juice is famous for dangerously interacting with certain medications &mdash; sometimes turning a normal dose into an overdose. What do you think is actually happening inside your body when this interaction occurs?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Structure_of_lanosterol_14_%CE%B1-demethylase_%28CYP51%29.png" alt="Molecular structure of a cytochrome P450 enzyme" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A cytochrome P450 (細胞色素P450) enzyme, part of the liver&rsquo;s drug-metabolising machinery. Credit: <a href="https://en.wikipedia.org/wiki/Cytochrome_P450" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The liver (肝臟) processes nearly everything absorbed from the gut before it reaches general circulation, transforming fat-soluble compounds &mdash; including most drugs, alcohol, and countless plant chemicals &mdash; into forms the body can safely excrete. This happens in two broad phases. Phase I is dominated by the cytochrome P450 (細胞色素P450, CYP450) enzyme family, roughly 57 related enzymes in humans that chemically modify compounds, typically by adding a reactive oxygen-containing group, making the molecule more water-soluble and often &mdash; though not always &mdash; less biologically active.</p>
+      <p>Phase II then attaches the Phase I product to another molecule, a process called conjugation (結合作用), using glucuronic acid, sulfate, or glutathione among others, making the compound water-soluble enough for the kidneys or bile to eliminate entirely. Critically, individual CYP450 enzymes vary enormously between people due to genetic polymorphisms (基因多型性): some people are &ldquo;poor metabolisers&rdquo; who process certain drugs far more slowly than average, risking toxic buildup at standard doses, while &ldquo;ultra-rapid metabolisers&rdquo; may clear a drug so quickly that normal doses barely work at all.</p>
+      <p>Grapefruit juice contains furanocoumarins (呋喃香豆素) that irreversibly inhibit CYP3A4, one of the most important P450 enzymes, which normally breaks down roughly half of all prescription drugs before they reach full circulation; blocking it can cause certain statins, calcium channel blockers, and other medications to build up to dangerously high blood concentrations from a standard dose. This is also why alcohol, chronic medication use, and even certain herbal supplements can unpredictably alter how strongly other drugs affect a given person.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cytochrome_P450" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A glass of grapefruit juice can turn a normal medication dose into an overdose by silently disabling one of your liver&rsquo;s key detox enzymes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can grapefruit juice dangerously increase the blood concentration of certain medications?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Grapefruit juice contains furanocoumarins that irreversibly inhibit the CYP3A4 liver enzyme, which normally breaks down roughly half of all prescription drugs before they reach full circulation &mdash; blocking that enzyme lets those drugs build up to much higher, potentially toxic, blood concentrations from a standard dose.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guengerich, F.P. (2008). <em>Chemical Research in Toxicology</em>, 21(1). Bailey, D.G. et al. (2013). <em>Canadian Medical Association Journal</em>, 185(4).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Daily Multivitamins Actually Do Anything? What the Biggest Trials Found</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You take a daily multivitamin because it seems like reasonable insurance against nutritional gaps. Do you think large, well-controlled clinical trials have found that multivitamins meaningfully reduce disease risk in generally well-nourished adults?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/B_vitamin_supplement_tablets.jpg" alt="Multivitamin supplement tablets" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Multivitamin (綜合維他命) tablets, used regularly by roughly a third of adults in wealthy countries. Credit: <a href="https://en.wikipedia.org/wiki/Multivitamin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Multivitamins (綜合維他命) are taken regularly by roughly a third of adults in wealthy countries, largely on the reasonable-sounding premise that they fill small nutritional gaps most diets leave. But the largest and longest randomised controlled trial (隨機對照試驗) designed to test this directly, the Physicians&rsquo; Health Study II (醫師健康研究二期), followed nearly 15,000 male physicians for over a decade and found no significant reduction in major cardiovascular events, and only a modest reduction in total cancer incidence that researchers cautioned could reflect chance given the number of outcomes measured.</p>
+      <p>A separate, more recent trial &mdash; COSMOS-Mind (2022), which followed over 2,200 older adults for three years &mdash; did find a modest improvement in cognitive test scores among multivitamin users compared to placebo, reviving some interest in benefits for cognitive ageing specifically, though critics note the effect size was small and the primary outcomes in the larger parent COSMOS study (cancer and cardiovascular disease) again showed no significant benefit. Systematic reviews pooling dozens of trials consistently find multivitamins do not reduce all-cause mortality in well-nourished populations.</p>
+      <p>The gap between multivitamins&rsquo; popularity and their modest trial evidence likely reflects a mismatch: they were originally designed to correct outright nutritional deficiency, which is rare in people already eating a reasonably varied diet in wealthy countries, rather than to provide extra protection against disease in people who aren&rsquo;t actually deficient in anything. Multivitamins remain genuinely useful for specific groups &mdash; pregnant women, older adults with reduced absorption, people with restrictive diets &mdash; but for the average well-nourished adult, evidence for broad preventive benefit remains thin.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Multivitamin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Multivitamins were built to fix deficiency, not to add extra protection on top of an already adequate diet &mdash; and the largest trials show they mostly don&rsquo;t.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the Physicians&rsquo; Health Study II find when it directly tested whether daily multivitamin use reduced major disease outcomes in a large group of adult men?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Over more than a decade of follow-up in nearly 15,000 men, it found no significant reduction in major cardiovascular events, and only a modest reduction in total cancer incidence that researchers cautioned might reflect chance given the number of outcomes tested.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sesso, H.D. et al. (2012). <em>JAMA</em>, 308(17). Baker, L.D. et al. (2022). <em>Alzheimer&rsquo;s &amp; Dementia</em>, 18(11). Fortmann, S.P. et al. (2013). <em>Annals of Internal Medicine</em>, 159(12).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Marathon Training Won&rsquo;t Make You Better at Squats: The Specificity Principle (特異性原則, SAID)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A dedicated marathon runner and a dedicated powerlifter both train intensely for years, yet each would likely struggle badly at the other&rsquo;s sport on day one. Why doesn&rsquo;t years of elite fitness in one domain transfer more directly to another?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="Athletes performing different types of strength training" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Different training styles build genuinely different physiological adaptations. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The specificity principle &mdash; often summarised by the acronym SAID, Specific Adaptation to Imposed Demands (特異性適應原則) &mdash; holds that the body adapts specifically to the exact type, intensity, and pattern of stress placed on it, not to &ldquo;fitness&rdquo; as some generalised, interchangeable quality. A marathon runner&rsquo;s cardiovascular system, slow-twitch muscle fibres (慢縮肌纖維), and fat-oxidation pathways become highly efficient at sustained low-to-moderate output, while a powerlifter&rsquo;s neuromuscular system, fast-twitch fibres (快縮肌纖維), and connective tissue adapt to brief maximal force production &mdash; genuinely different physiological targets, not two flavours of the same underlying trait.</p>
+      <p>This extends beyond energy systems to the neuromuscular level: strength gains are famously joint-angle and movement-pattern specific, meaning heavy back squats build maximal force output most reliably in the exact squat pattern trained, with real but incomplete transfer to superficially similar movements like a leg press or a jump. A trained population&rsquo;s improvement on a directly trained test often outstrips its improvement on an untrained but related task by a wide margin, even when both movements rely on substantially overlapping muscle groups.</p>
+      <p>The practical implication for training design is that athletes should prioritise movements, energy systems, and velocities that closely resemble the actual demands of their sport or goal, using general fitness work mainly as a supporting foundation rather than the main event. A sprinter benefits more from sprint-specific power work than from long slow runs, and a rock climber benefits more from grip- and pulling-specific strength than from generic full-body machine circuits, even though both fall under the broad umbrella of &ldquo;getting fitter.&rdquo;</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Fitness isn&rsquo;t one interchangeable quality &mdash; the body adapts precisely to the specific demands you repeatedly place on it, so training should mirror the actual movement and effort you&rsquo;re trying to improve.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why might a highly trained marathon runner perform poorly in a maximal powerlifting test, despite years of elite endurance training?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The specificity principle means the body adapts to the exact type of stress imposed &mdash; endurance training builds cardiovascular efficiency, slow-twitch fibre capacity, and fat-oxidation pathways for sustained moderate output, while maximal strength requires different neuromuscular and fast-twitch fibre adaptations that endurance training does little to develop.</div>
+      </details>
+      <div class="source">&#x1F4D6; American College of Sports Medicine, <em>Guidelines for Exercise Testing and Prescription</em>. Rhea, M.R. et al. (2003). <em>Journal of Strength and Conditioning Research</em>, 17(1).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Crash That Redefined &ldquo;Too Good to Be True&rdquo;: The 1929 Wall Street Crash (1929年華爾街股災)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Throughout the 1920s, ordinary Americans increasingly bought stocks with borrowed money, confident prices would keep climbing. What do you think happens to a market built substantially on borrowed money when prices finally stop rising?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Crowd_outside_nyse.jpg" alt="Crowd gathering outside the New York Stock Exchange during the 1929 crash" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A crowd gathers outside the New York Stock Exchange during the 1929 crash (1929年華爾街股災). Credit: <a href="https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The 1920s &ldquo;Roaring Twenties&rdquo; (咆哮的二十年代) saw the Dow Jones Industrial Average (道瓊斯工業平均指數) roughly quadruple, fuelled partly by genuine industrial growth and partly by widespread margin buying (孖展買賣) &mdash; investors borrowing up to 90% of a stock&rsquo;s purchase price, meaning a modest price decline could wipe out an investor&rsquo;s entire equity and trigger a forced sale. By the market&rsquo;s September 1929 peak, an enormous and growing share of stock purchases were leveraged this way, creating a fragile structure where even a moderate price drop could cascade into forced selling that pushed prices lower still.</p>
+      <p>Black Thursday (黑色星期四, 24 October 1929) saw panic selling as margin calls began cascading; major bankers briefly stabilised the market with a show of confidence buying, but the reprieve proved temporary. Black Monday and Black Tuesday (黑色星期一及星期二, 28&ndash;29 October) brought renewed, far more severe collapses &mdash; the market lost roughly 25% of its value across those two days alone, as forced margin liquidations overwhelmed any remaining buying interest and the ticker tape ran hours behind actual trading.</p>
+      <p>The crash alone didn&rsquo;t cause the Great Depression (大蕭條) that followed, but it interacted disastrously with existing weaknesses: over 9,000 US banks failed in subsequent years, partly because bank runs and bad loans tied to stock speculation crippled the banking system, and the Federal Reserve&rsquo;s tight monetary policy at the time &mdash; since reassessed by economists including Milton Friedman as a critical error &mdash; deepened rather than cushioned the contraction. By 1932 the Dow had fallen roughly 89% from its 1929 peak, not recovering until 1954.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wall_Street_crash_of_1929" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The crash itself was a single event, but leverage turned an ordinary correction into a self-reinforcing collapse &mdash; a pattern that has repeated in every major market crash since.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did widespread margin buying in the 1920s make the eventual stock market decline so much more severe than an ordinary price correction?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because investors had borrowed heavily to buy stocks, even a moderate price decline could wipe out their equity and trigger forced margin calls, compelling further sales that pushed prices down more, which in turn triggered additional margin calls &mdash; a self-reinforcing cascade that turned a correction into a collapse.</div>
+      </details>
+      <div class="source">&#x1F4D6; Galbraith, J.K. (1954/2009). <em>The Great Crash 1929</em>. Mariner Books. Friedman, M. &amp; Schwartz, A.J. (1963). <em>A Monetary History of the United States</em>. Princeton University Press.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>When Too Many Owners Ruin Everything: The Tragedy of the Anticommons (反公地悲劇)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/US_Patent_cover_%28US_Patent_5%2C860%2C492%29.jpg" alt="Cover of a US patent document" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Overlapping patents (專利) can block valuable innovation from ever reaching the market. Credit: <a href="https://en.wikipedia.org/wiki/Tragedy_of_the_anticommons" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Life-saving gene therapies and diagnostic tests have sat undeveloped for years because commercialising them required licensing dozens of separate, overlapping patents (專利) held by different universities and companies &mdash; each individual patent holder able to block the entire product even if every other license was secured.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Legal scholar Michael Heller (邁克爾&middot;赫勒) coined &ldquo;tragedy of the anticommons&rdquo; (反公地悲劇) in 1998, arguing that when too many parties each hold a right to exclude others from a single resource, the resource gets underused or never developed at all &mdash; the mirror image of Garrett Hardin&rsquo;s more famous &ldquo;tragedy of the commons.&rdquo;</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Standard property theory assumes clearer, more numerous property rights (產權) improve efficiency by rewarding innovation; instead, fragmented rights over the same resource &mdash; as in biomedical patent thickets (專利叢林) &mdash; can produce paralysis, with genuinely valuable projects abandoned because negotiating with every rights-holder costs more than the project is worth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Patent pools (專利池), compulsory licensing schemes, and consolidated ownership have emerged as institutional fixes; whether such coordination mechanisms reliably solve anticommons problems at scale, or merely shift bargaining power to whoever organises the pool, remains debated among legal economists.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Sometimes the problem isn&rsquo;t too little ownership &mdash; it&rsquo;s too much of it, fragmented across too many hands to ever coordinate.</div>
+      <div class="source">&#x1F4D6; Heller, M.A. (1998). <em>Harvard Law Review</em>, 111(3). Heller, M.A. &amp; Eisenberg, R.S. (1998). <em>Science</em>, 280(5364).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 3 &mdash; When Centuries End in a Single Act:</strong> Both the Tang dynasty and the Roman Republic endured for centuries, yet each collapsed within the span of a single decisive act &mdash; a forced abdication in one case, a single naval battle in the other &mdash; rather than a slow institutional decline. Both new rulers, Zhu Wen and Octavian, had spent years quietly building the real machinery of power before formally claiming the title that made it official.</p>
+      <p><strong>So what:</strong> Political collapse often looks sudden from the outside, but by the time the formal ending arrives, the real transfer of power has usually already happened gradually, off-stage, for years.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Hubble Space Telescope press releases (STScI). Arnett et al. (1989), <em>Annual Review of Astronomy and Astrophysics</em> 27. Bionta et al. (1987), <em>Physical Review Letters</em> 58(14).</li>
+      <li><strong>Card 2:</strong> 《舊五代史&middot;梁太祖紀》；《資治通鑑》卷二百六十五；王賡武《五代時期北方中國的權力結構》。</li>
+      <li><strong>Card 3:</strong> Plutarch, <em>Life of Antony</em>. Kleiner (2005), <em>Cleopatra and Rome</em>. Britannica, &ldquo;Battle of Actium.&rdquo;</li>
+      <li><strong>Card 4:</strong> 《景德傳燈錄》卷三；《續高僧傳&middot;菩提達摩傳》；印順《中國禪宗史》。</li>
+      <li><strong>Card 5:</strong> Wollstonecraft (1792/2004), <em>A Vindication of the Rights of Woman</em>. Stanford Encyclopedia of Philosophy, &ldquo;Mary Wollstonecraft.&rdquo;</li>
+      <li><strong>Card 6:</strong> Iyengar &amp; Lepper (2000), <em>JPSP</em> 79(6). Schwartz (2004), <em>The Paradox of Choice</em>. Scheibehenne et al. (2010), <em>Journal of Consumer Research</em> 37(3).</li>
+      <li><strong>Card 7:</strong> Guengerich (2008), <em>Chemical Research in Toxicology</em> 21(1). Bailey et al. (2013), <em>CMAJ</em> 185(4).</li>
+      <li><strong>Card 8:</strong> Sesso et al. (2012), <em>JAMA</em> 308(17). Baker et al. (2022), <em>Alzheimer&rsquo;s &amp; Dementia</em> 18(11). Fortmann et al. (2013), <em>Annals of Internal Medicine</em> 159(12).</li>
+      <li><strong>Card 9:</strong> American College of Sports Medicine, <em>Guidelines for Exercise Testing and Prescription</em>. Rhea et al. (2003), <em>JSCR</em> 17(1).</li>
+      <li><strong>Card 10:</strong> Galbraith (1954/2009), <em>The Great Crash 1929</em>. Friedman &amp; Schwartz (1963), <em>A Monetary History of the United States</em>.</li>
+      <li><strong>Card 11:</strong> Heller (1998), <em>Harvard Law Review</em> 111(3). Heller &amp; Eisenberg (1998), <em>Science</em> 280(5364).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-08 (backfilled 2026-07-14): SN 1987A &bull; 朱溫篡唐／五代十國開端 &bull; Battle of Actium 31 BCE &bull; 菩提達摩 &bull; Mary Wollstonecraft / A Vindication of the Rights of Woman &bull; Choice Overload / Paradox of Choice &bull; Cytochrome P450 &bull; Multivitamins &bull; Specificity Principle / SAID &bull; 1929 Wall Street Crash &bull; Tragedy of the Anticommons</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-08.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-08.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 8 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
