@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 15 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 15 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>14 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Arrokoth / New Horizons</span>New Horizons&rsquo; 2019 flyby revealed a red, two-lobed &ldquo;contact binary&rdquo; world formed by gentle collapse, not violent collision.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 胡惟庸案</span>朱元璋藉胡惟庸謀反案株連三萬人，廢除千五百年丞相制度。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Vienna</span>Sobieski&rsquo;s winged hussars broke the 1683 Ottoman siege of Vienna, reversing two centuries of advance into Europe.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 王弼「貴無論」</span>王弼二十多歲以「無」為萬物根本，早逝仍奠定千年玄學根基。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Simone de Beauvoir</span>Beauvoir argued womanhood is culturally constructed, not biologically fixed, founding existentialist feminism.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Confirmation Bias</span>Wason&rsquo;s 1960 card test showed people instinctively seek evidence confirming beliefs, not evidence that could disprove them.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; RAAS</span>A hormone cascade from kidney to lungs to adrenal glands quietly raises blood pressure by narrowing vessels and retaining sodium.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Ice Baths</span>Cold-water immersion eases soreness short-term, but a 2015 trial found it blunts long-term muscle growth and strength gains.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Tendon Adaptation</span>Chronic tendon pain heals better with progressive loading, like Alfredson&rsquo;s eccentric heel-drops, than with complete rest.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Fama-French Model</span>A Nobel-winning model showed size and value factors, not pure skill, explain much of a fund manager&rsquo;s apparent outperformance.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Secular Stagnation</span>Interest rates stayed puzzlingly low for a decade after 2008, reviving a 1938 theory of chronic excess savings.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A Single Pixel of Light: Voyager 1&rsquo;s Pale Blue Dot (暗淡藍點)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1990, a spacecraft already leaving the solar system turned its camera around and took one last photograph of Earth from 6 billion kilometres away. In that image, Earth is a single pixel less than the width of a human hair held at arm&rsquo;s length. Why do you think anyone would ask for a picture that small?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Pale_Blue_Dot.png" alt="Earth appears as a tiny pale blue dot suspended in a beam of scattered sunlight, photographed by Voyager 1" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Pale Blue Dot (暗淡藍點): Earth as a single pixel, photographed by Voyager 1 (航海家一號) on 14 February 1990 from 6 billion km away. Credit: <a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Wikimedia Commons / NASA</a></div>
+      </div>
+      <p>By 1990, Voyager 1 (航海家一號) had completed its main mission &mdash; flybys of Jupiter (木星) and Saturn (土星) &mdash; and was coasting toward interstellar space with its cameras due to be shut off permanently to save power. Astronomer Carl Sagan (卡爾&middot;薩根), a member of the mission&rsquo;s imaging team, pushed for one final act before the cameras went dark: turn the spacecraft around and photograph Earth (地球) from the edge of the solar system. Engineers worried the manoeuvre risked pointing the camera near the Sun (太陽) and burning its sensor, but on 14 February 1990, NASA (美國太空總署) approved the shot.</p>
+      <p>The resulting image shows Earth as a fraction of a single pixel, caught inside a stray band of sunlight scattered through the camera&rsquo;s optics &mdash; not by design, simply an accident of the light hitting the lens at that angle. At 6 billion kilometres, Earth carries no visible detail whatsoever: no cities, no coastlines, no sign that anything living exists there at all. It is, quite literally, the entire visible history of human civilisation reduced to less than a single pixel of light.</p>
+      <p>Sagan later wrote the passage that made the photograph famous, describing Earth as &ldquo;a mote of dust suspended in a sunbeam&rdquo; and arguing that every war, empire, and human triumph or tragedy had unfolded on that single point of light. The photograph carried no new scientific data about Earth itself; its value was entirely perspectival &mdash; a deliberate act of cosmic humility engineered by scientists who wanted a picture, not a measurement. Voyager 1 remains humanity&rsquo;s most distant object, now over 24 billion kilometres away and still transmitting.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most famous photo of Earth ever taken shows no visible detail at all &mdash; its power comes entirely from distance, not resolution.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why was the Pale Blue Dot photograph scientifically almost meaningless, yet culturally so significant?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It carried essentially no new scientific data about Earth &mdash; at that distance Earth showed no visible detail. Its significance was purely perspectival: Carl Sagan requested it deliberately to show how small and fragile the entire human story looks from 6 billion kilometres away.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA Voyager mission archives. Sagan, C. (1994). <em>Pale Blue Dot: A Vision of the Human Future in Space</em>. Random House.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>解剖屍體，改寫醫學：杉田玄白與《解体新書》的蘭學革命</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">假如你是江戶時代的醫師，親眼目睹刑場屍體解剖，發現眼前所見竟與一本看不懂文字的荷蘭醫書圖繪完全吻合，而你手上完全沒有荷蘭語詞典可用，你會如何著手翻譯這本書？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>杉田玄白（若狹小濱藩醫）、前野良澤（精通荷蘭語的蘭學者）、中川淳庵（同行參與翻譯）。</p>
+        <p><strong>事件：</strong>安永三年（1774年），三人耗時近四年，將荷蘭文解剖學譯本《ターヘル・アナトミア》譯成日文《解体新書》出版。</p>
+        <p><strong>時代背景：</strong>江戶幕府鎖國政策下，唯獨荷蘭商館獲准駐留長崎出島，西洋學問（蘭學）僅能經此狹小窗口緩慢傳入；當時日本傳統醫學仍以中國醫書的臟腑理論為本，與人體實際構造多有出入。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Kaitai_shinsyo01.jpg" alt="《解体新書》書影，日本首部翻譯的西洋解剖學著作" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《解体新書》（1774年）書影，日本蘭學史上劃時代的譯作。來源：<a href="https://en.wikipedia.org/wiki/Kaitai_Shinsho" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>明和八年（1771年），杉田玄白與前野良澤等人獲准前往江戶小塚原刑場，觀看一名死刑犯屍體的解剖。二人隨身帶著一本荷蘭文解剖學譯本《ターヘル・アナトミア》（原譯自德國學者庫爾姆斯的解剖圖譜），一邊對照書中精細的臟器圖繪，一邊觀看眼前實際的內臟構造，赫然發現書中所繪竟與眼前所見絲毫不差，反而與長年信奉的中國醫書臟腑之說大相逕庭。返家途中，三人當場決意：無論如何都要將這部荷蘭醫書譯成日文。</p>
+      <p>翻譯過程極其艱辛。當時全日本幾乎沒有像樣的荷蘭語詞典，前野良澤雖略通荷蘭語，卻仍常常為了一個單字，一連數月反覆推敲猜測其意；杉田玄白後來在回憶錄《蘭學事始》中形容，翻譯之初「如同無舵之船，漂於大海」，往往一夜之間僅能勉強譯出一兩行文字。三人以此種近乎盲人摸象的方式，字斟句酌，歷時近四年，終於在安永三年（1774年）將全書譯畢付梓，題為《解体新書》。</p>
+      <p>《解体新書》出版後轟動一時，不僅糾正了日本醫學界對人體構造的錯誤認知，更象徵蘭學（西洋學問）正式在日本紮根，此後緒方洪庵、福澤諭吉等蘭學者相繼而出，西方醫學、天文、兵學知識陸續經此管道傳入。這股經由荷蘭之窗緩慢累積的西學基礎，日後在黑船來航後迅速轉化為明治維新全面西化的知識底蘊，杉田玄白晚年亦因此被譽為「蘭學之父」。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Kaitai_Shinsho" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 三位沒有荷蘭語詞典的醫師，僅憑一場屍體解剖與四年苦譯，為日本打開了通往西方科學的大門。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>杉田玄白等人為何決心翻譯《ターヘル・アナトミア》這本荷蘭醫書？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他們在刑場觀看屍體解剖時，發現書中所繪的臟器圖與眼前實際構造完全吻合，卻與傳統中國醫書的臟腑之說大相逕庭，深受震撼，當場決意將這部精準的荷蘭解剖學著作譯成日文。</div>
+      </details>
+      <div class="source">&#x1F4D6; 杉田玄白《蘭學事始》；《解体新書》(1774)；沼田次郎《洋學史論考》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Thirteen Days from the Brink: The Cuban Missile Crisis (古巴飛彈危機), 1962</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A U-2 spy plane photograph reveals Soviet nuclear missiles being installed 145 kilometres from the American coast. The president&rsquo;s advisers are split between an airstrike and a blockade, either of which could trigger nuclear war. What do you think ultimately kept both sides from firing first?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> John F. Kennedy (甘迺迪), US President; Nikita Khrushchev (赫魯曉夫), Soviet (蘇聯) premier; Fidel Castro (卡斯楚), Cuban (古巴) leader; Vasili Arkhipov (瓦西里&middot;阿爾希波夫), a Soviet submarine officer.</p>
+        <p><strong>Event at stake:</strong> The Cuban Missile Crisis (古巴飛彈危機), October 1962 &mdash; thirteen days after U-2 reconnaissance revealed Soviet nuclear missile sites under construction in Cuba.</p>
+        <p><strong>Big picture:</strong> Cold War (冷戰) tensions had escalated since the failed 1961 Bay of Pigs invasion; Khrushchev sought to close the growing US missile-range gap after America had placed Jupiter (木星飛彈) missiles in Turkey (土耳其), just as Castro sought protection against another US invasion attempt.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/PGM-19A_Jupiter_missile-02.jpg" alt="A US Jupiter medium-range ballistic missile, the type stationed in Turkey and later secretly withdrawn as part of the crisis resolution" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A US Jupiter (木星飛彈) missile, the type based in Turkey whose secret withdrawal helped resolve the crisis. Credit: <a href="https://en.wikipedia.org/wiki/Cuban_Missile_Crisis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 October 1962, a US U-2 spy plane photographed Soviet medium-range ballistic missile sites under construction in Cuba, capable of striking most of the continental United States within minutes. President Kennedy convened a secret group of advisers, ExComm (國家安全會議執行委員會), who debated options ranging from a full invasion to diplomatic pressure. On 22 October, Kennedy announced a naval &ldquo;quarantine&rdquo; of Cuba on national television &mdash; deliberately avoiding the word &ldquo;blockade,&rdquo; since a blockade is legally an act of war &mdash; while Soviet ships carrying additional missile equipment steamed toward the island.</p>
+      <p>For nearly a week, the crisis edged toward catastrophe. On 27 October, a US U-2 was shot down over Cuba, killing its pilot, and separately a Soviet submarine, B-59, came under depth-charge harassment from US Navy ships unaware it carried a nuclear torpedo. Believing war had already begun, two of the submarine&rsquo;s three senior officers voted to launch it; the third, Vasili Arkhipov (瓦西里&middot;阿爾希波夫), refused to consent, a veto required under the submarine&rsquo;s own protocol, and the torpedo was never fired &mdash; a decision many historians consider the single closest moment the Cold War came to full nuclear war.</p>
+      <p>Kennedy and Khrushchev resolved the standoff through backchannel diplomacy: the Soviets would publicly withdraw their missiles from Cuba in exchange for a public US pledge not to invade the island, plus a secret condition &mdash; the quiet withdrawal of America&rsquo;s own Jupiter missiles from Turkey months later, kept hidden from the public for decades to avoid the appearance of a trade. The crisis directly led to the 1963 Moscow&ndash;Washington hotline and the Partial Nuclear Test Ban Treaty, as both superpowers sought better tools to prevent misunderstanding from triggering annihilation again.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cuban_Missile_Crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One naval officer&rsquo;s refusal to authorise a nuclear torpedo launch, not a presidential decision, may be the single reason the Cold War stayed cold.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What secret condition, hidden from the public for decades, actually helped resolve the Cuban Missile Crisis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Alongside the public Soviet withdrawal of missiles from Cuba and a US pledge not to invade, the US secretly agreed to quietly withdraw its own Jupiter missiles from Turkey months later &mdash; a concession kept hidden to avoid the appearance of a superpower trade.</div>
+      </details>
+      <div class="source">&#x1F4D6; Allison, G. (1971/1999). <em>Essence of Decision</em>. Longman. Britannica, &ldquo;Cuban Missile Crisis.&rdquo; National Security Archive, George Washington University.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「心即理」：陸九淵與鵝湖之會，理學史上最有名的一場辯論</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">兩位當代最重要的儒者受邀同台辯論治學方法：一人主張窮盡萬物之理方能致知，另一人主張本心自足、直探本心即可。你認為哪一種治學方式更容易讓普通人真正實踐？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>陸九淵（象山先生，1139&ndash;1193年）、朱熹（理學集大成者）、呂祖謙（鵝湖之會發起人）。</p>
+        <p><strong>核心思想：</strong>心即理；發明本心；易簡工夫。</p>
+        <p><strong>時代背景：</strong>南宋理學正值鼎盛，朱熹主張「格物致知」，須廣泛窮究萬事萬物之理方能通達天理，此法周詳嚴謹卻也繁瑣費時；陸九淵則另闢蹊徑，認為天理本已具足於人心，不假外求。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Chiu_Yuan.jpg" alt="陸九淵畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陸九淵（象山先生）畫像，心學開創者，後啟王陽明心學。來源：<a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>陸九淵自幼穎悟，相傳三、四歲時便曾追問父親「天地何所窮際」，苦思終夜不能寐。他成年後提出「心即理」的核心主張：宇宙間的天理並非外在於人、須逐一窮究萬物方能求得，而是本已完整具足於每個人的本心之中，「宇宙便是吾心，吾心便是宇宙」。求學求道之要，不在於廣讀博覽、逐物窮理，而在於「發明本心」——去除私欲遮蔽，直接彰顯本心原有的良知良能。</p>
+      <p>淳熙二年（1175年），呂祖謙有感於朱熹與陸九淵治學路徑分歧，特意邀請二人於江西鵝湖寺會面辯論，史稱「鵝湖之會」。朱熹主張為學須先博覽群書、格物窮理，循序漸進，方能貫通天理，批評陸九淵之說過於簡略，恐流於空談；陸九淵則反譏朱熹治學支離破碎，捨本逐末，主張自己的「易簡工夫」直探本心，終久自能通達，反而更為根本切要。二人辯論多日，各執一詞，未能取得共識，然而此番交鋒卻成為儒學史上路徑之爭的經典範例，「支離」與「易簡」自此成為後世評價二人學說的標誌性用語。</p>
+      <p>陸九淵雖未能在鵝湖之會說服朱熹，其「心即理」的心學路徑卻未因此中斷，反而在其身後三百餘年由明代王陽明繼承發揚，發展出「致良知」、「知行合一」等更為完整的心學體系，與朱熹一脈的程朱理學分庭抗禮，並稱「陸王心學」與「程朱理學」，共同構成宋明理學兩大主要流派，深刻影響此後數百年東亞儒學的發展方向。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 陸九淵主張天理本在人心，求道之要不在博覽萬物，而在去除私欲、彰顯本心。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>鵝湖之會上，朱熹與陸九淵二人的治學方法有何根本分歧？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱熹主張格物致知，須廣泛窮究萬事萬物之理方能循序漸進通達天理；陸九淵則主張心即理，天理本已具足於本心，只須發明本心、去除私欲遮蔽即可，無須逐物外求，二人因此各執一詞，未能取得共識。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《象山先生全集》；《宋元學案&middot;象山學案》；馮友蘭《中國哲學史新編》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;One Must Imagine Sisyphus Happy&rdquo;: Albert Camus (卡繆) and the Absurd</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher opens his most famous essay by declaring that the only truly serious philosophical question is whether life is worth living at all. He concludes we should imagine a man condemned to roll a boulder uphill forever as genuinely happy. What do you think could possibly justify that conclusion?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Albert Camus (卡繆, 1913&ndash;1960), French-Algerian (法屬阿爾及利亞) writer and philosopher; Jean-Paul Sartre (讓-保羅&middot;沙特), fellow existentialist and later estranged rival; Sisyphus (薛西弗斯), the figure from Greek mythology (希臘神話) condemned eternally to push a boulder uphill.</p>
+        <p><strong>Core ideas:</strong> The Absurd (荒謬); revolt (反抗) as the proper response to meaninglessness; &ldquo;one must imagine Sisyphus happy.&rdquo;</p>
+        <p><strong>Big picture:</strong> Written in 1942 under Nazi occupation of France, at a moment when traditional religious and rationalist sources of life&rsquo;s meaning had been shattered by war, and when Camus, unlike Sartre, refused to accept any imported system &mdash; religious or philosophical &mdash; as an escape from the problem.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Albert_Camus%2C_gagnant_de_prix_Nobel%2C_portrait_en_buste%2C_pos%C3%A9_au_bureau%2C_faisant_face_%C3%A0_gauche%2C_cigarette_de_tabagisme.jpg" alt="Portrait photograph of Albert Camus" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Albert Camus (卡繆), author of <em>The Myth of Sisyphus</em> (薛西弗斯的神話, 1942). Credit: <a href="https://en.wikipedia.org/wiki/Albert_Camus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Camus opens <em>The Myth of Sisyphus</em> (薛西弗斯的神話) with a blunt claim: the only truly serious philosophical problem is suicide (自殺) &mdash; whether life is worth living once we admit the universe offers no inherent meaning or justification for our existence. He names this confrontation the Absurd (荒謬): not a property of the world itself, nor of the human mind alone, but the collision between our persistent hunger for meaning and a universe that simply does not answer. Unlike Sartre, Camus rejected being called an existentialist, insisting his project began from this specific tension rather than from any grand theory of freedom or being.</p>
+      <p>Camus considered two common escapes from the Absurd both dishonest. &ldquo;Philosophical suicide&rdquo; meant leaping into religious faith or abstract rationalist systems that manufacture meaning the universe never actually supplied &mdash; Kierkegaard&rsquo;s leap of faith (信仰之躍) was his prime example. Literal suicide simply ended the confrontation rather than resolving it. Camus insisted on a third path: revolt (反抗) &mdash; living fully inside the tension without resolving it, refusing both false comfort and despair, treating the absurd condition itself as something to be lived against rather than escaped from.</p>
+      <p>To illustrate, Camus retells the myth of Sisyphus (薛西弗斯), condemned by the gods to push a boulder up a mountain for eternity, only for it to roll back down each time he nears the top &mdash; the perfect image of futile, repetitive labour. Camus argues Sisyphus becomes genuinely happy not by escaping his punishment but by fully owning it: in his lucid awareness of his fate, without illusion or hope of change, he becomes stronger than his rock. Camus, who died in a car accident in 1960 shortly after winning the 1957 Nobel Prize in Literature, intended the essay as a manual for living without appeal to false comfort.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Albert_Camus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Camus&rsquo;s answer to a meaningless universe wasn&rsquo;t despair or false comfort &mdash; it was fully, lucidly owning your fate without illusion.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two responses to the Absurd did Camus reject as dishonest, and what did he propose instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He rejected &ldquo;philosophical suicide&rdquo; (escaping into religious or rationalist systems that manufacture meaning) and literal suicide (ending the confrontation). Instead he proposed revolt: living fully and lucidly inside the tension between our hunger for meaning and a silent universe, without resolving or escaping it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Camus, A. (1942/1955). <em>The Myth of Sisyphus</em> (trans. O&rsquo;Brien). Vintage. Stanford Encyclopedia of Philosophy, &ldquo;Albert Camus.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why the Pre-Checked Box Decides So Much: The Default Effect (預設選項效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two neighbouring European countries have nearly identical cultures and healthcare systems, yet one has a 12% organ donation consent rate and the other has 99.9%. Before reading further, what single administrative detail do you think could possibly explain an 88-point gap like that?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Richard_Thaler_Chatham.jpg" alt="Portrait photograph of economist Richard Thaler" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Richard Thaler (理查&middot;塞勒), Nobel laureate and co-author of <em>Nudge</em>, whose work popularised the default effect. Credit: <a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a landmark 2003 <em>Science</em> paper, Eric Johnson (艾力&middot;約翰遜) and Daniel Goldstein (丹尼爾&middot;戈爾茨坦) compared organ donation (器官捐贈) consent rates across European countries with otherwise similar populations and healthcare systems. Countries where citizens had to actively opt in to become donors &mdash; ticking a box to volunteer &mdash; saw consent rates around 15&ndash;20%. Countries where citizens were automatically enrolled as donors unless they actively opted out saw consent rates above 99%. The only meaningful difference was which choice required effort to select.</p>
+      <p>This is the default effect (預設選項效應): whichever option is pre-selected tends to stick, regardless of how easy the alternative is to choose. Several mechanisms combine to produce it &mdash; effort avoidance (choosing to change something takes energy most people don&rsquo;t spend), implied endorsement (people assume institutions set defaults that are sensible or recommended), and loss aversion (opting out can feel like actively giving something up, even when the default was never a deliberate personal choice at all).</p>
+      <p>Richard Thaler (理查&middot;塞勒) and Cass Sunstein (卡斯&middot;桑思坦) built their 2008 book <em>Nudge</em> around this finding, coining &ldquo;choice architecture&rdquo; (選擇設計) and &ldquo;libertarian paternalism&rdquo; (自由家長主義) &mdash; the idea that defaults should be set toward whatever outcome serves people&rsquo;s own long-term interests, such as automatic enrolment in retirement savings plans, while still preserving the freedom to opt out entirely. Critics note the same tool that nudges people toward saving money can just as easily be used to nudge them toward a company&rsquo;s preferred subscription or data-sharing setting &mdash; the effect is morally neutral; its use is not.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Whoever controls the default option controls the outcome for most people &mdash; check what box is pre-ticked before you assume it was your free choice.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Johnson &amp; Goldstein&rsquo;s study, what was the actual difference between countries with very high versus very low organ donation consent rates?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It wasn&rsquo;t culture or attitudes toward donation &mdash; it was whether citizens were automatically enrolled as donors unless they opted out (over 99% consent), versus having to actively opt in to become one (only 15&ndash;20% consent).</div>
+      </details>
+      <div class="source">&#x1F4D6; Johnson, E.J. &amp; Goldstein, D. (2003). <em>Science</em>, 302(5649). Thaler, R.H. &amp; Sunstein, C.R. (2008). <em>Nudge</em>. Yale University Press.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Shiver When You&rsquo;re Burning Up: The Hidden Logic of Fever (發燒)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your body temperature is rising toward 39&deg;C, yet you feel freezing cold and start shivering under a blanket. If your core temperature is already elevated, why would your brain make you feel cold instead of hot?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Symptoms-fever.jpg" alt="Illustration depicting common symptoms of fever, including chills and shivering" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Common symptoms of fever (發燒), including the chills that occur while the body&rsquo;s temperature set point is rising. Credit: <a href="https://en.wikipedia.org/wiki/Fever" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Your hypothalamus (下視丘), a small structure deep in the brain, works like a thermostat, normally holding core body temperature (體溫) near 37&deg;C. During infection, immune cells release signalling proteins called pyrogens (致熱原) &mdash; interleukin-1, interleukin-6, and tumour necrosis factor among them &mdash; which trigger production of prostaglandin E2 (前列腺素E2) in the hypothalamus. Prostaglandin E2 resets the thermostat&rsquo;s target upward, to perhaps 39&deg;C instead of 37&deg;C, even though your actual body temperature hasn&rsquo;t changed yet at all.</p>
+      <p>This is precisely why fever feels cold at its onset: your brain now believes 37&deg;C is too low relative to its new 39&deg;C target, so it triggers the same responses it would use in genuine cold &mdash; shivering (寒顫) to generate heat through muscle contraction, and vasoconstriction (血管收縮) in the skin to reduce heat loss, which is also why skin looks pale during chills. Once body temperature actually climbs to match the new, higher set point, the cold sensation disappears; when the infection resolves and the set point drops back to 37&deg;C, the reverse happens &mdash; sweating (排汗) kicks in to shed the now-excess heat, historically called the &ldquo;crisis&rdquo; phase of a fever.</p>
+      <p>Fever is not simply a malfunction; some pathogens (病原體) reproduce more slowly at elevated temperatures, and several immune functions, including white blood cell mobility, actually improve at higher body temperature. This is why doctors increasingly caution against reflexively suppressing every mild fever with medication like ibuprofen or aspirin, both of which work by blocking the same prostaglandin pathway that raises the set point &mdash; useful for comfort during a high or prolonged fever, but potentially removing a modest evolved defence during a mild one.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fever" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Chills during a fever aren&rsquo;t your body malfunctioning &mdash; they&rsquo;re your brain accurately chasing a thermostat setting it just raised on purpose.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does a rising fever make you feel cold and shiver, even though your body temperature is actually going up?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Pyrogens released during infection cause the hypothalamus to raise its temperature &ldquo;set point&rdquo; above your actual current temperature. Your brain then treats your normal 37&deg;C as too cold relative to the new target, triggering shivering and vasoconstriction to generate and conserve heat until you catch up to the new setting.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guyton, A.C. &amp; Hall, J.E. <em>Textbook of Medical Physiology</em>. Evans, S.S., Repasky, E.A. &amp; Fisher, D.T. (2015). <em>Nature Reviews Immunology</em>, 15(6).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Your Liver Already Does This Job: The &ldquo;Detox&rdquo; Juice Cleanse Myth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A three-day juice cleanse promises to &ldquo;flush toxins&rdquo; from your body. Before reading on, can you name a single specific toxin these products claim to remove, and which organ was already removing it before you started the cleanse?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Anatomy_Abdomen_Tiesworks.jpg" alt="Anatomical illustration of the human liver and surrounding abdominal organs" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The liver (肝臟), the body&rsquo;s actual round-the-clock detoxification organ. Credit: <a href="https://en.wikipedia.org/wiki/Liver" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>&ldquo;Detox&rdquo; teas, juice cleanses, and supplements are marketed on a simple premise: modern life fills your body with toxins that need active flushing out. In practice, marketers almost never name a specific toxin, measure it before and after, or explain by what mechanism their product removes it &mdash; a red flag common to nearly every commercial detox product. Meanwhile, your liver (肝臟) and kidneys (腎臟) already perform this exact job continuously, using enzyme systems like cytochrome P450 (細胞色素P450) to chemically break down foreign compounds and drugs, and glutathione conjugation to neutralise and excrete them, entirely without any juice.</p>
+      <p>What detox products often do produce is a laxative or diuretic effect &mdash; frequent bowel movements or urination that users mistake for &ldquo;toxins leaving the body,&rdquo; when it&rsquo;s simply fluid loss. Very low-calorie juice cleanses can also cause real problems: blood sugar swings, electrolyte imbalances, and muscle breakdown from inadequate protein over several days, the opposite of a health benefit. Regulatory bodies including the US Federal Trade Commission have repeatedly settled cases against detox tea and supplement companies for unsubstantiated health claims, several paying multimillion-dollar penalties.</p>
+      <p>None of this means diet quality is irrelevant &mdash; reducing alcohol, added sugar, and ultra-processed food genuinely reduces the burden on liver and kidney function over time. But that benefit comes from sustained ordinary habits, not a three-day juice fast, and your organs were never waiting for a cleanse product to start working in the first place; they have been filtering your blood every minute since before you were born.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Liver" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If a detox product can&rsquo;t name the toxin it removes or measure it leaving your body, it isn&rsquo;t doing anything your liver wasn&rsquo;t already doing for free.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Which two organs already perform continuous detoxification, and by what mechanism does the liver do it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The liver and kidneys. The liver uses cytochrome P450 enzymes to chemically break down foreign compounds and drugs, then glutathione conjugation to neutralise and prepare them for excretion &mdash; a continuous process that requires no juice cleanse or supplement to function.</div>
+      </details>
+      <div class="source">&#x1F4D6; US Federal Trade Commission enforcement actions, detox product settlements. Klein, A.V. &amp; Kiat, H. (2015). <em>Journal of Human Nutrition and Dietetics</em>, 28(6).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Breaking Up a Set to Lift Heavier: The Case for Cluster Sets</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Instead of doing five reps back to back, what if you rested 15&ndash;20 seconds after every single rep, then continued? Do you think that changes how much weight you can lift, or how well the set builds strength and power?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="People performing resistance training exercises in a gym setting" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Resistance training (阻力訓練), where cluster-set rest redistribution is applied to preserve power output under load. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A traditional set asks you to complete all your reps in one continuous, fatiguing block &mdash; by the final rep of a heavy set of five, bar speed and technical form have both usually degraded noticeably compared to the first rep. Cluster sets (集群組訓練) restructure this: instead of five continuous reps, the lifter performs each rep individually, resting 15&ndash;20 seconds between them, then repeats for the prescribed total. The same total work gets done, but spread across brief pauses that allow partial recovery of phosphocreatine (磷酸肌酸), the muscle&rsquo;s fastest energy source.</p>
+      <p>Research by G. Gregory Haff and later reviews by Christopher Tufano and colleagues found cluster sets let lifters maintain significantly higher bar velocity and power output across a set, compared to traditional continuous sets at the same load, because less fatigue accumulates between each individual rep. This matters most for power- and strength-focused training, such as heavy squats, deadlifts, or Olympic lifting variations, where technical precision under near-maximal load determines both performance and injury risk &mdash; a rep performed with degraded form under fatigue provides less useful training stimulus and more risk than one performed fresh.</p>
+      <p>Cluster sets aren&rsquo;t automatically superior for every goal: for pure hypertrophy work, where accumulated metabolic fatigue and time under tension matter more than peak power, traditional continuous sets often perform just as well or better. The technique earns its place specifically in strength and power phases of a programme, and in velocity-based training where maintaining bar speed above a target threshold is itself the goal, rather than as a wholesale replacement for standard set structures.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Resting 15&ndash;20 seconds between individual reps of a heavy set can let you move more weight, faster, with better form than grinding through it continuously.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the core mechanism that lets cluster sets preserve bar speed and power compared to traditional continuous sets?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Redistributing brief 15&ndash;20 second rest periods between individual reps, rather than performing them continuously, allows partial replenishment of phosphocreatine, the muscle&rsquo;s fastest energy source &mdash; reducing the fatigue that would otherwise degrade bar speed and power on later reps.</div>
+      </details>
+      <div class="source">&#x1F4D6; Haff, G.G. et al. (2003). <em>Journal of Strength and Conditioning Research</em>, 17(1). Tufano, J.J. et al. (2017). <em>Sports Medicine</em>, 47(11).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Company That Booked Profits Before It Earned Them: The Enron (安隆) Collapse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A company&rsquo;s stock trades near $90 and Fortune magazine names it &ldquo;America&rsquo;s Most Innovative Company&rdquo; six years running. Within a year, its stock is worth pennies and its auditor no longer exists. What kind of accounting trick do you think could hide a collapse that severe for so long?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Logo_of_Enron_Corporation_%281997%29.svg/500px-Logo_of_Enron_Corporation_%281997%29.svg.png" alt="Enron corporate logo" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Enron (安隆) logo. Once America&rsquo;s seventh-largest company by revenue, it collapsed into bankruptcy within weeks in late 2001. Credit: <a href="https://en.wikipedia.org/wiki/Enron_scandal" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Under CEO Jeffrey Skilling (傑佛瑞&middot;史基林), Enron (安隆) adopted mark-to-market accounting (按市值計價會計法) for its energy-trading contracts, allowing the company to book projected future profits from long-term deals immediately, rather than as cash actually arrived over years. This let Enron report soaring earnings on paper for contracts that might never generate the projected cash at all, with no accounting requirement to later reverse the booked profit if reality fell short of the original projection.</p>
+      <p>CFO Andrew Fastow (安德魯&middot;法斯托) then built a network of off-balance-sheet special purpose entities (特殊目的實體), with names like the LJM partnerships, structured specifically to move Enron&rsquo;s mounting debt and underperforming assets off its official books, keeping the company&rsquo;s reported financial health looking pristine to investors and rating agencies alike. Auditor Arthur Andersen (安達信), one of the world&rsquo;s five largest accounting firms, signed off on these structures for years, collecting lucrative consulting fees from the very client it was supposed to be independently scrutinising.</p>
+      <p>When a Wall Street Journal investigation and short-seller scrutiny in 2001 finally exposed the scale of the hidden debt, Enron&rsquo;s stock collapsed from roughly $90 to under $1 within months, and the company filed for what was then history&rsquo;s largest bankruptcy. Arthur Andersen was convicted of obstruction of justice for shredding Enron-related documents, lost its licence to audit public companies, and ceased to exist within a year, taking 85,000 jobs worldwide with it. Congress responded in 2002 with the Sarbanes-Oxley Act (沙賓法案), imposing strict new financial reporting and auditor-independence requirements still in force today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Enron_scandal" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; When a company books tomorrow&rsquo;s projected profit as today&rsquo;s earnings, ask what happens to the books if tomorrow doesn&rsquo;t arrive as planned.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What accounting method allowed Enron to report soaring profits years before the underlying cash ever actually arrived?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mark-to-market accounting let Enron immediately book the entire projected future profit of long-term energy contracts as current earnings, rather than recognising revenue as cash actually came in over the life of the deal &mdash; with no requirement to reverse the booked profit if the projection later proved wrong.</div>
+      </details>
+      <div class="source">&#x1F4D6; McLean, B. &amp; Elkind, P. (2003). <em>The Smartest Guys in the Room</em>. Portfolio. US Securities and Exchange Commission, Enron litigation release archive.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Countries Get Stuck Halfway Rich: The Middle-Income Trap (中等收入陷阱)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/GDP_history_Since_1950_~_2016.png" alt="Chart showing GDP growth trajectories of several economies from 1950 to 2016" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">GDP growth trajectories since 1950 &mdash; South Korea&rsquo;s escape from middle-income status contrasts sharply with economies that stalled. Credit: <a href="https://en.wikipedia.org/wiki/Miracle_on_the_Han_River" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 1980s, Brazil, Malaysia, and Thailand have hovered near middle-income status for decades without breaking into high-income ranks, while South Korea (韓國), Taiwan (臺灣), and Singapore (新加坡) &mdash; starting from similar or lower income levels &mdash; converged fully to advanced-economy status within a generation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The World Bank&rsquo;s Indermit Gill and Homi Kharas coined &ldquo;middle-income trap&rdquo; (中等收入陷阱) in 2007: countries grow quickly on cheap labour and imported technology, then stall once wages rise past low-cost manufacturing but their institutions and innovation capacity aren&rsquo;t yet strong enough to compete at the high-value frontier.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The theory doesn&rsquo;t explain why some countries with comparable starting conditions, natural resources, and even similar authoritarian governance escaped decisively (the Four Asian Tigers, 亞洲四小龍) while others facing near-identical structural pressures remained stuck for over 40 years.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Dani Rodrik and others argue the &ldquo;trap&rdquo; may partly be a statistical artefact of ordinary growth deceleration rather than a distinct phenomenon; institutionalists instead credit education investment and export-discipline policy specifically &mdash; whether the trap is a real structural threshold remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Cheap labour can get an economy to middle income; escaping it seems to require institutions and innovation capacity that cheap labour alone never builds.</div>
+      <div class="source">&#x1F4D6; Gill, I. &amp; Kharas, H. (2007). <em>An East Asian Renaissance</em>. World Bank. Rodrik, D. (2013). <em>NBER Working Paper</em>. Eichengreen, B. et al. (2013). <em>Asian Economic Papers</em>.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 9 &mdash; Structure Beats Willpower:</strong> The default effect and cluster-set training share a hidden logic: both show how quietly restructuring the choices or the pauses already built into a process, rather than relying on someone&rsquo;s willpower or effort in the moment, produces dramatically better outcomes &mdash; nearly universal organ donation consent, or heavier lifts with better form.</p>
+      <p><strong>So what:</strong> When you want a better outcome from yourself or a system, look first at what&rsquo;s pre-set or automatic, not just at what you&rsquo;re consciously trying harder to do.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA Voyager mission archives. Sagan, C. (1994), <em>Pale Blue Dot: A Vision of the Human Future in Space</em>.</li>
+      <li><strong>Card 2:</strong> 杉田玄白《蘭學事始》；《解体新書》(1774)；沼田次郎《洋學史論考》。</li>
+      <li><strong>Card 3:</strong> Allison, G. (1971/1999), <em>Essence of Decision</em>. Britannica, &ldquo;Cuban Missile Crisis.&rdquo; National Security Archive, GWU.</li>
+      <li><strong>Card 4:</strong> 《象山先生全集》；《宋元學案&middot;象山學案》；馮友蘭《中國哲學史新編》。</li>
+      <li><strong>Card 5:</strong> Camus, A. (1942/1955), <em>The Myth of Sisyphus</em>. Stanford Encyclopedia of Philosophy, &ldquo;Albert Camus.&rdquo;</li>
+      <li><strong>Card 6:</strong> Johnson, E.J. &amp; Goldstein, D. (2003), <em>Science</em> 302(5649). Thaler, R.H. &amp; Sunstein, C.R. (2008), <em>Nudge</em>.</li>
+      <li><strong>Card 7:</strong> Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Evans, Repasky &amp; Fisher (2015), <em>Nature Reviews Immunology</em> 15(6).</li>
+      <li><strong>Card 8:</strong> US Federal Trade Commission enforcement actions. Klein, A.V. &amp; Kiat, H. (2015), <em>Journal of Human Nutrition and Dietetics</em> 28(6).</li>
+      <li><strong>Card 9:</strong> Haff, G.G. et al. (2003), <em>Journal of Strength and Conditioning Research</em> 17(1). Tufano, J.J. et al. (2017), <em>Sports Medicine</em> 47(11).</li>
+      <li><strong>Card 10:</strong> McLean, B. &amp; Elkind, P. (2003), <em>The Smartest Guys in the Room</em>. SEC Enron litigation release archive.</li>
+      <li><strong>Card 11:</strong> Gill, I. &amp; Kharas, H. (2007), <em>An East Asian Renaissance</em>, World Bank. Rodrik, D. (2013), NBER Working Paper.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-15: Pale Blue Dot / Voyager 1 &bull; 解体新書 &bull; Cuban Missile Crisis &bull; 陸九淵「心即理」 &bull; Albert Camus / The Myth of Sisyphus &bull; Default Effect &bull; Fever mechanism &bull; Detox Juice Cleanse Myth &bull; Cluster Sets &bull; Enron Collapse &bull; Middle-Income Trap</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-15.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-15.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 15 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
