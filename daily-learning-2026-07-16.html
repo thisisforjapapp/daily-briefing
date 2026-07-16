@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 16 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 16 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>15 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Pale Blue Dot</span>Voyager 1&rsquo;s 1990 photo showed Earth as one pixel from 6 billion km, inspiring Sagan&rsquo;s famous reflection.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 解体新書／杉田玄白</span>杉田玄白等人憑一場解剖與四年苦譯，為日本開啟蘭學之門。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Cuban Missile Crisis</span>One Soviet officer&rsquo;s refusal to launch a nuclear torpedo may have kept the Cold War from turning hot in 1962.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 陸九淵「心即理」</span>陸九淵主張天理本在人心，鵝湖之會與朱熹論學未能取得共識。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Albert Camus</span>Camus argued we should imagine Sisyphus happy &mdash; fully, lucidly owning an absurd fate rather than escaping it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Default Effect</span>Whichever option is pre-selected as the default tends to stick, explaining huge gaps in organ donation rates.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Fever Mechanism</span>Chills during a fever happen because the brain raises its temperature &ldquo;set point,&rdquo; making normal feel too cold.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Detox Juice Cleanse Myth</span>The liver and kidneys already detoxify continuously &mdash; juice cleanses mostly just cause fluid loss, not toxin removal.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Cluster Sets</span>Resting 15&ndash;20 seconds between individual reps preserves power and bar speed better than continuous heavy sets.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Enron Collapse</span>Enron used mark-to-market accounting to book future profits as current earnings, collapsing into bankruptcy within months once exposed.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Middle-Income Trap</span>Cheap labour explains early growth, but escaping middle-income status seems to require strong institutions and innovation capacity.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A Rubber Duck in Deep Space: Rosetta&rsquo;s Landing on Comet 67P (67P彗星)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2014, after a ten-year journey, a spacecraft finally reaches its target: a comet shaped unmistakably like a rubber duck, two lobes joined by a narrow neck. It then drops a small robot onto the comet&rsquo;s surface &mdash; the first landing ever attempted on one. What do you think could go wrong trying to land on an object with almost no gravity?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Comet_67P_True_color.jpg" alt="Comet 67P/Churyumov-Gerasimenko, showing its distinctive two-lobed rubber-duck shape, photographed by the Rosetta spacecraft" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Comet 67P/Churyumov&ndash;Gerasimenko (67P彗星), photographed by ESA&rsquo;s Rosetta spacecraft (羅塞塔號). Credit: <a href="https://en.wikipedia.org/wiki/67P/Churyumov%E2%80%93Gerasimenko" target="_blank" rel="noopener">Wikimedia Commons / ESA</a></div>
+      </div>
+      <p>The European Space Agency (歐洲太空總署) launched Rosetta (羅塞塔號) in 2004 on a ten-year journey to comet 67P/Churyumov&ndash;Gerasimenko (67P彗星), using multiple gravity-assist flybys of Earth and Mars to build up speed. When Rosetta finally arrived in August 2014, the comet turned out to look nothing like the tidy snowball many expected: two distinct lobes joined by a narrow neck, giving it an unmistakable &ldquo;rubber duck&rdquo; silhouette, most likely formed when two separate icy bodies drifted together and merged gently in the early solar system (太陽系) rather than colliding violently.</p>
+      <p>On 12 November 2014, Rosetta released its lander, Philae (菲萊號), for the first-ever controlled landing on a comet nucleus. The plan called for harpoons to fire on touchdown, anchoring Philae to the comet&rsquo;s almost negligible gravity, but the harpoons failed to deploy. Philae bounced twice across the surface, drifting for nearly two hours before settling in a shadowed crevice later nicknamed Abydos, where reduced sunlight left its solar panels too starved of power for a long mission &mdash; though it still transmitted roughly 60 hours of surface data before falling silent.</p>
+      <p>Over the following two years, Rosetta orbited the comet as it swung past the Sun, watching jets of gas and dust erupt from warming ice. Instruments detected organic molecules, including the amino acid glycine (甘胺酸) and phosphorus, alongside a startling result: the ratio of deuterium to hydrogen in the comet&rsquo;s water differed significantly from Earth&rsquo;s oceans, challenging the once-popular theory that comets like 67P delivered most of Earth&rsquo;s water. Rosetta ended its mission on 30 September 2016 with a deliberate, gentle crash onto the comet&rsquo;s surface.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/67P/Churyumov%E2%80%93Gerasimenko" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first-ever comet landing bounced twice and settled in shadow &mdash; and still returned data that upended a leading theory of Earth&rsquo;s water.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What scientific finding from Rosetta&rsquo;s data challenged the theory that comets delivered most of Earth&rsquo;s water?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The ratio of deuterium to hydrogen in comet 67P&rsquo;s water was significantly different from the ratio found in Earth&rsquo;s oceans, suggesting comets like 67P were not the primary source of the water now filling Earth&rsquo;s seas.</div>
+      </details>
+      <div class="source">&#x1F4D6; European Space Agency, Rosetta mission archive. Altwegg, K. et al. (2015). <em>Science</em>, 347(6220).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>頭魚宴上的沉默：完顏阿骨打與金滅遼的十一年</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">遼國皇帝在冰面設宴，命各部族首領輪流起舞助興，唯獨一名女真首領拒不從命，皇帝雖動了殺機卻未動手。你認為這一次的沉默拒舞，日後會演變成甚麼樣的後果？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>完顏阿骨打（金太祖）、遼天祚帝耶律延禧。</p>
+        <p><strong>事件：</strong>女真族起兵滅遼，1114年寧江州之戰至1125年遼亡，前後歷時十一年。</p>
+        <p><strong>時代背景：</strong>遼朝統治漠北與東北近二百年，天祚帝耽於畋獵、疏於政事，對女真諸部強索「海東青」等貢物，苛索日甚，女真部族積怨已久，終在完顏阿骨打領導下正式起兵反遼。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Wanggiyan_Aguda.jpg" alt="完顏阿骨打（金太祖）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">完顏阿骨打（金太祖）畫像，金朝開國皇帝。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Jin" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>遼天祚帝在位期間，每逢初春必至混同江冰面設「頭魚宴」，命女真等部族首領依次起舞助興。相傳某年宴上，天祚帝點名完顏阿骨打起舞，阿骨打卻直言拒絕，滿座皆驚。天祚帝雖一度動了殺機，卻礙於當時尚無明顯反狀，終究未曾發作，此事遂成為日後女真反遼的著名前奏，象徵長年積壓的貢賦苛索與部族尊嚴衝突，終將一發不可收拾。</p>
+      <p>天慶四年（1114年），阿骨打正式起兵，於寧江州之戰以區區數千兵力大敗遼軍主力，聲勢自此大振。次年（1115年），阿骨打於會寧稱帝，國號大金，建元收國，「金」字之取義，正在於壓倒遼朝——遼本意為「鑌鐵」，阿骨打取「金不變不壞」之意，宣示女真政權足以壓倒遼朝的鋼鐵之志。此後金軍屢戰屢勝，遼朝統治根基迅速動搖。</p>
+      <p>宣和二年（1120年），金與北宋訂立「海上之盟」，約定南北夾擊，金取遼之中京，宋取燕雲十六州舊地，事成後宋轉輸原本向遼繳納的歲幣予金。宣和七年（1125年），天祚帝於應州附近被金軍俘獲，遼朝正式滅亡。然而金軍其後僅交還燕雲數座空城，財貨人口早已搜掠一空，宋金雙方由此互生猜忌，為日後金軍南侵、北宋覆亡埋下伏筆。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Jin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場宴席上的拒舞，十一年後化為滅國之戰——積壓的屈辱，往往比一時的怒火更具毀滅性。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>金與北宋訂立「海上之盟」的原本約定是甚麼？結果又為何埋下宋金交惡的種子？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">雙方約定南北夾擊遼朝，金取遼之中京，宋取燕雲十六州，事成後宋向金繳納原付遼朝的歲幣。但金軍其後只交還幾座已被搜掠一空的空城，令宋金互生猜忌，種下日後金軍南侵的遠因。</div>
+      </details>
+      <div class="source">&#x1F4D6; 脫脫《遼史》、《金史》；陶晉生《女真史論》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Ten Days That Shook a Palace: The October Revolution (十月革命), 1917</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A provisional government keeps fighting an exhausting war its people no longer support, while a rival council of workers and soldiers holds real power in the capital. A small, disciplined party seizes the moment. Do you think a coup that faced almost no resistance in the capital could still change the world?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Vladimir Lenin (列寧), leader of the Bolsheviks (布爾什維克黨); Alexander Kerensky (克倫斯基), head of the Provisional Government (臨時政府); Leon Trotsky (托洛斯基), organiser of the Petrograd Soviet&rsquo;s Military Revolutionary Committee.</p>
+        <p><strong>Event at stake:</strong> The October Revolution (十月革命), 24&ndash;25 October 1917 (Old Style calendar), when Bolshevik forces seized key buildings in Petrograd (彼得格勒) and stormed the Winter Palace (冬宮).</p>
+        <p><strong>Big picture:</strong> Tsar Nicholas II (尼古拉二世) had already abdicated in February 1917 amid war exhaustion and food shortages; the Provisional Government that replaced him kept Russia fighting World War I (第一次世界大戰), leaving it deeply unpopular and sharing power uneasily with the workers&rsquo; and soldiers&rsquo; Petrograd Soviet.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/After_the_capture_of_the_Winter_Palace_26_October_1917.jpg" alt="Crowds gathered after the capture of the Winter Palace during the October Revolution, 1917" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Petrograd (彼得格勒) after the capture of the Winter Palace (冬宮), late October 1917. Credit: <a href="https://en.wikipedia.org/wiki/October_Revolution" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By autumn 1917, Kerensky&rsquo;s Provisional Government (臨時政府) had squandered much of its early goodwill: a failed summer military offensive against Germany, continuing food shortages, and the government&rsquo;s own reliance on the army to put down the right-wing Kornilov Affair in August had left it weak and distrusted, while the Petrograd Soviet (彼得格勒蘇維埃) &mdash; a council of workers&rsquo; and soldiers&rsquo; deputies &mdash; increasingly functioned as a rival centre of real power in the capital.</p>
+      <p>Lenin (列寧), having returned from exile in April via a sealed train through Germany, had spent months arguing in his &ldquo;April Theses&rdquo; that the Bolsheviks (布爾什維克黨) should seek &ldquo;all power to the soviets&rdquo; rather than cooperate with the Provisional Government. Trotsky (托洛斯基), now chairing the Petrograd Soviet, organised its Military Revolutionary Committee, which by October effectively controlled the loyalty of the city&rsquo;s garrison and armed factory militias known as the Red Guards.</p>
+      <p>On the night of 24&ndash;25 October (6&ndash;7 November by the modern calendar), Red Guard units seized railway stations, bridges, and the telegraph office with almost no resistance, while the cruiser Aurora (阿芙樂爾號) fired a blank shot signalling the assault on the Winter Palace, defended by only a token garrison. Kerensky fled the city; Lenin proclaimed a new Soviet government the next day. The revolution&rsquo;s aftermath plunged Russia into a multi-year civil war between the Bolshevik Red Army and opposing White forces.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/October_Revolution" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Provisional Government didn&rsquo;t fall to superior Bolshevik firepower &mdash; it fell because almost nobody in Petrograd was left willing to defend it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What organisation actually controlled the armed forces that carried out the October Revolution, and who led it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Petrograd Soviet&rsquo;s Military Revolutionary Committee, organised by Leon Trotsky, controlled the Red Guards and had secured the loyalty of the city garrison, allowing it to seize key buildings and the Winter Palace with almost no resistance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Figes, O. (1996). <em>A People&rsquo;s Tragedy: The Russian Revolution 1891&ndash;1924</em>. Britannica, &ldquo;Russian Revolution of 1917.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「陽為道學，陰為富貴」：李贄的童心說與獄中自刎</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位晚明學者主張，人一旦讀多了聖賢書、懂多了大道理，反而會失去分辨真假是非的能力，唯有未經污染的赤子之心才靠得住。你認為知識與道理，真的可能反過來蒙蔽一個人的真心嗎？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李贄（號卓吾，1527&ndash;1602年）、焦竑（友人兼支持者）。</p>
+        <p><strong>核心思想：</strong>童心說——主張未受聞見道理污染的赤子之心方為真心，反對以孔子之是非為是非。</p>
+        <p><strong>時代背景：</strong>晚明陽明後學漸趨分化，程朱理學仍為科舉官學正統，江南商業繁榮催生肯定私欲、質疑禮教權威的新思潮，李贄正是其中言論最激進的代表人物。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Li_Zhi.jpg" alt="李贄畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">李贄（卓吾）畫像，晚明思想家，因言論激進下獄。來源：<a href="https://en.wikipedia.org/wiki/Li_Zhi_(philosopher)" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>李贄早年歷任官職，晚年毅然辭官，落髮於湖北黃安、麻城一帶著書講學。他提出「童心說」，主張人生而有之、未經聞見道理層層污染的赤子之心，方是判斷真假是非的根本；一旦讀多了聖賢經典、懂多了道理知識，這顆真心便逐漸被遮蔽，言語文章亦隨之流於虛假造作，「著書則不能達其胸中之見，聞見道理益多，則所知所覺益廣，於是焉又知美名之可好也」。</p>
+      <p>李贄矛頭直指當時道學家的虛偽：他批評所謂「存天理滅人欲」的說教者，表面上持守聖賢禮教，內裡卻汲汲於功名利祿，「陽為道學，陰為富貴」；他反而公開肯定人皆有私、趨利避害本是人之常情，讚賞商人謀利乃正當營生，並重新評價卓文君私奔司馬相如的真情、武則天等歷來備受非議的女性人物，主張評價人物是非不應盡依孔子之見為準繩。</p>
+      <p>萬曆三十年（1602年），李贄因《焚書》《藏書》等著作言論激進，遭都察院御史彈劾「敢倡亂道，惑世誣民」，下獄於北京。同年，李贄在獄中以剃刀自刎，享年七十六歲。其著作屢遭官方查禁焚毀，然反權威、重真情的思想仍透過弟子與私刻本流傳，影響及於明末清初黃宗羲、顧炎武等思想家對禮教僵化的反思。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Li_Zhi_(philosopher)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 童心一旦被聞見道理層層遮蔽，連最真誠的文章與判斷也會隨之變得虛假。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>李贄的「童心說」主要批判當時道學家的甚麼問題？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李贄批判道學家表面持守禮教說教、內裡卻汲汲於名利的虛偽（「陽為道學，陰為富貴」），主張唯有未受聞見道理污染的赤子之心才是判斷是非真假的根本，不應盡以孔子之是非為是非。</div>
+      </details>
+      <div class="source">&#x1F4D6; 李贄《焚書》、《藏書》；容肇祖《李贄年譜》；侯外廬《中國思想通史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Reconciling Faith and a Banned Philosopher: Thomas Aquinas (阿奎那) and the Five Ways</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A pagan Greek philosopher&rsquo;s works, rediscovered a thousand years after his death, are so alarming to church authorities that Paris bans teaching them. A young friar then spends his career arguing that this &ldquo;dangerous&rdquo; philosophy actually proves God exists. What kind of argument do you think could turn a threat into a foundation?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Thomas Aquinas (多瑪斯&middot;阿奎那, 1225&ndash;1274), Italian Dominican friar (道明會修士) and theologian; Aristotle (亞里士多德), whose works reached medieval Europe via Arabic commentators.</p>
+        <p><strong>Idea at stake:</strong> Whether newly rediscovered Aristotelian philosophy (亞里士多德哲學) could be reconciled with Christian theology, rather than treated as a threat to faith.</p>
+        <p><strong>Big picture:</strong> In the 13th century, Aristotle&rsquo;s full body of work re-entered Latin Christendom through Arabic translations, alarming church authorities enough that the University of Paris (巴黎大學) banned teaching several of his texts in 1210 and 1215, even as scholars increasingly saw their value.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/St-thomas-aquinasFXD.jpg/3840px-St-thomas-aquinasFXD.jpg" alt="Painted portrait of Thomas Aquinas" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Thomas Aquinas (阿奎那), author of the <em>Summa Theologica</em> (神學大全). Credit: <a href="https://en.wikipedia.org/wiki/Thomas_Aquinas" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When Aristotle&rsquo;s complete works resurfaced in Latin Christendom during the 12th and 13th centuries, having been preserved and commented on by Islamic scholars including Averroes (阿威羅伊), church authorities initially treated the material as a genuine threat: Aristotle&rsquo;s account of an eternal, uncreated universe seemed flatly incompatible with the biblical account of creation. Aquinas, a Dominican friar teaching in Paris, took on the ambitious project of showing that reason and Aristotelian philosophy could support Christian faith rather than undermine it.</p>
+      <p>In his unfinished masterwork, the <em>Summa Theologica</em> (神學大全), Aquinas laid out the &ldquo;Five Ways&rdquo; (五路論證), five arguments for God&rsquo;s existence reasoned entirely from observed features of the world rather than scripture: motion requires an unmoved mover, causation requires an uncaused first cause, contingent things require a necessary being, degrees of perfection imply a maximum, and the evident order in nature implies a designing intelligence guiding things toward their ends.</p>
+      <p>Aquinas&rsquo;s synthesis was controversial in his own lifetime &mdash; some of his positions were briefly condemned in the 1277 Paris condemnations, just three years after his death &mdash; yet it eventually became the dominant framework of Catholic theology, formally endorsed as the church&rsquo;s official philosophy by Pope Leo XIII in 1879. His natural law theory and Five Ways remain central reference points in philosophy of religion and Catholic teaching today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Thomas_Aquinas" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Aquinas didn&rsquo;t defend faith by rejecting reason &mdash; he defended it by showing reason, followed carefully enough, pointed the same direction.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made Aquinas&rsquo;s Five Ways distinctive as arguments for God&rsquo;s existence?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Each of the Five Ways reasoned entirely from observed features of the natural world &mdash; motion, causation, contingency, degrees of perfection, and apparent order &mdash; rather than starting from scripture or revelation, using Aristotelian logic to argue toward a first cause or designer.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aquinas, T. <em>Summa Theologica</em>. Stanford Encyclopedia of Philosophy, &ldquo;Thomas Aquinas&rdquo; and &ldquo;Aquinas&rsquo; Five Ways.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Familiarity Quietly Breeds Liking: The Mere-Exposure Effect (單純曝光效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Researchers flash meaningless, made-up characters at people repeatedly &mdash; symbols nobody has ever seen before and can&rsquo;t consciously remember seeing. Later, participants rate the characters they saw more often as more likeable than ones they saw less often, even though they can&rsquo;t recall which is which. What do you think is driving that preference?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Greek_uc_psi_icon.svg/120px-Greek_uc_psi_icon.svg.png" alt="The Greek letter psi, a common symbol representing psychology" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Psi (&#x03A8;), a symbol widely used to represent psychology (心理學), the field where the mere-exposure effect was first documented. Credit: <a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a landmark 1968 study, psychologist Robert Zajonc (查瓊克) showed participants a series of meaningless stimuli &mdash; Chinese-like characters and invented words unfamiliar to non-Chinese-speaking subjects &mdash; varying how many times each one appeared. When later asked to rate how much they liked each symbol, participants consistently preferred the ones they had seen more often, even when they could not consciously recall having seen a particular symbol before at all. Zajonc called this the mere-exposure effect (單純曝光效應): repeated exposure alone, without any positive experience attached, increases liking.</p>
+      <p>The leading explanation involves processing fluency (處理流暢性): the brain finds familiar stimuli easier and faster to process than novel ones, and that ease of processing gets subtly misread as a positive signal &mdash; something like &ldquo;this feels safe&rdquo; rather than &ldquo;I recognise this.&rdquo; A striking real-world confirmation came from Moreland and Beach&rsquo;s 1992 classroom study: women who silently attended more lecture sessions as confederates, without ever interacting with classmates, were rated as more attractive and likeable by students who had no conscious idea why.</p>
+      <p>The effect underlies advertising repetition and political name recognition, but it isn&rsquo;t unlimited: mere exposure follows an inverted-U curve, and enough repetition eventually breeds irritation or boredom rather than continued liking, particularly for complex or already-disliked stimuli. It also cannot rescue a genuinely negative first impression &mdash; exposure deepens whatever reaction, positive or negative, was already present, rather than reversing it outright.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You don&rsquo;t need to remember seeing something to end up liking it more &mdash; mere repetition alone can quietly do that work.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Zajonc&rsquo;s 1968 study, what determined which symbols participants rated as more likeable, and did conscious memory play a role?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Participants rated symbols they had been exposed to more frequently as more likeable, regardless of whether they could consciously recall having seen that specific symbol before &mdash; the effect operated independently of explicit recognition memory.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zajonc, R.B. (1968). <em>Journal of Personality and Social Psychology</em>, 9(2, Pt.2). Moreland, R.L. &amp; Beach, S.R. (1992). <em>Journal of Experimental Social Psychology</em>, 28(3).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why a Dark Cinema Blinds You for a Minute: Dark Adaptation (暗適應) in the Eye</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You step from bright sunlight into a dark cinema and can barely see your own seat &mdash; then, minutes later, the room seems noticeably brighter even though no lights changed. What do you think is physically happening inside your eyes during those minutes?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/1414_Rods_and_Cones.jpg" alt="Diagram of rod and cone photoreceptor cells in the human retina" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Rod and cone photoreceptor cells (感光細胞) in the retina, responsible for vision in dim and bright light respectively. Credit: <a href="https://en.wikipedia.org/wiki/Photoreceptor_cell" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The retina (視網膜) contains two types of photoreceptor cells (感光細胞): cones (錐狀細胞), which handle colour vision and work best in bright light, and rods (桿狀細胞), far more sensitive but colour-blind, which take over once light levels drop. In bright light, the light-sensitive pigment inside rods, rhodopsin (視紫質), stays mostly &ldquo;bleached&rdquo; &mdash; broken down by constant photon exposure &mdash; leaving rods effectively saturated and unable to respond usefully to the sudden darkness of a cinema.</p>
+      <p>Regenerating rhodopsin (視紫質) takes real time: an enzymatic recycling process rebuilds the pigment from retinal (視黃醛), a molecule derived from vitamin A (維他命A), gradually restoring rod sensitivity. Cones adapt within roughly 5&ndash;10 minutes but plateau at a much lower peak sensitivity; rods continue improving for 20&ndash;30 minutes before reaching full dark adaptation, which is why a cinema keeps feeling brighter minutes after the lights first went down, well past your first adjustment.</p>
+      <p>This mechanism has practical consequences: vitamin A deficiency impairs rhodopsin regeneration and causes night blindness (夜盲症), historically one of the first recognised signs of the deficiency. Astronomers and ships&rsquo; night crews traditionally use dim red light rather than white light when working in darkness, because rods are relatively insensitive to long red wavelengths, letting people read instruments or charts without resetting the slow dark-adaptation process they&rsquo;ve already built up.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Photoreceptor_cell" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your eyes aren&rsquo;t slow to adjust to darkness by accident &mdash; rebuilding the pigment that lets rods see dim light is a real chemical process that simply takes minutes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does full dark adaptation take 20&ndash;30 minutes rather than happening instantly?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Bright light leaves rhodopsin, the light-sensitive pigment in rod cells, mostly broken down (&ldquo;bleached&rdquo;). Regenerating it requires an enzymatic recycling process using retinal, a vitamin-A-derived molecule, which takes 20&ndash;30 minutes to restore rods to their full sensitivity in darkness.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guyton, A.C. &amp; Hall, J.E. <em>Textbook of Medical Physiology</em>. Lamb, T.D. (2016). <em>Progress in Retinal and Eye Research</em>, 44.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Not Everyone&rsquo;s Blood Pressure Reacts the Same Way to Salt (鹽份)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two people eat the same salty meal. One person&rsquo;s blood pressure rises noticeably afterward; the other&rsquo;s barely moves at all. Before reading on, do you think &ldquo;cut your salt intake&rdquo; is equally good advice for both of them?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Rock_salt_%28halitite%29_%28Billianwala_Salt_Member%2C_Salt_Range_Formation%2C_Ediacaran_to_Lower_Cambrian%3B_Khewra_Salt_Mine%2C_Salt_Range%2C_Pakistan%29_14.jpg" alt="Rock salt crystals" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Rock salt (岩鹽), a natural source of sodium chloride (氯化鈉), the compound at the centre of the salt-and-blood-pressure debate. Credit: <a href="https://en.wikipedia.org/wiki/Sodium_chloride" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Excess dietary sodium (鈉) draws additional water into the bloodstream, raising blood volume and, over years, contributing to stiffening of artery walls &mdash; the basic mechanism behind decades of public health advice to cut salt intake. The 2001 DASH-Sodium trial (Sacks et al., <em>New England Journal of Medicine</em>) put this to a rigorous test: a randomised trial found that lowering sodium reduced blood pressure at every sodium level tested, with the strongest effect when combined with the DASH diet (得舒飲食) &mdash; rich in fruit, vegetables, and low-fat dairy &mdash; rather than salt reduction alone.</p>
+      <p>What complicates the simple &ldquo;less salt is always better&rdquo; message is salt sensitivity (鹽敏感性): roughly a quarter to half of people with hypertension (高血壓) show a strong blood pressure response to changes in sodium intake, while a substantial share of the population, including many without hypertension, shows little response at all &mdash; the same sodium reduction that meaningfully helps one person may do almost nothing for another, a distinction largely invisible without testing.</p>
+      <p>Some observational research has also found a J-shaped relationship, where very low sodium intake, below roughly 3 grams a day, correlates with higher cardiovascular risk in certain populations &mdash; a contested finding that keeps nutrition scientists debating optimal targets. The World Health Organization&rsquo;s global recommendation of under 5 grams of salt daily remains aimed at population-level averages, where most people worldwide consume far more than that, rather than a universal prescription for every individual.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sodium_chloride" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; &ldquo;Cut your salt&rdquo; helps most people with high blood pressure, but how much it helps genuinely differs from person to person &mdash; it isn&rsquo;t one-size-fits-all advice.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the DASH-Sodium trial find about the relationship between sodium reduction and the DASH diet?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Lowering sodium reduced blood pressure at every sodium level tested on its own, but the effect was strongest when sodium reduction was combined with the DASH diet&rsquo;s emphasis on fruit, vegetables, and low-fat dairy, rather than relying on salt reduction alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sacks, F.M. et al. (2001). <em>New England Journal of Medicine</em>, 344(1). Weinberger, M.H. (1996). <em>Hypertension</em>, 27(3).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Some People Are Built for Speed and Others for Distance: Muscle Fibre Types (肌纖維類型)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two athletes train with identical dedication for years, yet one becomes an elite sprinter and the other an elite marathoner &mdash; and neither could realistically swap events no matter how hard they trained. Before reading on, what do you think is happening at the muscle-tissue level that training alone can&rsquo;t fully overcome?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Blausen_0801_SkeletalMuscle.png" alt="Diagram of skeletal muscle structure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Skeletal muscle (骨骼肌) structure, composed of a mix of slow- and fast-twitch muscle fibres in varying proportions per person. Credit: <a href="https://en.wikipedia.org/wiki/Skeletal_muscle" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Every skeletal muscle (骨骼肌) is built from a mix of two broad fibre types, in ratios that vary from person to person. Type I fibres (第一型肌纖維／慢縮肌), or slow-twitch, are fatigue-resistant and rely on oxidative metabolism fuelled by abundant mitochondria and myoglobin (肌紅蛋白), the protein giving them a darker red colour. Type II fibres (第二型肌纖維／快縮肌), or fast-twitch, generate far more force and power but rely on glycolytic energy pathways that fatigue much faster.</p>
+      <p>Muscle biopsy studies (肌肉活檢), using the Bergström needle technique to sample living tissue, have repeatedly found elite sprinters carrying a much higher proportion of Type II fibres, while elite marathon runners have shown calf muscles composed of 70&ndash;80% Type I fibres &mdash; a striking, largely genetically determined difference that exists well before either athlete ever starts serious training, helping explain why some people are naturally suited to explosive speed and others to sustained endurance.</p>
+      <p>This doesn&rsquo;t make training pointless for the &ldquo;wrong&rdquo; fibre profile: true conversion between Type I and Type II fibres is limited, but endurance training can shift the fast-twitch subtype IIx toward the more fatigue-resistant IIa, improving stamina within a fast-twitch-dominant muscle. The practical lesson is realistic goal-setting &mdash; a naturally slow-twitch-dominant athlete may never match a fast-twitch-dominant sprinter&rsquo;s peak power however hard they train, and that gap reflects underlying tissue composition, not simply differences in effort.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Skeletal_muscle" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Some of the gap between a natural sprinter and a natural marathoner is decided in muscle tissue long before either one ever starts training.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did muscle biopsy studies find about fibre-type composition in elite sprinters versus elite marathon runners?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Elite sprinters showed a much higher proportion of fast-twitch Type II fibres, while elite marathon runners showed calf muscles composed of 70&ndash;80% slow-twitch Type I fibres &mdash; a largely genetically determined difference present before serious training even began.</div>
+      </details>
+      <div class="source">&#x1F4D6; Costill, D.L. et al. (1976). <em>Journal of Applied Physiology</em>, 40(2). Simoneau, J.A. &amp; Bouchard, C. (1989). <em>FASEB Journal</em>, 3(9).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Crash That Broke the One-Day Record: Black Monday (黑色星期一), 1987</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On a single trading day in 1987, the Dow Jones fell 22.6% &mdash; a steeper one-day drop than any single day of the 1929 crash. Yet the US economy avoided a major recession afterward. Before reading on, what kind of cause do you think could produce such a sudden, severe, but ultimately contained crash?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/S%26P_500_index_around_the_time_of_the_crash.png" alt="Chart of the S&P 500 index around the time of the 1987 crash" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The S&amp;P 500 index (標普500指數) around Black Monday (黑色星期一), 19 October 1987. Credit: <a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 19 October 1987, the Dow Jones Industrial Average (道瓊斯工業平均指數) fell 22.6% in a single trading session &mdash; the largest one-day percentage decline in the index&rsquo;s history, exceeding any single day of the 1929 crash. The sell-off began in Asian and European markets that morning before spreading to Wall Street, and by the closing bell, roughly $500 billion in market value had vanished from US equities in a matter of hours.</p>
+      <p>A major contributing mechanism was portfolio insurance (投資組合保險), a dynamic hedging strategy that used computer-driven trading programs to automatically sell stock index futures as prices fell, intended to protect individual institutional portfolios from losses. When many large institutions ran similar programs simultaneously, their automated selling fed on itself &mdash; falling prices triggered more automated selling, which pushed prices down further, creating a self-reinforcing feedback loop that accelerated the very crash the strategy was designed to guard against.</p>
+      <p>The crash spread globally &mdash; Hong Kong&rsquo;s stock exchange (香港交易所) closed trading entirely for four days to avoid a similar collapse &mdash; and prompted US regulators to introduce circuit breakers (熔斷機制), automatic trading halts triggered by large intraday index declines, a safeguard still in use today. Unlike 1929, no major US recession followed: markets recovered most of their lost value within about two years.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A strategy built by thousands of institutions to protect themselves individually from a crash helped cause one when they all sold at once.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did portfolio insurance contribute to the severity of the Black Monday crash?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Portfolio insurance used automated programs to sell stock index futures as prices fell, protecting individual portfolios. When many institutions ran similar programs simultaneously, their combined automated selling created a self-reinforcing feedback loop that pushed prices down further and faster.</div>
+      </details>
+      <div class="source">&#x1F4D6; Carlson, M. (2007). Federal Reserve Board working paper, &ldquo;A Brief History of the 1987 Stock Market Crash.&rdquo; Britannica, &ldquo;Black Monday.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Resource Exporters Get Rich and Others Stay Poor: The Prebisch&ndash;Singer Hypothesis (普雷維什-辛格假說)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Raul_Prebisch_%28cropped%29.tif/lossy-page1-500px-Raul_Prebisch_%28cropped%29.tif.jpg" alt="Portrait photograph of economist Raúl Prebisch" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ra&uacute;l Prebisch (普雷維什), Argentine economist who co-proposed the hypothesis in 1950. Credit: <a href="https://en.wikipedia.org/wiki/Ra%C3%BAl_Prebisch" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Many commodity-exporting developing nations across Latin America and Africa have seen the prices of their raw-material exports decline relative to manufactured imports over the long run, keeping them structurally poorer despite full participation in global trade.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Argentine economist Ra&uacute;l Prebisch (普雷維什) and Hans Singer independently proposed in 1950 that terms of trade for primary-commodity exporters decline structurally over time relative to manufactured goods, because commodity demand grows slower than income while demand for manufactured goods rises with it &mdash; trapping resource exporters in worsening trade terms.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Some resource-dependent economies &mdash; Botswana (diamonds), Chile (copper), Norway (oil) &mdash; escaped the predicted trap and grew into high-income nations, while institutionally weaker states with comparable commodity endowments stagnated for decades under the same global price trends.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Institutional economists argue governance quality and how resource rents are managed, not commodity dependence itself, determines outcomes &mdash; leaving open whether the original price-decline claim still holds empirically today, a debate that remains unresolved.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The same commodity dependence produced opposite fates for different countries &mdash; suggesting institutions, not exports, decide who escapes the trap.</div>
+      <div class="source">&#x1F4D6; Prebisch, R. (1950). <em>The Economic Development of Latin America</em>, UN ECLA. Singer, H.W. (1950). <em>American Economic Review</em>, 40(2).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 9 &mdash; What&rsquo;s Set Before You Choose:</strong> The mere-exposure effect and muscle fibre composition are both cases where an outcome is substantially shaped before conscious effort even enters the picture &mdash; repeated exposure quietly builds liking without memory or intention, just as fibre-type ratios quietly set the ceiling on speed or endurance before a single training session begins.</p>
+      <p><strong>So what:</strong> When judging your own preferences or performance, ask what was already set in motion &mdash; by repetition, or by biology &mdash; before you consciously tried at all.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> European Space Agency, Rosetta mission archive. Altwegg, K. et al. (2015), <em>Science</em> 347(6220).</li>
+      <li><strong>Card 2:</strong> 脫脫《遼史》、《金史》；陶晉生《女真史論》。</li>
+      <li><strong>Card 3:</strong> Figes, O. (1996), <em>A People&rsquo;s Tragedy</em>. Britannica, &ldquo;Russian Revolution of 1917.&rdquo;</li>
+      <li><strong>Card 4:</strong> 李贄《焚書》、《藏書》；容肇祖《李贄年譜》；侯外廬《中國思想通史》。</li>
+      <li><strong>Card 5:</strong> Aquinas, T. <em>Summa Theologica</em>. Stanford Encyclopedia of Philosophy, &ldquo;Thomas Aquinas.&rdquo;</li>
+      <li><strong>Card 6:</strong> Zajonc, R.B. (1968), <em>Journal of Personality and Social Psychology</em> 9(2). Moreland &amp; Beach (1992), <em>JESP</em> 28(3).</li>
+      <li><strong>Card 7:</strong> Guyton &amp; Hall, <em>Textbook of Medical Physiology</em>. Lamb, T.D. (2016), <em>Progress in Retinal and Eye Research</em> 44.</li>
+      <li><strong>Card 8:</strong> Sacks, F.M. et al. (2001), <em>NEJM</em> 344(1). Weinberger, M.H. (1996), <em>Hypertension</em> 27(3).</li>
+      <li><strong>Card 9:</strong> Costill, D.L. et al. (1976), <em>Journal of Applied Physiology</em> 40(2). Simoneau &amp; Bouchard (1989), <em>FASEB Journal</em> 3(9).</li>
+      <li><strong>Card 10:</strong> Carlson, M. (2007), Federal Reserve Board working paper. Britannica, &ldquo;Black Monday.&rdquo;</li>
+      <li><strong>Card 11:</strong> Prebisch, R. (1950), UN ECLA. Singer, H.W. (1950), <em>American Economic Review</em> 40(2).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-16: Rosetta / Comet 67P &bull; 完顏阿骨打與金滅遼 &bull; October Revolution 1917 &bull; 李贄「童心說」 &bull; Thomas Aquinas / Five Ways &bull; Mere-Exposure Effect &bull; Dark Adaptation &bull; Salt &amp; Blood Pressure &bull; Muscle Fibre Types &bull; Black Monday 1987 &bull; Prebisch&ndash;Singer Hypothesis</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-16.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-16.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 16 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
