@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 17 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 17 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>16 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Rosetta / Comet 67P</span>Rosetta&rsquo;s Philae made the first-ever comet landing on 67P, bouncing into shadow but still upending a leading water-origin theory.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 完顏阿骨打與金滅遼</span>阿骨打拒舞頭魚宴，十一年後起兵滅遼，建立金朝。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; October Revolution 1917</span>The Bolsheviks seized Petrograd&rsquo;s Winter Palace with almost no resistance, later triggering years of civil war.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 李贄「童心說」</span>李贄主張赤子之心勝於道理，批判道學家虛偽，終遭下獄自刎。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Thomas Aquinas</span>Aquinas used Aristotelian logic to argue for God&rsquo;s existence, turning a once-banned philosophy into Church orthodoxy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Mere-Exposure Effect</span>Simply seeing something more often makes people like it more, even without consciously remembering the exposure.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Dark Adaptation</span>Rods need 20&ndash;30 minutes to regenerate rhodopsin, which is why a dark cinema keeps feeling brighter over time.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Salt &amp; Blood Pressure</span>Cutting salt helps most hypertensive people, but individual &ldquo;salt sensitivity&rdquo; means the benefit varies widely.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Muscle Fibre Types</span>Elite sprinters and marathoners have genetically different fibre-type ratios, largely set before serious training even begins.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Black Monday 1987</span>Automated &ldquo;portfolio insurance&rdquo; selling programs fed on each other, accelerating the worst one-day crash in market history.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Prebisch&ndash;Singer Hypothesis</span>Commodity exporters were predicted to grow structurally poorer, yet Norway and Botswana escaped the trap via strong institutions.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A &ldquo;Smooth&rdquo; Ring That Wasn&rsquo;t: The Sombrero Galaxy (草帽星系) in a New Light</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For over twenty years, every visible-light photo of a galaxy shaped like a wide-brimmed hat showed the same thing: a smooth, dark ring of dust wrapped around a glowing core. Then, in 2024, a newer infrared telescope looked at that same ring. What do you think a &ldquo;smooth&rdquo; ring of dust might actually look like up close, in a different kind of light?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Sombrero_Galaxy_%28heic2506a%29.jpg/3840px-Sombrero_Galaxy_%28heic2506a%29.jpg" alt="The Sombrero Galaxy (Messier 104), an edge-on spiral galaxy with a bright bulge and dark dust lane, photographed by the Hubble Space Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Sombrero Galaxy (草帽星系), also called Messier 104 (M104), reprocessed by Hubble in April 2025. Credit: <a href="https://en.wikipedia.org/wiki/Sombrero_Galaxy" target="_blank" rel="noopener">Wikimedia Commons / ESA/Hubble</a></div>
+      </div>
+      <p>About 30 million light-years away in the constellation Virgo (室女座), the Sombrero Galaxy (草帽星系) earned its nickname from a nearly edge-on silhouette: a bright central bulge wrapped by a dark, wide band of dust, resembling a broad-brimmed hat. First catalogued by astronomer Pierre M&eacute;chain in 1781, it became one of the most photographed galaxies in the sky after the Hubble Space Telescope (哈勃太空望遠鏡) captured a famous mosaic of it in 2003, its dust lane rendered as a smooth, dark ribbon against the glow of billions of stars.</p>
+      <p>Buried at the galaxy&rsquo;s centre is a supermassive black hole (超大質量黑洞) with a mass estimated at roughly 9 billion times that of the Sun &mdash; over 2,000 times more massive than the Milky Way&rsquo;s own central black hole, Sagittarius A* (人馬座A*) &mdash; yet it sits remarkably calm, feeding on little surrounding gas. Despite holding a huge reservoir of dust, the galaxy is also strangely quiet on star formation, converting less than one solar mass of gas into new stars each year.</p>
+      <p>In 2024, the James Webb Space Telescope&rsquo;s (詹姆斯&middot;韋伯太空望遠鏡) mid-infrared MIRI instrument looked at the same dust ring and found it was never smooth at all: infrared light revealed intricate clumps rich in carbon-based molecules, marking pockets of active star formation invisible to Hubble&rsquo;s visible-light view. Months later, in April 2025, Hubble itself released a newly reprocessed mosaic revealing even finer structure than the 2003 original &mdash; a reminder that the same object can look fundamentally different depending on which wavelength of light you use to see it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sombrero_Galaxy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A galaxy can look perfectly smooth for twenty years of photographs &mdash; until you look at it in a wavelength of light nobody had used before.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did JWST&rsquo;s infrared MIRI instrument reveal about the Sombrero Galaxy&rsquo;s dust ring that visible-light Hubble images had missed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">MIRI revealed that the dust ring, which looked like a smooth, uniform band in visible light, was actually made of intricate clumps rich in carbon-containing molecules &mdash; likely regions of active star formation that Hubble&rsquo;s visible-light images could not resolve.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA James Webb Space Telescope science release, Nov 2024. ESA/Hubble, &ldquo;Hubble offers a new view of Sombrero galaxy,&rdquo; April 2025.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「先天下之憂而憂」：范仲淹與曇花一現的慶曆新政</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位以「劃粥割齏」苦讀出身的寒門官員，官至副宰相後推行十項改革，矛頭直指朝中權貴的既得利益。你認為，這場改革最終會成功站穩腳跟，還是會曇花一現般迅速夭折？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>范仲淹（參知政事）、富弼、韓琦、歐陽修。</p>
+        <p><strong>事件：</strong>慶曆三年（1043年）宋仁宗任范仲淹推行「慶曆新政」，提出十事疏改革吏治。</p>
+        <p><strong>時代背景：</strong>北宋立國已逾八十年，冗官冗兵冗費積弊日深，遼夏邊患未息，仁宗銳意求治，遂起用范仲淹等主持改革。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Fan_Zhongyan_scth.jpg" alt="范仲淹畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">范仲淹畫像，北宋政治家、文學家，慶曆新政的主持者。來源：<a href="https://en.wikipedia.org/wiki/Fan_Zhongyan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>范仲淹早年家貧，隨母改嫁至朱家，及長發憤苦讀，於醴泉寺借宿讀書時，每日僅以粥果腹——粥冷凝結後劃分四塊，佐以醃菜，是為「劃粥割齏」的苦學故事。他歷任地方官及邊帥，防禦西夏有功，朝野聲望日隆。慶曆三年（1043年），宋仁宗將范仲淹擢升為參知政事，並委以整頓朝政之重任，改革呼聲由此正式展開。</p>
+      <p>范仲淹隨即上呈《答手詔條陳十事疏》，提出十項改革主張，包括明黜陟（嚴格考核官員升降）、抑僥倖（限制恩蔭特權氾濫）、精貢舉（革新科舉取士）、擇官長（慎選地方守令）及減徭役等，矛頭直指北宋官僚體制積弊已久的冗官問題，尤其觸動了憑藉恩蔭得官的權貴子弟利益，改革甫一推行即引起朝中保守勢力強烈反彈。</p>
+      <p>反對者更指控范仲淹與歐陽修等改革派結黨營私，是為「朋黨」，仁宗心生猜忌。慶曆五年（1045年），范仲淹被罷去參知政事之職，外放邠州，轟動一時的慶曆新政僅推行約一年餘即告夭折。翌年，范仲淹應友人滕子京之請撰寫《岳陽樓記》，寫下「先天下之憂而憂，後天下之樂而樂」的千古名句，其改革雖敗，精神卻成為後世士大夫楷模，並為二十餘年後王安石熙寧變法埋下先聲。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fan_Zhongyan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場改革即使失敗收場，其「先憂後樂」的精神，仍可能比制度本身流傳得更久遠。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>慶曆新政中，反對者用甚麼指控使范仲淹最終被罷官？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">反對者指控范仲淹與歐陽修等改革派結黨營私，是為「朋黨」，令宋仁宗心生猜忌，范仲淹遂於慶曆五年被罷參知政事之職，外放邠州。</div>
+      </details>
+      <div class="source">&#x1F4D6; 脫脫《宋史&middot;范仲淹傳》；錢穆《國史大綱》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Mud, Longbows, and a King&rsquo;s Gamble: The Battle of Agincourt (阿金庫爾戰役), 1415</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An English army, exhausted and weakened by dysentery, faces a French force several times its size on a narrow, rain-soaked field. By every account of the day, the smaller army still wins decisively. Before reading on, what do you think let a weaker army defeat a much larger one?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Henry V of England (英格蘭國王亨利五世); Charles d&rsquo;Albret (查理&middot;達爾布雷), Constable of France (法國元帥) leading the French army.</p>
+        <p><strong>Event at stake:</strong> The Battle of Agincourt (阿金庫爾戰役), fought 25 October 1415 during the Hundred Years&rsquo; War (百年戰爭).</p>
+        <p><strong>Big picture:</strong> Henry V had invaded northern France to press his claim to the French throne, but after a costly siege of Harfleur, his war-weary, dysentery-stricken army was retreating toward English-held Calais (加萊) when a much larger French force blocked its path near the village of Agincourt.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/be/Schlacht_von_Azincourt.jpg" alt="Illuminated medieval depiction of the Battle of Agincourt, 1415" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A medieval depiction of the Battle of Agincourt (阿金庫爾戰役), 25 October 1415. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Agincourt" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On the morning of 25 October 1415, Saint Crispin&rsquo;s Day, Henry V&rsquo;s exhausted English army, reduced to perhaps 6,000&ndash;9,000 men after weeks of siege and dysentery, faced a French force that outnumbered them several times over, arrayed across a narrow field flanked by dense woodland on both sides &mdash; terrain that would prove decisive before a single arrow flew.</p>
+      <p>Henry positioned longbowmen (長弓手) on his flanks, protected by sharpened wooden stakes driven into the ground to break any cavalry charge, while the French army, packed into the narrow gap between the trees, had no room to manoeuvre. Overnight rain had turned the freshly ploughed field into thick mud, and as heavily armoured French knights advanced on foot, they sank, stumbled, and exhausted themselves long before reaching the English line, crowding so tightly many could barely raise a weapon.</p>
+      <p>English longbowmen, firing arrows with enough force to pierce armour at close range, poured volley after volley into the packed French ranks, and the resulting crush killed far more Frenchmen than combat wounds alone &mdash; many reportedly suffocated beneath piles of fallen comrades. French losses ran into the thousands against remarkably light English casualties, and Henry&rsquo;s underdog victory reinvigorated his claim to the French crown, later formalised in the 1420 Treaty of Troyes (特魯瓦條約), and immortalised centuries later in Shakespeare&rsquo;s &ldquo;St Crispin&rsquo;s Day&rdquo; speech.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Agincourt" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Terrain and mud did more damage to the French army that day than any single weapon &mdash; numbers alone don&rsquo;t win a fight on the wrong ground.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What role did the muddy, narrow battlefield play in the English victory at Agincourt, beyond the longbowmen&rsquo;s arrows?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The rain-soaked, freshly ploughed field, hemmed in by woods, exhausted the heavily armoured French knights advancing on foot and crowded them so tightly they could barely fight, causing many to suffocate or be crushed beneath fallen comrades &mdash; a decisive factor alongside the longbow volleys.</div>
+      </details>
+      <div class="source">&#x1F4D6; Curry, A. (2005). <em>Agincourt: A New History</em>. Britannica, &ldquo;Battle of Agincourt.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「無事袖手談心性」：顏元與清初實學對理學空談的批判</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位清初學者認為，讀書人終日靜坐書齋、空談心性，卻在國家危難時束手無策；他因此主張讀書人應該親自下田耕種、演練兵法、學習醫術。你認為，單靠「讀書明理」是否足以應付真正的亂世？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>顏元（字渾然，號習齋，1635&ndash;1704年）、弟子李塨。</p>
+        <p><strong>核心思想：</strong>習行——反對程朱理學靜坐格物、空談心性，主張親身實踐、恢復六藝實用之學。</p>
+        <p><strong>時代背景：</strong>明清鼎革之際，士大夫空談心性卻無力挽救國難，引發顏元等清初學者對宋明理學的深刻反思，轉而提倡經世致用的實學。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/%E9%A1%8F%E5%85%83.jpg" alt="顏元畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">顏元（習齋）畫像，清初思想家，習行哲學創始人。來源：<a href="https://en.wikipedia.org/wiki/Yan_Yuan_(Qing_dynasty)" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>顏元生於明末清初動盪之世，少時家庭破碎，早年亦曾遍習程朱理學，靜坐讀書、格物窮理。然而他愈讀愈感困惑：終日埋首書齋、講求心性義理的學問，竟無法讓讀書人在國破家亡之際挺身而出，反倒是「無事袖手談心性，臨危一死報君王」——空談誤國的諷刺，成為他日後徹底轉向的契機。</p>
+      <p>顏元遂提出「習行」之說，主張讀書人應摒棄靜坐冥想式的求理方式，親身操練實務方能真正明理——「讀書無他道，只需在行字上著力」。他反對程朱「格物窮理」的靜態工夫，強調唯有親自下田耕種、演練弓馬、鑽研醫術兵法，才是真學問，並大力批評當時士大夫終日兀坐書齋、四體不勤、五穀不分的空疏學風。</p>
+      <p>晚年，顏元主持河北肥鄉漳南書院，仿古制設立文事、武備、經史、藝能四齋，教授禮樂射御書數「六藝」，以及兵法、農學、水利、算術等經世致用之學，惜書院落成未幾即遭水災沖毀。其學說由弟子李塨繼承發揚，形成「顏李學派」，成為清初實學思潮的重要一支，直接挑戰了程朱理學數百年來的正統地位。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Yan_Yuan_(Qing_dynasty)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 顏元用一生證明：真正的學問未必在書本裡，而是在親手做過的事情之中。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>顏元「習行」之說，主要批判程朱理學的甚麼工夫？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">顏元批判程朱理學靜坐格物、空談心性的求理方式，主張唯有親身操練實務——如下田耕種、演練弓馬、鑽研醫術兵法——方能真正明理，斥責終日埋首書齋、四體不勤的空疏學風。</div>
+      </details>
+      <div class="source">&#x1F4D6; 顏元《存學編》、《四存編》；侯外廬《中國思想通史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Why the Fastest Runner in Greece Could Never Catch a Tortoise: Zeno&rsquo;s Paradoxes (芝諾悖論)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argues that Achilles, the fastest runner in Greek legend, can never catch up to a tortoise given even a tiny head start &mdash; not because he is slow, but because of a purely logical argument about distance and time. Before reading on, what do you think might be wrong with an argument that seems airtight yet contradicts everyday experience?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Zeno of Elea (伊利亞的芝諾, c. 490&ndash;430 BCE), pupil of Parmenides (巴門尼德); Aristotle (亞里士多德), who preserved and attempted to refute the paradoxes centuries later.</p>
+        <p><strong>Idea at stake:</strong> Whether motion and plurality are ultimately illusions, as Parmenides claimed reality must be a single, unchanging whole.</p>
+        <p><strong>Big picture:</strong> The Eleatic school (伊利亞學派) faced ridicule for claiming everyday motion was illusory; Zeno devised his paradoxes not to prove his own view directly, but to show the opposing common-sense position led to even stranger contradictions.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portretbuste_van_Zeno_van_Elea_Paradigmata_graphices_variorum_artificum_%28serietitel%29%2C_RP-P-1907-4495.jpg/3840px-Portretbuste_van_Zeno_van_Elea_Paradigmata_graphices_variorum_artificum_%28serietitel%29%2C_RP-P-1907-4495.jpg" alt="Engraving of a portrait bust of Zeno of Elea" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Zeno of Elea (伊利亞的芝諾), whose paradoxes challenged the everyday notion of motion. Credit: <a href="https://en.wikipedia.org/wiki/Zeno_of_Elea" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Zeno&rsquo;s most famous paradox imagines a race between Achilles (阿基里斯), the fastest runner in Greek legend, and a tortoise given a modest head start. By the time Achilles reaches the tortoise&rsquo;s starting point, the tortoise has moved slightly further ahead; by the time he closes that new gap, it has advanced again, however slightly &mdash; an infinite sequence of ever-shrinking gaps that Zeno argued Achilles could logically never fully close, however fast he ran.</p>
+      <p>A companion paradox, the Dichotomy (二分法悖論), pushed the logic further: before travelling any distance, you must first cross half of it; before crossing that half, you must cross half of that, seemingly forever, suggesting motion could never even begin. A third, the Arrow Paradox (飛矢不動悖論), argued that a flying arrow occupies a space exactly equal to itself at any single instant, and is therefore at rest at that instant &mdash; so how, if it is at rest at every instant, can it ever be said to move?</p>
+      <p>Aristotle (亞里士多德) tried to resolve the paradoxes by distinguishing potential from actual infinite division, but a fully rigorous answer arrived only over two thousand years later, when 19th-century mathematicians developed the formal theory of infinite series, proving that infinitely many ever-shrinking distances can sum to a finite total &mdash; closing Zeno&rsquo;s gap mathematically, even as philosophers like Bertrand Russell (羅素) continued to argue the paradoxes revealed genuinely deep puzzles about space, time, and infinity.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zeno_of_Elea" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; An argument can be logically airtight and still miss reality &mdash; it took formal mathematics, not just intuition, to finally close Zeno&rsquo;s gap.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What mathematical development, arriving over two thousand years after Zeno, finally gave a rigorous resolution to the Achilles and Tortoise paradox?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">19th-century mathematicians formalised the theory of infinite series, proving that an infinite number of ever-shrinking distances &mdash; like the ever-smaller gaps between Achilles and the tortoise &mdash; can sum to a finite total, showing the &ldquo;infinite&rdquo; race actually resolves in finite time and distance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aristotle, <em>Physics</em>, Book VI. Stanford Encyclopedia of Philosophy, &ldquo;Zeno&rsquo;s Paradoxes.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You Remember the Start and End of a List &mdash; Never the Middle: The Serial Position Effect (系列位置效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Ask someone to freely recall a list of 20 random words right after hearing them, and their recall almost always traces the same shape: strong for the first few words, strong for the last few, weak for everything in between. Before reading on, what do you think explains why the middle of a list is hardest to remember?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Serial_position.png" alt="Graph showing the serial position curve, with higher recall for items at the start and end of a list" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The serial position curve (系列位置曲線): recall is highest for the first and last items in a list, and lowest in the middle. Credit: <a href="https://en.wikipedia.org/wiki/Serial-position_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When people are asked to freely recall a list of items in any order, decades of memory research show a strikingly consistent pattern: items presented first and items presented last are remembered far better than items in the middle, producing a U-shaped recall curve first formally documented by psychologist Bennet Murdock (默多克) in a landmark 1962 study published in the <em>Journal of Experimental Psychology</em>.</p>
+      <p>Murdock and later researchers split this pattern into two effects with different causes. The primacy effect (初始效應) &mdash; better recall of early items &mdash; occurs because those items receive more rehearsal and time to transfer into long-term memory (長期記憶) before later items compete for attention. The recency effect (時近效應) &mdash; better recall of the final items &mdash; happens because those items are still sitting in short-term or working memory (工作記憶) at the exact moment of recall, requiring no retrieval from long-term storage.</p>
+      <p>A classic 1966 experiment by Murray Glanzer and Anita Cunitz confirmed this two-system explanation: when participants performed a distracting task, such as counting backwards, for about 30 seconds before recalling the list, the recency effect vanished almost entirely, while the primacy effect stayed largely intact &mdash; because the delay flushed the still-fragile short-term memory but couldn&rsquo;t touch information already consolidated into long-term memory. The effect shapes daily life too, from why interviewers remember the first and last candidates best to why speakers open and close with their strongest points.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Serial-position_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If you want something remembered, put it first or last &mdash; the middle of any list is where memory quietly goes to die.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Glanzer and Cunitz&rsquo;s 1966 distractor-task experiment reveal about the difference between the primacy and recency effects?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A 30-second distracting task before recall eliminated the recency effect almost entirely but left the primacy effect largely intact, showing that recency relies on fragile short-term memory while primacy reflects information already consolidated into more durable long-term memory.</div>
+      </details>
+      <div class="source">&#x1F4D6; Murdock, B.B. (1962). <em>Journal of Experimental Psychology</em>, 64(5). Glanzer, M. &amp; Cunitz, A.R. (1966). <em>Journal of Verbal Learning and Verbal Behavior</em>, 5(4).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Two People, One Dish, Two Different Meals: Supertasters (超級味覺者) and the Tongue</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two people eat the exact same forkful of broccoli. One shrugs; the other recoils at an intense, almost unpleasant bitterness. Before reading on, do you think that difference comes down to personal preference &mdash; or something physically different about their tongues?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/%D8%B2%D8%A8%D8%A7%D9%86_tongue.jpg" alt="Photograph of a human tongue, showing the small bumps called papillae that house taste buds" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The human tongue (舌頭), whose papillae density varies significantly between supertasters and non-tasters. Credit: <a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the 1990s, taste researcher Linda Bartoshuk (巴托舒克) coined the term &ldquo;supertaster&rdquo; (超級味覺者) to describe roughly a quarter of the population who experience bitterness, sweetness, and even certain spicy sensations far more intensely than everyone else &mdash; not a matter of preference, but a measurable difference in basic sensory biology, most easily revealed by how strongly someone reacts to a bitter test compound called PROP (丙硫氧嘧啶).</p>
+      <p>The underlying cause traces to a specific gene, TAS2R38 (苦味受體基因), which codes for a bitter-taste receptor on the tongue; people carrying two copies of the more sensitive gene variant taste PROP as intensely bitter, while those with the less sensitive variant barely notice it. Supertasters also carry a physically denser cluster of fungiform papillae (蕈狀乳頭) &mdash; the small bumps on the tongue&rsquo;s surface that house taste buds &mdash; a difference researchers can literally count under magnification after staining the tongue with blue food dye.</p>
+      <p>This wiring has real dietary consequences: supertasters often find cruciferous vegetables like broccoli and brussels sprouts, along with dark chocolate, coffee, and grapefruit, unpleasantly bitter, and studies have linked the trait to lower vegetable intake and differing patterns of alcohol consumption in some populations. The practical takeaway is that a &ldquo;picky eater&rdquo; pushing away a vegetable everyone else enjoys may not be exercising preference at all &mdash; their tongue may be registering a genuinely more intense flavour than what everyone else at the table is tasting.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A picky eater isn&rsquo;t always being difficult &mdash; their tongue may be built to register the same bite of food as objectively more intense.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two physical differences distinguish a supertaster&rsquo;s tongue from a non-taster&rsquo;s, beyond genetics alone?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Supertasters carry a bitter-sensitive variant of the TAS2R38 gene, and they also have a measurably denser concentration of fungiform papillae &mdash; the small bumps housing taste buds &mdash; on their tongue, which researchers can count directly after staining the tongue with blue food dye.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bartoshuk, L.M. et al. (1994). <em>Physiology &amp; Behavior</em>. Reed, D.R. et al. (1995). <em>Chemical Senses</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Doctor Who Cracked One Hand for 50 Years to Prove a Point: The Knuckle-Cracking Myth (拗手指迷思)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A doctor deliberately cracked the knuckles of his left hand at least twice a day for fifty years &mdash; more than 36,500 cracks &mdash; while leaving his right hand alone as a control. Before reading on, what do you think he found when he finally compared both hands?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Hand%2C_fingers_-_back.jpg" alt="Photograph of the back of a human hand, showing the knuckle joints" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Knuckle joints (指關節) of the human hand, the subject of a decades-long self-experiment on cracking and arthritis. Credit: <a href="https://en.wikipedia.org/wiki/Joint_cracking" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For fifty years, physician Donald Unger (唐納&middot;昂格爾) deliberately cracked the knuckles of his left hand at least twice daily &mdash; more than 36,500 times in total &mdash; while leaving his right hand uncracked as a personal control, specifically to test the widespread childhood warning that knuckle cracking causes arthritis. He published his results in the journal <em>Arthritis &amp; Rheumatism</em> in 1998, and in 2009 was awarded the satirical but genuine Ig Nobel Prize (搞笑諾貝爾獎) in Medicine for the effort.</p>
+      <p>The result: no arthritis in either hand, and no meaningful difference between them. Unger&rsquo;s single-subject experiment lines up with larger studies, including a 300-person cohort published in the <em>Annals of the Rheumatic Diseases</em>, which likewise found no significant association between habitual knuckle cracking and osteoarthritis (骨關節炎) of the hand &mdash; though that same study did find habitual crackers had somewhat reduced grip strength and more hand swelling, a separate and much milder finding from the arthritis myth itself.</p>
+      <p>The actual &ldquo;crack&rdquo; sound comes from joint cavitation (關節空穴現象): stretching a knuckle joint beyond its normal range briefly changes pressure in the fluid-filled joint capsule, forming or collapsing a small gas bubble &mdash; mostly carbon dioxide &mdash; dissolved in the synovial fluid (滑液) that lubricates the joint. Real-time MRI research published in 2015 helped confirm this bubble-dynamics mechanism directly, showing the sound is a mechanical event in the joint fluid, not bone grinding against bone, and not a sign of accumulating cartilage damage.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Joint_cracking" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One doctor spent fifty years and 36,500 knuckle cracks proving a childhood warning wrong &mdash; sometimes the best evidence just takes patience.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the sound of a cracked knuckle actually come from, according to the joint cavitation mechanism?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Stretching the knuckle joint beyond its normal range briefly changes pressure inside the fluid-filled joint capsule, forming or collapsing a small gas bubble &mdash; mostly carbon dioxide &mdash; dissolved in the synovial fluid, a mechanical event in the joint fluid itself, not bone grinding against bone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Unger, D.L. (1998). <em>Arthritis &amp; Rheumatism</em>, 41(5). Castellanos, J. &amp; Axelrod, D. (1990). <em>Annals of the Rheumatic Diseases</em>, 49(5).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Elite Swimmers Keep Moving After a Race Instead of Sitting Down: Active Recovery (積極恢復)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An elite swimmer finishes a punishing race with blood lactate levels sky-high, and has to race again within the hour. Before reading on, do you think sitting completely still to &ldquo;rest,&rdquo; or jumping into a slow, easy swim, would clear that lactate faster?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cycling_in_Amsterdam_%28893%29.jpg" alt="People cycling at an easy pace, illustrating light continued aerobic movement" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Light continued movement, such as easy cycling, is a common form of active recovery (積極恢復) between hard efforts. Credit: <a href="https://en.wikipedia.org/wiki/Exercise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>After a maximal sprint or an intense race, blood lactate (血乳酸) levels can rise five to ten times above resting values, and athletes preparing for a second effort later the same day &mdash; a second swim heat, a follow-up match, a next set &mdash; have long debated the best way to bring that lactate back down: sitting or lying completely still, or continuing to move at a much easier pace.</p>
+      <p>Classic exercise physiology research settled the question decades ago: light continued activity at roughly 30&ndash;45% of an athlete&rsquo;s aerobic capacity clears blood lactate significantly faster than complete rest. The mechanism is straightforward &mdash; continued muscle contraction keeps blood flow elevated to working muscles, delivering circulating lactate to less-fatigued fibres, the heart, and the liver, where it can be taken up and used directly as fuel rather than sitting stagnant in the bloodstream while a resting body slows circulation down.</p>
+      <p>The catch is that faster lactate clearance doesn&rsquo;t automatically mean faster overall recovery &mdash; evidence for active recovery meaningfully reducing next-day soreness or speeding long-term training adaptation is far weaker than the clearance data alone might suggest. Its proven value is narrower: helping an athlete perform better in a second effort within the same day or session, which is why competitive swimmers, cyclists, and combat-sport athletes are routinely seen doing an easy cool-down rather than sitting down immediately after finishing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Exercise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Between two hard efforts on the same day, easy movement beats sitting still &mdash; but don&rsquo;t expect it to erase tomorrow&rsquo;s soreness.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does light continued activity clear blood lactate faster than complete rest?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Continued muscle contraction keeps blood flow elevated to working muscles, delivering circulating lactate to less-fatigued fibres, the heart, and the liver, where it is taken up and used as fuel &mdash; whereas complete rest slows circulation and leaves lactate sitting stagnant in the bloodstream for longer.</div>
+      </details>
+      <div class="source">&#x1F4D6; Belcastro, A.N. &amp; Bonen, A. (1975). <em>Journal of Applied Physiology</em>, 39(6). Bonen, A. &amp; Belcastro, A.N. (1976). <em>Medicine &amp; Science in Sports</em>, 8(3).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Secret Leverage Behind Buffett&rsquo;s Returns: Insurance Float (保險浮存金)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A famous investor built much of his fortune not just by picking stocks, but by controlling a giant pool of money that technically belongs to other people &mdash; and that, in good years, actually pays him to hold it. Before reading on, what kind of business generates money you get paid to borrow?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="Photograph of Warren Buffett speaking at the 2015 SelectUSA Investment Summit" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Warren Buffett (巴菲特), whose Berkshire Hathaway (伯克夏哈薩威) built much of its investing power on insurance float. Credit: <a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When an insurance company sells a policy, it collects the premium (保費) upfront but may not pay out a claim for months, years, or in some liability cases, decades later. That gap between cash coming in and cash going out is called float (浮存金) &mdash; a pool of money the insurer holds and can invest in the meantime, even though it technically belongs to policyholders. Warren Buffett (巴菲特) built much of Berkshire Hathaway&rsquo;s (伯克夏哈薩威) investment engine around this overlooked mechanic, not stock-picking alone.</p>
+      <p>What makes float genuinely powerful is when an insurer underwrites profitably &mdash; collecting more in premiums than it eventually pays out in claims and expenses, a combined ratio (綜合成本率) below 100%. In that case, the float has a negative cost: Berkshire is effectively being paid to hold other people&rsquo;s money and invest it, something Buffett has described as &ldquo;better than free.&rdquo; Berkshire&rsquo;s average cost of float across the decades has run around just 2.2%, well below prevailing risk-free Treasury bill rates over the same period.</p>
+      <p>By 2025, Berkshire&rsquo;s float had grown to roughly $176 billion, up from about $114 billion in 2017, giving Buffett a permanent, low-cost pool of investable capital that academic researchers estimate provided Berkshire with a leverage ratio (槓桿比率) of roughly 1.6-to-1 across 1976&ndash;2011 &mdash; leverage far cheaper and more stable than a hedge fund borrowing at market interest rates. That quiet advantage, not stock-picking genius alone, helps explain why Berkshire could compound wealth at a scale few individual investors could ever replicate.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Buffett&rsquo;s edge wasn&rsquo;t just picking great stocks &mdash; it was building a permanent pool of capital that other people effectively paid him to invest.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What makes insurance float have a &ldquo;negative cost&rdquo; for a company like Berkshire Hathaway, according to Buffett?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">When an insurer underwrites profitably &mdash; collecting more in premiums than it pays out in claims and expenses, a combined ratio below 100% &mdash; the float it holds costs nothing to keep and can even come with an underwriting profit on top, meaning the company is effectively paid to hold and invest other people&rsquo;s money.</div>
+      </details>
+      <div class="source">&#x1F4D6; Berkshire Hathaway Annual Shareholder Letters. Frazzini, A., Kabiller, D. &amp; Pedersen, L.H. (2018). <em>Financial Analysts Journal</em>, &ldquo;Buffett&rsquo;s Alpha.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why the Same Burger Costs Four Times as Much in Norway as in Egypt: The Balassa&ndash;Samuelson Effect (巴拉薩-薩繆爾森效應)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Big_Mac.png" alt="Photograph of a Big Mac hamburger, used by The Economist's Big Mac Index to compare prices across countries" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Big Mac (巨無霸), whose price across countries is used as an informal test of purchasing power and the Balassa&ndash;Samuelson effect. Credit: <a href="https://en.wikipedia.org/wiki/Big_Mac_Index" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">The Economist&rsquo;s Big Mac Index shows the same burger costs wildly different amounts across countries even after converting to a common currency &mdash; a Big Mac has run several times more expensive in rich countries like Norway than in poorer ones like Egypt, a gap far too large to explain by shipping costs, since burgers are made and sold locally.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economists B&eacute;la Balassa and Paul Samuelson independently proposed in 1964 that this reflects productivity, not mispricing: richer countries have higher productivity in tradable-goods sectors like manufacturing, pushing up wages economy-wide, including in non-tradable sectors such as restaurant labour &mdash; so a burger costs more where wages are higher, not where beef is pricier.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The relationship holds broadly but imperfectly: some high-income economies show burger prices persistently &ldquo;too cheap&rdquo; or &ldquo;too expensive&rdquo; relative to what the productivity gap alone predicts, and currency markets frequently diverge from the index&rsquo;s implied &ldquo;fair value&rdquo; for years at a time.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Purchasing power parity (購買力平價) theorists refine the model with broader non-tradable price baskets, while some economists argue exchange-rate swings largely reflect capital-flow dynamics disconnected from goods prices &mdash; leaving the true weight of productivity versus financial forces in cross-country price gaps an open debate.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A burger&rsquo;s price isn&rsquo;t really about beef &mdash; it&rsquo;s a rough measure of how far a country&rsquo;s average wage has to stretch to buy something nobody trades across borders.</div>
+      <div class="source">&#x1F4D6; Balassa, B. (1964). <em>Journal of Political Economy</em>, 72(6). Samuelson, P.A. (1964). <em>Review of Economics and Statistics</em>, 46(2). The Economist, Big Mac Index methodology.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 8 &mdash; Proof Takes Time:</strong> Zeno&rsquo;s paradox needed roughly two millennia of formal mathematics to properly resolve, and the knuckle-cracking myth needed fifty years of one doctor&rsquo;s patient, deliberate data collection to informally settle &mdash; both show that an intuition, however airtight or however obviously true it feels, sometimes only yields to slow, rigorous testing rather than argument alone.</p>
+      <p><strong>So what:</strong> The next time a claim feels obviously true or obviously false, ask what kind of evidence &mdash; logical or empirical &mdash; would actually be enough to overturn it, and whether anyone has actually gone and gathered that evidence yet.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA James Webb Space Telescope science release, Nov 2024. ESA/Hubble, &ldquo;Hubble offers a new view of Sombrero galaxy,&rdquo; April 2025.</li>
+      <li><strong>Card 2:</strong> 脫脫《宋史&middot;范仲淹傳》；錢穆《國史大綱》。</li>
+      <li><strong>Card 3:</strong> Curry, A. (2005), <em>Agincourt: A New History</em>. Britannica, &ldquo;Battle of Agincourt.&rdquo;</li>
+      <li><strong>Card 4:</strong> 顏元《存學編》、《四存編》；侯外廬《中國思想通史》。</li>
+      <li><strong>Card 5:</strong> Aristotle, <em>Physics</em>, Book VI. Stanford Encyclopedia of Philosophy, &ldquo;Zeno&rsquo;s Paradoxes.&rdquo;</li>
+      <li><strong>Card 6:</strong> Murdock, B.B. (1962), <em>Journal of Experimental Psychology</em> 64(5). Glanzer &amp; Cunitz (1966), <em>JVLVB</em> 5(4).</li>
+      <li><strong>Card 7:</strong> Bartoshuk, L.M. et al. (1994), <em>Physiology &amp; Behavior</em>. Reed, D.R. et al. (1995), <em>Chemical Senses</em>.</li>
+      <li><strong>Card 8:</strong> Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em> 41(5). Castellanos &amp; Axelrod (1990), <em>Annals of the Rheumatic Diseases</em> 49(5).</li>
+      <li><strong>Card 9:</strong> Belcastro &amp; Bonen (1975), <em>Journal of Applied Physiology</em> 39(6). Bonen &amp; Belcastro (1976), <em>Medicine &amp; Science in Sports</em> 8(3).</li>
+      <li><strong>Card 10:</strong> Berkshire Hathaway Annual Shareholder Letters. Frazzini, Kabiller &amp; Pedersen (2018), <em>Financial Analysts Journal</em>.</li>
+      <li><strong>Card 11:</strong> Balassa, B. (1964), <em>Journal of Political Economy</em> 72(6). Samuelson, P.A. (1964), <em>Review of Economics and Statistics</em> 46(2).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-17: Sombrero Galaxy &bull; 范仲淹「慶曆新政」 &bull; Battle of Agincourt 1415 &bull; 顏元「習行」實學 &bull; Zeno&rsquo;s Paradoxes &bull; Serial Position Effect &bull; Supertasters (TAS2R38/PROP) &bull; Knuckle-Cracking Myth &bull; Active Recovery &amp; Lactate Clearance &bull; Buffett&rsquo;s Insurance Float &bull; Balassa&ndash;Samuelson Effect</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-17.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-17.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 17 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
