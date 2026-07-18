@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 18 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 18 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>17 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Sombrero Galaxy</span>JWST infrared imaging revealed the galaxy&rsquo;s &ldquo;smooth&rdquo; dust ring is actually clumpy with hidden star formation, invisible to Hubble.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 范仲淹「慶曆新政」</span>范仲淹推行十事疏改革吏治，遭「朋黨」指控後罷官夭折。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Agincourt</span>Henry V&rsquo;s exhausted, outnumbered army destroyed a much larger French force via longbows and a muddy battlefield.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 顏元「習行」實學</span>顏元批判理學空談心性，主張親身實踐耕戰醫術才是真學問。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Zeno&rsquo;s Paradoxes</span>Zeno argued Achilles could never catch a tortoise, a puzzle only resolved by 19th-century infinite series mathematics.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Serial Position Effect</span>People recall the first and last items of a list far better than the middle, forming a U-shaped curve.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Supertasters</span>A denser cluster of tongue papillae and a bitter-receptor gene make roughly a quarter of people taste food far more intensely.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Knuckle-Cracking Myth</span>A doctor cracked one hand for 50 years and found no arthritis link, debunking a classic childhood warning.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Active Recovery</span>Light continued movement clears blood lactate faster than sitting completely still after a hard effort.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Buffett&rsquo;s Insurance Float</span>Berkshire&rsquo;s premiums-before-claims gap gave Buffett a permanent, ultra-cheap pool of investable capital.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Balassa&ndash;Samuelson Effect</span>Burgers cost more in rich countries because high tradable-sector wages spill into local service prices.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photo That Shouldn&rsquo;t Have Been Possible: The First Image of a Black Hole (黑洞)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 10 April 2019, scientists released the very first photograph of a black hole (黑洞) &mdash; an object whose entire defining trait is that it emits no light at all. Before reading on, what do you think a &ldquo;photograph&rdquo; of something invisible could possibly show?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Black_hole_-_Messier_87_crop_max_res.jpg/3840px-Black_hole_-_Messier_87_crop_max_res.jpg" alt="The M87* black hole, the first-ever image of a black hole, showing a glowing orange ring around a dark central shadow" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">M87* (M87黑洞), the first-ever photograph of a black hole, released 10 April 2019. Credit: <a href="https://en.wikipedia.org/wiki/M87*" target="_blank" rel="noopener">Event Horizon Telescope Collaboration / Wikimedia Commons</a></div>
+      </div>
+      <p>On 10 April 2019, the Event Horizon Telescope (事件視界望遠鏡) collaboration unveiled humanity&rsquo;s first-ever image of a black hole: a glowing, asymmetric orange ring of superheated gas wrapped around a dark central shadow, roughly the size and shape general relativity (廣義相對論) predicted. The target was M87* (M87黑洞), a supermassive black hole (超大質量黑洞) with a mass of about 6.5 billion Suns, sitting at the centre of the galaxy Messier 87 (M87星系), 55 million light-years away in the constellation Virgo (室女座).</p>
+      <p>Capturing it required an extraordinary trick: since no single telescope on Earth is large enough to resolve something so distant and small, astronomers linked eight radio observatories spread from Hawaii to the South Pole into a single virtual instrument the size of the planet, using a technique called very-long-baseline interferometry (特長基線干涉測量法). Atomic clocks at each site synchronised the recordings down to fractions of a second, and each telescope generated so much raw data &mdash; several petabytes in total &mdash; that it had to be recorded onto hundreds of physical hard drives and flown by plane to processing centres, since even modern internet links couldn&rsquo;t move it fast enough.</p>
+      <p>Computer scientist Katie Bouman (凱蒂&middot;鮑曼) helped develop one of several independent imaging algorithms used to reconstruct a picture from the incomplete, noisy interferometric data, and four separate teams worked in isolation from each other precisely so their results could be cross-checked without bias. All four converged on essentially the same ring. Three years later, in 2022, the same collaboration released a second image &mdash; this time of Sagittarius A* (人馬座A*), the much smaller black hole at the centre of our own Milky Way (銀河系).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/M87*" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first-ever photo of a black hole wasn&rsquo;t captured by a single camera at all &mdash; it was mathematically reconstructed from data too large to send over the internet.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why couldn&rsquo;t the Event Horizon Telescope&rsquo;s data simply be sent over the internet, and how was it moved instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The datasets totalled several petabytes &mdash; far too large for available internet bandwidth, especially from the remote South Pole Telescope &mdash; so the recordings were saved onto hundreds of physical hard drives and flown by plane to processing centres for correlation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Event Horizon Telescope Collaboration, &ldquo;First M87 Event Horizon Telescope Results,&rdquo; <em>The Astrophysical Journal Letters</em>, April 2019.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「稱病十年，一擊定局」：司馬懿與高平陵之變</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位年邁大臣裝病臥床多年，令當權的輔政大臣完全放下戒心。當那位輔政大臣某天帶著年幼皇帝出城祭拜先帝陵墓時，這位「病重」老臣卻突然披甲而起。你認為接下來會發生甚麼事？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>司馬懿（太傅）、曹爽（大將軍，輔政）、司馬師、司馬昭。</p>
+        <p><strong>事件：</strong>249年「高平陵之變」，司馬懿趁曹爽陪同魏帝曹芳出城祭掃高平陵之機，發動政變奪取洛陽控制權。</p>
+        <p><strong>時代背景：</strong>魏明帝曹叡病逝後，曹爽與司馬懿共同輔政幼主曹芳，但曹爽逐步排擠司馬懿、獨攬朝政，司馬懿遂稱病不朝，暗中蓄勢待發。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/%E9%AD%8F%C2%B7%E5%A4%AA%E5%82%85_%E5%8F%B8%E9%A6%AC%E6%87%BF.jpg" alt="司馬懿畫像，魏太傅" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">司馬懿（魏太傅）畫像，高平陵之變的主導者。來源：<a href="https://en.wikipedia.org/wiki/Sima_Yi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>曹爽掌權後逐步排擠司馬懿，司馬懿遂稱病不朝，甚至在曹爽心腹李勝探病時故意表現昏聵失智——粥水灑滿衣襟，言語顛三倒四，成功令李勝回報「司馬公已是行將就木之人，不足為慮」。曹爽由此對司馬懿完全放下戒心，未料這份「昏聵」，實為長達十年的隱忍蓄勢。</p>
+      <p>正始十年（249年）正月，曹爽陪同魏帝曹芳出城祭掃高平陵，司馬懿與兩子司馬師、司馬昭乘機發動政變：率兵佔據洛陽武庫，控制城門要道，並取得郭太后詔令，公開宣布曹爽專擅跋扈之罪狀。曹爽猶豫不決，其謀士桓範力勸他挾持皇帝逃往許昌、號召各地兵馬勤王抵抗，曹爽卻選擇相信司馬懿「只免官爵、絕不加害性命」的承諾，開城投降。</p>
+      <p>司馬懿隨即翻臉，以謀反罪名誅殺曹爽及其黨羽，株連三族，曹魏宗室勢力自此一蹶不振，朝政大權盡歸司馬氏。此後歷經司馬師、司馬昭兩代經營，至265年司馬懿之孫司馬炎逼魏元帝禪讓，建立西晉，曹魏正式滅亡——高平陵之變正是這場魏晉禪代的關鍵轉捩點。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sima_Yi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 十年裝病換來一日政變——真正的耐性，往往比一時的權勢更致命。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>高平陵之變中，司馬懿如何令曹爽最終放棄抵抗、選擇投降？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">司馬懿取得郭太后詔令宣布曹爽罪狀，並承諾只要曹爽交出兵權即可保留爵位、不加害性命；曹爽雖有桓範勸其挾天子赴許昌起兵抵抗，仍選擇相信司馬懿的承諾而投降，最終遭誅殺並株連三族。</div>
+      </details>
+      <div class="source">&#x1F4D6; 陳壽《三國志&middot;魏書》；司馬光《資治通鑑》卷七十五。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>&ldquo;England Expects&rdquo;: Nelson&rsquo;s Gamble at the Battle of Trafalgar (特拉法加海戰), 1805</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A British admiral, facing an enemy fleet larger than his own, abandons the standard naval tactic of lining ships up side-by-side to trade broadsides &mdash; a formation used for over a century. Instead he sails two columns of ships directly at the enemy line, exposing his lead ships to unanswered cannon fire during the approach. Before reading on, why might a commander deliberately choose the riskier option?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Vice-Admiral Horatio Nelson (霍雷肖&middot;納爾遜), commanding the British Royal Navy (英國皇家海軍) fleet; Admiral Pierre-Charles Villeneuve (維爾納夫), commanding the combined Franco-Spanish fleet.</p>
+        <p><strong>Event at stake:</strong> The Battle of Trafalgar (特拉法加海戰), fought 21 October 1805 off Cape Trafalgar (特拉法加角), Spain, during the Napoleonic Wars (拿破崙戰爭).</p>
+        <p><strong>Big picture:</strong> Napoleon (拿破崙) needed naval control of the English Channel (英倫海峽) to invade Britain; a combined Franco-Spanish fleet sailing from Cadiz to break the British blockade was intercepted by Nelson before it could regroup.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/The_Battle_of_Trafalgar_by_William_Clarkson_Stanfield.jpg/3840px-The_Battle_of_Trafalgar_by_William_Clarkson_Stanfield.jpg" alt="Painting of the Battle of Trafalgar by William Clarkson Stanfield, showing British and French warships engaged in combat" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Battle of Trafalgar (特拉法加海戰), 21 October 1805, painted by William Clarkson Stanfield. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Trafalgar" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On the morning of 21 October 1805, Nelson signalled his fleet with the now-famous message: &ldquo;England expects that every man will do his duty.&rdquo; His 27 ships of the line faced a combined Franco-Spanish fleet of 33 ships under Villeneuve &mdash; a numerical disadvantage Nelson planned to offset not with caution, but with an unconventional and genuinely risky tactic.</p>
+      <p>Rather than forming the traditional single line parallel to the enemy, Nelson split his fleet into two columns and sailed them perpendicular straight into the enemy&rsquo;s line, led by his flagship HMS Victory (勝利號). The approach exposed his leading ships to unanswered broadsides for a dangerous stretch of time, but once the columns punched through, they broke the enemy formation into isolated, disorganised segments &mdash; ideal conditions for close-quarters fighting, where better-drilled British crews could fire up to three broadsides in the time French and Spanish crews, undertrained after years bottled up in port, could manage one.</p>
+      <p>The result was decisive: 22 enemy ships captured or destroyed, without the loss of a single British vessel. Nelson himself was shot by a French sniper aboard the Redoutable during the fighting and died that afternoon, reportedly saying &ldquo;Thank God I have done my duty&rdquo; upon learning of the victory. The battle ended any real threat of a French invasion of Britain and secured Royal Navy (皇家海軍) dominance of the seas for a century, later formalised in the Treaty of Amiens&rsquo; collapse and Napoleon&rsquo;s pivot toward continental warfare.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Trafalgar" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nelson won by breaking the rulebook exactly once, at exactly the right moment &mdash; and paid for it with his life that same afternoon.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What unconventional tactic did Nelson use at Trafalgar instead of the traditional parallel line-of-battle, and why did it favour the British?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Nelson split his fleet into two columns and sailed them perpendicular into the enemy&rsquo;s line, breaking it into isolated segments for close-quarters fighting &mdash; exposing his lead ships to raking fire during the approach, but exploiting superior British gunnery speed and crew training once the melee began.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Battle of Trafalgar.&rdquo; Adkins, R. (2004). <em>Trafalgar: The Biography of a Battle</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「理在氣中，日新又新」：王夫之與明清之際的氣一元論</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位明朝遺民學者拒絕出仕清朝，隱居湖南深山四十餘年，將畢生著作藏於箱篋。他主張世界並非由一個先於萬物存在的抽象「理」所主宰，而是「理」就存在於流動不息的「氣」之中，每一天都在更新變化。你認為，這種「日新」的世界觀，會如何影響一個人看待歷史與傳統？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王夫之（字而農，號薑齋，晚年隱居湘西石船山，故稱「船山先生」，1619&ndash;1692年）。</p>
+        <p><strong>核心思想：</strong>氣一元論——理不能脫離氣而獨立存在，理只在氣之中運行；「日新之化」——世界與歷史並非靜止循環，而是不斷更新演化的動態過程。</p>
+        <p><strong>時代背景：</strong>明清鼎革之際，王夫之目睹國破家亡，與黃宗羲、顧炎武並稱明末清初三大思想家，拒不仕清，隱居著述以明志。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/%E7%8E%8B%E5%A4%AB%E4%B9%8B.jpg" alt="王夫之畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王夫之（船山先生）畫像，明末清初思想家。來源：<a href="https://en.wikipedia.org/wiki/Wang_Fuzhi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王夫之早年投身抗清活動，兵敗後隱居衡陽石船山下，終身不剃髮易服，以「明遺臣」自居，長達四十餘年杜門著述。其著作在生前多未刊行，直至晚清曾國藩兄弟始加以蒐集刊刻，方為後世所知，與黃宗羲、顧炎武並稱明末清初三大思想家。</p>
+      <p>針對程朱理學「理在氣先」、理是獨立於物質世界之上的抽象本體的觀點，王夫之提出針鋒相對的修正：理只存在於氣之中，並非在氣之先、之外別有一個理。他認為天地萬物皆為氣之聚散變化，理不過是氣運行時所呈現的條理與規律，脫離氣談理只是空中樓閣，這是對程朱理學數百年正統地位的根本性挑戰。</p>
+      <p>在此基礎上，王夫之進一步提出「日新之化」的歷史觀：氣恆動不息，故天地萬物與人類歷史皆處於持續更新之中，並非簡單的治亂循環或今不如昔的退化過程。這種強調變化與人為努力的史觀，一定程度上肯定了人在歷史進程中的能動作用，也為晚清變法思潮提供了重要的傳統思想資源。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Fuzhi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王夫之用四十年隱居告訴後人：拒絕的姿態本身，也可以是一種積極的思想創造。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>王夫之的氣一元論，如何修正程朱理學「理在氣先」的觀點？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王夫之主張理不能脫離氣而獨立存在，理只是氣運行變化時所呈現的條理與規律，並非在氣之先、之外另有一個抽象本體；理氣不可分割，理只在氣中運行。</div>
+      </details>
+      <div class="source">&#x1F4D6; 王夫之《張子正蒙注》、《讀通鑑論》；侯外廬《中國思想通史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Why &ldquo;All Swans Are White&rdquo; Can Never Be Proven &mdash; Only Disproven: Karl Popper (卡爾&middot;波普爾) and Falsifiability (可證偽性)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argues that no scientific theory can ever truly be proven, no matter how many confirming observations pile up &mdash; but a single contrary piece of evidence can, in principle, disprove it instantly. Before reading on, what do you think this means for how we should tell real science apart from something that only sounds scientific?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Karl Popper (卡爾&middot;波普爾, 1902&ndash;1994), Austrian-British philosopher; contrasted against the logical positivism (邏輯實證主義) of the Vienna Circle (維也納學圈).</p>
+        <p><strong>Idea at stake:</strong> The demarcation problem (劃界問題) &mdash; what distinguishes genuine science from pseudoscience (偽科學) &mdash; and whether theories can ever be proven true through accumulated evidence alone.</p>
+        <p><strong>Big picture:</strong> In 1920s Vienna, Popper was struck by a contrast: Einstein&rsquo;s general relativity (廣義相對論) made a risky, falsifiable prediction confirmed by the 1919 eclipse test, while Marxist and Freudian theories seemed able to explain away almost any evidence.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Karl_Popper.jpg" alt="Photograph of philosopher Karl Popper" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Karl Popper (卡爾&middot;波普爾), whose falsifiability criterion reshaped the philosophy of science. Credit: <a href="https://en.wikipedia.org/wiki/Karl_Popper" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Popper&rsquo;s key move echoed David Hume&rsquo;s (休謨) problem of induction (歸納問題): no finite number of observations of white swans can ever logically prove the universal claim &ldquo;all swans are white,&rdquo; yet a single confirmed sighting of a black swan instantly refutes it. Science, Popper argued, therefore cannot be built on accumulating confirmations alone &mdash; proof and disproof are not symmetrical operations.</p>
+      <p>In <em>The Logic of Scientific Discovery</em> (1934/1959), Popper proposed falsifiability (可證偽性) as his criterion of demarcation: a theory only counts as genuinely scientific if it makes risky predictions that could, in principle, be shown false by observation. Physics passed this test easily; Popper controversially argued that Marxism (馬克思主義) and psychoanalysis (精神分析) failed it, since their practitioners could reinterpret almost any outcome as confirming the theory rather than threatening it.</p>
+      <p>Later philosophers pushed back: the Duhem&ndash;Quine thesis (迪昂&ndash;奎因論題) noted that auxiliary assumptions can always absorb the blame for a failed prediction instead of the core theory, and Thomas Kuhn (孔恩) argued scientists rarely abandon a paradigm (範式) at the first contrary result. Even so, Popper&rsquo;s falsifiability test remains the everyday shorthand scientists and journalists still reach for when asking whether a claim is genuinely testable at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Karl_Popper" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A theory that can explain literally any outcome isn&rsquo;t powerful &mdash; it&rsquo;s untestable, and that is precisely the problem.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Popper, why can no number of white-swan sightings ever prove the claim &ldquo;all swans are white,&rdquo; while a single black swan can disprove it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Observing more white swans only adds more confirming instances but can never logically rule out an unobserved black swan somewhere; a single verified black swan, however, directly contradicts the universal claim and refutes it outright &mdash; proof and disproof are not symmetrical.</div>
+      </details>
+      <div class="source">&#x1F4D6; Popper, K. (1959). <em>The Logic of Scientific Discovery</em>. Stanford Encyclopedia of Philosophy, &ldquo;Karl Popper.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The &ldquo;Personality Test&rdquo; Where Everyone Got the Same Answer: The Barnum Effect (巴納姆效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A psychologist gives students a personality test, then hands back what he claims is each student&rsquo;s own personalised result. In reality, every single student receives the exact same generic description, assembled from newspaper horoscope columns. Before reading on, how accurately do you think students rated a description that wasn&rsquo;t even about them?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/P._T._Barnum_-_02176a_%28cropped%29.jpg/330px-P._T._Barnum_-_02176a_%28cropped%29.jpg" alt="Portrait photograph of showman P. T. Barnum" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">P. T. Barnum (巴納姆), the showman whose name was lent to the Barnum effect (巴納姆效應) by psychologist Paul Meehl. Credit: <a href="https://en.wikipedia.org/wiki/P._T._Barnum" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1948, psychologist Bertram Forer (伯特倫&middot;福勒) gave students a personality assessment, then distributed identical vague, flattering write-ups to everyone &mdash; statements like &ldquo;you have a need for other people to like and admire you&rdquo; and &ldquo;at times you have serious doubts as to whether you have made the right decision.&rdquo; Asked to rate how accurately the description matched them personally on a 0&ndash;5 scale, students averaged 4.26, genuinely believing the generic text had been written specifically about them.</p>
+      <p>Psychologist Paul Meehl (保羅&middot;米爾) later named the phenomenon the Barnum effect (巴納姆效應), after showman P.T. Barnum&rsquo;s (巴納姆) reputed claim that a good show has &ldquo;a little something for everybody.&rdquo; The mechanism combines several biases at once: statements vague enough to fit almost anyone, a mix of flattering and mildly critical claims that feels balanced and honest, and confirmation bias (確認偏誤) that makes people notice the parts that fit while quietly glossing over the parts that don&rsquo;t.</p>
+      <p>The effect explains the enduring popularity of horoscopes, tarot readings, and cold reading (冷讀術) performed by psychics &mdash; vague statements delivered with confidence feel personally revealing even when they apply to nearly everyone in the room. It has also been used to critique some popular personality tests, which critics argue sometimes package Barnum-style generic feedback as if it were individualised psychological insight.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Barnum_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A description vague enough to fit everyone will feel like it was written just for you.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Forer&rsquo;s original 1948 study, what specific trick made the personality description feel so personally accurate to students?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Every student received the exact same generic write-up, assembled from horoscope-style statements vague enough to apply to almost anyone; students rated it highly accurate (averaging 4.26/5) because they focused on the parts that resonated and overlooked how non-specific the language actually was.</div>
+      </details>
+      <div class="source">&#x1F4D6; Forer, B.R. (1949). <em>Journal of Abnormal and Social Psychology</em>, 44(1). Meehl, P.E. (1956). <em>American Psychologist</em>, 11(4).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>A Reflex Older Than Lungs? The Strange Mechanics of Hiccups (打嗝)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Human fetuses (胎兒) begin hiccupping in the womb long before their lungs ever draw a breath of air, sometimes dozens of times a day. Before reading on, why might a body practise a seemingly pointless reflex months before it could possibly serve any purpose?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Respiratory_system.svg/960px-Respiratory_system.svg.png" alt="Diagram of the human respiratory system, including the diaphragm and lungs" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The diaphragm (橫膈膜) and respiratory system, whose sudden spasm produces a hiccup. Credit: <a href="https://en.wikipedia.org/wiki/Hiccup" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A hiccup (打嗝) begins with a sudden, involuntary spasm of the diaphragm (橫膈膜) &mdash; the dome-shaped muscle beneath the lungs that drives normal breathing &mdash; immediately followed by an abrupt closure of the glottis (聲門), the opening between the vocal cords. That sudden closure interrupts the inrush of air, producing the characteristic &ldquo;hic&rdquo; sound. The reflex runs through a loop involving the phrenic nerve (膈神經) and vagus nerve (迷走神經), coordinated by a &ldquo;hiccup centre&rdquo; in the brainstem (腦幹).</p>
+      <p>Common triggers include eating too quickly, carbonated drinks, alcohol, and sudden temperature changes, all of which can irritate the relevant nerves or stretch the stomach enough to set off the reflex. Most bouts resolve within minutes on their own; the traditional folk remedies &mdash; holding your breath, drinking water upside down, being startled &mdash; largely work by raising blood carbon dioxide levels or stimulating the vagus nerve, both of which help interrupt and reset the reflex loop.</p>
+      <p>One evolutionary theory, proposed by biologist Daniel Howes in 2012, suggests hiccups may be a vestige of the neural circuitry amphibian tadpoles (蝌蚪) use to push water past their gills while keeping their lungs sealed shut &mdash; a hypothesis still debated among scientists. What&rsquo;s less debated is that hiccups appear remarkably early in human development, showing up in fetuses well before birth, hinting the reflex may be far more ancient than the lungs it now interrupts.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hiccup" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The reflex that makes you hiccup after a fizzy drink may be borrowing wiring your distant ancestors once used to breathe through gills.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two physical events, in sequence, actually produce the &ldquo;hic&rdquo; sound of a hiccup?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A sudden involuntary spasm of the diaphragm is immediately followed by an abrupt closure of the glottis, the opening between the vocal cords; that sudden closure interrupting the inrush of air is what produces the characteristic &ldquo;hic&rdquo; sound.</div>
+      </details>
+      <div class="source">&#x1F4D6; Howes, D. (2012). <em>QJM: An International Journal of Medicine</em>, 105(6). Cleveland Clinic, &ldquo;Hiccups.&rdquo;</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Standing All Day Isn&rsquo;t the Fix Either: What the Standing Desk (企立式辦公桌) Evidence Actually Shows</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Prolonged sitting has been linked to higher risk of heart disease and early death, even among people who exercise regularly &mdash; a finding that helped fuel a wave of office standing desks. Before reading on, do you think simply standing instead of sitting at your desk meaningfully lowers that health risk?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Standing_desk_illustration.svg/960px-Standing_desk_illustration.svg.png" alt="Illustrated diagram comparing sitting and standing desk postures" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A standing desk (企立式辦公桌) setup, compared against a seated posture. Credit: <a href="https://en.wikipedia.org/wiki/Standing_desk" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>An influential 2015 meta-analysis in the <em>Annals of Internal Medicine</em>, led by Aviroop Biswas, found that prolonged sitting time was associated with significantly higher risk of cardiovascular disease, diabetes, cancer, and all-cause mortality &mdash; and notably, the association held even among people who met standard weekly exercise guidelines, suggesting sitting itself carries some risk independent of simply &ldquo;not exercising enough.&rdquo;</p>
+      <p>That finding fuelled the popularity of standing desks, but randomised trials testing them directly, including the &ldquo;Stand Up Victoria&rdquo; workplace trial, found more modest results: standing desks reliably reduce total daily sitting time, but evidence for meaningful weight loss or major improvements in blood sugar and cholesterol markers has been weak and inconsistent. Standing itself burns only marginally more calories than sitting &mdash; roughly an extra 0.7 calories per minute &mdash; nowhere near enough to offset a sedentary diet or substitute for real exercise.</p>
+      <p>Standing all day brings its own problems too, including a higher risk of varicose veins (靜脈曲張), lower back pain, and fatigue from prolonged static posture. Physiologist James Levine&rsquo;s (詹姆斯&middot;萊文) concept of NEAT (非運動性熱效應, non-exercise activity thermogenesis) points to a better target than either sitting or standing alone: frequent movement breaks, roughly every 30 minutes, appear to matter more for metabolic health than which position you hold your body in for hours at a stretch.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Standing_desk" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The healthiest desk habit isn&rsquo;t standing instead of sitting &mdash; it&rsquo;s getting up and moving every half hour, regardless of which one you were doing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the research, why doesn&rsquo;t switching from a sitting desk to a standing desk meaningfully solve the health risks linked to prolonged sitting?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Standing burns only marginally more calories than sitting (about 0.7 kcal/minute more), and randomised trials show it mainly reduces total sitting time without producing consistent improvements in weight, blood sugar, or cholesterol; standing itself also introduces new risks like varicose veins and back pain, so frequent movement breaks matter more than posture alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Biswas, A. et al. (2015). <em>Annals of Internal Medicine</em>, 162(2). Healy, G.N. et al., &ldquo;Stand Up Victoria&rdquo; trial, <em>International Journal of Behavioral Nutrition and Physical Activity</em> (2013).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Lifting Heavy Right Before You Jump Can Make You Jump Higher: Post-Activation Potentiation (激活後增強效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A sprinter performs a single, near-maximal heavy squat, rests for several minutes, then attempts an explosive jump &mdash; and jumps noticeably higher than if they had warmed up without the heavy lift at all. Before reading on, how do you think briefly fatiguing your muscles with a heavy weight could end up making your next explosive movement better, not worse?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Small_group_fitness_sessions_bundall.jpg/330px-Small_group_fitness_sessions_bundall.jpg" alt="People performing strength training exercises in a gym setting" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Heavy strength training paired with an explosive movement is the basis of complex training (複合式訓練). Credit: <a href="https://en.wikipedia.org/wiki/Post-activation_potentiation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Post-activation potentiation, or PAP (激活後增強效應), describes a real, measurable phenomenon in which a heavy, near-maximal muscular contraction temporarily enhances the force and speed of a subsequent explosive movement performed by the same muscle group, provided the two are separated by an appropriate rest interval &mdash; commonly used by pairing a heavy back squat with a vertical jump or short sprint in what is called &ldquo;complex training&rdquo; (複合式訓練).</p>
+      <p>The mechanism runs through two channels: at the muscle level, the heavy contraction phosphorylates myosin regulatory light chains (肌凝蛋白調節輕鏈), making the muscle fibres more sensitive to calcium and improving cross-bridge cycling efficiency; at the nervous-system level, the heavy lift increases motor unit recruitment (運動單位徵召) and neural drive, priming the same muscles to fire more forcefully on the next explosive effort.</p>
+      <p>The tricky part is timing: too little rest after the heavy lift and residual fatigue outweighs any potentiation benefit; too much rest and the effect fades away entirely. Research reviews, including work by Sale and by Docherty and Hodgson, generally find the sweet spot falls somewhere between four and twelve minutes, though the ideal window varies considerably by individual, with stronger, more trained athletes typically showing a larger and more reliable PAP response than novices.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Post-activation_potentiation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A heavy lift doesn&rsquo;t just tire you out &mdash; timed correctly, it can temporarily prime your nervous system to produce more explosive force on the very next rep.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two physiological mechanisms explain why a heavy lift can temporarily enhance a subsequent explosive movement?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">At the muscle level, the heavy contraction increases calcium sensitivity and cross-bridge cycling efficiency via phosphorylation of myosin regulatory light chains; at the nervous-system level, it increases motor unit recruitment and neural drive, both of which prime the same muscle group to produce more force on the next explosive effort.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sale, D.G. (2002). <em>Exercise and Sport Sciences Reviews</em>, 30(3). Docherty, D. &amp; Hodgson, M.J. (2007). <em>Sports Medicine</em>, 37(4).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Nobel-Winning Insight Hiding in &ldquo;Don&rsquo;t Put All Your Eggs in One Basket&rdquo;: Harry Markowitz (哈里&middot;馬科維茨) and Modern Portfolio Theory (現代投資組合理論)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Everyone knows the old advice not to put all your eggs in one basket. Before reading on, what do you think a mathematically rigorous version of that advice would need to specify, beyond just &ldquo;own more than one thing&rdquo;?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Markowitz_frontier.jpg" alt="Chart illustrating the Markowitz efficient frontier, plotting expected return against risk for optimal portfolios" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The efficient frontier (效率前緣), Harry Markowitz&rsquo;s chart of optimal risk-return combinations. Credit: <a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1952, a 25-year-old graduate student named Harry Markowitz (哈里&middot;馬科維茨) published a nine-page paper in the <em>Journal of Finance</em> titled &ldquo;Portfolio Selection&rdquo; that quietly transformed how professional investors think about risk. His key insight went beyond simply owning many assets: what actually reduces a portfolio&rsquo;s overall risk is combining assets whose prices don&rsquo;t move in lockstep with each other &mdash; low or negative correlation (相關性) matters more than sheer number of holdings.</p>
+      <p>Markowitz formalised this into mean-variance optimisation (均值-方差最適化): for any target level of expected return, there exists a specific combination of assets that minimises risk, and plotting these optimal combinations traces out what is called the efficient frontier (效率前緣) &mdash; the boundary of portfolios offering the best possible return for a given level of risk, with anything below the frontier considered needlessly inefficient.</p>
+      <p>The framework earned Markowitz the 1990 Nobel Memorial Prize in Economic Sciences (諾貝爾經濟學獎), shared with Merton Miller and William Sharpe, and became the theoretical foundation for the Capital Asset Pricing Model (資本資產定價模型) and much of modern index investing. Its major blind spot emerged starkly in the 2008 financial crisis: the model assumes stable correlations, but in a systemic crash, assets that appeared uncorrelated for decades can suddenly move together &mdash; diversification&rsquo;s protection tends to weaken exactly when investors need it most.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Diversification isn&rsquo;t about owning more things &mdash; it&rsquo;s about owning things that don&rsquo;t fall for the same reason at the same time.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Markowitz&rsquo;s framework, why is low correlation between assets more important for reducing portfolio risk than simply owning a larger number of assets?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Diversification reduces risk only to the extent that the assets held don&rsquo;t move in lockstep with each other; owning many highly correlated assets provides little real risk reduction, whereas combining assets with low or negative correlation smooths out the portfolio&rsquo;s overall swings even with fewer holdings.</div>
+      </details>
+      <div class="source">&#x1F4D6; Markowitz, H. (1952). <em>Journal of Finance</em>, 7(1). The Sveriges Riksbank Prize in Economic Sciences, 1990 press release.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>When the Textbook Prescription Didn&rsquo;t Cure the Patient: The Washington Consensus (華盛頓共識)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/IMF-Seal_ENG_RGB.svg/960px-IMF-Seal_ENG_RGB.svg.png" alt="Official seal of the International Monetary Fund" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The International Monetary Fund (國際貨幣基金組織), one of the institutions behind the Washington Consensus (華盛頓共識) prescriptions. Credit: <a href="https://en.wikipedia.org/wiki/Washington_Consensus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In the 1980s, Latin American economies buckled under a severe debt crisis (債務危機); in exchange for emergency loans, the International Monetary Fund (國際貨幣基金組織) and World Bank (世界銀行) required governments to adopt a standardised package of reforms as loan conditionality. Argentina followed the prescription closely through the 1990s &mdash; fixed currency board, mass privatisation, trade liberalisation &mdash; yet collapsed into a catastrophic economic crisis in 2001.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist John Williamson (約翰&middot;威廉森) coined the term &ldquo;Washington Consensus&rdquo; in 1989 to describe roughly ten policy prescriptions favoured by Washington-based institutions: fiscal discipline, trade and financial liberalisation, privatisation of state enterprises, deregulation, and secure property rights &mdash; reflecting the belief that market-oriented reform, properly sequenced, would restore growth and stability to struggling economies.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Results across the region were decidedly mixed: Argentina&rsquo;s 2001 collapse came despite textbook compliance, while China (中國) achieved sustained rapid growth through the same decades using a heterodox, gradualist approach that violated many Consensus tenets &mdash; retaining capital controls, pursuing gradual rather than rapid privatisation, and relying heavily on state-directed investment.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Joseph Stiglitz (約瑟夫&middot;斯蒂格利茨) argued in his &ldquo;post-Washington Consensus&rdquo; critique that reform sequencing and institution-building must precede market liberalisation, not follow it; Dani Rodrik (達尼&middot;羅德里克) similarly contends that context-specific, gradualist reforms outperform one-size-fits-all prescriptions &mdash; though how much of the region&rsquo;s divergent outcomes reflects institutions, sequencing, or simply luck remains genuinely disputed.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A reform package that works on a spreadsheet can still fail a country &mdash; sequencing and institutions turned out to matter as much as the policies themselves.</div>
+      <div class="source">&#x1F4D6; Williamson, J. (1990). &ldquo;What Washington Means by Policy Reform,&rdquo; Institute for International Economics. Stiglitz, J. (2002). <em>Globalization and Its Discontents</em>. Rodrik, D. (2006). <em>Journal of Economic Literature</em>, 44(4).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; Vagueness Feels Like Insight:</strong> Popper&rsquo;s falsifiability test and the Barnum effect are two sides of the same coin. A horoscope-style personality reading rated &ldquo;highly accurate&rdquo; by students survives scrutiny precisely because it is vague enough to never be wrong &mdash; the exact trait Popper flagged as disqualifying a claim from counting as genuine science.</p>
+      <p><strong>So what:</strong> The next time a claim &mdash; a personality test, a prediction, a theory &mdash; feels impressively accurate, ask what specific outcome would have proven it wrong. If nothing could have, that feeling of accuracy is likely an illusion built from vagueness, not real insight.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Event Horizon Telescope Collaboration, &ldquo;First M87 Event Horizon Telescope Results,&rdquo; <em>The Astrophysical Journal Letters</em>, April 2019.</li>
+      <li><strong>Card 2:</strong> 陳壽《三國志&middot;魏書》；司馬光《資治通鑑》卷七十五。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Battle of Trafalgar.&rdquo; Adkins, R. (2004), <em>Trafalgar: The Biography of a Battle</em>.</li>
+      <li><strong>Card 4:</strong> 王夫之《張子正蒙注》、《讀通鑑論》；侯外廬《中國思想通史》。</li>
+      <li><strong>Card 5:</strong> Popper, K. (1959), <em>The Logic of Scientific Discovery</em>. Stanford Encyclopedia of Philosophy, &ldquo;Karl Popper.&rdquo;</li>
+      <li><strong>Card 6:</strong> Forer, B.R. (1949), <em>Journal of Abnormal and Social Psychology</em> 44(1). Meehl, P.E. (1956), <em>American Psychologist</em> 11(4).</li>
+      <li><strong>Card 7:</strong> Howes, D. (2012), <em>QJM: An International Journal of Medicine</em> 105(6). Cleveland Clinic, &ldquo;Hiccups.&rdquo;</li>
+      <li><strong>Card 8:</strong> Biswas, A. et al. (2015), <em>Annals of Internal Medicine</em> 162(2). Healy, G.N. et al., &ldquo;Stand Up Victoria&rdquo; trial (2013).</li>
+      <li><strong>Card 9:</strong> Sale, D.G. (2002), <em>Exercise and Sport Sciences Reviews</em> 30(3). Docherty &amp; Hodgson (2007), <em>Sports Medicine</em> 37(4).</li>
+      <li><strong>Card 10:</strong> Markowitz, H. (1952), <em>Journal of Finance</em> 7(1). Sveriges Riksbank Prize in Economic Sciences, 1990.</li>
+      <li><strong>Card 11:</strong> Williamson, J. (1990), Institute for International Economics. Stiglitz, J. (2002). Rodrik, D. (2006), <em>Journal of Economic Literature</em> 44(4).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-18: First Image of a Black Hole (M87*) &bull; 高平陵之變（司馬懿） &bull; Battle of Trafalgar 1805 &bull; 王夫之氣一元論 &bull; Karl Popper Falsifiability &bull; Barnum Effect &bull; Hiccups (Singultus) &bull; Standing Desk Myth &bull; Post-Activation Potentiation &bull; Markowitz Modern Portfolio Theory &bull; Washington Consensus</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-18.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-18.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 18 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
