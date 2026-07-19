@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 19 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 19 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>18 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; First Image of a Black Hole</span>Eight linked telescopes and petabytes of data produced humanity&rsquo;s first-ever photograph of a black hole, M87*.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 高平陵之變</span>司馬懿裝病十年後突襲奪權，誅殺曹爽奠定西晉基業。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Trafalgar</span>Nelson broke naval convention at Trafalgar, sacrificing his own life to secure a decisive British victory.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 王夫之氣一元論</span>王夫之主張理在氣中，日新之化推動歷史演進。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Karl Popper</span>Popper argued theories can only be disproven, never proven, making falsifiability science&rsquo;s real test.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Barnum Effect</span>An identical, vague personality description felt personally accurate to nearly every student who read it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Hiccups</span>A diaphragm spasm followed by sudden vocal-cord closure is what produces the reflex we call a hiccup.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Standing Desk Myth</span>Standing desks cut total sitting time but barely move the needle on real cardiovascular or metabolic outcomes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Post-Activation Potentiation</span>A heavy near-max lift can temporarily boost explosive power in the very next jump or sprint.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Modern Portfolio Theory</span>Markowitz showed low correlation between assets matters more for risk than simply owning many of them.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Washington Consensus</span>Argentina followed textbook reforms and still collapsed in 2001, while heterodox China thrived breaking many of the same rules.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Pointing at &ldquo;Nothing&rdquo; for 10 Days &mdash; and Finding 3,000 Galaxies: The Hubble Deep Field (哈勃深空)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1995, astronomers pointed the Hubble Space Telescope (哈勃太空望遠鏡) at a patch of sky so small and apparently empty it was roughly the size of a grain of sand held at arm&rsquo;s length &mdash; and stared at it for 10 straight days. Before reading on, what do you think they found in all that seemingly blank darkness?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/HubbleDeepField.800px.jpg" alt="The Hubble Deep Field, showing thousands of distant galaxies packed into a tiny patch of sky once thought empty" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Hubble Deep Field (哈勃深空), 1995 &mdash; roughly 3,000 galaxies revealed in a patch of sky once assumed nearly blank. Credit: <a href="https://en.wikipedia.org/wiki/Hubble_Deep_Field" target="_blank" rel="noopener">NASA/STScI / Wikimedia Commons</a></div>
+      </div>
+      <p>In December 1995, astronomer Robert Williams (羅伯特&middot;威廉斯), then director of the Space Telescope Science Institute (太空望遠鏡科學研究所), made a controversial bet with his discretionary observing time on the Hubble Space Telescope (哈勃太空望遠鏡). He pointed it at a tiny, apparently empty patch of sky in the constellation Ursa Major (大熊座) &mdash; an area roughly the size of a grain of sand held at arm&rsquo;s length &mdash; and left it staring for 10 consecutive days, capturing 342 separate exposures. Many colleagues thought it was a waste of the telescope&rsquo;s most valuable resource.</p>
+      <p>When the exposures were combined into a single image &mdash; the Hubble Deep Field (哈勃深空) &mdash; the &ldquo;empty&rdquo; patch resolved into roughly 3,000 galaxies (星系) of every shape, size, and age, packed into a sliver of sky previously assumed nearly blank. Some were nearby spirals; others were faint, distorted smudges whose light had travelled billions of years to reach the telescope, showing galaxies as they existed when the universe (宇宙) was only a fraction of its current age.</p>
+      <p>The image reshaped cosmology (宇宙學): if a &ldquo;blank&rdquo; patch chosen almost at random contained thousands of galaxies, the observable universe likely held hundreds of billions in total. Follow-up campaigns &mdash; the Hubble Ultra-Deep Field (哈勃超深空) in 2004 and, later, the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) &mdash; pushed the technique further back in time, but Williams&rsquo;s original gamble established the method: sometimes the most important discovery comes from patient staring at what looks like nothing at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hubble_Deep_Field" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The universe&rsquo;s most crowded photograph came from pointing a telescope at what looked like the emptiest spot in the sky.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did astronomers choose an apparently &ldquo;empty&rdquo; patch of sky for the Hubble Deep Field, and what did the long exposure reveal?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They chose a patch away from bright stars so faint, distant light wouldn&rsquo;t be drowned out; combining 342 exposures over 10 days revealed roughly 3,000 previously invisible galaxies, showing the universe was far more densely populated with galaxies than expected.</div>
+      </details>
+      <div class="source">&#x1F4D6; Williams, R.E. et al. (1996). &ldquo;The Hubble Deep Field,&rdquo; <em>Astronomical Journal</em>, 112. NASA/STScI.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「黃袍加身」：陳橋兵變與宋朝開國</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位禁軍統帥率兵出征途中，半夜被部下擁立，硬將黃袍披在他身上，逼他接受皇帝之位。你認為，這場看似「被迫」的政變，究竟是誰在幕後策劃？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>趙匡胤（後周殿前都點檢，禁軍最高統帥）、趙普（謀士）、趙匡義（趙匡胤之弟）。</p>
+        <p><strong>事件：</strong>960年「陳橋兵變」，趙匡胤率軍北上抵禦契丹進犯，行至陳橋驛時被部下擁立稱帝，返京逼後周恭帝禪讓，建立宋朝。</p>
+        <p><strong>時代背景：</strong>五代十國以來政局動盪，武將擁兵自重、篡奪帝位屢見不鮮；後周世宗柴榮英年早逝，繼位的恭帝年僅七歲，主少國疑，予趙匡胤可乘之機。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Song_Taizu.jpg/3840px-Song_Taizu.jpg" alt="宋太祖趙匡胤畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">宋太祖趙匡胤畫像，陳橋兵變的主角。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Song" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>顯德七年（960年）正月，後周朝廷忽然接獲邊報，指契丹與北漢聯兵南下入侵，年幼的恭帝與符太后倉皇之下，急命殿前都點檢趙匡胤率禁軍北上迎敵。大軍行至距開封僅四十里的陳橋驛（今河南封丘）便按兵駐紮，趙匡胤之弟趙匡義與謀士趙普趁夜在軍中散布「策點檢為天子」的呼聲，將領們群集帳外，聲稱「主上幼弱，未能親政，今我輩出死力破敵，誰則知之？不如先立點檢為天子，然後北征，未晚也」。</p>
+      <p>翌日拂曉，眾將闖入趙匡胤寢帳，不由分說將象徵天子的黃袍披於其身，跪拜山呼萬歲。趙匡胤佯裝推辭，直至眾人堅持不已，方「勉為其難」接受，隨即約法三章：返京後不得驚犯太后、幼主，不得侵擾朝臣百姓，不得擄掠府庫財物。大軍隨即回師開封，城內禁軍將領石守信、王審琦等早已暗中接應，城門洞開，幾乎兵不血刃便控制了京城。</p>
+      <p>趙匡胤入城後，逼迫後周恭帝柴宗訓禪位，改國號為「宋」，是為宋太祖，史稱「陳橋兵變」。整場政變不動干戈，內外將領配合默契，顯示絕非臨時起意，而是趙匡胤集團預謀已久的奪權行動。宋太祖即位後鑑於五代武將跋扈之弊，翌年即以「杯酒釋兵權」解除諸將兵權，終結了唐末以來近二百年藩鎮割據、兵變頻仍的亂局。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Taizu_of_Song" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一件「黃袍」披上的速度，往往比它籌劃的時間短得多。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>陳橋兵變中，趙匡胤返京前向眾將提出了甚麼「約法三章」？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">趙匡胤要求返京後不得驚犯太后與幼主、不得侵擾朝臣百姓、不得擄掠府庫財物，藉此在政變後迅速穩定人心，減少政權更替的動盪與阻力。</div>
+      </details>
+      <div class="source">&#x1F4D6; 脫脫《宋史&middot;太祖本紀》；李燾《續資治通鑑長編》卷一。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>One Arrow, One Kingdom: The Battle of Hastings (黑斯廷斯戰役) and the Norman Conquest (諾曼征服), 1066</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A claimant to the English throne crosses the Channel with a fresh invading army, facing the reigning king&rsquo;s forces &mdash; who had just force-marched hundreds of miles after winning another battle days earlier. Before reading on, what advantage might exhaustion from a prior victory hand to a rested invading force?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> William, Duke of Normandy (諾曼第公爵威廉, later William the Conqueror 征服者威廉); King Harold Godwinson (哈羅德&middot;戈德溫森), the reigning Anglo-Saxon king of England.</p>
+        <p><strong>Event at stake:</strong> The Battle of Hastings (黑斯廷斯戰役), fought 14 October 1066 near Hastings, southern England.</p>
+        <p><strong>Big picture:</strong> Harold had just marched his army roughly 300 km north to defeat a Norwegian invasion at Stamford Bridge (斯坦福橋戰役), then immediately turned south to meet William&rsquo;s fresh Norman army barely three weeks later.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Bayeux_Tapestry_scene57_Harold_death.jpg/330px-Bayeux_Tapestry_scene57_Harold_death.jpg" alt="Section of the Bayeux Tapestry depicting the death of King Harold at the Battle of Hastings" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Bayeux Tapestry (貝葉掛毯), depicting the death of King Harold at Hastings, 1066. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Hastings" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 October 1066, King Harold Godwinson (哈羅德&middot;戈德溫森) arrayed his exhausted Anglo-Saxon army &mdash; many having just marched roughly 300 kilometres in under three weeks after crushing a Norwegian invasion at Stamford Bridge (斯坦福橋戰役) &mdash; along a defensive ridge near Hastings. Facing him stood William, Duke of Normandy (諾曼第公爵威廉), who had landed a fresh, well-supplied invasion force days earlier and now pressed his rival&rsquo;s advantage before Harold could fully recover or gather reinforcements.</p>
+      <p>Harold&rsquo;s shield wall (盾牆) held for hours against repeated Norman cavalry and archer assaults, until Norman forces staged what may have been a deliberate feigned retreat (佯退戰術), luring undisciplined portions of the English line to break formation in pursuit &mdash; a fatal mistake that let Norman cavalry cut them down in the open. As dusk approached, Harold himself was killed, traditionally depicted in the Bayeux Tapestry (貝葉掛毯) as struck by an arrow in the eye, though the exact manner of his death remains historically disputed.</p>
+      <p>William marched on London, and on Christmas Day 1066 was crowned William I (威廉一世) of England, launching the Norman Conquest (諾曼征服) that replaced the Anglo-Saxon aristocracy with Norman lords, introduced Norman French into the English language and legal system, and commissioned the Domesday Book (末日審判書) in 1086 &mdash; a sweeping land survey still used by historians today. Few single battles have reshaped a nation&rsquo;s language, law, and ruling class as thoroughly as this one afternoon near Hastings.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Hastings" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A king who wins one exhausting battle can still lose the throne to a rival who never had to fight it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What tactical mistake by part of Harold&rsquo;s army, during a Norman feigned retreat, proved costly at Hastings?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Portions of the English shield wall broke formation to pursue Norman forces staging what may have been a deliberate feigned retreat, letting Norman cavalry cut down the exposed, disorganised pursuers in the open ground.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Battle of Hastings.&rdquo; Bayeux Tapestry (11th century); Marren, P. (2004). <em>1066: The Battle of Hastings</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「白馬非馬」：公孫龍與名家的邏輯詭辯</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位哲學家聲稱「白馬不是馬」，並非玩弄文字遊戲，而是提出一套嚴謹的邏輯論證。你認為，一匹白色的馬，怎麼可能「不是」馬？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>公孫龍（約前320&ndash;前250年），戰國時期趙國人，名家代表人物。</p>
+        <p><strong>核心思想：</strong>「白馬非馬」論——區分「馬」（形）與「白」（色）兩個概念，論證「白馬」作為複合概念與單純概念「馬」在邏輯外延上並不相等。</p>
+        <p><strong>時代背景：</strong>戰國諸子百家爭鳴，名家專注於名實關係與邏輯辯論，公孫龍曾任平原君門客，以「守白論」聞名於世，亦因此屢遭儒家、墨家等學派抨擊為「詭辯」。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-039-%E5%85%AC%E5%AD%AB%E9%BE%8D.jpg" alt="公孫龍畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">公孫龍畫像，戰國名家「白馬非馬」論的提出者。來源：<a href="https://en.wikipedia.org/wiki/Gongsun_Long" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>公孫龍在《公孫龍子&middot;白馬論》中提出：「馬者，所以命形也；白者，所以命色也。命色者非命形也，故曰白馬非馬。」他的論證核心在於「馬」一詞僅指涉形體，不限顏色，故黃馬、黑馬皆可稱「馬」；但「白馬」一詞同時指涉形體與顏色兩項條件，其外延遠比單純的「馬」狹窄——換言之，求「馬」可得黃馬、黑馬，求「白馬」則黃馬、黑馬皆不可得，可見「白馬」與「馬」在概念上並不等同。</p>
+      <p>這套論證在當代常被視為文字遊戲，但公孫龍實際觸及了邏輯學上「概念內涵與外延」的核心問題——「馬」是一個較寬泛的類概念，「白馬」則是受顏色限定的子概念，兩者外延確實不同，僅是「白馬」仍屬於「馬」這一類的事實，被公孫龍刻意迴避不談。荀子在《正名篇》中便曾嚴厲批評名家「惑於用名以亂名」，認為公孫龍是故意混淆概念範疇，擾亂正常語言溝通。</p>
+      <p>儘管歷來評價兩極，公孫龍與名家其他命題（如「堅白論」區分「堅硬」與「白色」兩種感官屬性能否同時存在於一物），實際上開啟了中國先秦邏輯學對於概念、指稱與感官經驗關係的罕見系統性探討，可惜秦漢統一後名家迅速式微，未能如古希臘邏輯學般發展成獨立學科，僅零星保存於《公孫龍子》殘卷之中，成為中國哲學史上一段被長期低估的插曲。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Gongsun_Long" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一句聽來荒謬的話，有時正正是邏輯學最嚴謹的起點。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>公孫龍如何論證「白馬」與「馬」在概念外延上並不相同？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他指出「馬」僅指涉形體種類，黃馬、黑馬皆屬「馬」；但「白馬」同時受形體與顏色雙重限定，外延較「馬」狹窄——求「馬」可得黃馬黑馬，求「白馬」則不可得，故「白馬」與「馬」在概念上並不等同。</div>
+      </details>
+      <div class="source">&#x1F4D6; 公孫龍《公孫龍子&middot;白馬論》；荀子《正名篇》；馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Prison You Police Yourself: Michel Foucault (米歇爾&middot;傅柯) and the Panopticon (全景監獄)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An 18th-century prison design places a single guard tower at the centre of a circular building, with cells arranged around it &mdash; but prisoners can never actually tell whether the guard is watching them at any given moment. Before reading on, why might that uncertainty alone be enough to change how prisoners behave, even without a guard present at all?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Michel Foucault (米歇爾&middot;傅柯, 1926&ndash;1984), French philosopher and historian; building on Jeremy Bentham&rsquo;s (傑里米&middot;邊沁) 18th-century prison design, the Panopticon (全景監獄).</p>
+        <p><strong>Idea at stake:</strong> How power (權力) operates not just through force but through constant, internalised visibility &mdash; and how institutions from prisons to schools to workplaces discipline behaviour by making people feel permanently watched.</p>
+        <p><strong>Big picture:</strong> Writing in 1970s France amid growing critique of prisons, asylums, and hospitals, Foucault argued modern institutions replaced brutal public punishment with subtler, more pervasive forms of surveillance and control.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Photo_of_Michel_Foucault_on_1970_dustjacket_of_The_Order_of_Things.jpg" alt="Photograph of philosopher Michel Foucault" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Michel Foucault (米歇爾&middot;傅柯), whose analysis of the Panopticon reshaped how power and surveillance are understood. Credit: <a href="https://en.wikipedia.org/wiki/Michel_Foucault" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>Discipline and Punish</em> (1975), Foucault (傅柯) opens with a jarring contrast: an 18th-century account of a public execution by torture, followed by a 19th-century prison timetable regulating an inmate&rsquo;s every waking minute. His argument was that Western societies hadn&rsquo;t become less controlling over this period &mdash; punishment had simply gone underground, trading spectacular public violence for quiet, continuous discipline (規訓) exercised through architecture, schedules, and surveillance rather than the executioner&rsquo;s blade.</p>
+      <p>Foucault&rsquo;s central image was Jeremy Bentham&rsquo;s (邊沁) Panopticon (全景監獄): a prison design with a central guard tower surrounded by cells, built so prisoners could never know whether they were being watched at any given moment. Foucault argued the genius of the design was that inmates, uncertain when the gaze fell on them, began policing their own behaviour constantly &mdash; surveillance became internalised, requiring far less actual force to maintain order than a fully-staffed guard force ever could.</p>
+      <p>Foucault extended this logic to schools, factories, hospitals, and armies, arguing that modern power (權力) operates less through kings issuing commands and more through diffuse, everyday disciplinary mechanisms that shape behaviour from the inside. Critics, including historian Lawrence Stone, questioned whether Foucault overstated how thoroughly such control actually functioned in practice, but the Panopticon remains a widely cited metaphor for how modern surveillance &mdash; from workplace monitoring to social media &mdash; can shape behaviour simply through the possibility of being watched.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Michel_Foucault" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You don&rsquo;t need a guard in the tower if people believe one might be watching &mdash; that belief alone does the disciplining.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Foucault, what made Bentham&rsquo;s Panopticon design effective at controlling prisoner behaviour, even without constant actual surveillance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Prisoners could never know for certain whether the central guard tower was occupied at any given moment, so the mere possibility of being watched led them to internalise discipline and regulate their own behaviour continuously, requiring far less active enforcement.</div>
+      </details>
+      <div class="source">&#x1F4D6; Foucault, M. (1975). <em>Discipline and Punish: The Birth of the Prison</em>. Stanford Encyclopedia of Philosophy, &ldquo;Michel Foucault.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why We Blame the Victim: Melvin Lerner (梅爾文&middot;勒納) and the Just-World Hypothesis (公正世界假說)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Participants in a psychology experiment watch a woman receive random electric shocks through no fault of her own. Rather than simply feeling sympathy, many observers begin rating her as less likeable or somehow deserving of what happened. Before reading on, why might witnessing someone suffer unfairly make people blame the victim instead of the situation?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/HK_Central_Statue_Square_Legislative_Council_Building_n_Themis_s.jpg" alt="Statue of Themis, the goddess of justice, outside a legislative building" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A statue of Themis (泰美斯), goddess of justice &mdash; a symbol of the fairness belief Lerner&rsquo;s research probed. Credit: <a href="https://en.wikipedia.org/wiki/Just-world_hypothesis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a series of experiments beginning in the mid-1960s, psychologist Melvin Lerner (梅爾文&middot;勒納) had participants observe a woman apparently receiving random, painful electric shocks during a supposed learning task, with no ability to stop or influence the outcome. Rather than responding with straightforward sympathy, many observers began to derogate her &mdash; rating her as less likeable, or reasoning that she must have somehow deserved her suffering &mdash; even though they had watched the shocks be assigned entirely at random.</p>
+      <p>Lerner named this the just-world hypothesis (公正世界假說): a deep-seated motivational need to believe that the world is fundamentally fair, where good things happen to good people and bad things happen to those who deserve it. When confronted with evidence that innocent people can suffer for no reason at all, that belief comes under threat &mdash; and rather than abandoning it, people often resolve the discomfort by mentally reassigning blame onto the victim, restoring the comforting illusion that suffering is deserved and therefore, implicitly, avoidable to those who behave well.</p>
+      <p>The effect helps explain real-world victim-blaming patterns, from assumptions about assault survivors&rsquo; clothing or behaviour to attitudes toward poverty and illness, and researchers have since developed scales measuring individual differences in just-world belief strength. It is strongest, studies show, when the victim&rsquo;s suffering feels random, ongoing, and cannot easily be remedied &mdash; conditions that make simply accepting injustice psychologically harder than quietly blaming the person it happened to.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Just-world_hypothesis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Believing the world is fair can quietly turn into blaming victims for surviving something unfair.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Lerner&rsquo;s experiments, why did observers begin to derogate a woman who was suffering entirely random, undeserved electric shocks?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Watching an innocent person suffer for no reason threatened observers&rsquo; deep need to believe the world is fundamentally fair; rather than abandon that belief, many resolved the discomfort by mentally blaming the victim, restoring the sense that suffering must somehow be deserved.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lerner, M.J. &amp; Simmons, C.H. (1966). <em>Journal of Personality and Social Psychology</em>, 4(2). Lerner, M.J. (1980). <em>The Belief in a Just World</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Hormone That Growls Your Stomach: Ghrelin (飢餓素), Leptin (瘦素), and the Chemistry of Hunger</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your stomach audibly growls right before a meal, and you feel a distinct wave of hunger &mdash; then, after eating, that feeling reliably fades within about 20 minutes. Before reading on, what do you think actually turns hunger on and off: your stomach being physically empty, or something else entirely?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Digestive_system_diagram_en.svg/960px-Digestive_system_diagram_en.svg.png" alt="Diagram of the human digestive system" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The digestive system (消化系統), whose stomach lining secretes the hunger hormone ghrelin. Credit: <a href="https://en.wikipedia.org/wiki/Ghrelin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The stomach growl and hunger pang you feel before a meal is largely driven by ghrelin (飢餓素), a hormone secreted mainly by the stomach lining that rises steadily in the hours before eating and triggers signals in the hypothalamus (下丘腦), the brain&rsquo;s appetite-control centre. Ghrelin levels peak right before a scheduled mealtime, even if you eat at unusual hours, suggesting the body partly anticipates meals on a learned schedule rather than purely reacting to how physically empty the stomach is.</p>
+      <p>On the opposite side of the system sits leptin (瘦素), a hormone released by fat tissue (脂肪組織) roughly in proportion to how much fat the body is storing, which signals the hypothalamus to suppress appetite when energy reserves are adequate. In theory, more body fat should mean more leptin and therefore less hunger &mdash; but many people with obesity (肥胖症) show high leptin levels alongside persistent hunger, a phenomenon researchers call leptin resistance (瘦素抵抗), where the brain stops responding properly to the hormone&rsquo;s signal.</p>
+      <p>Sleep deprivation measurably disrupts this balance: studies have found that inadequate sleep raises ghrelin and lowers leptin simultaneously, producing genuinely stronger hunger signals and cravings for calorie-dense food the next day, not simply a willpower failure. Understanding hunger as a hormonally regulated system, rather than a matter of self-control alone, has reshaped how researchers think about weight management, sleep&rsquo;s role in appetite, and why chronically under-slept people often struggle to eat less even with the best intentions.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ghrelin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Hunger isn&rsquo;t just your stomach being empty &mdash; it&rsquo;s a hormone conversation between your gut, fat tissue, and brain that sleep can quietly rig against you.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did sleep-deprivation studies find about ghrelin and leptin levels, and why does that matter for hunger the next day?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Inadequate sleep raises ghrelin (which signals hunger) while lowering leptin (which signals fullness), producing genuinely stronger physiological hunger and cravings for calorie-dense food &mdash; meaning poor sleep can undermine appetite control independent of willpower.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cummings, D.E. et al. (2001). <em>Diabetes</em>. Spiegel, K. et al. (2004). <em>Annals of Internal Medicine</em>, 141(11).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does Jumping Into Ice Water Actually Help? The Real Evidence on Cold Water Immersion (冷水浸浴)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Elite athletes routinely climb into tubs of ice water after hard training, convinced it speeds recovery and reduces soreness. Before reading on, do you think the research actually supports cold water immersion helping long-term muscle gains, or might it work against some of the very adaptations athletes are training for?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Karyn_Marshall_Ice_Bath.jpg/330px-Karyn_Marshall_Ice_Bath.jpg" alt="An athlete sitting in an ice bath for recovery" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold water immersion (冷水浸浴), a common post-exercise recovery practice among athletes. Credit: <a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold water immersion (冷水浸浴), typically submerging in water around 10&ndash;15&deg;C for 10&ndash;15 minutes after exercise, has become a near-ubiquitous recovery ritual among elite athletes, and some evidence does support its short-term use: several studies show it can modestly reduce perceived muscle soreness (延遲性肌肉痠痛) and subjective fatigue in the 24&ndash;72 hours following intense exercise, likely through vasoconstriction (血管收縮) reducing localised swelling and inflammation.</p>
+      <p>The complication emerged from a 2015 study by Jonathan Peake and colleagues, later reinforced by other trials, showing that regular cold water immersion after strength training can actually blunt long-term muscle hypertrophy (肌肉肥大) and strength gains &mdash; the very inflammatory response athletes try to minimise is also a necessary signal that triggers muscle repair and growth adaptation. Cooling the muscle too soon after lifting appears to interrupt that repair signalling pathway before it can fully do its job.</p>
+      <p>The practical implication researchers now suggest is timing-dependent: cold water immersion may still help before a competition or during a tournament where next-day performance matters more than long-term adaptation, but using it routinely after every strength training session may be working directly against the muscle-building goal of the training itself. For general health claims around cold exposure &mdash; improved immunity, mood, or metabolism &mdash; evidence remains far more preliminary than the confident marketing around ice baths suggests.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Ice baths can help you recover for tomorrow&rsquo;s game, but used after every workout, they may be quietly undercutting the muscle growth you trained for.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to research, why might regular cold water immersion after strength training blunt long-term muscle growth, even though it reduces soreness?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The inflammatory response that cold water immersion suppresses is also a necessary signal that triggers muscle repair and hypertrophy adaptation; cooling the muscle too soon after training appears to interrupt that repair-signalling pathway before it can complete the adaptation process.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015). <em>Journal of Physiology</em>, 593(18). Peake, J.M. et al. (2017). <em>Frontiers in Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Live High, Train Low: The Altitude Training (高原訓練) Strategy Behind Endurance Records</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Distance runners often relocate to train at high-altitude locations like Kenya&rsquo;s Rift Valley, where thinner air makes every training run objectively harder. Before reading on, why would deliberately making training harder &mdash; by training somewhere with less oxygen &mdash; end up making athletes faster at sea level?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/NixonKiplimoChepseba.jpg/3840px-NixonKiplimoChepseba.jpg" alt="A distance runner competing, representing endurance athletes who train at altitude" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Distance runners are among the athletes who most rely on altitude training (高原訓練) protocols. Credit: <a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>At high altitude (高原), typically above 2,000 metres, lower atmospheric oxygen pressure forces the body to adapt: the kidneys increase production of erythropoietin (紅血球生成素), a hormone that stimulates the bone marrow to produce more red blood cells (紅血球), improving the blood&rsquo;s oxygen-carrying capacity. Athletes who train at altitude for several weeks can return to sea level with meaningfully higher red blood cell counts, translating into better oxygen delivery to working muscles during endurance events.</p>
+      <p>The complication researchers Benjamin Levine (本傑明&middot;萊文) and James Stray-Gundersen (詹姆斯&middot;斯特雷-岡德森) identified in a landmark 1997 study was that training intensity itself suffers at altitude &mdash; the same thin air that boosts red blood cells also makes hard, fast training sessions physically harder to sustain at the paces needed to build speed. Their solution, &ldquo;live high, train low&rdquo; (高住低訓), had athletes sleep and live at altitude to gain the blood adaptations, while travelling down to lower elevation for their most intense, fastest training sessions.</p>
+      <p>The live-high-train-low protocol produced measurably better sea-level performance improvements than either living low or training exclusively at altitude, and it remains the standard approach for elite endurance athletes and Olympic teams today, sometimes replicated artificially using altitude tents or hypoxic chambers (低氧艙) for athletes without access to real mountain training camps. Not every athlete responds equally, however &mdash; individual variation in erythropoietin response means some gain far more from altitude exposure than others.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The fastest way to improve isn&rsquo;t training harder everywhere &mdash; it&rsquo;s living where the air is thin and training where you can still go fast.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What problem did Levine and Stray-Gundersen&rsquo;s &ldquo;live high, train low&rdquo; protocol solve, compared to training at altitude the whole time?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Training entirely at altitude boosts red blood cell production but forces athletes to train at slower speeds due to thin air; living at altitude while travelling to lower elevation for intense sessions let athletes gain the blood adaptations without sacrificing the high-intensity training needed to build race speed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Levine, B.D. &amp; Stray-Gundersen, J. (1997). <em>Journal of Applied Physiology</em>, 83(1).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Valuation Metric That Called Two Bubbles: Robert Shiller (羅伯特&middot;席勒) and the CAPE Ratio (週期調整本益比)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An economist privately warns a Federal Reserve chair of &ldquo;irrational exuberance&rdquo; in stock prices in December 1996 &mdash; more than three years before the dot-com crash actually happens. Before reading on, what kind of valuation measure might let someone spot a bubble years before it bursts?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Yale_University_Shield_1.svg/330px-Yale_University_Shield_1.svg.png" alt="Shield of Yale University, where economist Robert Shiller is a professor" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Yale University (耶魯大學), where Robert Shiller (羅伯特&middot;席勒) developed the CAPE ratio. Credit: <a href="https://en.wikipedia.org/wiki/Robert_J._Shiller" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the mid-1990s, economist Robert Shiller (羅伯特&middot;席勒) revived and popularised a valuation measure now known as the CAPE ratio (週期調整本益比, cyclically-adjusted price-to-earnings ratio), which divides a stock index&rsquo;s price by the average of its inflation-adjusted earnings over the trailing 10 years, rather than a single year&rsquo;s earnings, smoothing out short-term booms and busts in corporate profits that can distort a standard price-to-earnings ratio.</p>
+      <p>By late 1996, Shiller&rsquo;s CAPE calculations showed U.S. stock valuations at levels historically associated with poor subsequent long-term returns, prompting his famous private briefing to Federal Reserve (聯邦儲備局) chair Alan Greenspan (艾倫&middot;格林斯潘), who publicly echoed the phrase &ldquo;irrational exuberance&rdquo; (非理性繁榮) days later. Shiller&rsquo;s 2000 book of the same name, published almost exactly as the dot-com bubble (科網泡沫) peaked and began collapsing, cemented his reputation &mdash; and his CAPE-based warnings ahead of the 2007&ndash;2008 housing crash further strengthened it.</p>
+      <p>Critics note CAPE is far better at flagging elevated valuations than at timing exactly when a correction will occur &mdash; markets stayed &ldquo;overvalued&rdquo; by CAPE&rsquo;s measure for years before both crashes it is credited with predicting, meaning investors who sold purely on high CAPE readings alone would have missed substantial further gains first. Shiller, who shared the 2013 Nobel Memorial Prize in Economic Sciences (諾貝爾經濟學獎) partly for work on asset price predictability, has himself cautioned that CAPE is a tool for gauging long-term risk, not a precise market-timing signal.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Robert_J._Shiller" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A metric can correctly flag a bubble years before it pops &mdash; which makes it a warning about risk, not a countdown clock.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is the CAPE ratio considered better at flagging overvaluation than at timing exactly when a market correction will happen?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Historically, markets have stayed at elevated CAPE readings for years before eventually correcting, meaning the ratio reliably signals a heightened long-term risk of poor future returns but doesn&rsquo;t pinpoint when a decline will actually begin &mdash; investors selling purely on high CAPE alone have missed substantial further gains.</div>
+      </details>
+      <div class="source">&#x1F4D6; Shiller, R.J. (2000). <em>Irrational Exuberance</em>. Campbell, J.Y. &amp; Shiller, R.J. (1998). <em>Journal of Portfolio Management</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Reserve Currency&rsquo;s Built-In Contradiction: The Triffin Dilemma (特里芬難題)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/DOLLAR_AND_EURO_IN_THE_WORLD.svg/960px-DOLLAR_AND_EURO_IN_THE_WORLD.svg.png" alt="World map showing which currencies countries peg to, dollar or euro" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The U.S. dollar&rsquo;s (美元) global dominance as a reserve currency (儲備貨幣) sits at the heart of the Triffin Dilemma. Credit: <a href="https://en.wikipedia.org/wiki/Triffin_dilemma" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the U.S. dollar (美元) became the world&rsquo;s dominant reserve currency (儲備貨幣) after Bretton Woods (布雷頓森林體系) in 1944, the United States has run persistent trade and current account deficits for decades, supplying dollars the rest of the world needs for trade and reserves &mdash; yet economists have long warned this arrangement should eventually undermine confidence in the dollar itself.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Robert Triffin (羅伯特&middot;特里芬) argued in 1960 that a national currency serving as global reserve currency faces an inherent contradiction: it must run deficits to supply the world with sufficient currency for trade and reserves, but those same growing deficits progressively erode confidence in the currency&rsquo;s long-term value and stability.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Despite decades of enormous U.S. deficits and repeated predictions of dollar collapse &mdash; including after Bretton Woods itself broke down in 1971 &mdash; the dollar has remained dominant, and demand for dollar assets has often increased during global crises, precisely when confidence theoretically should have weakened.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Barry Eichengreen (巴里&middot;艾肯格林) attributes this to network effects and the absence of a viable alternative reserve currency &mdash; the &ldquo;exorbitant privilege&rdquo; (過度特權) persists because switching costs are high. Whether a multipolar system (Renminbi, Euro) or digital alternatives will eventually resolve the dilemma remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A currency can behave as if it&rsquo;s structurally about to fail for sixty years and still remain the one everyone runs to during a crisis.</div>
+      <div class="source">&#x1F4D6; Triffin, R. (1960). <em>Gold and the Dollar Crisis</em>. Eichengreen, B. (2011). <em>Exorbitant Privilege</em>. IMF, &ldquo;Currency Composition of Official Foreign Exchange Reserves.&rdquo;</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; Belief Does the Enforcing:</strong> Foucault&rsquo;s Panopticon works because prisoners internalise the possibility of being watched and start disciplining themselves, with no guard actually required. Lerner&rsquo;s just-world hypothesis works the same way in reverse: people internalise a belief that the world is fair, and when reality contradicts it, they distort their own judgment &mdash; blaming a victim &mdash; rather than let the belief crack.</p>
+      <p><strong>So what:</strong> Notice when you&rsquo;re policing yourself, or judging someone else, based on an assumption no one is actually checking &mdash; that unexamined belief, not the facts in front of you, may be doing all the work.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Williams, R.E. et al. (1996), <em>Astronomical Journal</em> 112. NASA/STScI.</li>
+      <li><strong>Card 2:</strong> 脫脫《宋史&middot;太祖本紀》；李燾《續資治通鑑長編》卷一。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Battle of Hastings.&rdquo; Marren, P. (2004), <em>1066: The Battle of Hastings</em>.</li>
+      <li><strong>Card 4:</strong> 公孫龍《公孫龍子&middot;白馬論》；荀子《正名篇》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Foucault, M. (1975), <em>Discipline and Punish</em>. Stanford Encyclopedia of Philosophy, &ldquo;Michel Foucault.&rdquo;</li>
+      <li><strong>Card 6:</strong> Lerner, M.J. &amp; Simmons, C.H. (1966), <em>Journal of Personality and Social Psychology</em> 4(2). Lerner, M.J. (1980), <em>The Belief in a Just World</em>.</li>
+      <li><strong>Card 7:</strong> Cummings, D.E. et al. (2001), <em>Diabetes</em>. Spiegel, K. et al. (2004), <em>Annals of Internal Medicine</em> 141(11).</li>
+      <li><strong>Card 8:</strong> Roberts, L.A. et al. (2015), <em>Journal of Physiology</em> 593(18). Peake, J.M. et al. (2017), <em>Frontiers in Physiology</em>.</li>
+      <li><strong>Card 9:</strong> Levine, B.D. &amp; Stray-Gundersen, J. (1997), <em>Journal of Applied Physiology</em> 83(1).</li>
+      <li><strong>Card 10:</strong> Shiller, R.J. (2000), <em>Irrational Exuberance</em>. Campbell &amp; Shiller (1998), <em>Journal of Portfolio Management</em>.</li>
+      <li><strong>Card 11:</strong> Triffin, R. (1960), <em>Gold and the Dollar Crisis</em>. Eichengreen, B. (2011), <em>Exorbitant Privilege</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-19: Hubble Deep Field &bull; 陳橋兵變（趙匡胤黃袍加身） &bull; Battle of Hastings 1066 &bull; 公孫龍「白馬非馬」 &bull; Michel Foucault / Panopticon &bull; Just-World Hypothesis (Lerner) &bull; Ghrelin &amp; Leptin &bull; Cold Water Immersion / Ice Baths &bull; Altitude Training (Live High, Train Low) &bull; Robert Shiller / CAPE Ratio &bull; Triffin Dilemma</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-19.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-19.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 19 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
