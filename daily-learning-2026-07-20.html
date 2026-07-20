@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 20 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 20 July 2026 &nbsp;&middot;&nbsp; ~35 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>19 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Hubble Deep Field</span>Pointing Hubble at an apparently empty patch of sky for 10 days revealed roughly 3,000 previously invisible galaxies.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 陳橋兵變</span>趙匡胤黃袍加身，逼後周禪讓，兵不血刃建立宋朝。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Hastings</span>William&rsquo;s fresh Norman army defeated an exhausted Harold to conquer England in 1066.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 公孫龍「白馬非馬」</span>公孫龍以形色之辨論證白馬非馬，開創先秦邏輯思辨先河。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Michel Foucault</span>Foucault argued Bentham&rsquo;s Panopticon disciplines prisoners through the mere possibility of being watched.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Just-World Hypothesis</span>Observers who watched an innocent woman suffer random shocks began blaming her to preserve belief in a fair world.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Ghrelin &amp; Leptin</span>Hunger and fullness are governed by a hormone conversation between stomach, fat tissue, and brain, disrupted by poor sleep.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Cold Water Immersion</span>Ice baths ease short-term soreness but may blunt long-term muscle growth when used after every workout.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Altitude Training</span>&ldquo;Live high, train low&rdquo; lets endurance athletes gain altitude&rsquo;s blood benefits without sacrificing training speed.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Robert Shiller / CAPE Ratio</span>Shiller&rsquo;s CAPE ratio flagged both the dot-com bubble and the 2008 crash years before they burst.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Triffin Dilemma</span>The dollar&rsquo;s reserve-currency role should undermine confidence in it, yet it has stayed dominant for decades.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>A Storm Bigger Than Earth, Filmed Up Close: Jupiter&rsquo;s (木星) Great Red Spot (大紅斑)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Astronomers have tracked a single storm swirling on Jupiter (木星) continuously since telescopes first spotted it in the 1830s &mdash; nearly two centuries. Before reading on, do you think that storm has been growing larger over time, staying exactly the same size, or actually shrinking?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter_OPAL_2024.png" alt="Jupiter photographed by the Hubble Space Telescope, showing the Great Red Spot storm" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jupiter (木星), imaged through the Hubble Space Telescope&rsquo;s (哈勃太空望遠鏡) OPAL program, showing the Great Red Spot (大紅斑). Credit: <a href="https://en.wikipedia.org/wiki/Jupiter" target="_blank" rel="noopener">NASA/STScI / Wikimedia Commons</a></div>
+      </div>
+      <p>In December 2017, NASA&rsquo;s Juno (朱諾號) spacecraft skimmed just 9,000 kilometres above Jupiter&rsquo;s (木星) clouds during its seventh close flyby, capturing the most detailed images ever taken of the Great Red Spot (大紅斑) &mdash; a storm larger than Earth that has raged continuously since telescopes first tracked it in the 1830s, and possibly longer. The images revealed turbulent filaments, tangled wave patterns, and smaller storms being torn apart along its churning edges, details invisible from Earth-based telescopes even with modern optics, giving planetary scientists their sharpest look yet at the internal structure of the solar system&rsquo;s most famous storm.</p>
+      <p>The Great Red Spot (大紅斑) is an anticyclonic storm (反氣旋風暴) with wind speeds reaching 432 kilometres per hour, sustained by energy drawn from Jupiter&rsquo;s (木星) deep atmosphere and internal heat rather than the land-ocean temperature contrasts that fuel, and eventually starve, hurricanes on Earth. With no solid surface to create friction and break the storm apart, and having absorbed several smaller storms over the centuries, it has maintained a self-sustaining engine with remarkably few interruptions &mdash; a meteorological anomaly that would be inconceivable on any planet with continents and oceans to disrupt it.</p>
+      <p>Yet the storm is not truly eternal: measurements dating back to the 1930s show the Great Red Spot (大紅斑) has shrunk from roughly 40,000 kilometres wide to about 16,000 kilometres today &mdash; still wider than Earth, but visibly contracting and growing rounder in shape. NASA (美國太空總署) scientist Amy Simon (艾米&middot;西蒙) tracks the storm annually through the Hubble Space Telescope&rsquo;s (哈勃太空望遠鏡) OPAL program, and researchers still don&rsquo;t know whether it will stabilise at a smaller size or eventually disappear altogether &mdash; a reminder that even a storm that has outlived empires is still, quietly, changing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jupiter" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A storm that has outlived every human empire on Earth is still quietly shrinking, decade by decade.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can Jupiter&rsquo;s Great Red Spot persist for centuries when hurricanes on Earth dissipate within weeks?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Earth&rsquo;s hurricanes weaken when they lose the warm ocean water fuelling them or hit land-generated friction; Jupiter has no solid surface, so the storm draws energy directly from the planet&rsquo;s deep atmosphere and internal heat, with nothing to force it to break apart &mdash; though it has been slowly shrinking since the 1930s.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL-Caltech, Juno mission image gallery. Simon, A. et al., Hubble OPAL program observations.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「本能寺之變」：明智光秀倒戈與織田信長之死</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位戰國霸主即將統一天下，卻在京都一座寺院中被自己最信任的部將重兵包圍。你認為，這位部將背叛主公的真正動機是甚麼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>織田信長（戰國時代最具野心的大名，已控制近半日本）；明智光秀（信長麾下重臣，戰功卓著）；豐臣秀吉（信長部將，事變後迅速返京復仇）。</p>
+        <p><strong>事件：</strong>1582年6月本能寺之變，明智光秀率軍突襲京都本能寺，織田信長兵敗自焚。</p>
+        <p><strong>時代背景：</strong>織田信長長年以鐵腕手段統一日本，屢次羞辱、猜忌明智光秀，同時信長主力部隊分散在外地作戰，京都防衛空虛，予明智光秀可乘之機。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" alt="織田信長畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">織田信長畫像，本能寺之變的主角。來源：<a href="https://en.wikipedia.org/wiki/Oda_Nobunaga" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>天正十年（1582年）六月一日深夜，明智光秀率領約一萬三千大軍，藉口奉命西進支援羽柴秀吉，卻突然轉向京都，將織田信長下榻的本能寺重重包圍。信長當時身邊僅有數十名親隨與小姓，毫無防備，聞變之初仍以為是內部騷亂，及至確認乃明智光秀謀反，方知大勢已去。信長曾多次於軍議中當眾斥責、羞辱光秀，甚至奪其領地轉封他處，君臣積怨已久，此刻終於爆發。</p>
+      <p>信長眼見突圍無望，退入寺內，命近侍森蘭丸放火焚燒本能寺，自己則於烈焰中切腹自盡，遺體始終未被尋獲，成為日本史上最著名的懸案之一。信長嫡子織田信忠聞訊亦於二条御所遭圍攻，同樣自盡身亡，織田家統一天下的大業一夕之間瀕臨崩潰。明智光秀奪取京都後，原冀望迅速鞏固政權、爭取盟友支持，然而各方大名反應冷淡，光秀陷入孤立無援的困境。</p>
+      <p>事變消息傳至備中前線，正與毛利氏交戰的羽柴秀吉當機立斷，火速與敵方媾和，率軍以驚人速度返京，史稱「中國大返還」，短短十日內行軍二百餘公里。六月十三日，秀吉於山崎之戰擊潰倉促應戰的明智光秀，光秀敗逃途中為地方農民所殺，在位僅十三日，後世譏為「三日天下」。此役徹底改變日本歷史走向，秀吉藉此奠定繼承信長霸業的基礎，最終統一全國。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Oda_Nobunaga" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一句羞辱可以積壓多年，卻只需一夜就能點燃燎原之火。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>本能寺之變後，豐臣秀吉如何在短短十天內擊敗明智光秀？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">秀吉聞信長死訊後，立即與交戰中的毛利氏議和罷兵，率軍以驚人速度回師京畿（史稱「中國大返還」），並於山崎之戰擊潰倉促應戰、孤立無援的明智光秀，光秀兵敗後為地方農民所殺。</div>
+      </details>
+      <div class="source">&#x1F4D6; 太田牛一《信長公記》；小和田哲男《明智光秀と本能寺の変》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Day Spears Beat Rifles: The Battle of Isandlwana (伊散德爾瓦納戰役), 1879</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A British colonial army, equipped with rifles, artillery, and centuries of imperial military experience, camps in unfamiliar territory without building a defensive perimeter. Before reading on, what do you think a numerically superior but technologically simpler opposing force could do to inflict one of the worst defeats in the history of British colonialism?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Lord Chelmsford (切姆斯福德勳爵), British commander; King Cetshwayo kaMpande (塞茨瓦約), Zulu king (祖魯王); Ntshingwayo kaMahole (恩欣格瓦約), Zulu commanding general.</p>
+        <p><strong>Event at stake:</strong> The Battle of Isandlwana (伊散德爾瓦納戰役), fought 22 January 1879 in Zululand (祖魯蘭), South Africa, during the Anglo-Zulu War (英祖戰爭).</p>
+        <p><strong>Big picture:</strong> Chelmsford split his invading force and marched off in search of the main Zulu army, leaving an under-defended camp at Isandlwana unaware that some 20,000 Zulu warriors (祖魯戰士) were advancing on it directly.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Isandhlwana.jpg/330px-Isandhlwana.jpg" alt="Illustration of the Battle of Isandlwana, 1879" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Battle of Isandlwana (伊散德爾瓦納戰役), 22 January 1879. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Isandlwana" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 22 January 1879, British commander Lord Chelmsford (切姆斯福德勳爵) split his invasion force and led roughly half his troops out to search for the main Zulu (祖魯) army, leaving around 1,700 British and colonial soldiers camped at Isandlwana (伊散德爾瓦納) without the entrenchments standard military practice recommended, dismissing the threat of a Zulu attack on a fixed camp as unlikely. Zulu King Cetshwayo&rsquo;s (塞茨瓦約) commanding general Ntshingwayo kaMahole (恩欣格瓦約) had in fact organised nearly 20,000 warriors into a traditional &ldquo;buffalo horns&rdquo; encirclement formation, undetected, and launched a coordinated assault that afternoon while Chelmsford&rsquo;s search party remained miles away.</p>
+      <p>Zulu warriors (祖魯戰士), armed mainly with iklwa stabbing spears (伊誇短矛) and cowhide shields, overwhelmed the British line through sheer numbers and disciplined coordination, exploiting a critical ammunition-supply failure &mdash; quartermasters reportedly struggled to open supply crates quickly enough under pressure, leaving forward riflemen short of cartridges at the critical moment. Nearly all 1,700 defenders were killed within hours, making Isandlwana the worst defeat inflicted on a modern colonial European army by a technologically less-advanced indigenous force in the 19th century, stunning the British public and government back home.</p>
+      <p>The same day, a small garrison of around 150 British soldiers at Rorke&rsquo;s Drift (羅克渡口), several kilometres away, successfully repelled repeated Zulu assaults through the night, an action later awarded a record eleven Victoria Crosses (維多利亞十字勳章) and mythologised in British popular memory to soften the humiliation of Isandlwana. Britain (英國) responded to the disaster with a massive reinforcement effort, eventually crushing the Zulu Kingdom (祖魯王國) later that year at Ulundi (烏倫迪), but Isandlwana remains a rare, unambiguous case of a well-equipped imperial army being tactically outmanoeuvred and destroyed by the very force it had underestimated.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Isandlwana" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Underestimating an enemy&rsquo;s discipline can undo every advantage that rifles and cannon are supposed to guarantee.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What critical failure, beyond being outnumbered, contributed to the British defeat at Isandlwana?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A breakdown in the ammunition resupply system left forward riflemen short of cartridges at the crucial moment, compounding the effect of a well-coordinated Zulu &ldquo;buffalo horns&rdquo; encirclement that overwhelmed the under-entrenched British camp.</div>
+      </details>
+      <div class="source">&#x1F4D6; Knight, I. (1992). <em>Zulu Rising: The Epic Story of iSandlwana and Rorke&rsquo;s Drift</em>. Britannica, &ldquo;Battle of Isandlwana.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>周敦頤《太極圖說》：儒家宇宙論的奠基</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位北宋學者僅用二百多字，便試圖解釋宇宙萬物從何而來、人性善惡從何而生。你認為，這樣簡短的文字，如何能承載如此龐大的哲學體系？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>周敦頤（1017&ndash;1073），北宋道州人，理學開山祖師，程顥、程頤兄弟之師。</p>
+        <p><strong>核心思想：</strong>《太極圖說》以「無極而太極」為宇宙本源，論證太極動而生陽、靜而生陰，陰陽五行化生萬物，並提出「主靜」作為修身立人極的工夫。</p>
+        <p><strong>時代背景：</strong>北宋儒學面對佛道二教在宇宙論、心性論上的挑戰，亟需建立一套足以與佛道抗衡的儒家形上學體系，周敦頤援引道教《太極圖》改造為儒家宇宙論，開理學先河。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Zhou_Dunyi.png" alt="周敦頤畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">周敦頤畫像，北宋理學開山祖師。來源：<a href="https://en.wikipedia.org/wiki/Zhou_Dunyi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>周敦頤於《太極圖說》開篇提出「無極而太極，太極動而生陽，動極而靜，靜而生陰」，以動靜交替解釋陰陽二氣如何從無形之「太極」化生而出，再由陰陽二氣交感，生成水火木金土五行，進而化生萬物與人類。這套宇宙生成論借用了道教《太極圖》的圖式架構，卻賦予其嶄新的儒家倫理意涵——周敦頤真正關心的並非純粹的宇宙論思辨，而是如何從天道推導出人倫道德的形上根據。</p>
+      <p>在人性論方面，周敦頤主張人得五行之秀氣而生，故「唯人也得其秀而最靈」，人心本具仁義禮智信五常之德，然而氣質有偏，故須透過修養工夫回復本然之善。他提出「主靜」作為修身法門——並非要人枯坐入定，而是強調心體須保持虛靜不為外物所擾，方能於應事接物時循理而行，展現「立人極」的道德自覺。這一工夫論後來成為程顥、程頤兄弟「主敬」說的重要理論先聲。</p>
+      <p>周敦頤生前官位不高，學說亦未受廣泛重視，然而經其弟子程顥、程頤兄弟發揚光大，再由朱熹編定《太極圖說解》、將其列為理學道統之首，周敦頤遂被追認為宋明理學的開山祖師。他另著《愛蓮說》以蓮花「出淤泥而不染」比喻君子人格，成為千古傳誦的散文名篇，展現其援物明理、以文載道的思想風格，對後世理學家的修辭傳統影響深遠。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhou_Dunyi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一篇二百餘字的短文，足以奠定一整個學派八百年的思想根基。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>周敦頤在《太極圖說》中提出的「主靜」工夫，其修養重點何在？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">主靜並非要求枯坐入定，而是強調保持心體虛靜、不為外物牽動慾望所擾，使人於應事接物時能夠循理而行，展現道德自覺，此說後來啟發程頤、程顥的「主敬」工夫論。</div>
+      </details>
+      <div class="source">&#x1F4D6; 周敦頤《太極圖說》；朱熹《太極圖說解》；馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Blind Will Behind the World: Arthur Schopenhauer (叔本華) and Cosmic Pessimism (悲觀主義)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argues that beneath all appearances &mdash; every object, every person, every desire &mdash; lies a single, blind, purposeless force with no goal beyond its own endless striving. Before reading on, what do you think a thinker who believed this would conclude about whether life is fundamentally good or bad?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Arthur Schopenhauer (叔本華, 1788&ndash;1860), German philosopher; drawing on Immanuel Kant (康德) and translated Hindu Upanishads (奧義書) and Buddhist (佛教) texts.</p>
+        <p><strong>Idea at stake:</strong> Whether the underlying reality behind all appearances is a rational, purposeful order, or a blind, ceaselessly striving force he called Will (意志) that produces suffering by its very nature.</p>
+        <p><strong>Big picture:</strong> Writing in early 19th-century Germany against the dominant optimism of Hegel&rsquo;s (黑格爾) philosophy of history, Schopenhauer proposed a starkly pessimistic alternative rooted partly in ideas he encountered from Asian philosophy, then still rare in European academic circles.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Arthur_Schopenhauer_by_J_Sch%C3%A4fer%2C_1859b.jpg" alt="Portrait of philosopher Arthur Schopenhauer, 1859" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Arthur Schopenhauer (叔本華), 1859, whose philosophy of Will influenced Nietzsche and Wagner. Credit: <a href="https://en.wikipedia.org/wiki/Arthur_Schopenhauer" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>The World as Will and Representation</em> (1818), Schopenhauer (叔本華) argued that behind Kant&rsquo;s (康德) &ldquo;thing-in-itself&rdquo; &mdash; the reality lying beyond human perception &mdash; lies a single, blind, undifferentiated force he called Will (意志): not a conscious mind with goals, but an endless, purposeless striving that manifests in gravity pulling rocks, plants growing toward light, and humans pursuing desire after desire. Every living thing, in Schopenhauer&rsquo;s view, is simply one local expression of this same underlying Will, doomed to want without ever reaching lasting satisfaction.</p>
+      <p>Because Will (意志) has no ultimate goal, satisfying one desire only reveals another beneath it, producing a cycle Schopenhauer described as inherently painful &mdash; pleasure being merely the temporary absence of want, quickly replaced by boredom or fresh desire. This led him to a philosophy of pessimism (悲觀主義) more thoroughgoing than any major Western predecessor, and to draw explicit comparisons with Buddhist (佛教) and Hindu Upanishadic (奧義書) concepts of desire as the root of suffering, texts he read in some of the earliest European translations available at the time.</p>
+      <p>Schopenhauer proposed limited escapes from Will&rsquo;s (意志) relentless striving: aesthetic contemplation, especially of music, could offer temporary release by absorbing attention without desire, while asceticism and compassion for others&rsquo; suffering offered a more lasting path. Long overshadowed in his lifetime by the more optimistic, history-driven philosophy of Georg Wilhelm Friedrich Hegel (黑格爾), Schopenhauer&rsquo;s ideas gained major influence only later, shaping Friedrich Nietzsche&rsquo;s (尼采) early thought and inspiring composer Richard Wagner (華格納), who considered Schopenhauer&rsquo;s aesthetics of music a personal revelation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Arthur_Schopenhauer" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If satisfying one desire only uncovers the next, the problem was never which desire &mdash; it was wanting itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Schopenhauer, why can satisfying desires never produce lasting happiness?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because the underlying Will driving all desire has no ultimate goal, satisfying one want only reveals another beneath it; pleasure is merely a temporary absence of striving, quickly replaced by boredom or a fresh desire, making lasting satisfaction structurally impossible.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schopenhauer, A. (1818). <em>The World as Will and Representation</em>. Stanford Encyclopedia of Philosophy, &ldquo;Arthur Schopenhauer.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why &ldquo;Tomorrow&rdquo; Always Feels Easier Than Today: Hyperbolic Discounting (雙曲貼現) and Present Bias (現在偏誤)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Offered $100 today or $110 in a month, many people take the $100 now. But offered $100 in a year or $110 in thirteen months &mdash; the same one-month wait, just shifted into the future &mdash; most people happily wait for the extra $10. Before reading on, why would the exact same trade-off produce two completely different decisions?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Richard_Thaler_Chatham.jpg" alt="Photograph of economist Richard Thaler" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Richard Thaler (泰勒), whose behavioural economics (行為經濟學) research helped formalise present bias. Credit: <a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Economist Richard Thaler (泰勒) and later David Laibson (萊布森) helped formalise a pattern long noticed in behavioural economics (行為經濟學): people don&rsquo;t discount future rewards at a constant, steady rate as classical economic models assumed, but instead apply steep discounts to anything delayed from right now, and comparatively mild discounts to delays further in the future. Laibson&rsquo;s 1997 quasi-hyperbolic (&ldquo;beta-delta&rdquo;) model captured this mathematically, showing why an immediate reward exerts disproportionate pull compared to a reward even one day later, regardless of how the more distant trade-off compares.</p>
+      <p>This explains the classic $100-now versus $110-later puzzle: when both options sit in the future (a year versus thirteen months), the steep &ldquo;present&rdquo; discount doesn&rsquo;t apply to either, so people patiently choose the larger, delayed sum. But when one option is available immediately, present bias (現在偏誤) kicks in hard, and people abandon patience they would gladly show for the identical delay if it started later. The same asymmetry underlies procrastination, under-saving for retirement, and skipped gym sessions &mdash; plans made calmly in advance collapse the moment &ldquo;now&rdquo; is actually an option.</p>
+      <p>The pattern echoes Walter Mischel&rsquo;s (米歇爾) marshmallow test, where children who could resist an immediate treat for a larger later reward showed better long-term outcomes, though Laibson&rsquo;s model reframes the struggle as a mathematical property of how humans weight time, not simply a matter of willpower. Practical countermeasures exploit the same asymmetry: automatic retirement-savings enrolment (自動加入退休儲蓄計劃) and pre-committing to a locked gym membership remove the moment of &ldquo;now&rdquo; from the decision entirely, shifting the choice into a future where patience is easier to sustain.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You&rsquo;re not bad at resisting temptation &mdash; temptation is mathematically strongest exactly when it&rsquo;s available right now.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do people choose the larger, delayed reward when both options are in the future, but the smaller, immediate reward when one option is available now?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">People apply a steep psychological discount specifically to anything available immediately, not a steady discount rate over time; when both rewards are delayed, that steep &ldquo;present&rdquo; discount doesn&rsquo;t apply to either, so patience wins, but it collapses the moment one option becomes available right now.</div>
+      </details>
+      <div class="source">&#x1F4D6; Laibson, D. (1997). <em>Quarterly Journal of Economics</em>, 112(2). Thaler, R.H. (1981). <em>Economics Letters</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Bright Light Makes Some People Sneeze: The Photic Sneeze Reflex (光反射性噴嚏反射)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Stepping out of a dark cinema into bright sunlight, some people immediately sneeze &mdash; not from dust or allergens, but seemingly triggered by the light itself. Before reading on, what do you think could link a visual stimulus like sudden brightness to a completely different reflex, sneezing?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Autosomal_dominant_-_en.svg/330px-Autosomal_dominant_-_en.svg.png" alt="Diagram of autosomal dominant inheritance pattern" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Autosomal dominant inheritance (體染色體顯性遺傳), the pattern believed to underlie the photic sneeze reflex. Credit: <a href="https://en.wikipedia.org/wiki/Photic_sneeze_reflex" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The photic sneeze reflex (光反射性噴嚏反射), sometimes nicknamed &ldquo;ACHOO syndrome,&rdquo; affects an estimated 18 to 35 percent of people worldwide, who reliably sneeze within seconds of sudden exposure to bright light, most commonly stepping from a dim room into sunlight. Unlike a typical sneeze triggered by nasal irritation, this response has nothing to do with allergens or dust &mdash; it appears to be an inherited neurological quirk, with studies suggesting an autosomal dominant (體染色體顯性遺傳) inheritance pattern, meaning a child with one affected parent has roughly a 50 percent chance of sharing the trait.</p>
+      <p>The leading explanation involves anatomical crosstalk between the optic nerve (視神經), which carries light signals from the retina, and the trigeminal nerve (三叉神經), which controls the sneeze reflex in the nose &mdash; the two nerve pathways run in close physical proximity near the brainstem, and researchers believe a sudden surge of signal along the optic pathway may &ldquo;spill over&rdquo; and inadvertently trigger the trigeminal sneeze centre, producing a sneeze in response to light rather than nasal irritation. The exact wiring involved remains only partially mapped.</p>
+      <p>The reflex is generally harmless, though it has practical implications: pilots (飛行員) and drivers (駕駛人士) with the trait are sometimes advised to be cautious about sudden light exposure during takeoff or when exiting tunnels, since an unexpected sneeze at a critical moment carries real risk. Because the trait runs in families and appears with no evolutionary function yet identified, some researchers view it as a harmless side effect of how densely packed and physically adjacent human cranial nerve pathways happen to be, rather than a reflex that was ever separately selected for.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Photic_sneeze_reflex" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A sneeze triggered by sunlight isn&rsquo;t your nose reacting to light &mdash; it&rsquo;s two crossed nerve wires misfiring together.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the leading explanation for why bright light can trigger a sneeze in some people?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The optic nerve, carrying the sudden surge of light signal, runs in close physical proximity to the trigeminal nerve, which controls sneezing; researchers believe the light signal can inadvertently &ldquo;spill over&rdquo; into the trigeminal pathway, triggering a sneeze despite no nasal irritation being present.</div>
+      </details>
+      <div class="source">&#x1F4D6; Breitenbach, R.A. et al. (1993). <em>Military Medicine</em>. Whitcroft, K.L. et al., photic sneeze reflex reviews.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Muscle Pain That Wasn&rsquo;t There: Statins (他汀類藥物) and the Nocebo Effect (反安慰劑效應)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Up to one in five patients prescribed statins to lower cholesterol report muscle aches and stop taking the drug because of it. Before reading on, do you think a rigorous trial testing this would find the muscle pain is really caused by the drug&rsquo;s chemistry &mdash; or by something else entirely?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lovastatin.svg/960px-Lovastatin.svg.png" alt="Chemical structure diagram of a statin drug" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Chemical structure of a statin (他汀類藥物), a class of cholesterol-lowering drugs. Credit: <a href="https://en.wikipedia.org/wiki/Statin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Statins (他汀類藥物) are among the most-prescribed drugs worldwide for lowering LDL cholesterol (低密度脂蛋白膽固醇) and reducing cardiovascular risk, yet muscle aches are the most common reason patients report stopping them, with observational estimates suggesting up to 10&ndash;20 percent of users experience some muscle-related symptom. This creates a real public-health dilemma: patients avoiding a drug proven to reduce heart attacks and strokes because of a side effect that, on closer inspection, may not be caused by the drug&rsquo;s actual pharmacology at all.</p>
+      <p>The 2020 SAMSON trial, published in the <em>New England Journal of Medicine</em>, addressed this directly using an n-of-1 design: 60 patients who had previously stopped statins due to muscle symptoms were given, in random monthly rotation and unlabelled, a statin, an identical-looking placebo (安慰劑), or no pill at all, then rated their symptoms via smartphone daily. The result: symptom severity was virtually identical during placebo months and statin months, both markedly higher than during no-pill months &mdash; meaning the muscle pain was real to patients, but not caused by the statin&rsquo;s chemistry.</p>
+      <p>Researchers attribute this to the nocebo effect (反安慰劑效應), the inverse of the placebo effect, where the expectation of a side effect &mdash; primed by warning labels, media coverage, or online forums &mdash; can itself generate genuine physical sensations. The SAMSON findings don&rsquo;t mean statin-related muscle pain never has a biochemical basis in rare cases, but they suggest most patients who stop statins over muscle aches may be reacting to expectation rather than the drug itself, a distinction with real consequences given statins&rsquo; proven benefit in preventing heart attacks and strokes.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Statin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The pain patients felt was completely real &mdash; it just wasn&rsquo;t coming from the pill&rsquo;s chemistry.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the SAMSON trial&rsquo;s n-of-1 design reveal about statin-related muscle pain?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Symptom severity was nearly identical whether patients unknowingly took the actual statin or an identical placebo, and both were markedly higher than during no-pill months &mdash; showing the muscle pain was real but driven by expectation (the nocebo effect), not the drug&rsquo;s pharmacology.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wood, F.A. et al. (2020). &ldquo;N-of-1 Trial of a Statin, Placebo, or No Treatment to Assess Side Effects.&rdquo; <em>New England Journal of Medicine</em>, 383.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Does Cooling Down Actually Do Anything? The Evidence on Post-Exercise Cool-Downs (運動後緩和運動)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Nearly every gym class and training program ends with a &ldquo;cool-down&rdquo; &mdash; light jogging or stretching meant to help the body recover. Before reading on, do you think skipping the cool-down after a hard workout meaningfully increases next-day soreness or slows adaptation?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/USMC-Rich_Froning_Jr.jpg/330px-USMC-Rich_Froning_Jr.jpg" alt="An athlete demonstrating physical fitness training" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Physical fitness (體能) training, where cool-down routines are a near-universal ritual. Credit: <a href="https://en.wikipedia.org/wiki/Physical_fitness" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The post-exercise cool-down (緩和運動) &mdash; typically light aerobic activity or static stretching (靜態伸展) performed immediately after a training session &mdash; is near-universal practice, justified by claims that it helps &ldquo;flush out&rdquo; lactic acid (乳酸), reduce delayed-onset muscle soreness (延遲性肌肉痠痛), and speed recovery. A comprehensive 2018 review by Bas Van Hooren and Justin Peake examined the accumulated evidence behind these specific claims across numerous controlled trials comparing cool-down protocols against simply resting after exercise.</p>
+      <p>The review found the cool-down produces no meaningful reduction in next-day muscle soreness and no measurable improvement in long-term training adaptation; since lactic acid clears from the bloodstream within roughly an hour regardless of activity, it was never actually the cause of delayed soreness in the first place, which stems mainly from microscopic muscle-fibre damage. The one exception found: cool-downs modestly assist heart rate and blood pressure normalisation immediately post-exercise, avoiding a light-headed feeling from blood pooling in the legs.</p>
+      <p>The practical implication is that a cool-down is not doing the heavy recovery lifting most athletes assume, and its absence is unlikely to meaningfully worsen next-day soreness or blunt adaptation. It remains reasonable for the modest cardiovascular transition benefit and as a low-cost ritual some athletes find helps them mentally close out a session, but should not be marketed or relied upon as an evidence-based method for reducing soreness or speeding muscle repair the way strength coaches and gym class routines have long assumed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Physical_fitness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The cool-down mostly earns its keep by settling your heart rate, not by &ldquo;flushing out&rdquo; anything from your muscles.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Van Hooren and Peake&rsquo;s 2018 review, what is the actual cause of delayed-onset muscle soreness, and does a cool-down address it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">DOMS stems mainly from microscopic muscle-fibre damage, not residual lactic acid, which clears within about an hour regardless of activity; the review found cool-downs produce no meaningful reduction in next-day soreness, though they do modestly help normalise heart rate and blood pressure right after exercise.</div>
+      </details>
+      <div class="source">&#x1F4D6; Van Hooren, B. &amp; Peake, J.M. (2018). <em>Sports Medicine</em>, 48(7).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The &ldquo;Junk&rdquo; That Built an Empire: Michael Milken (米爾肯) and the High-Yield Bond (高收益債券) Revolution</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A young bond trader at a mid-tier investment bank builds an entirely new market for debt issued by companies too risky for traditional lenders to touch &mdash; and personally earns over $1 billion in a single year doing it. Before reading on, what do you think made previously &ldquo;unwanted&rdquo; corporate debt suddenly so valuable?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Announcement_of_Recipient_of_%2425%2C000_Milken_National_Educator_Award_%28cropped%29.jpg" alt="Photograph of financier Michael Milken" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Michael Milken (米爾肯), who built the modern high-yield bond market at Drexel Burnham Lambert. Credit: <a href="https://en.wikipedia.org/wiki/Michael_Milken" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the 1970s, bond analyst Michael Milken (米爾肯) at Drexel Burnham Lambert (德崇證券) built his career on empirical research showing that a diversified portfolio of high-yield bonds (高收益債券) &mdash; colloquially &ldquo;junk bonds,&rdquo; issued by companies with lower credit ratings &mdash; had historically delivered higher risk-adjusted returns than their reputation as reckless investments suggested, because the extra yield more than compensated for the actual, measured default rate across the whole category.</p>
+      <p>Milken (米爾肯) used this research to build an entirely new capital market, financing companies too risky for traditional bank lending and enabling a wave of corporate takeovers and leveraged buyouts (槓桿收購) through the 1980s by connecting cash-hungry issuers directly with yield-seeking institutional investors, transforming Drexel Burnham Lambert (德崇證券) from a marginal firm into a Wall Street (華爾街) powerhouse and Milken personally into one of the highest earners in American financial history.</p>
+      <p>The revolution collapsed under a wave of insider-trading and securities-fraud investigations; Milken pleaded guilty to securities violations in 1990, served nearly two years in prison, and paid over $600 million in fines and settlements, while Drexel Burnham Lambert itself went bankrupt the same year. Yet the high-yield bond market Milken pioneered survived and expanded long after his downfall, becoming a permanent, mainstream part of corporate finance &mdash; a legacy that remains as contested as the man himself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Michael_Milken" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A market can be built on genuinely sound research and still collapse under the weight of how its founder chose to play it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Michael Milken&rsquo;s central empirical argument for why high-yield &ldquo;junk&rdquo; bonds deserved a place in mainstream investment portfolios?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">His research showed that a diversified portfolio of high-yield bonds had historically delivered higher risk-adjusted returns than their risky reputation suggested, because the extra yield offered more than compensated for the bonds&rsquo; actual measured default rate across the category as a whole.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bruck, C. (1988). <em>The Predators&rsquo; Ball</em>. Yago, G. (1991). <em>Junk Bonds: How High Yield Securities Restructured Corporate America</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>A Currency Union Without a Fiscal Union: Optimal Currency Area (最適貨幣區) Theory and the Eurozone (歐元區) Crisis</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Eurozone_Internal.svg/500px-Eurozone_Internal.svg.png" alt="Map of the Eurozone member countries" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Eurozone (歐元區), whose shared currency lacks many features Mundell&rsquo;s theory says a currency union needs. Credit: <a href="https://en.wikipedia.org/wiki/Eurozone" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">When Greece&rsquo;s (希臘) debt crisis erupted in 2010, the country could not devalue its currency to restore competitiveness or manage its deficit independently &mdash; because it had surrendered monetary policy to the European Central Bank (歐洲中央銀行) upon joining the euro (歐元), leaving painful internal wage-and-price deflation as virtually its only adjustment tool.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Robert Mundell&rsquo;s (蒙代爾) 1961 Optimal Currency Area (最適貨幣區) theory argued a shared currency only works well among regions with free labour mobility, flexible wages, or fiscal transfers to absorb local economic shocks &mdash; conditions that let a currency union substitute for each member&rsquo;s lost ability to devalue independently.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The eurozone (歐元區) launched in 1999 despite economists widely noting it met few of Mundell&rsquo;s criteria &mdash; labour mobility across European languages and borders remained limited, and no significant fiscal-transfer mechanism existed between member states, yet the union persisted through the 2010s debt crisis without the currency-union collapse many predicted.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Paul De Grauwe (德赫拉) argues political commitment and incremental fiscal integration (banking union, bailout funds) can substitute for Mundell&rsquo;s strict economic criteria over time, while others contend the eurozone remains fundamentally incomplete and vulnerable to future asymmetric shocks &mdash; an open question with no resolution yet.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A shared currency can survive without meeting its own textbook conditions &mdash; as long as political will keeps patching the gaps.</div>
+      <div class="source">&#x1F4D6; Mundell, R.A. (1961). <em>American Economic Review</em>, 51(4). De Grauwe, P. (2013). <em>Economics of Monetary Union</em>. ECB, &ldquo;Eurozone Crisis Timeline.&rdquo;</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 10 &mdash; What Outlives Its Origin:</strong> Jupiter&rsquo;s Great Red Spot has persisted far longer than any storm &ldquo;should,&rdquo; slowly shrinking but refusing to vanish on the timeline scientists once expected. Michael Milken&rsquo;s high-yield bond market outlived his own downfall in nearly the same way &mdash; the system he built, however controversial, kept growing decades after the man behind it was gone from the industry.</p>
+      <p><strong>So what:</strong> When judging whether an institution, market, or system will collapse once its founder or original conditions disappear, remember that the structure itself can develop its own momentum, entirely separate from what created it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL-Caltech, Juno mission image gallery. Simon, A. et al., Hubble OPAL program.</li>
+      <li><strong>Card 2:</strong> 太田牛一《信長公記》；小和田哲男《明智光秀と本能寺の変》。</li>
+      <li><strong>Card 3:</strong> Knight, I. (1992), <em>Zulu Rising</em>. Britannica, &ldquo;Battle of Isandlwana.&rdquo;</li>
+      <li><strong>Card 4:</strong> 周敦頤《太極圖說》；朱熹《太極圖說解》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Schopenhauer, A. (1818), <em>The World as Will and Representation</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Laibson, D. (1997), <em>Quarterly Journal of Economics</em> 112(2). Thaler, R.H. (1981), <em>Economics Letters</em>.</li>
+      <li><strong>Card 7:</strong> Breitenbach, R.A. et al. (1993), <em>Military Medicine</em>.</li>
+      <li><strong>Card 8:</strong> Wood, F.A. et al. (2020), <em>New England Journal of Medicine</em> 383 (SAMSON trial).</li>
+      <li><strong>Card 9:</strong> Van Hooren, B. &amp; Peake, J.M. (2018), <em>Sports Medicine</em> 48(7).</li>
+      <li><strong>Card 10:</strong> Bruck, C. (1988), <em>The Predators&rsquo; Ball</em>. Yago, G. (1991), <em>Junk Bonds</em>.</li>
+      <li><strong>Card 11:</strong> Mundell, R.A. (1961), <em>American Economic Review</em> 51(4). De Grauwe, P. (2013), <em>Economics of Monetary Union</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-20: Jupiter&rsquo;s Great Red Spot &bull; 本能寺之變（明智光秀弒織田信長） &bull; Battle of Isandlwana 1879 &bull; 周敦頤《太極圖說》 &bull; Arthur Schopenhauer &bull; Hyperbolic Discounting / Present Bias &bull; Photic Sneeze Reflex &bull; Statin Muscle Pain / Nocebo Effect (SAMSON trial) &bull; Post-Exercise Cool-Down Myth &bull; Michael Milken / Junk Bond Revolution &bull; Optimal Currency Area Theory / Eurozone Crisis</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-20.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-20.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 20 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
