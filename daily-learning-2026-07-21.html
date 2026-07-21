@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 21 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 21 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>20 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Jupiter&rsquo;s Great Red Spot</span>Juno&rsquo;s 2017 close flyby showed a storm larger than Earth that has raged since the 1830s but is slowly shrinking.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 本能寺之變</span>明智光秀夜襲本能寺，織田信長自焚身亡，其後被豐臣秀吉十日急返擊敗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Isandlwana</span>A divided, under-entrenched British force was overwhelmed by 20,000 Zulu warriors in one of colonialism&rsquo;s worst defeats.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 周敦頤《太極圖說》</span>周敦頤僅二百餘字，奠定宋明理學宇宙論與修身工夫的基礎。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Arthur Schopenhauer</span>Schopenhauer argued a blind, purposeless Will underlies all reality, making lasting satisfaction structurally impossible.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Hyperbolic Discounting</span>The same one-month wait feels wildly different depending on whether it starts now or later, explaining procrastination.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Photic Sneeze Reflex</span>Bright light triggers sneezing in up to a third of people because the optic and trigeminal nerves run close together.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Statin Muscle Pain</span>The SAMSON trial found statin-related muscle pain was just as severe on placebo as on the real drug.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Post-Exercise Cool-Down</span>A 2018 review found cool-downs don&rsquo;t reduce next-day soreness or improve long-term training adaptation.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Michael Milken</span>Milken built the high-yield bond market on sound research, then went to prison for securities fraud.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Optimal Currency Area Theory</span>The euro defies Mundell&rsquo;s own criteria for a workable currency union yet has survived crisis after crisis.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Cliffs Made of Gas and Light: JWST&rsquo;s (韋伯太空望遠鏡) Cosmic Cliffs (宇宙峭壁) in the Carina Nebula (船底座星雲)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July 2022, NASA (美國太空總署) unveiled one of the first full-colour images from the James Webb Space Telescope (韋伯太空望遠鏡): a jagged, glowing landscape that looked exactly like a mountain range at sunset, complete with peaks, valleys and a hazy blue horizon. Before reading on, what do you think these towering &ldquo;cliffs&rdquo; were actually made of?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Carina_Nebula_by_Harel_Boren_%28151851961%2C_modified%29.jpg" alt="Wide-field image of the Carina Nebula star-forming region" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Carina Nebula (船底座星雲) in its entirety, a vast star-forming region about 7,600 light-years away &mdash; home to the smaller &ldquo;Cosmic Cliffs&rdquo; region JWST imaged in close-up. Credit: Harel Boren / <a href="https://en.wikipedia.org/wiki/Carina_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 12 July 2022, NASA (美國太空總署) released one of the James Webb Space Telescope&rsquo;s (韋伯太空望遠鏡) first full-colour images: a rugged landscape of glowing peaks and valleys nicknamed the Cosmic Cliffs (宇宙峭壁), sitting at the edge of a star-forming region called NGC 3324 within the vast Carina Nebula (船底座星雲), roughly 7,600 light-years away. The &ldquo;cliffs&rdquo; are not rock at all but the wall of a giant cavity carved into a cloud of cold gas and dust by ultraviolet radiation and fierce stellar winds pouring off young, massive stars just out of frame &mdash; a boundary between star-birth and empty space, glowing where starlight strikes it directly.</p>
+      <p>What made the image extraordinary was what Hubble (哈勃太空望遠鏡) could never fully show: Webb&rsquo;s (韋伯太空望遠鏡) near-infrared camera (NIRCam) sees through the obscuring dust that blocks visible light, revealing dozens of previously hidden protostars &mdash; stars still forming inside their dusty cocoons &mdash; as pinpoints of light scattered across the cliff face, some shooting out narrow jets of gas visible as faint red streaks. Earlier Hubble images of the same region showed a similarly dramatic but far hazier scene, with much of this stellar nursery&rsquo;s inner structure lost behind curtains of dust that infrared light simply passes through.</p>
+      <p>The Cosmic Cliffs (宇宙峭壁) sit within the broader Carina Nebula (船底座星雲), one of the largest and brightest star-forming regions in the night sky, home to some of the most massive, luminous stars known, including Eta Carinae (船底座伊塔星), which may one day explode as a supernova. Astronomers use the region as a laboratory for watching how radiation from young, massive stars actively reshapes and eventually disperses the very clouds that gave birth to them &mdash; a process called photoevaporation, visible in real time along the eroding edges of the cliffs Webb captured in unprecedented detail.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Carina_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; What looked like solid cliffs at sunset was really the glowing edge of a gas cloud being eaten away by starlight.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why could Webb&rsquo;s image reveal dozens of hidden young stars that Hubble&rsquo;s earlier images of the same region could not?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Webb observes in near-infrared light, which passes through the dust clouds that block visible light; Hubble sees mostly in visible wavelengths, so much of the same region&rsquo;s embedded, still-forming stars remained hidden behind dust in its images.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA, Webb Space Telescope image release, 12 July 2022. STScI, &ldquo;Cosmic Cliffs&rdquo; mission page.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「白登之圍」：劉邦兵敗匈奴與漢初和親政策的起點</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">漢朝開國皇帝親率大軍北伐強敵，卻反被圍困於荒山七日，糧道斷絕，隨時可能全軍覆沒。你認為，最終他是憑武力突圍，還是靠其他手段脫身？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>漢高祖劉邦；匈奴冒頓單于；謀士陳平。</p>
+        <p><strong>事件：</strong>公元前200年，白登之圍，劉邦率軍北伐匈奴，反遭冒頓單于圍困於白登山（今山西大同附近）七日。</p>
+        <p><strong>時代背景：</strong>漢朝甫立國不久，國力未穩，北方匈奴在冒頓單于統領下勢力空前強盛，屢屢南侵，劉邦決意御駕親征，卻輕敵冒進。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Liu-bang.jpg" alt="劉邦（漢高祖）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">劉邦（漢高祖）畫像，白登之圍的主角。來源：<a href="https://en.wikipedia.org/wiki/Liu_Bang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>公元前200年，漢高祖劉邦聞韓王信勾結匈奴叛漢，親率三十二萬大軍北伐。冒頓單于故意示弱，將精銳兵馬與肥壯牛馬隱藏起來，只讓老弱殘兵出面迎戰，誘使劉邦輕敵冒進。劉邦不待步兵主力到齊，僅率先頭騎兵疾馳至白登山（今山西大同附近），豈料冒頓早已布下四十萬精銳騎兵，將劉邦及其先鋒部隊團團圍困於山上，內外音信斷絕，糧草補給隨即中斷，漢軍陷入進退兩難的絕境，一連七日未能突圍，軍心漸漸動搖。</p>
+      <p>危急關頭，謀士陳平獻計，暗中派人攜帶厚禮，秘密求見冒頓單于的閼氏（王后），並暗示劉邦已備妥美女圖像，一旦解圍便將獻上絕色美人取悅單于，恐怕會奪去閼氏的寵愛。閼氏聞言心生忌憚，加上原本與劉邦約定會師的另一路匈奴援軍遲遲未至，冒頓心中亦生疑慮，擔心腹背受敵，於是聽從閼氏勸說，主動撤開包圍圈一角。劉邦趁著大霧瀰漫、視線不清之際，下令全軍張弓搭箭戒備，緩緩自缺口突圍而出，終於與後續步兵主力會合，撿回一命。</p>
+      <p>白登之圍後，劉邦深刻體會漢朝立國未穩、國力遠遜匈奴的現實，遂採納劉敬建議，改採「和親」政策，將宗室女子遠嫁匈奴單于，並每年餽贈絲綢、酒食等厚禮，換取邊境暫時安寧。這項忍辱負重的外交策略延續至漢初數代君主，惠帝、文帝、景帝皆蕭規曹隨，直至國力累積至漢武帝一朝，方才一改守勢，轉為主動出兵反擊匈奴。白登之圍因此成為漢初對外政策的重要轉折點，也奠定了「先忍讓、後圖強」的治國思路。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Liu_Bang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場七日的圍困，換來漢朝七十年隱忍待發的外交策略。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>陳平獻給劉邦的突圍計策，關鍵在於說動誰？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">陳平暗中賄賂並遊說冒頓單于的閼氏（王后），暗示劉邦一旦脫困將獻上美女爭寵，令閼氏心生忌憚而勸單于撤圍，劉邦才得以趁大霧突圍。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&middot;匈奴列傳》；班固《漢書&middot;高帝紀》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Five Minutes That Turned the Pacific: The Battle of Midway (中途島海戰), 1942</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Six months after Pearl Harbor (珍珠港), Japan&rsquo;s navy (日本海軍) still held the initiative in the Pacific, planning to lure and destroy America&rsquo;s remaining aircraft carriers near a tiny atoll. Before reading on, what single piece of American intelligence do you think made the difference between an ambush and a trap?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Admiral Chester Nimitz (尼米茲), US Pacific Fleet commander; Admiral Isoroku Yamamoto (山本五十六), Japanese Combined Fleet commander; codebreaker Joseph Rochefort (羅徹福特).</p>
+        <p><strong>Event at stake:</strong> The Battle of Midway (中途島海戰), fought 4&ndash;7 June 1942 near Midway Atoll (中途島) in the central Pacific.</p>
+        <p><strong>Big picture:</strong> Six months after Pearl Harbor (珍珠港), Yamamoto planned to draw out and destroy America&rsquo;s remaining carriers by attacking Midway &mdash; but American codebreakers had already read enough of his plan to set a trap of their own.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/USS_Yorktown_%28CV-5%29_is_hit_by_a_torpedo_on_4_June_1942.jpg/3840px-USS_Yorktown_%28CV-5%29_is_hit_by_a_torpedo_on_4_June_1942.jpg" alt="USS Yorktown struck by a torpedo during the Battle of Midway, 4 June 1942" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">USS Yorktown (約克鎮號) struck by a torpedo during the Battle of Midway (中途島海戰), 4 June 1942. Credit: US Navy / <a href="https://en.wikipedia.org/wiki/Battle_of_Midway" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By mid-1942, Admiral Isoroku Yamamoto (山本五十六) planned to finish what Pearl Harbor (珍珠港) had started by luring America&rsquo;s three remaining aircraft carriers into a decisive battle near Midway Atoll (中途島), a strategically placed pair of islets northwest of Hawaii (夏威夷). But US Navy codebreakers at Station HYPO, led by Joseph Rochefort (羅徹福特), had partially cracked Japan&rsquo;s naval code JN-25 and suspected the target was Midway; to confirm it, they had the base broadcast a fake message reporting a water-shortage, then intercepted a Japanese radio report referencing exactly that problem at &ldquo;AF&rdquo; &mdash; confirming Midway as the target.</p>
+      <p>Forewarned, Admiral Chester Nimitz (尼米茲) rushed the carrier USS Yorktown (約克鎮號), badly damaged weeks earlier at the Battle of the Coral Sea (珊瑚海海戰), through emergency repairs in just 72 hours to join Enterprise (企業號) and Hornet (大黃蜂號) in ambush position northeast of Midway, hidden from Japanese scout planes. On the morning of 4 June, American dive bombers arrived at the exact moment Japan&rsquo;s four carriers &mdash; Akagi (赤城), Kaga (加賀), S&omacr;ry&umacr; (蒼龍) and Hiry&umacr; (飛龍) &mdash; were mid-refuel and rearming aircraft on their decks, fuel lines and bombs exposed with no fighter cover aloft to intercept.</p>
+      <p>Within minutes, dive bombers from Enterprise (企業號) and Yorktown (約克鎮號) set three of the four Japanese carriers ablaze in a single strike, and Hiry&umacr; (飛龍) was sunk later that day after a desperate counterattack that fatally damaged Yorktown. Japan lost four fleet carriers, a heavy cruiser, and hundreds of experienced pilots and aircrew it could never fully replace, while the US lost only Yorktown and a destroyer. The battle permanently shifted naval air superiority in the Pacific to the United States (美國), just six months after Pearl Harbor (珍珠港), and historians widely regard it as the war&rsquo;s turning point in the Pacific theatre.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Midway" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single faked radio message about a water shortage helped turn an ambush into history&rsquo;s most decisive naval battle.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What piece of deception let American codebreakers confirm Midway, not somewhere else, was Yamamoto&rsquo;s target?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Station HYPO had the Midway base broadcast a fake uncoded message reporting a water-shortage; when a subsequent Japanese message referenced that exact problem at a location codenamed &ldquo;AF,&rdquo; it confirmed AF was Midway.</div>
+      </details>
+      <div class="source">&#x1F4D6; Parshall, J. &amp; Tully, A. (2005). <em>Shattered Sword: The Untold Story of the Battle of Midway</em>. Naval History and Heritage Command.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>法藏「因陀羅網」：華嚴宗如何以寶珠比喻萬法互攝互入</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位高僧為了向女皇解釋「萬物互相包含」這個抽象道理，決定不用長篇說教，而是搬來十面鏡子做了一場現場示範。你認為，他打算展示的畫面會是甚麼樣子？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>法藏（643&ndash;712），華嚴宗三祖，武則天時代高僧。</p>
+        <p><strong>核心思想：</strong>因陀羅網喻，出自《華嚴經》，以帝釋天宮殿寶珠網比喻萬法互攝互入、一即一切、一切即一的圓融境界。</p>
+        <p><strong>時代背景：</strong>唐代佛教宗派林立，華嚴宗致力建立一套涵蓋「理事無礙、事事無礙」的圓融宇宙觀，以回應當時佛教內部對現象與本體關係的種種爭論。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Fazang%2C_buddhist_Monk%2C_Japanese_print%2C_13th_century.jpg" alt="法藏畫像，十三世紀日本繪畫" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">法藏畫像，十三世紀日本繪畫。來源：<a href="https://en.wikipedia.org/wiki/Fazang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>法藏是唐代華嚴宗實際創宗者，深受武則天禮遇，曾多次奉詔於宮中及長安各大寺院講經說法。相傳武則天讀《華嚴經》艱澀難明，法藏遂設計了一場著名的「十面鏡子」示範：於室內四面八方及上下共安置十面鏡子，中央置一尊佛像，並點燃一支蠟燭。武則天入室觀看，只見十面鏡子彼此互相映照，佛像與燭光的影像在鏡與鏡之間重重反射，層層疊疊，無窮無盡，卻又秩序井然，毫不混亂，直觀呈現出「一即一切、一切即一」的義理。</p>
+      <p>這場示範所要展現的，正是《華嚴經》「因陀羅網」之喻：傳說忉利天主帝釋天的宮殿懸掛著一張綴滿寶珠的巨網，每一顆寶珠皆映現出其餘所有寶珠的影像，而每顆寶珠中的影像，又各自映現出全部寶珠的影像，如此重重無盡，互攝互入。法藏藉此說明，宇宙萬法看似各自獨立，實則彼此緣起相依、互相含攝——任何一法的存在，都以其餘一切法的存在為條件，牽一髮而動全身，這正是「法界緣起」思想的核心。</p>
+      <p>法藏另著〈金獅子章〉，以宮殿中一尊金獅子像為喻，指出獅子的「金」（本體）與「獅子相」（現象）看似有別，實則理事圓融無礙，二者不可分割，進一步將因陀羅網的抽象譬喻落實為具體可感的教學工具。這套「理事無礙、事事無礙」的圓融哲學，經澄觀、宗密等後繼者發揚，深刻影響宋明理學「理一分殊」的思想架構，亦透過禪宗與日本華嚴宗東傳，成為東亞佛教思想史上最具系統性的形上學體系之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fazang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 十面鏡子映照出的無窮影像，正是「萬物互相成就」最直觀的證明。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>法藏「十面鏡子」示範，究竟想向武則天展示甚麼道理？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他想具體呈現《華嚴經》「因陀羅網」的義理——每顆寶珠互相映現彼此的影像，重重無盡，比喻宇宙萬法彼此緣起相依、互攝互入，一法即含攝一切法。</div>
+      </details>
+      <div class="source">&#x1F4D6; 法藏《華嚴金獅子章》；《大方廣佛華嚴經》；湯用彤《隋唐佛教史稿》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Back to the Things Themselves: Edmund Husserl (胡塞爾) and the Birth of Phenomenology (現象學)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher proposes a strange discipline: before asking whether anything you perceive actually exists &ldquo;out there,&rdquo; first set that question aside entirely and describe, with total precision, exactly how it appears to your consciousness. Before reading on, what do you think could be gained by deliberately suspending judgment about the real world just to study appearances?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Edmund Husserl (胡塞爾, 1859&ndash;1938), German philosopher; studied under Franz Brentano (布倫塔諾); later influenced Martin Heidegger (海德格) and Jean-Paul Sartre (沙特).</p>
+        <p><strong>Idea at stake:</strong> Whether philosophy should start from unexamined assumptions about an external world, or instead begin with the rigorous, careful description of how things actually appear to consciousness.</p>
+        <p><strong>Big picture:</strong> Writing in early 20th-century Germany against both rigid natural science and vague speculative metaphysics, Husserl sought a new &ldquo;rigorous science&rdquo; grounded directly in lived experience.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Edmund_Husserl_1910s.jpg" alt="Portrait of philosopher Edmund Husserl, 1910s" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Edmund Husserl (胡塞爾) in the 1910s, founder of phenomenology (現象學). Credit: <a href="https://en.wikipedia.org/wiki/Edmund_Husserl" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Edmund Husserl (胡塞爾) founded phenomenology (現象學) by taking up his teacher Franz Brentano&rsquo;s (布倫塔諾) idea of intentionality (意向性) &mdash; the claim that consciousness is always consciousness of something, never simply free-floating awareness. In his <em>Logical Investigations</em> (1900&ndash;01) and <em>Ideas</em> (1913), Husserl argued that before philosophy asks whether the external world truly exists as we perceive it, it should first master a more basic task: describing, with total rigour, exactly how objects present themselves to consciousness, stripped of unexamined assumptions inherited from science, common sense, or prior philosophy.</p>
+      <p>His central method, the epoch&eacute; (存而不論) or &ldquo;bracketing,&rdquo; asked philosophers to deliberately suspend judgment about whether perceived objects really exist independently, not to deny the external world, but to redirect attention entirely onto the structure of experience itself &mdash; how a chair, a memory, or a mathematical proof actually appears to a mind encountering it. Husserl&rsquo;s motto, &ldquo;to the things themselves&rdquo; (面向事物本身), captured this ambition: philosophy&rsquo;s job was not to theorise about reality from a distance, but to examine, patiently and without presupposition, the raw texture of lived experience as it is actually given.</p>
+      <p>Husserl&rsquo;s method reshaped 20th-century continental philosophy: his student and later rival Martin Heidegger (海德格) redirected phenomenology (現象學) toward the question of Being itself in <em>Being and Time</em>, while Jean-Paul Sartre (沙特) and Maurice Merleau-Ponty (梅洛龐蒂) built existentialist and embodied theories of consciousness on Husserl&rsquo;s foundations. Late in life, stripped of his professorship and library access under Nazi race laws because of his Jewish ancestry, Husserl died in 1938 largely isolated from the philosophical mainstream he had founded &mdash; a painful irony given how thoroughly his method had already reshaped the field.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Edmund_Husserl" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Before arguing about what&rsquo;s real, Husserl insisted on first getting honest about how things actually appear to us.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Husserl&rsquo;s epoch&eacute; (bracketing) actually ask philosophers to do, and why?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It asked them to suspend judgment about whether perceived objects truly exist independently &mdash; not to deny the external world, but to redirect focus entirely onto describing the structure of experience itself, with total rigour and without unexamined assumptions.</div>
+      </details>
+      <div class="source">&#x1F4D6; Husserl, E. (1913). <em>Ideas: General Introduction to Pure Phenomenology</em>. Stanford Encyclopedia of Philosophy, &ldquo;Edmund Husserl.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Choosing Your Own Lottery Numbers Feels Luckier: The Illusion of Control (控制錯覺)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two people each buy a lottery ticket with identical odds of winning &mdash; one picks their own numbers, the other is handed a ticket with numbers already chosen for them. Before reading on, do you think the person who picked their own numbers would value their ticket the same as the other person, or differently?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Ellen_Langer_headshot.jpg" alt="Photograph of psychologist Ellen Langer" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ellen Langer (蘭格), the Harvard psychologist behind the 1975 illusion-of-control study. Credit: <a href="https://en.wikipedia.org/wiki/Ellen_Langer" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a landmark 1975 study, psychologist Ellen Langer (蘭格) sold office workers $1 lottery tickets, letting half the participants choose their own numbers while simply handing pre-selected tickets to the rest &mdash; a purely cosmetic difference, since every ticket carried identical odds. Just before the drawing, Langer&rsquo;s team approached each participant and asked what price they would accept to sell their ticket back. Participants who had chosen their own numbers demanded, on average, roughly four times more money than those who had been handed a ticket, despite knowing full well that chance alone would determine the outcome.</p>
+      <p>Langer termed this the illusion of control (控制錯覺): an inappropriate sense of personal influence over outcomes that are, in reality, governed purely by chance. Her follow-up experiments identified the specific factors that trigger it &mdash; active choice, competition against a weaker-seeming opponent, familiarity with the materials involved, and practice or rehearsal beforehand &mdash; all cues normally associated with skill-based tasks, which the mind appears to misapply to genuinely random ones. Simply making a choice, even a meaningless one, was enough to make an outcome feel more controllable and therefore more valuable.</p>
+      <p>The illusion of control (控制錯覺) shows up well beyond lotteries: casino gamblers often throw dice harder for high numbers and softer for low ones, as if muscular effort could influence a physical outcome already determined by momentum and friction, and retail investors frequently trade more actively than a passive index strategy would justify, misreading their ability to analyse a stock as control over its price. Recognising the specific cues that trigger this illusion &mdash; choice, competition, familiarity, practice &mdash; is often the first step toward resisting overconfidence in situations genuinely governed by chance rather than skill.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ellen_Langer" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Simply choosing your own numbers doesn&rsquo;t change your odds &mdash; but it reliably changes how lucky you feel.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Langer&rsquo;s 1975 study, what specific factor made participants demand more money for their lottery ticket?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Participants who personally chose their own numbers, rather than receiving a pre-selected ticket, demanded roughly four times more money to sell it back &mdash; even though every ticket carried identical odds, showing that mere choice inflated their sense of control over a purely random outcome.</div>
+      </details>
+      <div class="source">&#x1F4D6; Langer, E.J. (1975). &ldquo;The Illusion of Control.&rdquo; <em>Journal of Personality and Social Psychology</em>, 32(2).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Fear and Cold Both Raise Your Skin: The Science of Goosebumps (雞皮疙瘩)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A chilling piece of music, a frightening noise, and a cold gust of wind can all produce the exact same physical reaction on your skin &mdash; tiny bumps rising around each hair. Before reading on, what do you think connects such completely different triggers &mdash; temperature, fear, and even beautiful music &mdash; to one single reflex?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/2003-09-17_Goose_bumps.jpg" alt="Close-up photograph of goosebumps on human skin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Goosebumps (雞皮疙瘩), caused by the arrector pili muscles (豎毛肌) contracting around each hair follicle. Credit: <a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Goosebumps, medically called cutis anserina (雞皮疙瘩), form when tiny bands of smooth muscle called arrector pili (豎毛肌), attached to the base of every hair follicle, contract and pull the follicle upright, creating a small raised bump in the surrounding skin. This reflex is controlled entirely by the sympathetic nervous system (交感神經系統) &mdash; the same fight-or-flight network that speeds the heart and dilates the pupils &mdash; meaning goosebumps arise completely involuntarily, without any conscious muscular effort, triggered automatically whenever this branch of the nervous system fires in response to cold, fear, or intense emotion.</p>
+      <p>The reflex is an evolutionary holdover from furrier ancestors: raising each hair trapped a thicker layer of insulating air against the skin, providing genuine warmth in cold conditions, while the same reflex also made a frightened or threatened animal&rsquo;s coat visibly puff up, making it appear larger and more intimidating to a predator or rival &mdash; a phenomenon called piloerection (立毛反應), still highly effective in cats and porcupines today. In modern, largely hairless humans, neither benefit meaningfully applies anymore, yet the underlying nerve circuit never disappeared, so the reflex still fires reliably even though it no longer does the job it evolved for.</p>
+      <p>Strikingly, the same reflex also fires in response to powerful music, awe-inspiring scenery, or emotionally charged memories &mdash; a phenomenon researchers call frisson (音樂寒顫), sometimes nicknamed &ldquo;skin orgasm.&rdquo; Brain-imaging studies suggest frisson activates reward and pleasure circuitry similar to that triggered by food or other strongly reinforcing stimuli, hijacking a defensive, temperature-regulating reflex for an entirely unrelated emotional purpose. Because arrector pili muscles are controlled involuntarily, no amount of conscious effort can produce goosebumps on command &mdash; they arise only when the sympathetic nervous system genuinely registers cold, threat, or overwhelming feeling.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The same muscle reflex that once fluffed up fur for warmth now fires when a song gives you chills.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do goosebumps still occur in humans even though we no longer have enough body hair for them to provide real insulation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The reflex is controlled by an ancient, involuntary nerve circuit in the sympathetic nervous system that never disappeared even as human body hair became sparse; the arrector pili muscles still contract automatically in response to cold, fear, or strong emotion, even though the original insulating and size-boosting benefits no longer meaningfully apply.</div>
+      </details>
+      <div class="source">&#x1F4D6; Benedek, M. &amp; Kaernbach, C. (2011). <em>Biological Psychology</em>. Darwin, C. (1872). <em>The Expression of the Emotions in Man and Animals</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Collagen Supplements (膠原蛋白補充劑) Actually Firm Your Skin?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Collagen is the most abundant protein in the human body and a key structural component of skin &mdash; and it&rsquo;s now sold in powders, drinks, and capsules promising firmer, more hydrated skin. Before reading on, do you think swallowing collagen actually gets incorporated into your skin the way the marketing implies?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Human_skin_structure.jpg" alt="Diagram of human skin structure showing the collagen-rich dermis layer" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Human skin structure (皮膚結構), showing the collagen-rich dermis layer that supplements target. Credit: <a href="https://en.wikipedia.org/wiki/Skin_aging" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Collagen (膠原蛋白) is the most abundant protein in the human body, forming the structural scaffolding of skin, cartilage, and tendons; natural production declines by roughly one percent per year starting in a person&rsquo;s mid-twenties, contributing to thinner, less elastic skin over time. This decline has fuelled a large market for oral collagen supplements (膠原蛋白補充劑), marketed on the premise that ingesting collagen directly restores what the body is losing &mdash; but this framing glosses over a basic fact of digestion: swallowed collagen protein is broken down by stomach acid and enzymes into individual amino acids and small peptides long before it ever reaches the bloodstream, exactly like any other dietary protein.</p>
+      <p>Despite this, several small randomised trials and a 2021 systematic review published in the <em>International Journal of Dermatology</em> found modest but measurable improvements in skin elasticity and hydration among people taking hydrolysed collagen peptides for eight to twelve weeks, compared with placebo. The proposed mechanism isn&rsquo;t that collagen itself reaches the skin intact, but that specific collagen-derived peptides (含羥脯胺酸胜肽) act as signalling molecules, prompting the body&rsquo;s own fibroblast cells (成纖維細胞) to ramp up their own collagen production &mdash; an indirect, peptide-signalling effect rather than direct replacement, and one still not fully mapped at the mechanistic level.</p>
+      <p>Two caveats temper the modest positive findings: effect sizes across studies remain small, and a substantial share of the supporting research has been funded or conducted by supplement manufacturers themselves, a known source of bias in nutrition science. For most people, ensuring adequate overall dietary protein, sufficient vitamin C (維他命C) &mdash; an essential cofactor the body needs to synthesise its own collagen &mdash; and consistent sun protection likely matters more for long-term skin structure than any specific collagen supplement, which at best appears to offer a modest assist rather than the dramatic reversal implied by marketing claims.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Skin_aging" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Swallowed collagen never reaches your skin intact &mdash; at best, it nudges your own cells to make a little more of their own.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> If ingested collagen is broken down into amino acids during digestion, how might collagen supplements still modestly improve skin elasticity?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Specific collagen-derived peptides appear to act as signalling molecules that prompt the skin&rsquo;s own fibroblast cells to increase their own collagen production, an indirect effect rather than the supplement&rsquo;s collagen being directly incorporated into skin tissue.</div>
+      </details>
+      <div class="source">&#x1F4D6; de Miranda, R.B. et al. (2021). <em>International Journal of Dermatology</em>, 60(12). Proksch, E. et al. (2014). <em>Skin Pharmacology and Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Do Compression Garments (壓縮衣) Really Speed Up Recovery?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Marathon runners, footballers, and gym-goers increasingly wear tight compression sleeves and tights after training, convinced it helps them recover faster for the next session. Before reading on, do you think the evidence for this is strong, mixed, or essentially non-existent?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Cycling_kit_full_body_alt_3_%28cropped%29.jpg" alt="Athlete wearing full-body compression garment" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A full-body compression garment (壓縮衣), the type of tight-fitting sportswear tested in recovery research. Credit: <a href="https://en.wikipedia.org/wiki/Compression_garment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Compression garments (壓縮衣) &mdash; tight-fitting sleeves, socks, and tights applying steady external pressure to the limbs &mdash; are widely worn during and after exercise on the theory that they reduce muscle soreness, limit swelling, and speed recovery of strength and power. An influential 2014 meta-analysis published in the <em>British Journal of Sports Medicine</em> by Hill and colleagues pooled results across multiple controlled trials and found small-to-moderate reductions in delayed-onset muscle soreness (延遲性肌肉痠痛, DOMS) and modestly faster recovery of muscle function after exercise-induced damage, though the researchers cautioned that overall evidence quality remained mixed and effect sizes were generally small.</p>
+      <p>Several mechanisms have been proposed to explain the modest benefit: external pressure may enhance venous and lymphatic return, helping clear metabolic byproducts and reduce fluid pooling and swelling in damaged tissue; compression may also physically limit muscle oscillation during high-impact or eccentric movements, reducing the micro-tearing that triggers soreness in the first place. A third, harder-to-rule-out factor is psychological: the firm, supportive sensation of compression garments may itself reduce perceived soreness independent of any underlying physiological change, meaning some of the measured benefit could reflect expectation as much as mechanism.</p>
+      <p>Not all compression products are equal: medical-grade garments delivering 15&ndash;20 mmHg or higher pressure have more consistent supporting evidence than generic athletic compression wear, whose actual pressure levels are rarely disclosed or standardised. Evidence for wearing compression garments during exercise to boost performance itself is considerably weaker than for the post-exercise recovery use case; most of the measurable benefit shows up specifically when garments are worn in the hours after a hard session, making post-workout compression a reasonable, low-risk addition to a recovery routine rather than a proven performance enhancer.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Compression_garment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Compression gear&rsquo;s real benefit shows up after your workout, in modest recovery gains &mdash; not during it, as a performance boost.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the two main physiological mechanisms proposed to explain compression garments&rsquo; modest recovery benefit?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Compression is thought to enhance venous and lymphatic return, helping clear metabolic byproducts and reduce swelling, and to physically limit muscle oscillation during eccentric exercise, reducing the micro-tearing that triggers soreness &mdash; though a psychological, expectation-driven component likely also contributes.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hill, J. et al. (2014). <em>British Journal of Sports Medicine</em>, 48(18).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Deliberately Causing a Recession to Kill Inflation: Paul Volcker (沃爾克) and the 1980s Disinflation</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1979, a US Federal Reserve (聯邦儲備局) chairman took office facing double-digit inflation and made a decision few politicians would dare: deliberately engineer a severe recession to break the public&rsquo;s expectation that prices would keep rising. Before reading on, what do you think happened to his popularity &mdash; and to inflation &mdash; over the next few years?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Paul_A._Volcker_%28James_D._Wolfensohn%29_am_19._Symposium_1989-HSGH_022-000765_%28cropped%29_%282%29.jpg" alt="Photograph of Federal Reserve chairman Paul Volcker" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Paul Volcker (沃爾克), Federal Reserve (聯邦儲備局) chairman 1979&ndash;1987, in 1989. Credit: <a href="https://en.wikipedia.org/wiki/Paul_Volcker" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When Paul Volcker (沃爾克) took over as chairman of the Federal Reserve (聯邦儲備局) in August 1979, US inflation was running above 11 percent and climbing, driven partly by years of loose monetary policy and repeated oil shocks. In October 1979, in a move later nicknamed the &ldquo;Saturday Night Massacre,&rdquo; Volcker shifted the Fed&rsquo;s entire operating strategy away from targeting interest rates directly and toward tightly restricting the growth of the money supply instead, deliberately allowing interest rates to rise however high the market demanded &mdash; a sharp break from decades of Fed practice designed above all to avoid triggering exactly the kind of economic pain this shift would soon cause.</p>
+      <p>The federal funds rate (聯邦基金利率) spiked to nearly 20 percent by 1981, dragging the economy through a severe double-dip recession that pushed unemployment to 10.8 percent by late 1982, the worst US jobless rate since the Great Depression at that time. The pain fell hardest on interest-rate-sensitive industries: homebuilders nailed plywood coffins labelled with Volcker&rsquo;s name and mailed them to the Fed, and farmers drove tractors to Washington to blockade the Federal Reserve building in protest, furious at borrowing costs that made mortgages, farm loans, and car financing suddenly unaffordable across the country.</p>
+      <p>Yet the strategy worked precisely as Volcker (沃爾克) intended: US inflation fell from roughly 13.5 percent in 1980 to about 3.2 percent by 1983, breaking the entrenched expectation that prices would keep spiralling upward and restoring the Fed&rsquo;s long-term credibility as an inflation fighter. The recovery that followed helped set the stage for the sustained low-inflation growth of the 1980s and 1990s, and Volcker&rsquo;s willingness to absorb severe short-term political and economic pain for long-term monetary credibility remains a foundational case study cited by central bankers confronting inflation crises worldwide.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Paul_Volcker" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Sometimes restoring long-term credibility requires a central banker willing to be despised in the short term.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific operational change did Volcker make in October 1979 that let interest rates spike so dramatically?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He shifted the Fed&rsquo;s strategy away from directly targeting interest rates and toward tightly restricting the growth of the money supply instead, deliberately allowing interest rates to rise as high as the market demanded rather than trying to control them directly.</div>
+      </details>
+      <div class="source">&#x1F4D6; Silber, W.L. (2012). <em>Volcker: The Triumph of Persistence</em>. Federal Reserve History, &ldquo;Volcker&rsquo;s Announcement of Anti-Inflation Policy.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>One Boatlift, Two Economists, No Agreement: The Mariel Boatlift (馬列爾偷渡潮) Wage Debate</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Mariel_Refugees.jpg" alt="Cuban refugees arriving in the United States during the 1980 Mariel boatlift" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cuban refugees arriving during the 1980 Mariel boatlift (馬列爾偷渡潮), the natural experiment at the centre of a decades-long economics dispute. Credit: <a href="https://en.wikipedia.org/wiki/Mariel_boatlift" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1980, Fidel Castro (卡斯特羅) allowed roughly 125,000 Cuban refugees to leave for the United States via the port of Mariel (馬列爾) over a few chaotic months, expanding Miami&rsquo;s labour force by about seven percent almost overnight, concentrated heavily among low-skilled workers competing for similar jobs.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard labour economics predicts that a sudden, large increase in the supply of low-skilled workers should depress wages and employment for competing native low-skilled workers, all else being equal &mdash; a straightforward application of basic supply-and-demand reasoning to local labour markets.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Economist David Card&rsquo;s (卡德) influential 1990 study compared Miami&rsquo;s low-skill wages and unemployment against similar cities and found essentially no measurable negative effect on native low-skilled workers &mdash; a result long cited as evidence that local labour markets absorb immigration shocks more easily than simple models predict.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">In 2017, George Borjas (博爾哈斯) reanalysed the data using a narrower comparison group &mdash; non-Hispanic male high-school dropouts &mdash; and reported significant wage declines for that specific subgroup, reigniting fierce methodological debate; economists Peri and Yasenov (2019) defended Card&rsquo;s broader approach, questioning the reliability of Borjas&rsquo;s small sample. The dispute remains unresolved, a genuinely open question in immigration economics.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Even economists working from the same natural experiment can reach opposite conclusions depending on exactly which workers they compare.</div>
+      <div class="source">&#x1F4D6; Card, D. (1990). <em>Industrial and Labor Relations Review</em>, 43(2). Borjas, G. (2017). <em>ILR Review</em>, 70(5). Peri, G. &amp; Yasenov, V. (2019). <em>Journal of Human Resources</em>, 54(2).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 8 &amp; 9 &mdash; Real But Modest:</strong> Collagen supplements and compression garments are both products with plausible biological mechanisms, small real effects confirmed by legitimate research, and marketing that vastly oversells what that research actually shows. Collagen peptides may modestly nudge skin cells to produce more of their own collagen; compression may modestly aid venous return and limit muscle oscillation &mdash; genuine physiology in both cases, wrapped in hype that promises transformation rather than the incremental assist the data actually supports.</p>
+      <p><strong>So what:</strong> When evaluating a wellness product, look past whether a mechanism sounds plausible and ask what effect size the actual trials measured &mdash; &ldquo;modest but real&rdquo; and &ldquo;dramatic as advertised&rdquo; are very different claims, and usually only one of them is true.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA, Webb Space Telescope image release, 12 July 2022. STScI, &ldquo;Cosmic Cliffs&rdquo; mission page.</li>
+      <li><strong>Card 2:</strong> 司馬遷《史記&middot;匈奴列傳》；班固《漢書&middot;高帝紀》。</li>
+      <li><strong>Card 3:</strong> Parshall, J. &amp; Tully, A. (2005), <em>Shattered Sword</em>. Naval History and Heritage Command.</li>
+      <li><strong>Card 4:</strong> 法藏《華嚴金獅子章》；《大方廣佛華嚴經》；湯用彤《隋唐佛教史稿》。</li>
+      <li><strong>Card 5:</strong> Husserl, E. (1913), <em>Ideas</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Langer, E.J. (1975), <em>Journal of Personality and Social Psychology</em> 32(2).</li>
+      <li><strong>Card 7:</strong> Benedek, M. &amp; Kaernbach, C. (2011), <em>Biological Psychology</em>. Darwin, C. (1872).</li>
+      <li><strong>Card 8:</strong> de Miranda, R.B. et al. (2021), <em>International Journal of Dermatology</em> 60(12).</li>
+      <li><strong>Card 9:</strong> Hill, J. et al. (2014), <em>British Journal of Sports Medicine</em> 48(18).</li>
+      <li><strong>Card 10:</strong> Silber, W.L. (2012), <em>Volcker: The Triumph of Persistence</em>. Federal Reserve History.</li>
+      <li><strong>Card 11:</strong> Card, D. (1990); Borjas, G. (2017); Peri, G. &amp; Yasenov, V. (2019).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-21: Cosmic Cliffs / Carina Nebula (JWST) &bull; 白登之圍（劉邦與冒頓單于） &bull; Battle of Midway 1942 &bull; 法藏「因陀羅網」／華嚴宗 &bull; Edmund Husserl / Phenomenology &bull; Illusion of Control (Ellen Langer) &bull; Goosebumps / Piloerection &bull; Collagen Supplements &bull; Compression Garments &bull; Paul Volcker / 1980s Disinflation &bull; Mariel Boatlift Wage Debate</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-21.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-21.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 21 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
