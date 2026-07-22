@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 22 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 22 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>21 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Cosmic Cliffs / Carina Nebula</span>JWST&rsquo;s infrared camera pierced dust in the Carina Nebula to reveal hidden baby stars invisible to Hubble.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 白登之圍</span>陳平賄賂閼氏解圍，漢初由此定下和親國策。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Midway</span>A faked water-shortage message let codebreakers confirm Midway as Yamamoto&rsquo;s target, enabling a decisive US ambush.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 法藏「因陀羅網」</span>法藏以十鏡示現萬法互攝互入。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Edmund Husserl</span>Husserl argued philosophy should first rigorously describe how things appear to consciousness, bracketing judgments about external reality.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Illusion of Control</span>Choosing your own lottery numbers made people value an identical-odds ticket about four times more.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Goosebumps</span>An ancient, involuntary reflex once fluffed fur for warmth or size, now firing for cold, fear, or music.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Collagen Supplements</span>Digested collagen never reaches skin intact, but its peptides may modestly nudge cells to make more of their own.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Compression Garments</span>A 2014 meta-analysis found modest, mechanism-plausible reductions in soreness from post-exercise compression wear.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Paul Volcker</span>Volcker deliberately triggered a severe recession with tight money-supply targets to break 1980s inflation expectations.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Mariel Boatlift</span>Economists still disagree whether Miami&rsquo;s 1980 refugee influx measurably depressed low-skilled wages.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The First Family Portrait of Another Solar System: Directly Imaging HR&nbsp;8799 (HR 8799星)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2008, astronomers pointed telescopes in Hawaii (夏威夷) at a faint star and did something almost never done before in exoplanet hunting: instead of inferring a planet&rsquo;s existence indirectly, they simply took its picture. Before reading on, what do you think makes photographing a planet around another star so much harder than photographing the star itself?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/HR_8799_%28NIRCam_Image%29_%282025-114%29.png" alt="JWST NIRCam direct image of the HR 8799 multi-planet system" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The HR&nbsp;8799 (HR 8799星) system, imaged directly by JWST&rsquo;s (韋伯太空望遠鏡) NIRCam in 2025, showing all four planets as points of light around the blocked-out central star. Credit: NASA/ESA/CSA / <a href="https://en.wikipedia.org/wiki/HR_8799" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In November 2008, astronomer Christian Marois (馬盧瓦) and colleagues used the Keck (凱克天文台) and Gemini (雙子星天文台) telescopes in Hawaii (夏威夷) to release something almost unheard of: an actual photograph of planets orbiting another star. Three, later confirmed as four, giant planets appeared as faint points of light circling the young star HR&nbsp;8799 (HR 8799星), about 129 light-years away. Nearly every other exoplanet (系外行星) ever found had been detected indirectly, through a star&rsquo;s telltale wobble or a tiny dip in its brightness. HR&nbsp;8799&rsquo;s planets were simply there in the image, glowing faintly against their parent star&rsquo;s overwhelming glare.</p>
+      <p>Photographing a planet directly is extraordinarily difficult because a star vastly outshines anything orbiting it, like trying to spot a firefly beside a lighthouse from miles away. Astronomers used adaptive optics (自適應光學) to cancel out atmospheric blurring in real time, combined with a coronagraph (日冕儀) that physically blocked the star&rsquo;s light, letting the far fainter planets emerge from the glare. HR&nbsp;8799 (HR 8799星) was an ideal target: its planets are young, still radiating leftover heat from formation, making them unusually bright in infrared (紅外線) light, and they orbit far enough from their star, wider than Pluto&rsquo;s (冥王星) orbit around the Sun, to be visually separated from it.</p>
+      <p>Follow-up images taken over the following years captured the planets visibly shifting position, the first time astronomers watched planets orbit another star in real time rather than inferring their motion mathematically. In 2025, the James Webb Space Telescope (韋伯太空望遠鏡) re-imaged the system in stunning new infrared detail, sharpening the view of all four worlds. HR&nbsp;8799 (HR 8799星) remains one of the most-studied multi-planet systems ever found, a rare case where scientists can directly track alien worlds&rsquo; colours, brightness and orbits, testing planet-formation theories (行星形成理論) against a system they can, quite literally, watch unfold.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/HR_8799" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; For most exoplanets we infer a shadow&rsquo;s wobble &mdash; HR&nbsp;8799 let astronomers watch four worlds actually move.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why was HR&nbsp;8799 unusually well-suited for direct imaging, compared with most exoplanet systems?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Its planets are young and still radiating leftover formation heat, making them bright in infrared light, and they orbit unusually far from their star &mdash; wide enough to be visually separated from its glare using a coronagraph and adaptive optics.</div>
+      </details>
+      <div class="source">&#x1F4D6; Marois, C. et al. (2008). <em>Science</em>, 322(5906). NASA/ESA/CSA Webb Space Telescope, HR 8799 image release, 2025.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「牧野之戰」：武王伐紂與商周易代的關鍵一日</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">商朝末年，紂王坐擁號稱七十萬大軍，周武王僅得聯軍數萬，兩軍對峙於牧野。你認為，這場實力懸殊的決戰，最終如何分出勝負？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>周武王姬發；軍師姜子牙（呂尚）；商紂王帝辛。</p>
+        <p><strong>事件：</strong>約公元前1046年，牧野之戰，周武王率諸侯聯軍與商朝主力決戰於牧野（今河南淇縣南）。</p>
+        <p><strong>時代背景：</strong>商紂王暴虐無道，寵信妲己，重刑濫殺，又長期用兵東夷，國力耗損，諸侯離心；西方周族在文王、武王兩代經營下日漸強盛，遂乘商朝內部空虛之際起兵東征。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/King_Wu_of_Zhou.jpg/3840px-King_Wu_of_Zhou.jpg" alt="周武王姬發畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">周武王姬發畫像，牧野之戰的主角。來源：<a href="https://en.wikipedia.org/wiki/King_Wu_of_Zhou" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>約公元前1046年，周武王姬發見商紂王暴虐無道，殺害忠臣比干，囚禁箕子，又寵信妲己、重用佞臣，商朝內部離心離德，遂與姜子牙商議，聯合庸、蜀、羌、髳、微、盧、彭、濮等西方部族及諸侯，率戰車三百乘、虎賁三千人、甲士四萬五千人，自孟津渡過黃河，東進伐商。大軍抵達牧野（今河南淇縣南）之前，武王於陣前誓師，即《尚書·牧誓》所載，痛陳紂王「牝雞司晨」、聽信婦言、荒廢祭祀、任用四方逃亡罪人為官等罪狀，號召將士同仇敵愾，一舉推翻商朝。</p>
+      <p>紂王倉促應戰，臨時徵發大量奴隸及戰俘充作前鋒，號稱擁兵七十萬，後世史家多認為此數誇大，但這批士兵本無戰意，甚至對商朝心懷怨恨。兩軍甫一交鋒，商軍前鋒竟陣前倒戈，反過來引導周軍攻入商都朝歌，史稱「前徒倒戈」。紂王見大勢已去，倉皇逃回朝歌，登上鹿臺，身披寶玉衣物，自焚而死。商朝經營近六百年的王朝，就在牧野一役後迅速土崩瓦解，武王隨即進駐朝歌，接受商朝遺民歸附，正式宣告商朝滅亡。</p>
+      <p>牧野之戰後，武王大封諸侯，將商紂王之子武庚封於殷地以安撫商朝遺民，又分封姬姓宗親及功臣於各地建國，史稱「封邦建國」，奠定西周數百年封建體制的基礎。這場戰役同時催生了中國政治思想史上影響深遠的「天命」觀念——周人主張商朝失德，故「天命」轉移至有德的周室，為改朝換代提供了倫理正當性，此一觀念此後成為歷代王朝更迭時反覆援引的核心論述，直至清末仍具政治影響力。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/King_Wu_of_Zhou" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一夕倒戈，六百年王朝土崩瓦解——牧野之戰教曉後世：失去民心，遠比敵軍更致命。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>商軍在牧野之戰中為何會臨陣倒戈？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">紂王倉促以大量奴隸及戰俘充作前鋒應戰，這批士兵早已對商朝心懷怨恨，毫無戰意；兩軍交鋒後商軍前鋒竟反過來引導周軍攻入朝歌，加速商朝滅亡。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&middot;周本紀》；《尚書&middot;牧誓》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Three Days That Bought Greece Time: The Battle of Thermopylae (溫泉關戰役), 480 BCE</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A vastly outnumbered force chose to make its stand in a narrow mountain pass rather than retreat, knowing the position could eventually be turned. Before reading on, what do you think a doomed rearguard action like this could actually accomplish for the wider war?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> King Leonidas I (列奧尼達一世) of Sparta (斯巴達); King Xerxes I (薛西斯一世) of Persia (波斯); the local Greek Ephialtes (埃菲阿爾特斯), who betrayed the pass.</p>
+        <p><strong>Event at stake:</strong> The Battle of Thermopylae (溫泉關戰役), fought over three days in August 480 BCE at the narrow coastal pass of Thermopylae (溫泉關) in central Greece.</p>
+        <p><strong>Big picture:</strong> Xerxes&rsquo; massive Persian invasion force advanced by land and sea toward Greece (希臘); a small allied Greek army chose to hold a narrow chokepoint rather than meet Persia&rsquo;s (波斯) far larger numbers in open terrain.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/L%C3%A9onidas_aux_Thermopyles_-_Jacques-Louis_David_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3690_%3B_L_3711.jpg/3840px-L%C3%A9onidas_aux_Thermopyles_-_Jacques-Louis_David_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3690_%3B_L_3711.jpg" alt="Leonidas at Thermopylae, painting by Jacques-Louis David" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption"><em>L&eacute;onidas aux Thermopyles</em>, Jacques-Louis David&rsquo;s 1814 painting of King Leonidas I (列奧尼達一世) and his men at the pass. Credit: Mus&eacute;e du Louvre / <a href="https://en.wikipedia.org/wiki/Battle_of_Thermopylae" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In August 480 BCE, King Xerxes I (薛西斯一世) led a Persian (波斯) invasion force, ancient sources wildly inflated its size into the hundreds of thousands, though modern historians estimate a large but far smaller army, south into Greece (希臘) by land and sea. A coalition of Greek city-states, hopelessly outnumbered, chose to make its stand at Thermopylae (溫泉關), a narrow coastal pass so tight that only a handful of soldiers could fight abreast at once, neutralising Persia&rsquo;s numerical advantage and turning the battle into a contest between disciplined, heavily armoured infantry and a far larger but more lightly equipped force.</p>
+      <p>For two days, roughly 7,000 Greek hoplites, led by King Leonidas I (列奧尼達一世) of Sparta (斯巴達) and including his famous 300 Spartan royal guard, repelled repeated Persian assaults, even against the elite Immortals (不死軍), Xerxes&rsquo; own royal infantry. The pass held until a local Greek man, Ephialtes (埃菲阿爾特斯), revealed a hidden mountain track to the Persians in exchange for a reward, allowing a Persian detachment to outflank the defenders from behind. Warned of the coming encirclement, Leonidas dismissed most of the allied army to fight another day, remaining with roughly 300 Spartans and a small rearguard to cover their retreat.</p>
+      <p>Surrounded on both sides, Leonidas (列奧尼達一世) and his remaining men fought to the death, buying crucial time for the Greek fleet to hold its position at nearby Artemisium (阿提米西溫) and for the rest of the army to regroup further south. Though a tactical defeat, Thermopylae (溫泉關) became a lasting symbol of resistance against impossible odds, and the delay it purchased helped Greece regroup for the decisive naval victory at Salamis (薩拉米斯) weeks later and the following year&rsquo;s land victory at Plataea (普拉提亞), which together broke Persia&rsquo;s invasion for good.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Thermopylae" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A doomed defence in a mountain pass bought the time that ultimately broke an empire&rsquo;s invasion.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific event turned the tide against the Greek defenders at Thermopylae, and how did Leonidas respond to it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A local Greek man, Ephialtes, revealed a hidden mountain path that let Persian troops outflank the defenders; on learning of the coming encirclement, Leonidas dismissed most of the army to safety and stayed with roughly 300 Spartans to cover their retreat.</div>
+      </details>
+      <div class="source">&#x1F4D6; Herodotus, <em>The Histories</em>, Book VII. Cartledge, P. (2006). <em>Thermopylae: The Battle That Changed the World</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>李滉（退溪）與「四端七情之辯」：朝鮮性理學的巔峰論戰</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位朝鮮儒者與後輩就「惻隱之心」與「七情」的關係書信往返八年，反覆修改己說。你認為，這場曠日持久的辯論，最終有沒有分出勝負？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李滉（退溪，1501&ndash;1570），朝鮮朝性理學集大成者；奇大升（高峰），與李滉論辯的後輩學者。</p>
+        <p><strong>核心思想：</strong>四端七情之辯，圍繞「四端」（惻隱、羞惡、辭讓、是非）與「七情」（喜怒哀懼愛惡欲）究竟同源抑或異質展開，涉及理氣關係的根本詮釋。</p>
+        <p><strong>時代背景：</strong>朝鮮王朝奉朱子學為官方正統，李滉致力精讀《朱子語類》與《性理大全》，卻在「理」能否「發動」這一關鍵問題上，與後輩學者產生分歧，引發朝鮮儒學史上最重要的一場論戰。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Statue_of_Yi_Hwang.jpg" alt="李滉（退溪）銅像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">李滉（退溪）銅像，朝鮮性理學集大成者。來源：<a href="https://en.wikipedia.org/wiki/Yi_Hwang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>李滉初主張「四端理發而氣隨之，七情氣發而理乘之」，即四端（源於本然之性的善端）純由「理」發動，七情（普通情感）則由「氣」發動而理隨附其上，藉此突顯四端純善無雜的道德根源，與七情善惡混雜的經驗性質有本質區別。此說一出，即遭後輩學者奇大升（高峰）質疑：理若能「發動」，豈非賦予「理」以能動性，違背朱熹「理無情意、無計度、無造作」的基本定義？兩人自1559年起書信往返，反覆辯難長達八年，是為朝鮮性理學史上著名的「四端七情之辯」，亦稱「退高論辯」。</p>
+      <p>面對奇大升的質疑，李滉幾經修訂，最終提出「理發而氣隨之，氣發而理乘之」的折衷說法，承認四端七情皆不能截然二分，但仍堅持四端以理為主、七情以氣為主的根本差異，力圖在理氣不離不雜的原則下，為道德情感保留形上根源。奇大升則始終主張理氣渾然一體，四端不過是七情中純善的一部分，反對將兩者截然對立。這場論辯雖未能徹底統一雙方觀點，卻迫使雙方將理氣心性問題辯析得空前細密，樹立了朝鮮儒學重視義理精密、不輕率立說的學風典範。</p>
+      <p>四端七情之辯其後延燒至李珥（栗谷）一代，形成「主理」與「主氣」兩大學派長期對峙的格局，深刻影響朝鮮性理學數百年發展方向，李滉更被尊為「東方朱子」，其學說經由後學傳入日本，對江戶時代朱子學亦有一定影響。這場論戰顯示，即使同奉朱子學為宗，學者仍可能因對同一組概念的細微詮釋差異，展開曠日持久卻極具建設性的思想交鋒，展現儒學傳統內部並非鐵板一塊的思辨活力。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Yi_Hwang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場八年的書信辯論沒有分出勝負，卻讓朝鮮儒學的義理變得空前精密。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>李滉最初主張「四端」與「七情」分別由甚麼發動？奇大升如何質疑這個說法？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李滉主張四端由「理」發動、七情由「氣」發動而理隨附其上；奇大升質疑「理」若能發動，即違背朱熹「理無造作」之說，認為理氣渾然一體，四端只是七情中純善的部分。</div>
+      </details>
+      <div class="source">&#x1F4D6; 李滉《退溪全書》；奇大升《高峰集》；《四端七情往復書》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Suspending Judgment 2,300 Years Before Husserl: Pyrrho (皮浪) and the Birth of Scepticism (懷疑主義)</h2>
+      <p style="font-size:.78rem;color:var(--muted);margin:-.5rem 0 .9rem;">&#x1F517; Extends &ldquo;Edmund Husserl / Phenomenology&rdquo;: today traces <em>epoch&eacute;</em> (存而不論) back to its ancient origin.</p>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Yesterday&rsquo;s card described a 20th-century philosopher who asked people to &ldquo;bracket&rdquo; their judgments about reality to study experience directly. That same technique, and even its Greek name, actually originates over two thousand years earlier, with a philosopher reportedly so committed to suspending judgment that friends had to steer him away from cliffs and oncoming carts. Before reading on, what kind of life do you think radical, permanent suspension of judgment might actually produce?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Pyrrho of Elis (埃利斯的皮浪, c. 360&ndash;270 BCE); his student Timon of Phlius (弗利烏斯的提蒙); later systematiser Sextus Empiricus (塞克斯圖斯&middot;恩皮里柯).</p>
+        <p><strong>Idea at stake:</strong> Whether firm beliefs about how things really are, beyond how they merely appear, are ever justified, and whether refusing to hold such beliefs could bring peace of mind rather than paralysis.</p>
+        <p><strong>Big picture:</strong> Writing after accompanying Alexander the Great&rsquo;s (亞歷山大大帝) campaigns into India (印度) and encountering ascetic philosophers there, Pyrrho developed a radical scepticism (懷疑主義) that would echo through Western philosophy for over two millennia.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Philosopher%2C_marble_head%2C_Roman_copy%2C_AM_Corfu%2C_Krfm22.jpg" alt="Roman-era marble head of a Greek philosopher" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A Roman-era marble head of an unnamed Greek philosopher, of the kind Pyrrho (皮浪) himself would have been depicted in; no confirmed portrait of Pyrrho survives. Credit: Archaeological Museum of Corfu / <a href="https://en.wikipedia.org/wiki/Pyrrho" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Pyrrho of Elis (埃利斯的皮浪) left no writings of his own; almost everything known about him comes from his student Timon of Phlius (弗利烏斯的提蒙) and later summaries. Pyrrho reportedly travelled with Alexander the Great&rsquo;s (亞歷山大大帝) army into India (印度), where he encountered ascetic philosophers, likely early Buddhist or Jain thinkers, whose radical detachment from worldly certainty struck him deeply. He returned to Greece (希臘) arguing that things are, by their very nature, indeterminable: our senses and reasoning can never establish how anything truly is, only how it currently appears, and every argument for a position can be met by an equally strong argument against it.</p>
+      <p>From this uncertainty, Pyrrho (皮浪) drew a striking practical conclusion: since we cannot know how things really are, the wise response is to suspend judgment entirely, a state later named epoch&eacute; (存而不論), rather than commit to any belief about the underlying nature of reality. Ancient anecdotes, likely exaggerated by later admirers, claimed Pyrrho was so committed to this suspension that he ignored oncoming carts and cliff edges, relying on friends to physically pull him to safety. Whether or not these stories are literally true, they captured his central claim: that letting go of the anxious need to be certain, not gathering more certainty, was the actual route to tranquility (寧靜, ataraxia).</p>
+      <p>Centuries later, the physician-philosopher Sextus Empiricus (塞克斯圖斯&middot;恩皮里柯) systematised Pyrrho&rsquo;s (皮浪) scattered ideas into a rigorous set of arguments, preserving Pyrrhonism (皮浪主義) for later revival by Renaissance thinkers like Michel de Montaigne (蒙田), who kept a version of one of Sextus&rsquo;s key questions carved into his study. Remarkably, when Edmund Husserl (胡塞爾) needed a term for deliberately suspending judgment about external reality to study consciousness directly nearly 2,300 years later, he reached for the same Greek word Pyrrho&rsquo;s tradition had used all along: epoch&eacute; (存而不論), proof that a technique for managing uncertainty can outlive the civilisation that invented it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pyrrho" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The &ldquo;bracketing&rdquo; at the heart of 20th-century phenomenology borrows its name from a Greek sceptic who died over two millennia earlier.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What real historical experience is thought to have shaped Pyrrho&rsquo;s philosophy of radical suspended judgment?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He is said to have travelled with Alexander the Great&rsquo;s army into India, where he encountered ascetic philosophers whose detachment from worldly certainty influenced his view that we should suspend judgment about how things truly are, since our senses and reasoning can never settle it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sextus Empiricus, <em>Outlines of Pyrrhonism</em>. Stanford Encyclopedia of Philosophy, &ldquo;Pyrrho.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Experts Make Terrible Teachers: The Curse of Knowledge (知識的詛咒)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a famous experiment, one group of people tapped out the rhythm of well-known songs on a table while predicting how often listeners would correctly guess the tune. Tappers guessed listeners would succeed about half the time. Before reading on, what do you think the actual success rate turned out to be?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/a/ac/Sally-Anne_test.jpg" alt="Illustration of the Sally-Anne false-belief test used in theory-of-mind research" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Sally-Anne test (莎莉-安妮測試), a classic theory-of-mind (心智理論) experiment illustrating how hard it can be to model what someone else does or doesn&rsquo;t know. Credit: <a href="https://en.wikipedia.org/wiki/Sally%E2%80%93Anne_test" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1990, Stanford (史丹福大學) graduate student Elizabeth Newton ran a simple experiment: she asked &ldquo;tappers&rdquo; to tap out the rhythm of a well-known song, such as &ldquo;Happy Birthday,&rdquo; on a table, while &ldquo;listeners&rdquo; tried to guess the tune from the taps alone. Before listening, tappers predicted listeners would correctly identify about 50 percent of songs. In reality, listeners guessed correctly just 2.5 percent of the time. Tappers were baffled by the huge gap: because they could hear the full melody clearly in their own heads while tapping, they found it almost impossible to imagine what the beat sounded like without that knowledge already in place.</p>
+      <p>Economists Colin Camerer, George Loewenstein and Martin Weber (韋伯) formally named this pattern the curse of knowledge (知識的詛咒) in a 1989 paper: once someone knows something, it becomes surprisingly difficult to accurately imagine not knowing it, distorting how well they can predict, teach, or communicate with people who lack that knowledge. The effect shows up constantly in daily life &mdash; a doctor forgetting how frightening unfamiliar jargon sounds to a patient, a manager assuming employees share context that was never actually explained, or a skilled programmer writing documentation only another expert could follow.</p>
+      <p>The curse of knowledge (知識的詛咒) is largely resistant to simply trying harder to empathise, because the very knowledge causing the blind spot also shapes how a person tries to imagine not having it. More reliable fixes are structural: testing explanations on genuine outsiders before relying on them, deliberately walking through material in the exact order a novice would encounter it, and treating confused feedback from a non-expert as valuable data rather than a sign the listener simply wasn&rsquo;t paying attention. Recognising the gap is often the first, most difficult step toward actually closing it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Curse_of_knowledge" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The more fluently you know something, the harder it becomes to imagine what it&rsquo;s like not to know it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Elizabeth Newton&rsquo;s 1990 tapping experiment, what was the gap between tappers&rsquo; predicted and listeners&rsquo; actual success rate, and why did it occur?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Tappers predicted about 50 percent of songs would be correctly guessed, but listeners guessed correctly only 2.5 percent of the time &mdash; because tappers could hear the full melody in their own heads, making it hard to imagine how meaningless the taps sounded without that knowledge.</div>
+      </details>
+      <div class="source">&#x1F4D6; Camerer, C., Loewenstein, G. &amp; Weber, M. (1989). <em>Journal of Political Economy</em>, 97(5). Heath, C. &amp; Heath, D. (2007). <em>Made to Stick</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Scratching an Itch Feels So Good, Then Makes It Worse: The Science of Itch (痕癢)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An itch and a scratch seem to cancel each other out in a satisfying loop, yet scratching often leaves skin more irritated and itchier than before. Before reading on, what do you think is actually happening in your nervous system during that brief, satisfying moment of relief?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Itch.jpg" alt="Photograph illustrating skin itch" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Itch (痕癢), or pruritus, is now known to travel via its own dedicated nerve pathway, separate from pain. Credit: <a href="https://en.wikipedia.org/wiki/Itch" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Itch, medically called pruritus (痕癢), was long assumed to be simply a milder version of pain, carried by the same nerve fibres. Research since the late 1990s overturned that view: a dedicated population of sensory neurons, distinct from pain fibres and carrying receptors called Mrgprs (Mas-related G protein-coupled receptors), identified around 2009, respond specifically to itch-triggering substances like histamine (組織胺) released by mast cells (肥大細胞) in the skin, or, in chronic itch conditions, other chemical messengers entirely. These specialised itch neurons (致癢神經元) send signals up the spinal cord (脊髓) to the brain through a pathway that runs largely separate from the one carrying pain.</p>
+      <p>Scratching feels good because it recruits a competing signal: mild pain from fingernails dragging across skin travels up the spinal cord (脊髓) and briefly overrides the itch pathway at the dorsal horn (背角), the spinal cord&rsquo;s first relay station, temporarily silencing the itch sensation through a mechanism resembling the gate control theory (閘門控制理論) of pain. Brain-imaging studies also show scratching activates reward-related regions, suggesting part of the relief is genuinely pleasurable, not just the absence of itch. This is precisely why scratching brings such immediate, satisfying relief: it isn&rsquo;t just removing the sensation, it&rsquo;s actively substituting a different one.</p>
+      <p>The relief is short-lived because scratching also causes mild tissue damage, triggering local inflammation (發炎) that releases more histamine (組織胺) and other itch-provoking chemicals, restarting the itch signal, often more intensely than before, a self-perpetuating loop known as the itch-scratch cycle (癢-抓循環). This cycle is why chronic skin conditions like eczema (濕疹) can spiral: intense itching prompts scratching, which damages the skin barrier and provokes further inflammation and itch. Breaking the cycle usually requires interrupting it externally, through anti-inflammatory treatment, antihistamines (抗組織胺藥) for histamine-driven itch, or simply covering the affected area to prevent scratching until the irritation subsides.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Itch" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Scratching doesn&rsquo;t just relieve an itch, it substitutes a different signal that briefly overrides it, then often restarts the cycle.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does scratching provide brief relief from an itch, according to the gate-control-like mechanism described?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The mild pain signal from scratching travels up the spinal cord and briefly overrides the itch signal at the dorsal horn, the spinal cord&rsquo;s first relay station, temporarily silencing the itch sensation by substituting a competing signal rather than truly removing the cause.</div>
+      </details>
+      <div class="source">&#x1F4D6; Han, L. &amp; Dong, X. (2014). <em>Annual Review of Neuroscience</em>, 37. Ikoma, A. et al. (2006). <em>Nature Reviews Neuroscience</em>, 7.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Blue Light Glasses (抗藍光眼鏡) Actually Do Anything?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Blue-light-blocking glasses are marketed to relieve digital eye strain and protect sleep from screen use, and have become a common accessory for anyone working at a computer. Before reading on, do you think the research backing these specific claims is as strong as the marketing suggests?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/2023_CDC_recommendations_for_amount_of_sleep_needed%2C_by_age.svg/1280px-2023_CDC_recommendations_for_amount_of_sleep_needed%2C_by_age.svg.png" alt="CDC chart of recommended sleep hours by age" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sleep needs by age (美國疾病控制與預防中心, CDC guidance) &mdash; the backdrop against which blue-light glasses&rsquo; sleep-protection claims are tested. Credit: CDC / <a href="https://en.wikipedia.org/wiki/Sleep" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Blue light (藍光) is a short-wavelength, high-energy portion of the visible spectrum, emitted in small amounts by phone and computer screens but far more abundantly by ordinary daylight, a single hour outdoors delivers vastly more blue light exposure than a full day staring at a screen. Blue-light-filtering glasses (抗藍光眼鏡) are marketed on two main claims: that they reduce digital eye strain (數碼視覺疲勞) from screen use, and that they protect sleep by blocking the light most responsible for suppressing melatonin (褪黑激素), the hormone that signals nighttime to the body&rsquo;s circadian clock (生理時鐘).</p>
+      <p>A 2023 Cochrane (考科藍實證醫學) systematic review, pooling seventeen randomised trials, found no meaningful evidence that blue-light-filtering lenses reduce digital eye strain compared with regular lenses; symptoms like dry eyes and headaches during screen use appear to stem mainly from reduced blinking rate and screen positioning, not blue light exposure specifically. The eye-strain claim, despite widespread marketing, simply has not held up under rigorous review, and several of the included trials were sponsored by lens manufacturers themselves, a known source of bias in this kind of research.</p>
+      <p>The sleep claim rests on firmer biological ground: blue light does suppress melatonin (褪黑激素) more strongly than other visible wavelengths, via light-sensitive cells in the retina (視網膜) called intrinsically photosensitive retinal ganglion cells (ipRGCs). But research on whether the modest blue light from an evening screen session meaningfully disrupts sleep, versus simply the timing, duration, and stimulating content of screen use itself, remains mixed and inconclusive. For most people, the simpler, better-evidenced interventions are reducing overall screen time before bed and dimming device brightness, rather than relying on tinted glasses to solve the problem.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Blue_light" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The eye-strain claim doesn&rsquo;t hold up in reviews &mdash; screen timing before bed likely matters more than the tint of your glasses.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the 2023 Cochrane review, what did blue-light-filtering glasses fail to demonstrate, and what do eye-strain symptoms actually appear to stem from?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The review found no meaningful evidence they reduce digital eye strain compared with regular lenses; symptoms like dry eyes and headaches appear to stem mainly from reduced blinking rate and screen positioning during screen use, not blue light exposure itself.</div>
+      </details>
+      <div class="source">&#x1F4D6; Singh, S. et al. (2023). <em>Cochrane Database of Systematic Reviews</em>. Green, A. et al. (2017). <em>Chronobiology International</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Does Slowing Your Reps Down Actually Build More Muscle? Time Under Tension (張力持續時間), Tested</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A popular gym belief holds that deliberately slowing down each repetition, spending more total seconds under load, builds significantly more muscle than lifting at a normal pace. Before reading on, do you think the research supports meaningfully more muscle growth from slow-tempo training?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Sarcomere.gif" alt="Animated diagram of a sarcomere showing actin and myosin filaments sliding during muscle contraction" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A sarcomere (肌節), the basic contractile unit of muscle, where actin (肌動蛋白) and myosin (肌凝蛋白) filaments slide past each other to generate the mechanical tension behind hypertrophy. Credit: <a href="https://en.wikipedia.org/wiki/Sarcomere" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Time under tension (張力持續時間, TUT) refers to how long a muscle remains under load during a set, determined by the number of repetitions, the tempo of each rep, and the weight used. The underlying logic seemed sound: mechanical tension (機械張力) on muscle fibres is one of the primary drivers of hypertrophy (肌肉肥大), the process by which resistance training triggers muscle growth, identified in research by Brad Schoenfeld and others as working alongside metabolic stress (代謝壓力) and muscle damage. If tension drives growth, the reasoning went, then simply spending more time under tension in each set should reliably produce more growth.</p>
+      <p>A landmark 2015 meta-analysis by Schoenfeld and colleagues, examining studies that manipulated rep tempo directly, found something more nuanced: across a wide range of tempos, from about half a second to eight seconds per repetition, hypertrophy outcomes were statistically similar, provided sets were taken close to muscular failure (肌肉力竭) and total training volume was matched. Only at extremes, repetitions slower than roughly ten seconds each, did growth clearly suffer, likely because the very light loads required to sustain such slow tempos fail to generate enough mechanical tension in the first place, regardless of how long the set lasts.</p>
+      <p>The practical implication is that deliberately slowing every rep down for its own sake is not a reliable shortcut to extra muscle growth; total volume, proximity to failure, and progressive overload (漸進超負荷) over time matter considerably more than manipulating tempo within a normal range. Slower tempos can still be genuinely useful, for improving movement control, managing joint stress, or making a lighter weight more challenging when heavier loads aren&rsquo;t available, but they should be treated as one training variable among several, not a hypertrophy multiplier that overrides the importance of working hard and progressively adding load or reps over time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Muscle_hypertrophy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Slowing your reps down doesn&rsquo;t add extra muscle growth on its own &mdash; training close to failure with enough volume does.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Schoenfeld&rsquo;s 2015 meta-analysis, at what point did slower rep tempo actually start to reduce muscle growth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Growth was similar across most tempos, from about half a second to eight seconds per repetition, but clearly suffered only at extremes slower than roughly ten seconds per rep, likely because the very light loads needed to sustain such slow tempos failed to generate enough mechanical tension.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schoenfeld, B.J. et al. (2015). <em>Journal of Sports Sciences</em>, 33(4). Burd, N.A. et al. (2012). <em>PLOS ONE</em>, 7(10).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Buying 104 Bankrupt Stocks at the Outbreak of War: John Templeton (鄧普頓) and Maximum Pessimism</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In September 1939, as Nazi Germany invaded Poland and markets around the world braced for catastrophe, one young investor did something that looked almost reckless: he bought shares. Before reading on, what kind of stocks do you think he chose to buy at the very moment the world seemed to be ending?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/One_Franklin_Parkway.jpg/3840px-One_Franklin_Parkway.jpg" alt="Franklin Templeton headquarters building" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Franklin Templeton (富蘭克林鄧普頓) headquarters, successor to the fund John Templeton (鄧普頓) founded in 1954. Credit: <a href="https://en.wikipedia.org/wiki/John_Templeton" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In September 1939, as Nazi Germany&rsquo;s (納粹德國) invasion of Poland (波蘭) plunged global markets into panic, a young investor named John Templeton (鄧普頓) borrowed money and instructed his broker to buy 100 shares of every single stock trading on the New York Stock Exchange (紐約證券交易所) at $1 or less, 104 companies in total, including firms already in bankruptcy that many investors assumed were worthless. His reasoning was simple but psychologically difficult to act on: wartime panic had driven prices for entire industries far below any reasonable estimate of their underlying value, regardless of each individual company&rsquo;s actual prospects.</p>
+      <p>Of the 104 companies, only 34 turned out to be worthless; the rest recovered as the wartime economy rebounded, and Templeton (鄧普頓) sold the portfolio roughly four years later for several times his original investment. The episode crystallised the investing philosophy he became famous for: &ldquo;the time of maximum pessimism is the best time to buy, and the time of maximum optimism is the best time to sell,&rdquo; a principle far easier to state than to practise, since acting on it requires buying precisely when fear feels most justified and everyone around you is selling.</p>
+      <p>Templeton (鄧普頓) went on to found the Templeton Growth Fund (鄧普頓成長基金) in 1954, pioneering globally diversified investing at a time when most American fund managers rarely looked beyond domestic stocks, searching internationally for the single cheapest opportunities regardless of country or sector. He applied the same contrarian instinct decades later, reportedly shorting dot-com stocks (科網股) heavily in early 2000 just before the bubble burst, one of very few prominent investors to correctly time both a generational buying opportunity and a generational bubble&rsquo;s collapse using the same underlying discipline: measuring price strictly against value, not against prevailing sentiment.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/John_Templeton" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Templeton&rsquo;s rule cuts both ways: buy at maximum pessimism, sell at maximum optimism &mdash; the hard part is doing either on time.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific principle guided Templeton&rsquo;s decision to buy 104 nearly-worthless stocks in September 1939, and how did the trade ultimately turn out?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He believed the time of maximum pessimism is the best time to buy, since panic drives prices below any reasonable estimate of value; only 34 of the 104 companies proved worthless, and he sold the rest roughly four years later for several times his original investment.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fisher, L.G. (2008). <em>John Templeton: Supply-Sider</em>. Franklin Templeton, company history archives.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Countries Get Stuck: The Middle-Income Trap (中等收入陷阱)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Teheran-ro_Yeongdong-daero_crossing_7.jpg/3840px-Teheran-ro_Yeongdong-daero_crossing_7.jpg" alt="Gangnam district skyline in Seoul, South Korea" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Seoul&rsquo;s (首爾) Gangnam (江南) district, South Korea (南韓) &mdash; one of the few economies widely cited as having escaped the middle-income trap. Credit: <a href="https://en.wikipedia.org/wiki/Miracle_on_the_Han_River" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Between 1960 and 2020, South Korea (南韓) transformed from among the world&rsquo;s poorest nations into a high-income economy, while Brazil (巴西), Malaysia (馬來西亞) and others pursuing similar export-led strategies stalled for decades at middle-income levels, never closing the gap to the wealthiest economies.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The middle-income trap (中等收入陷阱), coined by World Bank (世界銀行) economists Gill and Kharas in 2007, describes how rising labour costs erode a country&rsquo;s cheap-manufacturing advantage before it develops the innovation, institutions and higher-value industries needed to compete as an advanced economy.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Nearly identical policies, export orientation, foreign investment, infrastructure, produced dramatically different results. South Korea (南韓) and Taiwan (台灣) escaped within a generation; Malaysia (馬來西亞), Thailand (泰國) and much of Latin America have stayed at similar relative income levels for thirty to forty years despite comparable strategies on paper.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Daron Acemoglu (阿西莫格魯) attributes the divergence to institutional quality and sustained investment in education, which South Korea (南韓) prioritised, over trade policy alone. World Bank researchers Bulman, Eden and Nguyen (2017) even question whether a distinct &ldquo;trap&rdquo; exists statistically, arguing slowdowns are gradual rather than a sharp discontinuity, a genuinely open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Same playbook, wildly different outcomes &mdash; the trap may be less about policy than about what happens inside institutions.</div>
+      <div class="source">&#x1F4D6; Gill, I. &amp; Kharas, H. (2007). World Bank, <em>An East Asian Renaissance</em>. Bulman, D., Eden, M. &amp; Nguyen, H. (2017). World Bank Policy Research Working Paper.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; The Trouble With Certainty:</strong> Pyrrho (皮浪) suspended judgment because he believed no one could truly know how things really are; the curse of knowledge (知識的詛咒) shows the mirror-image problem &mdash; once you do know something, it becomes strangely hard to imagine not knowing it, distorting how you teach, explain, or predict what others understand. Both point to the same underlying difficulty: accurately modelling a state of mind, whether uncertainty or ignorance, that isn&rsquo;t your own right now. Husserl (胡塞爾) even borrowed Pyrrho&rsquo;s term, epoch&eacute;, to describe a related discipline: setting aside what you already assume, to see something as it appears rather than as your existing knowledge insists it must be.</p>
+      <p><strong>So what:</strong> Before explaining something you know well, or predicting how confident to be about something you don&rsquo;t, try consciously reconstructing what you&rsquo;d think if you were meeting it for the first time.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Marois, C. et al. (2008), <em>Science</em> 322(5906). NASA/ESA/CSA Webb Space Telescope, HR 8799 image release, 2025.</li>
+      <li><strong>Card 2:</strong> 司馬遷《史記&middot;周本紀》；《尚書&middot;牧誓》。</li>
+      <li><strong>Card 3:</strong> Herodotus, <em>The Histories</em>, Book VII. Cartledge, P. (2006), <em>Thermopylae</em>.</li>
+      <li><strong>Card 4:</strong> 李滉《退溪全書》；奇大升《高峰集》；《四端七情往復書》。</li>
+      <li><strong>Card 5:</strong> Sextus Empiricus, <em>Outlines of Pyrrhonism</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Camerer, C., Loewenstein, G. &amp; Weber, M. (1989), <em>Journal of Political Economy</em> 97(5).</li>
+      <li><strong>Card 7:</strong> Han, L. &amp; Dong, X. (2014), <em>Annual Review of Neuroscience</em> 37.</li>
+      <li><strong>Card 8:</strong> Singh, S. et al. (2023), <em>Cochrane Database of Systematic Reviews</em>.</li>
+      <li><strong>Card 9:</strong> Schoenfeld, B.J. et al. (2015), <em>Journal of Sports Sciences</em> 33(4).</li>
+      <li><strong>Card 10:</strong> Fisher, L.G. (2008), <em>John Templeton: Supply-Sider</em>.</li>
+      <li><strong>Card 11:</strong> Gill, I. &amp; Kharas, H. (2007); Bulman, D., Eden, M. &amp; Nguyen, H. (2017).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-22: HR 8799 Direct Imaging &bull; 牧野之戰／武王伐紂 &bull; Battle of Thermopylae &bull; 李滉「四端七情之辯」 &bull; Pyrrho / Pyrrhonism &bull; Curse of Knowledge &bull; Itch / Pruritus &bull; Blue Light Glasses &bull; Time Under Tension &bull; John Templeton &bull; Middle-Income Trap</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-22.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-22.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 22 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
