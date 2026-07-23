@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 23 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 23 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>22 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; HR 8799 Direct Imaging</span>Astronomers used adaptive optics and a coronagraph to directly photograph four giant planets orbiting the young star HR&nbsp;8799.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 牧野之戰</span>商軍前鋒臨陣倒戈，武王一日之內滅商建周。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Thermopylae</span>Vastly outnumbered, King Leonidas held a Persian invasion at a narrow pass long enough to buy Greece time to regroup.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 李滉「四端七情之辯」</span>李滉與奇大升八年書信論辯，讓朝鮮性理學義理更趨精密。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Pyrrho</span>An ancient Greek sceptic pioneered &ldquo;suspending judgment&rdquo; as a route to tranquility, a technique Husserl later revived.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Curse of Knowledge</span>Once you know something well, it becomes surprisingly hard to imagine what it&rsquo;s like not to know it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Itch</span>Scratching briefly overrides itch signals with a competing pain signal, but often restarts an inflammatory itch-scratch cycle.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Blue Light Glasses</span>A major review found no real evidence blue-light glasses reduce digital eye strain.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Time Under Tension</span>Slowing down reps doesn&rsquo;t add extra muscle growth beyond training close to failure with enough volume.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; John Templeton</span>Templeton bought 104 near-worthless stocks in 1939&rsquo;s wartime panic, proving &ldquo;maximum pessimism&rdquo; can be the best buying moment.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Middle-Income Trap</span>Nearly identical growth strategies produced wildly different outcomes for South Korea versus Malaysia and Brazil.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Clearest View of Neptune&#x2019;s Rings in Three Decades</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1989, Voyager&nbsp;2 gave humanity its only close-up look at Neptune&rsquo;s faint rings during a brief flyby. For over three decades afterward, no telescope managed anything close to that clarity again. Before reading on, what do you think finally changed to let astronomers see Neptune&rsquo;s rings sharply from Earth&rsquo;s orbit, without sending another spacecraft?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/New_Webb_Image_Captures_Clearest_View_of_Neptune%E2%80%99s_Rings_in_Decades.png" alt="JWST infrared image of Neptune showing its rings and bright moon Triton" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Neptune&rsquo;s (海王星) rings, captured by JWST&rsquo;s (韋伯太空望遠鏡) NIRCam in September 2022 &mdash; the clearest view since Voyager&nbsp;2&rsquo;s 1989 flyby. Credit: NASA/ESA/CSA/STScI / <a href="https://en.wikipedia.org/wiki/Rings_of_Neptune" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In September 2022, NASA&rsquo;s (美國太空總署) James Webb Space Telescope (韋伯太空望遠鏡) released the clearest image of Neptune&rsquo;s (海王星) rings in more than three decades, since Voyager&nbsp;2&rsquo;s (航海家二號) brief 1989 flyby. Where earlier telescopes saw only a hazy blue disc, Webb&rsquo;s NIRCam instrument revealed at least seven of Neptune&rsquo;s narrow, dusty rings glowing sharply against a dark background, along with faint inner dust bands never captured together in one image. The instrument also caught seven of Neptune&rsquo;s fourteen known moons, including Triton (海衛一), blazing brightly enough to overwhelm the frame with prominent diffraction spikes.</p>
+      <p>The trick behind this leap in clarity lies in wavelength, not just better optics. Neptune&rsquo;s atmosphere is rich in methane (甲烷), which strongly absorbs red and infrared light, so the planet itself appears dark and muted in Webb&rsquo;s infrared view rather than the vivid blue seen in visible light. Against that darkened backdrop, the icy ring particles reflect infrared light efficiently, making Neptune&rsquo;s normally faint rings stand out with striking sharpness. This same methane absorption is why Webb, unlike Voyager&nbsp;2 (航海家二號), could resolve ring structure without a spacecraft flying directly past the planet.</p>
+      <p>Triton (海衛一), Neptune&rsquo;s largest moon, appears in the image as a blazing point of light despite being smaller than Earth&rsquo;s Moon, because its frozen nitrogen surface reflects roughly seventy percent of incoming sunlight, among the highest reflectivity of any object in the solar system. Believed to be a captured Kuiper Belt (柯伊伯帶) object rather than a moon that formed alongside Neptune, Triton orbits backwards relative to the planet&rsquo;s rotation, a decisive clue to its violent origin. The 2022 image reignited scientific interest in a dedicated future mission to Neptune, a planet no spacecraft has visited since 1989.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Rings_of_Neptune" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A planet&rsquo;s own methane haze, not a bigger mirror, is what finally let astronomers see Neptune&rsquo;s rings clearly again.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Neptune&rsquo;s rings appear so much sharper in Webb&rsquo;s infrared image than in ordinary visible-light images?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Neptune&rsquo;s methane-rich atmosphere strongly absorbs red and infrared light, making the planet itself appear dark in Webb&rsquo;s infrared view, while the icy ring particles reflect infrared light efficiently &mdash; letting the normally faint rings stand out sharply against the darkened planet.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA Webb Space Telescope, Neptune rings image release, 21 September 2022. Voyager 2 Neptune encounter data, NASA/JPL, 1989.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>三藩之亂：康熙帝以一紙撤藩詔令換來的八年內戰</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">康熙帝二十歲時力排眾議，堅持撤除鎮守雲南、廣東、福建三地、擁兵自重多年的三位藩王，觸發長達八年的內戰。你認為，年輕的康熙帝最終如何在兵力並非佔優的情況下，逐步扭轉戰局？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>吳三桂（平西王，雲南）；康熙帝；耿精忠（靖南王，福建）；尚可喜、尚之信（平南王，廣東）。</p>
+        <p><strong>事件：</strong>康熙十二年（1673年），康熙帝下令撤藩，吳三桂於雲南起兵反清，史稱「三藩之亂」，戰事延續八年。</p>
+        <p><strong>時代背景：</strong>清初為酬庸降清明將，分封吳三桂等三藩鎮守西南、東南邊陲，三藩擁兵自重、割據一方，財政負擔沉重，年輕康熙帝力排眾議決意撤藩，引爆全面內戰。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Three_Feudatories.png" alt="三藩之亂形勢圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">三藩之亂形勢圖，顯示吳三桂、耿精忠、尚可喜三藩所據地域。來源：<a href="https://en.wikipedia.org/wiki/Revolt_of_the_Three_Feudatories" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>順治年間，清廷為酬謝降清立功的明朝舊將，冊封吳三桂為平西王鎮守雲南、尚可喜為平南王鎮守廣東、耿仲明（其子耿繼茂、孫耿精忠相繼承襲）為靖南王鎮守福建，合稱「三藩」。三藩擁兵自重，各自截留地方賦稅、自行任免官吏，形同國中之國，每年耗費清廷大量餉銀，其中雲南一藩歲需俸餉逾九百萬兩，幾佔全國財政收入近半，尾大不掉之勢日益明顯。康熙十二年（1673年），年屆二十的康熙帝力排「緩撤」之議，允准尚可喜告老歸遼東的請求，趁機宣布撤藩，觸動吳三桂等人的根本利益。</p>
+      <p>吳三桂接獲撤藩詔令後自知進退維谷，遂於同年十一月在雲南起兵，自稱「天下都招討兵馬大元帥」，打出反清復明旗號，迅速席捲雲南、貴州、湖南等地；耿精忠、尚之信亦相繼響應，加上多地將領叛附，一時清朝半壁江山震動，兵鋒直逼長江。康熙帝沉着應對，堅持親自指揮全局，一方面調兵遣將分頭剿撫吳三桂主力，另一方面對其餘叛將採取招撫策略，成功分化耿精忠、尚之信等人先後歸降，逐步孤立吳三桂，扭轉戰局。</p>
+      <p>吳三桂雖佔據湖南一帶多年，卻始終未能揮軍北渡長江，加以年事已高，於康熙十七年（1678年）在衡州稱帝建國號「周」，數月後病逝，其孫吳世璠繼位後軍心渙散，清軍乘勢反攻，於康熙二十年（1681年）攻克昆明，吳世璠自殺，三藩之亂終告平定。這場歷時八年的內戰，是康熙帝鞏固皇權、確立中央集權統治的關鍵一役，此後清廷改派滿洲將領直接統轄西南邊疆，藩鎮割據之患自此根除，為其後平定台灣、抵禦準噶爾奠定基礎。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Revolt_of_the_Three_Feudatories" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 年輕康熙帝以撤藩一搏換來八年戰火，卻也徹底終結了清初藩鎮割據的隱患。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>康熙帝在三藩之亂初期，如何逐步孤立吳三桂並扭轉戰局？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">康熙帝一方面調兵遣將分頭剿撫吳三桂主力，另一方面對耿精忠、尚之信等其他叛將採取招撫策略，成功分化陣營、使其相繼歸降，從而孤立吳三桂，逐步扭轉整體戰局。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《清史稿&middot;吳三桂傳》；《聖祖仁皇帝實錄》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Rats in the Ruins: The Battle of Stalingrad (史太林格勒戰役), 1942&ndash;43</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In late 1942, a German army advanced deep into a city on the Volga, expecting a swift, symbolically charged victory tied to the city&rsquo;s name. Before reading on, what do you think turned a fight over a single city into the true turning point of the entire war?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> General Friedrich Paulus (保盧斯), commander of Germany&rsquo;s 6th Army; Adolf Hitler (希特拉); Soviet commanders directing the Red Army (紅軍) counteroffensive.</p>
+        <p><strong>Event at stake:</strong> The Battle of Stalingrad (史太林格勒戰役), fought August 1942 to February 1943 in the industrial city of Stalingrad (史太林格勒) on the Volga River (伏爾加河).</p>
+        <p><strong>Big picture:</strong> Germany&rsquo;s push toward southern Russia&rsquo;s oilfields turned into brutal urban warfare, followed by a Soviet encirclement that produced the first major German surrender of the Second World War.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/%D0%A0%D0%B0%D1%81%D1%87%D0%B5%D1%82_%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%81%D0%BA%D0%BE%D0%B9_76%2C2-%D0%BC%D0%BC_%D0%BF%D1%83%D1%88%D0%BA%D0%B8_%D0%97%D0%B8%D0%A1-3_%D0%B2%D0%B5%D0%B4%D0%B5%D1%82_%D0%BE%D0%B3%D0%BE%D0%BD%D1%8C_%D0%B2_%D0%A1%D1%82%D0%B0%D0%BB%D0%B8%D0%BD%D0%B3%D1%80%D0%B0%D0%B4%D0%B5._%D0%9D%D0%BE%D1%8F%D0%B1%D1%80%D1%8C_1942_%D0%B3.jpg" alt="Soviet soldiers firing artillery during the Battle of Stalingrad" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A Soviet artillery crew firing a ZiS-3 gun amid the ruins of Stalingrad (史太林格勒), November 1942. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Stalingrad" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In August 1942, Germany&rsquo;s (德國) 6th Army under General Friedrich Paulus (保盧斯) advanced into Stalingrad (史太林格勒), a major industrial city on the Volga River (伏爾加河), as part of Hitler&rsquo;s (希特拉) broader campaign to seize southern Russia&rsquo;s oilfields. What began as a symbolically charged fight for a city bearing Stalin&rsquo;s (史太林) name collapsed into brutal, building-by-building urban warfare, sometimes called the &ldquo;Rattenkrieg&rdquo; (老鼠戰爭), as German and Soviet (蘇聯) troops fought for individual rooms, staircases, and factory floors amid the ruins.</p>
+      <p>In November 1942, the Red Army (紅軍) launched Operation Uranus (天王星行動), a massive pincer offensive striking the weaker Romanian and Italian units guarding the German flanks rather than the exhausted 6th Army directly. Within days, roughly 250,000 Axis (軸心國) troops were encircled inside the city, a trap Hitler refused to let Paulus break out of, insisting instead on resupply by air, a promise Hermann G&ouml;ring&rsquo;s (戈林) Luftwaffe (德國空軍) could never fulfil at the required scale through the brutal winter.</p>
+      <p>By February 1943, starving, frostbitten, and out of ammunition, Paulus surrendered along with roughly 91,000 surviving soldiers, defying Hitler&rsquo;s explicit order to fight to the last man; only a small fraction of German prisoners ever returned home from Soviet captivity. Stalingrad (史太林格勒) cost well over a million casualties combined and marked the first major German surrender of the war, permanently shifting momentum on the Eastern Front (東線戰場) and shattering the myth of German military invincibility that had defined the war&rsquo;s first three years.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Stalingrad" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Stalingrad turned on a flanking strike against weaker allies, not a direct assault on Germany&rsquo;s strongest army.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What Soviet strategic move actually broke the siege at Stalingrad, and why did it succeed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Red Army&rsquo;s Operation Uranus struck the weaker Romanian and Italian units guarding the German 6th Army&rsquo;s flanks rather than the heavily defended German force directly, encircling roughly 250,000 Axis troops within days and cutting off their supply lines.</div>
+      </details>
+      <div class="source">&#x1F4D6; Beevor, A. (1998). <em>Stalingrad: The Fateful Siege 1942&ndash;1943</em>. Glantz, D. &amp; House, J. (1995). <em>When Titans Clashed</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>陸九淵「心即理」與鵝湖之會：南宋理學史上最著名的一場論戰</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1175年，學者呂祖謙邀請朱熹與陸九淵兄弟在鵝湖寺會講，本意是要調和二人治學方法的分歧。你認為，這場會講最終有沒有成功說服任何一方改變立場？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>陸九淵（象山，1139&ndash;1193）；朱熹（晦庵），論辯對手。</p>
+        <p><strong>核心思想：</strong>心即理——陸九淵主張宇宙萬理皆備於吾心，為學工夫在於「發明本心」，而非朱熹主張的窮究外物之理。</p>
+        <p><strong>時代背景：</strong>南宋淳熙二年（1175年），呂祖謙邀請朱熹與陸九淵兄弟於信州鵝湖寺會講，欲調和二人為學路徑分歧，反而引發理學史上最著名的一場論戰——鵝湖之會。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Chiu_Yuan.jpg" alt="陸九淵畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陸九淵（象山）畫像，南宋心學創始人。來源：<a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>陸九淵早年讀《孟子》至「萬物皆備於我」，忽有所悟，提出「宇宙便是吾心，吾心即是宇宙」的核心命題，主張「心即理」——天地萬物之理，本已完備具足於每個人心中，無須向外物一一窮究。他認為為學的根本工夫在於「發明本心」，即透過自我反省、剝除私欲蒙蔽，直接體認本心固有的良知良能，而非如朱熹主張的透過格物窮理、循序漸進地考究外在事事物物之理，再逐步歸納貫通。</p>
+      <p>淳熙二年（1175年），學者呂祖謙有感朱陸二人為學路徑分歧日深，特意邀約雙方於信州（今江西上饒）鵝湖寺會講，欲從中調和。會上，陸九淵之兄陸九齡先賦詩，中有「易簡工夫終久大，支離事業竟浮沉」之句，直斥朱熹格物致知的路徑繁瑣支離；陸九淵繼而發揮此意，當面批評朱熹「工夫太支離」。朱熹則反駁陸氏兄弟的「發明本心」流於空疏簡易，恐失於禪學，容易墮入師心自用之弊。雙方各執一詞，往復辯難數日，終未能達成共識，史稱「鵝湖之會」，然而此後兩人仍保持書信往來論學，並未因此絕交。</p>
+      <p>鵝湖之會雖未能調和朱陸分歧，卻清楚劃定了南宋理學內部「道問學」與「尊德性」兩條為學路徑的界線，深刻影響其後數百年儒學發展方向。陸九淵這套「心即理」、「發明本心」的思想，經楊簡等弟子傳衍，至明代由王陽明加以發揚光大，建構出更為系統的「心學」體系，與朱熹所代表的「理學」分庭抗禮，形成宋明儒學史上並立數百年的兩大主流，後世遂以「陸王心學」與「程朱理學」對舉並稱。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場未能達成共識的辯論，反而劃出了此後數百年「心學」與「理學」分庭抗禮的分水嶺。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>陸九淵在鵝湖之會上，如何批評朱熹的為學方法？他自己主張的工夫又是甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">陸九淵批評朱熹格物窮理的方法「工夫太支離」，過於繁瑣迂迴；他自己主張「發明本心」，認為天地萬理已完備於吾心，只須透過反省剝除私欲蒙蔽，直接體認本心即可，無須向外物逐一窮究。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《陸九淵集》；朱熹《朱子語類》；黃宗羲《宋元學案》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;To Be Is to Be Perceived&rdquo;: George Berkeley (貝克萊) and Immaterialism (非物質主義)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A philosopher argued that physical objects only exist because they are perceived by some mind, and that nothing we call &ldquo;matter&rdquo; exists independently of perception. Before reading on, how do you think he responded to the obvious objection: what happens to a tree when no one is looking at it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> George Berkeley (貝克萊, 1685&ndash;1753), Anglo-Irish (盎格魯-愛爾蘭) bishop and philosopher; essayist Samuel Johnson (約翰遜博士), who famously tried to refute him.</p>
+        <p><strong>Idea at stake:</strong> Immaterialism (非物質主義) &mdash; whether physical objects exist independently of being perceived, or whether &ldquo;to be is to be perceived&rdquo; (esse est percipi).</p>
+        <p><strong>Big picture:</strong> Writing against John Locke&rsquo;s (洛克) and Isaac Newton&rsquo;s (牛頓) assumption of a mind-independent material substance underlying our sensations, Berkeley argued that matter itself was an incoherent, unnecessary concept.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/John_Smibert_-_Bishop_George_Berkeley_-_Google_Art_Project_%28cropped%29.jpg/500px-John_Smibert_-_Bishop_George_Berkeley_-_Google_Art_Project_%28cropped%29.jpg" alt="Painted portrait of George Berkeley" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Portrait of Bishop George Berkeley (貝克萊) by John Smibert. Credit: Google Art Project / <a href="https://en.wikipedia.org/wiki/George_Berkeley" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>George Berkeley (貝克萊), an Anglo-Irish (盎格魯-愛爾蘭) bishop, argued in his 1710 <em>Treatise Concerning the Principles of Human Knowledge</em> that the very idea of &ldquo;matter&rdquo;, a mind-independent substance existing behind our sensations, was incoherent. Everything we can know about an object, its colour, shape, texture, weight, comes to us entirely through perception; Berkeley argued we have no way to access, or even meaningfully describe, some further material substance supposedly lying beneath those perceived qualities. His famous slogan, <em>esse est percipi</em>, &ldquo;to be is to be perceived&rdquo;, captured the claim that for ordinary objects, existing simply means being perceived by some mind.</p>
+      <p>The theory&rsquo;s most obvious objection is immediate: does a tree crash unseen in an empty forest simply cease to exist? Berkeley&rsquo;s answer relied on God (上帝): an infinite, ever-present mind that perceives all things continuously, guaranteeing objects remain real and consistent even when no finite human observer is looking. This move let Berkeley preserve an orderly, predictable physical world while denying that matter existed independently of any perceiving mind whatsoever, a position later labelled subjective idealism (主觀唯心論), distinguishing it from views that deny an external world altogether.</p>
+      <p>According to a famous, likely embellished anecdote, the essayist Samuel Johnson (約翰遜博士) responded to Berkeley&rsquo;s immaterialism by kicking a large stone and declaring, &ldquo;I refute it thus&rdquo;, a retort that misses Berkeley&rsquo;s actual claim, since Berkeley never denied that stones feel solid or hurt when kicked, only that an unperceived material substance underlies that experience. Berkeley&rsquo;s arguments proved harder to dismiss than Johnson&rsquo;s gesture suggested, directly shaping David Hume&rsquo;s (休謨) scepticism about causation and substance, and later influencing 20th-century phenomenalism (現象論).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/George_Berkeley" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Kicking a stone doesn&rsquo;t refute Berkeley &mdash; he never denied the stone feels solid, only that an unseen &ldquo;matter&rdquo; lies beneath that feeling.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Samuel Johnson&rsquo;s stone-kicking response fail to actually refute Berkeley&rsquo;s argument?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Berkeley never denied that physical objects like stones feel solid or produce real sensations when kicked; he only denied that some further mind-independent material substance exists beneath those perceived qualities &mdash; so demonstrating a solid sensation didn&rsquo;t address his actual claim.</div>
+      </details>
+      <div class="source">&#x1F4D6; Berkeley, G. (1710). <em>A Treatise Concerning the Principles of Human Knowledge</em>. Stanford Encyclopedia of Philosophy, &ldquo;George Berkeley.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Linda Problem: Why a More Detailed Story Can Feel More Probable</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Told that a woman named Linda studied philosophy and was deeply concerned with social justice, most people judged it more likely that she is &ldquo;a bank teller and active in the feminist movement&rdquo; than simply &ldquo;a bank teller.&rdquo; Before reading on, can you spot the logical error hiding in that judgment?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/2/2b/Amos_Tversky.jpg" alt="Photograph of psychologist Amos Tversky" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Amos Tversky (特沃斯基), who with Daniel Kahneman (卡尼曼) identified the representativeness heuristic (代表性捷思法). Credit: <a href="https://en.wikipedia.org/wiki/Representativeness_heuristic" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1983, psychologists Amos Tversky (特沃斯基) and Daniel Kahneman (卡尼曼) posed a now-famous puzzle: after describing &ldquo;Linda&rdquo; as a philosophy graduate deeply concerned with social justice and discrimination, they asked participants which was more probable, that Linda &ldquo;is a bank teller&rdquo; or that Linda &ldquo;is a bank teller and is active in the feminist movement.&rdquo; The vast majority, including many statistically trained participants, chose the second, more specific option, despite it being logically impossible for a conjunction of two conditions to be more probable than either condition alone.</p>
+      <p>Tversky and Kahneman attributed this error to the representativeness heuristic (代表性捷思法): people judge probability not by careful statistical reasoning, but by how closely a scenario resembles, or &ldquo;represents&rdquo;, their mental stereotype of a category. Linda&rsquo;s description matched people&rsquo;s prototype of a feminist far better than their prototype of a bank teller, so the more specific, story-like option felt more probable, even though it strictly could not be. The researchers called this specific error the conjunction fallacy (合取謬誤), a clear demonstration that intuitive probability judgments often ignore basic logical constraints.</p>
+      <p>The representativeness heuristic (代表性捷思法) shows up well beyond lab puzzles: doctors sometimes over-diagnose a rare but classic-looking disease presentation over a common but less distinctive one, and investors often judge a company&rsquo;s prospects by how closely its story resembles a familiar success narrative rather than its actual financial fundamentals. The heuristic is usually a fast, useful shortcut, but it systematically fails whenever a vivid, detailed story competes against a plainer, statistically more probable alternative, revealing how narrative persuasiveness can quietly override basic logic.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Representativeness_heuristic" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A more detailed, vivid story can feel more probable than a plainer one, even when it&rsquo;s logically impossible for it to be.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In the Linda problem, why is it logically impossible for &ldquo;bank teller and feminist&rdquo; to be more probable than &ldquo;bank teller&rdquo; alone?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">&ldquo;Bank teller and feminist&rdquo; is a subset of &ldquo;bank teller&rdquo; &mdash; every feminist bank teller is also a bank teller, so the combined condition can never be more probable than the single, broader condition; judging otherwise commits the conjunction fallacy.</div>
+      </details>
+      <div class="source">&#x1F4D6; Tversky, A. &amp; Kahneman, D. (1983). <em>Psychological Review</em>, 90(4).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Splashing Cold Water on Your Face Slows Your Heart: The Diving Reflex (潛水反射)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Plunge your face into cold water and, without thinking about it, your heart rate drops and blood retreats from your limbs toward your core. Before reading on, what evolutionary purpose might explain why your body still does this on dry land, hundreds of feet from any water?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Baby_diving.jpg/330px-Baby_diving.jpg" alt="Photo of a baby underwater demonstrating the diving reflex" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The diving reflex (潛水反射) is strongest in infancy; even babies show pronounced bradycardia (心搏過緩) when submerged. Credit: <a href="https://en.wikipedia.org/wiki/Diving_reflex" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The mammalian diving reflex (哺乳動物潛水反射) is a set of automatic physiological changes triggered whenever the face, specifically nerve endings around the eyes, nose, and forehead, contacts cold water, even in a sink or swimming pool. Cold receptors on the face send signals through the trigeminal nerve (三叉神經) to the brainstem (腦幹), which immediately slows the heart rate through the vagus nerve (迷走神經), a response called bradycardia (心搏過緩), sometimes dropping heart rate by ten to twenty-five percent within seconds, entirely independent of conscious control or breath-holding technique.</p>
+      <p>Alongside bradycardia, blood vessels in the limbs and non-essential organs constrict sharply, a process called peripheral vasoconstriction (周邊血管收縮), redirecting the body&rsquo;s limited oxygen supply toward the heart, lungs, and brain, the organs most critical for survival. In elite freedivers and marine mammals like seals, this reflex intensifies further into what&rsquo;s called the &ldquo;blood shift,&rdquo; where blood plasma fills the chest cavity to protect the lungs from collapsing under extreme underwater pressure. The reflex is strongest in cold water below roughly twenty-one degrees Celsius and is measurably stronger in infants than adults.</p>
+      <p>The reflex likely evolved from a much older oxygen-conserving mechanism shared across diving mammals, birds, and even some reptiles, allowing them to survive extended periods underwater on a single breath by rationing oxygen to only the most vital organs. In humans, it has practical modern applications: doctors sometimes use cold-water facial immersion to help slow a racing heart during certain arrhythmias (心律不整), called the &ldquo;diving reflex maneuver,&rdquo; and understanding it helps explain both cold-water shock dangers and survival stories of people revived after prolonged submersion in icy water.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Diving_reflex" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Splashing cold water on your face triggers the same ancient reflex that helps seals conserve oxygen on a deep dive.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two main physiological changes make up the mammalian diving reflex, and what do they accomplish together?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The heart rate slows sharply (bradycardia) and blood vessels in the limbs constrict (peripheral vasoconstriction), together redirecting the body&rsquo;s limited oxygen supply away from non-essential tissue and toward the heart, lungs, and brain during underwater submersion.</div>
+      </details>
+      <div class="source">&#x1F4D6; Panneton, W.M. (2013). <em>Physiology</em>, 28(5). Foster, G.E. &amp; Sheel, A.W. (2005). <em>Journal of Applied Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Daily Multivitamins (綜合維他命) Actually Extend Life?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly a third of adults in many countries take a daily multivitamin, largely on the assumption that it offers at least modest insurance against nutritional gaps. Before reading on, what do you think large, long-running clinical trials have actually found about multivitamins and mortality in well-nourished adults?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Iodine_pills.jpg/330px-Iodine_pills.jpg" alt="Photograph of dietary supplement pills" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Dietary supplement (膳食補充劑) tablets of the kind tested in large multivitamin trials. Credit: <a href="https://en.wikipedia.org/wiki/Dietary_supplement" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Multivitamins (綜合維他命) are among the most widely used dietary supplements (膳食補充劑) worldwide, marketed on the intuitive premise that a daily pill can fill small nutritional gaps and modestly improve long-term health, even for people already eating reasonably varied diets. Several large, long-running randomised controlled trials (隨機對照試驗) have tested this assumption directly rather than relying on observational data, which is prone to confounding since people who take supplements often also exercise more, smoke less, and eat healthier overall, an issue known as the &ldquo;healthy user bias.&rdquo;</p>
+      <p>The Physicians&rsquo; Health Study II, tracking roughly 14,000 male physicians over more than a decade, found a small but statistically significant reduction in total cancer incidence with daily multivitamin use, though no effect on cardiovascular disease or overall mortality. Other major trials, including VITAL and SELECT, found no meaningful benefit for cancer, heart disease, or death from all causes in generally well-nourished populations. A large 2024 NIH-AARP (美國國立衛生研究院) cohort study of over 390,000 adults similarly found no mortality benefit, and even a slightly higher mortality rate among daily users, likely reflecting residual confounding rather than actual harm.</p>
+      <p>The overall evidence suggests multivitamins are neither a meaningful longevity intervention nor clearly harmful for most well-nourished adults, though they remain genuinely useful for specific groups with real deficiency risk: pregnant women needing folate and iron, older adults with reduced vitamin B12 absorption, or people with diagnosed deficiencies. For the general population without a specific deficiency, current evidence does not support taking a multivitamin as a hedge against poor health &mdash; a food-first diet consistently outperforms supplementation in nearly every large trial that has directly compared the two approaches.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dietary_supplement" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Large trials keep finding multivitamins don&rsquo;t extend life or prevent disease in well-nourished adults &mdash; food still beats the pill.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &ldquo;healthy user bias,&rdquo; and why does it complicate observational research on multivitamins?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">People who choose to take supplements also tend to exercise more, smoke less, and eat better overall, so observational studies may find multivitamin users healthier simply because of these correlated lifestyle habits, not because the pill itself caused the benefit.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gaziano, J.M. et al. (2012). <em>JAMA</em>, 308(18). Loftfield, E. et al. (2024). <em>JAMA Network Open</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Skipping Rest Weeks Can Backfire: Overtraining Syndrome (過度訓練綜合症) &amp; Deload Weeks (減量週)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many dedicated gym-goers assume that if some training volume builds muscle and strength, then even more volume, with minimal rest, must build them faster still. Before reading on, what do you think actually happens to performance when recovery is chronically skipped in favour of nonstop training?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Cfs_woman_sketch.jpg" alt="Sketch illustrating chronic fatigue" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A sketch illustrating chronic fatigue (慢性疲勞) &mdash; the same hormonal and immune pathways implicated in overtraining syndrome. Credit: <a href="https://en.wikipedia.org/wiki/Overtraining" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Overtraining syndrome (過度訓練綜合症) is a state of chronic fatigue, declining performance, and hormonal disruption caused by an extended mismatch between training stress and recovery, distinct from the normal, temporary fatigue that follows a single hard workout. Researchers distinguish it from &ldquo;functional overreaching&rdquo; (機能性過度負荷), a short-term performance dip from intentionally hard training that resolves within days to weeks and often produces a beneficial supercompensation effect, from &ldquo;non-functional overreaching,&rdquo; which needs weeks to months of recovery, and true overtraining syndrome, which can take many months to fully reverse.</p>
+      <p>The mechanisms involve disruption of the hypothalamic-pituitary-adrenal axis (下丘腦-垂體-腎上腺軸), the body&rsquo;s central stress-hormone regulation system, alongside chronic elevation of inflammatory markers, suppressed immune function, and altered cortisol (皮質醇) and testosterone patterns. Symptoms extend well beyond the gym: persistent fatigue, mood disturbances, disrupted sleep, increased injury and illness susceptibility, and training performance that plateaus or actively declines despite, or precisely because of, continuing to push volume and intensity higher. Kreher and Schwartz&rsquo;s 2012 review notes the syndrome is notoriously difficult to diagnose, since no single biomarker reliably confirms it.</p>
+      <p>The standard prevention strategy is periodised training that deliberately includes planned deload weeks (減量週), short periods of reduced volume or intensity built into a program before fatigue accumulates to a damaging level, rather than only resting reactively after symptoms appear. Deloads typically involve cutting training volume by thirty to fifty percent for roughly a week, allowing connective tissue, the nervous system, and hormonal regulation to recover while largely preserving fitness gains already made. Counterintuitively, athletes who build in regular planned recovery tend to sustain higher long-term training volumes than those who train continuously without structured rest.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Overtraining" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Planned rest isn&rsquo;t a break from progress &mdash; it&rsquo;s often what makes continued progress possible in the first place.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the key difference between &ldquo;functional overreaching&rdquo; and true overtraining syndrome?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Functional overreaching is a short-term performance dip from intentionally hard training that resolves within days to weeks of rest, often followed by a performance boost; true overtraining syndrome involves chronic hormonal and immune disruption that can take many months to fully reverse.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kreher, J.B. &amp; Schwartz, J.B. (2012). <em>Sports Health</em>, 4(2). Meeusen, R. et al. (2013). European College of Sport Science consensus statement.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Barbarians at the Gate: The $25 Billion Battle for RJR Nabisco (雷諾茲納貝斯克), 1988</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1988, a food-and-tobacco conglomerate became the target of the largest corporate takeover battle Wall Street had yet seen, sparked by its own CEO trying to buy the company himself. Before reading on, what do you think went wrong with an insider trying to take his own company private?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Nabisco_logo.svg/330px-Nabisco_logo.svg.png" alt="Nabisco company logo" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Nabisco (納貝斯克) logo &mdash; half of the RJR Nabisco (雷諾茲納貝斯克) conglomerate at the centre of history&rsquo;s then-largest leveraged buyout. Credit: <a href="https://en.wikipedia.org/wiki/RJR_Nabisco" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In October 1988, RJR Nabisco (雷諾茲納貝斯克) CEO F. Ross Johnson (羅斯&middot;莊臣) announced a management-led buyout (管理層收購) of his own company at $75 per share, roughly $17 billion, intending to take the food-and-tobacco conglomerate private using heavy borrowed debt. Instead of a quiet insider deal, the announcement triggered the largest, most public corporate takeover battle Wall Street had yet seen, as private equity (私募股權) firm Kohlberg Kravis Roberts (KKR), led by Henry Kravis (克拉維斯), entered a rival bid, arguing Johnson&rsquo;s offer dramatically undervalued the company and unfairly favoured management&rsquo;s own interests.</p>
+      <p>Over six frenzied weeks, competing bidding groups escalated their offers in what became known as the &ldquo;deal of the decade,&rdquo; with the board&rsquo;s special committee ultimately choosing KKR&rsquo;s roughly $25 billion bid, at the time the largest leveraged buyout (槓桿收購) in history, over Johnson&rsquo;s own management group, largely because the board distrusted the fairness of an insider-led process. The saga, chronicled in the bestselling book <em>Barbarians at the Gate</em> (門口的野蠻人), exposed how much personal excess, corporate jets, lavish executive perks, had accumulated inside a supposedly disciplined public company.</p>
+      <p>KKR financed the deal with roughly $17 billion in debt piled onto RJR Nabisco&rsquo;s own balance sheet, the defining mechanic of a leveraged buyout: using the target company&rsquo;s future cash flows, rather than the buyer&rsquo;s own capital, to repay the acquisition debt. The deal ultimately performed poorly for KKR, weighed down by that enormous debt burden and a shrinking tobacco business, and the firm exited its position for a modest return years later. RJR Nabisco became the canonical cautionary tale of 1980s excess and the real risk that heavy leverage introduces into corporate takeovers.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/RJR_Nabisco" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The largest LBO in history was won not by the highest bid alone, but by which bidder the board actually trusted to be fair.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the defining financial mechanic of a leveraged buyout, as illustrated by KKR&rsquo;s acquisition of RJR Nabisco?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The buyer finances the acquisition mostly with borrowed debt secured against the target company&rsquo;s own assets and future cash flows, rather than the buyer&rsquo;s own capital &mdash; meaning the acquired company itself ends up responsible for repaying the debt used to buy it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Burrough, B. &amp; Helyar, J. (1990). <em>Barbarians at the Gate: The Fall of RJR Nabisco</em>. Anders, G. (1992). <em>Merchants of Debt</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Didn&rsquo;t Near-Zero Interest Rates Spark a Boom? The Secular Stagnation Hypothesis (長期停滯假說)</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Lawrence_Summers_2012_%28cropped%29.jpg" alt="Photograph of economist Larry Summers" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Larry Summers (薩默斯), the economist who revived the secular stagnation (長期停滯) hypothesis in 2013. Credit: <a href="https://en.wikipedia.org/wiki/Secular_stagnation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 2008 financial crisis, major advanced economies, especially the US, Eurozone (歐元區), and Japan (日本), experienced years of near-zero or negative real interest rates (實質利率) alongside persistently weak investment and sluggish growth, despite unprecedented monetary stimulus.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Alvin Hansen (漢森) coined &ldquo;secular stagnation&rdquo; (長期停滯) in 1938, describing chronic demand shortfalls from slowing population growth. Larry Summers (薩默斯) revived the term in 2013, arguing a persistent excess of desired savings over investment could push the &ldquo;natural&rdquo; interest rate needed for full employment below zero.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Central banks slashed rates near zero and launched massive quantitative easing (量化寬鬆), yet business investment and productivity growth remained stubbornly weak through the 2010s, defying the standard prediction that ultra-cheap capital should reliably spur strong investment.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Supply-side economists counter that demographic ageing (人口老化) and a genuine productivity slowdown, not a demand deficiency, better explain weak growth; the post-2021 inflation surge and rate hikes further complicated the narrative &mdash; an open question among economists today.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A decade of near-zero interest rates failed to reliably spur investment, forcing economists to ask whether &ldquo;cheap money&rdquo; alone was ever enough.</div>
+      <div class="source">&#x1F4D6; Hansen, A. (1939). <em>American Economic Review</em>, 29(1). Summers, L. (2014). <em>Business Economics</em>, 49(2). Rachel, L. &amp; Summers, L. (2019). Brookings Papers.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; The Mind Constructs What It Takes to Be Given:</strong> Berkeley (貝克萊) argued that reality itself is constituted by perception, &ldquo;to be is to be perceived&rdquo; &mdash; while the representativeness heuristic shows that even our judgments about probability are shaped by how well a scenario matches a perceived mental prototype, not by the actual underlying statistics. Both challenge the comforting assumption that we simply &ldquo;read off&rdquo; an objective world; in perception and in probabilistic reasoning alike, the mind is actively constructing what it takes to be simply given.</p>
+      <p><strong>So what:</strong> Next time a scenario &ldquo;feels&rdquo; obviously true or probable, ask whether that feeling reflects the actual evidence, or simply how vividly the story matches a stereotype already in your head.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA Webb Space Telescope, Neptune rings image release, 21 Sept 2022.</li>
+      <li><strong>Card 2:</strong> 《清史稿&middot;吳三桂傳》；《聖祖仁皇帝實錄》。</li>
+      <li><strong>Card 3:</strong> Beevor, A. (1998), <em>Stalingrad: The Fateful Siege 1942&ndash;1943</em>.</li>
+      <li><strong>Card 4:</strong> 《陸九淵集》；朱熹《朱子語類》；黃宗羲《宋元學案》。</li>
+      <li><strong>Card 5:</strong> Berkeley, G. (1710), <em>A Treatise Concerning the Principles of Human Knowledge</em>.</li>
+      <li><strong>Card 6:</strong> Tversky, A. &amp; Kahneman, D. (1983), <em>Psychological Review</em> 90(4).</li>
+      <li><strong>Card 7:</strong> Panneton, W.M. (2013), <em>Physiology</em> 28(5).</li>
+      <li><strong>Card 8:</strong> Gaziano, J.M. et al. (2012), <em>JAMA</em> 308(18).</li>
+      <li><strong>Card 9:</strong> Kreher, J.B. &amp; Schwartz, J.B. (2012), <em>Sports Health</em> 4(2).</li>
+      <li><strong>Card 10:</strong> Burrough, B. &amp; Helyar, J. (1990), <em>Barbarians at the Gate</em>.</li>
+      <li><strong>Card 11:</strong> Hansen, A. (1939); Summers, L. (2014).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-23: Rings of Neptune (JWST) &bull; 三藩之亂 &bull; Battle of Stalingrad &bull; 陸九淵「心即理」與鵝湖之會 &bull; George Berkeley / Immaterialism &bull; Representativeness Heuristic (Linda Problem) &bull; Mammalian Diving Reflex &bull; Multivitamins &bull; Overtraining Syndrome / Deload Weeks &bull; RJR Nabisco LBO &bull; Secular Stagnation Hypothesis</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-23.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-23.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 23 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
