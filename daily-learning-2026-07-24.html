@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 24 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 24 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>23 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Neptune&rsquo;s Rings (JWST)</span>Webb&rsquo;s infrared camera revealed Neptune&rsquo;s faint rings sharply by exploiting methane&rsquo;s absorption of infrared light.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 三藩之亂</span>康熙撤藩觸發八年戰亂，終致中央集權。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Stalingrad</span>A flanking strike on weaker Axis allies, not Germany&rsquo;s strongest army, broke the siege at Stalingrad.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 陸九淵「心即理」與鵝湖之會</span>鵝湖之會未能調和朱陸之爭，卻劃出心學理學分野。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; George Berkeley</span>Berkeley argued objects exist only when perceived, relying on God to keep an unobserved world real.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Linda Problem</span>A vivid, detailed story felt more probable than a plainer one, even though that&rsquo;s logically impossible.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Diving Reflex</span>Cold water on the face triggers reflex bradycardia and vasoconstriction, the same mechanism seals use underwater.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Multivitamins</span>Large trials found daily multivitamins don&rsquo;t extend life or prevent disease in well-nourished adults.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Overtraining &amp; Deload Weeks</span>Planned deload weeks that cut volume prevent overtraining better than only resting after symptoms appear.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; RJR Nabisco LBO</span>KKR won the largest 1980s leveraged buyout by being the bidder the board actually trusted.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Secular Stagnation</span>Near-zero interest rates after 2008 failed to reliably spur investment, puzzling economists for over a decade.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>Saturn&rsquo;s Impossible Hexagon: A Storm With Six Perfect Corners</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Saturn&rsquo;s north pole hosts a giant cloud pattern that traces a near-perfect hexagon, not a circle, and has held that six-cornered shape for over four decades. Before reading on, what do you think keeps a raging planetary storm system locked into straight-edged corners instead of smoothing out into a circle, the way storms usually do?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_north_polar_vortex_false_color.jpg" alt="False-colour image of Saturn's hexagonal cloud pattern at its north pole" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Saturn&rsquo;s (土星) hexagonal jet stream (噴流) at the north pole, imaged in false colour by the Cassini (卡西尼號) spacecraft. Credit: NASA/JPL-Caltech/Space Science Institute / <a href="https://en.wikipedia.org/wiki/Saturn%27s_hexagon" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1981, NASA&rsquo;s (美國太空總署) Voyager (航海家號) spacecraft sent back a strange picture of Saturn&rsquo;s (土星) north pole: a six-sided, hexagonal band of clouds wrapping neatly around the pole, wide enough that four Earths could fit inside its perimeter. Scientists initially wondered whether the shape was some imaging artefact, but the Cassini (卡西尼號) spacecraft, which orbited Saturn from 2004 to 2017, confirmed it was real and persistent, capturing sharp images of the pattern glowing gold and blue in reflected sunlight. Unlike Earth&rsquo;s storms, which are round and constantly reshaping, Saturn&rsquo;s hexagon has kept its six straight corners, unchanged in position, for over four decades of observation.</p>
+      <p>The explanation lies in fluid dynamics (流體動力學), not magic. Researchers at Oxford University (牛津大學) recreated the shape in a laboratory tank of water, spinning an inner ring faster than an outer ring to mimic Saturn&rsquo;s polar jet stream (急流) sitting inside slower-moving surrounding gas. Depending on the speed difference between the two rings, the boundary between them buckled into stable wave patterns with a fixed number of corners, sometimes three, sometimes eight, and at Saturn&rsquo;s particular ratio of speeds, six. Once formed, a hexagonal wave pattern is remarkably stable, resistant to the kind of random turbulence that would smear a normal storm into a circular shape.</p>
+      <p>At the hexagon&rsquo;s centre sits a genuine, isolated storm, a rotating vortex about fifty times wider than a typical hurricane on Earth, spinning independently within the six-sided frame. Cassini tracked colour changes across its thirteen-year mission as the pole shifted from winter darkness into direct sunlight, turning the storm from a hazy blue-green into a golden-brown haze thought to result from sunlight-triggered photochemical reactions in the upper atmosphere. The hexagon remains one of the most striking demonstrations that alien-looking planetary weather can still obey the same basic fluid-dynamics rules physicists study in an ordinary kitchen sink.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Saturn%27s_hexagon" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A jet stream spinning at just the right speed difference locks naturally into a six-cornered wave &mdash; no alien engineering required.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does Saturn&rsquo;s polar jet stream form a stable hexagon instead of smearing into a circle like an ordinary storm?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Laboratory experiments show that when a fast-moving jet stream flows around a slower-rotating interior, the boundary between the two naturally buckles into a stable wave with a fixed number of corners rather than staying circular &mdash; at Saturn&rsquo;s particular speed ratio, that number is six.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sayanagi, K.M. et al., Cassini imaging team, NASA/JPL-Caltech. Aguiar, A.C.B. et al. (2010). <em>Icarus</em> &mdash; laboratory hexagon experiment, Oxford University.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>甘露之變：唐文宗一場血流成河的失敗政變</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐文宗即位後，眼見宦官權傾朝野，甚至能廢立皇帝，遂與心腹密謀一舉剷除宦官勢力。你認為，這場精心策劃、以「甘露降臨」為藉口引誘宦官前往查看的行動，最終結果會是怎樣？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>唐文宗；李訓（宰相）；鄭注；仇士良（宦官首領）。</p>
+        <p><strong>事件：</strong>大和九年（835年），唐文宗與李訓、鄭注密謀，假稱左金吾衛石榴樹上降下甘露，誘騙宦官前往查看，欲乘機伏兵殲滅宦官集團，事敗反遭血腥報復，史稱「甘露之變」。</p>
+        <p><strong>時代背景：</strong>中唐以後宦官掌握神策軍兵權，操縱皇帝廢立，唐文宗雖貴為天子，實則形同傀儡，痛心於此，遂鋌而走險策劃剷除宦官之計。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/TangWenzongAlt.jpg" alt="唐文宗畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">唐文宗畫像，甘露之變的策劃者與最終的悲劇主角。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Wenzong_of_Tang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>唐代自安史之亂以後，宦官逐漸掌握禁軍「神策軍」兵權，勢力坐大，甚至能夠廢立皇帝，唐憲宗、唐敬宗均死於宦官之手。唐文宗於大和年間即位後，眼見宦官權傾朝野、朝政操於閹人之手，深以為恥，遂暗中拔擢宰相李訓、鳳翔節度使鄭注二人為心腹，密謀誅除宦官，重振皇權。二人設計，先藉故剷除宦官中較次要者立威，再逐步接近核心目標，仇士良等掌握神策軍實權的大宦官。</p>
+      <p>大和九年（835年）十一月，李訓奏稱左金吾衛官署後院石榴樹上一夜之間降下甘露，此乃祥瑞徵兆，力請文宗親率百官前往觀看。文宗遂命宦官頭目仇士良等先行查視，實則李訓已於左金吾衛廳堂內外埋伏甲兵，欲待仇士良等入內查看甘露之際，一舉將其殲滅。豈料仇士良查看時察覺廳內帷幕後隱有兵器寒光及士兵慌張神色，頓生疑心，急忙率眾奪門而出，返身挾持文宗登輦逃回內宮，伏兵倉皇出擊已然失去先機。</p>
+      <p>仇士良逃回宮中後，隨即調動神策軍展開瘋狂反撲，李訓倉皇出逃終被殺，鄭注亦於鳳翔遭部下所殺，宰相王涯、賈餗等多名朝臣不論是否知情參與，均遭牽連族滅，前後被殺者達千餘人，長安城內一時血流成河，史稱「甘露之變」。此役過後，宦官權勢較之前更為囂張跋扈，文宗形同軟禁深宮，抑鬱終日，臨終前曾自嘆不如周赧王、漢獻帝，因二帝尚且受制於強臣而非家奴。甘露之變成為中晚唐宦官專權登峰造極的關鍵轉捩點，此後終唐之世，宦官廢立天子之局再未根本改變。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sweet_Dew_incident" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場精心設計的伏兵之計，因一絲異樣的警覺而全盤瓦解，換來的是比之前更深重的宦官專權。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>仇士良在甘露之變當日，究竟因為甚麼細節察覺李訓的伏兵計劃，並成功脫身？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">仇士良前往左金吾衛查看所謂「甘露」時，發現廳堂帷幕後隱約可見兵器寒光，士兵神色慌張反常，因而心生疑竇，立即率眾奪門而出，挾持唐文宗返回內宮，使李訓原本的伏兵計劃因失去突襲先機而徹底失敗。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《舊唐書&middot;文宗本紀》；《資治通鑑&middot;唐紀》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Ransom Room: How 168 Men Toppled an Empire of Millions</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1532, a small band of Spanish soldiers, vastly outnumbered by the army of the Inca emperor they had come to meet, captured him within minutes at a supposedly peaceful gathering. Before reading on, what do you think let barely 168 men seize the ruler of an empire of several million people without a prolonged battle?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Francisco Pizarro (皮薩羅), Spanish (西班牙) conquistador; Atahualpa (阿塔瓦爾帕), Inca (印加) emperor.</p>
+        <p><strong>Event at stake:</strong> The Battle of Cajamarca (卡哈馬卡), November 1532, in which a small Spanish force ambushed and captured the Inca emperor at a supposedly peaceful meeting.</p>
+        <p><strong>Big picture:</strong> A civil war had just split the Inca Empire (印加帝國), and smallpox (天花), spreading ahead of the Spanish themselves, had already killed the previous emperor and devastated the population before a single Spanish soldier arrived.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Atahuallpa%2C_Inca_XIIII_From_Berlin_Ethnologisches_Museum%2C_Staatliche_Museen%2C_Berlin%2C_Germany.png" alt="Depiction of Atahualpa, the last independent Inca emperor" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A depiction of Atahualpa (阿塔瓦爾帕), the last independent Inca (印加) emperor, captured at Cajamarca in 1532. Credit: <a href="https://en.wikipedia.org/wiki/Atahualpa" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In November 1532, Spanish (西班牙) conquistador Francisco Pizarro (皮薩羅) arrived in the highland town of Cajamarca (卡哈馬卡) with roughly 168 men, a handful of horses, and a few small cannon, facing an Inca (印加) army camped nearby that numbered in the tens of thousands under Emperor Atahualpa (阿塔瓦爾帕). Atahualpa, confident in his overwhelming numerical advantage and curious about the strange foreigners, agreed to meet Pizarro unarmed in the town square, bringing along thousands of unarmed attendants as a show of imperial magnificence rather than as a military escort.</p>
+      <p>Pizarro had prepared an ambush: cannon, cavalry, and infantry hidden in buildings around the square, waiting for a signal. When a friar&rsquo;s demand that Atahualpa accept Christianity (基督教) and Spanish sovereignty was refused, Pizarro gave the signal, and Spanish horsemen and gunfire tore into the unarmed crowd, killing thousands within hours and capturing Atahualpa alive. The slaughter succeeded partly because Atahualpa&rsquo;s army, though vast, had been left outside the town and was caught completely unprepared for violence at what it believed was a diplomatic audience, not a battlefield.</p>
+      <p>Atahualpa offered an enormous ransom (贖金) for his release, filling a room once with gold and twice with silver, one of the largest ransoms in history, yet Pizarro had him executed anyway in 1533, fearing a rival claimant might rescue him or use him as a rallying figure. The conquest was accelerated by an invisible ally: smallpox (天花), introduced earlier by Spanish contact elsewhere in the Americas, had already killed Atahualpa&rsquo;s father and predecessor, Huayna Capac (瓦伊納&middot;卡帕克), and triggered the civil war that left the Inca Empire (印加帝國) politically fractured before Pizarro ever set foot in Cajamarca.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Atahualpa" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A civil war and an invisible epidemic did more to topple the Inca Empire than any Spanish weapon did.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two factors, beyond Spanish weaponry, had already weakened the Inca Empire before Pizarro&rsquo;s ambush at Cajamarca?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A smallpox epidemic, spread ahead of the Spanish themselves, had killed the previous emperor Huayna Capac and devastated the population, and the resulting succession dispute had triggered a civil war that left the empire politically divided before Pizarro&rsquo;s forces ever arrived.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hemming, J. (1970). <em>The Conquest of the Incas</em>. MacQuarrie, K. (2007). <em>The Last Days of the Incas</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>韓愈〈諫迎佛骨表〉：一封幾乎送命的奏疏與儒家道統的重建</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐憲宗欲親自迎奉佛骨入宮供奉，滿朝文武無人敢言，韓愈卻毅然上表力諫，痛陳佛教之弊。你認為，這封措辭激烈的奏疏，為韓愈換來的會是甚麼樣的下場？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>韓愈（768&ndash;824，字退之）；唐憲宗。</p>
+        <p><strong>核心思想：</strong>〈原道〉重建儒家「道統」譜系，主張堯舜禹湯文武周公孔孟一脈相承，力排佛教、道教「無父無君」之害，呼籲恢復儒家倫理秩序。</p>
+        <p><strong>時代背景：</strong>中唐佛教、道教盛行，朝野崇佛之風日熾，韓愈眼見儒家綱常倫理遭受排擠，遂著書立說，並在元和十四年（819年）因諫阻憲宗迎奉佛骨一事幾乎喪命。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-110-%E9%9F%93%E6%84%88.jpg/330px-%E8%87%B3%E8%81%96%E5%85%88%E8%B3%A2%E5%8D%8A%E8%BA%AB%E5%83%8F_%E5%86%8A-110-%E9%9F%93%E6%84%88.jpg" alt="韓愈畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">韓愈畫像，中唐古文運動領袖與儒家道統說的重建者。來源：<a href="https://en.wikipedia.org/wiki/Han_Yu" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>韓愈生於中唐，眼見佛教、道教信仰自魏晉南北朝以來日益興盛，朝廷士大夫乃至天子多崇佛信道，儒家倫理綱常反被邊緣化，深以為憂。他在〈原道〉一文中提出「道統」之說，主張儒家之道自堯、舜、禹、湯、文、武、周公相傳至孔子、孟子，構成一脈相承的正統譜系，孟子之後道統中斷，直至韓愈自己方重新接續。他猛烈抨擊佛教、道教主張出家棄俗、不事君親，斥之為「無父無君」，認為此舉根本違背儒家「仁義」倫理及社會人倫秩序的根基。</p>
+      <p>元和十四年（819年），唐憲宗聽信宦官及僧侶之言，準備迎奉法門寺佛骨舍利入宮供奉三日，長安城內王公士庶競相施捨，甚至有人不惜燒頂灼臂以示虔誠，一時瘋魔。韓愈時任刑部侍郎，不顧滿朝文武噤若寒蟬，毅然呈上〈諫迎佛骨表〉，痛陳佛教乃夷狄之法，自東漢傳入以來，凡崇佛之君主大多國祚不長，直斥憲宗此舉「傷風敗俗」，甚至直言若佛骨果真有靈，一切禍殃「宜加臣身」。憲宗閱後勃然大怒，欲將韓愈處以極刑，經宰相裴度及眾臣力保，方改貶為潮州刺史，即日啟程，倉皇離京。</p>
+      <p>韓愈貶謫潮州途中，作〈左遷至藍關示姪孫湘〉一詩，「一封朝奏九重天，夕貶潮陽路八千」，道盡忠而見疑的悲憤，然而他在潮州任內仍興修水利、驅除鱷患、興辦州學，深得百姓愛戴。韓愈此番諫佛骨之舉雖招致貶謫，其「道統」學說及排佛立場卻對後世影響深遠，直接啟發宋代理學家重新建構儒家心性義理之學，程頤、朱熹皆繼承其道統觀念，視韓愈為聯繫先秦儒學與宋明理學的關鍵橋樑人物。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Han_Yu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一封幾乎讓韓愈丟掉性命的諫言，卻為後世儒家道統之學埋下重新奠基的種子。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>韓愈在〈原道〉中提出的「道統」說，主張儒家正統傳承的譜系是甚麼？他因何事幾乎被處死？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">韓愈主張儒家之道由堯、舜、禹、湯、文、武、周公相傳至孔子、孟子，孟子之後中斷，由韓愈自己重新接續；他因上表力諫唐憲宗迎奉法門寺佛骨入宮供奉，觸怒憲宗，幾乎被處以極刑，後經裴度力保，改貶潮州刺史。</div>
+      </details>
+      <div class="source">&#x1F4D6; 韓愈《原道》；〈諫迎佛骨表〉；《舊唐書&middot;韓愈傳》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Don&rsquo;t Multiply Entities: William of Ockham (奧卡姆的威廉) and His Famous Razor</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A 14th-century friar argued that the simplest explanation consistent with the evidence should always be preferred over a more complicated one. Before reading on, what do you think this same friar&rsquo;s ideas about simplicity had to do with him fleeing for his life from the Pope?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> William of Ockham (奧卡姆的威廉, c.1287&ndash;1347), English Franciscan (方濟各會) friar and philosopher; Pope John XXII (若望二十二世), his eventual opponent.</p>
+        <p><strong>Idea at stake:</strong> Ockham&rsquo;s razor (奧卡姆剃刀) &mdash; the principle that explanations should not multiply entities beyond necessity, paired with his nominalism (唯名論), the view that universal categories are just names, not independently real things.</p>
+        <p><strong>Big picture:</strong> Writing amid a fierce medieval debate over whether abstract universal concepts exist independently of particular objects, Ockham argued for radical simplicity in both metaphysics and theology.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/William_of_Ockham.png" alt="Depiction of William of Ockham from a 14th-century manuscript" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A depiction of William of Ockham (奧卡姆的威廉) from a 14th-century manuscript. Credit: <a href="https://en.wikipedia.org/wiki/William_of_Ockham" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>William of Ockham (奧卡姆的威廉), an English Franciscan (方濟各會) friar studying at Oxford (牛津大學) in the early 1300s, entered a long-running medieval debate over universals: do general categories like &ldquo;redness&rdquo; or &ldquo;humanity&rdquo; exist as real things in their own right, or are they merely convenient labels humans apply to groups of similar particular objects? Ockham argued forcefully for the second position, a view called nominalism (唯名論), insisting that only individual, particular things truly exist, and that abstract universal categories are names our minds impose on the world for convenience, not independently existing entities floating somewhere beyond experience.</p>
+      <p>From this commitment to simplicity came the principle later nicknamed &ldquo;Ockham&rsquo;s razor&rdquo; (奧卡姆剃刀): entities should not be multiplied beyond necessity, meaning that when two explanations account equally well for the same observed facts, the simpler one, requiring fewer assumed entities or causes, should be preferred. Ockham didn&rsquo;t invent the general idea of favouring simplicity, but he applied it with unusual rigour and consistency across logic, physics, and theology, repeatedly cutting away philosophical machinery he considered unnecessary clutter, including some traditional arguments for God&rsquo;s (上帝) existence that he considered logically unconvincing even while remaining personally devout.</p>
+      <p>Ockham&rsquo;s razor eventually cut into dangerous territory: he sided with Franciscan friars who insisted Christ and his apostles owned no property, a position Pope John XXII (若望二十二世) had condemned as heretical, since it implicitly challenged papal wealth and authority. Summoned to the papal court at Avignon (亞維儂) in 1324 to answer heresy charges, Ockham instead fled in 1328 under the protection of Holy Roman Emperor Louis IV (路易四世), spending the rest of his life writing fierce polemics against papal authority from exile in Munich (慕尼黑), never able to safely return to England or make peace with the Church.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/William_of_Ockham" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Prefer the simplest explanation that fits the facts &mdash; a principle sharp enough that its author had to flee the Pope over where else he applied it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is Ockham&rsquo;s razor, and what philosophical position motivated Ockham to formulate it so rigorously?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Ockham&rsquo;s razor holds that entities should not be multiplied beyond necessity &mdash; when two explanations fit the facts equally well, prefer the simpler one. It grew out of Ockham&rsquo;s nominalism, his view that only particular individual things truly exist, and that abstract universal categories are just convenient names, not independently real entities.</div>
+      </details>
+      <div class="source">&#x1F4D6; Spade, P.V. (ed.) (1999). <em>The Cambridge Companion to Ockham</em>. Stanford Encyclopedia of Philosophy, &ldquo;William of Ockham.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Small Yes That Leads to a Bigger One: The Foot-in-the-Door Technique</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a famous 1966 experiment, homeowners who first agreed to display a small, three-inch &ldquo;Be a safe driver&rdquo; sign in their window were, weeks later, far more likely to agree to a much larger, ugly billboard-sized sign on their front lawn than homeowners approached cold. Before reading on, why do you think agreeing to something small first made people so much more willing to agree to something big later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Bill_George_canvassing_2008.jpg/330px-Bill_George_canvassing_2008.jpg" alt="A canvasser speaking with a resident at their front door" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A canvasser at the door &mdash; the classic setting for foot-in-the-door compliance experiments, where a small early request reliably increases agreement with a much larger one later. Credit: <a href="https://en.wikipedia.org/wiki/Foot-in-the-door_technique" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1966, psychologists Jonathan Freedman (弗里德曼) and Scott Fraser (弗雷澤) approached California (加利福尼亞州) homeowners with a small, easy request: would they display a tiny three-inch &ldquo;Be a Safe Driver&rdquo; sign in a window? Nearly everyone agreed. Two weeks later, a different researcher returned to the same homes, requesting something far larger and more intrusive, a large, poorly-lettered &ldquo;Drive Carefully&rdquo; billboard installed on the front lawn, blocking much of the view from the house. Roughly 76% of homeowners who had agreed to the small window sign also agreed to the large billboard, compared to only about 17% of homeowners approached cold with the large request alone.</p>
+      <p>The researchers called this the foot-in-the-door technique (得寸進尺法): getting someone to agree to a small initial request measurably increases their willingness to later agree to a larger, related request, even when a completely different person makes the second ask. The leading explanation involves self-perception theory (自我知覺理論): agreeing to the first small request subtly shifts how people see themselves, from a neutral bystander into someone who is, for example, &ldquo;the kind of person who supports traffic safety,&rdquo; and people then act consistently with that self-image when the bigger request arrives, rather than consciously calculating costs and benefits each time.</p>
+      <p>The technique shows up constantly outside the lab: charities often ask for a small first donation before requesting a recurring monthly gift, salespeople request small commitments before larger purchases, and petition-signing frequently precedes requests for volunteering or donating money. The effect isn&rsquo;t unlimited, later research found it weakens if the initial request is trivially small or unrelated to the follow-up ask, and works best when the first request is genuinely freely chosen rather than coerced. Recognising the pattern offers a simple defence: notice when a small, easy &ldquo;yes&rdquo; might be reshaping your self-image before a much bigger request ever arrives.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Foot-in-the-door_technique" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A small agreement can quietly reshape how you see yourself, making a much bigger request feel consistent rather than costly.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What psychological mechanism explains why agreeing to a small request increases the odds of later agreeing to a much larger, related one?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Agreeing to the small initial request subtly shifts a person&rsquo;s self-perception, from a neutral bystander into someone who identifies with the cause, and people then tend to act consistently with that new self-image when the larger request arrives, a process known as self-perception theory.</div>
+      </details>
+      <div class="source">&#x1F4D6; Freedman, J.L. &amp; Fraser, S.C. (1966). <em>Journal of Personality and Social Psychology</em>, 4(2).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Yawns Are Contagious: The Physiology (生理學) of a Universal Reflex</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Watching someone else yawn, or even just reading the word &ldquo;yawn,&rdquo; makes most people yawn within moments, a reflex so automatic it works across species between humans and their pet dogs. Before reading on, what do you think a yawn is actually doing for your body, and why would simply seeing one be enough to trigger your own?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Yawning_koala_bear_%283589381656%29_%28cropped%29.jpg/330px-Yawning_koala_bear_%283589381656%29_%28cropped%29.jpg" alt="Photograph of a koala yawning" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A yawn (打呵欠) &mdash; a reflex found across nearly all vertebrate species, from humans to koalas to fish. Credit: <a href="https://en.wikipedia.org/wiki/Yawn" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A yawn (打呵欠) is an involuntary, stereotyped reflex: a prolonged, deep inhalation with the mouth wide open, followed by a shorter exhalation, typically lasting five to six seconds and recruiting nearly every muscle in the face and jaw. Yawning appears not just in humans but across nearly all vertebrates (脊椎動物), including fish, birds, and virtually all mammals, and tends to cluster at predictable times: shortly after waking, before sleep, and during periods of boredom or transition between activities, suggesting it plays some role in shifting the brain&rsquo;s (大腦) arousal state rather than being a simple response to low oxygen, an old but now largely discredited theory.</p>
+      <p>The leading modern explanation, championed by psychologist Andrew Gallup (加勒普), is the brain-cooling hypothesis (腦部降溫假說): the deep inhalation and stretching of the jaw increase blood flow and airflow around the sinuses and skull, helping cool blood headed to the brain and counteracting a rise in brain temperature. Supporting evidence includes findings that people yawn more often in warm ambient conditions and less in very hot or very cold extremes, and that holding a cold object to the forehead reduces yawning frequency, consistent with a thermoregulatory function rather than yawning being primarily about oxygen intake, as many people still assume.</p>
+      <p>Contagious yawning, triggered simply by seeing, hearing, or reading about another yawn, appears linked to empathy (同理心) and social bonding rather than the physiological brain-cooling function itself: studies using functional MRI (功能性磁力共振造影) find that brain regions involved in social cognition activate during contagious yawning, and people who score higher on empathy measures tend to catch yawns more readily from others, while very young children and people with certain autism-spectrum (自閉症譜系) profiles show reduced contagious yawning. Dogs, notably, catch yawns from their human owners more than from strangers, hinting that yawning contagion may track social closeness across species, not just within our own.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Yawn" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A yawn may be your brain&rsquo;s own built-in cooling system &mdash; and catching one from someone else may be a quiet sign of empathy.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the leading modern explanation for why we yawn, and what evidence supports it over the old &ldquo;low oxygen&rdquo; theory?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The brain-cooling hypothesis holds that yawning&rsquo;s deep inhalation and jaw stretch increase blood and air flow around the skull, cooling the brain. Supporting evidence includes yawning increasing in warm (but not extreme) temperatures and decreasing when a cold object is held to the forehead &mdash; patterns the oxygen theory doesn&rsquo;t explain.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gallup, A.C. &amp; Gallup, G.G. (2007). <em>Evolutionary Psychology</em>. Massen, J.J.M. et al. (2014). <em>PLOS ONE</em> &mdash; dog contagious yawning.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does Flossing Actually Work? What the Evidence Really Shows</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2016, an Associated Press investigation found that the U.S. government had quietly dropped its official recommendation to floss daily, after decades of dentists insisting on it as essential. Before reading on, what do you think the actual scientific evidence for flossing&rsquo;s benefits looks like, strong, weak, or somewhere in between?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Floss4.jpg" alt="Photograph of dental floss" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Dental floss (牙線) &mdash; recommended for decades on largely untested assumptions about its benefits. Credit: <a href="https://en.wikipedia.org/wiki/Dental_floss" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Dental floss (牙線) has been recommended by dentists and government health guidelines for decades, based on the intuitive logic that a toothbrush cannot reach the tight spaces between teeth where plaque (牙菌斑) and food debris accumulate. In 2016, an Associated Press investigation reviewed the scientific evidence behind this longstanding advice and found it surprisingly thin: many of the studies were small, of short duration, or methodologically weak, and a Cochrane (考科藍) systematic review in 2011 found only &ldquo;very unreliable&rdquo; evidence that flossing reduces plaque, and essentially no reliable evidence that it prevents cavities or gum disease over the long term.</p>
+      <p>Following the AP investigation, the U.S. Departments of Health and Human Services (美國衛生及公共服務部) and Agriculture quietly removed the specific flossing recommendation from the 2015-2020 Dietary Guidelines, acknowledging that the evidence had never actually been rigorously reviewed before being included in earlier editions. This does not mean flossing is useless, rather, it means large, well-designed, long-term randomised controlled trials (隨機對照試驗) directly testing flossing&rsquo;s effect on cavities and gum disease simply haven&rsquo;t been done, partly because it&rsquo;s difficult to design an ethical study that denies a plausible-sounding hygiene practice to a control group for years.</p>
+      <p>Dental professionals generally still recommend flossing or a similar interdental cleaning method, since it demonstrably removes some plaque and debris a brush cannot reach, and the practice carries essentially no downside risk when done correctly. The real lesson isn&rsquo;t that flossing is pointless, it&rsquo;s that a health recommendation can persist for decades on plausible mechanism and professional consensus alone, without ever being confirmed by the kind of rigorous, large-scale trial evidence expected elsewhere in medicine, a gap that is unusually visible here only because journalists happened to go looking for it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dental_floss" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Decades of flossing advice rested more on plausible logic than on rigorous trial evidence &mdash; a gap only exposed because someone finally checked.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2016 AP investigation find about the scientific evidence behind official flossing recommendations, and how did health authorities respond?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The investigation found the evidence behind decades of flossing recommendations was weak, based on small or poorly designed studies, with a 2011 Cochrane review finding only unreliable evidence for reduced plaque and no reliable evidence for preventing cavities or gum disease. The U.S. government subsequently removed the specific flossing recommendation from its Dietary Guidelines.</div>
+      </details>
+      <div class="source">&#x1F4D6; Donn, J. (2016). Associated Press investigation. Sambunjak, D. et al. (2011). <em>Cochrane Database of Systematic Reviews</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Does Sports Massage Actually Speed Up Recovery?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Post-workout massage is a fixture at elite sporting events, with athletes lining up for a rubdown they believe will flush out soreness and speed recovery. Before reading on, what do you think controlled studies have actually found happens inside the muscle during a massage, does it mechanically clear out fatigue byproducts the way it&rsquo;s usually described?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Spa_Picture_2.jpg/330px-Spa_Picture_2.jpg" alt="Photograph of a massage therapy session" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Massage (按摩) is widely used by athletes for recovery, though its measurable physiological effects are more modest than commonly assumed. Credit: <a href="https://en.wikipedia.org/wiki/Massage" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Massage (按摩) is one of the most widely used recovery tools in competitive sport, applied after training and competition on the common assumption that manual manipulation of muscle tissue physically flushes out metabolic waste products (代謝廢物) like lactate and reduces inflammation. A comprehensive 2005 review by Weerapong, Hume, and Kolt examined the evidence directly and found that massage produces only small, inconsistent reductions in delayed-onset muscle soreness (延遲性肌肉痠痛), and no measurable improvement in actual muscle strength or power output recovery, results that sit awkwardly alongside massage&rsquo;s enormous popularity among professional athletes and teams.</p>
+      <p>The mechanical explanation, that kneading muscle tissue physically squeezes lactate (乳酸) and other byproducts out through improved blood and lymphatic (淋巴) flow, turns out to be poorly supported: lactate actually clears from muscle within about an hour regardless of massage, and studies measuring blood flow during massage sessions find far smaller changes than the technique&rsquo;s reputation would suggest. What massage does reliably deliver is a strong psychological benefit, reduced perceived soreness and improved mood, likely through a combination of touch-related relaxation, reduced muscle tension perception, and simple placebo-like expectation effects, rather than genuine acceleration of the underlying tissue-repair process.</p>
+      <p>None of this means massage is worthless for athletes: perceived recovery and reduced anxiety carry real value before competition, and modest reductions in soreness can support better sleep and training consistency even without a direct physiological repair mechanism behind them. The practical takeaway is one of expectation management: massage is a legitimate comfort and mood tool worth keeping in a recovery routine, but training variables that actually drive adaptation, sleep, nutrition, and appropriately structured rest, deserve far more attention than the rubdown itself if the real goal is faster physiological recovery rather than simply feeling better in the moment.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Massage" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Massage reliably makes athletes feel better, but the evidence for it speeding up actual muscle repair is much thinner than its popularity suggests.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Weerapong, Hume &amp; Kolt&rsquo;s 2005 review, what does massage reliably improve, and what does it fail to meaningfully improve?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Massage reliably reduces perceived soreness and improves mood, likely through relaxation and expectation effects, but the review found no measurable improvement in actual muscle strength or power output recovery, and only small, inconsistent effects on delayed-onset muscle soreness itself.</div>
+      </details>
+      <div class="source">&#x1F4D6; Weerapong, P., Hume, P.A. &amp; Kolt, G.S. (2005). <em>Sports Medicine</em>, 35(3).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>How Norway (挪威) Turned Oil Into the World&rsquo;s Largest Sovereign Wealth Fund</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1969, a small Nordic country found substantial oil reserves in its territorial waters, the same kind of windfall that has often left oil-rich nations poorer and more corrupt over time, the so-called &ldquo;resource curse.&rdquo; Before reading on, what do you think this particular country did differently to avoid that common trap?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Troll_A_Platform.jpg/330px-Troll_A_Platform.jpg" alt="Photograph of the Troll A offshore gas platform" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Troll A platform (特羅爾A平台), part of the North Sea (北海) oil and gas infrastructure that funds Norway&rsquo;s (挪威) sovereign wealth fund. Credit: <a href="https://en.wikipedia.org/wiki/Government_Pension_Fund_Global" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1969, Norway (挪威) discovered substantial oil reserves beneath the North Sea (北海), a windfall that has historically tempted governments into overspending, currency distortion, or the corrosive corruption often called the &ldquo;resource curse&rdquo; (資源詛咒). Rather than immediately spending the new oil revenue, Norway&rsquo;s government established what eventually became the Government Pension Fund Global (政府退休金全球基金) in 1990, directing surplus oil and gas revenue into a sovereign wealth fund (主權財富基金) invested almost entirely outside Norway itself, explicitly to avoid overheating the domestic economy and to save the windfall for future generations after the oil eventually runs out.</p>
+      <p>The fund&rsquo;s guiding principle, a &ldquo;fiscal rule&rdquo; (財政規則) adopted in 2001, limits the government to spending only the fund&rsquo;s expected long-term real return, roughly 3% annually, keeping the vast majority of oil wealth invested rather than flowing directly into the state budget each year. This deliberate restraint, resisting the political temptation to spend windfall revenue on current voters, has allowed the fund to grow into the largest single sovereign wealth fund in the world, holding roughly 1.5% of all globally listed shares across more than 8,000 companies, alongside real estate and fixed-income investments spanning dozens of countries.</p>
+      <p>The fund also operates an ethical council (倫理委員會) that can exclude or divest from companies involved in severe environmental damage, human rights violations, or weapons manufacturing, giving Norway (挪威) unusual public leverage over corporate behaviour purely through its status as a shareholder rather than as a regulator. Economists frequently cite Norway alongside Botswana as a rare case where a resource-rich country avoided the resource curse largely through strong pre-existing institutions and disciplined fiscal rules adopted early, a sharp contrast to oil-rich nations like Venezuela or Nigeria, where similar windfalls fuelled corruption and economic instability instead of durable, broadly shared wealth.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Government_Pension_Fund_Global" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Norway&rsquo;s fund proves the &ldquo;resource curse&rdquo; isn&rsquo;t inevitable &mdash; disciplined rules limiting how much windfall wealth you can spend each year matter more than the size of the windfall itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What fiscal rule has allowed Norway&rsquo;s sovereign wealth fund to grow into the world&rsquo;s largest, and what problem was it designed to prevent?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Norway&rsquo;s 2001 fiscal rule limits government spending from the fund to roughly its expected long-term real return (about 3% annually), keeping most oil wealth invested abroad rather than spent immediately &mdash; a deliberate restraint designed to prevent the overheating, currency distortion, and corruption often called the &ldquo;resource curse.&rdquo;</div>
+      </details>
+      <div class="source">&#x1F4D6; Norges Bank Investment Management, annual reports. IMF (2013). &ldquo;Norway: Selected Issues.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Did Europe Overtake China? The Great Divergence (大分流) Debate</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg" alt="Illustration of power looms weaving in a British factory, 1835" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A power loom (動力織布機) of the kind that helped drive Britain&rsquo;s Industrial Revolution (工業革命) &mdash; one proposed explanation for the Great Divergence. Credit: <a href="https://en.wikipedia.org/wiki/Great_Divergence" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Around 1800, after centuries of comparable living standards, Western Europe&rsquo;s economy suddenly pulled sharply ahead of China&rsquo;s (中國) most advanced regions, launching two centuries of Western economic dominance now called the &ldquo;Great Divergence&rdquo; (大分流).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Historian Kenneth Pomeranz&rsquo;s (彭慕蘭) 2000 book <em>The Great Divergence</em> argued Europe&rsquo;s advantage came from two lucky, non-cultural factors: readily accessible coal (煤炭) deposits near industrial centres, and resource windfalls extracted from New World (新大陸) colonies, not any inherent institutional or cultural superiority, directly challenging older explanations centred on the Protestant work ethic (新教倫理).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Pomeranz&rsquo;s core evidence was startling: living standards, life expectancy, and market sophistication in China&rsquo;s Yangtze Delta (長江三角洲) around 1750 matched or exceeded those in England, undermining the assumption that Europe had already pulled ahead economically well before the Industrial Revolution (工業革命) actually began.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Critics including Robert Allen counter that British wages (工資) were already unusually high relative to prices before 1800, creating strong economic incentive to mechanise labour that simply didn&rsquo;t exist in China&rsquo;s low-wage economy, an institutional-incentive explanation still actively debated among economic historians today.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Whether Europe pulled ahead through sheer luck (coal and colonies) or built-in incentives (high wages), the debate shows economic dominance can hinge on accidents of geography as much as culture.</div>
+      <div class="source">&#x1F4D6; Pomeranz, K. (2000). <em>The Great Divergence</em>. Allen, R.C. (2009). <em>The British Industrial Revolution in Global Perspective</em>.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 11 &mdash; Order From Ordinary Causes:</strong> Saturn&rsquo;s mesmerising six-sided storm turns out to result from simple, testable fluid dynamics, not some exotic alien mechanism; the Great Divergence debate makes a similar move, suggesting Europe&rsquo;s economic takeoff may owe more to a lucky coal seam and colonial windfalls than to any special genius or culture. Both remind us that dramatic-looking outcomes often trace back to mundane physical accidents.</p>
+      <p><strong>So what:</strong> Before crediting culture, genius, or virtue for a striking outcome, check whether a boring, testable physical or geographic cause explains just as much.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Sayanagi, K.M. et al., Cassini imaging team, NASA/JPL-Caltech. Aguiar, A.C.B. et al. (2010), <em>Icarus</em>.</li>
+      <li><strong>Card 2:</strong> 《舊唐書&middot;文宗本紀》；《資治通鑑&middot;唐紀》。</li>
+      <li><strong>Card 3:</strong> Hemming, J. (1970), <em>The Conquest of the Incas</em>.</li>
+      <li><strong>Card 4:</strong> 韓愈《原道》；〈諫迎佛骨表〉；《舊唐書&middot;韓愈傳》。</li>
+      <li><strong>Card 5:</strong> Spade, P.V. (ed.) (1999), <em>The Cambridge Companion to Ockham</em>.</li>
+      <li><strong>Card 6:</strong> Freedman, J.L. &amp; Fraser, S.C. (1966), <em>Journal of Personality and Social Psychology</em> 4(2).</li>
+      <li><strong>Card 7:</strong> Gallup, A.C. &amp; Gallup, G.G. (2007), <em>Evolutionary Psychology</em>.</li>
+      <li><strong>Card 8:</strong> Donn, J. (2016), Associated Press investigation; Sambunjak, D. et al. (2011), Cochrane Database.</li>
+      <li><strong>Card 9:</strong> Weerapong, P., Hume, P.A. &amp; Kolt, G.S. (2005), <em>Sports Medicine</em> 35(3).</li>
+      <li><strong>Card 10:</strong> Norges Bank Investment Management, annual reports.</li>
+      <li><strong>Card 11:</strong> Pomeranz, K. (2000); Allen, R.C. (2009).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-24: Saturn&rsquo;s Hexagon Storm &bull; 甘露之變 &bull; Fall of the Inca Empire / Atahualpa &bull; 韓愈〈原道〉與道統說 &bull; William of Ockham / Ockham&rsquo;s Razor &bull; Foot-in-the-Door Technique &bull; Yawning / Contagious Yawning &bull; Dental Flossing Evidence &bull; Massage Therapy for Recovery &bull; Norway&rsquo;s Sovereign Wealth Fund &bull; The Great Divergence</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-24.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-24.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 24 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
