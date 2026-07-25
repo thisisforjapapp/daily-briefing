@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 25 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 25 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>24 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Saturn&rsquo;s Hexagon Storm</span>A fast jet stream flowing around a slower interior naturally buckles into a stable six-cornered wave at Saturn&rsquo;s pole.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 甘露之變</span>李訓伏兵誅宦計劃因仇士良察覺異樣而失敗，換來更深重的宦官專權。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Ransom Room</span>Smallpox and civil war, not Spanish weapons alone, had already fractured the Inca Empire before Pizarro&rsquo;s ambush.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 韓愈〈諫迎佛骨表〉</span>韓愈諫阻迎佛骨幾乎喪命，卻為宋代理學道統重建埋下種子。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; William of Ockham</span>Ockham&rsquo;s razor favours the simplest explanation, a principle rigorous enough to send its author fleeing the Pope.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Foot-in-the-Door Technique</span>Agreeing to a small request first reshapes self-image, making people far more likely to agree to a bigger one later.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Contagious Yawning</span>Yawning likely cools the brain, while catching a yawn from others tracks empathy and social closeness.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Does Flossing Work?</span>Decades of flossing advice rested on thin evidence, a gap only exposed once journalists checked the trials.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Sports Massage</span>Massage reliably eases perceived soreness and mood but shows little proof of speeding actual muscle repair.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Norway&rsquo;s Sovereign Wealth Fund</span>A strict rule limiting annual spending to expected returns let Norway turn oil wealth into the world&rsquo;s largest fund.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Great Divergence</span>Whether coal and colonies or high wages explain Europe&rsquo;s takeoff over China remains a live historical debate.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Storm That Has Outlasted Empires: Jupiter&rsquo;s Shrinking Great Red Spot</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Jupiter&rsquo;s Great Red Spot is a storm big enough to swallow Earth whole, and astronomers have tracked it continuously since the 1830s. But measurements over the last century show something unexpected happening to its size. Before reading on, what do you think has been happening to the Great Red Spot, and why might a storm this massive be changing at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Jupiter_OPAL_2024.png/330px-Jupiter_OPAL_2024.png" alt="Jupiter photographed by the Hubble Space Telescope's OPAL program, showing the Great Red Spot" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jupiter (木星) and its Great Red Spot (大紅斑), imaged by the Hubble Space Telescope (哈勃太空望遠鏡) in 2024. Credit: NASA/ESA/STScI / <a href="https://en.wikipedia.org/wiki/Great_Red_Spot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Jupiter&rsquo;s (木星) Great Red Spot (大紅斑) is an anticyclonic storm (反氣旋風暴) so vast that Earth could fit inside it more than once, and it has been under continuous telescopic observation since the 1830s, making it one of the longest-tracked storms known to science. Some astronomers suspect a dark oval recorded by English scientist Robert Hooke (羅伯特&middot;虎克) in 1664, or the &ldquo;Permanent Spot&rdquo; noted soon after by Italian-French astronomer Giovanni Cassini (卡西尼), may have been the same feature, pushing its age past 350 years, though the older records are too sparse to confirm continuity. Even by the 19th century, the spot already dwarfed anything Earth&rsquo;s atmosphere produces.</p>
+      <p>NASA&rsquo;s (美國太空總署) Juno (朱諾號) spacecraft, orbiting Jupiter since 2016, used its microwave radiometer to peer beneath the visible cloud tops and found the storm extends roughly 300 kilometres down, far deeper than scientists had expected, with roots reaching well into the planet&rsquo;s turbulent lower atmosphere. The spot&rsquo;s rust-red colour remains only partly explained: leading theories point to chromophores (色素分子), compounds thought to form when sunlight&rsquo;s ultraviolet radiation (紫外線) triggers reactions in ammonia (氨) and other gases dredged up from deeper layers, though the exact molecules responsible have never been directly identified, making the colour one of the solar system&rsquo;s more stubborn unsolved puzzles.</p>
+      <p>Careful measurements stretching back to the 19th century show the Great Red Spot steadily shrinking: from roughly 40,000 kilometres across in the 1880s to about 16,000 kilometres today, still wider than Earth but a fraction of its former size. The Hubble Space Telescope&rsquo;s (哈勃太空望遠鏡) OPAL program has tracked this contraction closely since 2014, also documenting the storm growing rounder and occasionally shedding smaller red flakes that peel away from its edge. Nobody knows whether the shrinking will stabilise, reverse, or eventually end the storm altogether, leaving one of astronomy&rsquo;s most famous weather systems still, quite literally, an open case.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Red_Spot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One of the solar system&rsquo;s most iconic storms has been quietly shrinking for over a century &mdash; and nobody knows why it will stop, or if it will.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did NASA&rsquo;s Juno spacecraft discover about how deep the Great Red Spot actually extends beneath Jupiter&rsquo;s visible clouds?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Juno&rsquo;s microwave radiometer found the storm extends roughly 300 kilometres beneath the visible cloud tops, far deeper than scientists had expected, with roots reaching into Jupiter&rsquo;s turbulent lower atmosphere rather than being a shallow surface feature.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL-Caltech, Juno mission data. Simon, A.A. et al. (2018). <em>Astronomical Journal</em> &mdash; Hubble OPAL program.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History (Japan) -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>《解體新書》：一部荷蘭文醫書，如何撼動了鎖國下的日本</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶時代日本奉行鎖國政策，嚴禁與西方交流，唯獨長崎的荷蘭商館獲准通商。一群蘭學者卻冒險翻譯一部荷蘭文解剖學著作，你認為，這部譯著最終會為閉關自守的日本帶來怎樣的衝擊？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>杉田玄白；前野良沢；中川淳庵。</p>
+        <p><strong>事件：</strong>安永三年（1774年），三人合力將荷蘭文解剖學著作譯成《解體新書》並刊行，開創日本蘭學（西學）風氣之先。</p>
+        <p><strong>時代背景：</strong>江戶幕府自十七世紀中葉厲行鎖國政策，僅容荷蘭、中國商船於長崎出島通商，西方學問僅能透過荷蘭文獻零星傳入。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Kaitai_shinsyo01.jpg" alt="《解體新書》書中的解剖圖版" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《解體新書》（1774年）內頁解剖圖版，日本第一部系統翻譯自西方文獻的醫學專著。來源：<a href="https://en.wikipedia.org/wiki/Kaitai_Shinsho" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>江戶時代中期，蘭學（荷蘭學問）尚屬邊緣之學，僅有少數醫官透過長崎出島的荷蘭商館接觸西方典籍。杉田玄白身為藩醫，早年即對傳統漢方醫學的臟腑學說心存疑惑，苦無實證可依。明和八年（1771年），杉田玄白與前野良沢、中川淳庵三人獲准前往江戶小塚原刑場觀刑，並藉機解剖死囚遺體，隨身攜帶一部荷蘭文解剖學譯本比對驗證，赫然發現書中臟腑構造與眼前實際解剖結果幾乎完全吻合，卻與沿用已久的漢方臟腑圖說大相逕庭，三人相顧愕然，深感漢方醫學謬誤流傳已久。</p>
+      <p>解剖驗證之後，三人決意將這部荷蘭文醫書譯成日文，然而三人之中，前野良沢雖略通荷蘭文，杉田玄白幾乎完全不懂，翻譯工作猶如摸黑前行，一字一句反覆推敲，甚至為了「眉毛」一詞的譯法便耗費數日苦思。三人約定每月聚會數次，如此艱辛翻譯歷時近四年，終於在安永三年（1774年）將全書譯成，題為《解體新書》，共分四卷，並附精細銅版解剖圖譜，正式刊行後轟動醫界，是日本第一部系統翻譯自西方文獻的醫學專著。</p>
+      <p>《解體新書》的出版，不僅糾正了沿襲千年的漢方臟腑謬誤，更象徵蘭學自此由邊緣走向主流，杉田玄白晚年於《蘭學事始》一書中，回憶當年翻譯的艱辛歷程，成為後世研究蘭學發展的重要史料。此後大槻玄澤、宇田川玄真等蘭學者相繼投入西方醫學、天文、物理典籍的翻譯，蘭學逐漸發展成幕末日本吸收西方科技知識的重要橋樑，直接為明治維新時期全面西化奠定了知識基礎與翻譯人才。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Kaitai_Shinsho" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 三個看不懂荷蘭文的醫師，靠著一具屍體與一本外文書，翻譯出了日本走向西學的第一步。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>杉田玄白等人為何會對傳統漢方醫學的臟腑學說產生懷疑，促使他們決心翻譯《解體新書》？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">三人於小塚原刑場觀看死囚解剖時，隨身攜帶荷蘭文解剖學譯本比對驗證，發現書中臟腑構造與實際解剖結果幾乎完全吻合，卻與沿用已久的漢方臟腑圖說大相逕庭，因而確信漢方醫學謬誤流傳已久，決心翻譯此書以糾正錯誤。</div>
+      </details>
+      <div class="source">&#x1F4D6; 杉田玄白《蘭學事始》；<em>Kaitai Shinsho</em> (1774), National Diet Library digital archive.</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>18,000 Horsemen at Dusk: The Cavalry Charge That Broke the Siege of Vienna</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In September 1683, an Ottoman army had besieged Vienna for two months, and the city&rsquo;s defenders were down to their last reserves of gunpowder. Then a relief army launched what would become one of the largest cavalry charges in history. Before reading on, what do you think this single charge managed to achieve, and why might historians still call it a turning point for the balance of power in Europe?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Jan III Sobieski (揚&middot;索別斯基), King of Poland (波蘭); Kara Mustafa Pasha (卡拉&middot;穆斯塔法帕夏), Ottoman (鄂圖曼) grand vizier leading the siege.</p>
+        <p><strong>Event at stake:</strong> The Battle of Vienna (維也納之戰), September 1683 &mdash; a Polish-Habsburg-German relief army broke a two-month Ottoman siege of Vienna (維也納) with a massive cavalry charge.</p>
+        <p><strong>Big picture:</strong> The Ottoman Empire (鄂圖曼帝國) had pushed deep into Central Europe for over two centuries; Vienna&rsquo;s fall threatened to open the continent&rsquo;s heart to further advance.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Portret_van_Kara_Mustafa_Pasha%2C_RP-P-1894-A-18289.jpg/3840px-Portret_van_Kara_Mustafa_Pasha%2C_RP-P-1894-A-18289.jpg" alt="Portrait of Kara Mustafa Pasha, the Ottoman grand vizier who led the siege of Vienna" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Kara Mustafa Pasha (卡拉&middot;穆斯塔法帕夏), the Ottoman (鄂圖曼) grand vizier whose siege of Vienna ended in defeat in 1683. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Vienna" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By July 1683, an Ottoman (鄂圖曼) army of roughly 150,000 troops under Grand Vizier Kara Mustafa Pasha (卡拉&middot;穆斯塔法帕夏) had encircled Vienna (維也納), the Habsburg (哈布斯堡) capital and gateway to Central Europe, digging siege tunnels and detonating mines beneath its walls while the city&rsquo;s garrison of barely 15,000 defenders, low on gunpowder and food, held on through two increasingly desperate months. Emperor Leopold I (利奧波德一世) had already fled the city, and word spread across Christian Europe that Vienna&rsquo;s fall might open the continent&rsquo;s interior to further Ottoman advance, the empire&rsquo;s furthest westward push in over two centuries of expansion.</p>
+      <p>A relief coalition finally assembled under Polish (波蘭) King Jan III Sobieski (揚&middot;索別斯基), combining Polish, Austrian, and German troops into a force of roughly 70,000&ndash;80,000 men that approached Vienna from the wooded Kahlenberg (卡倫山) heights on 12 September 1683. Late that afternoon, Sobieski personally led what became one of history&rsquo;s largest cavalry charges, an estimated 18,000 horsemen including Poland&rsquo;s elite winged hussars (翼騎兵), thundering down the slopes directly into the exhausted Ottoman lines. The charge shattered the besieging army within hours; Kara Mustafa fled the field, and Sobieski reportedly paraphrased Julius Caesar (凱撒), declaring &ldquo;I came, I saw, God conquered.&rdquo;</p>
+      <p>The Ottoman defeat at Vienna marked the effective end of the empire&rsquo;s westward territorial expansion into Central Europe, triggering the Great Turkish War (大土耳其戰爭) and a string of Habsburg reconquests that pushed Ottoman control back out of Hungary (匈牙利) over the following sixteen years. Kara Mustafa Pasha was executed by order of Sultan Mehmed IV (穆罕默德四世) for the humiliating loss, while Sobieski became a celebrated hero across Christian Europe. Historians still debate how differently European history might have unfolded had that single afternoon cavalry charge failed to break the siege in time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Vienna" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One afternoon cavalry charge outside Vienna halted two centuries of Ottoman westward expansion into Europe.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What role did the winged hussars&rsquo; cavalry charge play in breaking the siege of Vienna, and what happened to Kara Mustafa Pasha afterward?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Roughly 18,000 cavalry, led personally by Sobieski and including Poland&rsquo;s winged hussars, charged down from the Kahlenberg heights into the exhausted Ottoman lines, shattering the siege within hours. Kara Mustafa Pasha fled and was later executed by Sultan Mehmed IV for the defeat.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wheatcroft, A. (2008). <em>The Enemy at the Gate</em>. Stoye, J. (1964). <em>The Siege of Vienna</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>張載「橫渠四句」：一位北宋哲學家為天地立心的抱負</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">北宋哲學家張載曾寫下一句流傳近千年的名言，概括了他認為讀書人應有的終極抱負。你認為，這句話會是怎樣一種胸襟與抱負？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>張載（1020&ndash;1077，字子厚，世稱橫渠先生）。</p>
+        <p><strong>核心思想：</strong>「氣一元論」，主張宇宙萬物皆由「氣」構成，聚則成形，散則歸於太虛；提出「民胞物與」，視天下百姓為同胞，萬物為同類。</p>
+        <p><strong>時代背景：</strong>北宋中期儒學復興，張載與周敦頤、程顥、程頤等人同為理學奠基者，力圖以儒家義理回應佛道二教對士人思想的衝擊。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/China_-_Song_Dynasty-en.svg/960px-China_-_Song_Dynasty-en.svg.png" alt="北宋疆域圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">北宋疆域圖，張載講學的關中地區正處於北宋儒學復興的核心地帶。來源：<a href="https://en.wikipedia.org/wiki/Zhang_Zai" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>張載出身陝西關中，早年曾熱衷兵法，欲從軍立功以收復失土，後受范仲淹勸告轉而鑽研儒家經典，遂棄武從文，長期講學於陝西橫渠鎮，故世稱橫渠先生。他提出「氣一元論」，主張宇宙間唯有「氣」是根本實在，氣聚則成萬物，氣散則復歸於無形無象的「太虛」，萬物生滅不過是氣聚散的暫時形態，藉此駁斥佛教「萬法皆空」與道教「有生於無」的宇宙觀，重新確立儒家對現實世界的肯定態度。</p>
+      <p>張載晚年著〈西銘〉一文，開篇即言「乾稱父，坤稱母」，將天地比作父母，進而提出「民吾同胞，物吾與也」，主張天下百姓皆如同胞手足，萬物皆與人同氣連枝，人應以孝敬父母之心推及對待天下蒼生與萬物。此說突破儒家傳統「愛有差等」的親疏框架，卻又不同於墨家「兼愛」的無差別平等，而是強調由近及遠、推己及人的道德擴充次第，程頤讀後盛讚〈西銘〉「明理一而分殊」，成為理學重要文獻。</p>
+      <p>張載最為後世傳誦者，莫過於概括其畢生抱負的「橫渠四句」：「為天地立心，為生民立命，為往聖繼絕學，為萬世開太平」，短短十六字道盡儒家知識分子以天下為己任的宏願。這四句話歷經近千年，至今仍常被引用勉勵學者與從政者應有的胸襟格局。張載的氣論思想後為明代王夫之等人繼承發揮，其「民胞物與」的平等關懷精神，也常被視為儒家傳統中最接近近代人道主義的思想資源之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhang_Zai" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 「為天地立心，為生民立命」——短短十六字，道盡一位哲學家對天下蒼生的終身抱負。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>張載在〈西銘〉中提出「民胞物與」的主張，其核心觀點是甚麼？這與墨家「兼愛」有何不同？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">張載主張天下百姓皆如同胞手足，萬物皆與人同氣連枝，人應將孝敬父母之心推及對待天下蒼生萬物；但此說仍強調由近及遠、推己及人的差等次第，而非墨家兼愛所主張的無差別平等對待。</div>
+      </details>
+      <div class="source">&#x1F4D6; 張載《正蒙》；〈西銘〉。馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Whereof One Cannot Speak: Wittgenstein (維根斯坦) and the Limits of Language</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A young Austrian engineer abandoned aeronautics to study philosophy, wrote a slim book he believed had solved all of philosophy&rsquo;s problems, then walked away from the field entirely to teach primary school in a remote village. Before reading on, what do you think eventually pulled him back into philosophy, arguing against the very book that had made him famous?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Ludwig Wittgenstein (維根斯坦, 1889&ndash;1951), Austrian-British (奧地利裔英國) philosopher; Bertrand Russell (羅素), his early mentor at Cambridge (劍橋大學).</p>
+        <p><strong>Idea at stake:</strong> The picture theory of language (圖像論) in his early <em>Tractatus Logico-Philosophicus</em> (邏輯哲學論), later rejected by his own theory of language games (語言遊戲).</p>
+        <p><strong>Big picture:</strong> Wittgenstein&rsquo;s career spans two almost incompatible philosophies of language, both enormously influential, produced by the same restless, self-critical mind.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Ludwig_Wittgenstein_1929.jpg/330px-Ludwig_Wittgenstein_1929.jpg" alt="Photograph of Ludwig Wittgenstein, 1929" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ludwig Wittgenstein (維根斯坦), photographed in 1929, the year he returned to Cambridge (劍橋大學) philosophy after nearly a decade away. Credit: <a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Ludwig Wittgenstein (維根斯坦) arrived at Cambridge University (劍橋大學) in 1911 to study logic under philosopher Bertrand Russell (羅素), who quickly declared the young Austrian a genius destined to make the next great advance in philosophy. After serving in the Austrian army during the First World War (第一次世界大戰), partly as a prisoner of war, Wittgenstein completed the <em>Tractatus Logico-Philosophicus</em> (邏輯哲學論), published in 1921, a spare, numbered sequence of propositions arguing that language works by picturing facts about the world, and that anything which cannot be stated as a clear factual proposition, including most traditional philosophy, ethics, and religion, should be passed over in silence.</p>
+      <p>The <em>Tractatus</em> closes with its most famous line, &ldquo;Whereof one cannot speak, thereof one must be silent,&rdquo; and Wittgenstein believed the book had solved philosophy&rsquo;s problems so completely that he abandoned the field entirely, giving away his family fortune and spending most of the 1920s teaching primary school in remote Austrian (奧地利) villages, an experiment that ended badly after he struck a student and faced an inquiry. Only in 1929, drawn back by doubts about his own picture theory of language (圖像論), did he return to Cambridge, reportedly telling Russell his earlier masterwork now looked seriously mistaken.</p>
+      <p>Wittgenstein&rsquo;s later work, published posthumously as <em>Philosophical Investigations</em> (哲學研究) in 1953, rejected the <em>Tractatus</em> almost entirely, arguing instead that words don&rsquo;t get their meaning by picturing facts but through their use within particular &ldquo;language games&rdquo; (語言遊戲), social practices as varied as giving orders, telling jokes, or making promises. His famous &ldquo;private language argument&rdquo; (私人語言論證) contended that a language only one person could ever understand, referring purely to their own private sensations, is not actually possible, because meaning requires publicly checkable rules. Remarkably, both the early and late Wittgenstein remain among the most influential works in 20th-century philosophy, despite largely contradicting each other.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Wittgenstein produced two of philosophy&rsquo;s most influential works by essentially arguing with his own earlier self.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did Wittgenstein&rsquo;s later theory of language in <em>Philosophical Investigations</em> differ from the picture theory he proposed in the <em>Tractatus</em>?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The <em>Tractatus</em> argued language works by picturing facts about the world. <em>Philosophical Investigations</em> rejected this, arguing instead that words get their meaning through their use within diverse social &ldquo;language games&rdquo; &mdash; orders, jokes, promises &mdash; rather than by mirroring reality.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wittgenstein, L. <em>Tractatus Logico-Philosophicus</em> (1921); <em>Philosophical Investigations</em> (1953). Stanford Encyclopedia of Philosophy, &ldquo;Ludwig Wittgenstein.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology (Behavioral Econ) -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a Simple Default Setting Can Double a Country&rsquo;s Organ Donation Rate</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In Germany, about 12% of people are registered organ donors. In neighbouring Austria, a nearly identical culture with a nearly identical healthcare system, the figure is over 99%. Before reading on, what single administrative difference between these two countries do you think explains almost the entire gap?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/2016-06_Naarden_donor_02.jpg/330px-2016-06_Naarden_donor_02.jpg" alt="An organ donor registration campaign event" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Organ donation (器官捐贈) registration &mdash; whether joining is automatic or requires an active step turns out to matter more than almost anything else. Credit: <a href="https://en.wikipedia.org/wiki/Organ_donation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a widely cited 2003 study, psychologists Eric Johnson (強生) and Daniel Goldstein (戈爾茲坦) compared organ donation (器官捐贈) registration rates across European countries and found a striking pattern that had nothing to do with culture, religion, or public awareness campaigns. Countries where citizens had to actively opt in to become donors, ticking a box on a form, averaged donation rates below 20%. Countries where citizens were automatically registered as donors unless they explicitly opted out averaged rates above 90%, even between culturally similar neighbouring nations like Germany (德國, opt-in, ~12%) and Austria (奧地利, opt-out, ~99%).</p>
+      <p>This is an example of the default effect (預設效應): people overwhelmingly stick with whatever option is pre-selected for them, whether the topic is organ donation, retirement savings (退休儲蓄) enrolment, or email newsletter subscriptions, rather than actively deciding for themselves. Researchers Richard Thaler (塞勒) and Cass Sunstein (桑思坦) popularised the underlying idea as &ldquo;choice architecture&rdquo; (選擇架構) in their 2008 book <em>Nudge</em>, arguing that because some default must always be set, whoever designs a form or policy is inevitably steering outcomes, whether they intend to or not, simply by choosing which option requires no action.</p>
+      <p>The mechanism isn&rsquo;t pure laziness: switching from the default often requires effort, feels like an active endorsement of an uncomfortable topic like one&rsquo;s own death, or gets interpreted as an implicit recommendation from whoever designed the form. Critics note opt-out systems raise consent concerns, since some people may simply never get around to opting out despite genuinely disagreeing, which is why several opt-out countries pair the policy with mandatory choice reminders or family consultation. The broader lesson extends well beyond organ donation: whoever controls the default option holds unusual, largely invisible power over what people end up doing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Organ_donation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The single biggest lever for organ donation rates isn&rsquo;t awareness campaigns &mdash; it&rsquo;s whether donating is the default or the exception.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Johnson and Goldstein&rsquo;s 2003 study find about organ donation rates in opt-in versus opt-out countries, and what psychological effect explains the gap?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Opt-in countries, where citizens must actively register, averaged donation rates below 20%, while opt-out countries, where registration is automatic unless declined, averaged above 90%. The default effect explains this: people overwhelmingly stick with whatever option is pre-selected rather than actively deciding.</div>
+      </details>
+      <div class="source">&#x1F4D6; Johnson, E.J. &amp; Goldstein, D. (2003). <em>Science</em>, 302(5649). Thaler, R.H. &amp; Sunstein, C.R. (2008). <em>Nudge</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Mosquito Magnets: Why Some People Get Bitten Far More Than Others</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">At any outdoor gathering, some people get eaten alive by mosquitoes while others nearby barely get bitten at all, and this isn&rsquo;t random luck, the same individuals tend to be favoured bite after bite, year after year. Before reading on, what do you think makes certain people so much more attractive to mosquitoes than others sitting right next to them?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Aedes_aegypti.jpg" alt="Close-up photograph of an Aedes aegypti mosquito" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A mosquito (蚊子) locating a host by scent &mdash; individual skin chemistry, not blood type or diet, largely explains why some people get bitten far more than others. Credit: <a href="https://en.wikipedia.org/wiki/Mosquito" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A landmark 2022 study led by Leslie Vosshall (福斯霍爾) at Rockefeller University (洛克菲勒大學) tracked mosquito (蚊子) preferences among a group of volunteers over several years using a specially designed testing arena, and confirmed what casual observation had long suggested: certain people are consistently, dramatically more attractive to mosquitoes than others, with the most attractive individuals drawing roughly 100 times more mosquito landings than the least attractive ones. Crucially, individual rankings stayed remarkably stable across repeated testing sessions spanning years, ruling out mood, diet on a given day, or randomness as the main explanation.</p>
+      <p>The key difference turned out to be skin chemistry (皮膚化學), specifically the level of carboxylic acids (羧酸) produced by skin bacteria as they break down natural skin oils. Mosquitoes locate hosts partly by smell, detecting carbon dioxide (二氧化碳) from breath at a distance and then honing in on specific skin odour compounds once close, and people whose skin microbiome (皮膚微生物群) produces higher concentrations of these carboxylic acids proved consistently more attractive across the study&rsquo;s years-long tracking, regardless of blood type, diet, or the sweetness of what they&rsquo;d eaten, popular myths the research found little support for.</p>
+      <p>This individual attractiveness appears remarkably stable and resistant to change: attempts to alter it through diet, hygiene products, or vitamin supplements have shown little consistent effect in controlled studies, suggesting the underlying skin chemistry is largely fixed by an individual&rsquo;s bacterial ecosystem and genetics rather than anything easily modified day to day. For the unlucky minority who rank as strong mosquito magnets, practical protection, repellents containing DEET (避蚊胺) or picaridin (派卡瑞丁), physical barriers, and avoiding peak dusk activity, remains far more reliable than hoping to change one&rsquo;s underlying attractiveness through diet or lifestyle tweaks.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mosquito" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If mosquitoes always seem to pick you, it&rsquo;s your skin bacteria&rsquo;s carboxylic acid output giving you away, not your blood type or diet.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What skin-related factor did Vosshall&rsquo;s 2022 study identify as the main reason some people attract far more mosquito bites than others?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Higher concentrations of carboxylic acids, produced by skin bacteria breaking down natural skin oils, made certain people&rsquo;s skin odour far more attractive to mosquitoes. Individual rankings stayed stable across years of testing, ruling out diet, blood type, or randomness as the main cause.</div>
+      </details>
+      <div class="source">&#x1F4D6; De Obaldia, M.E. et al. (2022). <em>Cell</em>. Vosshall Lab, Rockefeller University.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do &ldquo;Detox&rdquo; Diets Actually Remove Toxins? What the Evidence Shows</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Juice cleanses, detox teas, and multi-day fasting programs are marketed on the promise of flushing &ldquo;toxins&rdquo; out of your body that ordinary eating supposedly leaves behind. Before reading on, what do you think happens when scientists actually try to identify which specific toxins these products claim to remove, and measure whether they&rsquo;re removed any faster than normal?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Anatomy_Abdomen_Tiesworks.jpg" alt="Anatomical illustration of the abdomen showing the liver and digestive organs" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The liver (肝臟) and kidneys (腎臟) &mdash; the body&rsquo;s actual, continuously working detoxification (排毒) organs, regardless of what diet is followed. Credit: <a href="https://en.wikipedia.org/wiki/Detox_diet" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Commercial &ldquo;detox&rdquo; (排毒) products, juice cleanses, detox teas, and short fasting programs, are typically marketed with the claim that they help the body eliminate accumulated toxins that ordinary metabolism leaves behind. A 2015 review published in the <em>Journal of Human Nutrition and Dietetics</em> searched systematically for any published clinical trial testing a commercial detox diet&rsquo;s effect on a clearly identified toxin, and found none: not one commercially marketed detox product had ever named a specific toxin it removed, let alone demonstrated in a controlled trial that it removed that substance faster than the body&rsquo;s own ordinary processes already do.</p>
+      <p>The reason no such evidence exists is that the human body already has two dedicated, highly effective detoxification organs working continuously: the liver (肝臟), which chemically breaks down drugs, alcohol, and metabolic waste products into water-soluble compounds, and the kidneys (腎臟), which filter that processed waste out of the blood and excrete it in urine. These organs work around the clock regardless of diet, and there&rsquo;s no evidence that juice cleanses or detox teas make either organ perform this job any faster, since the actual rate-limiting biochemical processes involved don&rsquo;t accelerate simply because someone stopped eating solid food for a few days.</p>
+      <p>Some detox programs can even backfire: prolonged juice-only diets provide little protein and can cause muscle loss and electrolyte imbalances (電解質失衡), while certain detox teas contain laxatives (瀉藥) or diuretics (利尿劑) that cause temporary weight loss through water and stool, not fat, and can be dangerous for people with kidney or heart conditions. The honest, evidence-based version of &ldquo;detoxing&rdquo; is unglamorous: get enough sleep, stay hydrated, eat a varied diet with adequate fibre, and let your liver and kidneys, which were never actually impaired in the first place, continue doing the job they already do extremely well.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Detox_diet" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; No commercial detox product has ever named the toxin it removes or proven it works faster than your liver and kidneys already do it for free.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2015 systematic review find when it searched for clinical evidence behind commercial detox diets, and which two organs already do this job?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The review found no published trial had ever identified a specific toxin removed by a commercial detox product, or shown it worked faster than the body&rsquo;s own processes. The liver and kidneys already continuously detoxify the body regardless of diet.</div>
+      </details>
+      <div class="source">&#x1F4D6; Klein, A.V. &amp; Kiat, H. (2015). <em>Journal of Human Nutrition and Dietetics</em>, 28(6).</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Live High, Train Low: Why Elite Runners Train Where the Air Is Thin</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The world&rsquo;s best distance runners overwhelmingly come from high-altitude regions of Kenya and Ethiopia, and athletes from lower elevations often travel to train at altitude before major competitions. Before reading on, what physiological change do you think happens inside the body after weeks spent living at altitude that could make such a measurable difference back at sea level?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Swiss_Olympic_training_base.jpg/330px-Swiss_Olympic_training_base.jpg" alt="A high-altitude Olympic training facility" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A high-altitude training base (高地訓練基地) &mdash; athletes sleep and rest here, where thinner air stimulates the body to produce more oxygen-carrying red blood cells. Credit: <a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>At high altitude, roughly above 2,000 metres, the air contains the same 21% oxygen (氧氣) as at sea level, but lower atmospheric pressure means each breath delivers fewer oxygen molecules overall, forcing the body to adapt or suffer reduced performance. Sports physiologist Benjamin Levine (列文) and exercise scientist James Stray-Gundersen (斯特雷-岡德森) formalised the modern approach in the 1990s with their &ldquo;live high, train low&rdquo; (高住低練) protocol: athletes sleep and rest at altitude, where the body is stimulated to adapt, but travel down to lower elevation for the hardest training sessions, since intense workouts are difficult to perform effectively while under-oxygenated.</p>
+      <p>The key adaptation is a rise in erythropoietin (紅血球生成素), a kidney hormone that signals bone marrow (骨髓) to produce more red blood cells, which in turn increases the blood&rsquo;s oxygen-carrying capacity once the athlete returns to sea level and races with essentially more oxygen delivery per heartbeat than before. Levine and Stray-Gundersen&rsquo;s controlled studies found runners using the live-high-train-low protocol improved sea-level 5,000-metre times by roughly 1.5%, a small-sounding margin that translates into a significant competitive edge at the elite level, where races are frequently decided by fractions of a second.</p>
+      <p>Not everyone responds equally: research has identified &ldquo;responders&rdquo; and &ldquo;non-responders&rdquo; to altitude exposure, with some athletes producing substantially more additional red blood cells than others under identical conditions, for reasons still not fully understood. Effective altitude training also requires roughly three to four weeks of exposure to produce meaningful blood changes, and the benefits fade within weeks of returning to sea level, which is why elite programs schedule altitude camps carefully before major competitions. This variation partly explains why East African nations&rsquo; natural high-altitude population base still offers a persistent, difficult-to-replicate advantage in distance running.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Sleeping high but training low lets the body build more oxygen-carrying red blood cells without sacrificing hard workout intensity.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &ldquo;live high, train low&rdquo; protocol, and what hormone drives its main physiological benefit?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Athletes sleep and rest at altitude, where lower oxygen availability stimulates adaptation, but travel to lower elevation for intense training sessions. The key driver is erythropoietin, a kidney hormone that boosts red blood cell production, increasing oxygen-carrying capacity once athletes return to sea level.</div>
+      </details>
+      <div class="source">&#x1F4D6; Levine, B.D. &amp; Stray-Gundersen, J. (1997). <em>Journal of Applied Physiology</em>, 83(1).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Nobel Split Two Ways: Markets Are Efficient, Except When They&rsquo;re Not</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2013, the Nobel Memorial Prize in Economic Sciences went jointly to Eugene Fama and Robert Shiller, two economists whose life&rsquo;s work reached almost opposite conclusions about how financial markets behave. Before reading on, what do you think the Nobel committee&rsquo;s reasoning was for honouring two apparently contradictory views in the very same year?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/New_York_Stock_Exchange_Facade_2015.jpg/330px-New_York_Stock_Exchange_Facade_2015.jpg" alt="Facade of the New York Stock Exchange" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The New York Stock Exchange (紐約證券交易所) &mdash; ground zero for the decades-long debate over whether markets efficiently price all available information. Credit: <a href="https://en.wikipedia.org/wiki/Efficient-market_hypothesis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Eugene Fama (法馬) built his career on the efficient-market hypothesis (效率市場假說), formalised in an influential 1970 paper arguing that asset prices at any given moment already reflect all publicly available information, making it essentially impossible to consistently &ldquo;beat the market&rdquo; through skilled analysis rather than luck, since any predictable pattern would be instantly traded away by rational investors seeking profit. This idea, built on decades of empirical work showing professional fund managers rarely outperform simple market-index benchmarks over long periods, became the intellectual foundation for the rise of low-cost index investing (指數投資) and reshaped how most institutional money is managed today.</p>
+      <p>Robert Shiller (席勒), working the same decades, found evidence Fama&rsquo;s framework struggled to explain: stock prices are dramatically more volatile than any reasonable model of changing &ldquo;fundamental&rdquo; value, like future dividends (股息), could justify, a finding known as excess volatility (超額波動), and Shiller&rsquo;s own cyclically-adjusted price-to-earnings ratio (週期調整本益比) showed some predictive power for long-run returns, something a fully efficient market shouldn&rsquo;t allow. Shiller&rsquo;s 2000 book <em>Irrational Exuberance</em>, published just before the dot-com crash, argued that psychological factors, herd behaviour (羊群效應), narratives, and speculative feedback loops, drive prices away from fundamentals for extended periods, sometimes years.</p>
+      <p>The Nobel committee&rsquo;s 2013 decision to honour Fama and Shiller together wasn&rsquo;t a contradiction so much as an acknowledgement that both are partly right at different time horizons: short-term price movements are largely unpredictable, exactly as Fama&rsquo;s efficiency argument predicts, yet long-run valuations do drift away from fundamentals and eventually correct, exactly as Shiller&rsquo;s behavioural evidence shows. Modern quantitative investors now routinely blend both frameworks, assuming markets are efficient enough that quick arbitrage is hard, while still hunting for the slower, multi-year mispricings that behavioural finance (行為金融學) suggests can persist.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Efficient-market_hypothesis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Markets are hard to beat in the short run and prone to irrational swings in the long run &mdash; both Nobel-winning ideas turned out to be true.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What finding did Robert Shiller identify that challenged Eugene Fama&rsquo;s efficient-market hypothesis, and how did the 2013 Nobel committee resolve the apparent contradiction?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Shiller found stock prices are far more volatile than changes in fundamental value like future dividends could justify &mdash; &ldquo;excess volatility&rdquo; &mdash; suggesting psychology drives long-run mispricing. The Nobel committee honoured both, since short-term prices are largely unpredictable while long-run valuations do drift from fundamentals.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fama, E.F. (1970). <em>Journal of Finance</em>, 25(2). Shiller, R.J. (2000). <em>Irrational Exuberance</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Doesn&rsquo;t Capital Flow to Poor Countries? The Lucas Paradox</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Foreign_direct_investment_by_country.webp/330px-Foreign_direct_investment_by_country.webp.png" alt="Map of foreign direct investment by country" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Foreign direct investment (外國直接投資) remains concentrated among wealthy nations, despite theory predicting it should flow toward capital-scarce poor countries instead. Credit: <a href="https://en.wikipedia.org/wiki/Lucas_paradox" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Standard economic theory predicts capital (資本) should flow from rich countries, where returns on new investment are low, to poor countries, where capital is scarce and returns should be far higher. In practice, most global investment flows between wealthy nations, bypassing the poorest economies (最貧窮經濟體) theory says should attract it most.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">In a landmark 1990 paper, economist Robert Lucas Jr. (羅伯特&middot;盧卡斯) applied the neoclassical growth model (新古典增長模型), which assumes diminishing returns to capital, to calculate that capital per worker should be many times higher in poor countries than rich ones if capital flowed to wherever expected returns were highest.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Lucas found the predicted flow of capital from rich to poor countries was, empirically, almost entirely absent &mdash; a gap persisting for decades since, now known as the Lucas Paradox (盧卡斯悖論). Despite theoretically higher returns, foreign direct investment (外國直接投資) remains heavily concentrated among wealthy nations investing in each other.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Subsequent research points to what the simple model ignored: weak institutions and property rights (產權) in poor countries raise the real risk of expropriation, human capital (人力資本) and infrastructure gaps reduce capital&rsquo;s actual productivity, and information asymmetries (信息不對稱) make investors reluctant to lend where risk is hard to verify &mdash; still debated among development economists today.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; More capital doesn&rsquo;t flow to where it&rsquo;s theoretically most needed &mdash; institutions, not just scarcity, determine where investment actually goes.</div>
+      <div class="source">&#x1F4D6; Lucas, R.E. (1990). <em>American Economic Review</em>, 80(2). Alfaro, L., Kalemli-Ozcan, S. &amp; Volosovych, V. (2008). <em>Review of Economics and Statistics</em>.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; When Rational Models Meet Real Psychology:</strong> Classical economic theory assumes people actively evaluate every option and that markets instantly price in all available information. Card 6&rsquo;s default effect shows people overwhelmingly stick with whatever option is pre-set rather than truly choosing; Card 10&rsquo;s behavioural finance research found market prices swing far more than fundamentals justify, evidence of similar psychological inertia and herd behaviour operating at a much larger scale. Both quietly undermine the same tidy assumption: that people, and the markets made of them, behave as careful rational calculators weighing every choice fresh.</p>
+      <p><strong>So what:</strong> Whenever you&rsquo;re told &ldquo;the market decided&rdquo; or &ldquo;people chose this freely,&rdquo; ask what the default option was and who set it &mdash; the answer often explains more than the theory does.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL-Caltech, Juno mission data. Simon, A.A. et al. (2018), <em>Astronomical Journal</em>.</li>
+      <li><strong>Card 2:</strong> 杉田玄白《蘭學事始》；<em>Kaitai Shinsho</em> (1774), National Diet Library digital archive.</li>
+      <li><strong>Card 3:</strong> Wheatcroft, A. (2008), <em>The Enemy at the Gate</em>.</li>
+      <li><strong>Card 4:</strong> 張載《正蒙》；〈西銘〉。馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Wittgenstein, L., <em>Tractatus Logico-Philosophicus</em> (1921); <em>Philosophical Investigations</em> (1953).</li>
+      <li><strong>Card 6:</strong> Johnson, E.J. &amp; Goldstein, D. (2003), <em>Science</em> 302(5649).</li>
+      <li><strong>Card 7:</strong> De Obaldia, M.E. et al. (2022), <em>Cell</em>.</li>
+      <li><strong>Card 8:</strong> Klein, A.V. &amp; Kiat, H. (2015), <em>Journal of Human Nutrition and Dietetics</em> 28(6).</li>
+      <li><strong>Card 9:</strong> Levine, B.D. &amp; Stray-Gundersen, J. (1997), <em>Journal of Applied Physiology</em> 83(1).</li>
+      <li><strong>Card 10:</strong> Fama, E.F. (1970); Shiller, R.J. (2000).</li>
+      <li><strong>Card 11:</strong> Lucas, R.E. (1990); Alfaro, L. et al. (2008).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-25: Jupiter&rsquo;s Great Red Spot &bull; 解體新書／杉田玄白 &bull; Battle of Vienna 1683 &bull; 張載「西銘」與氣一元論 &bull; Ludwig Wittgenstein &bull; Default Effects / Organ Donation Opt-Out &bull; Mosquito Attraction / Skin Chemistry &bull; Detox Diet Myth &bull; Altitude Training (Live High, Train Low) &bull; Efficient-Market Hypothesis vs Behavioural Finance &bull; The Lucas Paradox</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-25.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-25.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 25 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
