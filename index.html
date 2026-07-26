@@ -38,8 +38,15 @@
     a.cell.has:hover{border-color:var(--gold);background:var(--surface2);color:#fff;transform:translateY(-2px);}
     a.cell.has::after{content:"";position:absolute;bottom:6px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.85;}
     .cell.today{box-shadow:inset 0 0 0 1px var(--accent);}
-    .cell .ed2{position:absolute;top:3px;right:3px;font-size:.56rem;line-height:1;font-weight:600;color:var(--bg);background:var(--gold);border-radius:4px;padding:.12rem .22rem;text-decoration:none;transition:transform .16s;}
-    .cell .ed2:hover{transform:scale(1.12);}
+    .cell .ed2{position:absolute;top:3px;right:3px;font-size:.56rem;line-height:1;font-weight:600;color:var(--bg);background:var(--gold);border-radius:4px;padding:.12rem .22rem;pointer-events:none;}
+    .cell.multi{cursor:pointer;}
+    a.cell.has.multi[aria-expanded="true"]{border-color:var(--gold);background:var(--surface2);color:#fff;}
+    /* edition picker popover */
+    .ed-pop{position:fixed;z-index:100;background:var(--surface2);border:1px solid var(--gold-dim);border-radius:8px;padding:.3rem;min-width:150px;box-shadow:0 10px 30px rgba(0,0,0,.55);display:none;}
+    .ed-pop.open{display:block;}
+    .ed-pop .ed-pop-title{font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:.3rem .55rem .4rem;}
+    .ed-pop a{display:block;font-size:.75rem;color:var(--text);text-decoration:none;padding:.44rem .6rem;border-radius:5px;white-space:nowrap;transition:background .15s,color .15s;}
+    .ed-pop a:hover{background:var(--surface);color:var(--gold);}
     .cal-foot{margin-top:1.6rem;display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;font-size:.7rem;color:var(--muted);}
     .cal-foot .legend{display:flex;align-items:center;gap:.4rem;}
     .cal-foot .sq{width:11px;height:11px;border-radius:3px;border:1px solid var(--gold-dim);background:var(--surface);display:inline-block;}
@@ -127,13 +134,16 @@
             el.title=(entries[0].label||'Daily Learning')+' \u2014 '+ds;
             el.textContent=d;
             if(entries.length>1){
-              var b=document.createElement('a');
+              el.className='cell has multi';
+              el.href='#';
+              el.setAttribute('aria-haspopup','menu');
+              el.setAttribute('aria-expanded','false');
+              el.title=entries.length+' briefings \u2014 '+ds+' (click to choose)';
+              var b=document.createElement('span');
               b.className='ed2';
-              b.href=entries[1].url;
-              b.textContent=entries.length>2?entries.length:'2';
-              b.title=(entries[1].label||'Edition 2')+' \u2014 '+ds;
-              b.addEventListener('click',function(ev){ev.stopPropagation();});
+              b.textContent=entries.length;
               el.appendChild(b);
+              el.addEventListener('click',makeOpener(entries.slice(),ds));
             }
           }else{
             el=document.createElement('div');
@@ -147,8 +157,58 @@
                        '<span class="cal-count">'+count+' this month</span>';
       }
 
-      prevBtn.addEventListener('click',function(){if(cur>0){cur--;render();}});
-      nextBtn.addEventListener('click',function(){if(cur<months.length-1){cur++;render();}});
+      // ---- edition picker popover ----
+      var pop=document.createElement('div');
+      pop.className='ed-pop';
+      pop.setAttribute('role','menu');
+      document.body.appendChild(pop);
+      var openAnchor=null;
+
+      function closePop(){
+        pop.classList.remove('open');
+        if(openAnchor){openAnchor.setAttribute('aria-expanded','false');openAnchor=null;}
+      }
+      function makeOpener(entries,ds){
+        return function(ev){
+          ev.preventDefault();
+          if(openAnchor===this){closePop();return;}
+          openPop(this,entries,ds);
+        };
+      }
+      function openPop(anchor,entries,ds){
+        closePop();
+        var d=new Date(ds+'T00:00:00');
+        var head=d.getDate()+' '+MONTHS[d.getMonth()]+' '+d.getFullYear();
+        var html='<div class="ed-pop-title">'+head+'</div>';
+        entries.forEach(function(e,i){
+          var n=e.edition||(i+1);
+          html+='<a role="menuitem" href="'+e.url+'">› Edition '+n+'</a>';
+        });
+        pop.innerHTML=html;
+        pop.classList.add('open');
+        anchor.setAttribute('aria-expanded','true');
+        openAnchor=anchor;
+        var r=anchor.getBoundingClientRect();
+        var pw=pop.offsetWidth, ph=pop.offsetHeight, m=8;
+        var left=r.left+r.width/2-pw/2;
+        left=Math.max(m,Math.min(left,window.innerWidth-pw-m));
+        var top=r.bottom+6;
+        if(top+ph>window.innerHeight-m) top=r.top-ph-6;
+        if(top<m) top=m;
+        pop.style.left=left+'px';
+        pop.style.top=top+'px';
+      }
+      document.addEventListener('click',function(ev){
+        if(!openAnchor) return;
+        if(pop.contains(ev.target)||openAnchor.contains(ev.target)) return;
+        closePop();
+      });
+      document.addEventListener('keydown',function(ev){if(ev.key==='Escape')closePop();});
+      window.addEventListener('resize',closePop);
+      window.addEventListener('scroll',closePop,true);
+
+      prevBtn.addEventListener('click',function(){if(cur>0){cur--;closePop();render();}});
+      nextBtn.addEventListener('click',function(){if(cur<months.length-1){cur++;closePop();render();}});
 
       fetch('briefings.json',{cache:'no-cache'})
         .then(function(r){if(!r.ok)throw 0;return r.json();})
