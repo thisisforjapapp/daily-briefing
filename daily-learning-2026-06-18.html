@@ -116,14 +116,16 @@ footer li{margin-bottom:.25rem;line-height:1.55;}
 .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
 .toc-bar{display:none;}
 }
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
 </style>
 </head>
 <body>
 
 <div class="sticky-top">
   <div class="back-bar">
-    <a href="index.html">&larr; All Briefings</a>
-    <div class="header-toolbar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
       <button class="toolbar-btn" onclick="window.print()">&#x1F4C4;&nbsp;PDF</button>
       <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5;&nbsp;Save</button>
       <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1;&nbsp;Send</button>
@@ -665,5 +667,18 @@ function briefingShare() {
 
 
 <script src="bm.js"></script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
 </body>
 </html>
