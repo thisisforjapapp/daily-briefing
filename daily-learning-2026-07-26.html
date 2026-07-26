@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 26 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <a href="index.html">&larr; All Briefings</a>
+    <div class="header-toolbar">
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 26 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>25 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Jupiter&rsquo;s Shrinking Great Red Spot</span>A storm bigger than Earth has been slowly shrinking for over a century, and nobody knows why.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 《解體新書》／杉田玄白</span>三醫者驗屍比對荷蘭醫書，譯成《解體新書》開蘭學先河。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Siege of Vienna 1683</span>An 18,000-strong cavalry charge broke a two-month Ottoman siege and ended their westward expansion.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 張載「橫渠四句」</span>張載「橫渠四句」道盡儒者以天下為己任的抱負。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Ludwig Wittgenstein</span>He wrote one influential philosophy book, then returned decades later to argue against his own earlier ideas.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Default Effects / Organ Donation</span>Whether donation is opt-in or opt-out predicts registration rates far better than culture does.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Mosquito Magnets</span>Skin bacteria producing more carboxylic acids, not blood type, explains why mosquitoes prefer certain people.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Detox Diet Myth</span>No commercial detox product has ever named a toxin it removes faster than your liver already does.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Live High, Train Low</span>Athletes sleep at altitude to boost red blood cells, then train at lower elevation for intensity.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; EMH vs Behavioural Finance</span>The 2013 Nobel honoured both efficient markets short-term and irrational mispricing long-term.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Lucas Paradox</span>Capital should theoretically flow to poor countries for higher returns, but empirically it mostly doesn&rsquo;t.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Comet That Stopped a Locked-Down World: NEOWISE&rsquo;s Brief Blaze Across the Sky</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July 2020, with much of the world confined indoors, people everywhere stepped outside at dawn or dusk to look up at something rare: a comet bright enough to see with the naked eye, the first in over two decades. Before reading on, what do you think made this particular comet&rsquo;s appearance so unusual, and how long do you think it will be before it returns?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Comet_2020_F3_%28NEOWISE%29_on_Jul_14_2020_aligned_to_stars.jpg/500px-Comet_2020_F3_%28NEOWISE%29_on_Jul_14_2020_aligned_to_stars.jpg" alt="Comet NEOWISE photographed on 14 July 2020, showing its dust tail against the stars" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Comet NEOWISE (新智彗星), photographed on 14 July 2020, its dust tail stretching across the night sky. Credit: <a href="https://en.wikipedia.org/wiki/C/2020_F3_(NEOWISE)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 27 March 2020, NASA&rsquo;s (美國太空總署) NEOWISE space telescope (近地天體廣域紅外線巡天探測衛星) &mdash; a spacecraft originally built to hunt asteroids, not comets &mdash; spotted a small icy object hurtling toward the Sun and flagged it as comet C/2020 F3, quickly nicknamed simply &ldquo;NEOWISE&rdquo; after the telescope that found it. Comets this size rarely survive a close pass by the Sun intact; many smaller sungrazing comets (掠日彗星) are torn apart or vaporised entirely by solar heat and gravity long before astronomers get a good look at them, so NEOWISE&rsquo;s fate remained genuinely uncertain for weeks after its discovery.</p>
+      <p>NEOWISE reached its closest approach to the Sun, or perihelion (近日點), on 3 July 2020, passing roughly 43 million kilometres away, well within Mercury&rsquo;s orbit, and emerged intact. Within days it became visible to the naked eye low on the northern horizon, its dust tail curving gently across dawn and dusk skies for observers worldwide, many of them confined at home during COVID-19 (2019冠狀病毒病) lockdowns. Shining at magnitude +1.6 in early July, NEOWISE became the brightest comet visible from Earth since Hale-Bopp (海爾&middot;波普彗星) in 1997, drawing millions of photographs from backyards, balconies, and even the International Space Station (國際太空站).</p>
+      <p>NEOWISE&rsquo;s glow came from two distinct tails: a curved dust tail (塵埃尾) reflecting sunlight, and a fainter, straighter ion tail (離子尾) made of gas pushed directly away from the Sun by the solar wind (太陽風). Scientists studying the comet&rsquo;s infrared signature gathered valuable data on its nucleus, estimated at roughly five kilometres across, and its dust production rate. Having likely visited the inner solar system only once before in recorded history, NEOWISE is now heading back into the outer darkness on a roughly 6,800-year orbit &mdash; meaning nobody alive today, nor their descendants for nearly seven millennia, will see it again.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/C/2020_F3_(NEOWISE)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The comet millions photographed from their windows during lockdown won&rsquo;t return to Earth&rsquo;s skies until roughly 8800 CE.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made NEOWISE&rsquo;s survival past the Sun surprising to astronomers, and roughly how long until it returns?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Many comets its size are torn apart or vaporised during a close solar pass, so NEOWISE&rsquo;s survival at perihelion, just 43 million kilometres from the Sun, was not guaranteed. Its highly elongated orbit means it won&rsquo;t return to the inner solar system for roughly 6,800 years.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL-Caltech, NEOWISE mission data (2020). International Astronomical Union Minor Planet Center, comet C/2020 F3 orbital elements.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>戚繼光鴛鴦陣：一介書生如何練出九戰九捷的抗倭勁旅</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明朝中葉，東南沿海屢遭「倭寇」侵擾，官兵屢戰屢敗。一位出身將門的年輕武將，卻另闢蹊徑，招募礦工、農民組成新軍，並設計一套前所未見的陣法。你認為，這套陣法會有何獨到之處，竟能讓這支新軍屢戰屢勝？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>戚繼光（1528&ndash;1588，字元敬，號南塘）。</p>
+        <p><strong>事件：</strong>嘉靖三十八年（1559年）起，戚繼光於浙江義烏招募礦工農民組成新軍「戚家軍」，創「鴛鴦陣」以剋制倭寇；嘉靖四十年（1561年）台州九戰九捷。</p>
+        <p><strong>時代背景：</strong>明代中葉海禁政策下，中日走私貿易與海盜活動交織，「倭寇」屢犯江浙閩粵沿海，地方衛所兵制腐敗，屢戰屢敗，朝廷亟需新的軍事對策。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Qi_Jiguang_Portrait.jpg" alt="戚繼光畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">戚繼光畫像，明代抗倭名將，鴛鴦陣的創始者。來源：<a href="https://en.wikipedia.org/wiki/Qi_Jiguang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>嘉靖年間，東南沿海「倭寇」為患已久，所謂倭寇，其實成分複雜，既有真倭（日本浪人海盜），亦有大量福建、浙江沿海從事走私貿易的中國海商武裝，兩者交織難分。地方衛所兵制早已敗壞，士卒老弱，戰鬥力低下，屢戰屢敗，沿海州縣屢遭劫掠。戚繼光出身將門，襲承父蔭，早年即立志「封侯非我意，但願海波平」，嘉靖三十四年（1555年）調任浙江，親眼目睹衛所兵之不堪一戰，遂決意另起爐灶，招募新軍。</p>
+      <p>嘉靖三十八年（1559年），戚繼光前往浙江義烏，見當地礦工與農民因土地糾紛械鬥兇悍，遂招募三千餘人組成新軍，是為「戚家軍」。他針對江南多水田、丘陵、竹林的地形，以及倭寇慣用武士刀近戰突擊的戰術特點，設計出「鴛鴦陣」：以十二人為一隊，配備長短兵器（狼筅、長槍、鏜鈀、腰刀）相互掩護，長短兼備，攻防兼顧，即使地形狹窄破碎，亦能靈活變陣，剋制倭寇單兵近戰的優勢。</p>
+      <p>嘉靖四十年（1561年），倭寇大舉進犯浙江台州，戚繼光率戚家軍迎戰，九戰九捷，基本平息浙江倭患；翌年倭寇轉犯福建，戚繼光又率軍南下，連戰皆捷。自戚家軍成軍至戚繼光晚年去職，前後擊敗倭寇逾十五萬人，東南沿海倭患自此大體平息。戚繼光晚年調任薊鎮，主持修築長城敵台，其治軍思想見於所著《紀效新書》與《練兵實紀》，成為後世兵家重要典籍。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Qi_Jiguang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一支由礦工、農民臨時招募而成的新軍，靠著一套因地制宜的陣法，打贏了正規衛所兵打不贏的仗。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>戚繼光設計「鴛鴦陣」時，主要針對倭寇的哪種戰術特點？陣法如何應對？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">倭寇慣用武士刀進行單兵近戰突擊，戚繼光遂以十二人為一隊，配備長短兵器互相掩護，長兵制敵於遠，短兵克敵於近，即使在江南狹窄破碎的地形中，亦能靈活變陣協同作戰，剋制倭寇個人近戰的優勢。</div>
+      </details>
+      <div class="source">&#x1F4D6; 戚繼光《紀效新書》；《明史&middot;戚繼光傳》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Six Days That Ended an Empire&rsquo;s Illusions: The Suez Crisis of 1956</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1956, Britain and France, still two of the world&rsquo;s great imperial powers, secretly conspired with Israel to invade Egypt and seize a canal. Before reading on, what do you think stopped this invasion in its tracks, and why might historians call it the moment the old European empires realised they were no longer in charge?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Gamal Abdel Nasser (納賽爾), President of Egypt (埃及); Anthony Eden (安東尼&middot;艾登), British Prime Minister; Dwight D. Eisenhower (艾森豪), US President.</p>
+        <p><strong>Event at stake:</strong> The Suez Crisis (蘇伊士運河危機), October&ndash;November 1956 &mdash; Britain, France, and Israel secretly planned an invasion of Egypt after Nasser nationalised the Suez Canal (蘇伊士運河).</p>
+        <p><strong>Big picture:</strong> Post-war Britain and France still saw themselves as global powers capable of unilateral military action; the crisis exposed how dependent they had become on American support.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Iss016e019375.jpg" alt="The Suez Canal photographed from the International Space Station" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Suez Canal (蘇伊士運河), photographed from the International Space Station &mdash; the narrow waterway whose nationalisation triggered a crisis that ended two European empires&rsquo; illusions of independent power. Credit: <a href="https://en.wikipedia.org/wiki/Suez_Crisis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 26 July 1956, Egyptian President Gamal Abdel Nasser (納賽爾) announced the nationalisation (國有化) of the Suez Canal Company (蘇伊士運河公司), the Anglo-French-controlled waterway connecting the Mediterranean (地中海) to the Red Sea (紅海), through which roughly two-thirds of Europe&rsquo;s oil then travelled. Nasser&rsquo;s move came after the United States (美國) and Britain (英國) abruptly withdrew financing for Egypt&rsquo;s Aswan High Dam (阿斯旺高壩), in retaliation for Egypt&rsquo;s growing ties with the Soviet Union (蘇聯). Nasser intended to use the canal&rsquo;s toll revenue to fund the dam himself, framing nationalisation as an assertion of Egyptian sovereignty rather than a hostile act.</p>
+      <p>British Prime Minister Anthony Eden (安東尼&middot;艾登) and French leaders, alarmed at losing control of a strategic asset, secretly met Israeli officials at S&egrave;vres (色佛爾) near Paris in October 1956 and agreed on a covert plan: Israel would invade Egypt&rsquo;s Sinai Peninsula (西奈半島), giving Britain and France a pretext to intervene militarily as supposedly neutral &ldquo;peacekeepers&rdquo; separating the combatants, while actually seizing the canal zone. Israeli forces attacked on 29 October, and Anglo-French troops landed days later, briefly succeeding militarily but triggering immediate, furious international backlash.</p>
+      <p>US President Dwight D. Eisenhower (艾森豪), who had not been consulted and was appalled by the deception, refused to support the pound sterling (英鎊) against a run on the currency and threatened to block emergency loans, forcing Britain into a humiliating withdrawal within days. The Soviet Union simultaneously threatened intervention of its own. Eden resigned within months, his health and career broken; historians widely regard Suez as the moment Britain and France discovered their imperial-era freedom to act unilaterally had quietly ended, with real power now resting in Washington and Moscow.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Suez_Crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Suez didn&rsquo;t just fail militarily &mdash; it revealed that Britain and France could no longer act as great powers without American permission.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What ultimately forced Britain to withdraw from the Suez Canal after its initial military success, and what does this reveal about post-war power?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">US President Eisenhower, angered at not being consulted, refused to support the British pound against a currency run and threatened to block emergency loans, forcing a humiliating British withdrawal. It revealed that Britain and France could no longer act as independent great powers without American backing.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Suez Crisis.&rdquo; US Department of State, Office of the Historian, &ldquo;The Suez Crisis, 1956.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>空海入唐求法：一位日本留學僧如何開創真言宗</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元九世紀初，一名日本青年僧人隨遣唐使船隊冒險渡海入唐求法，本應留學二十年，卻在短短兩年內學成密法真傳，提前返回日本。你認為，他從長安帶回了怎樣的學問，竟足以讓他自創一個延續至今的佛教宗派？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>空海（774&ndash;835，諡號弘法大師）；惠果（746&ndash;805），長安青龍寺高僧，密宗第七代祖師。</p>
+        <p><strong>核心思想：</strong>真言宗（日本密教）；即身成佛&mdash;&mdash;主張凡夫可於今生今世修行成佛，不必待來世。</p>
+        <p><strong>時代背景：</strong>日本平安時代初期，遣唐使制度尚存，日本僧人渡海入唐求法蔚為風氣；空海與最澄同船入唐，分別開創真言宗與天台宗，深刻影響日本佛教格局。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Eight_Patriarchs_of_the_Shingon_Sect_of_Buddhism_Kukai_Cropped.jpg/330px-Eight_Patriarchs_of_the_Shingon_Sect_of_Buddhism_Kukai_Cropped.jpg" alt="空海（弘法大師）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">空海（弘法大師）畫像，真言宗開創者，公元九世紀初曾渡海入唐求法。來源：<a href="https://en.wikipedia.org/wiki/K%C5%ABkai" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>延曆二十三年（804年），三十一歲的空海隨遣唐使船隊渡海入唐，此行風浪險惡，四艘船中兩艘失聯，空海所乘之船漂流月餘方才抵岸，一行人形容枯槁，幾乎不被唐朝官員採信為正式使節。空海抵達長安後，並未如原定計劃留學二十年，而是四處尋訪名師，最終於青龍寺拜謁密宗大師惠果。惠果見空海根器不凡，大喜過望，聲稱「我久知汝來，相待已久」，隨即傾囊相授，短短數月間便為空海灌頂傳授胎藏界與金剛界兩部密法之全部秘傳。</p>
+      <p>惠果傳法予空海不久即圓寂，臨終前囑咐空海攜帶密法經典、法器、曼荼羅圖像等盡速返回日本弘揚，因密法在中土恐難久傳。空海遂於延曆二十四年（805年）啟程返國，僅僅兩年便完成原定二十年之學業，攜回大量密教經典、法器與美術作品，此舉在當時被視為破格之舉，甚至一度引來朝廷質疑其提前返國之正當性，然空海所攜典籍與修為之深厚，終使朝廷信服。</p>
+      <p>空海返日後，逐步建立真言宗，主張「即身成佛」&mdash;&mdash;凡夫只要依循三密加持（身、口、意三業與佛相應）之修行，今生今世便可成佛，不必如顯教所言歷經累世修行方能證果。弘仁七年（816年），嵯峨天皇賜予空海高野山作為修行道場，空海於此建立金剛峰寺，成為真言宗總本山，延續至今逾一千二百年。空海晚年亦致力社會事業，興修水利、創辦庶民教育機構「綜藝種智院」，圓寂後被尊為「弘法大師」，日本民間至今仍流傳他發明「五十音」假名之傳說（惟學界對此說法多存疑）。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/K%C5%ABkai" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一趟本應二十年的留學之旅，空海只用兩年便學成歸國，帶回的密法延續了逾一千二百年。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>空海在長安跟隨惠果學習密法後，為何提前於兩年內返回日本，而非依原定計劃留學二十年？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">惠果臨終前認為密法在中土恐難久傳，囑咐空海盡速攜帶經典法器返回日本弘揚，加上惠果已在短短數月內為空海完成兩部密法之全部灌頂傳授，空海學業已成，遂提前於805年啟程返國，實際留學僅約兩年。</div>
+      </details>
+      <div class="source">&#x1F4D6; 空海《請來目錄》；Britannica, &ldquo;K&#363;kai.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Science Doesn&rsquo;t Just Progress &mdash; It Has Revolutions: Thomas Kuhn&rsquo;s Paradigm Shifts</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most people assume science advances steadily, one careful discovery added to the next, like bricks building an ever-taller wall. A philosopher of science in 1962 argued this picture was largely wrong. Before reading on, what do you think he proposed happens instead when a scientific field undergoes real, fundamental change?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Thomas Kuhn (孔恩, 1922&ndash;1996), American physicist-turned-philosopher of science; Karl Popper (卡爾&middot;波普爾), whose falsifiability (可證偽性) criterion offered a rival account of scientific progress.</p>
+        <p><strong>Idea at stake:</strong> Kuhn&rsquo;s concept of the paradigm shift (範式轉移) in his 1962 book <em>The Structure of Scientific Revolutions</em> (科學革命的結構), challenging the standard view of science as steady, cumulative progress.</p>
+        <p><strong>Big picture:</strong> Kuhn&rsquo;s framework reshaped how historians, scientists, and non-scientists alike talk about major intellectual change, giving the world the now-overused phrase &ldquo;paradigm shift.&rdquo;</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/d/d8/Structure-of-scientific-revolutions-1st-ed-pb.png" alt="First edition cover of Thomas Kuhn's The Structure of Scientific Revolutions" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption"><em>The Structure of Scientific Revolutions</em> (科學革命的結構), Thomas Kuhn&rsquo;s 1962 book that introduced the concept of the paradigm shift (範式轉移). Credit: <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Thomas Kuhn (孔恩) trained as a physicist at Harvard University (哈佛大學) before turning to the history of science, and in his landmark 1962 book <em>The Structure of Scientific Revolutions</em> (科學革命的結構), he argued that most of what we call &ldquo;science&rdquo; is actually what he termed normal science (常態科學): researchers working within a shared paradigm (範式), a set of accepted theories, methods, and assumptions that define which questions count as legitimate puzzles worth solving, largely just filling in details rather than questioning the underlying framework itself.</p>
+      <p>According to Kuhn, genuine scientific revolutions (科學革命) happen only when accumulating anomalies (異例), observations the reigning paradigm cannot explain away, grow too numerous and serious to ignore, eventually triggering a crisis that topples the old paradigm in favour of a new one. The shift from Newtonian physics (牛頓物理學) to Einstein&rsquo;s relativity (相對論), or from a geocentric to a Copernican (哥白尼) solar system, weren&rsquo;t simply cases of new facts being added to old ones, Kuhn argued, but wholesale changes in how scientists saw the entire field, including which old questions still even mattered.</p>
+      <p>Kuhn&rsquo;s most controversial claim was incommensurability (不可通約性): that scientists working in different paradigms sometimes can&rsquo;t fully translate their concepts and evidence into each other&rsquo;s terms, since the very meaning of key terms shifts between paradigms, making rival theories genuinely difficult to compare on strictly logical or empirical grounds alone. Critics, including Kuhn&rsquo;s contemporary Karl Popper (卡爾&middot;波普爾), worried this made science sound uncomfortably close to fashion or politics rather than a rational pursuit of truth, a debate over how &ldquo;objective&rdquo; scientific progress really is that continues among philosophers of science today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Science doesn&rsquo;t just accumulate facts steadily &mdash; Kuhn argued it periodically tears down and rebuilds its own foundations.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Kuhn mean by a &ldquo;paradigm shift,&rdquo; and what typically triggers one according to his theory?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A paradigm shift is a revolutionary change in a scientific field&rsquo;s shared theories, methods, and assumptions, replacing normal, incremental puzzle-solving with a wholesale reconceptualisation. Kuhn argued shifts are triggered when accumulating anomalies the existing paradigm cannot explain grow too serious to ignore, provoking a crisis.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kuhn, T.S. (1962). <em>The Structure of Scientific Revolutions</em>. University of Chicago Press. Stanford Encyclopedia of Philosophy, &ldquo;Thomas Kuhn.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why One Piece of Criticism Outweighs Ten Compliments: The Negativity Bias</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine receiving ten warm compliments and one sharp criticism in the same conversation. Most people find the single criticism lingers in memory far longer than any of the compliments combined. Before reading on, why do you think the human mind seems built to weigh bad experiences so much more heavily than good ones?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Amyg.png" alt="Illustration of the amygdala within the brain" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The amygdala (杏仁核), a brain structure central to threat detection &mdash; part of the neural machinery behind why negative experiences tend to leave a deeper, longer-lasting mark than positive ones. Credit: <a href="https://en.wikipedia.org/wiki/Negativity_bias" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a widely cited 2001 review, psychologist Roy Baumeister (鮑梅斯特) and colleagues surveyed decades of research across memory, relationships, decision-making, and learning, and concluded that &ldquo;bad is stronger than good&rdquo; as a near-universal pattern in human psychology, now known as the negativity bias (消極偏誤). Negative events are processed more thoroughly, form impressions faster, and are remembered longer than positive events of equal intensity; a single rude comment from a stranger, for instance, tends to be recalled in far more vivid detail days later than several pleasant exchanges from the same day.</p>
+      <p>The bias shows up at scale in relationships too: relationship researcher John Gottman&rsquo;s (高特曼) work found that stable marriages typically require roughly five positive interactions to offset the damage of a single negative one, a ratio that entered popular psychology as the &ldquo;5:1 rule,&rdquo; even though replicating the exact number precisely across all couples has proven difficult. Similarly, people tend to fear losing $100 more than they enjoy gaining $100, a closely related pattern economists call loss aversion (損失趨避), part of the same broader tilt toward weighing negative outcomes more heavily than equivalent positive ones.</p>
+      <p>Evolutionary psychologists argue the bias likely conferred a survival advantage: an ancestor who overreacted to a rustling bush, wrongly assuming a predator, paid only a small cost in wasted vigilance, while one who underreacted to a genuine threat could pay with their life, making a hair-trigger negativity bias a sensible asymmetric bet even though it produces plenty of false alarms in modern life. Understanding this built-in tilt doesn&rsquo;t eliminate it, but it does explain why deliberately counting specific positive moments, rather than trusting overall impressions, is often necessary to see a balanced picture of any day, relationship, or piece of feedback.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Negativity_bias" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Bad experiences aren&rsquo;t remembered more because they matter more objectively &mdash; the mind is simply built to weigh them that way.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Baumeister&rsquo;s 2001 review and related relationship research, roughly how many positive interactions are needed to offset one negative one, and why might this asymmetry have evolved?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Gottman&rsquo;s relationship research found stable marriages typically need roughly five positive interactions to offset one negative one. Evolutionary psychologists argue the bias evolved because underreacting to real threats was far costlier for survival than the small wasted cost of overreacting to false alarms.</div>
+      </details>
+      <div class="source">&#x1F4D6; Baumeister, R.F. et al. (2001). <em>Review of General Psychology</em>, 5(4). Gottman, J.M. (1994). <em>What Predicts Divorce?</em></div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Reading in a Moving Car Makes You Sick: The Sensory Conflict Behind Motion Sickness</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone has felt queasy reading in a moving car, or on a rocking boat, even though nothing dangerous is actually happening to the body. Before reading on, what do you think is going on inside the brain that turns an ordinary car ride into a source of nausea?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sea-sickness_-_published_by_G.S._Tregear%2C_96_Cheapside_%28cropped%29.jpg/330px-Sea-sickness_-_published_by_G.S._Tregear%2C_96_Cheapside_%28cropped%29.jpg" alt="18th-century caricature of seasickness aboard a ship" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An 18th-century caricature of seasickness (暈船) aboard ship &mdash; motion sickness has been recognised for centuries, long before scientists understood the sensory mismatch behind it. Credit: <a href="https://en.wikipedia.org/wiki/Motion_sickness" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Motion sickness (暈動症) arises from a mismatch between what different sensory systems tell the brain about the body&rsquo;s movement, an idea known as sensory conflict theory (感覺衝突理論). When reading in a moving car, the inner ear&rsquo;s vestibular system (前庭系統), which detects acceleration and rotation via fluid-filled canals, correctly senses the car&rsquo;s turns and bumps, while the eyes, fixed on a stationary page, report that the body isn&rsquo;t moving at all. The brain receives two contradictory motion signals simultaneously and, unable to reconcile them, appears to interpret the conflict itself as a sign that something is physiologically wrong.</p>
+      <p>One influential explanation, sometimes called the poison theory or neural mismatch theory, proposes this reaction is an evolutionary holdover: throughout most of human evolutionary history, a mismatch between visual and vestibular signals reliably meant one thing &mdash; that an animal had ingested a neurotoxin (神經毒素) disrupting its sensory-motor coordination &mdash; since there was no such thing as cars, ships, or virtual reality (虛擬實境) to produce false conflicts. On this account, nausea and vomiting served a genuinely useful purpose, purging a poisoned stomach, and the brain still triggers that same ancient response even when the real cause is entirely harmless sensory disagreement.</p>
+      <p>This explains several practical fixes: looking at the horizon (地平線) realigns visual and vestibular information, since the horizon actually does appear to move correctly relative to a moving vehicle, reducing the conflict. Sitting in the front seat, becoming the driver, or closing one&rsquo;s eyes entirely all serve to reduce or eliminate the mismatched visual signal rather than fight it. Modern virtual reality headsets have revived interest in the problem, since visually convincing motion with no corresponding inner-ear signal reliably triggers the same centuries-old nausea response in a growing number of users.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Motion_sickness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Motion sickness isn&rsquo;t your body malfunctioning &mdash; it&rsquo;s an ancient poison-detection alarm misfiring on a sensory mismatch that isn&rsquo;t actually dangerous.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to sensory conflict theory, what specific mismatch between the eyes and inner ear causes motion sickness when reading in a moving car, and why might the brain interpret this as poisoning?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The vestibular system correctly senses the car&rsquo;s motion while the eyes, fixed on a stationary page, report no movement. Since this exact mismatch reliably signalled neurotoxin ingestion throughout human evolutionary history, before vehicles existed, the brain triggers the same nausea response even though the real cause is harmless.</div>
+      </details>
+      <div class="source">&#x1F4D6; Reason, J.T. &amp; Brand, J.J. (1975). <em>Motion Sickness</em>. Treisman, M. (1977). <em>Science</em>, 197(4302).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Do Ice Baths Actually Help You Recover &mdash; Or Are They Sabotaging Your Gains?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Ice baths have become a fixture of elite sport, with athletes plunging into freezing water minutes after finishing a workout, convinced it speeds recovery. Before reading on, what do you think the research actually shows happens inside muscles during that post-exercise cold plunge?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Karyn_Marshall_Ice_Bath.jpg" alt="An athlete recovering in an ice bath" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An athlete recovering in an ice bath (冰浴) &mdash; research shows the practice may blunt perceived soreness, but can also interfere with the very muscle growth many athletes are training for. Credit: <a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold water immersion (冷水浸泡), commonly known as ice baths, became popular after early studies suggested plunging into water around 10&ndash;15&deg;C after intense exercise reduced perceived muscle soreness (延遲性肌肉痠痛) and helped athletes feel ready to perform again sooner. The proposed mechanism was straightforward: cold temperatures constrict blood vessels, reducing swelling and inflammation (發炎) at the site of exercise-induced muscle damage, then as the body rewarms, increased blood flow was thought to help flush out metabolic byproducts &mdash; though later research complicated this simple picture considerably.</p>
+      <p>A growing body of research, including a 2019 study published in <em>The Journal of Physiology</em> (生理學期刊) and a 2024 systematic review with meta-analysis, found that regular post-workout cold water immersion measurably blunts the very adaptations resistance training (阻力訓練) is meant to produce: it suppresses anabolic signalling pathways like mTOR (哺乳動物雷帕黴素靶蛋白), reduces satellite cell activity involved in muscle repair, and produces meaningfully smaller long-term muscle hypertrophy (肌肉肥大) gains compared with active recovery methods, even though it does not appear to blunt gains in maximal strength (最大力量) to the same degree.</p>
+      <p>The practical takeaway depends entirely on an athlete&rsquo;s goal: for someone in a demanding competition schedule who needs to feel fresh for tomorrow&rsquo;s match, prioritising perceived recovery over long-term muscle growth, an ice bath may still make sense. But for someone in a dedicated strength or hypertrophy training block whose primary goal is building muscle over months, immersing in cold water immediately after lifting works directly against the inflammatory and anabolic signals the training is designed to trigger &mdash; making it one of the more common well-intentioned recovery habits that quietly undermines the very results people are chasing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If your goal is building muscle, that satisfying ice bath after leg day may be working against the very adaptation you&rsquo;re training for.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did research find that post-exercise cold water immersion does to muscle growth specifically, and does it affect strength the same way?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Regular cold water immersion after resistance training suppresses anabolic signalling and satellite cell activity, producing measurably smaller long-term muscle hypertrophy gains. It does not appear to blunt maximal strength gains to the same degree, making its effect goal-dependent.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015). <em>The Journal of Physiology</em>, 593(18). Pi&ntilde;ero, A. et al. (2024). <em>European Journal of Sport Science</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>What Your Handshake Reveals About How Long You&rsquo;ll Live</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A simple squeeze of a hand-held device, measuring nothing more than how hard someone can grip it, has emerged as one of the more surprisingly powerful predictors doctors have for a person&rsquo;s future health. Before reading on, what health outcomes do you think grip strength actually predicts, and why might squeezing a device say anything meaningful about the rest of the body?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Armwrestle.jpg" alt="Two people arm wrestling" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Grip strength (握力) &mdash; the same simple measure used in a landmark study of nearly 140,000 adults across 17 countries to predict long-term health outcomes. Credit: <a href="https://en.wikipedia.org/wiki/Hand_strength" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a landmark 2015 study published in <em>The Lancet</em> (刺針), the Prospective Urban Rural Epidemiology (前瞻性城鄉流行病學研究, PURE) study tracked grip strength (握力), measured with a simple handheld dynamometer (握力計), in nearly 140,000 adults across 17 countries and followed them for roughly four years. The researchers found that every 5-kilogram decrease in grip strength was associated with a 16% increase in all-cause mortality (全因死亡率), a stronger predictor than systolic blood pressure (收縮壓), one of medicine&rsquo;s most established risk indicators &mdash; a finding that surprised many in the field.</p>
+      <p>Grip strength isn&rsquo;t valuable because hand strength itself is life-or-death; rather, researchers believe it functions as a simple, cheap proxy for overall muscular and physiological health across the whole body, since grip strength correlates strongly with total lean muscle mass (肌肉量), neuromuscular function (神經肌肉功能), and even cardiovascular fitness. The same PURE study found grip strength predicted cardiovascular death and cardiovascular disease risk (7% higher heart attack risk, 9% higher stroke risk, per 5-kg decrease) even more strongly than it predicted death from non-cardiovascular causes, suggesting a genuine physiological link rather than mere statistical coincidence.</p>
+      <p>Because grip strength tends to decline gradually with age unless actively maintained, researchers increasingly treat it as a practical biomarker of ageing (衰老生物標記), sometimes more informative than chronological age alone for predicting frailty and independence in later life. The encouraging implication is that grip strength is trainable at any age through resistance training (阻力訓練), particularly exercises like farmer&rsquo;s carries, deadlifts, and direct forearm work &mdash; meaning this simple, cheap measurement doesn&rsquo;t just predict future health passively, it also points toward one of the more accessible interventions available for improving it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hand_strength" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A simple handgrip squeeze predicts mortality risk more strongly than blood pressure &mdash; and unlike age, grip strength is something you can actually train.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2015 PURE study find about the relationship between grip strength and mortality, and why do researchers think grip strength predicts this?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Every 5-kilogram decrease in grip strength was linked to a 16% increase in all-cause mortality, a stronger predictor than systolic blood pressure. Researchers believe grip strength serves as a proxy for overall muscle mass, neuromuscular function, and cardiovascular fitness rather than being independently important on its own.</div>
+      </details>
+      <div class="source">&#x1F4D6; Leong, D.P. et al. (2015). <em>The Lancet</em>, 386(9990).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>How One Trader Bankrupted Britain&rsquo;s Oldest Bank in Three Months</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Barings Bank had financed the Napoleonic Wars and survived for 233 years as one of Britain&rsquo;s most prestigious merchant banks. In February 1995, it collapsed entirely, brought down by a single trader in Singapore. Before reading on, how do you think one person, without anyone else noticing, could lose enough money to destroy an institution that old?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Barings.png" alt="Barings Bank logo" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Barings Bank (霸菱銀行) &mdash; Britain&rsquo;s oldest merchant bank, founded in 1762, collapsed in three months after unauthorised trading losses went undetected due to a critical control failure. Credit: <a href="https://en.wikipedia.org/wiki/Barings_Bank" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Nick Leeson (尼克&middot;里森) was a young trader working in Singapore for Barings Bank (霸菱銀行), founded in 1762 and one of Britain&rsquo;s oldest and most prestigious merchant banks. Leeson held two roles simultaneously that should never have been combined: head trader, executing trades, and head of settlements, the back-office function that checks and reconciles those trades &mdash; a textbook conflict of interest (利益衝突) that meant nobody was independently verifying his own trading activity. Leeson used this position to hide mounting losses in a secret account, numbered 88888, that Barings&rsquo; internal records treated as a minor holding account for trivial client errors.</p>
+      <p>Leeson had been placing large, unauthorised bets on futures contracts (期貨合約) tied to the direction of Japan&rsquo;s Nikkei 225 (日經225指數) stock index, and by early 1995 he controlled roughly half of all open interest in Nikkei futures on the Singapore International Monetary Exchange (新加坡國際金融交易所). When the devastating Kobe earthquake (神戶大地震) struck Japan on 17 January 1995, the Nikkei crashed instead of recovering as Leeson had bet, and rather than cutting his losses, he doubled down repeatedly, attempting to trade his way back to even, hiding the mounting damage in account 88888 the entire time.</p>
+      <p>By late February 1995, Leeson&rsquo;s concealed losses had reached roughly &pound;827 million, more than the bank&rsquo;s entire capital base, and Barings collapsed within days once the scale became clear, unable to meet margin calls. Leeson fled but was arrested in Frankfurt (法蘭克福) and later imprisoned in Singapore; Barings, unable to survive, was sold to Dutch bank ING for a symbolic &pound;1. The collapse became the textbook case for why separating trade execution from trade settlement, a principle now standard across the industry, matters as much as any trading strategy itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Barings_Bank" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One unsupervised trader wearing two conflicting hats destroyed a 233-year-old bank in months &mdash; the failure was structural, not just personal.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What critical structural flaw allowed Nick Leeson to hide his losses for so long, and what event finally triggered Barings&rsquo; collapse?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Leeson simultaneously ran both trading and back-office settlement functions, so nobody independently checked his own trades, letting him hide losses in a secret account. The 1995 Kobe earthquake crashed the Nikkei against his bet, and rather than cut losses he doubled down, ultimately losing &pound;827 million.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Bankruptcy of Barings Bank (1995).&rdquo; Leeson, N. (1996). <em>Rogue Trader</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Everyone Saving More Can Make an Economy Poorer: The Paradox of Thrift</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/John_Maynard_Keynes_%281929%29.jpg" alt="Photograph of John Maynard Keynes, 1929" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Maynard Keynes (凱恩斯), whose 1936 <em>General Theory</em> formalised the paradox of thrift (節儉悖論) &mdash; the idea that individually rational saving can collectively worsen a recession. Credit: <a href="https://en.wikipedia.org/wiki/Paradox_of_thrift" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In April 2020, as COVID-19 (2019冠狀病毒病) lockdowns closed spending options worldwide, the US personal saving rate (個人儲蓄率) spiked to a record 33.8% &mdash; roughly quadruple pre-pandemic levels &mdash; even as GDP (國內生產總值) contracted at its sharpest pace since the Great Depression (大蕭條).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">John Maynard Keynes (凱恩斯) formalised the paradox of thrift (節儉悖論) in his 1936 <em>General Theory</em>: when households simultaneously cut spending to save more during a downturn, aggregate demand (總需求) falls, incomes fall in turn, and total national savings can end up lower than if spending had continued.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Yet economies with persistently high household savings &mdash; Germany (德國), China (中國), Japan (日本) &mdash; have sustained decades of growth rather than the demand collapse the paradox predicts, their savings coexisting with strong exports rather than shrinking domestic output.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Ben Bernanke&rsquo;s (伯南克) 2005 &ldquo;global savings glut&rdquo; (全球儲蓄過剩) thesis argues that in an open economy, high savings needn&rsquo;t depress demand if they flow abroad as capital exports financing other countries&rsquo; deficits &mdash; though critics note this may simply relocate the contraction onto trading partners rather than resolve it; an open question in macroeconomics.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; What&rsquo;s frugal for one household can be contractionary for an entire economy &mdash; the paradox of thrift shows individual and collective rationality don&rsquo;t always align.</div>
+      <div class="source">&#x1F4D6; Keynes, J.M. (1936). <em>The General Theory of Employment, Interest and Money</em>. Bernanke, B. (2005). &ldquo;The Global Saving Glut and the U.S. Current Account Deficit,&rdquo; Federal Reserve.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 7 &mdash; When Conflicting Signals Force a Rethink:</strong> Kuhn&rsquo;s philosophy of science argues that a paradigm only breaks down once anomalies accumulate to the point where the old framework can no longer explain what&rsquo;s being observed. Motion sickness works on a strikingly similar principle at a purely biological level: the brain, faced with genuinely conflicting signals from the eyes and inner ear, doesn&rsquo;t calmly average them out &mdash; it registers the conflict itself as evidence that something has gone wrong, triggering a full physiological response. Both cases show that conflicting information doesn&rsquo;t get smoothly absorbed into an existing model; past a certain threshold, contradiction itself becomes the signal that forces a reckoning, whether the model in question is a scientific theory or an inner-ear expectation of how the body should be moving.</p>
+      <p><strong>So what:</strong> Next time you feel unusually queasy, or unusually resistant to an idea that contradicts what you already believe, consider that both reactions may share the same underlying mechanism &mdash; a system trained to treat unresolved contradiction as more alarming than simply being wrong.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL-Caltech, NEOWISE mission data (2020). IAU Minor Planet Center.</li>
+      <li><strong>Card 2:</strong> 戚繼光《紀效新書》；《明史&middot;戚繼光傳》。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Suez Crisis.&rdquo; US Department of State, Office of the Historian.</li>
+      <li><strong>Card 4:</strong> 空海《請來目錄》；Britannica, &ldquo;K&#363;kai.&rdquo;</li>
+      <li><strong>Card 5:</strong> Kuhn, T.S. (1962), <em>The Structure of Scientific Revolutions</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Baumeister, R.F. et al. (2001), <em>Review of General Psychology</em> 5(4). Gottman, J.M. (1994).</li>
+      <li><strong>Card 7:</strong> Reason, J.T. &amp; Brand, J.J. (1975), <em>Motion Sickness</em>. Treisman, M. (1977), <em>Science</em> 197(4302).</li>
+      <li><strong>Card 8:</strong> Roberts, L.A. et al. (2015), <em>The Journal of Physiology</em> 593(18). Pi&ntilde;ero, A. et al. (2024).</li>
+      <li><strong>Card 9:</strong> Leong, D.P. et al. (2015), <em>The Lancet</em> 386(9990).</li>
+      <li><strong>Card 10:</strong> Britannica, &ldquo;Bankruptcy of Barings Bank (1995).&rdquo; Leeson, N. (1996), <em>Rogue Trader</em>.</li>
+      <li><strong>Card 11:</strong> Keynes, J.M. (1936). Bernanke, B. (2005), Federal Reserve.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-26: Comet NEOWISE 2020 &bull; 戚繼光鴛鴦陣抗倭 &bull; Suez Crisis 1956 &bull; 空海入唐與真言宗 &bull; Thomas Kuhn / Paradigm Shifts &bull; Negativity Bias &bull; Motion Sickness / Sensory Conflict Theory &bull; Cold Water Immersion &amp; Muscle Growth &bull; Grip Strength as Mortality Biomarker &bull; Barings Bank / Nick Leeson &bull; Paradox of Thrift</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-26.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-26.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 26 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
