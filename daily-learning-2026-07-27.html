@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 27 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 27 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>26 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Comet NEOWISE</span>A comet visible to the naked eye blazed across lockdown skies in 2020, not returning for another 6,800 years.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 戚繼光鴛鴦陣</span>戚繼光創鴛鴦陣，戚家軍九戰九捷平定倭患。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Suez Crisis 1956</span>A secret Anglo-French-Israeli invasion of Egypt collapsed within days once the US withheld financial support.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 空海與真言宗</span>空海入唐兩年學成密法，回國開創真言宗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Thomas Kuhn</span>Kuhn argued science advances through revolutions, not steady accumulation, once anomalies pile up.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Negativity Bias</span>One piece of criticism can outweigh ten compliments &mdash; the mind is wired to weigh bad more heavily.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Motion Sickness</span>Reading in a moving car confuses inner ear and eyes, triggering an ancient poison-detection alarm.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Ice Baths</span>Ice baths ease soreness but can blunt the muscle growth that resistance training is meant to build.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Grip Strength</span>A simple handgrip squeeze predicts mortality risk better than blood pressure, and it&rsquo;s trainable.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Barings Bank</span>One trader hiding losses in a secret account bankrupted Britain&rsquo;s oldest bank in three months.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Paradox of Thrift</span>Everyone saving more during a downturn can shrink total demand and leave an economy poorer.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Spacecraft That Nearly Sank Into an Asteroid &mdash; and Why That Was Great News</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In September 2023, a capsule the size of a mini-fridge parachuted into the Utah desert carrying dust from an asteroid over 300 million kilometres away. Before reading on, what do you think scientists found so surprising about the asteroid&rsquo;s surface when the spacecraft first reached down to touch it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Bennu_mosaic_OSIRIS-REx_%28square%29.png" alt="Mosaic image of asteroid 101955 Bennu assembled from OSIRIS-REx spacecraft images" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Asteroid 101955 Bennu (貝努小行星), photographed in close-up mosaic by NASA&rsquo;s OSIRIS-REx spacecraft &mdash; a surface that turned out to behave nothing like solid rock. Credit: <a href="https://en.wikipedia.org/wiki/101955_Bennu" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>NASA&rsquo;s (美國太空總署) OSIRIS-REx spacecraft launched in 2016 toward 101955 Bennu (貝努小行星), a rubble-pile asteroid (瓦礫堆小行星) roughly 500 metres across with a small but real chance of striking Earth in the 2100s. After arriving in 2018, the spacecraft spent nearly two years mapping Bennu&rsquo;s surface in exquisite detail before attempting anything as delicate as touching it, because the terrain it found looked nothing like mission planners had expected: instead of open, sandy patches, boulders (巨礫) covered almost the entire surface, forcing engineers to redesign their sampling approach around a much smaller, riskier landing zone.</p>
+      <p>On 20 October 2020, OSIRIS-REx extended its robotic sampling arm (採樣機構) toward a boulder-strewn crater nicknamed &ldquo;Nightingale,&rdquo; expecting a firm surface. Instead, the arm sank nearly half a metre into Bennu&rsquo;s rubble almost instantly, as though the asteroid were packed loosely like a plastic ball pit rather than solid rock. Onboard cameras captured a dramatic spray of rock and dust flying outward, forcing the spacecraft to fire its thrusters and retreat within seconds, before it could sink further or suffer damage from the debris its own touch had kicked loose.</p>
+      <p>The near-miss actually worked in the mission&rsquo;s favour: OSIRIS-REx captured roughly 121.6 grams of material, twice the 60-gram minimum required, safely returning it to Earth via a parachuted capsule that landed in Utah (猶他州) on 24 September 2023. Laboratory analysis has since found amino acids (氨基酸), the building blocks of proteins, preserved inside, along with evidence that Bennu&rsquo;s loose, marble-like structure likely applies to many other rubble-pile asteroids, directly reshaping how scientists design any future asteroid-deflection or planetary-defence mission.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/101955_Bennu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A sampling arm built for solid ground nearly sank into the asteroid whole &mdash; turning an alarming surprise into the mission&rsquo;s biggest scientific win.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What happened when OSIRIS-REx&rsquo;s sampling arm touched Bennu&rsquo;s surface, and why did this actually help the mission?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The arm sank almost half a metre into the loosely packed rubble, throwing rock and dust outward and forcing an emergency retreat. This looseness let the mechanism scoop up far more material than intended, roughly 121.6 grams versus a 60-gram minimum, giving scientists an unexpectedly rich sample.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/Goddard Space Flight Center, OSIRIS-REx mission data (2020, 2023). Lauretta, D.S. et al. (2019). <em>Nature</em>, 568.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>洪秀全的異夢：一場科舉落第如何燒出十九世紀最慘烈的內戰</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">一位屢試不第的廣東書生，某次落第後大病四十日，醒來聲稱自己夢見天父授劍、命其下凡誅魔，更自認是耶穌之弟。你認為，這場看似荒誕的異夢，最終會如何演變成一場席捲十六省、造成逾二千萬人喪生的大內戰？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>洪秀全（1814&ndash;1864，廣東花縣客家人）；曾國藩（湘軍統帥）。</p>
+        <p><strong>事件：</strong>道光三十年（1850年）金田起義；咸豐三年（1853年）攻陷南京，改稱天京，建「太平天國」；同治三年（1864年）天京陷落，歷時十四年，波及十六省。</p>
+        <p><strong>時代背景：</strong>清朝中葉鴉片戰爭戰敗後，人口壓力、官場腐敗與客家土客矛盾交織，兩廣民間積怨已久，屢試不第的洪秀全接觸基督教小冊子後自創「拜上帝會」，號召信眾誅除「妖」（滿清）。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Hong_Xiuquan.jpg" alt="洪秀全畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">洪秀全畫像，太平天國創立者，自認上帝幼子、耶穌之弟。來源：<a href="https://en.wikipedia.org/wiki/Hong_Xiuquan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>洪秀全出身廣東花縣客家農家，自幼熟讀四書五經，卻先後多次應考秀才皆名落孫山。道光十七年（1837年）第三次落第後，洪秀全大病四十餘日，臥床期間反覆夢見一位白鬚老人授其寶劍，命其誅滅世間妖魔；其後洪秀全讀到傳教士梁發所著小冊子《勸世良言》，方將夢中情景比附為天父上帝與其子耶穌，自認是上帝幼子、耶穌之弟，奉命下凡拯救世人，遂與馮雲山等同鄉於廣西桂平一帶創立「拜上帝會」，吸納客家貧苦農民與燒炭工人入會。</p>
+      <p>拜上帝會勢力日增，引起地方團練與官府疑忌，道光三十年（1850年）底，洪秀全於廣西桂平金田村召集信眾數萬人正式起義，號稱「太平軍」，蓄髮易服以別於剃髮留辮的清朝臣民。太平軍紀律嚴明，男女分營，禁鴉片、纏足與私財，一路轉戰湖南、湖北，順長江而下，咸豐三年（1853年）攻陷南京，改稱「天京」定為國都，頒布《天朝田畝制度》，宣稱按人口均分土地，「有田同耕，有飯同食」，一時聲勢浩大，清廷震動。</p>
+      <p>然而太平天國內部很快爆發權力鬥爭，咸豐六年（1856年）「天京事變」中，東王楊秀清、北王韋昌輝相繼被殺，翼王石達開率部出走，元氣大傷。清廷則倚重曾國藩在湖南編練的「湘軍」，配合李鴻章淮軍逐步收復失地。同治三年（1864年）六月，湘軍攻破天京，洪秀全已於一個多月前病逝，太平天國歷時十四年、波及十六省，死亡人數估計逾二千萬，成為十九世紀死傷最慘重的內戰之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hong_Xiuquan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一個屢試不第的落第書生的異夢，最終演變成十九世紀死傷最慘重的內戰之一。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>洪秀全在什麼情況下形成「上帝之子」的自我認知？太平天國最終因何由盛轉衰？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">洪秀全屢試不第後大病四十日，夢見白鬚老人授劍命其誅魔，後讀《勸世良言》方將夢境詮釋為天父召命，自認耶穌之弟。太平天國定都天京後，「天京事變」東王北王相繼被殺、翼王出走，內部自相殘殺元氣大傷，終被曾國藩湘軍所滅。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《清史稿》；Jonathan Spence, <em>God&rsquo;s Chinese Son</em> (1996)；Britannica, &ldquo;Taiping Rebellion.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>When a Cargo Plane Landed Every 90 Seconds: The Berlin Airlift of 1948&ndash;49</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In June 1948, the Soviet Union (蘇聯) cut off every road, rail, and canal route into West Berlin (西柏林), a city of over two million people stranded deep inside Soviet-controlled East Germany (東德). Before reading on, what do you think the Western Allies did instead of simply abandoning the city or going to war over it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Joseph Stalin (史達林), Soviet leader; US President Harry Truman (杜魯門); General Lucius D. Clay (克萊), US military governor of Germany; pilot Gail Halvorsen (哈弗森), the &ldquo;Candy Bomber.&rdquo;</p>
+        <p><strong>Event at stake:</strong> The Berlin Blockade (柏林封鎖), June 1948&ndash;May 1949, and the Allied response, the Berlin Airlift (柏林空運), supplying the city entirely by air.</p>
+        <p><strong>Big picture:</strong> The crisis was the first major Cold War (冷戰) confrontation between the Soviet Union and the Western powers, hardening the division of Germany and Europe for decades.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/C-54_landing_at_Tempelhof.jpg" alt="A C-54 Skymaster cargo plane landing at Tempelhof Airport during the Berlin Airlift" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A C-54 Skymaster (天空霸主運輸機) landing at Tempelhof Airport (滕珀爾霍夫機場) during the Berlin Airlift, part of an operation that landed a plane roughly every 90 seconds at its peak. Credit: <a href="https://en.wikipedia.org/wiki/Berlin_Blockade" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In June 1948, the Soviet Union (蘇聯) blockaded all road, rail, and canal access to West Berlin (西柏林), a jointly occupied city sitting more than 160 kilometres inside Soviet-controlled East Germany (東德), in retaliation for the Western Allies introducing a new currency, the Deutsche Mark (德國馬克), in their occupation zones. Stalin (史達林) calculated that cutting off food, coal, and medicine to over two million West Berliners would force the Western powers to either abandon the city or drop plans for a separate West German state, handing him effective control without firing a shot.</p>
+      <p>Rather than accept defeat or risk war forcing convoys through, US General Lucius D. Clay (克萊) and British officials launched Operation Vittles, an audacious plan to supply the entire city by air alone. American and British cargo planes, mostly C-54 Skymasters (天空霸主運輸機), began landing at Tempelhof Airport (滕珀爾霍夫機場) around the clock, at the operation&rsquo;s peak touching down roughly every 90 seconds, carrying coal, flour, and medicine that West Berliners depended on entirely for survival through a brutal winter, a logistics feat few believed achievable when it began.</p>
+      <p>Over nearly eleven months, Allied aircraft flew more than 200,000 flights delivering roughly 2.3 million tonnes of supplies, while pilots like Gail Halvorsen (哈弗森) became folk heroes for dropping small parachutes of candy to children below, earning the nickname &ldquo;the Candy Bomber.&rdquo; Stalin, recognising the blockade had failed to break Berlin&rsquo;s resolve or Western unity, lifted it on 12 May 1949. The crisis accelerated Germany&rsquo;s formal division into two states and contributed directly to the founding of NATO (北大西洋公約組織) that same year, cementing the Cold War&rsquo;s central fault line for decades.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Berlin_Blockade" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Stalin tried to starve a city into submission without firing a shot &mdash; the Allies answered with a cargo plane landing every 90 seconds.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered the Soviet blockade of West Berlin, and how did the Western Allies respond without provoking open war?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Soviet Union blockaded West Berlin after the Allies introduced a new currency, hoping to force them to abandon the city. Rather than fight through the blockade, the Allies supplied over two million people entirely by air for nearly eleven months, flying more than 200,000 flights until Stalin lifted the blockade in May 1949.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Berlin Blockade and Airlift.&rdquo; US Department of State, Office of the Historian.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>商羯羅與不二論：一場全國辯論之旅，如何統一了分裂千年的印度哲學</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元八世紀，一位年僅八歲便通曉四吠陀、據說只活了三十二年的印度青年僧侶，走遍南亞次大陸，向各地學派公開挑戰辯論。你認為，這場遊走全國的辯論之旅，最終會為分裂已久的印度哲學留下怎樣的思想遺產？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>商羯羅（約788&ndash;820年），南印度喀拉拉邦人；曼陀那&middot;彌尸羅，彌曼差學派著名學者。</p>
+        <p><strong>核心思想：</strong>不二論吠檀多（梵我一如）；摩耶（幻相）&mdash;&mdash;現象世界並非究竟實在，唯有「梵」為終極真實。</p>
+        <p><strong>時代背景：</strong>公元八世紀印度婆羅門教內部學派林立，吠檀多、彌曼差、數論各執一端，佛教與耆那教亦廣泛流行，商羯羅遊走全國辯論，意圖以吠檀多統合各家。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Raja_Ravi_Varma_-_Sankaracharya.jpg/330px-Raja_Ravi_Varma_-_Sankaracharya.jpg" alt="商羯羅畫像，畫家Raja Ravi Varma所繪" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">商羯羅畫像，不二論吠檀多哲學創立者，畫家Raja Ravi Varma所繪。來源：<a href="https://en.wikipedia.org/wiki/Adi_Shankara" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>商羯羅出身南印度喀拉拉邦一個婆羅門家庭，相傳自幼聰穎過人，年僅八歲便通曉四吠陀，其後說服寡母允其出家為僧，修習吠檀多哲學。商羯羅提出「不二論」，主張宇宙終極實在唯有「梵」一者，個體靈魂「阿特曼」與梵本質無二，凡夫因「摩耶」（幻相）之遮蔽，誤將變幻無常的現象世界及個體自我當作真實，猶如黑夜中誤將繩索看作蛇一般，一旦證悟「梵我一如」，便可解脫生死輪迴。</p>
+      <p>商羯羅為統合印度婆羅門教內部分裂已久的各家學說，展開遊歷全國的辯論之旅，最著名一役是與彌曼差學派大師曼陀那&middot;彌尸羅的公開辯論，據傳由彌尸羅之妻烏婆耶&middot;婆羅蒂擔任裁判。商羯羅義理上勝出，然而婆羅蒂隨即追問一則屬於「愛欲學」的問題，商羯羅身為出家苦行僧坦承未曾涉獵此道，遂依印度傳統「借屍還魂」之法暫離己身、附於一位剛去世的國王軀體之中親歷世俗欲樂，數月後方才返回己身完成辯論，最終說服彌尸羅皈依吠檀多門下。</p>
+      <p>商羯羅晚年於印度四方建立四大寺院，分別位於斯林格里、普里、德瓦拉卡與焦西瑪特，作為傳承不二論的據點，至今仍是印度教僧團體制的重要支柱。他為《梵經》、《薄伽梵歌》與主要奧義書撰寫註疏，確立不二論吠檀多為印度哲學正統之一，深刻影響其後印度教思想與十九世紀新吠檀多運動，西方哲學界亦常將其思想與斯賓諾莎的一元論相提並論。商羯羅相傳僅活了三十二年，其思想影響卻延續逾千二百年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Adi_Shankara" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場關於「愛欲學」的意外詰問，反而促成了印度哲學史上最著名的一次思想統一辯論。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>商羯羅的「不二論」主張個體自我與終極實在是什麼關係？他用什麼比喻解釋世人為何誤認幻相為真？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">商羯羅主張個體靈魂「阿特曼」與宇宙終極實在「梵」本質無二，二者實為同一。他以黑夜中誤將繩索看作蛇為喻，說明世人因「摩耶」（幻相）遮蔽，才會將變幻的現象世界與個體自我誤認為真實存在。</div>
+      </details>
+      <div class="source">&#x1F4D6; 商羯羅《梵經注》；Stanford Encyclopedia of Philosophy, &ldquo;&#x15A;a&#x1E45;kara.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Frenchman Who Misread the English Constitution &mdash; and Accidentally Designed Modern Government</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1748, a French aristocrat published a sprawling book arguing that liberty could only survive if a government&rsquo;s power were split into separate, competing branches. Before reading on, which real country&rsquo;s constitution do you think he pointed to as his model &mdash; and what do you think historians later discovered was wrong about his description of it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Charles-Louis de Secondat, Baron de Montesquieu (孟德斯鳩, 1689&ndash;1755), French judge and political philosopher; James Madison (麥迪遜), who cited Montesquieu in defending the US Constitution (美國憲法).</p>
+        <p><strong>Idea at stake:</strong> The separation of powers (三權分立) into legislative (立法), executive (行政), and judicial (司法) branches, proposed in Montesquieu&rsquo;s 1748 book <em>The Spirit of the Laws</em> (論法的精神).</p>
+        <p><strong>Big picture:</strong> Montesquieu&rsquo;s framework became one of the most directly influential ideas in modern constitutional design, despite resting on a description of England&rsquo;s constitution later shown to be significantly inaccurate.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Charles_Montesquieu.jpg" alt="Portrait of Montesquieu" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Charles-Louis de Secondat, Baron de Montesquieu (孟德斯鳩), whose 1748 <em>The Spirit of the Laws</em> proposed the separation of powers (三權分立) later built into the US Constitution. Credit: <a href="https://en.wikipedia.org/wiki/Montesquieu" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Montesquieu (孟德斯鳩), a French aristocrat and judge who had travelled extensively, including nearly two years in England (英格蘭), published <em>The Spirit of the Laws</em> (論法的精神) in 1748, a sprawling comparative study of governments arguing that political liberty (政治自由) survives only where power is divided rather than concentrated. Drawing on Aristotle&rsquo;s older distinction between types of governmental function, Montesquieu proposed a state&rsquo;s power be separated into three branches, legislative, executive, and judicial, each able to check the others&rsquo; excesses, an arrangement he believed he had found already functioning in England&rsquo;s constitution.</p>
+      <p>Montesquieu held up the English constitution (英國憲法) as his model, describing a Parliament (國會) that made law, a monarch and ministers who executed it, and courts that judged cases independently of both. Later scholars, including Walter Bagehot (白芝浩) writing over a century later, pointed out Montesquieu had significantly overstated England&rsquo;s actual separation: the executive and legislative branches were, in reality, substantially fused, since the government of the day was drawn from and remained accountable to Parliament, rather than operating as a genuinely independent branch as his model implied.</p>
+      <p>Despite this inaccuracy, Montesquieu&rsquo;s idealised version proved enormously influential precisely because it was clear and teachable. American founders, especially James Madison (麥迪遜) in Federalist No. 47, cited Montesquieu directly when designing the US Constitution&rsquo;s (美國憲法) three co-equal branches, deliberately building in more genuine separation, with an elected executive independent of the legislature, than England itself actually possessed &mdash; making the American system, ironically, a more faithful embodiment of Montesquieu&rsquo;s theory than the country that supposedly inspired it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Montesquieu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The clean three-branch model taught in civics classes wasn&rsquo;t really England &mdash; it was Montesquieu&rsquo;s idealised sketch, built more faithfully in America than where he thought he saw it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Montesquieu believe he had observed in the English constitution, and what did later scholars argue he got wrong about it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Montesquieu believed England cleanly separated legislative, executive, and judicial power into three independent branches. Later scholars, including Walter Bagehot, argued he overstated this: England&rsquo;s executive and legislature were substantially fused, since the government was drawn from and accountable to Parliament rather than operating independently.</div>
+      </details>
+      <div class="source">&#x1F4D6; Montesquieu, C. (1748). <em>The Spirit of the Laws</em>. Stanford Encyclopedia of Philosophy, &ldquo;Montesquieu.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Banning Something Is Often the Best Way to Make People Want It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Parents who forbid a particular toy often find their child wants it more, not less, and products marketed as &ldquo;limited&rdquo; or &ldquo;restricted&rdquo; frequently sell better than identical unrestricted versions. Before reading on, why do you think simply removing a choice can make people desire it more than they did before it was taken away?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Peter_Paul_Rubens_-_Adam_and_Eve%2C_after_Titian%2C_between_1628_and_1629.jpg" alt="Rubens' painting of Adam and Eve with the forbidden fruit" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Adam and Eve (亞當與夏娃) with the forbidden fruit (禁果) &mdash; perhaps history&rsquo;s oldest illustration of the pull of a restricted choice. Credit: <a href="https://en.wikipedia.org/wiki/Reactance_(psychology)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1966, psychologist Jack Brehm (布倫) proposed psychological reactance theory (心理抗拒理論), arguing that whenever people perceive a specific freedom or choice as threatened or eliminated, they experience an unpleasant motivational state pushing them to reassert that freedom, often by wanting the restricted option more intensely than before. Reactance (抗拒) isn&rsquo;t simple stubbornness; Brehm framed it as a predictable, near-mechanical response, meaning the mere act of restricting a choice, regardless of its actual merit, can itself increase the restricted option&rsquo;s appeal.</p>
+      <p>A 1975 study by Stephen Worchel, Jerry Lee, and Akanbi Adewole (沃切爾等) tested this directly: participants rated identical cookies (曲奇) as more desirable, and even tastier, when a jar held only two rather than ten, and ratings rose further when scarcity was attributed to other people&rsquo;s high demand rather than simple restocking. The effect also appears in relationships: the &ldquo;Romeo and Juliet effect&rdquo; (羅密歐與茱麗葉效應) suggests parental interference can intensify a couple&rsquo;s attachment, though later studies found this relationship effect weaker and less consistent than the classic scarcity findings.</p>
+      <p>Reactance helps explain why heavy-handed warning labels or blunt commands sometimes backfire, producing a &ldquo;boomerang effect&rdquo; (迴力鏢效應) where the targeted behaviour increases instead of decreasing. Marketers exploit the same mechanism deliberately through manufactured scarcity and &ldquo;exclusive access&rdquo; framing. The practical lesson isn&rsquo;t that restrictions never work, but that preserving a genuine sense of choice, explaining reasoning rather than simply forbidding, tends to produce more durable behaviour change than triggering someone&rsquo;s instinct to defend a threatened freedom.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Reactance_(psychology)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Telling someone they can&rsquo;t have something doesn&rsquo;t remove its appeal &mdash; it often manufactures appeal that wasn&rsquo;t there before.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In the 1975 cookie jar study, what made an identical cookie seem more desirable, and what did Brehm call the underlying psychological response?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cookies were rated more desirable and tastier when the jar held only two rather than ten, especially when scarcity was attributed to high demand. Brehm called this psychological reactance &mdash; an unpleasant state triggered when a freedom feels threatened, pushing people to reassert it by wanting the restricted option more.</div>
+      </details>
+      <div class="source">&#x1F4D6; Brehm, J.W. (1966). <em>A Theory of Psychological Reactance</em>. Worchel, S., Lee, J. &amp; Adewole, A. (1975). <em>Journal of Personality and Social Psychology</em>, 32(5).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Some People Can Name Any Note They Hear &mdash; and Most Never Will</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">About one in 10,000 people in Western countries can instantly identify any musical note played to them, by name, with no reference pitch at all &mdash; a skill some professional musicians spend decades failing to develop. Before reading on, what do you think determines who ends up with this ability: talent, training, or something else entirely?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Steinway_Vienna_002.JPG" alt="A grand piano, a fixed-pitch instrument commonly used to test and train absolute pitch" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A grand piano (鋼琴) &mdash; a fixed-pitch instrument whose early training is strongly linked to who develops absolute pitch (絕對音感). Credit: <a href="https://en.wikipedia.org/wiki/Absolute_pitch" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Absolute pitch (絕對音感), commonly called perfect pitch, is the rare ability to identify or produce a musical note&rsquo;s exact pitch (音高) from memory alone, without comparing it to any reference tone. Unlike relative pitch (相對音感), the far more common skill of recognising the distance between two notes, absolute pitch appears to require a specific auditory-label mapping laid down early in life, one that becomes dramatically harder to acquire after roughly age six, suggesting a genuine critical period (關鍵期) in auditory development similar to those documented in early language acquisition.</p>
+      <p>Psychologist Diana Deutsch (道奇) has shown the ability is far more common in speakers of tonal languages (聲調語言) such as Mandarin (普通話) and Vietnamese (越南語), where pitch itself carries word meaning from infancy, meaning the brain&rsquo;s speech-processing machinery is already tracking exact pitch during the same early window music training would need to exploit. Musicians who began formal training before age six, particularly on fixed-pitch instruments like piano, also show sharply higher rates of absolute pitch, suggesting the trait reflects an interaction between innate auditory sensitivity, early language environment, and precisely timed musical exposure rather than any single cause.</p>
+      <p>Genetic studies find absolute pitch runs in families and shows higher concordance between identical twins than fraternal twins, but no single &ldquo;perfect pitch gene&rdquo; has been confirmed, and researchers increasingly view it as requiring both a genetic predisposition and a narrow developmental window in which the right auditory experience must occur. This makes absolute pitch a clear illustration of how some human variation in ability isn&rsquo;t purely a matter of effort, since an adult with no early exposure to fixed pitch labels is, by current evidence, essentially unable to acquire true absolute pitch no matter how much they train.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Absolute_pitch" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Perfect pitch isn&rsquo;t a reward for practice &mdash; it&rsquo;s a narrow developmental window that, once closed, appears to close for good.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do speakers of tonal languages like Mandarin show absolute pitch far more often, and what does this suggest about how the trait develops?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">In tonal languages, pitch itself carries word meaning from infancy, so the brain is already tracking exact pitch during the same early window music training would need to exploit. This suggests absolute pitch depends on a genetic predisposition combined with the right auditory experience occurring within a narrow early-childhood critical period.</div>
+      </details>
+      <div class="source">&#x1F4D6; Deutsch, D. et al. (2006). <em>Journal of the Acoustical Society of America</em>, 119(2). Baharloo, S. et al. (1998). <em>American Journal of Human Genetics</em>, 62(2).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Squeaky-Clean Habit That Might Be Quietly Raising Your Blood Pressure</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Antibacterial mouthwash is marketed as an unambiguous hygiene upgrade, killing the bacteria that cause bad breath and gum disease. Before reading on, what do you think happens when you kill off not just the &ldquo;bad&rdquo; bacteria in your mouth, but nearly every bacterium living there, twice a day?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/MMSA_Checking_Blood_Pressure.JPG" alt="A blood pressure measurement being taken with a cuff" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Blood pressure (血壓) measurement &mdash; researchers found antibacterial mouthwash can measurably raise it within days by disrupting a surprising oral-bacteria pathway. Credit: <a href="https://en.wikipedia.org/wiki/Mouthwash" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The human mouth hosts a dense community of bacteria (口腔菌叢) most people assume are purely a hygiene liability, but a specific subset performs a genuinely useful function: converting dietary nitrate (硝酸鹽), found abundantly in leafy greens (綠葉蔬菜) and beetroot (甜菜根), into nitrite (亞硝酸鹽), the first step toward producing nitric oxide (一氧化氮), a molecule that relaxes and widens blood vessels. This oral nitrate-to-nitrite conversion happens nowhere else efficiently in the body, meaning these specific bacteria form an essential link in a chain that helps regulate blood pressure (血壓).</p>
+      <p>A 2013 study in <em>Free Radical Biology and Medicine</em>, led by Vikas Kapil (卡皮爾), had healthy volunteers rinse with antibacterial mouthwash (抗菌漱口水) containing chlorhexidine (氯己定) twice daily for a week and found it reduced oral nitrite production by roughly 90%, while systolic blood pressure rose by an average of 2 to 3.5 mmHg within just days, an effect comparable in size to some dietary interventions used to lower blood pressure, though in the opposite direction. The effect reversed once volunteers stopped, confirming the bacteria themselves were responsible.</p>
+      <p>This doesn&rsquo;t mean everyone should abandon mouthwash entirely, since it remains genuinely useful for specific short-term purposes such as pre-surgical infection control, but it complicates the assumption that maximal oral bacterial killing is always a hygiene win. For people managing blood pressure through diet, particularly those eating nitrate-rich vegetables specifically for cardiovascular benefit, daily antibacterial mouthwash use may quietly work against that effort; researchers suggest reserving strong antibacterial rinses for specific short-term needs rather than routine daily habit.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mouthwash" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The nitrate you eat in leafy greens needs specific mouth bacteria to become useful &mdash; and antibacterial mouthwash can wipe out that step within days.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific function do certain oral bacteria perform that antibacterial mouthwash disrupts, and what did the 2013 Kapil study find happened to blood pressure?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Certain oral bacteria convert dietary nitrate from vegetables into nitrite, a key step toward producing blood-vessel-relaxing nitric oxide. Kapil&rsquo;s 2013 study found antibacterial mouthwash cut oral nitrite production by about 90% and raised systolic blood pressure by 2&ndash;3.5 mmHg within a week, reversing once mouthwash use stopped.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kapil, V. et al. (2013). <em>Free Radical Biology and Medicine</em>, 55. NIH/National Institute of Dental and Craniofacial Research.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Unglamorous Exercise That Cuts Hamstring Injuries Nearly in Half</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Hamstring (膕繩肌) strains are among the most common injuries in sprinting and field sports, with an unusually high recurrence rate once they happen once. Before reading on, what specific quality of a hamstring muscle do you think determines whether it tears under the strain of sprinting &mdash; and what kind of exercise might change that quality?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Hamstrings.gif" alt="Anatomical diagram of the hamstring muscles" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The hamstring muscle group (膕繩肌) &mdash; injuries most often occur during the eccentric loading phase of sprinting, a stress one specific exercise directly trains against. Credit: <a href="https://en.wikipedia.org/wiki/Hamstring" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Hamstring strain injuries (膕繩肌拉傷) typically occur not while a muscle is contracting and shortening, but during the late swing phase of sprinting, when the hamstring forcefully contracts while simultaneously lengthening, known as eccentric contraction (離心收縮), as the leg decelerates before striking the ground. This eccentric loading generates the highest forces the muscle experiences during sprinting, and researchers found athletes with short hamstring fascicle length (肌束長度), the length of individual muscle fibre bundles, face substantially higher injury risk, since shorter fascicles must stretch through a larger share of their total length to absorb the same movement.</p>
+      <p>The Nordic hamstring curl (北歐式膕繩肌屈曲), performed by kneeling with ankles anchored while slowly lowering the torso forward using only hamstring control, trains this exact eccentric capacity directly. A landmark 2015 meta-analysis by van der Horst and colleagues, drawing on multiple randomised controlled trials involving thousands of footballers, found the exercise reduced hamstring injury rates by approximately 51%, making it one of the best-evidenced injury-prevention exercises documented in any sport, and a widely cited estimate suggests consistent season-long adoption can push that reduction even higher.</p>
+      <p>Beyond simply strengthening the muscle, ultrasound-based studies show Nordic curl training measurably increases hamstring fascicle length over several weeks, meaning the muscle adapts structurally, not just in raw strength, to better tolerate the exact stretch that causes strain injuries. Despite this strong evidence base, adoption remains inconsistent across amateur and even professional teams, partly because the exercise is famously uncomfortable and produces significant soreness in the first few weeks, causing many athletes and coaches to abandon it before the protective adaptation has had time to develop.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hamstring" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The exercise most likely to prevent a torn hamstring is also one of the most commonly abandoned &mdash; usually right before its protective effect kicks in.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does eccentric contraction during sprinting pose the highest hamstring injury risk, and how does the Nordic hamstring curl address this specific weakness?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hamstring strains typically occur when the muscle contracts while lengthening during sprinting&rsquo;s swing phase, a load athletes with shorter muscle fascicles handle poorly. Nordic hamstring curls train this exact eccentric action and have been shown to both strengthen the muscle and increase fascicle length, cutting injury rates by roughly 51% in controlled trials.</div>
+      </details>
+      <div class="source">&#x1F4D6; van der Horst, N. et al. (2015). <em>American Journal of Sports Medicine</em>, 43(6). Petersen, J. et al. (2011). <em>American Journal of Sports Medicine</em>, 39(11).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Wall Street Shortcut That Let Companies Skip Their Own IPO Homework</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Between 2020 and 2021, hundreds of shell companies raised billions of dollars and listed on stock exchanges despite having no actual business operations at all, promising only to merge with a real company later. Before reading on, why do you think investors piled into literally empty companies &mdash; and what do you think happened to most of those bets afterward?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Nasdaq_Tower_May_2026.jpg/330px-Nasdaq_Tower_May_2026.jpg" alt="The Nasdaq Tower in Times Square" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Nasdaq (納斯達克) tower &mdash; exchange listings surged during 2020&ndash;2021 as hundreds of empty shell companies raised over $160 billion through SPAC structures. Credit: <a href="https://en.wikipedia.org/wiki/Special-purpose_acquisition_company" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A special-purpose acquisition company (特殊目的收購公司, SPAC), sometimes called a &ldquo;blank-check company,&rdquo; is a shell corporation that raises money through its own initial public offering (首次公開發行) with no underlying business at all, then has a fixed window, typically two years, to find and merge with a private company, taking it public through that merger rather than a traditional IPO. SPACs existed in small numbers for decades, but 2020 and 2021 saw an unprecedented boom: over 600 SPACs raised more than $160 billion in 2021 alone, driven partly by celebrity-sponsored vehicles and pandemic-era speculative enthusiasm.</p>
+      <p>SPAC mergers, known as &ldquo;de-SPACing&rdquo; (去殼上市), appealed to private companies because they allowed forward-looking financial projections traditional IPO prospectuses generally cannot legally include, letting unprofitable, early-stage companies market ambitious revenue forecasts directly to retail investors (散戶投資者) with far less scrutiny than a conventional listing requires. A 2022 study by Michael Klausner, Michael Ohlrogge, and Emily Ruan in the <em>Yale Journal on Regulation</em> found the structure imposed heavy hidden dilution on shareholders, since SPAC sponsors typically receive founder shares equal to 20% of the company for a nominal price, a cost later investors ultimately bore.</p>
+      <p>The same study found companies going public via SPAC merger dramatically underperformed both the broader market and traditional IPOs, with median returns of roughly negative 65% within a year of the merger closing across the cohort studied. By 2022, SPAC issuance had collapsed to a small fraction of its 2021 peak as rising interest rates ended the speculative-growth rally and the true scale of dilution and underperformance became widely understood, leaving the episode as a case study in how a shortcut around normal disclosure requirements can produce a genuine boom before revealing costs largely invisible to retail investors at the time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Special-purpose_acquisition_company" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A shell company promising a merger later let firms skip an IPO&rsquo;s toughest scrutiny &mdash; investors paid for that shortcut in hidden dilution and dismal average returns.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What structural feature let SPAC mergers make aggressive financial projections that traditional IPOs generally couldn&rsquo;t, and what did the 2022 study find about typical shareholder returns?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">SPAC mergers used a regulatory carve-out allowing forward-looking financial projections that standard IPO prospectuses generally cannot legally include, letting early-stage companies market ambitious forecasts with less scrutiny. The 2022 study found median shareholder returns of roughly negative 65% within a year of the merger, driven partly by heavy dilution from sponsor founder shares.</div>
+      </details>
+      <div class="source">&#x1F4D6; Klausner, M., Ohlrogge, M. &amp; Ruan, E. (2022). <em>Yale Journal on Regulation</em>, 39. SEC Investor Bulletin, &ldquo;What You Need to Know About SPACs.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Making Something More Efficient Can Make Us Use More of It, Not Less</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/CottonopolisCropped.jpg" alt="Illustration of Manchester's industrial coal-powered mills, nicknamed Cottonopolis" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">&ldquo;Cottonopolis&rdquo; &mdash; industrial-era Manchester (曼徹斯特), whose coal-hungry mills inspired William Stanley Jevons&rsquo;s 1865 observation that efficiency gains can increase, not decrease, total resource use. Credit: <a href="https://en.wikipedia.org/wiki/Jevons_paradox" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since 2022, computing hardware and AI models (人工智能模型) have grown dramatically more energy-efficient per unit of computation, yet global data centre (數據中心) electricity use has kept climbing sharply, with the International Energy Agency (國際能源署) projecting it could roughly double by 2026 to around 945 terawatt-hours, comparable to Japan&rsquo;s (日本) entire annual electricity use.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">William Stanley Jevons (傑文斯), a 19th-century English economist, observed in his 1865 book <em>The Coal Question</em> that more efficient steam engines coincided with dramatically higher total coal (煤) consumption in Britain, since efficiency lowered the effective cost of using coal-powered machinery faster than it reduced consumption per unit &mdash; now called the Jevons paradox (傑文斯悖論) or rebound effect (反彈效應).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Standard efficiency policy assumes less energy per task straightforwardly reduces total consumption; yet in AI computing, each generation of more efficient chips has been followed not by falling total energy use but by a proliferation of new, more demanding applications, suggesting efficiency gains are being fully or partially &ldquo;eaten&rdquo; by expanded use, echoing Jevons&rsquo;s coal observation almost 160 years later.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economists distinguish a full &ldquo;backfire effect,&rdquo; where rebound more than offsets efficiency savings, from a smaller partial rebound where some net saving remains; the size of the AI-era rebound is empirically contested, with some arguing demand is currently so unsaturated that near-total backfire is likely for now, others expecting the ratio to shrink as the technology matures &mdash; an open question with major climate-policy implications.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Efficiency alone hasn&rsquo;t shrunk energy use for 160 years running &mdash; from coal-fired mills to AI data centres, cheaper computation has mostly just bought more of it.</div>
+      <div class="source">&#x1F4D6; Jevons, W.S. (1865). <em>The Coal Question</em>. International Energy Agency (2024), &ldquo;Electricity 2024.&rdquo; Sorrell, S. (2009). <em>Energy Policy</em>, 37(4).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 11 &mdash; When Interventions Backfire:</strong> Psychological reactance theory shows that restricting a choice can make people want it more, not less, because they reassert a threatened freedom. Jevons&rsquo;s paradox, first observed in Victorian coal mines and now visible in AI data centres, shows something structurally similar from an economic angle: making a resource more efficient to use, effectively cheaper at the margin, can raise total consumption rather than lower it, because falling costs unlock demand faster than efficiency reduces it. Both cases undermine the same intuitive assumption &mdash; that restricting or improving something moves total use in the direction you&rsquo;d naively expect.</p>
+      <p><strong>So what:</strong> Before assuming a ban, warning, or efficiency gain will straightforwardly reduce some behaviour or resource use, ask what marginal incentive it actually changes &mdash; the intervention might be quietly increasing the very demand it was meant to shrink.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/Goddard Space Flight Center, OSIRIS-REx mission data (2020, 2023). Lauretta, D.S. et al. (2019), <em>Nature</em> 568.</li>
+      <li><strong>Card 2:</strong> 《清史稿》；Jonathan Spence, <em>God&rsquo;s Chinese Son</em> (1996)；Britannica, &ldquo;Taiping Rebellion.&rdquo;</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Berlin Blockade and Airlift.&rdquo; US Department of State, Office of the Historian.</li>
+      <li><strong>Card 4:</strong> 商羯羅《梵經注》；Stanford Encyclopedia of Philosophy, &ldquo;&#x15A;a&#x1E45;kara.&rdquo;</li>
+      <li><strong>Card 5:</strong> Montesquieu, C. (1748), <em>The Spirit of the Laws</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Brehm, J.W. (1966). Worchel, S., Lee, J. &amp; Adewole, A. (1975), <em>JPSP</em> 32(5).</li>
+      <li><strong>Card 7:</strong> Deutsch, D. et al. (2006), <em>JASA</em> 119(2). Baharloo, S. et al. (1998), <em>AJHG</em> 62(2).</li>
+      <li><strong>Card 8:</strong> Kapil, V. et al. (2013), <em>Free Radical Biology and Medicine</em> 55.</li>
+      <li><strong>Card 9:</strong> van der Horst, N. et al. (2015), <em>AJSM</em> 43(6). Petersen, J. et al. (2011), <em>AJSM</em> 39(11).</li>
+      <li><strong>Card 10:</strong> Klausner, M., Ohlrogge, M. &amp; Ruan, E. (2022), <em>Yale Journal on Regulation</em> 39.</li>
+      <li><strong>Card 11:</strong> Jevons, W.S. (1865). International Energy Agency (2024). Sorrell, S. (2009), <em>Energy Policy</em> 37(4).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-27: OSIRIS-REx / Bennu Sample Return &bull; 洪秀全與太平天國 &bull; Berlin Airlift 1948&ndash;49 &bull; 商羯羅與不二論吠檀多 &bull; Montesquieu / Separation of Powers &bull; Psychological Reactance Theory &bull; Absolute Pitch &bull; Mouthwash &amp; Blood Pressure &bull; Nordic Hamstring Curl &bull; SPAC Boom and Bust &bull; Jevons Paradox</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-27.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-27.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 27 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
