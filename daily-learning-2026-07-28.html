@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 28 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 28 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>27 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; OSIRIS-REx / Bennu</span>A NASA sampling arm sank half a metre into asteroid Bennu&rsquo;s rubble-like surface, a near-mishap that scooped twice the intended sample.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 洪秀全與太平天國</span>洪秀全稱耶穌之弟，太平天國終因內鬥而敗亡。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Berlin Airlift</span>Stalin blockaded West Berlin over a new currency; Allies supplied the city entirely by air for nearly a year.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 商羯羅與不二論</span>商羯羅辯遊全國，統一分裂已久的印度哲學。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Montesquieu</span>Montesquieu&rsquo;s idealised, partly inaccurate reading of England&rsquo;s constitution became the direct blueprint for America&rsquo;s separated powers.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Psychological Reactance</span>Restricting a choice, like a scarce cookie jar, can make people want it more &mdash; Brehm called this reactance.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Absolute Pitch</span>True perfect pitch depends on a narrow early-childhood window tied to tonal-language exposure and early fixed-pitch training.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Mouthwash &amp; Blood Pressure</span>Antibacterial mouthwash killed bacteria that convert dietary nitrate into blood-pressure-lowering nitric oxide, raising BP within days.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Nordic Hamstring Curl</span>A simple eccentric hamstring exercise cuts injury rates nearly in half, though many quit before the benefit kicks in.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; SPAC Boom and Bust</span>Blank-check shell companies let firms skip IPO scrutiny in 2020&ndash;21; median SPAC-merger returns landed near negative 65%.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Jevons Paradox</span>Making AI computing more efficient hasn&rsquo;t cut energy use &mdash; echoing an 1865 observation about efficiency gains getting &ldquo;eaten&rdquo; by expanded use.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Star Nursery Photographed Twice, 27 Years Apart &mdash; and What Changed</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1995, the Hubble Space Telescope (哈勃太空望遠鏡) photographed three towering columns of gas and dust in the Eagle Nebula (鷹狀星雲), an image that became one of the most recognisable in astronomy. In 2022, the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) photographed the exact same structure again. Before reading on, what do you think a newer, more powerful telescope revealed inside those pillars that the original image couldn&rsquo;t show?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg" alt="The Pillars of Creation in the Eagle Nebula, towering columns of gas and dust" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The &ldquo;Pillars of Creation&rdquo; (創生之柱) in the Eagle Nebula (鷹狀星雲, M16) &mdash; photographed by Hubble in 1995 and again by Webb in 2022, revealing hundreds of stars hidden in the original image. Credit: <a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1995, the Hubble Space Telescope (哈勃太空望遠鏡) pointed its camera at the Eagle Nebula (鷹狀星雲, M16), a star-forming region (恆星形成區) roughly 7,000 light-years away, and captured three towering columns of cold gas and dust nicknamed the &ldquo;Pillars of Creation&rdquo; (創生之柱). The tallest column stretches about four light-years, nearly the distance from the Sun to its nearest stellar neighbour, and the image became one of the most reproduced photographs in the history of astronomy, prized for showing star formation (恆星形成) not as an abstract diagram but as a genuine, sculptural landscape hanging in space.</p>
+      <p>In 2022, the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) photographed the identical structure using infrared light (紅外線), which passes through dust that blocks visible light entirely. Where Hubble&rsquo;s image showed opaque, solid-looking towers, Webb&rsquo;s version revealed the pillars as porous and semi-transparent, riddled with newly forming stars (原恆星) previously hidden completely from view, some still wrapped in the collapsing gas clouds feeding their growth. Hundreds of young stars glowed at the pillar tips and along their edges, transforming what looked like static monuments into an actively churning stellar nursery caught mid-construction.</p>
+      <p>Comparing the two images across 27 years also let astronomers measure subtle structural change: radiation (輻射) and stellar winds (恆星風) from nearby massive young stars are steadily eroding the pillars&rsquo; outer layers, a process that will eventually disperse the entire structure over roughly 100,000 more years, an eyeblink in cosmic terms. The pillars are therefore both a nursery and a slow demolition site simultaneously, new stars forming inside a structure being actively worn away by the light of the young stars that came before them.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A telescope built 27 years later didn&rsquo;t just take a sharper photo &mdash; it saw straight through the dust to stars the first image couldn&rsquo;t detect at all.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What kind of light let the James Webb Space Telescope see through the Pillars of Creation where Hubble&rsquo;s image could not, and what did it reveal?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Webb used infrared light, which passes through the dust that blocks visible light. This revealed the pillars as porous rather than solid, showing hundreds of newly forming stars glowing at their tips and edges that were completely invisible in Hubble&rsquo;s original 1995 image.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA, James Webb Space Telescope press release (2022). Hubble Space Telescope image release (1995). Hester, J.J. et al. (1996), <em>Astronomical Journal</em>, 111.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>叔奪姪位：燕王朱棣如何以「靖難」之名奪取大明皇位</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1399年，明太祖朱元璋駕崩僅一年，坐鎮北平的燕王朱棣以「清君側、靖國難」為名起兵，對抗剛即位的姪兒建文帝。你認為，一個地方藩王最終如何能夠擊敗坐擁全國兵力的皇帝，奪取大明江山？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>燕王朱棣（後為明成祖，1360&ndash;1424）；建文帝朱允炆（1377&ndash;1402?）；齊泰、黃子澄（削藩主謀大臣）。</p>
+        <p><strong>事件：</strong>建文元年（1399年）朱棣起兵「靖難」；建文四年（1402年）攻陷南京，建文帝下落不明，朱棣即位。</p>
+        <p><strong>時代背景：</strong>明太祖朱元璋分封諸子為藩王鎮守邊疆，建文帝即位後聽從齊泰、黃子澄建議大舉削藩，逼使實力最強的燕王朱棣狗急跳牆起兵反抗。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Jingnan_Campaign_%28English%29.svg/960px-Jingnan_Campaign_%28English%29.svg.png" alt="靖難之役形勢地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">靖難之役形勢圖，燕王朱棣自北平起兵南下，最終攻陷南京。來源：<a href="https://en.wikipedia.org/wiki/Jingnan_campaign" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>明太祖朱元璋鑒於歷代權臣篡位之禍，分封二十餘位皇子為藩王，賦予兵權鎮守邊疆，其中鎮守北平的四子燕王朱棣，因久經沙場、屢次出塞抗擊蒙古，實力冠絕諸藩。洪武三十一年（1398年）朱元璋駕崩，皇太孫朱允炆繼位，是為建文帝，即位後採納親信大臣齊泰、黃子澄之議，以「藩王勢大難制」為由，先後削奪周王、齊王、代王等多位叔父的爵位與兵權，部分藩王更被廢為庶人或逼死，燕王朱棣深知下一個目標便是自己。</p>
+      <p>建文元年（1399年）七月，朱棣佯裝癲狂數月以麻痺朝廷耳目，暗中操練精兵，最終於北平誅殺建文帝派來的官員，以「清君側、靖國難」為名正式起兵，史稱「靖難之役」。朱棣雖僅擁有北平一隅之地，兵力遠遜於朝廷大軍，卻善用騎兵機動突襲，屢次以少勝多，更說服駐守大寧的寧王朱權合兵，並收編蒙古朵顏三衛精銳騎兵，戰事拖延三年，雙方互有勝負，僵持不下。</p>
+      <p>建文四年（1402年）朱棣改變戰略，捨棄逐城攻打，率軍直搗南京，沿途守將望風而降，六月大軍抵達南京城下，谷王朱橞與李景隆開金川門迎降，南京城破，皇宮起火，建文帝自此下落不明，成為明史一大懸案，有傳其焚死宮中，亦有傳其削髮為僧流亡海外。朱棣隨即登基，是為明成祖，年號永樂，其後遷都北京、編修《永樂大典》、派鄭和下西洋，開創明朝盛世，然「靖難」奪位的正統性爭議，終明一朝未曾平息。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jingnan_campaign" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場以「清君側」為名的藩王起兵，最終讓地方諸侯登上了皇帝寶座。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>建文帝削藩為何反而促成燕王朱棣起兵？朱棣最終如何攻入南京奪取帝位？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">建文帝聽從齊泰、黃子澄之議大舉削藩，令實力最強的燕王朱棣深感自身難保，遂以「靖難」為名起兵自保。朱棣後期捨棄逐城攻打，直搗南京，守將紛紛倒戈開城投降，建文帝下落不明，朱棣遂登基稱帝。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《明史&middot;成祖本紀》；Britannica, &ldquo;Yongle Emperor.&rdquo; Dreyer, E.L. (1982), <em>Early Ming China: A Political History</em>.</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>Thirteen Days From Nuclear War: Inside the Cuban Missile Crisis</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In October 1962, American U-2 spy planes (U-2偵察機) photographed Soviet nuclear missile (核導彈) sites under construction in Cuba (古巴), just 145 kilometres from Florida. Before reading on, what do you think President Kennedy (甘迺迪) chose to do instead of either ignoring the missiles or launching an immediate air strike to destroy them?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> US President John F. Kennedy (甘迺迪); Soviet Premier Nikita Khrushchev (赫魯曉夫); Cuban leader Fidel Castro (卡斯特羅).</p>
+        <p><strong>Event at stake:</strong> The Cuban Missile Crisis (古巴導彈危機), October 1962, a 13-day standoff after the US discovered Soviet nuclear missiles being installed in Cuba.</p>
+        <p><strong>Big picture:</strong> The closest the Cold War (冷戰) came to direct nuclear war between the superpowers, resolved through secret back-channel diplomacy rather than open confrontation.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/PGM-19A_Jupiter_missile-02.jpg" alt="A PGM-19 Jupiter missile on display" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A PGM-19 Jupiter missile (木星飛彈), the type of US missile stationed in Turkey whose secret, quiet withdrawal helped resolve the Cuban Missile Crisis. Credit: <a href="https://en.wikipedia.org/wiki/Cuban_Missile_Crisis" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 October 1962, a US U-2 spy plane (U-2偵察機) photographed Soviet medium-range ballistic missile (彈道飛彈) sites under construction in Cuba (古巴), just 145 kilometres from Florida and well within range of most major American cities. President John F. Kennedy (甘迺迪) convened a secret group of advisers, later called ExComm, who debated options ranging from a full invasion of Cuba to a surgical air strike destroying the missile sites before they became operational, either of which risked triggering direct war with the Soviet Union (蘇聯).</p>
+      <p>Kennedy instead chose a naval &ldquo;quarantine&rdquo; (隔離封鎖) of Cuba, deliberately avoiding the word &ldquo;blockade&rdquo; since international law treated blockades as acts of war, stopping Soviet ships from delivering further military equipment while avoiding an immediate attack. For six tense days, Soviet ships continued toward the quarantine line while American and Soviet forces reached their highest alert levels of the entire Cold War, and on 27 October a US U-2 plane was shot down over Cuba, killing its pilot, pushing both sides to what many advisers believed was the brink of nuclear war (核戰爭).</p>
+      <p>Behind public statements, Kennedy&rsquo;s brother Robert Kennedy (羅拔&middot;甘迺迪) held secret back-channel talks with the Soviet ambassador, ultimately agreeing that the US would publicly pledge not to invade Cuba and secretly remove its Jupiter missiles (木星飛彈) from Turkey (土耳其), a concession kept hidden from the public for decades. Khrushchev (赫魯曉夫) agreed to withdraw the Cuban missiles on 28 October, ending the crisis without a single shot exchanged between the superpowers directly, though the episode prompted both governments to install a direct hotline (熱線) between Washington and Moscow to prevent future misunderstandings from escalating this fast again.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cuban_Missile_Crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The crisis ended not through victory for either side, but through a secret trade neither government admitted to for years.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What secret concession did the US make to end the Cuban Missile Crisis, and why was it kept hidden from the public at the time?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The US secretly agreed to remove its Jupiter missiles from Turkey in exchange for the Soviet withdrawal from Cuba. This was kept hidden because Kennedy wanted the resolution to appear as a clear Soviet retreat rather than a mutual trade, protecting his political position domestically.</div>
+      </details>
+      <div class="source">&#x1F4D6; US National Security Archive, Cuban Missile Crisis Collection. Britannica, &ldquo;Cuban Missile Crisis.&rdquo; Dobbs, M. (2008), <em>One Minute to Midnight</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>朱熹如何以四書注疏，統一了六百年的中國思想正統</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">南宋時期，儒學內部理學、心學各家爭鳴，一位晚年仍被朝廷斥為「偽學」領袖、著作一度遭禁的學者，其註解的四本經典，卻在他死後不足百年被朝廷定為科舉考試的官方標準，沿用長達六百餘年。你認為，這位生前備受打壓的學者是如何做到的？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>朱熹（1130&ndash;1200年，號晦庵，南宋理學集大成者）；陸九淵（心學代表，鵝湖之會論敵）。</p>
+        <p><strong>核心思想：</strong>理氣論&mdash;&mdash;「理」為萬物本原、「氣」為萬物構成；「理一分殊」&mdash;&mdash;天理雖一，然顯現於萬物各有不同。</p>
+        <p><strong>時代背景：</strong>南宋儒學內部理學與心學分立已久，朱熹整理北宋周敦頤、程顥程頤等人學說，並親自註解《四書》，欲統一儒家義理，然晚年捲入政爭，學說一度被朝廷列為「偽學」遭禁。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Zhu_xi.jpg" alt="朱熹畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">朱熹畫像，南宋理學集大成者，其《四書章句集注》其後成為科舉官方標準達六百餘年。來源：<a href="https://en.wikipedia.org/wiki/Zhu_Xi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>朱熹出身南宋福建，年輕時遍訪北宋理學家程顥、程頤之學說傳人，繼承並發展「理」為宇宙萬物根本規律、「氣」為構成萬物之質料的理論架構，提出「理一分殊」之說，主張天理雖為唯一整體，然其顯現於具體事物時，因應各物性質不同而呈現千差萬別的形態，猶如月映萬川，月僅一輪，川流各異。朱熹又主張「格物致知」，認為窮究萬事萬物之理，方能通達天理全體，此說與陸九淵主張「發明本心」、直指本心即理的心學路線大相逕庭。</p>
+      <p>淳熙二年（1175年），朱熹與陸九淵於信州鵝湖寺公開辯論治學方法，陸九淵批評朱熹「格物」工夫「支離事業」，朱熹則反譏陸九淵「易簡工夫」流於空疏，兩人終究未能取得共識，卻促成理學與心學兩大流派公開分野。朱熹晚年將《大學》、《中庸》、《論語》、《孟子》合編為《四書章句集注》，投入畢生心血逐字註解，欲以此取代漢唐以來偏重《五經》的傳統，重新確立儒家義理核心，然而慶元年間權臣韓侂胄當政，將朱熹學說斥為「偽學」，禁止其著作流通，門人亦遭牽連貶黜。</p>
+      <p>朱熹卒於慶元六年（1200年），生前備受打壓，門生故舊送葬者仍被朝廷猜忌監視。然而僅僅過了約一個世紀，元朝皇慶二年（1313年）恢復科舉，正式將朱熹《四書章句集注》列為科舉考試官方標準教材，明清兩代沿襲不改，直至光緒三十一年（1905年）廢除科舉為止，朱熹的註解主導中國士人思想長達六百餘年，其影響力遠超同時代任何一位理學家，成為儒家正統事實上的定義者。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhu_Xi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一套生前遭禁的學說，死後不足百年竟成為六百年科舉考試的官方標準答案。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>朱熹「理一分殊」是什麼意思？他與陸九淵在鵝湖之會的核心分歧是什麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">「理一分殊」指天理本為唯一整體，卻因應萬物不同性質而呈現不同形態，猶如月映萬川。鵝湖之會中，朱熹主張「格物致知」窮究萬物之理，陸九淵則主張「發明本心」直指本心即理，二人治學路徑南轅北轍。</div>
+      </details>
+      <div class="source">&#x1F4D6; 朱熹《四書章句集注》；《宋史&middot;道學傳》；Stanford Encyclopedia of Philosophy, &ldquo;Zhu Xi.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Excommunicated for Believing God and Nature Were the Same Thing</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1656, a 23-year-old philosopher (哲學家) was formally expelled from his own religious community in a curse that forbade anyone from speaking to him, reading his writings, or even standing near him. Before reading on, what idea do you think this thinker proposed that made God so central to his philosophy, yet made religious authorities so eager to cast him out?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Baruch Spinoza (斯賓諾莎, 1632&ndash;1677), Dutch philosopher of Portuguese-Jewish descent.</p>
+        <p><strong>Idea at stake:</strong> Substance monism (實體一元論) &mdash; the claim that God (神) and Nature (自然) are one and the same single infinite substance, laid out in his posthumous work <em>Ethics</em> (倫理學).</p>
+        <p><strong>Big picture:</strong> Spinoza&rsquo;s identification of God with the totality of nature challenged both Jewish and Christian orthodoxy, making him one of the most controversial and influential figures of the Enlightenment (啟蒙運動).</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Spinoza.jpg" alt="Portrait of Baruch Spinoza" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Baruch Spinoza (斯賓諾莎), excommunicated from Amsterdam&rsquo;s Jewish community at 23 for arguing God and Nature are a single infinite substance. Credit: <a href="https://en.wikipedia.org/wiki/Baruch_Spinoza" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Baruch Spinoza (斯賓諾莎) was born in 1632 into Amsterdam&rsquo;s (阿姆斯特丹) Portuguese-Jewish community, descendants of families who had fled Iberian persecution, and received a thorough education in Jewish scripture and Talmudic commentary. By his early twenties, Spinoza had developed views considered dangerously heretical: that God was not a personal being who intervened in history, but was instead identical with Nature (自然) itself, a single infinite substance of which everything, including human minds and bodies, was merely a particular expression or &ldquo;mode,&rdquo; leaving no room for a soul (靈魂) that survives death independently.</p>
+      <p>In 1656, Amsterdam&rsquo;s Jewish community issued a herem (逐出教門令), a formal writ of excommunication, against the 23-year-old Spinoza, using unusually harsh language cursing him &ldquo;by day and by night&rdquo; and forbidding all contact, a punishment historians believe reflected the community&rsquo;s anxiety about provoking Christian authorities who already viewed Jewish theological dissent with suspicion. Spinoza never recanted, instead moving to a series of quiet lodgings where he supported himself grinding optical lenses (光學鏡片), corresponding with major European scientists and philosophers while writing in near-total isolation from his former community.</p>
+      <p>Spinoza&rsquo;s masterwork, <em>Ethics</em> (倫理學), written in a rigorous geometric style modelled on Euclid&rsquo;s proofs, was published only after his death in 1677 for fear of prosecution, and argued that true freedom and happiness come from rationally understanding necessity, since everything, including human emotion, follows deterministically from the nature of the single substance that is God-or-Nature (神即自然). Though condemned across Europe as atheistic during his lifetime, Spinoza&rsquo;s monism (一元論) profoundly shaped later thinkers from Goethe to Einstein, who once stated he believed in &ldquo;Spinoza&rsquo;s God,&rdquo; one identical with the orderly harmony of the universe itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Baruch_Spinoza" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Spinoza wasn&rsquo;t cast out for denying God &mdash; he was cast out for saying God was everything, leaving no separate, personal deity to worship.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What core claim about God and Nature did Spinoza make in <em>Ethics</em>, and why did this make him so controversial to religious authorities of his time?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Spinoza argued God and Nature are one single infinite substance, with everything else merely a mode or expression of it, denying a personal God who intervenes in history or an immortal soul separate from the body. This challenged core tenets of both Jewish and Christian orthodoxy, leading to his excommunication and lifelong accusations of atheism.</div>
+      </details>
+      <div class="source">&#x1F4D6; Spinoza, B. (1677), <em>Ethics</em>. Stanford Encyclopedia of Philosophy, &ldquo;Baruch Spinoza.&rdquo; Nadler, S. (1999), <em>Spinoza: A Life</em>.</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Simply Seeing Something Over and Over Makes You Like It More</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a famous experiment, researchers showed English-speaking participants a series of unfamiliar Chinese characters (漢字), some flashed just once, others repeated up to 25 times, then asked participants to guess how favourable each character&rsquo;s meaning seemed. Before reading on, what do you think happened to how much people liked a character purely as a function of how many times they&rsquo;d seen it, regardless of what it actually meant?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hanzi.svg/500px-Hanzi.svg.png" alt="Chinese characters, similar to the unfamiliar symbols used in Zajonc's exposure experiments" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Chinese characters (漢字) &mdash; the kind of unfamiliar symbols Robert Zajonc repeatedly showed non-Chinese-speaking participants to demonstrate the mere-exposure effect. Credit: <a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1968, psychologist Robert Zajonc (查恩茨) published a landmark set of studies demonstrating what he called the mere-exposure effect (單純曝光效應): simply being repeatedly exposed to a stimulus, with no reward, meaning, or reinforcement attached, reliably increases how much people like it. In one key experiment, Zajonc showed participants unfamiliar Chinese characters (漢字, meaningless to non-readers) varying numbers of times, then had participants rate how positive or favourable each character&rsquo;s meaning seemed. Characters shown more often were consistently rated more favourably, even though participants had no idea what any of them actually meant.</p>
+      <p>The effect held across a striking range of stimuli, from nonsense words and unfamiliar faces to musical excerpts and even geometric shapes, and crucially, it worked even when participants were shown images so briefly they couldn&rsquo;t consciously recall having seen them before, suggesting the preference forms below conscious awareness (潛意識) rather than through deliberate recognition. Zajonc argued this reflects a deep evolutionary logic: familiarity historically signalled safety, since anything encountered repeatedly without harmful consequence was statistically more likely to be safe than something entirely novel, making a mild automatic liking response a useful, low-cost survival heuristic.</p>
+      <p>The mere-exposure effect helps explain everyday phenomena from why heavily repeated advertising campaigns work even without persuasive content, to why songs often &ldquo;grow on&rdquo; listeners after several plays, to why people frequently form close relationships within their existing social circle rather than with a total stranger. The effect isn&rsquo;t unlimited, though: extremely disliked stimuli can become more disliked with repetition, and past a certain point extra exposure produces diminishing or even reversed returns, meaning familiarity breeds liking primarily for stimuli that were neutral or mildly positive to begin with.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You don&rsquo;t need a reason to like something more &mdash; simply seeing it again, even without noticing, is often reason enough.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Zajonc&rsquo;s Chinese-character experiment, what determined how favourably participants rated a character&rsquo;s meaning, and what does this suggest about how the preference forms?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">How often a character had been shown, not its actual meaning, determined how favourably it was rated &mdash; more repetitions produced more positive ratings. This held even when exposure was too brief for conscious recognition, suggesting the preference forms below conscious awareness rather than through deliberate familiarity recognition.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zajonc, R.B. (1968), <em>Journal of Personality and Social Psychology</em>, 9(2, Pt.2). Bornstein, R.F. (1989), <em>Psychological Bulletin</em>, 106(2).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why the Same Broccoli Tastes Bitter to Some People and Bland to Others</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly one in four people find plain broccoli (西蘭花), black coffee (黑咖啡), and grapefruit (西柚) intensely, almost unpleasantly bitter, while another quarter of the population barely tastes any bitterness in the same foods at all. Before reading on, what physical difference in the tongue do you think explains why identical food can taste so different from one person to the next?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Illu04_tongue2.jpg" alt="Anatomical illustration of the human tongue and its papillae" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The human tongue (舌頭) and its papillae (乳頭) &mdash; supertasters carry a far higher density of the small bumps that house taste buds. Credit: <a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Roughly 25% of people are &ldquo;supertasters&rdquo; (超級味覺者), a term coined by psychologist Linda Bartoshuk (巴托舒克), who perceive bitterness (苦味), sweetness, and other tastes far more intensely than average, largely due to having a significantly higher density of fungiform papillae (蕈狀乳頭), the small mushroom-shaped bumps on the tongue&rsquo;s surface that house taste buds (味蕾). Where an average taster might have around 15-25 papillae per small measured patch of tongue, supertasters can have well over 60, packing dramatically more taste receptor tissue into the same physical area.</p>
+      <p>A key genetic factor is variation in the TAS2R38 gene (TAS2R38基因), which codes for a bitter-taste receptor sensitive to compounds called PROP and PTC, found naturally in cruciferous vegetables (十字花科蔬菜) like broccoli and Brussels sprouts. People carrying two &ldquo;taster&rdquo; copies of this gene perceive these compounds as intensely bitter, one copy produces intermediate sensitivity, and two &ldquo;non-taster&rdquo; copies leave someone barely able to detect the bitterness at all, meaning three people eating the identical floret of broccoli can have three genuinely different sensory experiences, none of them exaggerating or imagining the difference.</p>
+      <p>This variation carries real dietary consequences: supertasters, on average, eat fewer vegetables, particularly bitter cruciferous ones known for cancer-fighting compounds, and tend to prefer creamier, less spicy, less bitter foods overall, while also perceiving alcohol&rsquo;s bitterness more strongly, which some studies link to lower average alcohol consumption. The differences aren&rsquo;t a matter of a &ldquo;better&rdquo; or &ldquo;worse&rdquo; palate, since heightened taste sensitivity comes with real tradeoffs on both sides; rather, papillae density and receptor genetics together mean the same forkful of food is, quite literally, not the same sensory event for everyone at the table.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The friend who &ldquo;can&rsquo;t stand&rdquo; broccoli may not be picky &mdash; their tongue may be physically transmitting far more bitter signal than yours.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two physical factors combine to make some people &ldquo;supertasters,&rdquo; and what everyday food difference does this explain?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A higher density of fungiform papillae, the tongue&rsquo;s taste-bud-bearing bumps, combined with &ldquo;taster&rdquo; variants of the TAS2R38 bitter-receptor gene, make supertasters perceive bitterness far more intensely. This explains why identical foods like broccoli or black coffee can taste mild to one person and intensely bitter to another, both accurately reporting their own genuine sensory experience.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bartoshuk, L.M. et al. (1994), <em>Physiology &amp; Behavior</em>, 56(6). Kim, U. et al. (2003), <em>Science</em>, 299(5610).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The &ldquo;8 Glasses a Day&rdquo; Rule You&rsquo;ve Probably Been Following for Nothing</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The advice to drink eight glasses of water a day, roughly two litres, is one of the most widely repeated health rules in the world, printed on water bottles and repeated by wellness influencers alike. Before reading on, where do you think this specific number actually came from, and does current evidence actually support it as a rule everyone should follow?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg/330px-Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg" alt="A person drinking clean water" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Drinking water (飲用水) &mdash; the widely repeated &ldquo;eight glasses a day&rdquo; rule traces to a 1945 recommendation whose key caveat was dropped as it spread. Credit: <a href="https://en.wikipedia.org/wiki/Drinking_water" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &ldquo;eight glasses a day&rdquo; (八杯水) guideline has no clear scientific origin; the most commonly cited source is a 1945 US Food and Nutrition Board recommendation that suggested roughly 2.5 litres of water daily, but the same document explicitly noted that &ldquo;most of this quantity is contained in prepared foods,&rdquo; a caveat that appears to have been dropped entirely as the advice spread through popular culture over subsequent decades, leaving only the memorable, oversimplified &ldquo;eight glasses&rdquo; figure behind.</p>
+      <p>A widely cited 2002 review by nephrologist (腎科醫生) Heinz Valtin in the <em>American Journal of Physiology</em> searched extensively for scientific evidence supporting the specific eight-glasses rule and found none, concluding that healthy people&rsquo;s natural thirst mechanism (口渴機制), combined with water obtained from food and other beverages including coffee and tea, is generally sufficient to maintain proper hydration (水合狀態) without deliberately tracking glasses, except in specific circumstances such as heavy exercise, hot climates, pregnancy, or certain medical conditions requiring individually tailored guidance from a doctor.</p>
+      <p>This doesn&rsquo;t mean hydration is unimportant, since genuine dehydration (脫水) does impair concentration and physical performance, but for most healthy adults in ordinary conditions, thirst (口渴感) itself is a reasonably reliable, self-correcting signal, and roughly 20% of daily fluid needs are typically met through food alone, particularly fruits and vegetables. The practical lesson is that rigidly forcing down a fixed volume regardless of thirst, food intake, or climate has little evidence behind it, and drinking according to genuine thirst plus normal meals covers most people&rsquo;s needs perfectly well.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Drinking_water" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; There&rsquo;s no solid science behind exactly eight glasses &mdash; your thirst, plus the water already in your food, is doing more work than that rule gives it credit for.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Where did the &ldquo;eight glasses a day&rdquo; rule likely originate, and what did Heinz Valtin&rsquo;s 2002 review conclude about the evidence behind it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It likely traces to a 1945 recommendation that included water from food, a caveat later dropped as the advice spread. Valtin&rsquo;s 2002 review found no scientific evidence supporting the specific eight-glasses rule, concluding that thirst plus water from food and normal beverages is generally sufficient for healthy adults.</div>
+      </details>
+      <div class="source">&#x1F4D6; Valtin, H. (2002), <em>American Journal of Physiology</em>, 283(5). Institute of Medicine (2004), <em>Dietary Reference Intakes for Water</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Most Studied Supplement in Sports Science Isn&rsquo;t a New Fad</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Among the thousands of sports supplements sold today, one has been the subject of more controlled clinical research than almost any other performance product, has decades of consistent safety data, and remains available at low cost. Before reading on, what do you think this widely tested supplement actually does inside muscle cells to improve performance?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/CreatineStructure.png" alt="Chemical structure diagram of creatine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of creatine (肌酸) &mdash; among the most extensively studied sports supplements, raising muscle phosphocreatine stores that fuel short, explosive effort. Credit: <a href="https://en.wikipedia.org/wiki/Creatine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Creatine (肌酸) is a naturally occurring compound made in the liver and kidneys, and obtained from foods like red meat and fish, that muscle cells (肌細胞) store largely as phosphocreatine (磷酸肌酸), a rapid-fire energy reserve used to instantly regenerate ATP (三磷酸腺苷), the molecule muscles burn for contraction, during short, explosive efforts like heavy lifting or sprinting. Supplementing with creatine monohydrate (肌酸一水合物) raises the muscle&rsquo;s total phosphocreatine stores by roughly 20-40%, extending how long an athlete can sustain maximal-intensity effort before fatigue forces a drop in output.</p>
+      <p>Meta-analyses covering hundreds of controlled trials consistently show creatine supplementation increases strength (力量) and power output in resistance training, with average strength gains roughly 5-15% greater than training alone, alongside modest increases in lean muscle mass, largely through allowing athletes to complete more total training volume at higher intensity across a training block rather than through any direct muscle-building mechanism of its own. It remains the most extensively studied sports supplement in existence, with a strong long-term safety record in healthy individuals at standard doses, unlike many newer supplements marketed on far thinner evidence.</p>
+      <p>Common myths persist despite the evidence: creatine does not meaningfully damage healthy kidneys (腎臟) in people without pre-existing kidney disease, does not cause significant hair loss based on current evidence beyond one small preliminary study, and the water retention (水腫) it does cause is intracellular, inside muscle cells rather than bloating under the skin. A simple daily dose of roughly 3-5 grams, taken consistently without needing an initial &ldquo;loading phase,&rdquo; is sufficient to reach saturated muscle stores within about four weeks for most people.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Creatine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Creatine&rsquo;s real advantage isn&rsquo;t magic &mdash; it&rsquo;s simply letting you train slightly harder, slightly longer, across months, and that accumulates.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does creatine actually do at the cellular level to improve performance, and what mechanism explains the strength gains seen in long-term studies?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Creatine raises muscle phosphocreatine stores, which regenerate ATP faster during short, explosive efforts, extending how long maximal-intensity output can be sustained. Long-term strength gains largely come from athletes completing more total high-intensity training volume across a training block, rather than any direct muscle-building effect of creatine itself.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kreider, R.B. et al. (2017), <em>Journal of the International Society of Sports Nutrition</em>, 14. Branch, J.D. (2003), <em>International Journal of Sport Nutrition and Exercise Metabolism</em>, 13(2).</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>When Nobel Laureates Nearly Broke the Financial System</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the mid-1990s, a hedge fund (對沖基金) founded by a legendary bond trader and staffed with two Nobel Prize-winning economists (諾貝爾經濟學獎得主) produced spectacular returns using sophisticated mathematical models, attracting investment from the biggest banks on Wall Street. Before reading on, what do you think happened when the fund&rsquo;s models, built on historical data, encountered a financial event those models considered almost statistically impossible?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Myron_Scholes_2008_in_Lindau.png" alt="Photograph of Myron Scholes, Nobel laureate and LTCM partner" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Myron Scholes (斯科爾斯), Nobel Memorial Prize laureate and Long-Term Capital Management partner, whose mathematical models nearly triggered a systemic financial crisis in 1998. Credit: <a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Long-Term Capital Management (長期資本管理公司, LTCM), founded in 1994 by legendary bond trader John Meriwether (梅里韋瑟), assembled what looked like an unbeatable team, including Myron Scholes (斯科爾斯) and Robert Merton (默頓), who would share the 1997 Nobel Memorial Prize in Economic Sciences for options-pricing theory. LTCM used sophisticated quantitative models (量化模型) to identify tiny, statistically reliable pricing discrepancies (定價差異) between related securities worldwide, then applied enormous leverage (槓桿), at times over 25-to-1, to turn small, near-certain profits into spectacular overall returns, delivering annual returns above 40% in its early years.</p>
+      <p>LTCM&rsquo;s models were built on historical market data and assumed prices across global markets would keep behaving statistically as they always had, treating truly extreme, simultaneous crises across unrelated markets as almost mathematically impossible outliers. In August 1998, Russia (俄羅斯) unexpectedly defaulted on its government debt, triggering a global flight to safety that caused prices to move in correlated, extreme ways across markets LTCM&rsquo;s models had treated as largely independent, generating losses the fund&rsquo;s own risk framework considered many standard deviations beyond anything its historical data suggested could occur.</p>
+      <p>LTCM lost roughly $4.6 billion in a matter of weeks, and because its trades were so large and interconnected with major banks worldwide, the Federal Reserve Bank of New York (紐約聯邦儲備銀行) organised a $3.6 billion private-sector bailout among 14 banks in September 1998, fearing LTCM&rsquo;s collapse could trigger a broader crisis across the global financial system rather than allowing an ordinary failed fund to fail quietly. The episode became a landmark case study in how sophisticated mathematical models, however rigorously built on historical data, can still catastrophically underestimate the risk of genuinely unprecedented events.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The smartest models in finance still assumed the future would look statistically like the past &mdash; until Russia&rsquo;s default proved it wouldn&rsquo;t.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What core assumption in LTCM&rsquo;s models failed during the 1998 crisis, and why did the Federal Reserve intervene rather than let the fund fail?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">LTCM&rsquo;s models assumed markets worldwide would keep behaving as historical data suggested, treating extreme simultaneous crises as near-impossible; Russia&rsquo;s 1998 default caused correlated losses far beyond what the models predicted. The Fed organised a bank-funded bailout because LTCM&rsquo;s size and interconnections risked triggering a broader global financial crisis.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lowenstein, R. (2000), <em>When Genius Failed</em>. Federal Reserve Bank of New York, historical archive materials on LTCM (1998).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why a String Quartet Costs More Today Than It Did in 1826 &mdash; Even Though Nothing About It Changed</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Fitzwilliam_Quartet.jpg" alt="A string quartet performing" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A string quartet (弦樂四重奏) performing &mdash; Baumol&rsquo;s classic example of a service whose productivity cannot rise the way manufacturing&rsquo;s can. Credit: <a href="https://en.wikipedia.org/wiki/Baumol%27s_cost_disease" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 1990s, costs in sectors like healthcare (醫療保健), higher education (高等教育), and live performing arts (現場表演藝術) have risen persistently faster than general inflation across nearly every advanced economy, even as these sectors have seen minimal improvement in the specific outputs being measured, such as a doctor&rsquo;s consultation or a live orchestral (管弦樂團) performance.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economists William Baumol (鮑莫爾) and William Bowen (鮑恩), in a 1966 study of the performing arts, proposed what became known as Baumol&rsquo;s cost disease (鮑莫爾成本病): in labour-intensive services where productivity cannot easily rise, such as a string quartet still needing four musicians and the same time to play an 1826 piece, wages must nonetheless rise to compete with faster-productivity sectors like manufacturing, pushing costs up over time without any change in the service itself.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The theory predicts costs should rise roughly in line with economy-wide productivity growth (生產力增長) elsewhere, yet in sectors like US healthcare and higher education, cost growth has dramatically outpaced this baseline for decades, while other labour-intensive services, such as haircuts, have not seen comparable runaway cost growth, suggesting cost disease alone cannot fully explain the scale of the divergence.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Critics argue administrative bloat (行政膨脹) and insurance-driven third-party payment structures (第三方支付制度) that weaken normal price discipline, plus licensing-restricted supply, better explain runaway costs in sectors like US healthcare and higher education specifically, rather than cost disease&rsquo;s more general labour-productivity mechanism; which factor dominates in any given sector remains an actively contested, open question among economists.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A quartet still needs four musicians for the same 25 minutes it always did &mdash; that stubborn fact, against rising wages elsewhere, is one root of runaway service-sector costs.</div>
+      <div class="source">&#x1F4D6; Baumol, W.J. &amp; Bowen, W.G. (1966), <em>Performing Arts: The Economic Dilemma</em>. Baumol, W.J. (2012), <em>The Cost Disease</em>.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 3 &mdash; The Official Story vs. What Really Happened:</strong> Zhu Di&rsquo;s &ldquo;Jingnan&rdquo; campaign was publicly framed as loyally &ldquo;clearing the emperor&rsquo;s evil advisers,&rdquo; never as a bid for the throne itself, even after he took it. The Cuban Missile Crisis&rsquo;s resolution was publicly framed as a clean Soviet retreat, while privately the US traded away its own missiles in Turkey. Both episodes show that the version of events that becomes &ldquo;history&rdquo; is often a carefully managed public narrative, built to preserve legitimacy, that differs meaningfully from the messier private bargain or ambition underneath.</p>
+      <p><strong>So what:</strong> When a resolved conflict looks unusually clean or one-sided in hindsight, it&rsquo;s worth asking what concession, deal, or reframing happened behind the public story &mdash; the tidy version is rarely the whole picture.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA, JWST press release (2022). Hubble Space Telescope image release (1995). Hester, J.J. et al. (1996), <em>Astronomical Journal</em>, 111.</li>
+      <li><strong>Card 2:</strong> 《明史&middot;成祖本紀》；Britannica, &ldquo;Yongle Emperor.&rdquo; Dreyer, E.L. (1982), <em>Early Ming China: A Political History</em>.</li>
+      <li><strong>Card 3:</strong> US National Security Archive, Cuban Missile Crisis Collection. Britannica, &ldquo;Cuban Missile Crisis.&rdquo; Dobbs, M. (2008).</li>
+      <li><strong>Card 4:</strong> 朱熹《四書章句集注》；《宋史&middot;道學傳》；Stanford Encyclopedia of Philosophy, &ldquo;Zhu Xi.&rdquo;</li>
+      <li><strong>Card 5:</strong> Spinoza, B. (1677), <em>Ethics</em>. Stanford Encyclopedia of Philosophy. Nadler, S. (1999).</li>
+      <li><strong>Card 6:</strong> Zajonc, R.B. (1968), <em>JPSP</em>, 9(2, Pt.2). Bornstein, R.F. (1989), <em>Psychological Bulletin</em>, 106(2).</li>
+      <li><strong>Card 7:</strong> Bartoshuk, L.M. et al. (1994), <em>Physiology &amp; Behavior</em>, 56(6). Kim, U. et al. (2003), <em>Science</em>, 299(5610).</li>
+      <li><strong>Card 8:</strong> Valtin, H. (2002), <em>American Journal of Physiology</em>, 283(5). Institute of Medicine (2004).</li>
+      <li><strong>Card 9:</strong> Kreider, R.B. et al. (2017), <em>JISSN</em>, 14. Branch, J.D. (2003), <em>IJSNEM</em>, 13(2).</li>
+      <li><strong>Card 10:</strong> Lowenstein, R. (2000), <em>When Genius Failed</em>. Federal Reserve Bank of New York archive materials (1998).</li>
+      <li><strong>Card 11:</strong> Baumol, W.J. &amp; Bowen, W.G. (1966). Baumol, W.J. (2012), <em>The Cost Disease</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-28: Pillars of Creation (JWST vs Hubble) &bull; 靖難之役／燕王朱棣 &bull; Cuban Missile Crisis 1962 &bull; 朱熹與四書章句集注 &bull; Baruch Spinoza / Excommunication &bull; Mere-Exposure Effect &bull; Supertasters / TAS2R38 &bull; &ldquo;8 Glasses a Day&rdquo; Hydration Myth &bull; Creatine Supplementation &bull; Long-Term Capital Management &bull; Baumol&rsquo;s Cost Disease</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-28.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-28.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 28 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
