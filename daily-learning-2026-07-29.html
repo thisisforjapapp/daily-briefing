@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 29 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 29 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>28 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Pillars of Creation</span>Webb&rsquo;s infrared re-photograph of Hubble&rsquo;s iconic nebula pillars revealed hundreds of previously hidden forming stars.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 靖難之役</span>燕王朱棣起兵「靖難」，攻入南京奪取姪兒帝位。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Cuban Missile Crisis</span>A secret US-Turkey missile trade, hidden for decades, quietly resolved the crisis&rsquo;s public standoff.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 朱熹與四書章句集注</span>朱熹注解四書，身後成為六百年科舉正統標準。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Baruch Spinoza</span>Spinoza was excommunicated at 23 for arguing God and Nature are one single infinite substance.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Mere-Exposure Effect</span>Repeated exposure to meaningless Chinese characters alone made people like them more, even without conscious recognition.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Supertasters</span>Supertasters carry far more tongue papillae and a bitter-sensing gene variant, making identical food taste different.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; &ldquo;8 Glasses a Day&rdquo; Myth</span>The rule traces to a 1945 recommendation whose key food-water caveat got quietly dropped.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Creatine</span>Creatine raises muscle phosphocreatine stores, letting athletes train harder and longer, driving modest long-term strength gains.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; LTCM</span>Nobel laureates&rsquo; hedge fund LTCM collapsed when Russia&rsquo;s 1998 default broke its models&rsquo; correlation assumptions.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Baumol&rsquo;s Cost Disease</span>Baumol&rsquo;s cost disease explains why labour-intensive services like string quartets and healthcare keep getting pricier.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photograph Carl Sagan Begged NASA to Take</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On Valentine&rsquo;s Day, 14 February 1990, the Voyager 1 (旅行者一號) spacecraft, already 6 billion kilometres from home and leaving the solar system (太陽系) for good, briefly turned its camera around and pointed it back toward Earth, something NASA engineers had resisted doing for months. Before reading on, what do you think this deliberately risky photograph actually showed, and why would a single distant frame be worth arguing for?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Pale_Blue_Dot.png" alt="The Pale Blue Dot photograph of Earth taken by Voyager 1 from 6 billion kilometres away" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The &ldquo;Pale Blue Dot&rdquo; (暗淡藍點) &mdash; Earth as a single point of light, photographed by Voyager 1 (旅行者一號) on 14 February 1990 from roughly 6 billion kilometres away. Credit: <a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Voyager 1 (旅行者一號), launched by NASA (美國太空總署) in September 1977, completed close flybys of Jupiter (木星) in 1979 and Saturn (土星) in 1980, gathering data still used by planetary scientists today, before its trajectory carried it up out of the plane of the solar system. By 1990, its primary mission long finished, the probe was speeding away from the Sun at over 60,000 kilometres per hour, and astronomer Carl Sagan (卡爾&middot;薩根), a member of the mission&rsquo;s imaging team, proposed something unusual: turning the spacecraft&rsquo;s camera back toward home for one final look before it was switched off to save power for its interstellar journey (星際旅程).</p>
+      <p>NASA engineers resisted the idea for months, worried that pointing the camera anywhere near the Sun&rsquo;s glare could permanently damage its delicate imaging system, and many on the mission team saw little scientific value in photographing a planet already studied in exhaustive detail up close. Sagan pushed the request through anyway, and on 14 February 1990, from roughly 6 billion kilometres away, Voyager 1 captured a series of 60 frames forming a &ldquo;family portrait&rdquo; of the solar system&rsquo;s planets, one of which showed Earth as a single point of light less than a pixel wide, caught inside a scattered band of sunlight from the camera&rsquo;s own optics.</p>
+      <p>Sagan later described the image in his 1994 book <em>Pale Blue Dot</em>, writing that the tiny speck contained &ldquo;every human being who ever lived&rdquo; and &ldquo;every saint and sinner in the history of our species,&rdquo; arguing the photograph revealed the smallness and fragility of the only home humanity has ever known, adrift in what he called &ldquo;a vast cosmic arena.&rdquo; The image remains one of the most reproduced photographs in the history of space exploration (太空探索), still cited today whenever scientists or writers want to convey scale, humility, or the strangeness of seeing home from unimaginably far away.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most famous photo of Earth ever taken shows almost nothing of it at all &mdash; and that was exactly the point.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What technical risk made NASA reluctant to take the Pale Blue Dot photograph, and what did the resulting image actually show?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">NASA engineers worried that pointing Voyager 1&rsquo;s camera near the Sun&rsquo;s glare could permanently damage its imaging system. The resulting 1990 photograph showed Earth as a single point of light less than a pixel wide, roughly 6 billion kilometres away, caught inside a scattered band of sunlight.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, Voyager mission archive. Sagan, C. (1994), <em>Pale Blue Dot: A Vision of the Human Future in Space</em>, Random House.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「國姓爺」東征：鄭成功如何以九個月圍城逐出荷蘭東印度公司</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1661年，鄭成功率二萬五千大軍跨海東征，目標並非清朝，而是已經統治台灣三十八年的荷蘭東印度公司。你認為，這支艦隊如何能夠擊敗當時歐洲最強大的貿易公司之一，把荷蘭人逐出台灣？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>鄭成功（1624&ndash;1662，南明賜姓朱，人稱「國姓爺」）；荷蘭台灣長官揆一；何斌（原荷蘭通事，獻圖引路者）。</p>
+        <p><strong>事件：</strong>1661年四月鄭成功率軍登陸台灣，圍攻熱蘭遮城；1662年二月荷蘭守軍投降撤離。</p>
+        <p><strong>時代背景：</strong>鄭成功在中國大陸抗清屢遭挫敗，急需穩固基地；荷蘭東印度公司自1624年佔領台灣，壟斷對日對華貿易，卻與當地漢人移民積怨已久。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/The_Portrait_of_Koxinga.jpg" alt="鄭成功畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">鄭成功畫像，1661至1662年率軍圍攻熱蘭遮城，逐出經營台灣三十八年的荷蘭東印度公司。來源：<a href="https://en.wikipedia.org/wiki/Siege_of_Fort_Zeelandia" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>鄭成功本名森，父鄭芝龍原為縱橫東南沿海的海商集團首領，後降清，母親田川氏則是日本平戶藩士之女，鄭成功自幼在日本長大，及長返回福建，深受隆武帝賞識，賜國姓「朱」，故民間稱其「國姓爺」。清兵入關後，鄭成功堅持抗清，多次北伐均告失敗，麾下雖擁精兵數萬、戰船數百艘，卻始終缺乏穩固的根據地，糧餉補給日益艱難，急需奪取一處易守難攻、物產豐饒之地作為長期抗清基地。</p>
+      <p>恰在此時，原任荷蘭東印度公司通事的何斌，因私自徵稅事發畏罪逃至廈門，向鄭成功獻上台灣地圖及荷蘭守軍虛實，力勸出兵。永曆十五年（1661年）四月，鄭成功親率大軍二萬五千、戰船數百艘，自金門料羅灣揚帆東渡，避開荷蘭重兵防守的港口，改由鹿耳門水道乘漲潮突入台江內海，登陸後迅速包圍荷蘭東印度公司在台灣的統治中樞熱蘭遮城，並斷絕城內守軍與外界的糧食及訊息往來。</p>
+      <p>荷蘭台灣長官揆一雖曾派人向巴達維亞總部求援，援軍卻遲遲未能突破鄭軍海上封鎖，城內守軍水源短缺、疫病叢生，士氣日漸低落。圍城歷時九個月後，揆一終於在永曆十六年（1662年）二月與鄭成功簽署和約，率殘餘荷蘭人撤離台灣，結束荷蘭東印度公司三十八年的統治。鄭成功隨即在台灣建立東寧政權，作為反清復明的海外基地，惟不久即因病去世，年僅三十八歲，其子鄭經繼續經營台灣二十餘年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Siege_of_Fort_Zeelandia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場九個月的圍城，讓在台灣經營三十八年的荷蘭東印度公司徹底退出歷史舞台。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>何斌在鄭成功攻台一事上扮演了什麼角色？鄭成功最終用什麼戰術突破荷蘭防線登陸台灣？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">何斌原為荷蘭通事，因徵稅事發逃至廈門，向鄭成功獻上台灣地圖及荷蘭守軍虛實，並力勸出兵。鄭成功避開荷蘭重兵防守的港口，改由鹿耳門水道乘漲潮突入台江內海，出其不意包圍熱蘭遮城，最終圍城九個月迫使荷蘭守軍投降撤離。</div>
+      </details>
+      <div class="source">&#x1F4D6; Wills, J.E. (2006), &ldquo;Taiwan under the Dutch and the Cheng Regime,&rdquo; <em>Cambridge History of China</em>. Andrade, T. (2011), <em>Lost Colony</em>. Britannica, &ldquo;Zheng Chenggong.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>How a Storm Finished What the English Navy Started</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the summer of 1588, King Philip II (菲臘二世) of Spain sent a fleet of over 130 ships, the largest naval force Europe had ever assembled, to invade England (英格蘭) and depose Queen Elizabeth I (伊莉莎白一世). Before reading on, what do you think ultimately defeated this seemingly unstoppable armada &mdash; English tactics, Spanish mistakes, or something else entirely?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> King Philip II of Spain (菲臘二世); Queen Elizabeth I of England (伊莉莎白一世); English commander Francis Drake (德雷克).</p>
+        <p><strong>Event at stake:</strong> The Spanish Armada (西班牙無敵艦隊), summer 1588 &mdash; an attempted invasion of England to restore Catholic rule and end English support for Dutch Protestant rebels.</p>
+        <p><strong>Big picture:</strong> A campaign fought as much against geography and weather as against an enemy fleet, whose failure marked a turning point in England&rsquo;s rise as a naval power.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Armadaroute.jpg" alt="Map of the Spanish Armada's route around the British Isles" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Spanish Armada&rsquo;s (西班牙無敵艦隊) route in 1588, forced north around Scotland and Ireland after its Channel plan collapsed. Credit: <a href="https://en.wikipedia.org/wiki/Spanish_Armada" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By the 1580s, King Philip II (菲臘二世) of Spain had grown determined to remove Queen Elizabeth I (伊莉莎白一世) from the English throne, angered by her support for Protestant rebels (新教叛軍) in the Spanish-ruled Netherlands (尼德蘭) and by English privateers, including Francis Drake (德雷克), who had been raiding Spanish treasure ships and colonial ports across the Atlantic for years. In 1588, Philip assembled the Spanish Armada (西班牙無敵艦隊), a fleet of some 130 ships carrying roughly 30,000 men, intending to sail up the English Channel (英倫海峽), link with a Spanish invasion army waiting in the Netherlands, and land that combined force on English soil.</p>
+      <p>The plan depended on precise coordination between the Armada and the land forces in Flanders, but English ships, smaller, faster, and armed with longer-range guns, harried the Spanish formation constantly as it moved up the Channel without ever forcing a decisive battle. Off Calais, the English sent fireships (火船) into the anchored Spanish fleet at night, causing the tightly packed Armada to panic, cut anchor lines, and scatter in disorder, wrecking the planned rendezvous with the invasion army and leaving individual Spanish ships dangerously exposed in unfamiliar waters.</p>
+      <p>With the safer return route back down the Channel blocked by English ships and unfavourable winds, the scattered Armada was forced to sail north around Scotland (蘇格蘭) and back down past the rocky Irish coast, a route Spanish navigators knew poorly and had not planned or provisioned for. Violent autumn storms wrecked dozens of ships against the Irish and Scottish coastline, and roughly half the original fleet, along with thousands of sailors and soldiers, never made it home, a disaster the English themselves later attributed as much to &ldquo;the Protestant wind&rdquo; as to their own tactics in battle.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Spanish_Armada" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; England didn&rsquo;t simply out-fight the Armada &mdash; it out-lasted it, letting geography and weather finish what its ships had only begun.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What English tactic broke up the Spanish Armada&rsquo;s formation off Calais, and what ultimately caused most Spanish losses?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The English sent fireships into the anchored Spanish fleet at night, causing it to panic and scatter, disrupting the planned rendezvous with the invasion army in Flanders. Most Spanish losses actually came afterward, when violent autumn storms wrecked dozens of ships as the scattered fleet was forced to sail the long way home around Scotland and Ireland.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Spanish Armada.&rdquo; Martin, C. &amp; Parker, G. (1988), <em>The Spanish Armada</em>. National Maritime Museum, Greenwich, Armada collection.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>一句「本來無一物」，如何讓一個舂米工人成為禪宗六祖</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐代黃梅五祖弘忍座下，人人公認學問最高、最有機會繼承衣缽的是首座弟子神秀，但最終接過衣缽的，卻是一名在後院舂米、據稱不識字的南方雜工。你認為，這位雜工憑藉甚麼，扭轉了眾人原本的預期？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>五祖弘忍；神秀（北宗漸悟代表）；惠能（638&ndash;713，南宗頓悟開創者）。</p>
+        <p><strong>核心思想：</strong>南宗主張「頓悟」&mdash;&mdash;本性清淨，見性即可成佛；北宗神秀則主張「漸悟」&mdash;&mdash;需時時勤加修持，方能去除塵垢。</p>
+        <p><strong>時代背景：</strong>弘忍晚年欲傳衣缽，命門下各作一偈以顯悟境，藉此決定禪宗正統傳承人選，觸發南北兩宗分立之爭。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Huineng.jpg" alt="惠能畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">惠能畫像，禪宗六祖，開創主張頓悟見性的南宗法門。來源：<a href="https://en.wikipedia.org/wiki/Huineng" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>惠能俗姓盧，嶺南新州（今廣東新興）人，幼年喪父，家境貧寒，以賣柴奉母維生，一日在市集聽人誦讀《金剛經》，聞「應無所住而生其心」一句忽有所悟，遂萌出家求法之志，遠赴湖北黃梅拜謁禪宗五祖弘忍。弘忍見他是嶺南人，出言相試：「汝是嶺南人，又是獦獠，若為堪作佛？」惠能答以「人雖有南北，佛性本無南北」，弘忍雖暗自賞識，卻未即刻收為正式弟子，只命他到後院舂米、劈柴，做了長達八個月的粗重雜役。</p>
+      <p>弘忍年事已高，欲傳衣缽以定禪宗正統，命門下弟子各作一偈以呈悟境。眾人皆推首座神秀，神秀遂於廊壁題偈：「身是菩提樹，心如明鏡臺，時時勤拂拭，勿使惹塵埃」，強調需時時修持以拂去塵垢。惠能因不識字，請人代筆於神秀偈旁另書一偈：「菩提本無樹，明鏡亦非臺，本來無一物，何處惹塵埃」，直指本性清淨、當下即是，不假外求漸修。弘忍表面斥其偈語未徹，暗中卻已認定惠能悟境更深。</p>
+      <p>是夜，弘忍秘密召見惠能，於方丈室內為其講解《金剛經》，並將象徵禪宗正統的衣缽密傳予他，同時警告南方勢力恐生嫉害，命他連夜潛行南歸，隱姓埋名。惠能其後隱居嶺南十餘年，方公開弘法，創立主張頓悟見性的南宗，與神秀在北方弘揚的漸悟法門分庭抗禮，門下弟子日後將其言行輯錄成《六祖壇經》，成為中國僧人著作中唯一被尊稱為「經」的典籍，深刻影響其後中國禪宗乃至整個東亞佛教的發展方向。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Huineng" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 衣缽傳承看的不是誰讀書最多，而是誰真正看透了「本來無一物」的道理。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>神秀與惠能的偈語核心分歧是什麼？五祖弘忍為何要惠能連夜南歸？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">神秀主張「時時勤拂拭」的漸悟工夫，惠能則主張「本來無一物」，本性清淨當下即是，不假外求漸修，二者代表禪宗漸悟與頓悟兩條路徑的根本分歧。弘忍擔心衣缽傳予南方雜工惠能會引起北方門人嫉恨加害，故命他連夜潛行南歸避禍。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《六祖壇經》；Yampolsky, P.B. (1967), <em>The Platform Sutra of the Sixth Patriarch</em>. Stanford Encyclopedia of Philosophy, &ldquo;Chan Buddhism.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>&ldquo;One Is Not Born, But Rather Becomes, a Woman&rdquo;</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1949, a French philosopher (法國哲學家) published a nearly 1,000-page book arguing that womanhood itself was not a biological given but something constructed by society, a claim so controversial the Vatican (梵蒂岡) placed it on its official list of banned books. Before reading on, what evidence or argument do you think she used to support the claim that being a woman is something one &ldquo;becomes&rdquo; rather than simply is?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Simone de Beauvoir (西蒙&middot;波娃, 1908&ndash;1986), French philosopher and writer; her lifelong intellectual partner Jean-Paul Sartre (沙特).</p>
+        <p><strong>Idea at stake:</strong> The claim, from her 1949 book <em>The Second Sex</em> (第二性), that gender (性別) is socially constructed rather than simply determined by biological sex.</p>
+        <p><strong>Big picture:</strong> One of the founding texts of modern feminist philosophy (女性主義哲學), written from within the existentialist (存在主義) tradition Beauvoir helped develop alongside Sartre.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Simone_De_Beauvoir_%28cropped%29.jpg" alt="Portrait of Simone de Beauvoir" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Simone de Beauvoir (西蒙&middot;波娃), whose 1949 book <em>The Second Sex</em> became a founding text of modern feminist philosophy. Credit: <a href="https://en.wikipedia.org/wiki/Simone_de_Beauvoir" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Simone de Beauvoir (西蒙&middot;波娃) trained as a philosopher at the Sorbonne (索邦大學) in Paris, where she formed a lifelong intellectual partnership with Jean-Paul Sartre (沙特), together developing existentialism (存在主義), the view that human beings are not born with a fixed essence but instead define themselves through their choices and actions over a lifetime. Beauvoir applied this framework specifically to the situation of women, asking a question she felt existentialist philosophy (存在主義哲學) had so far ignored: if humans have no fixed essence, why had womanhood always been treated as one?</p>
+      <p>In her 1949 book <em>The Second Sex</em> (第二性), Beauvoir argued that women throughout history had been defined only in relation to men, treated as &ldquo;the Other&rdquo; (他者) against which male experience was set up as the neutral, default standard of humanity, rather than being seen as full subjects with their own independent existence. Her most famous line, &ldquo;One is not born, but rather becomes, a woman,&rdquo; argued that femininity as commonly understood was not a biological inevitability but a role progressively imposed through upbringing, social expectation, and economic dependence, one that could therefore, in principle, be refused or reshaped.</p>
+      <p><em>The Second Sex</em> was met with fierce hostility on publication, condemned by the Vatican (梵蒂岡), which placed it on its Index of Forbidden Books, and dismissed by many contemporary critics as scandalous or unserious, yet it sold out its first print run within a week and went on to become one of the most influential works of 20th-century philosophy. The book is now widely credited as a founding text of second-wave feminism (第二波女性主義), and Beauvoir&rsquo;s central argument, that gender roles are constructed rather than natural, remains a starting point for feminist and gender theory (性別理論) debates today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Simone_de_Beauvoir" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Beauvoir didn&rsquo;t argue women were biologically different from men &mdash; she argued society had turned that difference into a cage.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Beauvoir mean by calling women &ldquo;the Other,&rdquo; and why was this considered radical within existentialist philosophy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Beauvoir argued women had historically been defined only in relation to men, treated as secondary to a male &ldquo;default&rdquo; standard of humanity rather than as full independent subjects. This was radical because existentialism held that humans have no fixed essence, so treating womanhood as a fixed, natural role contradicted the philosophy&rsquo;s own core premise.</div>
+      </details>
+      <div class="source">&#x1F4D6; de Beauvoir, S. (1949), <em>The Second Sex</em>. Stanford Encyclopedia of Philosophy, &ldquo;Simone de Beauvoir.&rdquo; Bergoffen, D. (1997), <em>The Philosophy of Simone de Beauvoir</em>.</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a Crowd of Witnesses Can Be More Dangerous Than Being Alone</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1964, a young woman was attacked and killed outside her apartment building in Queens, New York, in an incident later widely reported to have been witnessed by numerous neighbours, few of whom were said to have intervened or called police during the attack. Before reading on, what psychological explanation do you think researchers eventually developed for why having more witnesses to an emergency can actually make any individual witness less likely to help?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Site_of_the_murder_of_Kitty_Genovese_in_alleyway_from_Kew_Gardens_LIRR_station_to_Lefferts_Boulevard.jpg/3840px-Site_of_the_murder_of_Kitty_Genovese_in_alleyway_from_Kew_Gardens_LIRR_station_to_Lefferts_Boulevard.jpg" alt="The alleyway in Kew Gardens, Queens, near where Kitty Genovese was attacked in 1964" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Kew Gardens, Queens (皇后區) alleyway near the 1964 attack on Kitty Genovese (吉蒂&middot;吉諾維斯), the case that prompted research into the bystander effect. Credit: <a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In March 1964, Kitty Genovese (吉蒂&middot;吉諾維斯) was attacked and killed near her apartment building in Kew Gardens, Queens (皇后區), New York, in a case that received sensational early newspaper coverage claiming 38 witnesses (目擊者) watched or heard the attack without calling police, a specific figure later shown by subsequent investigation to be exaggerated and inaccurate in important respects. Despite the flawed original reporting, the case prompted psychologists (心理學家) John Darley (達利) and Bibb Latan&eacute; (拉塔內) to investigate a genuine and repeatedly replicated phenomenon: why bystanders (旁觀者) to an emergency sometimes fail to help, even when clearly capable of doing so.</p>
+      <p>In a series of experiments beginning in 1968, Darley and Latan&eacute; found that individuals were significantly less likely to respond to a staged emergency, such as a person appearing to have a seizure (癲癇發作) over an intercom, when they believed other people were also listening in, compared to when they believed they were the only witness. They termed this the bystander effect (旁觀者效應), driven by two overlapping mechanisms: diffusion of responsibility (責任分散), where each individual feels less personally obligated to act because others could act instead, and pluralistic ignorance (多數無知), where everyone looks to others&rsquo; calm reactions to judge whether a situation is an emergency at all.</p>
+      <p>The bystander effect has since been replicated across hundreds of studies and situations, from failing to report accidents to hesitating to intervene in visible harassment, and researchers have identified conditions that reliably reduce it, including bystanders being trained in what to do, or being directly singled out by an alerting phrase such as &ldquo;you, in the blue jacket, call an ambulance,&rdquo; which removes the ambiguity over whose responsibility it is to act. The core lesson researchers draw is counterintuitive: a lone witness to an emergency is often statistically more likely to help than any single person within a large crowd of witnesses.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If you ever need help in public, singling out one specific bystander by description works better than shouting to the crowd.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two psychological mechanisms drive the bystander effect, and what simple technique reliably counteracts it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Diffusion of responsibility, where each witness feels less personally obligated because others could act, and pluralistic ignorance, where people look to others&rsquo; calm reactions to judge whether help is needed, both drive the bystander effect. Directly singling out one specific bystander to act removes this ambiguity and reliably increases the chance of help.</div>
+      </details>
+      <div class="source">&#x1F4D6; Darley, J.M. &amp; Latan&eacute;, B. (1968), <em>Journal of Personality and Social Psychology</em>, 8(4). Manning, R., Levine, M. &amp; Collins, A. (2007), <em>American Psychologist</em>, 62(6).</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Your Skin Still Tries to Fluff Up Fur You No Longer Have</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Cold air, a sudden fright, or even a particularly moving piece of music can all make the small hairs on human skin (皮膚) stand up into what&rsquo;s commonly called goosebumps, a reaction that happens automatically and cannot easily be controlled voluntarily. Before reading on, what do you think this reflex is actually left over from, given that humans don&rsquo;t have thick fur like most other mammals that show the exact same physical response?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/2003-09-17_Goose_bumps.jpg" alt="Close-up of goosebumps on human skin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Goosebumps (雞皮疙瘩), or piloerection (豎毛反應) &mdash; a vestigial reflex inherited from furred ancestors. Credit: <a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Goosebumps (雞皮疙瘩), medically termed piloerection (豎毛反應), occur when tiny muscles at the base of each hair follicle (毛囊), called arrector pili muscles (豎毛肌), contract and pull the hair upright, creating the small raised bumps visible on skin. This reflex is controlled by the sympathetic nervous system (交感神經系統), the same &ldquo;fight-or-flight&rdquo; (戰或逃反應) network that also raises heart rate and redirects blood flow during moments of cold, fear, or strong emotion, meaning goosebumps are triggered entirely automatically, without any conscious control over the muscles involved.</p>
+      <p>In furred mammals, this reflex serves two clear physical purposes: in the cold, raising the fur traps a thicker layer of insulating air near the skin, improving warmth, and during a threat, raising fur makes an animal look larger and more intimidating to a predator or rival, a bluff still visible today in a frightened cat&rsquo;s raised back fur. Humans inherited the identical neural wiring and muscle structure from furred ancestors, but because human body hair (體毛) is now too sparse and fine to trap meaningful insulating air or visibly increase apparent size, the reflex persists as a physically pointless evolutionary leftover, a vestigial trait (退化性狀).</p>
+      <p>Curiously, goosebumps also arise from powerful emotional experiences entirely unrelated to cold or physical threat, such as listening to a swelling piece of music or recalling an intensely meaningful memory, a phenomenon researchers call frisson (寒顫感). Neuroscientists believe this emotional trigger shares the same sympathetic nervous system pathway as the cold and fear response, essentially an ancient physical alarm system now occasionally misfiring in response to purely psychological, rather than physical, stimulation, connecting a shivering ancestor bracing against cold weather to a listener moved by a symphony&rsquo;s climax.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Goosebumps are a warmth-and-size trick your body still runs on autopilot &mdash; even though the fur it evolved for is long gone.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two physical purposes did goosebumps originally serve in furred mammals, and why are they now considered vestigial in humans?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">In furred mammals, raised fur trapped warm insulating air in the cold and made a threatened animal look larger to predators. Humans inherited the same reflex, but because human body hair is too sparse to trap air or increase apparent size, goosebumps now serve no physical purpose, making the reflex vestigial.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Goose bumps.&rdquo; Benedek, M. &amp; Kaernbach, C. (2011), <em>Biological Psychology</em>, 86(3).</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Blue-Light Glasses Myth That Isn&rsquo;t Backed by the Evidence</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Blue-light-filtering glasses (濾藍光眼鏡), marketed as protection against digital eye strain (數碼眼疲勞) and disrupted sleep from evening screen use, have become one of the best-selling eyewear categories in the world over the past decade. Before reading on, what do you think a large, rigorous review of the actual clinical evidence found when researchers tested whether these glasses genuinely reduce eye strain or improve sleep?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Biological_clock_human.svg/1280px-Biological_clock_human.svg.png" alt="Diagram of the human circadian rhythm and biological clock" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The human circadian rhythm (晝夜節律) &mdash; evening light exposure affects melatonin (褪黑激素) release, the basis of blue-light glasses marketing claims. Credit: <a href="https://en.wikipedia.org/wiki/Circadian_rhythm" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Blue-light-filtering glasses (濾藍光眼鏡) are marketed on the claim that blue light (藍光) emitted by phone, tablet, and computer screens causes digital eye strain (數碼眼疲勞), and that filtering it out before bedtime protects sleep by preventing screen light from suppressing the body&rsquo;s natural melatonin (褪黑激素) production, the hormone that signals to the brain it&rsquo;s time to sleep. The theory has intuitive appeal, since blue wavelengths are indeed the most effective at suppressing melatonin among visible light, and the glasses are inexpensive and simple to sell as a straightforward fix for two very common modern complaints.</p>
+      <p>In 2023, the Cochrane Collaboration (考科藍協作組織), a highly regarded independent body that conducts systematic reviews (系統性回顧) of medical evidence, examined 17 randomised controlled trials (隨機對照試驗) testing blue-light-filtering lenses against ordinary clear lenses for eye strain and found no meaningful difference between the two, concluding there was no reliable evidence the glasses reduce eye strain symptoms compared with regular lenses. Separately, studies on sleep effects have produced mixed and generally weak results, with several finding that simply dimming screen brightness or reducing device use before bed had a larger measurable effect than blue-light filtering alone.</p>
+      <p>This doesn&rsquo;t mean screen use before bed is harmless, since brightness (亮度) and duration of use, along with mentally stimulating content itself, appear to matter more for sleep disruption (睡眠受干擾) than the specific blue wavelength involved, and eye strain is more reliably linked to prolonged close-focus use and reduced blinking rate than to light colour. For people wanting genuinely better sleep or less eye strain, the better-supported advice is dimming screens, taking regular visual breaks, and setting device curfews before bed, rather than relying on a pair of tinted lenses to do that work instead.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Circadian_rhythm" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If you want better sleep, dim the screen and put it down early &mdash; the tint of your glasses isn&rsquo;t the variable doing the work.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2023 Cochrane review conclude about blue-light-filtering glasses, and what factors matter more for screen-related sleep disruption?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Cochrane review of 17 randomised trials found no meaningful difference in eye strain between blue-light-filtering and ordinary clear lenses. For sleep, screen brightness, duration of use before bed, and stimulating content appear to matter more than the specific blue wavelength being filtered.</div>
+      </details>
+      <div class="source">&#x1F4D6; Singh, S. et al. (2023), <em>Cochrane Database of Systematic Reviews</em>. Harvard Health Publishing, &ldquo;Blue light has a dark side.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Cheapest, Most-Tested Performance Enhancer Is Sitting in Your Kitchen</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Among all substances studied for improving athletic performance, one of the most consistently effective, extensively researched across hundreds of trials, and legal in every sport, is also one people drink every morning without thinking of it as a performance enhancer (促進表現物質) at all. Before reading on, what do you think caffeine (咖啡因) actually does inside the body and brain to measurably improve endurance and power output?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Caffeine_structure.svg/960px-Caffeine_structure.svg.png" alt="Chemical structure diagram of caffeine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of caffeine (咖啡因) &mdash; among the most extensively studied ergogenic aids in sports science. Credit: <a href="https://en.wikipedia.org/wiki/Caffeine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Caffeine (咖啡因) is one of the most thoroughly studied ergogenic aids (提升表現輔助劑) in sports science, with hundreds of controlled trials showing it reliably improves both endurance performance (耐力表現) and short-burst power output across a wide range of sports, from distance running to weightlifting. Its primary mechanism is blocking adenosine receptors (腺苷受體) in the brain, adenosine being a compound that normally accumulates during activity and promotes feelings of fatigue and reduced alertness, meaning caffeine works largely by delaying the brain&rsquo;s perception of tiredness rather than by directly changing muscle physiology (肌肉生理) itself.</p>
+      <p>Research consistently shows moderate doses, typically around 3 to 6 milligrams per kilogram of body weight, taken roughly 30 to 60 minutes before exercise, produce measurable improvements in endurance capacity, reaction time, and perceived exertion (自覺用力程度), meaning the same physical effort simply feels less difficult under caffeine&rsquo;s influence. Studies also show caffeine can modestly improve maximal strength and power output in resistance training, though the effect is generally smaller and less consistent than its impact on endurance and perceived effort, and individual response varies considerably based on genetics, habitual intake, and tolerance (耐受性) built up over time.</p>
+      <p>Regular heavy caffeine users build tolerance that blunts some of the performance benefit, and some athletes now deliberately cycle off caffeine for several days before an important competition to restore fuller sensitivity to its effects, a practical strategy supported by research on tolerance dynamics. Timing and dosage matter more than the source, since coffee, tablets, and gels appear to produce broadly similar ergogenic effects at equivalent caffeine doses, making it one of the rare performance aids that is simultaneously cheap, legal, extensively studied, and already sitting in most people&rsquo;s kitchen cupboards.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Caffeine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Caffeine&rsquo;s edge isn&rsquo;t magic &mdash; it&rsquo;s convincing your brain the effort hurts less than it actually does.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is caffeine&rsquo;s primary mechanism for improving athletic performance, and why might a habitual heavy coffee drinker get less benefit from a pre-workout dose?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Caffeine blocks adenosine receptors in the brain, delaying the perception of fatigue rather than directly changing muscle physiology. Habitual heavy users build tolerance to this effect, which blunts the performance benefit, leading some athletes to deliberately cycle off caffeine before important competitions to restore fuller sensitivity.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guest, N.S. et al. (2021), <em>Journal of the International Society of Sports Nutrition</em>, 18. Grgic, J. et al. (2018), <em>Sports Medicine</em>, 48.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Day a Trading Strategy Designed to Prevent a Crash Caused One</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 19 October 1987, the Dow Jones Industrial Average (道瓊斯工業平均指數) fell 22.6% in a single trading day, still the largest one-day percentage drop in the index&rsquo;s history, without any major news event, war, or economic data release that obviously explained a crash of that scale. Before reading on, what do you think actually caused such an extreme, single-day collapse, if not an external shock?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key actors:</strong> major US investment banks and pension funds running automated portfolio insurance (投資組合保險) strategies.</p>
+        <p><strong>Event at stake:</strong> Black Monday (黑色星期一), 19 October 1987 &mdash; the Dow Jones fell 22.6% in one day, the largest single-day percentage crash in US stock market history.</p>
+        <p><strong>Big picture:</strong> A crash largely generated from within the market&rsquo;s own mechanics rather than external economic bad news, exposing how automated hedging strategies can amplify rather than contain a downturn.</p>
+      </div>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/S%26P_500_index_around_the_time_of_the_crash.png" alt="Chart of the S&P 500 index around the time of the 1987 Black Monday crash" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The S&amp;P 500 (標普500指數) around Black Monday, 19 October 1987, when the Dow fell 22.6% in a single session. Credit: <a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By the mid-1980s, many large US institutional investors had adopted a strategy called portfolio insurance (投資組合保險), a computer-driven hedging technique designed to protect portfolios from losses by automatically selling stock index futures (股指期貨) as markets fell, theoretically limiting downside risk without requiring managers to sell their actual underlying stock holdings. The strategy had grown enormously popular through the 1980s bull market (牛市), with by some estimates over $60 billion in institutional assets programmed to trigger automatic selling under falling-price conditions, a scale few in the market fully appreciated at the time.</p>
+      <p>On 19 October 1987, following a period of already rising market anxiety and a smaller decline the preceding Friday, initial selling triggered portfolio insurance programs to automatically sell more stock index futures, which pushed futures prices down further, which in turn triggered yet more automatic selling under the same programmed logic, creating a self-reinforcing downward spiral (惡性循環) that fed on its own momentum rather than any new piece of economic information. The Dow Jones Industrial Average (道瓊斯工業平均指數) ultimately fell 508 points, or 22.6%, in a single session, still the largest one-day percentage decline in the index&rsquo;s history.</p>
+      <p>Regulators later concluded the crash was substantially an artefact of market structure and mechanical feedback loops rather than a rational reassessment of company values or the broader economy, and exchanges subsequently introduced circuit breakers (熔斷機制), automatic trading halts triggered by large rapid price moves, specifically to prevent this kind of self-reinforcing automated spiral from recurring. Remarkably, despite the extreme single-day drop, the US economy avoided recession and markets recovered their losses within about two years, reinforcing the lesson that the crash originated from the market&rsquo;s internal trading mechanics rather than a genuine shift in underlying economic fundamentals.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The 1987 crash wasn&rsquo;t caused by bad news &mdash; it was caused by a safety mechanism that, at scale, became the very danger it was built to prevent.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific mechanism turned an ordinary market decline into Black Monday&rsquo;s record 22.6% crash, and what regulatory change followed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Portfolio insurance programs automatically sold stock index futures as prices fell, which pushed futures prices down further and triggered even more automatic selling, creating a self-reinforcing spiral. Exchanges later introduced circuit breakers, automatic trading halts triggered by large rapid price moves, specifically to prevent this kind of automated feedback loop from recurring.</div>
+      </details>
+      <div class="source">&#x1F4D6; Carlson, M. (2007), Federal Reserve working paper, &ldquo;A Brief History of the 1987 Stock Market Crash.&rdquo; US Securities and Exchange Commission, Brady Commission Report (1988).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why the World&rsquo;s Reserve Currency Is Also Its Biggest Economic Contradiction</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Seal_of_the_United_States_Federal_Reserve_System.svg/500px-Seal_of_the_United_States_Federal_Reserve_System.svg.png" alt="Seal of the United States Federal Reserve System" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The US Federal Reserve (美國聯邦儲備系統) &mdash; steward of the dollar (美元), whose reserve-currency status sits at the centre of the Triffin dilemma. Credit: <a href="https://en.wikipedia.org/wiki/Triffin_dilemma" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since 2008, the United States (美國) has run persistent current account deficits (經常帳赤字) and rising national debt (國債), yet the US dollar (美元) remains the world&rsquo;s dominant reserve currency (儲備貨幣), with central banks worldwide still expanding dollar holdings even as America&rsquo;s own external financial position keeps worsening.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Robert Triffin (特里芬) argued in 1960 that a currency serving as the world&rsquo;s reserve currency faces a built-in contradiction: global trade needs that country to keep running deficits to supply enough currency worldwide, yet those same deficits erode confidence in the currency&rsquo;s long-term value.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Triffin predicted this tension should eventually trigger a crisis of confidence and dollar decline. Yet despite decades of deficits and repeated collapse predictions, dollar dominance has persisted and even strengthened during global financial stress, when investors paradoxically rush toward dollar assets rather than away from them.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Some economists credit America&rsquo;s uniquely deep, liquid financial markets, and the lack of a comparable alternative, for this &ldquo;exorbitant privilege&rdquo; (過高特權), rather than Triffin&rsquo;s original mechanism. Others point to emerging multipolar-currency or digital-reserve alternatives as future disruptors. Which explanation prevails remains an open question among economists.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The dollar&rsquo;s dominance isn&rsquo;t proof the Triffin Dilemma was wrong &mdash; it may just mean no alternative has yet been trusted enough to replace it.</div>
+      <div class="source">&#x1F4D6; Triffin, R. (1960), <em>Gold and the Dollar Crisis</em>. Eichengreen, B. (2011), <em>Exorbitant Privilege</em>. IMF, Currency Composition of Official Foreign Exchange Reserves (COFER) data.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; When Individually Sensible Behaviour Adds Up to Collective Disaster:</strong> In the bystander effect, each witness rationally assumes someone else will act, so nobody does. In the 1987 crash, each fund&rsquo;s portfolio insurance program rationally sold to protect its own position, and that same individually sensible logic, repeated across thousands of accounts simultaneously, produced a self-reinforcing spiral nobody intended and everybody suffered from.</p>
+      <p><strong>So what:</strong> Whenever a system depends on everyone assuming somebody else will step in, whether it&rsquo;s calling for help in a crowd or trusting the market to absorb a sell order, it&rsquo;s worth asking what happens if every participant makes that same reasonable assumption at once.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, Voyager mission archive. Sagan, C. (1994), <em>Pale Blue Dot</em>, Random House.</li>
+      <li><strong>Card 2:</strong> Wills, J.E. (2006), <em>Cambridge History of China</em>. Andrade, T. (2011), <em>Lost Colony</em>. Britannica, &ldquo;Zheng Chenggong.&rdquo;</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Spanish Armada.&rdquo; Martin, C. &amp; Parker, G. (1988). National Maritime Museum, Greenwich.</li>
+      <li><strong>Card 4:</strong> 《六祖壇經》；Yampolsky, P.B. (1967). Stanford Encyclopedia of Philosophy, &ldquo;Chan Buddhism.&rdquo;</li>
+      <li><strong>Card 5:</strong> de Beauvoir, S. (1949), <em>The Second Sex</em>. Stanford Encyclopedia of Philosophy. Bergoffen, D. (1997).</li>
+      <li><strong>Card 6:</strong> Darley, J.M. &amp; Latan&eacute;, B. (1968), <em>JPSP</em>, 8(4). Manning, R. et al. (2007), <em>American Psychologist</em>, 62(6).</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Goose bumps.&rdquo; Benedek, M. &amp; Kaernbach, C. (2011), <em>Biological Psychology</em>, 86(3).</li>
+      <li><strong>Card 8:</strong> Singh, S. et al. (2023), <em>Cochrane Database of Systematic Reviews</em>. Harvard Health Publishing.</li>
+      <li><strong>Card 9:</strong> Guest, N.S. et al. (2021), <em>JISSN</em>, 18. Grgic, J. et al. (2018), <em>Sports Medicine</em>, 48.</li>
+      <li><strong>Card 10:</strong> Carlson, M. (2007), Federal Reserve working paper. SEC Brady Commission Report (1988).</li>
+      <li><strong>Card 11:</strong> Triffin, R. (1960). Eichengreen, B. (2011), <em>Exorbitant Privilege</em>. IMF COFER data.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-29: Pale Blue Dot / Voyager 1 &bull; 鄭成功與熱蘭遮城之圍 &bull; Spanish Armada 1588 &bull; 惠能與禪宗頓悟法門 &bull; Simone de Beauvoir / The Second Sex &bull; Bystander Effect / Kitty Genovese &bull; Goosebumps / Piloerection &bull; Blue-Light Glasses Myth &bull; Caffeine as Ergogenic Aid &bull; Black Monday 1987 &bull; Triffin Dilemma</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-29.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-29.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 29 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
