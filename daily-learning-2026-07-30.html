@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 30 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 30 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>29 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Pale Blue Dot</span>Voyager 1 turned its camera back at Sagan&rsquo;s urging, capturing Earth as a single pixel from 6 billion km away.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 鄭成功圍攻熱蘭遮城</span>鄭成功圍城九月，逐出荷蘭東印度公司。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Spanish Armada</span>English fireships scattered the Armada off Calais; autumn storms then wrecked half the fleet sailing home.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 惠能與禪宗頓悟</span>惠能以「本來無一物」偈語，勝過神秀成為禪宗六祖。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Simone de Beauvoir</span>Beauvoir argued femininity is socially constructed, not biological, in her 1949 book <em>The Second Sex</em>.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Bystander Effect</span>More witnesses to an emergency can make each person less likely to help, due to diffused responsibility.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Goosebumps</span>Goosebumps are a vestigial reflex from furred ancestors, once used for warmth and looking larger to predators.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Blue-Light Glasses Myth</span>A 2023 Cochrane review found blue-light glasses don&rsquo;t reduce eye strain versus ordinary clear lenses.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Caffeine</span>Caffeine blocks adenosine receptors, delaying fatigue perception and modestly boosting endurance and power output.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Black Monday 1987</span>Automated portfolio-insurance selling created a feedback loop that crashed the Dow 22.6% in a single day.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Triffin Dilemma</span>The dollar&rsquo;s reserve status requires deficits that erode trust in it, yet dominance has persisted for decades.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Landing That Sent Postcards from a Methane World</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In January 2005, a small saucer-shaped probe fell through the thick orange atmosphere of Saturn&rsquo;s (土星) largest moon, Titan (土衛六泰坦), landing on a surface no spacecraft had ever touched in the outer solar system (太陽系外圍). Before reading on, what do you think this probe found waiting on the ground, and why would images from a moon so far from the Sun resemble a landscape found right here on Earth?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/Titan_in_true_color_by_Kevin_M._Gill.jpg" alt="True-colour image of Saturn's moon Titan, showing its hazy orange atmosphere" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Titan (土衛六泰坦) in true colour &mdash; its thick hazy atmosphere hid a landscape of rivers, rain, and lakes until the Huygens probe (惠更斯號探測器) landed in 2005. Credit: <a href="https://en.wikipedia.org/wiki/Titan_(moon)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Huygens probe (惠更斯號探測器), built by the European Space Agency (歐洲太空總署), rode piggyback on NASA&rsquo;s Cassini spacecraft (卡西尼號太空船) for seven years after their joint 1997 launch, waiting until Cassini reached Saturn (土星) in 2004 before being released toward Titan (土衛六泰坦), the only moon in the solar system with a thick atmosphere of its own. On 14 January 2005, Huygens plunged into that hazy orange atmosphere and began a 2.5-hour parachute descent, becoming the first human-made object ever to land on a moon anywhere in the outer solar system, far beyond the asteroid belt (小行星帶).</p>
+      <p>As Huygens fell, its cameras and instruments recorded drainage channels carved into icy highlands, dark plains resembling dried lakebeds, and a horizon hazy with atmospheric methane (甲烷) fog, a landscape eerily similar to Earth despite forming from entirely different chemistry. After touching down on a floodplain scattered with smoothed, fist-sized &ldquo;rocks&rdquo; that turned out to be water ice (水冰) hardened as hard as stone in Titan&rsquo;s frigid minus-179&deg;C cold, Huygens kept transmitting data and photographs back through Cassini for about 72 minutes before its batteries finally died, far longer than engineers had dared hope for a one-shot landing.</p>
+      <p>Scientists later confirmed Titan has rivers, rain, and lakes, just like Earth, except made of liquid methane and ethane (乙烷) rather than water, since surface temperatures are far too cold for water to exist as anything but rock-hard ice. This makes Titan the only other place in the solar system known to have stable liquid on its surface today, and its methane cycle, evaporating, forming clouds, raining down, and carving channels, mirrors Earth&rsquo;s water cycle (水循環) so closely that planetary scientists (行星科學家) now study Titan as a natural laboratory for how alien weather and geology can build Earth-like landscapes from unearthly ingredients.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Titan_(moon)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Titan proves familiar landscapes don&rsquo;t require familiar chemistry &mdash; just the right cycle of evaporation, rain, and erosion.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made Huygens&rsquo; 2005 landing historically unique, and what natural cycle on Titan mirrors Earth&rsquo;s water cycle despite using entirely different chemicals?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Huygens was the first spacecraft ever to land on a moon in the outer solar system. Titan has a methane-and-ethane cycle of evaporation, clouds, rain, and river erosion that closely mirrors Earth&rsquo;s water cycle, despite occurring at temperatures around minus-179&deg;C.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL &amp; European Space Agency, Cassini-Huygens mission archive. Lorenz, R.D. et al. (2006), <em>Nature</em>, &ldquo;The sand seas of Titan.&rdquo; Niemann, H.B. et al. (2005), <em>Nature</em>, &ldquo;The abundances of constituents of Titan&rsquo;s atmosphere.&rdquo;</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>「求修約而歸，帶回一整套西方制度」&mdash;&mdash;岩倉使節團的意外收穫</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明治四年（1871年）十一月，日本政府派出一個以右大臣岩倉具視為首、成員近半數為政府高官的龐大使節團，遠赴歐美十二國，歷時近兩年。你認為，這個使節團原本出訪的主要目的是甚麼？最終又是否達成？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>正使岩倉具視；副使大久保利通、木戶孝允、伊藤博文。</p>
+        <p><strong>事件：</strong>1871年至1873年，明治政府派遣使節團遍訪美國及歐洲十二國。</p>
+        <p><strong>時代背景：</strong>明治維新初年，日本亟欲修改幕末以來與列強簽訂的不平等條約，同時急需了解西方制度以推行富國強兵。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Tomomi_Iwakura_3_%28cropped%29_%282%29.jpg/330px-Tomomi_Iwakura_3_%28cropped%29_%282%29.jpg" alt="岩倉具視肖像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">岩倉具視，1871至1873年率使節團遍訪美國及歐洲十二國，考察西方制度。來源：<a href="https://en.wikipedia.org/wiki/Iwakura_Mission" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>明治維新推翻德川幕府後，新政府面對的最大外交難題，是幕末以來與美、英、法、荷等國簽訂的一系列不平等條約&mdash;&mdash;條約規定外國人在日享有領事裁判權，日本亦無關稅自主權。明治四年（1871年）十一月，政府決定派出以右大臣岩倉具視為正使、大久保利通、木戶孝允、伊藤博文、山口尚芳為副使的龐大使節團，成員連同隨行留學生近百六十人，遠赴歐美，一方面試探修約可能，一方面實地考察西方富強之道。</p>
+      <p>使節團首站抵達美國，岩倉等人滿懷信心求見國務卿，提出修約請求，卻被對方以日本尚未制定成文法典、不符合對等談判資格為由婉拒，交涉無功而還，此一挫折反而促使使節團改變方針，決意將考察重心從交涉條約轉移至深入研究西方政治、產業與教育制度。其後使節團轉赴英國參觀曼徹斯特紡織工廠及倫敦造船廠，又赴普魯士晉見宰相俾斯麥，親耳聆聽這位「鐵血宰相」講述小國如何憑軍事與外交在列強夾縫中崛起，對一行人日後主張的「強兵」路線影響尤深。</p>
+      <p>使節團歷時近兩年，先後考察美、英、法、比、荷、德、俄、意、瑞士等十二國，雖然未能修改一條不平等條約，卻為明治政府帶回一整套具體制度藍圖：學制參考法國與美國、陸軍仿效德國、海軍仿效英國、殖產興業政策則揉合多國經驗。返國後，大久保利通、伊藤博文等核心成員陸續主導廢藩置縣後續深化、殖產興業、教育及軍制改革，其考察所得更直接影響1889年頒布、以普魯士憲法為藍本的《大日本帝國憲法》，使節團因而被視為明治維新由破而立的關鍵轉捩點。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Iwakura_Mission" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 使節團出訪求修約，鎩羽而歸，卻換來一整套改造國家的制度藍圖&mdash;&mdash;有時最大收穫，來自原定計劃的失敗。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>岩倉使節團在美國交涉修約失敗的原因是什麼？這次挫折如何改變使節團其後的考察方向？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">美國以日本尚未制定成文法典、不具備對等談判資格為由拒絕修約交涉。挫折促使使節團將重心從修約轉移至深入考察西方政治、產業與教育制度，其後將所得制度藍圖帶回日本，深刻影響明治政府其後的改革及1889年帝國憲法的制定。</div>
+      </details>
+      <div class="source">&#x1F4D6; 大久保利謙（1976）《岩倉使節團の研究》；Nish, I. (1998), <em>The Iwakura Mission in America and Europe</em>. Britannica, &ldquo;Iwakura Mission.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Party That Redrew Europe After Napoleon</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">After more than two decades of near-continuous war triggered by the French Revolution (法國大革命) and Napoleon Bonaparte (拿破崙), the great powers of Europe gathered in Vienna (維也納) in 1814 not just to negotiate a treaty, but to hold months of lavish balls and diplomatic intrigue simultaneously. Before reading on, what do you think this unusual mix of serious diplomacy and extravagant socialising was actually designed to achieve for Europe&rsquo;s long-term stability?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Austrian foreign minister Klemens von Metternich (梅特涅); Russian Tsar Alexander I (亞歷山大一世); British foreign secretary Castlereagh (卡斯爾雷).</p>
+        <p><strong>Event at stake:</strong> The Congress of Vienna (維也納會議), September 1814 to June 1815 &mdash; negotiations to redraw Europe&rsquo;s borders and political order after Napoleon&rsquo;s defeat.</p>
+        <p><strong>Big picture:</strong> An attempt to build a durable balance of power (勢力均衡) preventing any single nation from dominating Europe again, after 23 years of revolutionary and Napoleonic warfare.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Europe_1815_map_en.png" alt="Map of Europe after the Congress of Vienna, 1815" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Europe&rsquo;s borders as redrawn by the Congress of Vienna (維也納會議), 1815. Credit: <a href="https://en.wikipedia.org/wiki/Congress_of_Vienna" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 1814, more than two decades of war unleashed by the French Revolution (法國大革命) and Napoleon Bonaparte&rsquo;s (拿破崙) conquests had left Europe&rsquo;s borders in chaos and its old royal houses shaken, prompting the victorious powers, Austria (奧地利), Russia (俄羅斯), Prussia (普魯士), and Britain (英國), to convene a peace congress in Vienna (維也納) under the guiding hand of Austrian foreign minister Klemens von Metternich (梅特涅). Rather than simply punishing defeated France, the assembled diplomats set out to construct an entirely new political order for the whole continent, one durable enough to prevent any single power from dominating Europe again.</p>
+      <p>The negotiations proceeded alongside a nearly continuous programme of balls and entertainments so extravagant that one wit joked the Congress &ldquo;danced but never worked,&rdquo; yet behind the socialising, delegates conducted serious horse-trading over territory, redrawing the map of Europe to balance rival powers&rsquo; ambitions, restoring France&rsquo;s Bourbon monarchy (波旁王朝) while deliberately surrounding it with strengthened neighbouring states. The talks were briefly thrown into crisis in March 1815 when Napoleon escaped exile and returned to power for what became known as the Hundred Days (百日王朝), forcing delegates to finish their work even as armies mobilised again to defeat him at Waterloo (滑鐵盧).</p>
+      <p>The resulting Congress System (維也納體系) established a rough balance of power among the great states, deliberately avoiding a punitive peace against France in favour of stability, and set a precedent for multilateral great-power diplomacy that historians credit with helping prevent a comparably destructive continent-wide war in Europe for roughly a century, until the First World War (第一次世界大戰) broke out in 1914. Critics note the settlement also entrenched conservative monarchies and suppressed nationalist and liberal movements across the continent, storing up tensions that would eventually erupt in the revolutions of 1848 (一八四八年革命) and beyond.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Congress_of_Vienna" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Europe&rsquo;s longest stretch without a general war began not with punishment, but with a deliberate decision to keep the loser strong enough to matter.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What approach did the Congress of Vienna take toward defeated France, and what long-term stability outcome is it credited with, despite also suppressing liberal movements?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Congress deliberately avoided a punitive peace against France, restoring its monarchy and keeping it strong enough to remain part of the balance of power. This is credited with helping prevent a comparably destructive continent-wide war for roughly a century, though it also entrenched conservative monarchies and suppressed nationalist movements.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kissinger, H. (1957), <em>A World Restored</em>. Britannica, &ldquo;Congress of Vienna.&rdquo; Zamoyski, A. (2007), <em>Rites of Peace</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「人性本惡」&mdash;&mdash;荀子如何與孟子針鋒相對，卻同樣尊崇孔子</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國末年，儒家內部就人性善惡爆發激烈爭論。孟子主張「性善」，認為人生來便有惻隱、羞惡之心；荀子卻反其道而行，提出「性惡」之說。你認為，荀子既然主張人性本惡，他又如何解釋世間為何仍有善行、仍有道德？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>荀子（約公元前310年至前235年），戰國末期儒家學者；與孟子「性善論」針鋒相對；門下弟子韓非、李斯後為法家代表人物。</p>
+        <p><strong>核心思想：</strong>性惡論&mdash;&mdash;人生而好利、有欲，若順其自然發展必生爭奪，故須靠後天「偽」（人為努力）及「禮」（禮法規範）矯正，方能為善。</p>
+        <p><strong>時代背景：</strong>戰國末年諸子百家爭鳴，儒家內部就人性本質展開激烈辯論，荀子欲以更務實的方式解釋道德如何在人間建立。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Portrait_of_Xun_Zi.jpg" alt="荀子畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">荀子畫像，戰國末期儒家學者，提出與孟子「性善論」相對的「性惡論」。來源：<a href="https://en.wikipedia.org/wiki/Xunzi_(philosopher)" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>荀子，名況，戰國末期趙國人，曾三次出任齊國稷下學宮祭酒，後仕於楚國蘭陵，晚年著書講學，門下弟子韓非、李斯後來皆成為法家代表人物，此一師承關係也使荀子思想長期被視為儒法之間的橋樑。荀子生於戰國末年戰亂頻仍之世，目睹諸侯攻伐、民不聊生，對孟子「人性本善，只須擴充內心善端」的樂觀主張深感不以為然，認為若不正視人性中好利、好聲色的一面，空談性善無助於解決現實中的爭奪與亂象。</p>
+      <p>荀子在《性惡》篇開宗明義提出「人之性惡，其善者偽也」，主張人生而具有好利、疾惡、耳目之欲等本能，若任其自然發展而不加約束，必然導致爭奪、殘賊，社會因而陷入混亂；他又以「枸木必將待檃栝烝矯然後直」為喻，指彎曲的木材須經工具矯正才能挺直，人性亦須經後天「偽」（人為努力、學習）及「禮」（禮法規範）的教化與約束，方能導向良善。這與孟子主張人皆有惻隱之心、只須「擴而充之」的說法形成鮮明對比，二人雖同屬儒家，對人性起點的判斷卻南轅北轍。</p>
+      <p>值得注意的是，荀子雖主張性惡，卻與孟子同樣尊崇孔子，同樣相信人皆可以透過教化成聖成賢，二人分歧僅在於善是與生俱來，還是後天建構；荀子甚至進一步提出「塗之人可以為禹」，肯定普通人經由持之以恆的學習與禮法薰陶，同樣可以達到聖人境界。荀子這種強調後天教化、禮法制度的務實取向，一方面延續儒家重視道德教育的傳統，另一方面又為其弟子韓非、李斯日後發展出強調法令與制度約束的法家思想，提供了重要的思想橋樑。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xunzi_(philosopher)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 荀子不是否定人可以向善，而是提醒世人：善不會自己長出來，需要禮法與教化的雕琢。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>荀子「性惡論」與孟子「性善論」的核心分歧是什麼？荀子認為人如何才能為善？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">孟子主張人性本善，只須擴充內心固有的惻隱之心；荀子則主張人性本惡，好利好欲若不加約束必生爭奪。荀子認為人須靠後天「偽」（人為努力）及「禮」（禮法規範）的教化與矯正，才能導向良善，即使普通人也可透過學習達到聖人境界。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《荀子・性惡》；Stanford Encyclopedia of Philosophy, &ldquo;Xunzi.&rdquo; Knoblock, J. (1988&ndash;1994), <em>Xunzi: A Translation and Study of the Complete Works</em>.</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Madman Who Announced a Murder No One Believed Happened</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1882, a German philosopher (德國哲學家) published a short parable about a madman who runs into a marketplace at dawn shouting that &ldquo;God is dead&rdquo; (上帝已死), and that &ldquo;we have killed him,&rdquo; only to be laughed at by the crowd. Before reading on, what do you think this philosopher actually meant by declaring God&rsquo;s death, given that he wasn&rsquo;t making a claim about religion in the ordinary sense at all?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Friedrich Nietzsche (尼采, 1844&ndash;1900), German philosopher; his fictional &ldquo;madman&rdquo; (瘋子) character.</p>
+        <p><strong>Idea at stake:</strong> The 1882 parable from <em>The Gay Science</em> (《快樂的科學》) declaring &ldquo;God is dead,&rdquo; meaning the traditional foundations of Western morality had lost their cultural authority.</p>
+        <p><strong>Big picture:</strong> A diagnosis of a civilisational crisis Nietzsche believed most of his contemporaries hadn&rsquo;t yet recognised, written from within his broader project of re-examining the value of moral values themselves.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Nietzsche187a.jpg" alt="Portrait of Friedrich Nietzsche" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Friedrich Nietzsche (尼采), whose 1882 parable of the madman declared that &ldquo;God is dead&rdquo; in Western culture&rsquo;s shared moral authority. Credit: <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Friedrich Nietzsche (尼采) trained as a classical philologist (古典語言學家) before turning to philosophy full-time, and by the early 1880s had grown convinced that the traditional Christian moral framework underpinning European culture, absolute good and evil grounded in divine authority, was quietly collapsing under the weight of scientific advances, historical criticism of scripture, and declining religious belief among educated Europeans, even though most people hadn&rsquo;t yet consciously registered the change. In his 1882 book <em>The Gay Science</em> (《快樂的科學》), Nietzsche dramatised this diagnosis through a parable of a madman (瘋子) who runs into a marketplace at dawn, lantern in hand, searching for God.</p>
+      <p>The madman announces to a crowd of bemused onlookers that &ldquo;God is dead. God remains dead. And we have killed him,&rdquo; before asking what ritual of atonement humanity will need to invent to be worthy of such an act. Crucially, Nietzsche wasn&rsquo;t making an empirical claim about a deity&rsquo;s existence; he meant that the shared cultural belief system which had grounded Western morality, meaning, and truth for centuries no longer commanded genuine authority, even among people who still called themselves believers, leaving a dangerous vacuum where absolute values had once stood unquestioned.</p>
+      <p>The crowd in the parable simply laughs at the madman and walks away, and Nietzsche has him conclude that he has come too early, that this event, though it has already happened, has &ldquo;not yet reached the ears of man,&rdquo; a warning that civilisation would face a long, disorienting reckoning with nihilism (虛無主義) before fully understanding what it had lost. Nietzsche&rsquo;s own proposed response, developed across his later works, was not despair but a call for individuals to create new values through the exercise of what he called the will to power (權力意志), rather than waiting for meaning to be handed down from above.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nietzsche&rsquo;s madman wasn&rsquo;t crazy for saying God was dead &mdash; he was crazy for saying it before anyone else was ready to hear it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Nietzsche actually mean by declaring &ldquo;God is dead,&rdquo; and why does the madman in his parable conclude he has arrived &ldquo;too early&rdquo;?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Nietzsche meant that the shared belief system grounding Western morality and meaning had lost its genuine cultural authority, even among nominal believers, not that he was making a literal claim about a deity. The madman concludes he arrived too early because society hadn&rsquo;t yet consciously grasped the consequences of this loss.</div>
+      </details>
+      <div class="source">&#x1F4D6; Nietzsche, F. (1882), <em>The Gay Science</em>. Stanford Encyclopedia of Philosophy, &ldquo;Friedrich Nietzsche.&rdquo; Kaufmann, W. (1974), <em>Nietzsche: Philosopher, Psychologist, Antichrist</em>.</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a $20 Bonus and a $20 Bill Feel Like Different Money</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine winning $20 in a casino versus finding an ordinary $20 bill in your regular paycheck; economically, both are exactly the same amount of spendable money, yet most people treat them completely differently, gambling the casino winnings away far more freely than they would spend the paycheck money. Before reading on, what psychological explanation do you think researchers developed for why people mentally treat identical dollars so differently depending on where they came from?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Richard_Thaler_Chatham.jpg" alt="Photograph of economist Richard Thaler" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Richard Thaler (理查德&middot;塞勒), who coined &ldquo;mental accounting&rdquo; (心理帳戶) to describe why people treat identical money differently based on its source. Credit: <a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Economist Richard Thaler (理查德&middot;塞勒) coined the term mental accounting (心理帳戶) to describe a consistent pattern he observed: rather than treating money as a single, fungible (可互換) pool as standard economic theory assumes, people mentally sort it into separate, labelled &ldquo;accounts,&rdquo; such as rent money, vacation savings, or a lottery windfall, and then apply different spending rules to each category, even though a dollar is worth exactly the same regardless of which mental account it sits in. This violates a basic assumption of rational-choice economics (理性選擇經濟學), that money should be perfectly interchangeable no matter its source or intended use.</p>
+      <p>One especially well-documented pattern within mental accounting is the &ldquo;house money effect&rdquo; (賭場資金效應), first named by Thaler and Eric Johnson in a 1990 study, where people gambling with recent winnings take substantially larger risks than they would with money they consider truly their own, treating windfall gains as somehow less real or less painful to lose than earned income. This same logic explains why a tax refund (退稅) often gets spent on treats or splurges, while an equivalent amount deducted gradually from a monthly paycheck would have been carefully budgeted, even though both represent identical purchasing power sitting in the same bank account.</p>
+      <p>Mental accounting shapes financial behaviour well beyond casinos and windfalls: people commonly hold high-interest credit card debt (信用卡債) while simultaneously keeping low-interest savings untouched in a separate &ldquo;emergency fund&rdquo; account, a decision that costs real money under standard economic logic but feels psychologically necessary because the two accounts serve different mental purposes. Financial advisors increasingly work with mental accounting rather than against it, since structuring separate labelled accounts for specific goals can actually improve saving discipline by exploiting the same psychological tendency Thaler identified.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mental_accounting" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Money is money, but your brain doesn&rsquo;t believe that &mdash; and knowing this can be used to save smarter, not just spend carelessly.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &ldquo;house money effect,&rdquo; and what does mental accounting reveal about why people simultaneously carry high-interest debt and untouched low-interest savings?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The house money effect describes people taking bigger risks with recent winnings than with money they consider truly earned, treating windfalls as less painful to lose. Mental accounting explains the debt-and-savings pattern because people mentally separate &ldquo;emergency fund&rdquo; money from &ldquo;debt to pay off,&rdquo; applying different rules to each.</div>
+      </details>
+      <div class="source">&#x1F4D6; Thaler, R.H. (1999), <em>Journal of Behavioral Decision Making</em>, &ldquo;Mental Accounting Matters.&rdquo; Thaler, R.H. &amp; Johnson, E.J. (1990), <em>Management Science</em>, &ldquo;Gambling with the House Money.&rdquo;</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Eating Ice Cream Too Fast Makes Your Forehead Hurt</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Eating ice cream or a cold drink too quickly can trigger a sudden, sharp headache centred in the forehead within seconds, even though the cold sensation itself is happening entirely inside your mouth, nowhere near your head. Before reading on, what do you think actually connects a cold roof of the mouth to sudden pain felt in a completely different part of the head?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Grant_1962_654.png" alt="Anatomical diagram of the trigeminal nerve" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The trigeminal nerve (三叉神經) &mdash; its overlapping pathways from the palate and forehead explain why &ldquo;brain freeze&rdquo; (腦凍) is felt far from its actual cold trigger. Credit: <a href="https://en.wikipedia.org/wiki/Ice_cream_headache" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The condition popularly called &ldquo;brain freeze&rdquo; (腦凍), medically termed sphenopalatine ganglioneuralgia (蝶腭神經節痛) or cold-stimulus headache, occurs when something very cold touches the roof of the mouth (上顎), rapidly cooling the blood vessels in the tissue there. The mouth&rsquo;s roof sits directly beneath a dense network of blood vessels supplied by the trigeminal nerve (三叉神經), the same major nerve responsible for sensation across most of the face, and this proximity turns out to be the key to why a mouth sensation gets felt somewhere else entirely.</p>
+      <p>In response to the sudden cold, blood vessels in the palate rapidly constrict and then, once the cold trigger passes, dilate again even more rapidly to restore normal blood flow, and researchers believe this rapid rebound dilation is what activates pain receptors nearby. Because the trigeminal nerve carries sensory signals from both the palate and the forehead through overlapping pathways into the brain, the brain misattributes the pain&rsquo;s true source, a phenomenon called referred pain (轉移痛), interpreting a palate-based trigger as pain originating in the forehead instead.</p>
+      <p>Brain freeze typically peaks within about 20 seconds and fades within a couple of minutes as blood flow stabilises, and it can usually be stopped early by pressing the tongue against the roof of the mouth or drinking something warm, both of which help rewarm the palate and interrupt the rebound dilation. Researchers studying brain freeze have found it useful as a rare, harmless, on-demand model of headache pain more generally, since the trigger can be reliably reproduced in a lab within seconds, offering clues relevant to migraine (偏頭痛) research despite brain freeze itself being completely benign.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ice_cream_headache" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Brain freeze isn&rsquo;t your brain freezing at all &mdash; it&rsquo;s a mouth-nerve mix-up your face mistakenly files as a forehead problem.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What causes brain freeze pain to be felt in the forehead when the actual cold stimulus is on the roof of the mouth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The trigeminal nerve carries sensory signals from both the palate and the forehead through overlapping pathways into the brain. When rapid rebound dilation of blood vessels in the palate triggers pain receptors there, the brain misattributes the source, a phenomenon called referred pain, interpreting it as forehead pain instead.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Ice cream headache.&rdquo; Hulihan, J. (1997), <em>British Medical Journal</em>. Bird, N. et al. (1992), <em>Cephalalgia</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Man Who Cracked One Hand&rsquo;s Knuckles for 60 Years to Prove a Point</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, a persistent piece of folk wisdom warned that habitually cracking your knuckles (拗手指關節) would eventually cause arthritis (關節炎) later in life, a claim repeated so often it became accepted as common knowledge. Before reading on, what do you think a doctor who deliberately cracked the knuckles on only one hand, for decades, while leaving the other hand alone as a control, ultimately discovered when he compared the two?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/907_Synovial_Joints.jpg" alt="Anatomical diagram of a synovial joint" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A synovial joint (滑膜關節) &mdash; the knuckle-cracking pop comes from gas bubbles forming and collapsing in its lubricating synovial fluid (滑液). Credit: <a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The popping sound produced when cracking a knuckle comes from the synovial fluid (滑液) that lubricates each joint capsule; when a joint is stretched or bent in a particular way, gas bubbles, mostly nitrogen (氮氣), rapidly form and then collapse within that fluid, producing the characteristic cracking noise, a mechanism confirmed by real-time MRI (磁力共振) imaging in a 2015 study. The popular belief that this habit damages joints and causes arthritis (關節炎) has circulated for generations, typically as a warning from parents to children, despite never being backed by strong clinical evidence.</p>
+      <p>Physician Donald Unger (唐納&middot;昂格) directly tested this folk claim on himself over more than 60 years, deliberately cracking the knuckles on his left hand at least twice a day while never cracking those on his right hand, then comparing both hands for signs of arthritis in later life. He found no difference whatsoever between his two hands, no arthritis, no reduced mobility, and no detectable joint damage in the frequently cracked hand versus the untouched one, publishing his results in the journal <em>Arthritis &amp; Rheumatism</em> in 1998 and later receiving the satirical Ig Nobel Prize (搞笑諾貝爾獎) for the decades-long self-experiment.</p>
+      <p>Larger, more conventional studies have generally supported Unger&rsquo;s finding: a 2011 study published in the <em>Journal of the American Board of Family Medicine</em> comparing knuckle-crackers to non-crackers found no significant association between the habit and arthritis rates, though a few smaller studies have suggested habitual crackers may experience slightly reduced grip strength (握力) or minor hand swelling over time, an effect far less serious than the arthritis long feared. The specific medical warning that made generations of children stop mid-crack appears to have simply been unfounded.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Sixty years and one very patient doctor later, the knuckle-cracking arthritis warning turned out to be a myth with no bite.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What causes the popping sound when cracking a knuckle, and what did Donald Unger&rsquo;s 60-year self-experiment find about the arthritis risk?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The sound comes from gas bubbles, mostly nitrogen, rapidly forming and collapsing in the synovial fluid that lubricates the joint when it&rsquo;s stretched. Unger found no difference in arthritis, mobility, or joint damage between the hand he cracked for decades and the hand he left alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em>, 41(5). Kawchuk, G.N. et al. (2015), <em>PLOS ONE</em>. Deweber, K. et al. (2011), <em>Journal of the American Board of Family Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>How Twenty Minutes of Hard Effort Can Beat an Hour of Easy Cardio</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">High-intensity interval training (高強度間歇訓練), or HIIT, alternates short bursts of near-maximal effort with brief recovery periods, and a full session often takes less time than a single traditional steady-pace cardio (帶氧運動) workout. Before reading on, what physiological mechanism do you think allows such short bursts of intense effort to produce fitness improvements comparable to, or sometimes greater than, much longer sessions of moderate-intensity exercise?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/HIIT_Workout.jpg/330px-HIIT_Workout.jpg" alt="People performing a high-intensity interval training workout" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">High-intensity interval training (高強度間歇訓練) &mdash; short near-maximal bursts can rival much longer steady-state cardio for fitness gains. Credit: <a href="https://en.wikipedia.org/wiki/High-intensity_interval_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>High-intensity interval training (高強度間歇訓練), commonly known as HIIT, involves alternating short periods of near-maximal effort, often 20 seconds to 4 minutes, with intervals of low-intensity recovery, repeated for a total session that can last as little as 10 to 20 minutes including warm-up and cool-down. Research since the early 2000s, including landmark studies by exercise physiologist Martin Gibala (吉巴拉), has found that HIIT can produce improvements in aerobic capacity (帶氧能力), measured as VO2 max, comparable to much longer sessions of traditional steady-state cardio, despite requiring a small fraction of the total training time.</p>
+      <p>The key mechanism appears to be that near-maximal intervals push the cardiovascular system (心血管系統) and working muscles to adapt under far greater metabolic stress than steady, moderate effort ever achieves, triggering mitochondrial biogenesis (粒線體生合成), the growth of new energy-producing structures within muscle cells, at a notably faster rate. HIIT also produces a measurable &ldquo;afterburn effect,&rdquo; or excess post-exercise oxygen consumption (運動後過耗氧量), where the body continues burning calories at an elevated rate for hours after the session ends, an effect far smaller or absent after equivalent-duration steady-state cardio sessions.</p>
+      <p>HIIT isn&rsquo;t automatically superior for every goal or every person, since the very intensity that makes it time-efficient also makes it more physically demanding and mentally harder to sustain consistently, and it carries a somewhat higher injury and overtraining (過度訓練) risk if introduced too quickly without adequate recovery between sessions. Most exercise physiologists now recommend HIIT as a valuable time-efficient complement to, rather than a wholesale replacement for, longer moderate-intensity training, particularly useful for people who genuinely cannot fit traditional longer cardio sessions into a busy schedule.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/High-intensity_interval_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; HIIT&rsquo;s advantage isn&rsquo;t magic &mdash; it&rsquo;s that near-maximal effort forces faster cellular adaptation than the body ever needs to make at an easy pace.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &ldquo;afterburn effect&rdquo; in HIIT, and why does near-maximal interval effort trigger faster mitochondrial adaptation than steady-state cardio?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The afterburn effect, or excess post-exercise oxygen consumption, means the body keeps burning calories at an elevated rate for hours after a HIIT session ends. Near-maximal intervals push muscles and the cardiovascular system under far greater metabolic stress than steady moderate effort, triggering faster mitochondrial biogenesis.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gibala, M.J. et al. (2012), <em>Journal of Physiology</em>. Weston, K.S. et al. (2014), <em>British Journal of Sports Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Bank That Failed Because Its Safest Assets Became a Liability</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In March 2023, Silicon Valley Bank (矽谷銀行), the 16th-largest bank in the United States and a major lender to tech startups, collapsed within just 48 hours despite holding a portfolio widely considered among the safest assets in finance: US government bonds (美國國債). Before reading on, what do you think went wrong with a bank holding supposedly ultra-safe assets, badly enough to trigger the second-largest bank failure in US history?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key actors:</strong> Silicon Valley Bank (矽谷銀行, SVB); its concentrated base of tech startup and venture capital (風險投資) depositors; the US Federal Reserve (美國聯邦儲備局).</p>
+        <p><strong>Event at stake:</strong> SVB&rsquo;s collapse on 10 March 2023, following a $42 billion deposit run in a single day.</p>
+        <p><strong>Big picture:</strong> A textbook case of duration mismatch (存續期錯配) risk, where an institution&rsquo;s assets and liabilities respond very differently to rising interest rates, amplified by a uniquely concentrated, digitally connected depositor base.</p>
+      </div>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/3003_West_Tasman_Drive_entrance_2%2C_Santa_Clara%2C_California.jpg/3840px-3003_West_Tasman_Drive_entrance_2%2C_Santa_Clara%2C_California.jpg" alt="Silicon Valley Bank headquarters entrance" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Silicon Valley Bank (矽谷銀行) headquarters, Santa Clara, California &mdash; regulators shut the bank down on 10 March 2023. Credit: <a href="https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Silicon Valley Bank (矽谷銀行) built its business around deposits from technology startups and venture capital (風險投資) firms, and during the flush, low-interest-rate years of 2020 to 2021 it took in a surge of deposits, investing much of that money in long-term US Treasury bonds (美國國債) and mortgage-backed securities (按揭抵押證券), assets considered virtually risk-free in terms of default. What SVB&rsquo;s models underweighted was interest rate risk (利率風險): when the Federal Reserve (美國聯邦儲備局) raised interest rates sharply through 2022 to fight inflation, the market value of those existing long-term bonds fell substantially, even though the bonds themselves would still pay out in full if simply held to maturity.</p>
+      <p>This created a duration mismatch (存續期錯配): SVB&rsquo;s deposits could be withdrawn by customers at any time, but its assets were now bonds worth significantly less than face value if sold early, and mostly locked up for years. On 8 March 2023, SVB announced it had sold a chunk of its bond portfolio at a $1.8 billion loss and needed to raise fresh capital, a disclosure that, combined with the bank&rsquo;s unusually concentrated depositor base of startups who communicated instantly through shared group chats and social media, triggered a rapid, coordinated bank run (銀行擠提) of roughly $42 billion in deposit withdrawals within a single trading day.</p>
+      <p>Regulators shut SVB down on 10 March 2023, making it the second-largest bank failure in US history at the time, and the Federal Reserve and Treasury swiftly guaranteed all deposits, even those above the standard $250,000 insurance limit, to prevent panic from spreading to other regional banks. The episode became a widely cited case study in how holding technically safe assets can still create real solvency risk if their market value and a bank&rsquo;s funding needs move in opposite directions at the wrong moment, and how digital-era bank runs can now unfold in hours rather than the days or weeks such crises historically took.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; SVB didn&rsquo;t fail because its assets were risky &mdash; it failed because its safest assets couldn&rsquo;t be turned into cash fast enough when everyone wanted their money at once.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is duration mismatch, and how did SVB&rsquo;s concentrated depositor base turn a bond-portfolio problem into a 48-hour bank collapse?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Duration mismatch occurs when an institution&rsquo;s liabilities, like deposits, can be withdrawn instantly, while its assets, like long-term bonds, are locked up for years and lose market value when interest rates rise. SVB&rsquo;s depositors were unusually concentrated among startups who communicated instantly online, allowing a $1.8 billion loss disclosure to trigger a coordinated $42 billion withdrawal in a single day.</div>
+      </details>
+      <div class="source">&#x1F4D6; Federal Reserve, &ldquo;Review of the Federal Reserve&rsquo;s Supervision and Regulation of Silicon Valley Bank&rdquo; (2023). FDIC, &ldquo;FDIC&rsquo;s Supervision of Silicon Valley Bank&rdquo; (2023).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Low Unemployment Stopped Predicting High Inflation</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Unemployment_rate%2C_World%2C_2025_%28cropped%29.svg/960px-Unemployment_rate%2C_World%2C_2025_%28cropped%29.svg.png" alt="Chart of world unemployment rate" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Unemployment rate (失業率) trends &mdash; the variable at the heart of the Phillips Curve&rsquo;s (菲利普斯曲線) predicted trade-off with inflation. Credit: <a href="https://en.wikipedia.org/wiki/Phillips_curve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Through the 2010s, US and UK unemployment fell to multi-decade lows while inflation (通脹) stayed persistently below central bank targets; then in 2021&ndash;22, inflation surged even though unemployment barely changed from its already-low pre-pandemic level, breaking the expected relationship in both directions within a few years.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist William Phillips (菲利普斯) observed in 1958 that wage inflation and unemployment moved in a stable inverse relationship; economists later adapted this into the Phillips Curve (菲利普斯曲線), predicting that lower unemployment should reliably push inflation higher as employers compete for scarce workers.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The relationship appeared to flatten dramatically after the 2008 crisis, the &ldquo;missing inflation&rdquo; puzzle, then seemingly reversed course, with 2021&ndash;22 inflation driven more by supply-chain (供應鏈) shocks and pandemic demand shifts than by tight labour markets alone.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Milton Friedman (弗里德曼) and Edmund Phelps&rsquo;s expectations-augmented Phillips Curve argues anchored inflation expectations (通脹預期), not the unemployment rate itself, now drive inflation, though economists still dispute whether the curve simply flattened or now depends on unmeasured supply factors &mdash; an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The Phillips Curve isn&rsquo;t dead &mdash; but low unemployment alone stopped being enough to predict where inflation goes next.</div>
+      <div class="source">&#x1F4D6; Phillips, A.W. (1958), <em>Economica</em>. Friedman, M. (1968), <em>American Economic Review</em>, &ldquo;The Role of Monetary Policy.&rdquo; Blanchard, O. (2016), NBER Working Paper, &ldquo;The Phillips Curve: Back to the &lsquo;60s?&rdquo;</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 4 &mdash; Nothing Good Comes Without Deliberate Effort:</strong> The Iwakura Mission&rsquo;s failed attempt to renegotiate unequal treaties by simply asking taught Meiji Japan that institutions couldn&rsquo;t be borrowed on goodwill alone; they had to be deliberately studied, imported, and rebuilt piece by piece. Xunzi&rsquo;s 性惡論 makes a strikingly similar wager about human nature: left in its raw, default state, character doesn&rsquo;t improve on its own, it requires sustained cultivation through 禮 (ritual and law) and deliberate effort. Both cards reject the comforting assumption that good outcomes, whether a modern nation-state or a virtuous person, simply unfold naturally given enough time.</p>
+      <p><strong>So what:</strong> When something underperforms, whether a country&rsquo;s institutions or your own habits, the more useful question isn&rsquo;t whether its underlying nature is good or bad, but what deliberate structure is still missing.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL &amp; European Space Agency, Cassini-Huygens mission archive. Lorenz, R.D. et al. (2006), <em>Nature</em>. Niemann, H.B. et al. (2005), <em>Nature</em>.</li>
+      <li><strong>Card 2:</strong> 大久保利謙（1976）《岩倉使節團の研究》；Nish, I. (1998). Britannica, &ldquo;Iwakura Mission.&rdquo;</li>
+      <li><strong>Card 3:</strong> Kissinger, H. (1957), <em>A World Restored</em>. Britannica, &ldquo;Congress of Vienna.&rdquo; Zamoyski, A. (2007).</li>
+      <li><strong>Card 4:</strong> 《荀子・性惡》；Stanford Encyclopedia of Philosophy, &ldquo;Xunzi.&rdquo; Knoblock, J. (1988&ndash;1994).</li>
+      <li><strong>Card 5:</strong> Nietzsche, F. (1882), <em>The Gay Science</em>. Stanford Encyclopedia of Philosophy. Kaufmann, W. (1974).</li>
+      <li><strong>Card 6:</strong> Thaler, R.H. (1999), <em>Journal of Behavioral Decision Making</em>. Thaler, R.H. &amp; Johnson, E.J. (1990), <em>Management Science</em>.</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Ice cream headache.&rdquo; Hulihan, J. (1997), <em>BMJ</em>. Bird, N. et al. (1992), <em>Cephalalgia</em>.</li>
+      <li><strong>Card 8:</strong> Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em>, 41(5). Kawchuk, G.N. et al. (2015), <em>PLOS ONE</em>. Deweber, K. et al. (2011).</li>
+      <li><strong>Card 9:</strong> Gibala, M.J. et al. (2012), <em>Journal of Physiology</em>. Weston, K.S. et al. (2014), <em>BJSM</em>.</li>
+      <li><strong>Card 10:</strong> Federal Reserve (2023) SVB Supervision Review. FDIC (2023) SVB Supervision Report.</li>
+      <li><strong>Card 11:</strong> Phillips, A.W. (1958), <em>Economica</em>. Friedman, M. (1968). Blanchard, O. (2016), NBER Working Paper.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-30: Huygens Lands on Titan &bull; 岩倉使節團 &bull; Congress of Vienna 1814&ndash;15 &bull; 荀子性惡論 &bull; Nietzsche / &ldquo;God is Dead&rdquo; &bull; Mental Accounting (Thaler) &bull; Brain Freeze / Ice Cream Headache &bull; Cracking Knuckles Myth (Donald Unger) &bull; HIIT &bull; Silicon Valley Bank Collapse 2023 &bull; Phillips Curve</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-30.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-30.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 30 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
