@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 31 July 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 31 July 2026 &nbsp;&middot;&nbsp; ~30 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>30 July 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Huygens Lands on Titan</span>ESA&rsquo;s Huygens probe landed on Titan in 2005, revealing methane rivers, rain, and lakes mirroring Earth&rsquo;s water cycle.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 岩倉使節團</span>使節團修約失敗，轉考察西方制度，影響明治改革。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Congress of Vienna</span>European powers redrew the map after Napoleon&rsquo;s defeat, keeping France strong to preserve a century-long balance of power.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 荀子性惡論</span>荀子主張性惡，須靠禮法教化為善，與孟子相對。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Nietzsche</span>Nietzsche&rsquo;s parable of the madman declared &ldquo;God is dead,&rdquo; meaning Western culture&rsquo;s shared moral authority had quietly collapsed.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Mental Accounting</span>Thaler showed people mentally sort money into separate accounts, treating windfalls as less painful to lose than earned income.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Brain Freeze</span>Cold on the palate triggers rebound blood-vessel dilation, and overlapping trigeminal nerve pathways make you feel it in your forehead.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Cracking Knuckles Myth</span>A doctor cracked one hand&rsquo;s knuckles for 60 years and found no arthritis difference versus his uncracked hand.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; HIIT</span>Short near-maximal intervals can match long steady-state cardio for fitness gains by triggering faster mitochondrial adaptation.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; SVB Collapse</span>Silicon Valley Bank collapsed in 48 hours after rising rates cut its &ldquo;safe&rdquo; bond portfolio&rsquo;s value, triggering a $42B deposit run.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Phillips Curve</span>Low unemployment stopped reliably predicting high inflation, forcing economists to lean on inflation-expectations theory instead.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photograph of Something You&rsquo;re Never Supposed to See</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In April 2019, an international team unveiled the first-ever photograph of a black hole, an object whose entire defining property is that not even light can escape it. Before reading on, what do you think a &ldquo;photograph&rdquo; of something that traps all light could possibly show, and how would you even build a telescope capable of seeing something so far away and so small?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Event_Horizon_Telescope_Collaboration_%28testing-general-relativity-with-the-event-horizon%29.jpg" alt="The Event Horizon Telescope's first image of the supermassive black hole M87*, showing a glowing ring around a dark shadow" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The first-ever image of a black hole (黑洞), M87*, released 10 April 2019 by the Event Horizon Telescope (事件視界望遠鏡) collaboration. Credit: <a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 10 April 2019, an international collaboration called the Event Horizon Telescope (事件視界望遠鏡, EHT) unveiled something astronomers had spent a century predicting but never seeing: an actual photograph of a black hole (黑洞). The target was M87* (M87&#x2217;), a supermassive black hole roughly 6.5 billion times the mass of the Sun, sitting 55 million light-years away at the centre of the galaxy Messier 87 (梅西耶87星系). Since no single telescope on Earth is large enough to resolve something so distant and compact, EHT linked eight radio observatories across four continents into one Earth-sized virtual instrument using very-long-baseline interferometry (甚長基線干涉測量法).</p>
+      <p>The resulting image showed a glowing, lopsided ring of superheated plasma (電漿) encircling a dark central shadow, the closest visual evidence yet of an event horizon (事件視界), the boundary beyond which nothing, not even light, can escape. The shadow&rsquo;s size matched predictions from Albert Einstein&rsquo;s (愛因斯坦) general relativity (廣義相對論) with striking precision, a theory published over a century earlier and never before tested this directly. Capturing it required synchronising atomic clocks at every site to a precision of one part in ten quadrillion, then physically shipping half a tonne of hard drives, since the raw data was too vast to transmit online, to supercomputers at MIT Haystack Observatory (麻省理工學院海斯塔克天文台) for correlation.</p>
+      <p>The 2019 image confirmed decades of theoretical work almost overnight and gave the public its first real look at one of physics&rsquo; strangest predictions rather than an artist&rsquo;s rendering. EHT followed up in 2022 with an image of Sagittarius A* (人馬座A&#x2217;), the comparatively modest black hole at the centre of our own Milky Way (銀河系), and later added a polarisation map revealing the magnetic field lines twisting around M87*&rsquo;s shadow. With more telescopes now joining the array each year, astronomers expect future images sharp enough to watch matter actually swirl and vanish at a black hole&rsquo;s edge in near-real time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The &ldquo;photo&rdquo; of a black hole isn&rsquo;t of the hole at all &mdash; it&rsquo;s a silhouette cast by light bending around something too dense to let any escape.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did the Event Horizon Telescope create an Earth-sized instrument capable of imaging M87*, and what did the image&rsquo;s shadow size confirm?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">EHT linked eight radio telescopes worldwide using very-long-baseline interferometry, synchronising atomic clocks to combine their data into one virtual Earth-sized telescope. The shadow&rsquo;s size matched Einstein&rsquo;s general relativity predictions with striking precision, offering the most direct visual confirmation yet of an event horizon.</div>
+      </details>
+      <div class="source">&#x1F4D6; Event Horizon Telescope Collaboration (2019), <em>Astrophysical Journal Letters</em>, &ldquo;First M87 Event Horizon Telescope Results.&rdquo; NASA/ESA. Event Horizon Telescope Collaboration (2022), &ldquo;Sagittarius A* Results.&rdquo;</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>四十二天的皇帝&mdash;&mdash;李自成攻陷北京與明朝的覆亡</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">崇禎十七年（1644年）三月，一支由驛卒出身的起義軍領袖率軍攻入北京，明朝末代皇帝在紫禁城後方一座小山自縊殉國。你認為，這位起義軍領袖其後能否順利建立長治久安的新王朝？他最終的命運又是如何？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李自成（闖王）；崇禎帝朱由檢；明將吳三桂。</p>
+        <p><strong>事件：</strong>1644年李自成攻陷北京，明朝覆亡；隨後吳三桂引清兵入關，李自成兵敗身死。</p>
+        <p><strong>時代背景：</strong>明末天災連年、遼餉屢加、驛站裁撤引發失業潮，加上官僚腐敗，激起大規模民變。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/%E6%9D%8E%E8%87%AA%E6%88%90%E8%A1%8C%E5%AE%AB_%28cropped%29.png" alt="李自成畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">李自成畫像，明末民變領袖，1644年攻陷北京，明朝覆亡。來源：<a href="https://en.wikipedia.org/wiki/Li_Zicheng" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>李自成，陝西米脂人，早年在驛站充當驛卒，崇禎二年（1629年）朝廷為節省開支裁撤驛站，李自成因而失業，其後投身起義軍，輾轉成為闖王高迎祥麾下部將，高迎祥於崇禎九年（1636年）兵敗被殺後，李自成繼稱「闖王」，成為明末民變聲勢最大的一支武裝。崇禎年間陝西、河南接連大旱、蝗災，加上遼東軍餉屢屢加派，百姓賦稅沉重，民不聊生，李自成軍隊提出「均田免賦」、「迎闖王，不納糧」的口號，所到之處開倉放糧，深得饑民擁戴，隊伍迅速壯大至數十萬人。</p>
+      <p>崇禎十七年（1644年）正月，李自成在西安稱帝，國號大順，改元永昌，隨即揮軍東進，三月十九日攻破北京城，崇禎帝在煤山（今景山）一棵老槐樹下自縊殉國，臨終衣襟上寫下「諸臣誤朕」，統治二百七十六年的明朝就此滅亡。李自成入城後嚴令軍紀，一度秋毫無犯，然而其部將劉宗敏隨後對明朝降臣及富戶大肆拷掠追贓，引發士紳階層強烈不滿，鎮守山海關的明將吳三桂本已有意投降大順，聞訊後轉而引清兵入關。</p>
+      <p>同年四月，李自成親率大軍進逼山海關，與吳三桂及清攝政王多爾袞聯軍在石河一片石激戰，大順軍寡不敵眾，一片石之役慘敗，被迫退回北京，倉促稱帝後即棄城西走，大順政權由盛轉衰不過月餘。李自成其後轉戰陝西、湖廣一帶，屢戰屢敗，翌年（1645年）於湖北通山縣九宮山遭地方鄉勇襲殺，一代梟雄結局成謎，明清易代的巨變自此底定。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Li_Zicheng" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 均田免賦贏得天下饑民擁戴，卻擋不住一念之差引狼入室&mdash;&mdash;李自成僅佔據北京四十二天。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>李自成因何原因失業並投身起義？他攻入北京後，又因何事件促成迅速潰敗？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李自成因崇禎年間朝廷裁撤驛站而失業，其後投身民變隊伍。攻入北京後，部將劉宗敏拷掠明朝官紳，激怒鎮守山海關的吳三桂，吳三桂轉而引清兵入關，大順軍在一片石之戰潰敗，李自成僅佔據北京四十二天便倉皇撤離。</div>
+      </details>
+      <div class="source">&#x1F4D6; 顧誠（1997）《明末農民戰爭史》；《明史&middot;李自成傳》；Wakeman, F. (1985), <em>The Great Enterprise: The Manchu Reconstruction of Imperial Order in Seventeenth-Century China</em>.</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Cannon That Ended the Middle Ages</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the spring of 1453, a 21-year-old sultan positioned an enormous cannon, too heavy to move quickly, outside walls that had defended the world&rsquo;s most fortified city for over a thousand years. Before reading on, what do you think finally let the attackers breach walls that had turned back every previous siege, and what long-term shift in world trade did the city&rsquo;s fall help trigger?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Ottoman Sultan Mehmed II (穆罕默德二世); Byzantine Emperor Constantine XI Palaiologos (君士坦丁十一世).</p>
+        <p><strong>Event at stake:</strong> The 53-day siege and fall of Constantinople (君士坦丁堡) on 29 May 1453.</p>
+        <p><strong>Big picture:</strong> The end of the roughly 1,100-year Byzantine Empire (拜占庭帝國), a turning point often used to mark the close of the medieval period in European history.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg/3840px-Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg" alt="Fresco depicting the Siege of Constantinople, 1453" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A fresco depicting the 1453 siege of Constantinople (君士坦丁堡), which ended the Byzantine Empire (拜占庭帝國). Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Constantinople&rsquo;s (君士坦丁堡) triple-layered Theodosian Walls (狄奧多西城牆) had turned back every siege for over a thousand years, so when the 21-year-old Ottoman (鄂圖曼) Sultan Mehmed II (穆罕默德二世) inherited the throne determined to finally capture the city, he needed something the walls had never faced. He commissioned a Hungarian engineer named Orban (奧爾班) to cast an enormous bombard nearly nine metres long, capable of firing stone balls weighing over 270 kilograms, and gathered an army of roughly 80,000 men against a defending garrison of barely 7,000, including hired Genoese (熱那亞) soldiers under Giovanni Giustiniani.</p>
+      <p>The siege began in April 1453, with Mehmed&rsquo;s cannon (大炮) pounding the walls day and night while Byzantine Emperor Constantine XI Palaiologos (君士坦丁十一世) organised increasingly desperate nightly repairs. When defenders strung a great chain across the Golden Horn (金角灣) to block naval attack, Mehmed had his ships hauled overland on greased wooden rails around the barrier, a stunt that stunned the defenders. After 53 days, Ottoman troops finally breached the walls on 29 May through a small unlocked gate called the Kerkoporta (凱爾卡波爾塔門), and Constantine XI died fighting in the breach, still wearing his imperial purple, his body never conclusively identified afterward.</p>
+      <p>Constantinople&rsquo;s fall ended the Byzantine Empire (拜占庭帝國) after nearly 1,100 years as the last living link to ancient Rome (羅馬), and Mehmed II, now styled &ldquo;the Conqueror&rdquo; (征服者), converted the great church of Hagia Sophia (聖索菲亞大教堂) into a mosque and made the city his new Ottoman capital, later renamed Istanbul (伊斯坦堡). Greek scholars fled west carrying classical manuscripts that helped fuel the Renaissance (文藝復興) in Italy, while Ottoman control over the overland trade routes (貿易路線) to Asia pushed European powers to seek sea routes instead, a search that would soon lead Columbus (哥倫布) west across the Atlantic.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single cannon too heavy to move fast still moved history &mdash; ending a thousand-year empire and nudging Europe out toward the open ocean.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What engineering trick let Mehmed II&rsquo;s fleet bypass the chain blocking the Golden Horn, and what two major historical shifts followed the city&rsquo;s fall?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mehmed had his ships hauled overland on greased wooden rails around the chain barrier. The fall ended the thousand-year Byzantine Empire and pushed European trade routes westward, helping spur the Age of Exploration.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Fall of Constantinople.&rdquo; Crowley, R. (2005), <em>1453: The Holy War for Constantinople and the Clash of Islam and the West</em>. Runciman, S. (1965), <em>The Fall of Constantinople 1453</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>石棺中的頓悟&mdash;&mdash;王陽明如何在瘴癘之地悟出「知行合一」</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">正德三年（1508年），一位因觸怒權宦而被貶至貴州荒僻驛站的官員，在一個石穴中日夜靜坐沉思。某夜，他忽然大悟，從此改變了中國思想史的走向。你認為，他悟出的道理，與當時盛行、要求人窮究外物之理的程朱理學，會有甚麼根本分別？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王陽明（王守仁，1472&ndash;1529），明代思想家；因觸怒宦官劉瑾遭貶謫貴州龍場。</p>
+        <p><strong>核心思想：</strong>龍場悟道&mdash;&mdash;「聖人之道，吾性自足」；知行合一，反對將知、行截然二分。</p>
+        <p><strong>時代背景：</strong>明代中葉程朱理學成為科舉正統，王陽明早年篤信格物窮理卻屢屢受挫，貶謫絕域反而促成其思想突破。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王陽明（王守仁）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王陽明（王守仁）畫像，明代思想家，1508年於貴州龍場悟道，提出「知行合一」。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王陽明，本名王守仁，浙江餘姚人，早年篤信朱熹「格物致知」之說，相傳曾依朱熹教誨「格」庭前竹子七日七夜，欲窮究竹中之理，結果一無所得，反而病倒，自此對程朱理學心生疑惑。正德元年（1506年），宦官劉瑾擅權，王陽明因上疏營救因彈劾劉瑾而下獄的官員戴銑等人，觸怒劉瑾，被廷杖四十，幾乎斃命，其後更遭貶謫至萬山叢棘、瘴癘橫行的貴州龍場（今貴州修文）擔任驛丞，途中劉瑾更派人暗殺，王陽明佯裝投水始得脫身。</p>
+      <p>龍場地處偏遠，言語不通，隨行僕從相繼病倒，王陽明索性鑿石為棺，自誓「吾惟俟命而已」，日夜端居澄默，反覆思索「聖人處此，更有何道」。正德三年（1508年）某夜，他忽然大悟格物致知之旨，明白「聖人之道，吾性自足，向之求理於事物者誤也」，即所謂「龍場悟道」&mdash;&mdash;天理本自具足於人心，毋須外求於事事物物。此後他提出「心即理」，又倡「知行合一」，主張知與行本是一體，真知必然表現於行動，空談道理而不實踐，只是「未知」。</p>
+      <p>王陽明「知行合一」正是針對當時科舉士人空談性理、知行脫節的流弊而發，晚年他進一步提煉出「致良知」之說，認為人人心中皆有與生俱來、能辨是非善惡的「良知」，為學工夫只在於掃除私欲遮蔽，將良知不受阻礙地推致於日用行事之中。王陽明一生歷經貶謫絕域、平定寧王之亂等重大考驗，其學說後世稱為「陽明心學」，與朱熹「程朱理學」分庭抗禮，影響遍及明清士人，並東傳日本，成為江戶時代陽明學的思想源頭。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 真正的道理不假外求&mdash;&mdash;王陽明在瘴癘之地悟出：良知本自具足，知而不行，只是未知。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>王陽明「龍場悟道」悟出甚麼道理？他提出的「知行合一」主張甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王陽明在貴州龍場貶所悟出「聖人之道，吾性自足，向之求理於事物者誤也」，即天理本存於人心，不假外求。他提出「知行合一」，主張知與行本為一體，真知必然見於行動，空談而不實踐等同未知。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《王陽明全集&middot;年譜》；杜維明（1976）《青年王陽明》；Ivanhoe, P.J. (2002), <em>Ethics in the Confucian Tradition: The Thought of Mengzi and Wang Yangming</em>.</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Went Looking for a Monster and Found a Bureaucrat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1961, philosopher Hannah Arendt travelled to Jerusalem expecting to witness an obviously monstrous man on trial for organising the logistics of mass murder during the Holocaust. Before reading on, what do you think she found instead when she actually observed the defendant in the courtroom, and how might that observation have changed her whole theory of how atrocities happen?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Hannah Arendt (漢娜&middot;鄂蘭, 1906&ndash;1975), German-American philosopher; Adolf Eichmann (阿道夫&middot;艾希曼), Nazi bureaucrat on trial in Jerusalem.</p>
+        <p><strong>Idea at stake:</strong> Arendt&rsquo;s 1963 concept of the &ldquo;banality of evil&rdquo; (平庸之惡), developed while covering Eichmann&rsquo;s trial for <em>The New Yorker</em>.</p>
+        <p><strong>Big picture:</strong> A challenge to the assumption that history&rsquo;s worst atrocities require monstrous perpetrators, arising from her direct observation of an ordinary-seeming bureaucrat on trial for organising mass murder.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg/330px-Hannah_Arendt_auf_dem_1._Kulturkritikerkongress%2C_Barbara_Niggl_Radloff%2C_FM-2019-1-5-9-16_%28cropped%29.jpg" alt="Photograph of Hannah Arendt" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hannah Arendt (漢娜&middot;鄂蘭), whose coverage of the 1961 Eichmann trial produced her controversial concept of the &ldquo;banality of evil&rdquo; (平庸之惡). Credit: <a href="https://en.wikipedia.org/wiki/Hannah_Arendt" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>German-American philosopher Hannah Arendt (漢娜&middot;鄂蘭), who had fled Nazi Germany (納粹德國) in 1933, travelled to Jerusalem (耶路撒冷) in 1961 to cover the trial of Adolf Eichmann (阿道夫&middot;艾希曼) for <em>The New Yorker</em> magazine. Eichmann had organised the logistics of deporting millions of Jews to concentration camps (集中營) during the Holocaust (大屠殺), and Arendt expected to observe a monstrous, obviously evil figure. Instead she found a nondescript, almost dull bureaucrat who insisted throughout the trial that he had merely followed orders and advanced his career, showing no apparent hatred or ideological fervour toward his victims.</p>
+      <p>In her controversial 1963 book <em>Eichmann in Jerusalem</em> (《艾希曼在耶路撒冷》), Arendt coined the phrase &ldquo;the banality of evil&rdquo; (平庸之惡) to describe what she witnessed: Eichmann committed unprecedented atrocities not out of monstrous conviction but through a disturbing lack of thought, an unwillingness to imagine his victims&rsquo; perspective, and a bureaucratic focus on efficiently completing his assigned tasks. This challenged the widespread assumption that history&rsquo;s worst crimes require exceptionally evil individuals, suggesting instead that ordinary conformity, careerism, and thoughtlessness within a totalitarian (極權主義) system could produce equally horrific outcomes. The book provoked fierce backlash from readers who felt it minimised Eichmann&rsquo;s culpability.</p>
+      <p>Critics, including many former friends, accused Arendt of letting Eichmann off too easily and of blaming Jewish councils that had cooperated under duress with Nazi deportation orders, a controversy that cost her lasting friendships within the intellectual community she belonged to. Later historians, drawing on additional archives, have argued Eichmann was more ideologically committed than he appeared at trial, complicating Arendt&rsquo;s original portrait, though her core insight, that ordinary thoughtlessness within a bureaucratic (官僚) system can enable atrocity, remains widely cited across psychology (心理學), political science (政治學), and organisational ethics today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hannah_Arendt" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Arendt&rsquo;s unsettling discovery wasn&rsquo;t that monsters do evil &mdash; it&rsquo;s that ordinary people who simply stop thinking can do it too.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Arendt mean by &ldquo;the banality of evil,&rdquo; and what specific criticism did her portrayal of Eichmann provoke?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Arendt meant that Eichmann&rsquo;s atrocities stemmed from thoughtlessness and bureaucratic careerism rather than monstrous ideological conviction. Critics accused her of underestimating his ideological commitment and unfairly criticising Jewish councils that cooperated under duress.</div>
+      </details>
+      <div class="source">&#x1F4D6; Arendt, H. (1963), <em>Eichmann in Jerusalem: A Report on the Banality of Evil</em>. Stanford Encyclopedia of Philosophy, &ldquo;Hannah Arendt.&rdquo; Stangneth, B. (2014), <em>Eichmann Before Jerusalem</em>.</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why the Least Skilled Often Feel Most Confident</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a 1999 psychology study, researchers tested people&rsquo;s ability to judge grammar, logic, and humour, then asked each participant to estimate how well they had done compared to everyone else. Before reading on, what pattern do you think emerged between how poorly someone actually performed and how accurately they judged their own performance?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Dunning%E2%80%93Kruger_Effect2.svg/960px-Dunning%E2%80%93Kruger_Effect2.svg.png" alt="Chart illustrating the Dunning-Kruger effect" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Dunning-Kruger effect (鄧寧-克魯格效應) &mdash; confidence and actual competence plotted against each other. Credit: <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1999, psychologists David Dunning (大衛&middot;鄧寧) and Justin Kruger (賈斯汀&middot;克魯格) at Cornell University (康乃爾大學) tested participants on grammar, logic, and humour, then asked each person to estimate their own percentile ranking compared to everyone else who took the test. They found a consistent pattern: participants who scored in the bottom quartile substantially overestimated their own ability, often guessing they had performed above average, while the most skilled participants tended to slightly underestimate their own relative standing. This asymmetry, now widely known as the Dunning-Kruger effect (鄧寧-克魯格效應), suggested that the skills needed to perform a task well overlap heavily with the skills needed to judge one&rsquo;s own performance accurately.</p>
+      <p>The underlying explanation is what Dunning and Kruger called a &ldquo;dual burden&rdquo;: someone who lacks competence in a domain typically also lacks the specific knowledge required to recognise their own mistakes, creating a kind of double blindness where incompetence masks itself from the very person experiencing it. Meanwhile, highly skilled people often assume tasks that feel easy to them must feel similarly easy to others, a related bias called the &ldquo;curse of knowledge&rdquo; (知識的詛咒), which leads them to underestimate how unusual their own competence actually is relative to the general population.</p>
+      <p>The original finding has faced serious statistical scrutiny in recent years; some researchers argue that a similar bottom-overestimates, top-underestimates pattern emerges from simple regression to the mean (均值回歸) and measurement noise even in randomly generated data, without any genuine psychological effect at all. Dunning himself has since clarified that the core insight isn&rsquo;t about stupid people being uniquely overconfident, but about how everyone, in domains where they personally lack expertise, tends to lack the specific self-awareness needed to recognise that gap, a much broader and more universally applicable caution.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most dangerous confidence often isn&rsquo;t found in experts &mdash; it&rsquo;s found in people who don&rsquo;t yet know enough to see what they&rsquo;re missing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &ldquo;dual burden&rdquo; explanation for the Dunning-Kruger effect, and what statistical criticism has been raised against the original 1999 finding?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The dual burden means someone lacking competence in a domain also lacks the specific knowledge needed to recognise their own mistakes, masking their incompetence from themselves. Critics argue a similar pattern can emerge from regression to the mean and measurement noise alone, without any genuine psychological effect.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kruger, J. &amp; Dunning, D. (1999), <em>Journal of Personality and Social Psychology</em>, &ldquo;Unskilled and Unaware of It.&rdquo; Nuhfer, E. et al. (2016), <em>Numeracy</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Spasm With No Known Purpose That Everyone Gets Anyway</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Hiccups strike almost everyone, from developing fetuses in the womb to grown adults after eating too fast, yet they serve no clear survival function that scientists have been able to identify. Before reading on, what do you think actually triggers the sudden, involuntary spasm behind a hiccup, and why does it come with that distinctive &ldquo;hic&rdquo; sound?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Gray806.png" alt="Anatomical diagram showing the phrenic nerve and diaphragm" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The phrenic nerve (膈神經) and diaphragm (橫膈膜) &mdash; the reflex pathway behind every hiccup. Credit: <a href="https://en.wikipedia.org/wiki/Phrenic_nerve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A hiccup begins with a sudden, involuntary contraction of the diaphragm (橫膈膜), the dome-shaped muscle beneath the lungs that normally contracts smoothly and continuously during ordinary breathing. This spasm is triggered through a reflex arc (反射弧) involving the phrenic nerve (膈神經), which runs from the neck down to the diaphragm, and the vagus nerve (迷走神經), which connects to the throat, stomach, and diaphragm alike; irritation anywhere along this pathway, from eating too quickly, swallowing air, drinking carbonated drinks, or sudden temperature changes, can set the reflex off unpredictably.</p>
+      <p>Roughly a tenth of a second after the diaphragm contracts, the sudden inrush of air causes the glottis (聲門), the space between the vocal cords, to snap shut abruptly, producing the characteristic &ldquo;hic&rdquo; sound. Because both the phrenic and vagus nerves pass close to numerous other structures in the neck and chest, hiccups can occasionally signal an underlying problem elsewhere, such as acid reflux (胃酸倒流) irritating the oesophagus or, in persistent rare cases lasting more than 48 hours, nerve compression or even a stroke (中風), though the overwhelming majority resolve on their own within minutes.</p>
+      <p>No one has ever established a clear evolutionary purpose for hiccups, though one intriguing theory notes that fetuses hiccup frequently in the womb, and some researchers speculate the reflex may be an evolutionary leftover from amphibian ancestors (兩棲類祖先) who used similar muscle contractions to push water past developing gills while keeping air out of primitive lungs. Most home remedies, holding your breath, drinking water upside down, or being startled, work by interrupting the vagus or phrenic nerve signal rather than through any special ingredient, which is why such wildly different tricks can all occasionally succeed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Phrenic_nerve" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Hiccups may be a leftover reflex from ancestors who breathed through gills &mdash; a wiring glitch evolution never bothered to fix.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Which two nerves are involved in the hiccup reflex arc, and what evolutionary theory has been proposed to explain why hiccups exist at all?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The phrenic nerve and vagus nerve both connect to the diaphragm and can trigger the reflex when irritated. One theory suggests hiccups may be an evolutionary leftover from amphibian ancestors who used similar muscle contractions to push water past gills while keeping air out of developing lungs.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Hiccup.&rdquo; Straus, C. et al. (2003), <em>Bioessays</em>, &ldquo;A phylogenetic hypothesis for the origin of hiccough.&rdquo; Chang, F.Y. &amp; Lu, C.L. (2012), <em>Journal of Neurogastroenterology and Motility</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>What the Evidence Actually Says About Skipping Meals on Purpose</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Intermittent fasting (間歇性斷食), eating only within a restricted daily window or skipping meals entirely on certain days, has become one of the most popular diet trends in recent years, credited with everything from weight loss to slowed ageing. Before reading on, what do you think the actual scientific evidence shows: does fasting produce benefits beyond what you&rsquo;d get from simply eating fewer calories overall?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Empty_table_setting_plate_fork_knife_%2842585288225%29.jpg/3840px-Empty_table_setting_plate_fork_knife_%2842585288225%29.jpg" alt="An empty table setting with plate, fork, and knife" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Intermittent fasting (間歇性斷食) &mdash; research suggests its benefit comes mainly from eating less overall, not from unique metabolic effects. Credit: <a href="https://en.wikipedia.org/wiki/Fasting" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Intermittent fasting (間歇性斷食) covers several distinct approaches, including time-restricted eating (限時進食), where all meals happen within a set daily window such as eight hours, and alternate-day fasting (隔日斷食), where calorie intake is drastically cut every other day. Proponents point to animal studies and a handful of human trials showing that beyond simple calorie restriction, fasting periods can trigger a shift researchers call &ldquo;metabolic switching&rdquo; (代謝轉換), where the body depletes its glucose (葡萄糖) stores and begins burning fat for fuel, producing ketones (酮體) that some researchers believe carry additional cellular benefits.</p>
+      <p>A landmark 2022 randomised trial published in the <em>New England Journal of Medicine</em>, however, compared time-restricted eating directly against simple calorie-matched restriction and found no significant difference in weight loss or metabolic markers between the two approaches when total calories consumed were kept equal. This finding, echoed by several subsequent meta-analyses, suggests that for most people, intermittent fasting&rsquo;s real-world benefit comes primarily from making it easier to unintentionally eat less overall, since a shorter eating window naturally limits opportunities to snack, rather than from any unique metabolic magic occurring specifically during the fasting hours themselves.</p>
+      <p>Fasting isn&rsquo;t risk-free for everyone: people with a history of disordered eating (飲食失調), pregnant or breastfeeding women, and individuals with diabetes (糖尿病) managing blood sugar with medication should approach any fasting protocol cautiously and ideally under medical supervision. For healthy adults who find a restricted eating window genuinely easier to sustain than traditional calorie counting, intermittent fasting remains a perfectly reasonable tool, but current evidence does not support the stronger claims sometimes made about unique anti-ageing or disease-reversing effects beyond what any effective, sustainable calorie deficit would produce.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fasting" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Fasting&rsquo;s real superpower isn&rsquo;t magic metabolism &mdash; it&rsquo;s that a shorter eating window quietly makes overeating harder to do.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2022 <em>New England Journal of Medicine</em> trial find when comparing time-restricted eating directly against calorie-matched restriction?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The trial found no significant difference in weight loss or metabolic markers between time-restricted eating and simple calorie-matched restriction. This suggests fasting&rsquo;s benefit mainly comes from naturally reducing total calorie intake, not from unique metabolic effects during the fasting window itself.</div>
+      </details>
+      <div class="source">&#x1F4D6; Liu, D. et al. (2022), <em>New England Journal of Medicine</em>, &ldquo;Calorie Restriction with or without Time-Restricted Eating.&rdquo; de Cabo, R. &amp; Mattson, M.P. (2019), <em>NEJM</em> review.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The 30-Minute Protein Window That Isn&rsquo;t Really There</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For years, gym culture has insisted you must consume protein within roughly 30 minutes after finishing a workout, or you&rsquo;ll waste much of the muscle-building benefit of your session, a rule often called the &ldquo;anabolic window.&rdquo; Before reading on, what do you think more rigorous research has found about how strict this timing requirement actually is?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Arnold_Schwarzenegger_1974.jpg" alt="Photograph of a bodybuilder from the 1970s" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Bodybuilding (健美運動) &mdash; decades of research now show total daily protein intake matters far more than precise post-workout timing. Credit: <a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &ldquo;anabolic window&rdquo; (合成代謝窗口) theory holds that muscle protein synthesis (肌肉蛋白質合成) is dramatically elevated for a brief period immediately after resistance training, and that consuming protein outside this narrow window squanders much of a workout&rsquo;s muscle-building potential. This idea gained popularity partly from early studies on fasted athletes and became embedded in gym culture through supplement marketing, leading many lifters to rush post-workout shakes within minutes of racking their last set, sometimes even prioritising speed over quality or adequate quantity of protein intake.</p>
+      <p>An influential 2013 meta-analysis by Brad Schoenfeld (施恩菲爾德) and Alan Aragon (阿拉貢) reviewed the existing research and found that when total daily protein intake (蛋白質攝取量) is already adequate, roughly 1.6 to 2.2 grams per kilogram of bodyweight, the precise timing of any single protein dose has little to no meaningful effect on muscle growth or strength gains over weeks and months. Muscle protein synthesis actually stays elevated for 24 to 48 hours after resistance training, not just 30 minutes, meaning the real &ldquo;window&rdquo; is far wider than gym folklore suggests, especially for anyone who ate a normal meal within a few hours of training.</p>
+      <p>What still matters far more than precise timing is hitting adequate total daily protein and getting it spread across multiple meals, roughly three to four servings of 0.3 to 0.4 grams per kilogram of bodyweight each, since this spacing keeps muscle protein synthesis elevated more consistently throughout the day than concentrating it all in one huge post-workout dose. For most recreational lifters, worrying obsessively about a supplement shake the moment they finish a set matters far less than simply eating enough protein-rich food somewhere across the day.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The anabolic window isn&rsquo;t 30 minutes wide &mdash; it&rsquo;s closer to two days, so relax about the post-workout shake timer.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Schoenfeld and Aragon&rsquo;s 2013 meta-analysis, how long does muscle protein synthesis actually stay elevated after resistance training?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Muscle protein synthesis stays elevated for 24 to 48 hours after resistance training, far longer than the popularly cited 30-minute window. Hitting adequate total daily protein intake, spread across several meals, matters far more than the exact timing of any single dose.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schoenfeld, B.J., Aragon, A.A. &amp; Krieger, J.W. (2013), <em>Journal of the International Society of Sports Nutrition</em>, &ldquo;The effect of protein timing on muscle strength and hypertrophy.&rdquo;</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Chart That Predicted GameStop Thirteen Years Early</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In January 2021, shares of video-game retailer GameStop (遊戲驛站) shot up over 1,700% in under two weeks, driven not by hedge funds or institutional investors but by a coordinated buying wave from retail traders (散戶投資者) organising on the Reddit forum r/WallStreetBets. Before reading on, what do you think was actually happening mechanically to the hedge funds who had bet against GameStop, and had anything like this ever happened before at an even larger scale?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/VW-Intraday-oct2008.png/330px-VW-Intraday-oct2008.png" alt="Chart of Volkswagen's intraday share price during the October 2008 short squeeze" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Volkswagen&rsquo;s (福士汽車) share price during the October 2008 short squeeze (逼空) &mdash; briefly the world&rsquo;s most extreme, thirteen years before GameStop. Credit: <a href="https://en.wikipedia.org/wiki/Short_squeeze" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By late 2020, hedge funds including Melvin Capital (梅爾文資本) had built enormous short positions (沽空倉位) against GameStop (遊戲驛站), betting its stock would keep declining as the struggling brick-and-mortar retailer lost ground to digital game downloads, with short interest at one point exceeding 100% of all available shares. Traders on the Reddit forum r/WallStreetBets (華爾街賭注論壇), led by an amateur investor known as Roaring Kitty (咆哮小貓), identified this vulnerability and began coordinating enormous, sustained buying, driving the price from under $20 to over $480 within days and forcing short sellers to buy back shares at ever-higher prices to limit their losses.</p>
+      <p>This buying-to-cover dynamic is called a short squeeze (逼空), and it wasn&rsquo;t new: in October 2008, an even more extreme squeeze briefly made Volkswagen (福士汽車) the world&rsquo;s most valuable company on paper, after Porsche (保時捷) quietly revealed it had secretly accumulated over 74% of Volkswagen&rsquo;s shares through derivatives, cornering the market against short sellers who suddenly discovered almost no shares remained available to buy back, sending the stock up roughly 350% in two trading days before regulators intervened over the lack of disclosure.</p>
+      <p>Both squeezes reveal the same underlying mechanic: when short sellers (沽空者) collectively bet against more shares than realistically exist in free float, any sudden, coordinated buying pressure can force them into a self-reinforcing scramble to buy back stock at any price, regardless of the company&rsquo;s actual business fundamentals. GameStop&rsquo;s 2021 episode additionally triggered congressional hearings (國會聽證會) into trading-app restrictions after Robinhood and other brokers temporarily halted purchases, and Melvin Capital, which lost billions, shut down entirely by 2022, a reminder that concentrated short positions carry risks that go beyond ordinary business analysis.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Short_squeeze" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A short squeeze doesn&rsquo;t care whether the crowd is a hedge fund&rsquo;s algorithm or a Reddit forum &mdash; mechanically, cornered short sellers behave the same way.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is a short squeeze, and what similar mechanic connects GameStop&rsquo;s 2021 surge to Volkswagen&rsquo;s 2008 stock spike?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A short squeeze happens when short sellers who bet against more shares than realistically exist in free float are forced to buy back stock at rising prices to limit losses, driving prices even higher. Both GameStop and Volkswagen saw coordinated buying pressure collide with heavily shorted, thinly available shares, forcing the same self-reinforcing scramble.</div>
+      </details>
+      <div class="source">&#x1F4D6; SEC (2021), &ldquo;Staff Report on Equity and Options Market Structure Conditions in Early 2021.&rdquo; <em>Financial Times</em> archive, Volkswagen short squeeze coverage, October 2008.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Striking Oil Sometimes Makes a Country Poorer</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Gasbel_te_Slochteren_Nederlandse_Gas_Unie_werkzaamheden%2C_Bestanddeelnr_915-2654.jpg/3840px-Gasbel_te_Slochteren_Nederlandse_Gas_Unie_werkzaamheden%2C_Bestanddeelnr_915-2654.jpg" alt="A Dutch natural gas field near Slochteren" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A Dutch natural gas (天然氣) field near Slochteren &mdash; the 1959 discovery that gave &ldquo;Dutch disease&rdquo; (荷蘭病) its name. Credit: <a href="https://en.wikipedia.org/wiki/Dutch_disease" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Venezuela (委內瑞拉), once Latin America&rsquo;s richest nation and holder of the world&rsquo;s largest proven oil (石油) reserves, saw its GDP shrink over 75% between 2013 and 2021 alongside hyperinflation (惡性通脹) exceeding 1,000,000%, collapsing catastrophically despite, not because of, sitting atop enormous petroleum wealth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economists W. Max Corden and J. Peter Neary formalised &ldquo;Dutch disease&rdquo; (荷蘭病) in 1982, named for the Netherlands&rsquo; manufacturing decline after 1959 gas discoveries: resource booms appreciate the currency and pull capital into extraction, crowding out manufacturing and agriculture, leaving economies dangerously undiversified once commodity prices fall.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Yet Norway (挪威) and Botswana (博茨瓦納) built stable, diversified economies from similarly large resource windfalls, while Venezuela and Nigeria suffered severe damage from comparable oil wealth, a divergence that currency-appreciation mechanics alone cannot explain.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economists Halvor Mehlum, Karl Moene, and Ragnar Torvik (2006) argue institutional quality (制度質素), not resource wealth itself, determines outcomes: strong property rights and accountable governance channel windfalls productively, while weak institutions let resource rents fuel corruption and rent-seeking (尋租) &mdash; though how much institutions can improve after a boom begins remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Oil and gas don&rsquo;t curse a country &mdash; weak institutions turn a windfall into a trap.</div>
+      <div class="source">&#x1F4D6; Corden, W.M. &amp; Neary, J.P. (1982), <em>Economic Journal</em>, &ldquo;Booming Sector and De-Industrialisation in a Small Open Economy.&rdquo; Mehlum, H., Moene, K. &amp; Torvik, R. (2006), <em>Economic Journal</em>, &ldquo;Institutions and the Resource Curse.&rdquo; World Bank, Venezuela economic data.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 4 &amp; 9 &mdash; Consistency Beats Precision:</strong> Wang Yangming&rsquo;s (王陽明) &ldquo;knowledge-action unity&rdquo; (知行合一) insisted that understanding disconnected from sustained practice isn&rsquo;t real knowledge at all &mdash; a single flash of insight means nothing without ongoing right action. Sports science&rsquo;s debunked &ldquo;anabolic window&rdquo; myth makes a strikingly parallel point: chasing the perfectly-timed 30-minute post-workout protein shake matters far less than simply hitting adequate protein intake consistently across every meal, every day. Both cards puncture the same seductive illusion, that one precisely-executed moment, a flash of enlightenment, a perfectly-timed shake, can substitute for unglamorous, sustained discipline.</p>
+      <p><strong>So what:</strong> Whether you&rsquo;re building character or building muscle, stop hunting for the one perfect moment or trick &mdash; the accumulated pattern of ordinary, repeated action is what actually determines the outcome.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Event Horizon Telescope Collaboration (2019), <em>Astrophysical Journal Letters</em>. NASA/ESA. EHT Collaboration (2022), Sagittarius A* Results.</li>
+      <li><strong>Card 2:</strong> 顧誠（1997）《明末農民戰爭史》；《明史&middot;李自成傳》；Wakeman, F. (1985).</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Fall of Constantinople.&rdquo; Crowley, R. (2005). Runciman, S. (1965).</li>
+      <li><strong>Card 4:</strong> 《王陽明全集&middot;年譜》；杜維明（1976）《青年王陽明》；Ivanhoe, P.J. (2002).</li>
+      <li><strong>Card 5:</strong> Arendt, H. (1963), <em>Eichmann in Jerusalem</em>. Stanford Encyclopedia of Philosophy. Stangneth, B. (2014).</li>
+      <li><strong>Card 6:</strong> Kruger, J. &amp; Dunning, D. (1999), <em>JPSP</em>. Nuhfer, E. et al. (2016), <em>Numeracy</em>.</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Hiccup.&rdquo; Straus, C. et al. (2003), <em>Bioessays</em>. Chang, F.Y. &amp; Lu, C.L. (2012).</li>
+      <li><strong>Card 8:</strong> Liu, D. et al. (2022), <em>NEJM</em>. de Cabo, R. &amp; Mattson, M.P. (2019), <em>NEJM</em> review.</li>
+      <li><strong>Card 9:</strong> Schoenfeld, B.J., Aragon, A.A. &amp; Krieger, J.W. (2013), <em>JISSN</em>.</li>
+      <li><strong>Card 10:</strong> SEC (2021) Staff Report. <em>Financial Times</em> archive, Oct 2008.</li>
+      <li><strong>Card 11:</strong> Corden, W.M. &amp; Neary, J.P. (1982). Mehlum, H., Moene, K. &amp; Torvik, R. (2006). World Bank.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-07-31: First Image of a Black Hole (EHT) &bull; 李自成與明朝滅亡 &bull; Fall of Constantinople 1453 &bull; 王陽明龍場悟道 &bull; Hannah Arendt / Banality of Evil &bull; Dunning-Kruger Effect &bull; Hiccups &bull; Intermittent Fasting &bull; Anabolic Window Myth &bull; GameStop Short Squeeze 2021 &bull; Resource Curse / Dutch Disease</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-07-31.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-07-31.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 31 Jul 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
