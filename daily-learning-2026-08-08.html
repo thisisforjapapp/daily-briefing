@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 8 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 8 August 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>7 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Hubble Deep Field</span>A ten-day stare at seemingly empty sky in 1995 revealed roughly 3,000 previously unknown galaxies.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 玄武門之變</span>李世民伏殺兄弟奪得皇位，卻開創了「貞觀之治」的盛世。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Storming of the Bastille</span>A nearly empty medieval prison's fall became the French Revolution's defining symbolic moment.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 濠梁之辯</span>莊子巧妙將惠施的邏輯詰難引回原點，以語言的縫隙化解了看似無解的辯論。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Plato&rsquo;s Allegory of the Cave</span>Prisoners who escaped illusion still couldn&rsquo;t convince those who mistook shadows for the whole of reality.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Priming Effect Replication Crisis</span>A famous 1996 "walk slower" priming effect vanished once the experimenter was kept blind to conditions.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Chronotypes</span>A CRY1 gene variant can genuinely lengthen your internal clock, biologically explaining true night-owl tendencies.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Alkaline Diet Myth</span>Your blood pH is tightly regulated by lungs and kidneys regardless of what "alkaline" foods you eat.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; VO2 Max &amp; Longevity</span>Cardiorespiratory fitness predicted lower mortality risk with no ceiling, unlike blood pressure or cholesterol.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Dutch East India Company</span>Permanent, non-redeemable shares in 1602 accidentally created the world's first stock exchange.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Finland&rsquo;s Basic Income Trial</span>Removing job-search requirements didn't reduce work at all &mdash; recipients worked slightly more and felt better.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Solar Eclipse That Made Einstein a Household Name Overnight</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1919, a British astrophysicist organized two expeditions to opposite sides of the Atlantic to photograph a total solar eclipse, hoping to measure something invisible under normal daylight: whether starlight bends as it passes near the Sun&rsquo;s gravity, exactly as a German physicist&rsquo;s controversial new theory predicted. Before reading on, what do you think the expedition found, and why did the timing, only months after World War I ended, make the result front-page news around the world?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Highest_resolution_image_of_the_1919_solar_eclipse.tif/lossy-page1-3840px-Highest_resolution_image_of_the_1919_solar_eclipse.tif.jpg" alt="Photograph from the 1919 solar eclipse expedition" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A photograph from Arthur Eddington&rsquo;s 1919 solar eclipse (日全食) expedition, used to measure the gravitational bending of starlight predicted by Einstein&rsquo;s general relativity. Credit: <a href="https://en.wikipedia.org/wiki/Eddington_experiment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1915, Albert Einstein&rsquo;s (阿爾伯特&middot;愛因斯坦) general theory of relativity (廣義相對論) made a bold, testable prediction: light passing near a massive object like the Sun should be deflected by its gravity by a precise, calculable amount, roughly double what Isaac Newton&rsquo;s older gravitational theory predicted. Testing this required an extremely rare set of conditions: starlight passing close enough to the Sun to be measurably bent is normally invisible, drowned out entirely by the Sun&rsquo;s own overwhelming brightness, except during the brief minutes of a total solar eclipse (日全食), when the Moon blocks the Sun&rsquo;s disc and stars near it become momentarily visible.</p>
+      <p>British astrophysicist Arthur Eddington (亞瑟&middot;愛丁頓), a Quaker (貴格會) pacifist who had resisted conscription during the just-ended First World War, organised two expeditions to observe the total solar eclipse of 29 May 1919: one, led by Eddington himself, travelled to the island of Pr&iacute;ncipe (普林西比) off West Africa, while a second, led by Andrew Crommelin and Charles Davidson, went to Sobral (索布拉爾), Brazil. Both teams photographed the positions of stars near the darkened Sun during totality, then compared those positions against photographs of the same stars taken months earlier when the Sun was elsewhere in the sky, measuring any apparent shift caused by the Sun&rsquo;s gravity bending their light.</p>
+      <p>On 6 November 1919, the results were announced at a joint meeting of the Royal Society (皇家學會) and Royal Astronomical Society in London: the measured deflection matched Einstein&rsquo;s relativistic prediction far more closely than Newton&rsquo;s older figure. The announcement made Einstein an overnight global celebrity, with newspapers around the world running dramatic headlines about upended physics, and carried added symbolic weight in the immediate aftermath of the war: a British scientist had just publicly confirmed the theory of a German one, a moment many at the time read as a small act of international scientific reconciliation. Some later historians questioned whether Eddington&rsquo;s team selectively favoured data supporting Einstein, though modern reanalysis of the original photographic plates has largely supported the original conclusion.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Eddington_experiment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A few minutes of total darkness during a 1919 eclipse were enough to turn Einstein&rsquo;s abstract equations into overnight global fame.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why could Eddington&rsquo;s team only measure the gravitational bending of starlight near the Sun during a total solar eclipse, rather than on any ordinary day?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Starlight passing close to the Sun is normally invisible, completely overwhelmed by the Sun&rsquo;s own brightness. Only during the brief minutes of a total eclipse, when the Moon blocks the Sun&rsquo;s disc, do nearby stars become visible enough to measure their apparent position shift.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dyson, F.W., Eddington, A.S. &amp; Davidson, C. (1920), <em>Philosophical Transactions of the Royal Society</em>. Britannica, &ldquo;Eddington experiment.&rdquo;</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一場戰役如何誕生「草木皆兵」與「風聲鶴唳」兩句成語</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元383年，統一北方的前秦皇帝苻堅親率號稱百萬大軍南征，對陣兵力僅數萬的東晉。你認為，這場兵力懸殊的戰役，最終結果會是甚麼？而苻堅登高遠望時，又看到了甚麼，令他心生恐懼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>苻堅（前秦皇帝，氐族）；謝安、謝玄（東晉宰相、將領，統率北府兵）。</p>
+        <p><strong>事件：</strong>公元383年，前秦與東晉於淝水（今安徽境內）決戰，史稱「淝水之戰」。</p>
+        <p><strong>時代背景：</strong>前秦統一北方後國力鼎盛，苻堅欲乘勝南征滅晉統一天下，然而以號稱百萬之眾，倉促南下，內部民族成分複雜，軍紀未必如表面強盛。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Battle_of_Fei_River.png" alt="淝水之戰示意圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">淝水之戰示意圖 &mdash; 公元383年，東晉以八萬弱旅大破前秦號稱百萬之師，創下以少勝多的經典戰例。來源：<a href="https://en.wikipedia.org/wiki/Battle_of_Fei_River" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>前秦皇帝苻堅統一北方後，國勢如日中天，不顧丞相王猛臨終「勿以晉為圖」的告誡，執意親率號稱百萬（實際兵力雖有誇大，仍遠超東晉）大軍南下，欲一舉滅亡偏安江南的東晉，統一天下。東晉方面兵力懸殊，僅得謝安、謝玄叔姪統率的北府兵約八萬人迎戰，雙方在淝水（今安徽壽縣境內）隔岸對峙，形勢對東晉極為不利。苻堅登上壽陽城樓，遠眺對岸東晉軍容嚴整，又望見八公山上草木搖曳，竟因心虛而誤將草木認作晉軍伏兵，驚呼「此亦勁敵也，何謂少乎」，「草木皆兵」一語由此而來。</p>
+      <p>東晉將領謝玄遣使向苻堅提議：秦軍若稍向後退，讓出空間，容晉軍渡河決戰，方顯堂堂之陣。苻堅自恃兵多，欲趁晉軍半渡之際突襲殲滅，遂下令全軍後撤。然而百萬大軍成分複雜，各族將士軍心不齊，指揮號令一旦下達後撤，前線部隊誤以為戰事已敗，頓時陣腳大亂，謝玄乘勢率精銳北府兵猛攻，秦軍潰不成軍，自相踐踏，死傷無數，苻堅本人亦中箭負傷，倉皇北逃。潰逃途中，秦軍士卒聞風聲鶴唳，皆以為是追兵殺至，晝夜奔走不敢停歇，「風聲鶴唳」一語亦由此而來。</p>
+      <p>淝水一戰，東晉以八萬弱旅大破前秦號稱百萬之師，創下中國戰爭史上以少勝多的經典戰例。前秦元氣大傷，苻堅威信盡失，原本被強行統一的鮮卑、羌等各族部眾紛紛叛離自立，前秦帝國迅速土崩瓦解，苻堅本人兩年後為部下姚萇所殺。北方自此重新陷入十六國分裂混戰局面，中國統一大業因這場戰役推遲近兩百年，直至隋朝589年方才重新一統天下；而東晉則憑此一戰得以偏安江南，延續漢人政權，保存了南方文化命脈。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Fei_River" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 苻堅一個後撤軍令，竟讓百萬大軍在混亂中自相踐踏——「草木皆兵」與「風聲鶴唳」兩句成語，正是這場慘敗最鮮活的見證。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>東晉謝玄向苻堅提出甚麼建議，最終導致前秦大軍潰敗？「風聲鶴唳」這句成語從何而來？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">謝玄建議秦軍稍向後撤，讓晉軍渡河決戰。苻堅下令後撤，卻因軍心不齊引發全軍潰亂。秦軍潰逃途中，聽見風聲與鶴鳴皆誤以為是追兵殺至，因而有「風聲鶴唳」一語。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《晉書&middot;苻堅載記》；《資治通鑑&middot;晉紀》；田餘慶《東晉門閥政治》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Charter a King Signed Under Duress, Then Tried to Cancel Within Weeks</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In June 1215, a deeply unpopular English king, having lost most of his family&rsquo;s territory in France and repeatedly clashed with his own barons over taxation, was forced to seal a document limiting his own power at a meadow beside the Thames. Before reading on, how long do you think this famous charter actually lasted before the king tried to have it cancelled?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> King John of England (英格蘭約翰王, r. 1199&ndash;1216); the rebel barons (男爵) of England.</p>
+        <p><strong>Event at stake:</strong> The sealing of Magna Carta (大憲章) at Runnymede (蘭尼米德), 15 June 1215.</p>
+        <p><strong>Big picture:</strong> John&rsquo;s costly, failed wars in France and his arbitrary taxation and justice had alienated the English nobility to the point of open rebellion, forcing negotiation rather than outright civil war, at least initially.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/RunnymedeMagnacartaisle.jpg/330px-RunnymedeMagnacartaisle.jpg" alt="Runnymede meadow, where Magna Carta was sealed" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Runnymede (蘭尼米德), the meadow beside the Thames where King John sealed Magna Carta (大憲章) on 15 June 1215, then tried to have it annulled within weeks. Credit: <a href="https://en.wikipedia.org/wiki/Magna_Carta" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>King John of England (英格蘭約翰王), who reigned from 1199 to 1216, had earned deep unpopularity among his own nobility: he had lost most of his family&rsquo;s ancestral territory in France, including Normandy (諾曼第), by 1204, earning the derisive nickname &ldquo;John Lackland,&rdquo; while repeatedly imposing heavy, often arbitrary taxes to fund further failed military campaigns and clashing bitterly with the Catholic Church, which excommunicated him between 1209 and 1213. By 1215, a coalition of rebel barons (男爵), furious over financial exactions and what they saw as John&rsquo;s abuse of feudal law and justice, had raised an army and captured London (倫敦), forcing the king to the negotiating table.</p>
+      <p>On 15 June 1215, at a meadow beside the River Thames (泰晤士河) called Runnymede (蘭尼米德), John affixed his royal seal to a document of 63 clauses known as Magna Carta (大憲章), &ldquo;the Great Charter.&rdquo; Its most enduring clause, numbered 39, declared that no free man could be imprisoned, exiled, or otherwise punished &ldquo;except by the lawful judgment of his equals or by the law of the land,&rdquo; an early articulation of what later became the principle of due process. Other clauses established that certain taxes required the &ldquo;common counsel of the realm&rdquo; before the king could impose them, and created a council of 25 barons empowered to hold the king to the charter&rsquo;s terms.</p>
+      <p>John, however, had no intention of honouring an agreement he considered forced upon him under duress, and within weeks he petitioned Pope Innocent III (教宗英諾森三世), who obligingly annulled the charter entirely, plunging England into the First Barons&rsquo; War. Only after John&rsquo;s death in 1216 was Magna Carta reissued, in a revised form, under his young son Henry III, with further reissues in 1217 and a definitive version in 1225 that eventually entered permanent English statute law. Most of its original 63 clauses addressed narrow, medieval feudal grievances long since repealed, only four remain formally in force in England today, yet the document&rsquo;s core symbolic principle, that even a king is bound by the law rather than above it, became a foundational reference point for constitutional government, cited centuries later by drafters of documents including the American Bill of Rights (權利法案).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Magna_Carta" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; John sealed Magna Carta to end a rebellion, then had the Pope annul it within weeks &mdash; yet the principle that even a king answers to the law outlived them both.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Clause 39 of Magna Carta establish, and how quickly did King John try to have the entire charter cancelled?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Clause 39 declared no free man could be imprisoned or punished except by the lawful judgment of his equals or the law of the land, an early statement of due process. John petitioned the Pope to annul the whole charter within weeks of sealing it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Magna Carta.&rdquo; The British Library, &ldquo;Magna Carta: an introduction.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>一位儒生如何說服漢武帝，將儒家定為千年官方正統</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">漢初奉行黃老無為之術治國數十年，一位年輕皇帝即位後，卻渴望一套能鞏固中央集權、解釋天災人禍的新思想體系。你認為，一位儒生向他提出甚麼建議，最終讓儒家思想成為此後兩千年中國官方正統？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>董仲舒（約公元前179&ndash;104年，西漢儒學家）；漢武帝劉徹（西漢第七位皇帝）。</p>
+        <p><strong>核心思想：</strong>董仲舒融合儒家倫理與陰陽五行宇宙論，提出「天人感應」學說，主張天災異象乃上天對君主施政的警示，君主須以儒家倫理治國以維繫天人和諧。</p>
+        <p><strong>時代背景：</strong>漢初奉行黃老無為之術與刑名法術雜用，至武帝即位，國力已盛，亟需一套能鞏固中央集權、統一思想的官方學說。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/%E6%BC%A2%E6%AD%A6%E5%B8%9D.jpg" alt="漢武帝畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">漢武帝畫像 &mdash; 採納董仲舒建議，設太學、獨尊儒術，奠定其後兩千年中國政治思想主軸。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Wu_of_Han" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>漢初承秦末戰亂之後，奉行黃老無為之術與刑名法術雜用，與民休息數十年，國力漸復。漢武帝劉徹即位後，雄才大略，不滿於黃老之術的消極治國方針，欲尋求一套能鞏固中央集權、解釋天災人禍、為其施政提供理論依據的新思想體系。元光元年（約公元前134年），武帝下詔徵求治國良策，董仲舒應詔上「天人三策」，提出天人感應之說：天子乃溝通天與人之樞紐，若施政得宜則風調雨順，若倒行逆施則天降災異以示警戒，君主須時時反省己身，以儒家倫理修身治國。</p>
+      <p>董仲舒進一步建議，當時百家學說並存，各持己見，不利於統一思想、鞏固皇權，主張凡不在儒家六藝之科、孔子之術範圍內者，皆不宜並進，應獨尊儒術，罷黜百家，並倡議設立太學，以儒家五經（《詩》《書》《禮》《易》《春秋》）教授弟子，選拔通曉經術者出任官職。武帝採納董仲舒建議，於公元前124年設立太學，以五經博士教授儒家經典，士人習儒經而入仕途，儒家自此取得官方獨尊地位，奠定其後兩千年中國政治思想的主軸。</p>
+      <p>值得注意的是，董仲舒所倡導的「儒學」，實已融合陰陽五行宇宙論與部分法家治術，並非單純回歸孔孟原始儒家思想，而是一套糅合天人感應、陰陽五行的新儒學體系，後世稱為「漢代經學」或「天人感應儒學」。此一體系既為皇權提供了神聖性與合法性論述，亦以「天譴」觀念對君權形成某種道德制約，成為此後歷代王朝官方意識形態的基礎，太學與五經取士的制度設計，更是後世科舉制度的濫觴，影響中國政治與教育制度長達兩千餘年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dong_Zhongshu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 董仲舒的「獨尊儒術」並非復古孔孟，而是揉合陰陽五行的新儒學——既鞏固皇權，也以「天譴」之說為君權套上一道無形韁繩。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>董仲舒提出的「天人感應」學說，如何解釋天災異象？他向漢武帝提出哪兩項具體建議？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">天人感應主張天子是溝通天與人的樞紐，若施政不當，上天會降下災異示警。董仲舒建議武帝獨尊儒術、罷黜百家，並設立太學，以儒家五經教授弟子、選拔官員。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《漢書&middot;董仲舒傳》；《春秋繁露》；徐復觀《兩漢思想史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Aristotle&rsquo;s Answer to What Makes a Life Actually Good</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Aristotle argued that the ultimate goal of human life isn&rsquo;t pleasure, wealth, or honour, though people often mistake these for it, but something else entirely, achieved only through a lifetime of habitually acting well, not just thinking well. Before reading on, what do you think Aristotle&rsquo;s word for this ultimate human good actually meant, and how did he think a person actually becomes virtuous?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Aristotle (亞里士多德, 384&ndash;322 BCE), Athenian-trained philosopher, student of Plato (柏拉圖), tutor to Alexander the Great (亞歷山大大帝).</p>
+        <p><strong>Idea at stake:</strong> What genuinely constitutes a good human life, and whether virtue can be taught through instruction alone or must be built through habitual practice.</p>
+        <p><strong>Big picture:</strong> Writing after his own teacher Plato had emphasised abstract, otherworldly Forms as the source of the good, Aristotle instead grounded ethics in observable human nature, habit, and practical judgment within ordinary life.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Aristotelis_De_Moribus_ad_Nicomachum.jpg" alt="A historical printed edition of Aristotle's Nicomachean Ethics" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A historical printed edition of Aristotle&rsquo;s <em>Nicomachean Ethics</em> (尼各馬可倫理學), the source of his theory of eudaimonia and the doctrine of the mean. Credit: <a href="https://en.wikipedia.org/wiki/Nicomachean_Ethics" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the <em>Nicomachean Ethics</em> (尼各馬可倫理學), likely compiled from his lecture notes at the Lyceum (呂克昂學園) in Athens (雅典), Aristotle (亞里士多德) argued that the ultimate goal of human life is eudaimonia (幸福), often translated as &ldquo;happiness&rdquo; but better understood as human flourishing, a state of living and acting well across an entire life, not a fleeting emotion. Unlike his teacher Plato, who grounded ethics in abstract, otherworldly Forms, Aristotle insisted eudaimonia could not be found in pleasure, wealth, or honour pursued for their own sake, since people readily observe others chasing these and still living hollow, poorly lived lives; instead, genuine flourishing required virtuous activity of the soul in accordance with reason, sustained over a complete life.</p>
+      <p>Central to Aristotle&rsquo;s account of virtue (德性) is what later commentators called the doctrine of the mean: each virtue sits as a balanced midpoint between two corresponding vices, one of excess and one of deficiency. Courage (勇敢), for instance, is the mean between cowardice, too little confidence in the face of danger, and recklessness, too much. Crucially, Aristotle insisted this mean is not a fixed mathematical midpoint but relative to the individual and situation, what counts as courageous for one person in one context may be reckless for another; correctly judging it in any given moment requires practical wisdom (phronesis, 實踐智慧), a skill built through lived experience rather than abstract calculation.</p>
+      <p>Perhaps Aristotle&rsquo;s most practically influential claim is that virtue cannot be acquired through theoretical instruction alone: &ldquo;we become just by doing just acts, we become brave by doing brave acts,&rdquo; meaning character is built through habituation (習慣), repeated practice that gradually shapes a person&rsquo;s dispositions until acting virtuously becomes natural rather than effortful. Aristotle also gave extensive treatment to friendship (philia, 友誼), distinguishing three kinds, friendships of utility, of pleasure, and of virtue, the rarest and most valuable, built between people who genuinely wish each other well for each other&rsquo;s own sake. This virtue-centred approach to ethics, focused on cultivating good character rather than following fixed rules or calculating outcomes, became one of the three major traditions in Western moral philosophy, alongside later rule-based and consequence-based approaches.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Nicomachean_Ethics" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Aristotle thought you couldn&rsquo;t become brave by reading about bravery &mdash; virtue is built the same way a skill is, through repeated practice until it becomes second nature.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Aristotle&rsquo;s doctrine of the mean, how did he define a virtue like courage, and why is the &ldquo;mean&rdquo; not a fixed, universal midpoint?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Courage is the mean between the deficiency of cowardice and the excess of recklessness. The mean isn&rsquo;t fixed or universal because what counts as courageous depends on the individual and the specific situation, requiring practical wisdom to judge correctly each time.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aristotle, <em>Nicomachean Ethics</em>. Stanford Encyclopedia of Philosophy, &ldquo;Aristotle&rsquo;s Ethics.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Psychologist Who Interrupted People&rsquo;s Days to Find Out When They Were Happiest</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the 1970s, a psychologist gave people pagers programmed to beep at random moments throughout the day, prompting them to instantly record what they were doing and how they felt in that exact instant, rather than relying on memory afterward. Before reading on, what specific combination of conditions do you think he found people reported as their most engaged, satisfying moments?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Scout_Girl_in_Concentration.jpg" alt="A person deeply concentrating on a task" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Deep concentration (專注) &mdash; the hallmark of the flow state (心流) Mihaly Csikszentmihalyi identified using randomly timed pager surveys. Credit: <a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Psychologist Mihaly Csikszentmihalyi (米哈里&middot;契克森米哈伊) began studying artists, chess players, rock climbers, and surgeons in the 1970s, noticing that people engaged in these activities often described a strikingly similar mental state: complete absorption in what they were doing, a merging of action and awareness so total that self-consciousness and even the normal passage of time seemed to disappear. To study this rigorously rather than relying on vague after-the-fact recollection, Csikszentmihalyi developed the Experience Sampling Method (經驗取樣法), giving participants pagers that beeped at random intervals throughout the day, prompting them to immediately record their current activity and emotional state in that precise moment.</p>
+      <p>The resulting data revealed a consistent pattern Csikszentmihalyi named flow (心流), a state marked by intense concentration, a sense that action and awareness had merged, a distorted sense of time often experienced as passing faster than normal, and crucially, activity pursued for its own intrinsic reward rather than any external outcome, what he termed an autotelic experience (自帶目的性體驗). Flow, he found, reliably emerged under one specific condition: when a person&rsquo;s perceived skill level closely matched the perceived challenge of the task at hand, both pitched relatively high, rather than low.</p>
+      <p>When challenge significantly exceeds skill, people reported anxiety instead of flow; when skill significantly exceeds challenge, they reported boredom rather than engagement, meaning flow lives in a comparatively narrow, dynamic zone that shifts as a person&rsquo;s skill improves, requiring correspondingly greater challenge to sustain the same experience over time. Csikszentmihalyi&rsquo;s 1990 book <em>Flow: The Psychology of Optimal Experience</em> brought the concept to a wide popular audience, influencing fields from sports psychology to classroom design to video game development, though the framework relies substantially on self-report data, and later researchers have refined and debated exactly how reliably flow states can be deliberately engineered on demand.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Flow_(psychology)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Flow doesn&rsquo;t come from an easy task or an overwhelming one &mdash; it lives in the narrow zone where your skill and the challenge are both high and nearly matched.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Csikszentmihalyi&rsquo;s research, what specific relationship between challenge and skill level reliably produces a flow state, and what happens when that balance tips too far either way?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Flow emerges when perceived challenge and perceived skill are both high and closely matched. When challenge significantly exceeds skill, people report anxiety instead; when skill significantly exceeds challenge, they report boredom instead.</div>
+      </details>
+      <div class="source">&#x1F4D6; Csikszentmihalyi, M. (1990), <em>Flow: The Psychology of Optimal Experience</em>. Nakamura, J. &amp; Csikszentmihalyi, M. (2002), <em>Handbook of Positive Psychology</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Emotional Tears Are Chemically Different From the Tears in Your Eyes Right Now</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your eyes produce tears constantly just to stay lubricated, and they flood with tears when a piece of onion irritates them. Before reading on, do you think the tears that fall when you&rsquo;re overwhelmed with emotion are chemically identical to those two everyday kinds, or is something biologically different actually happening?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Crying-girl.jpg" alt="A person shedding emotional tears" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Emotional tears (情緒性淚水) carry a distinct chemical signature, including the body&rsquo;s own natural painkiller, compared with tears triggered by an irritant. Credit: <a href="https://en.wikipedia.org/wiki/Tears" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Human eyes produce three distinct types of tears (淚液): basal tears, a continuous, low-level film keeping the eye lubricated at all times; reflex tears, triggered by physical irritants like onion vapour or dust; and emotional tears (情緒性淚水), shed specifically in response to feelings like grief, joy, or overwhelm. Humans appear to be the only species that reliably sheds tears in direct response to emotional states rather than physical irritation, a distinctive biological trait long assumed to be functionally identical to ordinary tears, just triggered by a different cause.</p>
+      <p>Biochemist William Frey (威廉&middot;弗雷) at the University of Minnesota (明尼蘇達大學) directly tested that assumption in the 1980s, comparing the chemical composition of emotional tears against reflex tears deliberately induced using onion vapour in the same subjects. He found emotional tears contained measurably higher concentrations of certain stress-related compounds, including the hormone prolactin (催乳素) and leucine enkephalin (亮氨酸腦啡肽), a naturally occurring opioid the body produces as its own painkiller, compounds essentially absent or far less concentrated in reflex tears triggered by irritation alone.</p>
+      <p>Frey proposed emotional crying might function partly as a stress-relief mechanism, literally excreting stress-related biochemical byproducts from the body, though later researchers have criticised this &ldquo;detoxification&rdquo; framing as an oversimplification, since the actual quantities of these compounds in tears are tiny relative to what the body processes through other systems. More recent research, including work by psychologist Ad Vingerhoets, emphasises a different explanation: emotional tears function as a hard-to-fake, honest social signal of genuine distress, visibly triggering empathy and caregiving responses in observers and strengthening social bonds, a function basal or reflex tears, invisible or triggered by mere irritation, simply cannot serve in the same way.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tears" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Emotional tears aren&rsquo;t just &ldquo;more&rdquo; tears &mdash; they carry measurably different chemistry, including the body&rsquo;s own natural painkiller, than the tears triggered by a chopped onion.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did William Frey&rsquo;s research find when comparing the chemical composition of emotional tears to reflex tears induced by onion vapour?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Emotional tears contained higher concentrations of stress-related compounds, including the hormone prolactin and the natural opioid leucine enkephalin, compounds that were largely absent or far less concentrated in reflex tears triggered by irritation alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Frey, W.H. (1985), <em>Crying: The Mystery of Tears</em>. Vingerhoets, A. (2013), <em>Why Only Humans Weep</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Reading in Dim Light Won&rsquo;t Ruin Your Eyes &mdash; But Something Else Might</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Generations of parents have scolded children to turn on a light before reading, warning that reading in dim conditions will permanently damage their eyesight. Before reading on, do you think this warning is scientifically accurate, and if not, what does recent research actually identify as a major driver of the sharp rise in childhood myopia across East Asia?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Myopia.gif" alt="Diagram illustrating myopia (nearsightedness)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of myopia (近視) &mdash; research links its rising rate in children more strongly to insufficient outdoor daylight than to indoor reading conditions. Credit: <a href="https://en.wikipedia.org/wiki/Myopia" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The warning that reading in dim light permanently damages your eyesight is one of the most persistent pieces of parental folklore, yet it doesn&rsquo;t hold up under scrutiny. Reading in low light genuinely can cause eye strain (視覺疲勞, asthenopia), a temporary discomfort involving dryness, headache, and difficulty focusing, because the eye&rsquo;s pupils dilate and work harder to gather enough light while contrast sensitivity drops. This strain is real but entirely reversible: the eyes recover fully with rest, and no controlled study has ever demonstrated that dim-light reading causes permanent structural damage or worsens a person&rsquo;s underlying vision over time.</p>
+      <p>What genuinely does appear to drive rising rates of myopia (近視), particularly the sharp increase seen among children across East Asia including Hong Kong (香港), Singapore, and mainland China, is a very different factor: insufficient time spent outdoors in bright natural daylight, not indoor reading conditions at all. Researcher Ian Morgan (伊恩&middot;摩根) and colleagues, alongside a landmark study by Kathryn Rose and colleagues published in <em>Ophthalmology</em> in 2008 comparing Sydney and Singapore schoolchildren, found that children spending more hours outdoors had substantially lower rates of developing myopia, independent of how much near-work reading or study they also did.</p>
+      <p>The leading biological hypothesis is that bright outdoor light stimulates dopamine (多巴胺) release in the retina, a neurotransmitter that appears to inhibit the excessive elongation of the eyeball, the actual structural change underlying myopia, whereas indoor lighting, even when adequately bright for reading, rarely reaches anywhere near the intensity of outdoor daylight. This reframes the entire warning: parents anxious about a child reading in slightly dim light are usually worrying about the wrong variable entirely, while the more evidence-backed intervention, ensuring children spend meaningful time outdoors in natural daylight each day, receives comparatively little attention despite stronger research support.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Myopia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Dim-light reading causes temporary eye strain, not lasting damage &mdash; the stronger, evidence-backed myopia risk factor is too little time spent outdoors in natural daylight.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to research by Ian Morgan and Kathryn Rose, what factor was found to substantially lower children&rsquo;s risk of developing myopia, independent of how much near-work reading they did?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Spending more hours outdoors in bright natural daylight was found to substantially lower myopia risk, independent of near-work levels, likely because bright light stimulates retinal dopamine release that inhibits the eyeball elongation underlying myopia.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rose, K.A. et al. (2008), <em>Ophthalmology</em>. Morgan, I.G. et al. (2012), <em>The Lancet</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Muscle You&rsquo;ve Lost Comes Back Faster Than Muscle You&rsquo;ve Never Built</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Someone who trained hard for years, then stopped entirely for a long stretch and lost significant muscle size, often regains that lost muscle far faster upon returning to training than it took a complete beginner to build the same amount from scratch. Before reading on, what do you think is happening at the cellular level inside muscle fibres that explains this &ldquo;muscle memory&rdquo; effect?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Arnold_Schwarzenegger_1974.jpg" alt="A bodybuilder demonstrating trained muscle hypertrophy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Trained muscle hypertrophy (肌肉肥大) &mdash; research shows the extra cell nuclei gained during training persist long after visible muscle size fades. Credit: <a href="https://en.wikipedia.org/wiki/Muscle_hypertrophy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Muscle fibres are unusual among human cells in that each one is multinucleated (多核), containing many individual nuclei within a single, unusually long cell, formed originally through the fusion of many precursor cells during development. When a muscle grows larger through training, a process called hypertrophy (肌肉肥大), specialised muscle stem cells called satellite cells (衛星細胞) donate additional nuclei to the existing fibre, expanding its genetic machinery to support the greater amount of protein synthesis a larger cell requires to maintain and build new muscle tissue.</p>
+      <p>For decades, researchers assumed these extra myonuclei would simply be lost again if the muscle later shrank through detraining or inactivity, following a straightforward &ldquo;use it or lose it&rdquo; logic. A landmark 2010 study published in the <em>Proceedings of the National Academy of Sciences</em> by Kristian Gundersen&rsquo;s (克里斯蒂安&middot;貢德森) lab, using mice, overturned this assumption: myonuclei gained during a hypertrophy phase were not lost during subsequent muscle atrophy at all, but instead persisted for a remarkably long time, effectively banked within the muscle fibre long after the visible size gains themselves had disappeared.</p>
+      <p>This discovery offers a compelling cellular explanation for the well-documented phenomenon athletes call &ldquo;muscle memory&rdquo;: someone who built significant muscle, then lost it during a long period of detraining, can typically regain that lost size dramatically faster upon resuming training than a complete beginner building the same amount of muscle for the first time, because the myonuclei needed to support rapid protein synthesis are already present in the fibre, simply dormant, rather than needing to be built again from scratch through new satellite cell fusion. The finding has also fed into a genuine anti-doping policy debate, since myonuclei gained during anabolic steroid use may persist for years after a doping ban technically ends, potentially preserving part of the unfair advantage long after the substance itself has cleared the body.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Muscle_hypertrophy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The extra cell nuclei your muscles gain from training appear to stick around long after the visible muscle size fades, which is likely why &ldquo;muscle memory&rdquo; makes regaining lost gains so much faster.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Gundersen&rsquo;s 2010 research, what happens to the extra myonuclei a muscle fibre gains during hypertrophy once that muscle later shrinks through detraining?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Contrary to the older assumption that they would be lost, the extra myonuclei persisted for a remarkably long time even after the muscle shrank, remaining available to support faster regrowth if training resumed later.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bruusgaard, J.C. et al. (2010), <em>Proceedings of the National Academy of Sciences</em>.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Nobel-Winning Diversification Formula Its Own Inventor Didn&rsquo;t Fully Use</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1952, a young graduate student published a paper that mathematically formalised something investors had long done intuitively, spreading money across different investments, and turned it into a rigorous, Nobel Prize-winning theory of exactly how to build an optimal portfolio. Before reading on, what do you think this famous economist actually did with his own personal retirement savings, decades after developing his celebrated formula?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Asset_Allocation.pdf/page1-500px-Asset_Allocation.pdf.jpg" alt="Chart illustrating diversified asset allocation" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Diversified asset allocation (資產配置) &mdash; the practical application of Harry Markowitz&rsquo;s 1952 Modern Portfolio Theory. Credit: <a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1952, Harry Markowitz (哈里&middot;馬科維茨), then a graduate student at the University of Chicago (芝加哥大學), published a paper titled &ldquo;Portfolio Selection&rdquo; in <em>The Journal of Finance</em> that laid the mathematical foundation for what became known as Modern Portfolio Theory (現代投資組合理論). Before Markowitz, investment analysis, following the value-investing tradition associated with figures like Benjamin Graham, largely focused on judging individual securities&rsquo; merit in isolation, essentially asking &ldquo;is this stock a good investment?&rdquo; one at a time.</p>
+      <p>Markowitz&rsquo;s key insight reframed the question entirely: an investor should evaluate each asset not by its own risk and return alone, but by how it contributes to the risk and return of the entire portfolio (投資組合) combined. Because different assets don&rsquo;t all rise and fall in perfect lockstep, combining imperfectly correlated investments together, diversification (分散投資), could measurably reduce a portfolio&rsquo;s overall risk without necessarily sacrificing expected return, a mathematically formalised version of the old adage about not putting all your eggs in one basket. Markowitz introduced the concept of the efficient frontier (效率前沿), the set of portfolios offering the highest possible expected return for any given level of risk, giving investors a rigorous framework for choosing a portfolio matched to their own risk tolerance.</p>
+      <p>The work earned Markowitz the Nobel Memorial Prize in Economic Sciences in 1990, shared with Merton Miller and William Sharpe, cementing diversification as one of finance&rsquo;s foundational, mathematically rigorous principles. In a frequently retold anecdote, Markowitz later admitted that for his own personal retirement savings, he simply split his money 50/50 between stocks and bonds rather than rigorously applying his own optimal-diversification formula, explaining he wanted to &ldquo;minimize my future regret&rdquo; rather than chase mathematical optimality, a candid reminder that even elegant financial theory often yields to simpler psychological comfort in real personal decisions. Later critics have also noted MPT&rsquo;s key limitation: asset correlations that appear low in normal markets can spike sharply toward 1 during financial crises, precisely when diversification&rsquo;s protective benefit is needed most.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Modern_portfolio_theory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Markowitz mathematically proved the value of optimal diversification, then quietly used a simple 50/50 split for his own retirement money to minimize regret instead.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Harry Markowitz&rsquo;s key insight in reframing how investors should evaluate individual assets, and what does the &ldquo;efficient frontier&rdquo; represent?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Markowitz argued assets should be evaluated by how they contribute to an entire portfolio&rsquo;s risk and return, not in isolation. The efficient frontier represents the set of portfolios offering the highest expected return for any given level of risk.</div>
+      </details>
+      <div class="source">&#x1F4D6; Markowitz, H. (1952), <em>The Journal of Finance</em>. Nobel Prize committee citation (1990).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>What a $6 Burger in One Country and a $3 Burger in Another Reveals About Currencies</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/McDonalds-Big-Mac-Price-World-Map-2022.png/330px-McDonalds-Big-Mac-Price-World-Map-2022.png" alt="World map of Big Mac prices" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Big Mac Index (巨無霸指數) &mdash; the same basket of goods can cost wildly different amounts once converted to a common currency, a persistent deviation from purchasing power parity theory. Credit: <a href="https://en.wikipedia.org/wiki/Purchasing_power_parity" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">The Economist&rsquo;s Big Mac Index has for decades shown the same burger costing roughly twice as much in Switzerland (瑞士) as in many emerging markets, a gap that persists rather than closing.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Purchasing power parity (購買力平價, PPP) holds that exchange rates should adjust so an identical basket of goods costs the same everywhere once converted to a common currency, since arbitrage would otherwise erase any lasting price gap.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Economist Kenneth Rogoff&rsquo;s influential 1996 review found real exchange rate deviations from PPP have a &ldquo;half-life&rdquo; of three to five years, decaying so slowly a shock can take a decade or more to fully wash out, far slower than arbitrage-based theory predicts.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">The Balassa-Samuelson effect argues persistent productivity gaps in tradable-goods sectors durably raise wages and non-tradable prices, like rent and haircuts, in wealthier countries, meaning some PPP deviation is a lasting structural feature, not a temporary anomaly awaiting arbitrage.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A Big Mac costing twice as much in one country as another for decades isn&rsquo;t a market failure waiting to be arbitraged away &mdash; some of that gap may be a structural feature of how rich and poor economies actually work.</div>
+      <div class="source">&#x1F4D6; Rogoff, K. (1996), <em>Journal of Economic Literature</em>, &ldquo;The Purchasing Power Parity Puzzle.&rdquo; Balassa, B. (1964), <em>Journal of Political Economy</em>. The Economist, Big Mac Index (ongoing).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 3 &amp; 4 &mdash; One Moment, Centuries of Institutional Legacy:</strong> Magna Carta began as a forced concession squeezed from an unwilling king to end a rebellion, most of its specific clauses long since irrelevant, yet its core principle that even a ruler is bound by law shaped constitutional government for 800 years. Dong Zhongshu&rsquo;s proposal to Emperor Wu, aimed at solving a specific problem of ideological unity for one ambitious ruler, became the basis for China&rsquo;s civil service examination system and official state ideology for two millennia.</p>
+      <p><strong>So what:</strong> Institutions born from a narrow, urgent political need can outlive their original purpose entirely, worth remembering that today&rsquo;s practical fix for a specific problem may quietly become tomorrow&rsquo;s deeply entrenched structure.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Dyson, F.W., Eddington, A.S. &amp; Davidson, C. (1920). Britannica, &ldquo;Eddington experiment.&rdquo;</li>
+      <li><strong>Card 2:</strong> 《晉書&middot;苻堅載記》；《資治通鑑&middot;晉紀》；田餘慶《東晉門閥政治》。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Magna Carta.&rdquo; The British Library.</li>
+      <li><strong>Card 4:</strong> 《漢書&middot;董仲舒傳》；《春秋繁露》；徐復觀《兩漢思想史》。</li>
+      <li><strong>Card 5:</strong> Aristotle, <em>Nicomachean Ethics</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Csikszentmihalyi, M. (1990). Nakamura, J. &amp; Csikszentmihalyi, M. (2002).</li>
+      <li><strong>Card 7:</strong> Frey, W.H. (1985). Vingerhoets, A. (2013).</li>
+      <li><strong>Card 8:</strong> Rose, K.A. et al. (2008), <em>Ophthalmology</em>. Morgan, I.G. et al. (2012), <em>The Lancet</em>.</li>
+      <li><strong>Card 9:</strong> Bruusgaard, J.C. et al. (2010), <em>PNAS</em>.</li>
+      <li><strong>Card 10:</strong> Markowitz, H. (1952). Nobel Prize committee citation (1990).</li>
+      <li><strong>Card 11:</strong> Rogoff, K. (1996). Balassa, B. (1964). The Economist, Big Mac Index.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-08: Eddington 1919 Eclipse Expedition &bull; 淝水之戰 (383) &bull; Magna Carta 1215 &bull; 董仲舒與罷黜百家獨尊儒術 &bull; Aristotle&rsquo;s Nicomachean Ethics &amp; Eudaimonia &bull; Flow State (Csikszentmihalyi) &bull; Emotional Tears Biochemistry &bull; Reading in Dim Light / Myopia Myth &bull; Muscle Memory / Myonuclei Retention &bull; Modern Portfolio Theory (Markowitz) &bull; Purchasing Power Parity Puzzle / Big Mac Index</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-08.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-08.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 8 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

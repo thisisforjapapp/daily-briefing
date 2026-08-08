@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 7 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 7 August 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>6 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Neptune&rsquo;s Great Dark Spot</span>Voyager 2&rsquo;s 1989 storm on Neptune had vanished entirely by the time Hubble looked again in 1994.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 商鞅變法</span>商鞅以嚴刑峻法助秦國富強，最終卻死於自己所立的連坐律法。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Marathon</span>Thinned Athenian center and reinforced flanks trapped and routed a far larger Persian invasion force.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 玄奘西行取經</span>玄奘違抗禁令偷渡出關，歷經九死一生，終帶回佛經六百五十七部。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Descartes &amp; Cogito Ergo Sum</span>Descartes doubted everything possible and found the act of doubting itself proved a thinker exists.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Milgram Obedience Experiment</span>65% of ordinary volunteers delivered maximum shocks to a stranger simply on an authority figure&rsquo;s insistence.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Runner&rsquo;s High</span>A 2015 mouse study found endocannabinoids, not endorphins, actually drive the post-run euphoric feeling.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Vitamin C &amp; the Common Cold</span>Regular vitamin C doesn&rsquo;t prevent colds, though it modestly shortens their length with daily use.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; DOMS Myth</span>Lactic acid clears within an hour of exercise &mdash; muscle soreness two days later is inflammation, not acid.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Dot-com Bubble</span>Pets.com folded 268 days after its IPO, undone by shipping costs that always exceeded its revenue.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Laffer Curve / Kansas</span>Kansas&rsquo;s 2012 tax cuts failed to self-fund, forcing the legislature to reverse most of them by 2017.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Empty Patch of Sky That Turned Out to Hold 3,000 Galaxies</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In December 1995, astronomers pointed the Hubble Space Telescope at a tiny patch of sky that appeared completely empty, dark, seemingly devoid of stars or anything else worth photographing, an area about the size of a grain of sand held at arm&rsquo;s length. Before reading on, what do you think a ten-day, 342-exposure look at that &ldquo;empty&rdquo; darkness actually revealed?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/HubbleDeepField.800px.jpg" alt="The Hubble Deep Field image" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Hubble Deep Field (哈勃深空), a 1995 image of a seemingly empty patch of sky that revealed roughly 3,000 previously unknown galaxies. Credit: <a href="https://en.wikipedia.org/wiki/Hubble_Deep_Field" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In December 1995, Robert Williams (羅伯特&middot;威廉斯), director of the Space Telescope Science Institute (太空望遠鏡科學研究所), made a controversial decision: he used a large block of his own discretionary observing time on the Hubble Space Telescope (哈勃太空望遠鏡) to stare, for ten consecutive days, at a tiny, seemingly empty patch of sky in the constellation Ursa Major (大熊座). The target area was minuscule, roughly the apparent size of a grain of sand held at arm&rsquo;s length, chosen specifically because it appeared to contain nothing, no bright stars, no known galaxies, just featureless darkness in ground-based images.</p>
+      <p>Many astronomers considered the plan a wasteful gamble, since telescope time was scarce and precious, and pointing at apparently empty sky risked producing nothing scientifically useful at all. Over 342 separate exposures taken across ten days between 18 and 28 December 1995, Hubble&rsquo;s cameras gathered light too faint for any ground-based telescope to detect, painstakingly building up a single combined image of the patch. When the exposures were finally stacked together and processed, the &ldquo;empty&rdquo; darkness resolved into something nobody had expected: an image containing roughly 3,000 distinct galaxies (星系) of wildly varying sizes, shapes, colours, and ages, packed into a sliver of sky previously thought essentially blank.</p>
+      <p>The Hubble Deep Field (哈勃深空), as the image became known, fundamentally reshaped astronomers&rsquo; understanding of how many galaxies actually exist across the observable universe, since if this &ldquo;typical,&rdquo; apparently empty patch held thousands, the true galaxy count across the entire sky had to run into the hundreds of billions. The result vindicated Williams&rsquo;s gamble so thoroughly that Hubble later repeated the technique with longer exposures for the 2004 Hubble Ultra-Deep Field and 2012 Extreme Deep Field, each pushing to even fainter, more distant galaxies, a technique later inherited and extended even further back in cosmic time by the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hubble_Deep_Field" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; An &ldquo;empty&rdquo; patch of sky the size of a grain of sand turned out to hold roughly 3,000 galaxies once someone was willing to look long enough.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did many astronomers initially consider Robert Williams&rsquo;s decision to point Hubble at that patch of sky for ten days a wasteful gamble?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The chosen patch appeared completely empty in ground-based images, with no visible stars or galaxies, so many feared using scarce, valuable telescope time there would yield nothing scientifically useful, rather than the roughly 3,000 galaxies it actually revealed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Williams, R.E. et al. (1996), <em>Astronomical Journal</em>. NASA/STScI, &ldquo;Hubble Deep Field&rdquo; (1996).</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一場政變如何催生中國史上最受推崇的盛世明君</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐朝開國之初，一位戰功彪炳的皇子，卻眼看太子之位與兄長無緣。他決定在皇宮北門設下埋伏，先發制人。你認為，這場流血政變之後，他會成為怎樣的一位君主？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李世民（598&ndash;649，唐高祖次子，後為唐太宗）；太子李建成；齊王李元吉；尉遲敬德（李世民部將）。</p>
+        <p><strong>事件：</strong>武德九年六月初四（626年7月2日），李世民於長安太極宮玄武門設伏，殺兄李建成、弟李元吉，史稱「玄武門之變」。</p>
+        <p><strong>時代背景：</strong>唐朝統一天下過程中，李世民屢立戰功，聲望日隆，與太子李建成漸生嫌隙，兄弟鬩牆，儲位之爭日趨白熱化。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/TangTaizong.jpg" alt="唐太宗李世民畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">唐太宗李世民畫像 &mdash; 626年玄武門之變後即位，開創史稱「貞觀之治」的盛世。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Taizong_of_Tang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>唐高祖李淵起兵反隋，建立唐朝，長子李建成立為太子，坐鎮長安；次子李世民則率軍東征西討，先後平定薛仁杲、劉武周、王世充、竇建德等群雄，戰功彪炳，聲望與日俱增，麾下猛將謀臣雲集，隱然形成足以與太子分庭抗禮的政治勢力。李建成深感威脅，遂與四弟齊王李元吉結盟，屢次在高祖面前進讒，又暗中拉攏後宮妃嬪詆毀李世民，兄弟間猜忌日深，甚至傳出李建成、李元吉曾於酒宴中下毒謀害李世民之事。</p>
+      <p>武德九年（626年），李建成與李元吉密謀，欲藉突厥犯邊之機，調走李世民麾下精銳將領秦叔寶、尉遲敬德等人，削弱其兵權，甚至計劃在餞行宴上將其殺害。李世民部下獲知密謀，力勸其先發制人。六月初四清晨，李世民率長孫無忌、尉遲敬德等親信部將，於太極宮北門玄武門設伏。李建成、李元吉入朝途中察覺異狀，欲策馬折返，李世民親自張弓射殺李建成；李元吉逃逸，為尉遲敬德追及射殺。事後，李建成、李元吉諸子亦盡數被誅，以絕後患。</p>
+      <p>政變當日，尉遲敬德全副披甲，持槍闖入正在湖上泛舟的唐高祖面前「保駕」，實為逼宮，高祖見大勢已去，被迫下詔立李世民為太子，兩個月後禪位退居太上皇，李世民即位為唐太宗。太宗即位後勵精圖治，虛心納諫，重用魏徵等敢於直言的舊太子屬臣，輕徭薄賦，知人善任，開創史稱「貞觀之治」的盛世，成為後世公認的明君典範。這場以血洗宮門開始的政變，最終締造了中國歷史上國力鼎盛、政治清明的黃金時代之一，也讓玄武門之變成為皇位繼承史上最富爭議的一頁。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Taizong_of_Tang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 李世民以流血政變奪得皇位，卻用二十餘年勵精圖治，開創了中國歷史上最受推崇的盛世之一。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>李建成、李元吉密謀以甚麼方式削弱李世民的兵權？政變當日，尉遲敬德如何逼迫唐高祖就範？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李建成、李元吉計劃藉突厥犯邊之機，調走李世民麾下精銳將領以削弱其兵權，甚至謀劃在餞行宴上加害於他。政變當日，尉遲敬德全副披甲持槍闖入唐高祖泛舟之處「保駕」，實為逼宮，迫使高祖立李世民為太子。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《舊唐書&middot;太宗本紀》；《資治通鑑&middot;唐紀》；陳寅恪《唐代政治史述論稿》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Medieval Fortress Whose Fall Became a Revolution&rsquo;s Symbol</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 14 July 1789, a Parisian crowd searching for gunpowder converged on a centuries-old fortress-prison that, by that point, held only seven inmates. Before reading on, why do you think storming a nearly empty prison became the single most iconic moment of the French Revolution, remembered and celebrated more than two centuries later?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Bernard-Ren&eacute; de Launay (德洛奈), governor of the Bastille; Jacques Necker (內克爾), France&rsquo;s finance minister; King Louis XVI (路易十六) of France (法國).</p>
+        <p><strong>Event at stake:</strong> The Storming of the Bastille (攻陷巴士底獄), 14 July 1789.</p>
+        <p><strong>Big picture:</strong> France faced a deepening fiscal crisis and political upheaval as the Third Estate had just declared itself the National Assembly; Louis XVI&rsquo;s dismissal of the popular reformist minister Necker triggered fears of a royal military crackdown on Paris.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Anonymous_-_Prise_de_la_Bastille.jpg" alt="Painting of the Storming of the Bastille" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A contemporary depiction of the Storming of the Bastille (攻陷巴士底獄), 14 July 1789, the symbolic opening act of the French Revolution. Credit: <a href="https://en.wikipedia.org/wiki/Storming_of_the_Bastille" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By the summer of 1789, France (法國) was gripped by fiscal crisis and political upheaval: the Estates-General (三級會議), a rarely convened assembly of clergy, nobility, and commoners, had met for the first time in over a century, and the Third Estate, representing commoners, had broken away in June to declare itself the National Assembly (國民議會), the beginning of what became the French Revolution (法國大革命). On 11 July, King Louis XVI (路易十六) dismissed Jacques Necker (內克爾), his popular, reform-minded finance minister, and royal troops began massing around Paris (巴黎), sparking widespread fear among Parisians that the king intended a violent crackdown on the emerging revolutionary movement.</p>
+      <p>On the morning of 14 July, crowds seeking weapons and gunpowder first raided the H&ocirc;tel des Invalides (榮軍院), seizing thousands of muskets but finding no powder, then converged on the Bastille (巴士底獄), a towering medieval fortress-prison in eastern Paris long despised as a symbol of royal absolutism and arbitrary arrest, even though it held only seven prisoners by 1789. Governor Bernard-Ren&eacute; de Launay (德洛奈) initially attempted to negotiate with delegations from the crowd, but confusion, gunfire, and rising tension escalated into open assault; some of the royal guard units present defected to the crowd&rsquo;s side, and after hours of fighting that killed roughly 98 attackers, de Launay surrendered the fortress.</p>
+      <p>Despite his surrender, de Launay was seized by the crowd, beaten, and killed, his head severed and paraded through Paris on a pike, a brutal act that shocked contemporaries even as it electrified revolutionary sentiment across France. When advisors informed Louis XVI of the fortress&rsquo;s fall, he reportedly asked, &ldquo;Is it a revolt?&rdquo; and received the now-famous reply: &ldquo;No, Sire, it is not a revolt, it is a revolution.&rdquo; The Bastille&rsquo;s fall, more symbolic than militarily significant given how few prisoners it actually held, became the Revolution&rsquo;s defining founding myth, commemorated ever since as Bastille Day (巴士底日), France&rsquo;s national holiday.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Storming_of_the_Bastille" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Bastille held only seven prisoners when it fell, but as a symbol of arbitrary royal power, its capture defined an entire revolution.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What event on 11 July 1789 triggered the fears that led Parisians to storm the Bastille three days later, and what was the famous reply given to Louis XVI when informed of its fall?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Louis XVI&rsquo;s dismissal of his popular finance minister Jacques Necker triggered fears of a royal military crackdown. When told of the Bastille&rsquo;s fall, an advisor reportedly replied: &ldquo;No, Sire, it is not a revolt, it is a revolution.&rdquo;</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Storming of the Bastille.&rdquo; Schama, S. (1989), <em>Citizens: A Chronicle of the French Revolution</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>兩位老友在橋上爭論：你怎知道魚快樂？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國時代，莊子與好友惠施同遊濠水橋上，莊子隨口說魚兒悠遊自得，惠施卻立即質疑：你又不是魚，怎麼知道魚快樂？你認為，莊子最後如何反駁，為這場看似無解的辯論畫上句號？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>莊子（莊周，約公元前369&ndash;286年，戰國時代道家代表人物）；惠施（名家代表人物，曾任魏國宰相）。</p>
+        <p><strong>核心思想：</strong>莊子主張以直覺體悟萬物之情，惠施則代表名家講求邏輯辨析、名實相符的思辨傳統，二人是終生亦友亦敵的辯論對手。</p>
+        <p><strong>時代背景：</strong>戰國諸子百家爭鳴，道家與名家分屬截然不同的思想路數，莊子與惠施常相與辯難，其交鋒屢見於《莊子》書中，展現兩種思維方式的碰撞。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/%E7%8E%84%E9%96%80%E5%8D%81%E5%AD%90%E5%9C%96_%E8%8E%8A%E5%AD%90.jpg" alt="莊子畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">莊子畫像 &mdash; 戰國時代道家代表人物，與名家惠施常相辯難，「濠梁之辯」即出自二人交鋒。來源：<a href="https://en.wikipedia.org/wiki/Zhuangzi_(book)" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>莊子與惠施同遊於濠水（今安徽鳳陽境內）橋上，見水中鯈魚自在悠遊，莊子有感而發：「鯈魚出遊從容，是魚之樂也。」惠施素以邏輯思辨見長，聞言立即質疑：「子非魚，安知魚之樂？」意指莊子既非魚類，又如何能斷言魚是快樂的，此問直指知識論的核心難題——人能否真正理解另一物種的內在感受。莊子不甘示弱，反問：「子非我，安知我不知魚之樂？」以子之矛攻子之盾，既然惠施也不是莊子本人，又怎能斷定莊子不知道魚的快樂呢？</p>
+      <p>惠施見狀，進一步申論其邏輯立場：「我非子，固不知子矣；子固非魚也，子之不知魚之樂，全矣。」他的推論是：我不是你，所以確實不知道你的想法；同理，你也不是魚，所以你不知道魚的快樂這件事，邏輯上是完全成立的。這番論證環環相扣，將問題收束為一套嚴謹的邏輯推演，看似已將莊子逼入無法反駁的死角，展現名家講求名實相符、邏輯一致的思辨風格。</p>
+      <p>莊子卻另闢蹊徑，將話題引回問題的源頭：「請循其本。子曰『汝安知魚樂』雲者，既已知吾知之而問我，我知之濠上也。」莊子的意思是：回到你最初發問的方式——你問「你怎麼知道魚快樂」，這句話本身已經預設了我知道魚快樂這件事，只是追問我從何得知，那麼，我的答案就是：我是在濠水橋上得知的。這番機巧的辭鋒轉換，以語言邏輯的縫隙化解了惠施的詰難，展現莊子超越邏輯辯證、訴諸直觀體悟的思想特色。二人終生亦友亦敵，惠施死後，莊子過其墓地，感嘆再無可與之論辯的對手，可見這場「濠梁之辯」背後，其實是一段惺惺相惜的思想情誼。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhuangzi_(book)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 莊子沒有正面駁倒惠施的邏輯，而是巧妙將問題拉回原點——用語言的縫隙化解了看似無解的詰難。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>惠施質疑莊子「子非魚，安知魚之樂」，莊子最初如何反駁？他最後又如何巧妙化解惠施的邏輯論證？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">莊子先反問「子非我，安知我不知魚之樂」，以子之矛攻子之盾。最後他將話題引回惠施提問的方式本身，指出惠施發問時已預設莊子知道魚樂，只是追問從何得知，而莊子答道自己是在濠水橋上得知的。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《莊子&middot;秋水》；郭象注《莊子》；馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Prisoners Who Mistook Shadows for the Whole of Reality</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Plato imagined people chained in a cave since childhood, facing a wall, watching only shadows flicker past, shadows they believed were the entirety of reality because they had never known anything else. Before reading on, what do you think happened when one prisoner was finally freed and dragged out into the sunlight, and how did the others react when he tried to tell them what he&rsquo;d seen?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Plato (柏拉圖, c. 428&ndash;348 BCE), Athenian (雅典) philosopher, student of Socrates (蘇格拉底).</p>
+        <p><strong>Idea at stake:</strong> Whether what we perceive through the senses is genuine reality, or merely a shadow of a deeper, truer reality accessible only through reason and philosophical inquiry.</p>
+        <p><strong>Big picture:</strong> Writing in Athens not long after his own teacher Socrates was executed for challenging conventional beliefs, Plato used the allegory partly to explain why society resists, and even punishes, those who try to reveal uncomfortable truths.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Platon_Cave_Sanraedam_1604.jpg" alt="17th-century engraving of Plato's allegory of the cave" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A 17th-century engraving depicting Plato&rsquo;s Allegory of the Cave (洞穴寓言), from Book VII of <em>The Republic</em>. Credit: <a href="https://en.wikipedia.org/wiki/Allegory_of_the_Cave" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In Book VII of his dialogue <em>The Republic</em> (理想國), Plato (柏拉圖) has Socrates (蘇格拉底) describe prisoners chained since childhood deep inside a cave, forced to face a blank wall, unable even to turn their heads. Behind them burns a fire, and between the fire and the prisoners, unseen puppeteers carry objects and figures along a low wall, casting flickering shadows onto the surface the prisoners stare at. Having never known anything else, the prisoners naturally mistake these shadows for the entirety of reality, naming and describing them as though they were solid, genuine things rather than mere projections of something they cannot see.</p>
+      <p>Plato then imagines one prisoner freed and dragged, painfully and against his will, up out of the cave into blinding sunlight. Initially he can see nothing at all, gradually adjusting first to shadows, then to reflections in water, then to actual physical objects, and finally, after much struggle, to the sun itself, which Plato uses to represent the Form of the Good (善的理型), the highest source of truth in his broader theory of Forms (理型論), the idea that abstract, perfect Forms are more real than the physical objects that merely imitate them. This upward journey out of the cave represents the philosopher&rsquo;s slow, difficult ascent from illusion toward genuine knowledge and understanding.</p>
+      <p>When the freed prisoner returns to the cave to share what he has seen, his eyes, no longer adjusted to darkness, stumble and fumble at identifying the shadows, and the remaining prisoners conclude that leaving the cave has ruined him, making him worse at recognising &ldquo;reality&rdquo; than before. Socrates adds a chilling detail: if the freed man tried to free the others and drag them upward too, they would resist violently, and might even kill him rather than accept what he offered, a passage widely read as Plato&rsquo;s meditation on his own teacher&rsquo;s execution by Athens for questioning the city&rsquo;s accepted truths.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Allegory_of_the_Cave" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Plato&rsquo;s freed prisoner didn&rsquo;t fail to see reality more clearly &mdash; he succeeded, but the cave-bound prisoners had no way of recognising it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the allegory, why do the remaining cave prisoners conclude that the freed prisoner has been made worse off by leaving the cave, rather than better?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Upon returning, the freed prisoner&rsquo;s eyes are no longer adjusted to darkness, so he fumbles at identifying the shadows the others take for reality. They interpret his difficulty as evidence that leaving ruined him, rather than recognising he now understands a deeper truth they cannot see.</div>
+      </details>
+      <div class="source">&#x1F4D6; Plato, <em>The Republic</em>, Book VII. Stanford Encyclopedia of Philosophy, &ldquo;Plato.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Famous &ldquo;Elderly Words Make You Walk Slower&rdquo; Study That Couldn&rsquo;t Be Replicated</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1996, a landmark psychology study claimed that simply reading words associated with old age, like &ldquo;Florida,&rdquo; &ldquo;wrinkle,&rdquo; and &ldquo;bingo,&rdquo; unconsciously made young participants walk measurably slower afterward, without them ever noticing why. Before reading on, what do you think happened when other researchers, using a more rigorous, double-blind version of the same experiment, tried to reproduce this famous result years later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Anagram_Listen_%3D_Silent.gif" alt="An anagram word puzzle" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A word-unscrambling task like the one at the center of Bargh&rsquo;s 1996 priming study (促發效應研究), whose famous walking-speed effect later failed a blinded replication. Credit: <a href="https://en.wikipedia.org/wiki/Priming_(psychology)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1996, psychologist John Bargh (約翰&middot;巴奎) and colleagues published a study in the <em>Journal of Personality and Social Psychology</em> that became one of the most cited findings in social psychology. Participants completed a word-unscrambling task containing either neutral words or words associated with elderly stereotypes, &ldquo;Florida,&rdquo; &ldquo;wrinkle,&rdquo; &ldquo;bingo,&rdquo; &ldquo;forgetful,&rdquo; &ldquo;gray.&rdquo; Afterward, an experimenter secretly timed how long it took each participant to walk down a hallway leaving the study. Those primed with elderly-related words walked measurably slower than the control group, despite reporting no awareness the word task had anything to do with age at all, an apparently striking demonstration that mere exposure to a concept could unconsciously shape physical behaviour.</p>
+      <p>The finding launched an entire subfield of &ldquo;social priming&rdquo; research and was celebrated as evidence that unconscious mental associations could directly influence bodily action, not just thoughts or attitudes. In 2012, however, researcher St&eacute;phane Doyen (斯蒂芬&middot;多因) and colleagues published a direct replication attempt in the journal <em>PLOS ONE</em>, with one crucial methodological improvement: the experimenter measuring walking speed was kept blind to which condition, elderly-primed or neutral, each participant had been assigned to, unlike Bargh&rsquo;s original design, where the stopwatch-holding experimenter knew the condition in advance.</p>
+      <p>When timing was genuinely blind, the priming effect on walking speed vanished entirely, no significant difference between groups. Curiously, when Doyen&rsquo;s team deliberately told a separate group of experimenters what result to expect, the priming effect reappeared, suggesting the original 1996 result may have partly reflected the experimenter&rsquo;s own expectations subtly influencing measurement or interpretation, rather than a genuine unconscious effect in the participants themselves. This became one of the defining episodes of psychology&rsquo;s broader &ldquo;replication crisis&rdquo; (可重複性危機) in the 2010s, prompting the field to adopt stricter blinding, larger sample sizes, and pre-registered study designs, without fully settling whether behavioural priming effects are real, fragile, or simply overstated by early enthusiasm.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Priming_(psychology)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A famous &ldquo;unconscious priming&rdquo; effect disappeared once the person holding the stopwatch no longer knew what result they were supposed to find.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What critical methodological difference between Bargh&rsquo;s 1996 study and Doyen&rsquo;s 2012 replication caused the elderly-priming effect on walking speed to disappear?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">In Doyen&rsquo;s replication, the experimenter measuring walking speed was kept blind to each participant&rsquo;s condition, unlike Bargh&rsquo;s original design. When timing was genuinely blind, the effect vanished, though it reappeared when experimenters were told what result to expect.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bargh, J.A. et al. (1996), <em>Journal of Personality and Social Psychology</em>. Doyen, S. et al. (2012), <em>PLOS ONE</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Some People Are Wired to Be Night Owls, Not Just Undisciplined</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Some people wake up naturally alert at 6am and struggle to stay awake past 10pm, while others feel groggy and unfocused all morning but come alive late at night. Before reading on, do you think this difference mostly comes down to habit and self-discipline, or is there a specific biological mechanism setting each person&rsquo;s internal clock differently?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Domenico_Fetti_-_Sleeping_Girl_-_WGA7863.jpg" alt="A painting of a sleeping figure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The human circadian rhythm (生理時鐘) &mdash; clock genes like CRY1 can lengthen the internal cycle, biologically delaying sleep onset in &ldquo;night owls.&rdquo; Credit: <a href="https://en.wikipedia.org/wiki/Chronotype" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>An individual&rsquo;s chronotype (時型), their natural tendency toward morning alertness or evening alertness, is governed substantially by genetics rather than simple habit or willpower, a fact that runs against the common assumption that &ldquo;night owls&rdquo; (夜貓子) are just undisciplined. At the center of this system sit so-called clock genes (時鐘基因), including PER2, PER3, and CRY1, which regulate the length of a person&rsquo;s internal circadian rhythm (生理時鐘), the roughly 24-hour cycle governing sleep, hormone release, and body temperature, and which shapes whether that internal clock naturally runs a little faster or slower than the actual 24-hour day.</p>
+      <p>A landmark 2017 study published in the journal <em>Cell</em>, led by researcher Alina Patke, identified a specific mutation in the CRY1 gene that lengthens a carrier&rsquo;s internal circadian period to roughly 24.5 hours on average, compared with about 24.2 hours in most people. Because their internal clock runs consistently slower than the external day, carriers of this mutation experience a persistently delayed sleep onset, a biologically driven form of night-owl tendency researchers call Familial Delayed Sleep Phase Disorder (家族性睡眠期延遲症), found in roughly 1 in 75 people among the populations studied, a substantial minority whose &ldquo;lateness&rdquo; has a measurable genetic cause rather than a behavioural one.</p>
+      <p>Chronotype also shifts predictably across the lifespan: adolescents undergo a well-documented delay in their natural sleep-wake timing during puberty, driven partly by hormonal changes, before gradually shifting back toward earlier, more &ldquo;morning lark&rdquo; preferences with age. Researcher Till Roenneberg (蒂爾&middot;羅內伯格) coined the term social jetlag (社會性時差) to describe the mismatch between a person&rsquo;s biological chronotype and socially imposed schedules like early school or work start times, a mismatch linked in research to worse mood, concentration, and metabolic health outcomes the larger the gap becomes, reinforcing that fighting one&rsquo;s chronotype carries a real physiological cost, not just an inconvenience.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Chronotype" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Being a night owl often isn&rsquo;t a discipline problem &mdash; a specific gene variant can lengthen your internal clock past 24 hours, delaying sleep onset for real.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2017 CRY1 gene study find about the internal circadian period of people with delayed sleep phase tendencies, and why does this cause later sleep onset?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Carriers of the CRY1 mutation had an internal circadian period averaging roughly 24.5 hours, compared to about 24.2 hours typically. Because their internal clock runs slower than the actual 24-hour day, their sleep onset is consistently and biologically delayed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Patke, A. et al. (2017), <em>Cell</em>. Roenneberg, T. (2012), <em>Internal Time: Chronotypes, Social Jet Lag, and Why You're So Tired</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Can &ldquo;Alkaline&rdquo; Food or Water Actually Change Your Body&rsquo;s pH?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Alkaline diet and alkaline water products promise that eating &ldquo;alkaline-forming&rdquo; foods or drinking pH-boosted water can shift your body away from harmful &ldquo;acidity,&rdquo; supposedly preventing disease and boosting energy. Before reading on, do you think diet can meaningfully change your blood&rsquo;s pH level, or does your body have a more powerful system already controlling it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Acid_and_Base_Titration.jpg" alt="Acid-base titration demonstrating pH chemistry" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The pH scale (酸鹼值) &mdash; human blood pH is tightly held between 7.35 and 7.45 by the lungs and kidneys, regardless of diet. Credit: <a href="https://en.wikipedia.org/wiki/PH" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The alkaline diet (鹼性飲食) movement claims that eating &ldquo;alkaline-forming&rdquo; foods, mostly fruits and vegetables, while avoiding &ldquo;acid-forming&rdquo; foods like meat and processed grains, can raise the body&rsquo;s pH (酸鹼值) away from harmful acidity, supposedly preventing everything from fatigue to cancer. The claim rests on a basic misunderstanding of human physiology: blood pH is not a loose, diet-adjustable dial at all, but one of the body&rsquo;s most tightly regulated variables, held within an extraordinarily narrow range of roughly 7.35 to 7.45 by the combined action of the lungs, which exhale carbon dioxide (二氧化碳) to fine-tune acidity moment to moment, and the kidneys (腎臟), which excrete or retain acid and bicarbonate over hours to days.</p>
+      <p>Deviating even slightly outside that narrow blood pH range causes a genuinely dangerous medical condition, acidosis or alkalosis, that the body actively and aggressively defends against under normal circumstances, regardless of what someone eats or drinks. Alkaline water, marketed with a higher-than-normal pH, faces an even more basic obstacle: the stomach&rsquo;s own digestive acid sits at a pH of roughly 1.5 to 3.5, powerfully acidic enough to neutralise any mildly alkaline water almost instantly upon swallowing, long before it could plausibly influence blood chemistry elsewhere in the body.</p>
+      <p>What alkaline-diet advocates sometimes point to as supporting evidence is a genuine but misunderstood phenomenon: urine pH (尿液酸鹼值) does shift measurably based on diet, because the kidneys actively excrete whatever excess acid or base the diet produces to keep blood pH constant. This is proof the regulatory system is working exactly as intended, not evidence that blood pH has actually changed. Diets rich in fruits and vegetables genuinely do carry real health benefits, better fibre intake, more micronutrients, less processed food, but those benefits come from nutritional content, not from any measurable shift in the body&rsquo;s tightly guarded internal pH.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Alkaline_diet" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your kidneys and lungs already defend your blood pH within a hair&rsquo;s breadth of constant &mdash; no food or water you consume can meaningfully override that system.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can&rsquo;t drinking alkaline water meaningfully change your blood&rsquo;s pH, according to basic digestive physiology?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Stomach acid sits at a pH of roughly 1.5 to 3.5, powerful enough to neutralise mildly alkaline water almost instantly on contact. Beyond that, blood pH itself is tightly held within 7.35&ndash;7.45 by the lungs and kidneys regardless of diet.</div>
+      </details>
+      <div class="source">&#x1F4D6; National Kidney Foundation, patient education materials on acid-base balance. Fenton, T.R. &amp; Huang, T. (2016), <em>BMJ Open</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Single Fitness Number That May Predict Longevity Better Than Anything Else</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Doctors have long tracked blood pressure, cholesterol, and blood sugar as key predictors of how long someone will live. Before reading on, what do you think a 2018 study of over 122,000 patients found when researchers compared cardiorespiratory fitness, essentially how efficiently your body uses oxygen during exercise, against those traditional risk factors as a predictor of death risk?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/MatteoTosatto2.jpg" alt="An endurance athlete competing" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Treadmill exercise testing (運動心肺功能測試), the method used to measure VO2 max (最大攝氧量) in a 2018 study of over 122,000 patients. Credit: <a href="https://en.wikipedia.org/wiki/VO2_max" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>VO2 max (最大攝氧量), the maximum rate at which the body can take up and use oxygen during intense exercise, has long served as the standard scientific measure of cardiorespiratory fitness (心肺功能), typically measured on a treadmill or stationary bike while gradually increasing intensity to exhaustion. A landmark 2018 study published in <em>JAMA Network Open</em> by researcher Jonathan Mandsager and colleagues analysed treadmill exercise test results from more than 122,000 patients at the Cleveland Clinic (克利夫蘭診所) collected between 1991 and 2014, tracking how their fitness levels related to actual mortality over the following years.</p>
+      <p>The results were striking in a way that set cardiorespiratory fitness apart from nearly every other health metric doctors routinely track: higher fitness was associated with progressively lower risk of death from any cause, with no observed plateau or ceiling at all, unlike traditional risk factors such as blood pressure or cholesterol, where the relationship with health outcomes often flattens out or even reverses at extreme levels. Patients in the study&rsquo;s highest, &ldquo;elite&rdquo; fitness category showed roughly an 80% lower mortality risk compared with those in the lowest fitness category, a gap larger than the differences typically seen between smokers and non-smokers.</p>
+      <p>Perhaps most strikingly, patients classified in the lowest fitness category faced a mortality risk comparable to, or in some analyses greater than, patients with major established risk factors like diabetes, coronary artery disease, or smoking history, suggesting cardiorespiratory fitness itself may function as a more powerful single longevity predictor than any individual disease diagnosis. The encouraging implication is that VO2 max, unlike genetic risk factors, is substantially trainable through regular aerobic exercise, whether steady, moderate-intensity cardio or higher-intensity interval training, meaning this particular predictor of longevity remains within most people&rsquo;s ability to meaningfully improve at nearly any starting fitness level.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/VO2_max" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Unlike blood pressure or cholesterol, higher cardiorespiratory fitness kept predicting lower mortality risk with no ceiling at all, all the way into the &ldquo;elite&rdquo; category.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did the mortality risk of patients in the study&rsquo;s lowest cardiorespiratory fitness category compare with patients who had major diagnosed risk factors like diabetes or smoking history?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Patients in the lowest fitness category faced a mortality risk comparable to, or in some analyses greater than, patients with diabetes, coronary artery disease, or a smoking history, suggesting fitness itself may be an even stronger longevity predictor.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mandsager, K. et al. (2018), <em>JAMA Network Open</em>.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The 400-Year-Old Company That Invented the Stock Market Almost by Accident</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1602, a Dutch trading company needed to raise an enormous amount of capital for risky, years-long voyages to Asia and decided to sell permanent shares to ordinary members of the public rather than wealthy merchants alone. Before reading on, what do you think this seemingly small decision about how to structure the company&rsquo;s funding ended up accidentally creating?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Flag_of_the_Dutch_East_India_Company.svg" alt="Flag of the Dutch East India Company" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The flag of the Dutch East India Company (荷蘭東印度公司, VOC), founded 1602, whose permanent shares gave rise to the world's first stock exchange. Credit: <a href="https://en.wikipedia.org/wiki/Dutch_East_India_Company" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Dutch East India Company (荷蘭東印度公司), formally the Vereenigde Oostindische Compagnie or VOC, was founded in 1602 when the Dutch government merged several competing trading companies into a single entity, granting it a 21-year monopoly over Dutch trade in Asia along with extraordinary quasi-governmental powers: the right to wage war, negotiate treaties, mint currency, and establish colonies on the company&rsquo;s own authority. To fund the enormously risky, years-long voyages required to trade spices with Asia, the VOC made an unusual decision: rather than raising money only from a small circle of wealthy merchants for a single voyage, as earlier Dutch trading ventures had done, it opened its initial share subscription to the wider Amsterdam (阿姆斯特丹) public, raising roughly 6.4 million guilders from thousands of investors, including many of quite ordinary means.</p>
+      <p>Crucially, VOC shares were structured as permanent capital rather than dissolving after each voyage returned, as earlier partnerships had, meaning investors who wanted their money back had no way to redeem shares directly from the company at all. This single structural choice created an entirely new problem, and an entirely new solution: investors needed somewhere to sell their shares to other investors instead, and that need led directly to the founding of the Amsterdam Stock Exchange (阿姆斯特丹證券交易所) in 1602, widely regarded as the world&rsquo;s first formal stock exchange, complete with early forms of short selling, options trading, and futures contracts within just a few decades of its founding.</p>
+      <p>The VOC went on to become, by some inflation-adjusted estimates, one of the most valuable companies in history, paying investors average annual dividends of roughly 18% across nearly two centuries of operation, sometimes distributed in spices rather than cash during its early years. Its immense profitability came at a brutal human cost, most infamously in the Banda Islands (班達群島), where the company&rsquo;s enforcement of its nutmeg monopoly under governor-general Jan Pieterszoon Coen (揚&middot;彼得斯佐恩&middot;科恩) involved the mass killing and enslavement of the local Bandanese population. Weighed down by corruption, war debts, and changing trade patterns, the VOC was formally dissolved in 1799, its assets and debts absorbed by the Dutch government.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dutch_East_India_Company" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The world&rsquo;s first stock exchange wasn&rsquo;t planned as a financial innovation &mdash; it was an accidental solution to a company&rsquo;s decision to never let investors cash out directly.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the VOC&rsquo;s decision to issue permanent, non-redeemable shares in 1602 lead directly to the creation of the Amsterdam Stock Exchange?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Because investors could not redeem their shares directly from the company, they needed a place to sell them to other investors instead. That need for a secondary market led directly to the founding of the Amsterdam Stock Exchange the same year.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Dutch East India Company.&rdquo; Petram, L. (2011), <em>The World&rsquo;s First Stock Exchange</em>.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>What Finland Learned From Paying People Without Making Them Prove They Were Job-Hunting</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Flag of Finland" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Finland (芬蘭), whose 2017&ndash;2018 basic income trial tested whether removing work requirements would reduce employment. Credit: <a href="https://en.wikipedia.org/wiki/Universal_basic_income" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 2017&ndash;2018, Finland&rsquo;s social insurance institution Kela ran a two-year randomised trial giving 2,000 unemployed people an unconditional &euro;560 monthly basic income, with no requirement to seek or accept work, replacing their standard conditional unemployment benefits.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard labour-supply economic theory predicts unconditional income without work requirements should reduce employment, since removing the obligation to search for work removes a key incentive pushing people toward paid labour.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Recipients worked on average just 6 more days over the year than the control group (78 vs 73 days), a small positive rather than negative effect, while reporting significantly higher wellbeing, less stress, and greater trust in institutions than those on conditional benefits.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Psychological-security theories, arguing reduced bureaucratic burden and freedom to accept short-term or gig work without losing eligibility, better explain the results than the standard labour-leisure tradeoff; still an open question whether effects would hold at national scale requiring new taxation to fund it.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Removing the requirement to prove you&rsquo;re job-hunting didn&rsquo;t make Finland&rsquo;s basic-income recipients work less &mdash; if anything, they worked slightly more, and felt much better doing it.</div>
+      <div class="source">&#x1F4D6; Kela (Finnish Social Insurance Institution), Basic Income Experiment Final Report (2020). Kangas, O. et al. (2020), &ldquo;Experimenting with Unconditional Basic Income.&rdquo;</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; What Looks Certain Isn&rsquo;t Always Real:</strong> Plato&rsquo;s cave prisoners mistook flickering shadows for the whole of reality, having no way to know a fuller truth existed just beyond their view. Decades of celebrated &ldquo;priming&rdquo; research faced a strikingly similar reckoning: the famous 1996 finding that reading elderly-related words made people walk slower held up as psychological fact for over fifteen years, until a 2012 blinded replication revealed the effect had partly been a shadow cast by the experimenter&rsquo;s own expectations, not a genuine unconscious process in participants.</p>
+      <p><strong>So what:</strong> Confidence in a widely repeated claim, whether ancient or backed by a famous study, isn&rsquo;t the same as its being true; the more foundational the belief, the more it&rsquo;s worth checking who, or what, is casting the shadow you&rsquo;re mistaking for reality.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Williams, R.E. et al. (1996), <em>Astronomical Journal</em>. NASA/STScI (1996).</li>
+      <li><strong>Card 2:</strong> 《舊唐書&middot;太宗本紀》；《資治通鑑&middot;唐紀》；陳寅恪《唐代政治史述論稿》。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Storming of the Bastille.&rdquo; Schama, S. (1989).</li>
+      <li><strong>Card 4:</strong> 《莊子&middot;秋水》；郭象注《莊子》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Plato, <em>The Republic</em>, Book VII. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Bargh, J.A. et al. (1996). Doyen, S. et al. (2012), <em>PLOS ONE</em>.</li>
+      <li><strong>Card 7:</strong> Patke, A. et al. (2017), <em>Cell</em>. Roenneberg, T. (2012).</li>
+      <li><strong>Card 8:</strong> National Kidney Foundation. Fenton, T.R. &amp; Huang, T. (2016), <em>BMJ Open</em>.</li>
+      <li><strong>Card 9:</strong> Mandsager, K. et al. (2018), <em>JAMA Network Open</em>.</li>
+      <li><strong>Card 10:</strong> Britannica, &ldquo;Dutch East India Company.&rdquo; Petram, L. (2011).</li>
+      <li><strong>Card 11:</strong> Kela Basic Income Experiment Final Report (2020). Kangas, O. et al. (2020).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-07: Hubble Deep Field 1995 &bull; 玄武門之變 (626) &bull; Storming of the Bastille 1789 &bull; 莊子與惠施濠梁之辯 &bull; Plato&rsquo;s Allegory of the Cave &bull; Priming Effect / Replication Crisis (Bargh vs Doyen) &bull; Chronotypes / Night Owl Genetics &bull; Alkaline Diet &amp; Water Myth &bull; VO2 Max &amp; Longevity &bull; Dutch East India Company / First Stock Exchange &bull; Universal Basic Income / Finland Experiment</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-07.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-07.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 7 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

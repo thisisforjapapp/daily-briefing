@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 6 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 6 August 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>5 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Webb&rsquo;s First Exoplanet Image</span>JWST directly photographed the exoplanet HIP 65426 b in 2022 by using coronagraphs to block out its star&rsquo;s glare.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 世宗大王與訓民正音</span>世宗大王親自設計簡易文字，讓百姓不必苦讀漢字也能讀寫。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Battle of Hastings</span>Feigned Norman retreats broke the English shield wall and ended nearly 500 years of Anglo-Saxon rule.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 嵇康與竹林七賢</span>嵇康臨刑彈奏《廣陵散》，以死捍衛越名教而任自然的信念。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Camus &amp; the Myth of Sisyphus</span>Camus argued life remains worth living even without cosmic meaning &mdash; imagine Sisyphus happy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Cognitive Dissonance</span>Festinger&rsquo;s doomsday cult recruited harder, not less, after their prophecy visibly failed to come true.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Referred Pain</span>Shared spinal nerve pathways explain why heart attacks can be felt as pain radiating down the left arm.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Sugar &amp; Hyperactivity Myth</span>Decades of double-blind trials found sugar doesn&rsquo;t actually make children hyperactive &mdash; parental expectation does.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Zone 2 Training</span>Slow, conversational-pace cardio builds a real fitness base, though its unique mitochondrial claims remain contested.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Enron Scandal</span>Enron hid billions in debt inside off-books partnerships, some literally named after Star Wars characters.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Tragedy of the Commons vs Ostrom</span>Ostrom showed communities can sustainably self-govern shared resources without privatization or state control.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Neptune Storm That Vanished Between Two Space Telescopes</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1989, Voyager 2 photographed a vast, Earth-sized storm swirling in Neptune&rsquo;s southern hemisphere during humanity&rsquo;s only-ever close flyby of the planet. When Hubble looked again five years later, the storm was simply gone. Before reading on, what do you think happened to it, and what does that tell us about Neptune&rsquo;s atmosphere compared with Jupiter&rsquo;s famous storms?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Neptune%27s_Great_Dark_Spot_colorcorrected.jpg" alt="Neptune's Great Dark Spot photographed by Voyager 2" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Neptune&rsquo;s (海王星) Great Dark Spot (大暗斑), an Earth-sized storm photographed by Voyager 2 (航海家二號) in 1989 &mdash; it had vanished entirely by the time Hubble looked again in 1994. Credit: <a href="https://en.wikipedia.org/wiki/Great_Dark_Spot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 25 August 1989, NASA&rsquo;s (美國太空總署) Voyager 2 spacecraft became the only probe ever to fly past Neptune (海王星), capturing images of a vast, Earth-sized storm swirling in the planet&rsquo;s southern hemisphere. Scientists christened it the Great Dark Spot (大暗斑), an anticyclonic storm system visually echoing Jupiter&rsquo;s (木星) famous Great Red Spot, though considerably darker against Neptune&rsquo;s deep blue methane atmosphere. Voyager&rsquo;s instruments also measured wind speeds swirling around the storm&rsquo;s edge reaching roughly 2,100 kilometres per hour, among the fastest sustained winds ever recorded anywhere in the solar system, striking for a planet receiving less than a thousandth of the sunlight Earth does.</p>
+      <p>What made the Great Dark Spot even more startling came five years later. When the Hubble Space Telescope (哈勃太空望遠鏡) turned its instruments toward Neptune in 1994, astronomers expected to find the same storm system Voyager had photographed. Instead, it had completely vanished, while a new dark spot of similar size had appeared in the planet&rsquo;s northern hemisphere instead. This was a genuine surprise: Jupiter&rsquo;s Great Red Spot has persisted for centuries, possibly longer, yet Neptune&rsquo;s storms seemed to dissolve and reform within just a few years, hinting at a far more turbulent, fast-changing atmosphere than a single flyby could ever reveal.</p>
+      <p>Researchers now believe Neptune&rsquo;s dark spots form in the planet&rsquo;s upper atmosphere as pockets of gas descend through a hazy methane layer, briefly clearing a dark, visible hole before dispersing again, unlike Jupiter&rsquo;s Red Spot, which draws its longevity from deeper, more stable atmospheric layers. Because Voyager 2 remains the only spacecraft ever to visit Neptune, and no dedicated orbiter mission is currently funded, almost everything known about the Great Dark Spot&rsquo;s short life came from that single 1989 flyby and decades of patient follow-up observation from Hubble, orbiting more than four billion kilometres away.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Dark_Spot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Neptune&rsquo;s storms come and go within years &mdash; a reminder Voyager 2&rsquo;s single 1989 flyby is still our only close look.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What happened to the Great Dark Spot between Voyager 2&rsquo;s 1989 flyby and Hubble&rsquo;s 1994 observation, and why was this surprising?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The storm had completely vanished, replaced by a new dark spot in the northern hemisphere. This surprised astronomers because Jupiter&rsquo;s similar Great Red Spot has persisted for centuries, showing Neptune&rsquo;s atmosphere is far more turbulent and fast-changing.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, Voyager 2 Neptune Encounter (1989). Hubble Space Telescope observations (1994). Britannica, &ldquo;Great Dark Spot.&rdquo;</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一場變法如何為秦國統一天下奠定根基</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國時代，一位外來謀士獲秦孝公重用，推行一連串觸怒貴族的激進改革。你認為，這套新法最終為秦國帶來怎樣的命運？而這位謀士本人，又會有怎樣的結局？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>商鞅（原名衛鞅，約公元前390&ndash;338年，衛國貴族後裔，法家代表人物）；秦孝公（戰國時代秦國國君）。</p>
+        <p><strong>事件：</strong>商鞅自公元前356年起在秦國推行兩次變法，史稱「商鞅變法」。</p>
+        <p><strong>時代背景：</strong>戰國七雄並立，秦國地處西陲，制度落後，屢遭魏國侵逼，秦孝公即位後求賢若渴，頒布求賢令，商鞅遂攜法家治國之術入秦。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/51714-Terracota-Army.jpg/330px-51714-Terracota-Army.jpg" alt="秦兵馬俑" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">秦兵馬俑 &mdash; 商鞅變法奠定秦國富國強兵的制度基礎，終使秦國統一天下。來源：<a href="https://en.wikipedia.org/wiki/Shang_Yang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>商鞅本名衛鞅，出身衛國公族旁支，早年鑽研法家刑名之學，聞秦孝公頒布求賢令，遂攜帶治國之術西入秦國。商鞅初見孝公，先以帝道、王道遊說，孝公聽而昏昏欲睡；及至商鞅改談稱霸天下的富國強兵之術，孝公方大為振奮，徹夜長談，遂拜商鞅為左庶長，委以變法重任。當時秦國僻處西陲，制度承襲舊制，貴族世襲爵祿，賞罰不明，屢遭魏國侵逼，割地求和，孝公深以為恥，決心破舊立新。</p>
+      <p>公元前356年，商鞅頒布新法：廢除世卿世祿的井田舊制，承認土地私有買賣；創立二十等軍功爵制，無論出身貴賤，凡斬敵首級者按功授爵，貴族若無軍功則削除爵位；又將百姓編為什伍，五家為伍、十家為什，互相監視，一人犯法，鄰里連坐同罪。為取信於民，商鞅命人在都城南門立一根木頭，宣稱能將其搬至北門者賞十金，百姓初時疑而不信，及至加賞五十金，終有人搬動，商鞅果真賞金，藉此樹立新法必信必行之威。新法雷厲風行，秦國貴族多有不滿，太子亦觸犯法令，商鞅遂處罰太子師傅公子虔、公孫賈以示法不阿貴。</p>
+      <p>變法推行二十餘年，秦國國力大盛，兵強馬壯，屢敗魏國，遷都咸陽以彰新猷。公元前338年，秦孝公薨逝，太子繼位為秦惠文王，昔日被商鞅施刑的公子虔等舊怨貴族群起發難，誣告商鞅謀反。商鞅倉皇出逃，欲投宿旅店，店主因新法規定留宿無憑證者連坐，不敢收留，商鞅無奈嘆道：「為法之敝一至此哉！」最終兵敗被殺，屍身更遭車裂示眾，滿門抄斬。然而商鞅雖死，其所立之法未廢，秦國自此國富兵強，其變法奠定的制度根基，終於在其身後百餘年助秦始皇掃滅六國，一統天下。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Shang_Yang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 商鞅以「徙木立信」證明新法必行，卻死於自己一手創立、不徇私情的嚴刑峻法之下。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>商鞅用甚麼方法向百姓證明新法「必信必行」？他最終為何會被自己所立的法律所累？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">商鞅在南門立木，承諾搬至北門者可獲重賞，藉此樹立法令威信。後來他出逃時，因新法規定收留無憑證者要連坐，店主不敢收留他，商鞅因此被自己一手創立的嚴法所困，最終兵敗被殺。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《史記&middot;商君列傳》；《戰國策&middot;秦策》；楊寬《戰國史》。</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Battle That Gave Its Name to a 42-Kilometre Race</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 490 BCE, a heavily outnumbered force of Greek citizen-soldiers faced a Persian army that had already conquered much of the known world, on a plain roughly 40 kilometres from Athens. Before reading on, what tactic do you think let the smaller Greek force win, and where does the modern marathon race actually come from?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Miltiades (米太亞德), Athenian general; Darius I (大流士一世), King of Persia (波斯).</p>
+        <p><strong>Event at stake:</strong> The Battle of Marathon (馬拉松戰役), 490 BCE, the first Persian invasion of Greece (希臘).</p>
+        <p><strong>Big picture:</strong> Athens (雅典) and Eretria had backed a failed revolt of Greek cities under Persian rule in Ionia (愛奧尼亞); Darius sent a punitive expedition to conquer Athens and reassert Persian authority over the Aegean.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Scene_of_the_Battle_of_Marathon.jpg" alt="Depiction of the Battle of Marathon" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A depiction of the Battle of Marathon (馬拉松戰役), 490 BCE, where a heavily outnumbered Athenian force routed the Persian army. Credit: <a href="https://en.wikipedia.org/wiki/Battle_of_Marathon" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 490 BCE, King Darius I of Persia (波斯) dispatched a fleet across the Aegean Sea to punish Athens (雅典) and the city of Eretria for having supported an earlier revolt among the Greek cities of Ionia (愛奧尼亞) against Persian rule. After burning Eretria and enslaving its population, the Persian force landed on the plain of Marathon (馬拉松), roughly 40 kilometres northeast of Athens, terrain chosen partly because it suited Persian cavalry. Athens sent virtually every citizen-soldier it had, roughly 10,000 hoplites (重裝步兵), heavily armoured infantry fighting in tight formation, joined by 1,000 allies from the small city of Plataea (普拉提亞), against a Persian force ancient sources describe as far larger.</p>
+      <p>The Athenian general Miltiades (米太亞德), who had previously served under Persian rule and understood their tactics, made an unusual decision: he thinned the Greek center while reinforcing both flanks, gambling that the wings could envelop the Persians once battle was joined. When the armies clashed, the Persian center, facing the weakened Greek middle, pushed forward and briefly appeared to be winning, exactly as Miltiades had anticipated. The strengthened Greek flanks then curved inward around the advancing Persian center, trapping much of the army in a collapsing pocket and turning an orderly battle into a chaotic rout back toward the ships.</p>
+      <p>According to the historian Herodotus (希羅多德), roughly 6,400 Persians died compared with only 192 Athenians, a lopsided outcome that stunned the ancient world and proved a disciplined citizen army could defeat a professional imperial force. The popular legend that a runner named Pheidippides (菲迪皮德斯) raced the full 42 kilometres from Marathon to Athens to announce victory before collapsing dead is a later embellishment; Herodotus instead describes Pheidippides running roughly 246 kilometres from Athens to Sparta (斯巴達) before the battle to request military aid. The modern marathon race, inspired by the legend rather than the history, was introduced at the 1896 Athens Olympics.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Battle_of_Marathon" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A thinned center and reinforced flanks turned a heavily outnumbered Greek army into an ambush that trapped the Persian force.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What tactical decision did Miltiades make with the Greek battle line, and how did it turn the tide at Marathon?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He thinned the Athenian center while reinforcing both flanks. When the Persian center pushed through as expected, the strengthened Greek flanks curved inward and encircled them, turning an orderly battle into a rout.</div>
+      </details>
+      <div class="source">&#x1F4D6; Herodotus, <em>The Histories</em>, Book 6. Britannica, &ldquo;Battle of Marathon.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>一個和尚如何違抗禁令，隻身走到印度取經</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐初，朝廷嚴禁百姓私自出境。一位年輕僧人卻不惜違抗禁令，隻身穿越大漠戈壁，走向數千里外的異國。你認為，是甚麼原因驅使他甘冒殺頭之罪，也要踏上這條九死一生的取經之路？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>玄奘（602&ndash;664，唐代高僧，法相宗創始人）；戒賢（那爛陀寺高僧）；唐太宗。</p>
+        <p><strong>核心思想：</strong>玄奘有感中土所傳佛經譯本紛雜、義理不一，尤以瑜伽行派唯識學說最為含混，遂立志親赴天竺求取原典，以正本清源。</p>
+        <p><strong>時代背景：</strong>唐朝初立，邊境與突厥關係緊張，朝廷嚴禁百姓私自出關，玄奘屢次上表請求西行求法均遭拒絕。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Xuanzang_w.jpg" alt="玄奘畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">玄奘畫像 &mdash; 唐代高僧，629年違抗禁令西行天竺求法，歷時十七年帶回佛經六百五十七部。來源：<a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>玄奘俗姓陳，自幼聰穎，十三歲出家為僧，遍訪各地高僧，鑽研佛典。他發現當時中土流傳的佛經譯本，往往輾轉多次翻譯，義理彼此矛盾，尤其瑜伽行派唯識學說眾說紛紜，難以釋疑。玄奘遂立志親赴天竺（古印度），求取原典梵文經卷，以正本清源。然而唐朝初立，與西域突厥關係緊張，朝廷嚴禁百姓私自出境，玄奘屢次上表請求西行，均遭朝廷駁回。貞觀三年（629年），玄奘不顧禁令，趁關中饑荒、朝廷放寬管制之機，隻身混雜在逃荒百姓之中，偷渡出關，踏上西行取經之路。</p>
+      <p>西行途中，玄奘九死一生：穿越莫賀延磧沙漠時，曾因迷失方向、水囊傾覆而幾近渴死，靠著老馬識途方脫險境；途經高昌國（今新疆吐魯番），國王麴文泰仰慕玄奘才學，欲強留其在國中弘法，玄奘以絕食明志，最終麴文泰只得與其結為兄弟，資助馬匹、盤纏、隨從，並致書沿途各國請予放行。此後玄奘翻越帕米爾高原，歷經西域數十國，終抵天竺，入那爛陀寺，拜高僧戒賢為師，鑽研瑜伽行派唯識之學，並遊歷天竺各地參學辯論，聲名遠播，甚至獲當時天竺戒日王禮遇召見。</p>
+      <p>貞觀十九年（645年），玄奘攜帶六百五十七部梵文佛經返抵長安，昔日下令禁其出境的唐太宗，此時卻親自接見，盛讚其壯舉，並勸其還俗輔政，玄奘婉拒，專心譯經。此後十九年間，玄奘主持譯場，譯出佛經達一千三百餘卷，並口述西行見聞，由弟子辯機筆錄成《大唐西域記》，詳載沿途一百三十餘國山川風俗，成為後世研究中亞、南亞歷史地理的珍貴史料。玄奘西行取經的傳奇經歷，後世演化為家喻戶曉的小說《西遊記》，唐三藏師徒取經故事，即由此而來。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 玄奘寧可違抗禁令、九死一生，也要親赴天竺求取原典——只為讓佛法義理不再以訛傳訛。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>玄奘在高昌國遇到甚麼阻撓？他最終如何脫身，繼續西行？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">高昌國王麴文泰仰慕玄奘才學，欲強留他在國中弘法。玄奘以絕食明志，麴文泰最終讓步，與他結拜為兄弟，並資助馬匹盤纏，讓他繼續西行前往天竺。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《大唐西域記》；慧立、彥悰《大慈恩寺三藏法師傳》；《舊唐書&middot;方伎傳》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Doubted Everything to Find One Unshakeable Truth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the 1640s, a philosopher deliberately set out to doubt absolutely everything he had ever believed, his senses, mathematics, even the existence of the physical world, in search of a single fact so certain that no possible deception could undermine it. Before reading on, what do you think that one undeniable fact turned out to be?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Ren&eacute; Descartes (勒內&middot;笛卡兒, 1596&ndash;1650), French (法國) philosopher and mathematician.</p>
+        <p><strong>Idea at stake:</strong> Whether any belief can be held with absolute, indubitable certainty, and if so, what that belief could serve as a foundation for all further knowledge.</p>
+        <p><strong>Big picture:</strong> Writing amid the religious and scientific upheavals of the early 17th century, Descartes wanted to rebuild human knowledge on a foundation immune to the doubts that had toppled older certainties.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="Portrait of René Descartes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ren&eacute; Descartes, whose 1641 <em>Meditations on First Philosophy</em> arrived at &ldquo;I think, therefore I am&rdquo; as the one truth an evil demon could never fake. Credit: <a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his 1641 work <em>Meditations on First Philosophy</em> (第一哲學沉思錄), Descartes set out a radical method: he would systematically doubt every belief that could possibly be doubted, however small the chance of error, in search of something so certain it could survive any conceivable deception. He doubted his senses, since they had deceived him before; he doubted mathematics, since even a simple calculation could theoretically be corrupted; he even entertained the extreme possibility of an all-powerful evil demon (惡魔假設) deliberately feeding false experiences into his mind, making literally everything he perceived, including his own body, potentially an illusion.</p>
+      <p>Yet Descartes found one thing this demon could never fake: the very act of doubting itself required a doubter to exist. Even if every perception, memory, and mathematical truth were false, the fact that something was doing the doubting, thinking, questioning, proved beyond any possible deception that a thinking being existed in that moment. This became philosophy&rsquo;s most famous conclusion, often summarised as cogito ergo sum (我思故我在), &ldquo;I think, therefore I am,&rdquo; first phrased in his earlier 1637 <em>Discourse on Method</em> (方法論) and refined in the <em>Meditations</em> as the one indubitable starting point for rebuilding all other knowledge.</p>
+      <p>From this single certainty, Descartes attempted to reconstruct everything else: the existence of a benevolent God who would not systematically deceive him, and from there, the reliability of the external world his senses reported. He also concluded mind and body were two fundamentally different substances, thinking, non-physical mind and extended, physical matter, a position called dualism (二元論) that immediately raised an awkward question later philosophers pressed hard: if mind and body are truly separate substances, how do they interact at all? Descartes proposed the pineal gland (松果體) as the point of contact, an answer almost no one found satisfying.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Descartes doubted literally everything he could, and found that the one thing an evil demon could never fake was the doubting itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Descartes, why does the very act of doubting prove that a thinking being must exist, even under his most extreme skeptical scenario?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Even if every perception and belief were false, planted by a deceiving demon, something would still have to be doing the doubting. That act of thinking itself is undeniable proof a thinking being exists in that moment.</div>
+      </details>
+      <div class="source">&#x1F4D6; Descartes, R. (1641), <em>Meditations on First Philosophy</em>. Stanford Encyclopedia of Philosophy, &ldquo;Ren&eacute; Descartes.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Study That Revealed How Far Ordinary People Would Go Under Orders</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1961, ordinary volunteers were told to deliver increasingly painful electric shocks to a stranger simply because a man in a lab coat said the experiment required it, even as the stranger screamed and begged them to stop. Before reading on, what percentage of participants do you think continued all the way to the maximum, clearly dangerous shock level?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Milgram_experiment_v2.svg" alt="Diagram of the Milgram obedience experiment setup" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of Stanley Milgram&rsquo;s (斯坦利&middot;米爾格倫) 1961 obedience experiment setup at Yale University (耶魯大學). Credit: <a href="https://en.wikipedia.org/wiki/Milgram_experiment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1961, psychologist Stanley Milgram (斯坦利&middot;米爾格倫) at Yale University (耶魯大學) recruited ordinary volunteers for what they were told was a study on memory and learning. Each volunteer was assigned the role of &ldquo;teacher,&rdquo; instructed to read word pairs to a &ldquo;learner&rdquo; seated in another room and administer an electric shock, increasing in voltage with each wrong answer, using a control panel labelled from 15 volts up to a clearly marked 450 volts, &ldquo;XXX Danger: Severe Shock.&rdquo; Unknown to the volunteer, the learner was actually an actor who never received any real shock at all, and the true subject of the experiment was the volunteer&rsquo;s own willingness to obey.</p>
+      <p>As the fake shocks increased, the actor, following a scripted recording, began banging on the wall, screaming in apparent pain, and eventually falling ominously silent, as though unconscious or worse. Whenever a hesitant volunteer turned to the experimenter, an authority figure in a white lab coat standing nearby, for permission to stop, the experimenter simply repeated a fixed series of verbal prompts: &ldquo;please continue,&rdquo; &ldquo;the experiment requires that you continue,&rdquo; offering no threats or coercion beyond calm insistence. Milgram had privately predicted, and colleagues agreed, that only a small, disturbed fraction of people would ever go all the way to the maximum shock.</p>
+      <p>The actual result stunned the psychological community: 65% of participants, 26 out of the original 40, continued administering shocks all the way to the maximum 450-volt level, despite visible distress, sweating, and objection along the way. Milgram, who had designed the study partly to understand how ordinary Germans participated in the Holocaust (大屠殺) under Nazi orders, concluded that proximity to and legitimacy of an authority figure could override most people&rsquo;s moral objections to harming a stranger. Later archival research by historian Gina Perry (吉娜&middot;佩里) found some participants suspected the shocks weren&rsquo;t real and questioned whether Milgram&rsquo;s published compliance rates fully reflected every experimental variation, a caution worth keeping alongside the study&rsquo;s enduring, unsettling core finding.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Milgram_experiment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Most people didn&rsquo;t need to be evil to inflict serious harm &mdash; they just needed an authority figure calmly insisting they continue.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What percentage of Milgram&rsquo;s original participants continued administering shocks all the way to the maximum, clearly dangerous 450-volt level?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">65% (26 of 40 participants) continued to the maximum shock level, despite the &ldquo;learner&rsquo;s&rdquo; apparent distress, simply because the experimenter calmly insisted the experiment required it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Milgram, S. (1963), <em>Journal of Abnormal and Social Psychology</em>. Perry, G. (2013), <em>Behind the Shock Machine</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The &ldquo;Runner&rsquo;s High&rdquo; Might Not Come From Endorphins After All</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, the euphoric, calm feeling some people get during a long run has been credited to a flood of endorphins, the body&rsquo;s natural opioids. Before reading on, what do you think more recent research using mice and brain scans discovered about which brain chemical is actually behind this feeling?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/NixonKiplimoChepseba.jpg/330px-NixonKiplimoChepseba.jpg" alt="Distance runners competing" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sustained aerobic running (有氧跑步) &mdash; the kind of effort a 2015 study linked to a surge in endocannabinoids, not endorphins, behind &ldquo;runner&rsquo;s high.&rdquo; Credit: <a href="https://en.wikipedia.org/wiki/Long-distance_running" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The idea that a &ldquo;runner&rsquo;s high&rdquo; (跑者愉悅感) comes from a surge of endorphins (內啡肽), the body&rsquo;s own opioid-like painkillers, has been popular science folklore since the 1980s. There is real evidence endorphin levels rise in the blood during sustained exercise, and a 2008 German brain-imaging study using positron emission tomography (正電子發射斷層掃描) found that after a two-hour run, opioid receptor activity changed in brain regions linked to mood and reward, correlating with runners&rsquo; self-reported euphoria. The trouble is that endorphin molecules are generally too large to easily cross the blood-brain barrier (血腦屏障), the protective filter separating the bloodstream from brain tissue, raising doubts about whether blood endorphin levels alone can fully explain a genuinely felt mental state.</p>
+      <p>A 2015 study published in the <em>Proceedings of the National Academy of Sciences</em> by researcher Johannes Fuss and colleagues offered a different candidate: endocannabinoids (內源性大麻素), the body&rsquo;s own naturally produced compounds chemically similar to the active ingredient in cannabis, small enough to cross the blood-brain barrier easily. Using mice bred to run voluntarily on wheels, researchers measured a clear rise in one endocannabinoid, anandamide (花生四烯乙醇胺), after sustained running, alongside reduced anxiety and pain sensitivity, the classic hallmarks of runner&rsquo;s high.</p>
+      <p>The decisive test came when researchers chemically blocked different receptor systems in the mice: blocking opioid receptors, the ones endorphins act on, did not eliminate the post-run calming and pain-reducing effects, but blocking cannabinoid receptors did remove them almost entirely. This strongly suggested endocannabinoids, not endorphins, drive the core emotional and pain-relief experience of runner&rsquo;s high, at least in mice, a finding since supported by human studies pairing exercise with mood measures. Endorphins likely still contribute to the broader reward response, but sustained moderate-intensity aerobic effort, generally 30 minutes or more, appears to be the real trigger for the endocannabinoid surge behind the feeling.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Long-distance_running" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The calm, floaty feeling after a long run likely comes more from your body&rsquo;s own cannabis-like chemicals than from endorphins.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In the 2015 mouse study, what happened when researchers blocked cannabinoid receptors versus opioid receptors, and what did this reveal about runner&rsquo;s high?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Blocking cannabinoid receptors eliminated the post-run calming and pain-reducing effects, while blocking opioid receptors did not. This showed endocannabinoids, not endorphins, are the primary driver of runner&rsquo;s high, at least in mice.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fuss, J. et al. (2015), <em>Proceedings of the National Academy of Sciences</em>. Boecker, H. et al. (2008), <em>Cerebral Cortex</em>.</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does Vitamin C Actually Stop a Cold? What Decades of Trials Found</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Since the 1970s, when a two-time Nobel Prize winner published a bestselling book claiming megadoses of vitamin C could prevent and cure the common cold, orange juice and vitamin C tablets have become a reflexive home remedy. Before reading on, what do you think decades of rigorous, placebo-controlled clinical trials actually found when they tested this claim directly?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/L-Ascorbic_acid.svg" alt="Chemical structure of vitamin C" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of vitamin C (維他命C, ascorbic acid) &mdash; decades of Cochrane trials found it does not prevent colds in the general population. Credit: <a href="https://en.wikipedia.org/wiki/Vitamin_C" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The vitamin C (維他命C) cold-cure claim traces largely to chemist Linus Pauling (萊納斯&middot;鮑林), a two-time Nobel Prize (諾貝爾獎) winner whose 1970 bestselling book <em>Vitamin C and the Common Cold</em> argued that megadoses of the vitamin could dramatically prevent and shorten colds. Pauling&rsquo;s own scientific credibility lent the claim enormous public trust, and vitamin C supplement sales surged for decades afterward, even though his conclusions relied heavily on his own selective reading of a limited body of evidence rather than a comprehensive review of controlled trials.</p>
+      <p>Researchers Harri Hemil&auml; and Elizabeth Chalker later conducted a series of rigorous Cochrane systematic reviews (考科藍系統性回顧), pooling data from dozens of randomised, placebo-controlled trials involving more than 11,000 participants total. For the general population, regular daily vitamin C supplementation did not reduce how often people caught colds at all. It did produce a modest reduction in how long a cold lasted once caught, roughly 8% shorter in adults and 14% shorter in children, but only when taken consistently every day, not when started after symptoms already appeared, where the evidence showed essentially no benefit.</p>
+      <p>One genuine exception emerged from a small number of trials involving people under extreme short-term physical stress, marathon runners, skiers, and soldiers training in subarctic conditions, who showed roughly a 50% reduction in cold incidence with regular vitamin C supplementation, a narrow but real finding. For everyone else, vitamin C is not dangerous in moderate doses, being water-soluble and largely excreted in urine, but the popular belief that a large dose at the first sign of a sniffle will meaningfully shorten or prevent a cold is not well supported by the accumulated trial evidence.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Vitamin_C" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Vitamin C won&rsquo;t stop you catching a cold, and taking it after symptoms start barely shortens it &mdash; the modest benefit only shows up with daily, ongoing use.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the Cochrane reviews, did regular vitamin C supplementation reduce how often people in the general population caught colds?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">No. Regular vitamin C supplementation did not reduce cold incidence in the general population, though it modestly shortened cold duration (about 8% in adults) when taken consistently every day, not after symptoms began.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hemil&auml;, H. &amp; Chalker, E. (2013), <em>Cochrane Database of Systematic Reviews</em>. Pauling, L. (1970), <em>Vitamin C and the Common Cold</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Lactic Acid Doesn&rsquo;t Cause That Soreness Two Days After Leg Day</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A day or two after an unusually hard workout, especially one with new or eccentric movements like downhill running or slow weight lowering, muscles often ache far more than they did right after exercise. Before reading on, do you think this delayed soreness is caused by lactic acid buildup, as the popular explanation claims, or is something else actually going on?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/L-Milchs%C3%A4ure.svg" alt="Chemical structure of lactic acid" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of lactic acid (乳酸) &mdash; cleared from muscle within about an hour, long before delayed onset muscle soreness even begins. Credit: <a href="https://en.wikipedia.org/wiki/Lactic_acid" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Delayed onset muscle soreness (延遲性肌肉痠痛, DOMS) is the stiff, tender ache that typically peaks 24 to 72 hours after unusually intense or unfamiliar exercise, most notably after eccentric contractions (離心收縮), the lengthening phase of a muscle under load, such as lowering a weight slowly or running downhill. For decades, gym folklore blamed lactic acid (乳酸) buildup, imagining it as crystallising or pooling in tired muscles to cause the soreness. This explanation has a simple, fatal timing problem: lactate produced during exercise is cleared from the muscle and bloodstream within roughly an hour after finishing, long before the soreness even begins, let alone peaks a full day or two later.</p>
+      <p>The actual mechanism traces to microscopic structural damage. Eccentric contractions place unusually high mechanical tension on muscle fibres and their surrounding connective tissue, and researchers including Priscilla Clarkson have documented how this creates microscopic tears and disruption at the cellular level, particularly to the fibres&rsquo; internal sarcomere (肌節) structures. This microtrauma triggers a localised inflammatory repair response, calcium ions leak into damaged cells, immune cells arrive, and inflammatory chemical signals called cytokines and prostaglandins accumulate around the injury site, sensitising nearby nerve endings so that ordinary movement or pressure now registers as pain, a process that naturally takes a day or more to build and resolve.</p>
+      <p>One reassuring pattern researchers call the repeated bout effect (重複回合效應) shows the body adapts quickly: after a single bout of unfamiliar eccentric exercise, the very next similar session, even performed just days or weeks later, produces dramatically less muscle damage and soreness, evidence the muscle has structurally reinforced itself against that specific stress. This explains why DOMS hits hardest after trying a new exercise, sport, or intensity level, but fades noticeably with repeated, consistent exposure, and it means the popular remedy of &ldquo;working through the lactic acid&rdquo; may ease stiffness through blood flow, but isn&rsquo;t clearing out a substance that was never causing the soreness in the first place.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lactic_acid" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The soreness you feel two days after leg day isn&rsquo;t lactic acid &mdash; it&rsquo;s microscopic muscle damage triggering an inflammatory repair response.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can&rsquo;t lactic acid be the cause of delayed onset muscle soreness that peaks 24-72 hours after exercise?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Lactate is cleared from the muscle and bloodstream within about an hour after exercise ends, long before DOMS soreness even begins. The actual cause is microscopic muscle fibre damage from eccentric contractions, triggering a delayed inflammatory repair response.</div>
+      </details>
+      <div class="source">&#x1F4D6; Clarkson, P.M. &amp; Hubal, M.J. (2002), <em>American Journal of Physical Medicine &amp; Rehabilitation</em>. Cheung, K. et al. (2003), <em>Sports Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Sock Puppet That Symbolized a Trillion-Dollar Collapse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the late 1990s, an online pet-supply startup spent millions on a Super Bowl ad campaign starring a wisecracking sock puppet, even as it was burning through investor cash faster than it could ever hope to earn it back. Before reading on, how long do you think this company, once valued at hundreds of millions of dollars, actually lasted after its stock market debut?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Nasdaq_Composite_dot-com_bubble.svg" alt="Chart of the NASDAQ Composite during the dot-com bubble" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The NASDAQ Composite (納斯達克綜合指數) during the dot-com bubble, peaking on 10 March 2000 before losing roughly 78% of its value by October 2002. Credit: <a href="https://en.wikipedia.org/wiki/Dot-com_bubble" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Through the late 1990s, the rapid growth of the internet convinced investors that traditional rules of business, profit, sustainable revenue, a viable path to earnings, no longer applied to online companies competing to capture market share first. Startups adopted a &ldquo;get big fast&rdquo; strategy, spending enormous sums on marketing and infrastructure to grow user numbers, betting profitability would follow later once dominant. Pets.com (寵物網), an online pet-supply retailer, became an emblem of the era: its sock-puppet mascot starred in a famous Super Bowl (超級碗) advertisement, and the company went public in February 2000 despite having no realistic path to profit, its costs for shipping heavy, low-margin items like dog food far exceeding what it charged customers.</p>
+      <p>The technology-heavy NASDAQ Composite (納斯達克綜合指數) index captured the mania&rsquo;s scale, rising from around 1,000 points in 1995 to an all-time peak of 5,048.62 on 10 March 2000, driven overwhelmingly by internet company valuations detached from any conventional earnings measure. Pets.com folded just 268 days after its IPO, having burned through roughly $300 million in investor funding; online grocery delivery startup Webvan (韋伯萬), which raised roughly $800 million and built expensive automated warehouses ahead of actual demand, followed it into bankruptcy in 2001, becoming two of the era&rsquo;s most cited cautionary tales.</p>
+      <p>From its March 2000 peak, the NASDAQ fell approximately 78% by October 2002, wiping out trillions of dollars in market value and taking more than fifteen years to reclaim its previous high. Yet the crash wasn&rsquo;t purely destructive: it washed out companies built on hype rather than durable business models while leaving genuinely strong ones standing, Amazon (亞馬遜) stock itself fell roughly 90% during the crash yet the company survived to eventually become one of the world&rsquo;s most valuable, illustrating that a sound long-term business and a wildly overvalued stock price can exist in the very same company simultaneously.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dot-com_bubble" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A viral ad campaign and a wisecracking sock puppet couldn&rsquo;t save a company whose shipping costs exceeded its revenue on every single order.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific business flaw made Pets.com&rsquo;s model unsustainable, even as its stock briefly soared after its IPO?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Its costs of shipping heavy, low-margin items like dog food far exceeded what it could charge customers, meaning the company lost money on nearly every order regardless of how many customers it attracted.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;dot-com bubble.&rdquo; Kaplan, S.N. (2001) working paper on dot-com IPOs. CNN Money archival coverage, Pets.com bankruptcy (2000).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>When a Tax-Cut Promise Met Kansas&rsquo;s Budget Reality</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Laffer_curve.svg" alt="Diagram of the Laffer curve" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Laffer curve (拉弗曲線), the theoretical relationship between tax rates and government revenue that Kansas&rsquo;s 2012 tax cuts were meant to demonstrate. Credit: <a href="https://en.wikipedia.org/wiki/Laffer_curve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 2012, Kansas Governor Sam Brownback (山姆&middot;布朗貝克) enacted sweeping income tax cuts, eliminating tax entirely for many business owners, predicting the cuts would pay for themselves through explosive economic growth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The Laffer curve (拉弗曲線), popularised by economist Arthur Laffer in the 1970s&ndash;80s, holds that tax cuts can increase government revenue by boosting economic activity and reducing incentives to avoid taxes, producing an inverted-U relationship between rates and revenue.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Rather than self-funding, Kansas&rsquo;s revenue collapsed by roughly $700 million within two years, forcing deep cuts to schools and infrastructure and triggering repeated credit downgrades; job growth actually lagged neighbouring states throughout the period.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Conventional static revenue-scoring by the Kansas Legislative Research Department proved far more accurate than the dynamic self-funding predictions; in 2017, Kansas&rsquo;s own Republican-controlled legislature voted to reverse most of the cuts, overriding Brownback&rsquo;s veto.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Tax cuts promising to &ldquo;pay for themselves&rdquo; rarely do &mdash; Kansas&rsquo;s own numbers, not just critics, forced the reversal within five years.</div>
+      <div class="source">&#x1F4D6; Laffer, A. (2004), &ldquo;The Laffer Curve: Past, Present, and Future,&rdquo; Heritage Foundation. Kansas Legislative Research Department budget reports (2012&ndash;2017).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 6 &mdash; Systems That Trap Their Own Architects:</strong> Shang Yang&rsquo;s harsh collective-responsibility laws compelled ordinary Qin subjects to police and inform on their own neighbours, and when Shang Yang himself fled for his life, an innkeeper refused him shelter precisely because of the law he had written, sealing his death. Milgram&rsquo;s obedience experiments showed ordinary volunteers would inflict serious harm on a stranger simply because an authority figure calmly insisted the procedure required it. Both cases reveal how compliance systems, whether ancient legal codes or a modern lab coat, can override individual moral judgement so thoroughly that even the system&rsquo;s own creator or intended beneficiary gets caught in its machinery.</p>
+      <p><strong>So what:</strong> Before designing, or simply following, any system built on obedience or compliance, whether a company policy, a legal rule, or a chain of command, ask who bears the cost when the rule is followed exactly as written, because that person is sometimes you.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, Voyager 2 Neptune Encounter (1989). Britannica, &ldquo;Great Dark Spot.&rdquo;</li>
+      <li><strong>Card 2:</strong> 《史記&middot;商君列傳》；《戰國策&middot;秦策》；楊寬《戰國史》。</li>
+      <li><strong>Card 3:</strong> Herodotus, <em>The Histories</em>, Book 6. Britannica, &ldquo;Battle of Marathon.&rdquo;</li>
+      <li><strong>Card 4:</strong> 《大唐西域記》；慧立、彥悰《大慈恩寺三藏法師傳》；《舊唐書&middot;方伎傳》。</li>
+      <li><strong>Card 5:</strong> Descartes, R. (1641). Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Milgram, S. (1963). Perry, G. (2013).</li>
+      <li><strong>Card 7:</strong> Fuss, J. et al. (2015), <em>PNAS</em>. Boecker, H. et al. (2008), <em>Cerebral Cortex</em>.</li>
+      <li><strong>Card 8:</strong> Hemil&auml;, H. &amp; Chalker, E. (2013), <em>Cochrane</em>. Pauling, L. (1970).</li>
+      <li><strong>Card 9:</strong> Clarkson, P.M. &amp; Hubal, M.J. (2002). Cheung, K. et al. (2003).</li>
+      <li><strong>Card 10:</strong> Britannica, &ldquo;dot-com bubble.&rdquo; Kaplan, S.N. (2001).</li>
+      <li><strong>Card 11:</strong> Laffer, A. (2004). Kansas Legislative Research Department (2012&ndash;2017).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-06: Neptune&rsquo;s Great Dark Spot &bull; 商鞅變法 &bull; Battle of Marathon 490 BCE &bull; 玄奘西行取經 &bull; Descartes &amp; Cogito Ergo Sum &bull; Milgram Obedience Experiment &bull; Runner&rsquo;s High / Endocannabinoids &bull; Vitamin C &amp; the Common Cold Myth &bull; DOMS / Lactic Acid Myth &bull; Dot-com Bubble 2000 &bull; Laffer Curve / Kansas Tax Experiment</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-06.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-06.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 6 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
