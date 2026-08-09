@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 9 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 9 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>8 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Eddington&rsquo;s 1919 Eclipse</span>A wartime eclipse expedition measured starlight bending near the Sun, confirming Einstein&rsquo;s relativity and making him instantly world-famous.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 淝水之戰</span>苻堅一道後撤軍令，令百萬大軍自相踐踏潰敗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Magna Carta</span>A king sealed away his own absolute power under rebel pressure, then tried to have the Pope cancel it within weeks.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 董仲舒獨尊儒術</span>董仲舒說服漢武帝獨尊儒術，奠定兩千年官方思想根基。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Aristotle&rsquo;s Ethics</span>Aristotle argued virtue isn&rsquo;t taught through theory alone but built through repeated habitual practice, like any skill.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Flow State</span>Csikszentmihalyi&rsquo;s pager surveys found people feel most absorbed when skill and challenge are both high and closely matched.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Emotional Tears</span>Emotional tears carry different stress chemicals, including a natural opioid, than tears triggered by a chopped onion.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Myopia Myth</span>Reading in dim light causes only temporary strain &mdash; too little outdoor daylight is the real driver of rising childhood myopia.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Muscle Memory</span>Extra cell nuclei gained during muscle growth stick around after detraining, explaining why lost muscle regrows so fast.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Modern Portfolio Theory</span>Markowitz mathematically proved diversification&rsquo;s value, then used a simple 50/50 split for his own retirement savings.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Big Mac Index / PPP</span>A burger costing twice as much in one country for decades shows some currency price gaps may be structural, not a market failure.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Bland Blue-Green Ball That Almost Broke Voyager 2&rsquo;s Camera Team</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 24 January 1986, a spacecraft flew past a planet tilted almost completely on its side, so its poles point nearly at the Sun rather than out to space. Before reading on, what do you think the spacecraft&rsquo;s cameras found on this strange, sideways planet, and why did the very smoothness of what they saw surprise scientists more than a dramatic storm would have?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Uranus_Voyager2_color_calibrated.png" alt="Uranus photographed by Voyager 2 in 1986" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Uranus (天王星), photographed by Voyager 2 (旅行者二號) during its January 1986 flyby &mdash; the only spacecraft ever to visit the ice giant. Credit: <a href="https://en.wikipedia.org/wiki/Voyager_2" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 24 January 1986, NASA&rsquo;s Voyager 2 (旅行者二號) spacecraft, launched nine years earlier in 1977, swept past Uranus (天王星) at a distance of about 81,500 km, the only spacecraft ever to visit the seventh planet from the Sun and to this day the only close-up look humanity has ever had of it. Uranus is tilted almost completely on its side, rotating at roughly 98 degrees from the plane of its orbit, likely the result of an ancient, colossal collision early in the solar system&rsquo;s history, meaning its poles point nearly directly at the Sun rather than out into space during parts of its 84-year orbit.</p>
+      <p>What Voyager 2&rsquo;s cameras revealed startled scientists in an unexpected way: rather than a storm-streaked, banded giant like Jupiter (木星) or Saturn (土星), Uranus appeared as an almost perfectly smooth, featureless pale blue-green ball, its atmosphere of hydrogen, helium, and methane (甲烷) so calm that even the mission&rsquo;s own imaging team worried something was wrong with the cameras. The pale colour comes from methane gas, which absorbs red light and reflects blue-green wavelengths back into space, while deeper, feature-hiding haze layers above the cloud tops muted whatever storm activity was actually churning underneath, a contrast later Hubble images would partly reveal.</p>
+      <p>Voyager 2 also examined Uranus&rsquo;s moon Miranda (天衛五), finding one of the strangest surfaces in the solar system: towering ice cliffs, jumbled terrain, and abrupt boundaries between smooth and heavily cratered regions, suggesting a violent history of repeated shattering and gravitational reassembly, or partial melting from internal tidal heating. Because no follow-up mission has ever returned, Uranus remains the least-studied major planet in the solar system, and NASA&rsquo;s Planetary Science Decadal Survey has since named a dedicated Uranus orbiter its top priority for a future flagship mission, tentatively targeted for launch sometime in the 2030s.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Voyager_2" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A planet knocked onto its side by an ancient collision still keeps its atmosphere calm enough to look almost featureless from a passing spacecraft.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Uranus appear as an almost featureless blue-green ball to Voyager 2&rsquo;s cameras, rather than a banded, storm-streaked planet like Jupiter or Saturn?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Uranus&rsquo;s methane-rich atmosphere absorbs red light and reflects blue-green wavelengths, and a hazy layer above its cloud tops muted the visible storm activity actually churning beneath, unlike Jupiter or Saturn&rsquo;s more exposed cloud bands.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, &ldquo;Voyager 2: Uranus.&rdquo; Smith, B.A. et al. (1986), <em>Science</em>, &ldquo;Voyager 2 in the Uranian System.&rdquo;</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>二二六事件——一場未遂政變如何加速日本走向軍國主義</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1936年2月26日凌晨，東京大雪紛飛，一批年輕陸軍軍官率領約1,400名士兵發動兵變，刺殺多名文官重臣。你認為，這場政變最終成功奪權，還是遭到鎮壓？而天皇本人的態度，又在事件中起了甚麼作用？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>陸軍「皇道派」青年軍官；岡田啟介首相；昭和天皇裕仁。</p>
+        <p><strong>事件：</strong>1936年2月26日，東京發生陸軍青年軍官兵變，史稱「二二六事件」。</p>
+        <p><strong>時代背景：</strong>1930年代日本陸軍內部分裂為主張天皇親政的皇道派與主張穩健擴軍、統制經濟的統制派；經濟蕭條、農村凋敝與政黨政治腐敗，令部分少壯軍官認定唯有以武力剷除「奸臣」，天皇才能親政革新。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Lt_Nibu_Masatada_Rebels_Feb_26_Incident_1936.png" alt="二二六事件叛軍士兵" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">1936年2月26日，佔領東京市中心的叛軍部隊。這場未遂政變雖遭天皇下令鎮壓，卻加速了軍部凌駕文官政府的進程。來源：<a href="https://en.wikipedia.org/wiki/February_26_Incident" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1936年2月26日凌晨，東京大雪紛飛，陸軍「皇道派」一批少壯軍官，率領約1,400名士兵發動兵變，目標直指多名被視為蒙蔽天皇聖聽的「奸臣」。叛軍分頭襲擊首相官邸、大藏大臣高橋是清私邸、內大臣齋藤實私邸及教育總監渡邊錠太郎宅邸等地，高橋是清、齋藤實、渡邊錠太郎當場遇害；首相岡田啟介則因與姊夫、秘書官松尾傳藏容貌相似，叛軍誤殺松尾，岡田本人僥倖藏匿於女傭房儲物間內逃過一劫。叛軍佔領國會、陸軍省與警視廳周邊地區，宣稱行動旨在「昭和維新」，剷除阻礙天皇親政的重臣，史稱「二二六事件」。</p>
+      <p>叛軍原本期望陸軍高層默許甚至支持其行動，事實上部分皇道派將領一度傾向承認既成事實，然而昭和天皇裕仁得知重臣遇害後震怒異常，堅決拒絕承認叛軍任何政治訴求，更親自下令必須立即鎮壓，甚至表示若軍隊不肯出動，將親率近衛師團平亂。天皇的強硬態度徹底扭轉局勢：陸軍中央在天皇明確表態後改變立場，於2月29日透過廣播與空投傳單，勸諭士兵「原隊復歸」，並派出戰車與軍隊包圍叛軍佔領區。多數普通士兵在得悉自己已成「叛軍」後陸續放下武器歸隊，未經激烈巷戰即告平息。</p>
+      <p>事件平息後，首謀軍官及支持者共19人遭軍事法庭祕密審判並處死刑，皇道派勢力自此在陸軍內部徹底崩潰，主張穩健擴軍、加強軍部對經濟統制的「統制派」乘勢掌握陸軍主導權。諷刺的是，這場旨在剷除文官干政、實現天皇親政的兵變雖然失敗，其後續效應卻是文官政府權威進一步遭削弱、軍部對內閣組成的影響力反而大增，日本自此加速滑向軍部主導對外擴張的軍國主義道路，為其後全面侵華及太平洋戰爭埋下伏筆。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/February_26_Incident" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場旨在「清君側」以助天皇親政的兵變，雖遭天皇本人下令鎮壓，卻反而令軍部從此凌駕文官政府之上。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>昭和天皇對二二六事件的態度，最終如何扭轉了整場政變的結局？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">天皇得知重臣遇害後震怒，堅拒承認叛軍訴求，並下令鎮壓，甚至揚言親率近衛師團平亂。陸軍中央因而改變立場，勸諭士兵歸隊，事件迅速平息，19名首謀最終遭處死。</div>
+      </details>
+      <div class="source">&#x1F4D6; 秦郁彥《昭和史の軍部と政治》；波多野澄雄等編《決定版 二・二六事件》；Encyclopaedia Britannica, &ldquo;February 26 Incident.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Press Conference Slip-Up That Brought Down the Berlin Wall Overnight</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On the evening of 9 November 1989, an East German government spokesman, reading from hastily prepared notes at a live televised press conference, was asked when new, looser travel rules for citizens would take effect. Before reading on, what do you think he answered, and how did one uncertain, improvised word from a mid-level bureaucrat trigger the collapse of one of the Cold War&rsquo;s most heavily guarded borders within hours?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> G&uuml;nter Schabowski (君特&middot;沙博夫斯基, East German Politburo spokesman); East German citizens gathering at Berlin Wall checkpoints.</p>
+        <p><strong>Event at stake:</strong> The unplanned opening of the Berlin Wall (柏林圍牆) on the night of 9 November 1989.</p>
+        <p><strong>Big picture:</strong> Months of mass protests, a collapsing East German economy, and waves of citizens fleeing through Hungary and Czechoslovakia had already pushed the communist government to the brink before a botched announcement triggered the Wall&rsquo;s sudden fall.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg" alt="Crowds at the Brandenburg Gate after the fall of the Berlin Wall in 1989" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">West and East Germans gather at the Brandenburg Gate (勃蘭登堡門) after the Berlin Wall (柏林圍牆) fell on the night of 9 November 1989. Credit: <a href="https://en.wikipedia.org/wiki/Berlin_Wall" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By late 1989, East Germany&rsquo;s (東德) communist government was collapsing under pressure it could no longer contain: weekly mass demonstrations in Leipzig (萊比錫) and other cities had swelled into the hundreds of thousands, while tens of thousands of citizens had already fled westward via newly opened borders in Hungary (匈牙利) and Czechoslovakia (捷克斯洛伐克). Hoping to relieve the pressure without fully opening the border, the Politburo drafted new travel regulations intended to let citizens apply for permits to travel abroad, planned for a gradual, bureaucratically controlled rollout beginning the following day.</p>
+      <p>On the evening of 9 November 1989, Politburo spokesman G&uuml;nter Schabowski (君特&middot;沙博夫斯基), who had not been closely briefed on the regulation&rsquo;s planned implementation timeline, announced the new travel rules at a live televised press conference. When a reporter pressed him on exactly when the rules would take effect, Schabowski shuffled through his notes, found no specified date, and improvised: &ldquo;As far as I know, effective immediately, without delay.&rdquo; The clip aired instantly on West German television, watched by millions of East Germans, who understood it as the border opening that very night.</p>
+      <p>Thousands of East Berliners streamed toward the Wall&rsquo;s checkpoints within hours, overwhelming bewildered border guards who had received no orders to let anyone through and could not reach superiors for instructions. Facing an unarmed, unstoppable crowd and no clear command to open fire, guard commander Harald J&auml;ger (哈拉爾德&middot;耶格) made an independent decision around 11:30pm to simply open the gates rather than risk a bloodbath. Within hours, jubilant crowds were dancing atop the Wall itself, and the barrier that had divided Berlin (柏林) for 28 years effectively ceased to function that same night, formal reunification following less than a year later in October 1990.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Berlin_Wall" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One improvised, uncertain answer at a live press conference did what decades of Cold War diplomacy couldn&rsquo;t &mdash; end the Berlin Wall in a single night.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific mistake did G&uuml;nter Schabowski make at the 9 November 1989 press conference, and how did East Berliners interpret it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Unbriefed on the rollout timeline, Schabowski improvised that the new travel rules were &ldquo;effective immediately, without delay&rdquo; when pressed for a date. Broadcast live, East Berliners understood this as the border opening that night and rushed the checkpoints.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Fall of the Berlin Wall.&rdquo; Sarotte, M.E. (2014), <em>The Collapse: The Accidental Opening of the Berlin Wall</em>.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>韓非子如何用「勢、術、法」三詞，為君主專制打造理論基礎</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國末年，一位口吃、出身韓國宗室的思想家，寫下大量文章批評儒家「仁政」空言誤國，主張君主應以嚴刑峻法、權術與威勢治國。你認為，這套學說最終有沒有被採納？而它的作者本人，下場又是如何？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>韓非（約公元前280&ndash;233年，戰國末年韓國宗室，荀子弟子）；秦王嬴政（後為秦始皇）。</p>
+        <p><strong>核心思想：</strong>韓非集商鞅「法」、申不害「術」、慎到「勢」三家之大成，主張君主須同時掌握明文法令、駕馭臣下的權術與居高臨下的權位，三者缺一不可，方能有效統治。</p>
+        <p><strong>時代背景：</strong>戰國末年群雄爭霸，儒家仁政學說在現實政治競爭中屢屢失效，法家務實、講求富國強兵之術漸受各國君主青睞，尤以秦國最為徹底奉行。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Hanfeizi_or_Han_Feizi%2C_Qing_dynasty%2C_Hunan_Museum.jpg/3840px-Hanfeizi_or_Han_Feizi%2C_Qing_dynasty%2C_Hunan_Museum.jpg" alt="韓非畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">韓非畫像（清代）&mdash; 集法家「勢、術、法」思想大成，其學說成為秦朝統一天下的治國藍本。來源：<a href="https://en.wikipedia.org/wiki/Han_Feizi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>韓非（約公元前280&ndash;233年）出身韓國宗室，天生口吃，不擅言辭卻長於著述，曾與李斯同為荀子門下弟子。眼見韓國積弱，屢次上書韓王力主變法圖強，卻始終不獲重用，遂發憤著書，寫成《孤憤》《五蠹》《說難》等篇，猛烈批評儒家「仁義」治國之說於亂世中不切實際，主張君主唯有依靠明確嚴峻的法令、駕馭群臣的權術，以及不容侵犯的權位威勢，三者相輔相成，方能真正掌控國家、抵禦外侮。</p>
+      <p>韓非集戰國法家三大支流之大成：商鞅重「法」，主張以成文法令公開賞罰、取信於民；申不害重「術」，強調君主須以隱密權謀駕馭群臣、令其莫測高深；慎到重「勢」，認為君主權位本身即為統治根本，即使庸才居此高位，亦能號令天下。韓非批評三者若單獨施行皆有缺陷——徒法而無術，則臣下易矇蔽君主；徒術而無法，則國無常規；徒勢而無法術輔助，則權位亦難以鞏固——唯有三者合一，方為治國正道。</p>
+      <p>韓非的著作輾轉傳入秦國，秦王嬴政讀後大為讚嘆，感嘆「嗟乎，寡人得見此人與之遊，死不恨矣」，遂發兵逼韓國交出韓非。韓非使秦後，卻因與同門李斯政見及利益衝突，遭李斯進讒言誣陷，下獄後被迫服毒自盡，未及親眼見證其學說如何深刻影響秦國的統一大業。秦始皇統一六國後，正是以韓非集大成的法家思想為治國藍本，建立中央集權的郡縣制度，此後兩千餘年中國歷代王朝雖表面尊儒，實際治術往往「陽儒陰法」，法家思想的影響力遠超其表面聲勢。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Han_Feizi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 韓非集法、術、勢於一身的治國理論成就了秦朝統一大業，其本人卻死於同門師兄弟的權術算計之下——恰恰印證了他自己學說的殘酷邏輯。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>韓非「勢、術、法」三者分別指甚麼？他認為三者為何缺一不可？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">「法」指公開嚴明的法令賞罰；「術」指君主駕馭群臣的隱密權謀；「勢」指君主本身不容侵犯的權位。韓非認為三者若單獨施行皆有缺陷，唯有合一並用，君主方能真正掌控國家。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《韓非子》〈孤憤〉〈五蠹〉〈定法〉；司馬遷《史記&middot;老子韓非列傳》；馮友蘭《中國哲學史》。</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Argued You Should Never Lie, Even to Save a Friend&rsquo;s Life</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Immanuel Kant argued that moral rules aren&rsquo;t judged by their consequences at all, good or bad outcomes are irrelevant, but by a single logical test applied to the rule itself before you act. Before reading on, what do you think that test actually was, and would you be surprised to learn Kant believed it forbade lying even to protect someone from a murderer at your door?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Immanuel Kant (伊曼努爾&middot;康德, 1724&ndash;1804), German philosopher of K&ouml;nigsberg (哥尼斯堡), who famously never travelled more than about 16km from his hometown.</p>
+        <p><strong>Problem at stake:</strong> Whether morality can rest on calculating good or bad consequences at all, or whether some actions are simply, unconditionally required by reason regardless of outcome.</p>
+        <p><strong>Rival view:</strong> Directly opposed to consequentialist thinkers like the utilitarians, who judged actions by the outcomes they produced, Kant insisted duty and rational consistency, not results, were the only true basis for morality.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Immanuel_Kant_-_Gemaelde_1.jpg" alt="Portrait of Immanuel Kant" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Immanuel Kant (康德), whose categorical imperative (定言令式) argued moral rules must hold as universal law regardless of consequence. Credit: <a href="https://en.wikipedia.org/wiki/Categorical_imperative" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his 1785 <em>Groundwork of the Metaphysics of Morals</em> (道德形而上學基礎), Immanuel Kant (康德) argued that genuine moral worth comes not from an action&rsquo;s consequences, which are often unpredictable and outside our control, but from acting purely out of duty (義務) in accordance with reason. Kant proposed a single test for determining whether any action is morally permissible, which he called the categorical imperative (定言令式): act only according to a rule, or &ldquo;maxim,&rdquo; that you could simultaneously will to become a universal law binding everyone, without contradiction.</p>
+      <p>To illustrate, Kant considered lying to secure a loan you don&rsquo;t intend to repay: if lying to escape difficulty became a universal law everyone followed whenever convenient, the entire concept of a trustworthy promise would collapse, making the original lie impossible, a logical contradiction Kant took as proof the act was morally forbidden regardless of any individual benefit gained. Crucially, Kant insisted this test applies &ldquo;categorically,&rdquo; unconditionally, not &ldquo;hypothetically,&rdquo; depending on what you happen to want, making moral duty binding on all rational beings purely through logical consistency, independent of personal desire or circumstance.</p>
+      <p>Kant&rsquo;s framework produced a famously uncompromising conclusion in a 1797 essay: even if a known murderer asks you directly where your friend is hiding, lying to protect your friend remains impermissible, because you cannot universalise deception without undermining the very possibility of truthful communication itself. Critics, including Benjamin Constant during Kant&rsquo;s own lifetime, seized on this as evidence the categorical imperative produces morally absurd results when rigidly applied; defenders counter that Kant&rsquo;s broader ethical system, including his related formula treating persons always as ends in themselves and never merely as means, offers more nuance than the murderer-at-the-door case alone suggests.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Categorical_imperative" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Kant&rsquo;s test for right and wrong wasn&rsquo;t &ldquo;what happens if I do this,&rdquo; but &ldquo;what happens if everyone did this&rdquo; &mdash; a logical trapdoor, not a moral feeling.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Kant&rsquo;s categorical imperative, what specific test determines whether an action is morally permissible, and why did he conclude lying is always wrong under this test?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">An action is permissible only if you could will its underlying rule to become a universal law everyone follows without contradiction. Lying fails this test because universal lying would destroy the concept of a trustworthy statement, making the original lie logically impossible.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kant, I. (1785), <em>Groundwork of the Metaphysics of Morals</em>. Stanford Encyclopedia of Philosophy, &ldquo;Kant&rsquo;s Moral Philosophy.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a Doomed Supersonic Jet Kept Flying for Decades After Everyone Knew It Would Lose Money</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The British and French governments jointly funded a supersonic passenger jet project starting in the 1960s, and by the early 1970s, internal cost projections already showed it would never turn a profit. Before reading on, do you think the governments cancelled the project once the losses became clear, or kept funding it anyway, and what psychological bias, later named directly after this very aircraft, might explain the decision?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/British_Airways_Concorde_G-BOAC_03.jpg" alt="A British Airways Concorde supersonic jet" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Concorde (協和式客機) &mdash; kept flying for decades after cost projections showed it would never profit, lending its name to the &ldquo;Concorde fallacy.&rdquo; Credit: <a href="https://en.wikipedia.org/wiki/Sunk_cost" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Concorde (協和式客機) supersonic jet, jointly developed by Britain (英國) and France (法國) starting in 1962, became a byword for a specific decision-making trap precisely because its own history illustrates it so clearly: by the early 1970s, internal government cost analyses already showed the programme would never recoup its development costs, let alone turn a meaningful profit, yet both governments continued funding it for years afterward, reluctant to abandon a project they had already poured enormous sums into. Economists later coined the term &ldquo;Concorde fallacy&rdquo; specifically to describe this pattern: continuing a failing course of action because of resources already invested, rather than assessing future costs and benefits alone.</p>
+      <p>Psychologists Hal Arkes (哈爾&middot;阿克斯) and Catherine Blumer formally studied this bias in a landmark 1985 paper, running experiments including one where participants who had already paid for a ski trip they later learned they&rsquo;d enjoy less than an alternative trip were more likely to go on the worse, already-paid-for trip anyway, rather than switch and simply absorb the loss. Standard economic theory holds that only future costs and benefits should matter to a rational decision, since money, time, or effort already spent, the &ldquo;sunk cost&rdquo; (沉沒成本), cannot be recovered regardless of what you choose next, making it logically irrelevant to any forward-looking decision.</p>
+      <p>The sunk cost fallacy (沉沒成本謬誤) appears constantly in ordinary life: finishing a bad meal because you already paid for it, sitting through a disappointing film because you bought the ticket, or staying in a failing relationship or career path because of years already invested, in each case letting an unrecoverable past cost distort a decision that should rest purely on the best path forward. Researchers have found the effect weakens when people are explicitly reminded that past costs are irrecoverable, and organisations increasingly build formal &ldquo;kill criteria,&rdquo; pre-agreed conditions for abandoning a project, specifically to counteract the psychological pull of not wanting one&rsquo;s prior investment to have been &ldquo;wasted.&rdquo;</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sunk_cost" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The money, time, or effort you&rsquo;ve already spent is gone either way &mdash; the only question that should matter is what happens if you continue versus if you stop.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Arkes and Blumer&rsquo;s 1985 ski trip experiment demonstrate, and what does standard economic theory say should actually determine a rational decision?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Participants who had already paid for a ski trip they&rsquo;d enjoy less were more likely to take that trip anyway rather than switch and absorb the loss. Standard theory holds only future costs and benefits should matter, since already-spent resources cannot be recovered regardless of the next choice.</div>
+      </details>
+      <div class="source">&#x1F4D6; Arkes, H.R. &amp; Blumer, C. (1985), <em>Organizational Behavior and Human Decision Processes</em>. Britannica, &ldquo;Concorde fallacy.&rdquo;</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Reading in a Moving Car Makes Some People Feel Sick, But Driving Doesn&rsquo;t</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">People who feel perfectly fine driving a car can feel nauseated within minutes of reading a book as a passenger in that same moving vehicle. Before reading on, what do you think is actually happening inside the body that creates this specific mismatch, and why might looking out the front window instead of down at a page make the queasiness disappear?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sea-sickness_-_published_by_G.S._Tregear%2C_96_Cheapside_%28cropped%29.jpg/330px-Sea-sickness_-_published_by_G.S._Tregear%2C_96_Cheapside_%28cropped%29.jpg" alt="Historical illustration of sea-sickness" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Motion sickness (暈動症) arises from a mismatch between what the inner ear senses and what the eyes report. Credit: <a href="https://en.wikipedia.org/wiki/Motion_sickness" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Motion sickness (暈動症) arises from a mismatch between different sensory systems the brain relies on to track the body&rsquo;s movement through space, specifically the vestibular system (前庭系統) in the inner ear, which senses acceleration and rotation, and the visual system, which reports what the eyes actually see. When you read in a moving car, your inner ear correctly senses the vehicle&rsquo;s turns, stops, and accelerations, but your eyes, fixed on a stationary page, report that you&rsquo;re not moving at all, creating a direct sensory conflict the brain has evolved no clean way to resolve.</p>
+      <p>The leading explanation, sensory conflict theory (感覺衝突理論), proposes that this contradictory information triggers a kind of ancestral evolutionary alarm: in the environment humans evolved in, the specific combination of &ldquo;inner ear says motion, eyes say stillness&rdquo; most plausibly signalled that the brain itself had been poisoned by a neurotoxin, since no ordinary natural event could otherwise produce that exact mismatch. Nausea and vomiting, on this account, are a defensive reflex evolved to expel a suspected toxin, an overcautious but evolutionarily sensible response misfiring in a context, cars, ships, and planes, evolution never encountered.</p>
+      <p>This explains why looking out the front windshield toward the horizon typically relieves symptoms: the eyes then confirm the same motion the inner ear is already sensing, resolving the conflict, while the driver of a vehicle rarely experiences motion sickness at all, since actively steering means constantly anticipating and visually tracking the vehicle&rsquo;s movements rather than passively receiving mismatched signals. Practical countermeasures, sitting in the front seat, looking at the horizon, avoiding reading, and certain medications targeting the vestibular system, all work by either reducing the sensory mismatch directly or dampening the brain&rsquo;s alarm response to it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Motion_sickness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Motion sickness isn&rsquo;t really about the motion itself &mdash; it&rsquo;s your inner ear and your eyes disagreeing about whether you&rsquo;re moving at all.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to sensory conflict theory, why does reading in a moving car often trigger motion sickness, and why does looking at the horizon typically relieve it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The inner ear senses the vehicle&rsquo;s motion while the eyes, fixed on a stationary page, report no movement, creating a mismatch the brain interprets as a possible toxin. Looking at the horizon lets the eyes confirm the same motion the inner ear senses, resolving the conflict.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bertolini, G. &amp; Straumann, D. (2016), <em>Frontiers in Neurology</em>, &ldquo;Moving in a Moving World.&rdquo; Britannica, &ldquo;Motion sickness.&rdquo;</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Ice Bath Ritual That May Be Undoing Some of Your Gym Gains</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Cold plunges and ice baths have become a widely popular post-workout ritual, promoted for reducing soreness and speeding recovery. Before reading on, do you think the research actually supports these claims across the board, or might jumping straight into ice water after a workout sometimes work against a specific type of training goal?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Karyn_Marshall_Ice_Bath.jpg" alt="An athlete undergoing a post-workout ice bath" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold water immersion (冷水浸泡) modestly eases soreness, but timing matters &mdash; icing right after strength training may blunt long-term muscle growth. Credit: <a href="https://en.wikipedia.org/wiki/Cold_therapy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold water immersion (冷水浸泡), popularly known as ice baths or cold plunges, has become a widely adopted post-exercise ritual, with athletes and casual gym-goers alike crediting it with reduced muscle soreness and faster recovery between sessions. The practice does have some genuine evidence behind it for a specific purpose: multiple studies and a Cochrane systematic review have found cold water immersion modestly reduces delayed-onset muscle soreness (延遲性肌肉痠痛, DOMS) in the day or two after intense exercise, likely by reducing inflammation and swelling through vasoconstriction, the narrowing of blood vessels in response to cold.</p>
+      <p>However, a widely cited 2015 study by Jonas Nørregaard Roberts (羅伯茲) and colleagues, published in <em>The Journal of Physiology</em>, found that cold water immersion performed immediately after resistance training (阻力訓練) specifically blunted the long-term muscle growth and strength gains athletes were training for, compared to using active recovery alone. The likely mechanism is that the very inflammatory response cold water suppresses, the swelling and cellular signalling triggered by resistance exercise, is not simply unwanted damage but part of the biological trigger driving muscle protein synthesis and adaptive growth (肌肉肥大) over time.</p>
+      <p>This creates a genuine trade-off rather than a universal recommendation: an endurance athlete facing back-to-back competition days, where minimising soreness and enabling a quick return to performance matters more than maximising long-term muscle growth, may reasonably benefit from a cold plunge. But someone whose primary training goal is building muscle or strength over months may be undermining their own progress by icing immediately after every resistance session, since the inflammation they&rsquo;re rushing to eliminate is doing genuine adaptive work. Most researchers now suggest waiting several hours after strength training, if using cold immersion at all, rather than plunging in immediately post-workout.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cold_therapy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Ice baths right after a strength workout may cool the very inflammation your muscles need to actually grow bigger and stronger.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Roberts et al.&rsquo;s 2015 study find about cold water immersion performed immediately after resistance training, and why might this happen?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Immediate post-workout cold water immersion blunted long-term muscle growth and strength gains compared to active recovery. This is likely because the inflammatory response cold suppresses is part of the biological signal that drives muscle protein synthesis and adaptive growth.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015), <em>The Journal of Physiology</em>. Cochrane Database of Systematic Reviews, &ldquo;Water-based cooling for exercise-induced muscle damage.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Elite Runners Train in Thin Mountain Air to Perform Better at Sea Level</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many of the world&rsquo;s fastest distance runners spend weeks training at high altitude, in air with noticeably less oxygen than at sea level, before returning to compete at sea level where oxygen is abundant. Before reading on, why do you think training somewhere with less oxygen available would make an athlete faster once they return to a place with more?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Gateway_to_Iten_town.jpg" alt="Iten, Kenya, a high-altitude training town" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Iten (伊滕), Kenya (肯亞), sits roughly 2,400 metres up in the Rift Valley (裂谷) highlands and has produced a disproportionate share of the world&rsquo;s elite distance runners. Credit: <a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>At high altitude, typically above 2,000&ndash;2,500 metres, the air contains the same proportion of oxygen as at sea level, roughly 21%, but lower atmospheric pressure means fewer oxygen molecules are available in each breath, forcing the body to work harder to deliver adequate oxygen to its tissues. Endurance athletes have long sought to exploit this stress deliberately: towns like Iten (伊滕) in Kenya&rsquo;s (肯亞) Rift Valley (裂谷) highlands, sitting at roughly 2,400 metres, have produced a disproportionate share of the world&rsquo;s elite distance runners, training daily in this thinner air.</p>
+      <p>The physiological mechanism centres on erythropoietin (紅血球生成素, EPO), a hormone the kidneys release in response to reduced oxygen availability, which stimulates the bone marrow to produce more red blood cells over subsequent weeks. More red blood cells mean greater oxygen-carrying capacity in the bloodstream, so when an altitude-adapted athlete returns to sea level, where oxygen is abundant again, their now-elevated red blood cell count can deliver more oxygen to working muscles than before the altitude exposure, translating directly into improved endurance performance.</p>
+      <p>Exercise physiologist Ben Levine (列文) and colleagues formalised the most influential practical protocol in the 1990s, &ldquo;live high, train low&rdquo; (高住低訓): athletes sleep and rest at altitude, where the body generates the beneficial red blood cell adaptations, but travel down to lower elevation for their hardest, highest-intensity training sessions, since thin air limits how hard anyone can actually train at full intensity. Not every athlete responds equally, individual variation in the erythropoietin response is substantial, and the benefits fade within weeks of returning to sea level, meaning altitude camps must be carefully timed before major competitions.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Altitude_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Training where oxygen is scarce forces your body to build more oxygen-carrying red blood cells &mdash; a boost that only pays off once you return somewhere oxygen is abundant again.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the physiological mechanism connecting altitude training to improved sea-level performance, and what does the &ldquo;live high, train low&rdquo; protocol try to achieve?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Reduced oxygen at altitude triggers erythropoietin release, which increases red blood cell production and boosts oxygen-carrying capacity. &ldquo;Live high, train low&rdquo; has athletes sleep at altitude for this adaptation while training at lower elevation, since thin air limits full-intensity training.</div>
+      </details>
+      <div class="source">&#x1F4D6; Levine, B.D. &amp; Stray-Gundersen, J. (1997), <em>Journal of Applied Physiology</em>. NSCA, &ldquo;Altitude Training for Endurance Athletes.&rdquo;</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Wall Street Outsider Who Built a Fund Designed to Beat Almost No One</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1976, a fund manager launched a new kind of investment fund with an unusual, seemingly unambitious goal: rather than trying to beat the stock market, it would simply try to match it as closely as possible, at the lowest cost achievable. Before reading on, how do you think Wall Street initially reacted to a product explicitly designed not to try to outperform, and how large has this type of fund grown since?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Photo_of_a_John_C._Bogle_By_Bill_Cramer.jpg" alt="John C. Bogle, founder of Vanguard" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John C. Bogle (約翰&middot;柏格), whose 1976 index fund (指數基金) was mocked as &ldquo;Bogle&rsquo;s Folly&rdquo; before growing into a multi-trillion-dollar industry. Credit: <a href="https://en.wikipedia.org/wiki/John_C._Bogle" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1976, John C. Bogle (約翰&middot;柏格), founder of the Vanguard Group (先鋒集團), launched the First Index Investment Trust, the first index fund (指數基金) widely available to individual investors, designed to simply track the S&amp;P 500 (標準普爾500指數) rather than attempting to select individual winning stocks. The idea rested on a body of academic research, including work underpinning the efficient-market hypothesis (效率市場假說), suggesting that most professional active fund managers, after fees, fail to consistently outperform the broad market average over long periods.</p>
+      <p>Wall Street&rsquo;s initial reaction was dismissive to outright hostile: rival fund companies mocked it as &ldquo;Bogle&rsquo;s Folly,&rdquo; and some critics called an admittedly average, market-matching fund positively &ldquo;un-American,&rdquo; a strange product to market as an achievement rather than a limitation. The fund&rsquo;s first public offering in 1976 raised only about $11 million, far short of the $150 million target, and several underwriters reportedly considered the launch a near-failure, since Bogle was explicitly selling investors on the radical idea of intentionally accepting average returns in exchange for dramatically lower fees than actively managed alternatives.</p>
+      <p>Bogle&rsquo;s insight proved durable specifically because of compounding fee costs: an actively managed fund charging even a modest 1% higher annual fee than an index fund can lose an investor a substantial fraction of their total lifetime returns to fees compounding over decades, even if the manager&rsquo;s stock-picking skill is perfectly average. Index funds and their close relatives, exchange-traded funds, have since grown to control trillions of dollars in assets worldwide, and Bogle, who died in 2019, is widely credited by figures including Warren Buffett (華倫&middot;巴菲特) with saving ordinary investors more money collectively than any other individual in financial history.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/John_C._Bogle" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Bogle&rsquo;s &ldquo;boring&rdquo; idea, just match the market instead of trying to beat it, became one of the most financially valuable insights ordinary investors ever received.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Bogle argue a low-cost index fund could outperform actively managed funds over the long run, even if the active manager&rsquo;s stock-picking skill was average?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Fee costs compound over decades just like returns do. Even a modestly higher annual fee on an actively managed fund can erode a substantial fraction of an investor&rsquo;s total lifetime returns, regardless of whether the manager&rsquo;s skill is average.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bogle, J.C. (1999), <em>Common Sense on Mutual Funds</em>. Vanguard Group, corporate history archives.</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>How Countries That Broke Free-Market Rules Grew Faster Than Countries That Followed Them</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Park_Chung_Hee_%28%EB%B0%95%EC%A0%95%ED%9D%AC%29_Presidential_Portrait.jpg" alt="Portrait of Park Chung-hee, President of South Korea" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Park Chung-hee (朴正熙), whose government directed state-bank credit toward favoured industries during South Korea&rsquo;s (南韓) rapid growth era, in tension with free-market orthodoxy. Credit: <a href="https://en.wikipedia.org/wiki/Developmental_state" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Beginning in the 1960s, South Korea (南韓) and Taiwan (台灣) achieved decades of extraordinary growth, often called the &ldquo;Miracle on the Han River&rdquo; (漢江奇蹟), while heavily violating free-market orthodoxy through state-directed credit, protected industries, and government-set export targets.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The Washington Consensus (華盛頓共識), the dominant development framework from the 1980s onward, prescribed trade liberalisation, privatisation, deregulation, and minimal state intervention in credit and industry as the reliable path to sustained growth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Under President Park Chung-hee (朴正熙), South Korea&rsquo;s government directed cheap state-bank credit toward favoured firms like the future POSCO (浦項製鐵) steelmaker, explicitly picking industrial winners and shielding them from competition, the near-opposite of Consensus prescriptions, yet sustained double-digit growth for over two decades while more orthodox followers often stagnated.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economists Alice Amsden (阿姆斯登) and Robert Wade (韋德) developed &ldquo;developmental state&rdquo; (發展型國家) theory, arguing a capable state bureaucracy directing credit toward export-disciplined firms, forced to compete internationally despite domestic subsidy, can outperform pure free markets under specific conditions, though critics note the model has rarely replicated successfully elsewhere.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; South Korea&rsquo;s steel mills and shipyards were built with state-directed credit and protection, not free markets &mdash; proof the &ldquo;right&rdquo; growth policy may be more institution-specific than any one universal formula suggests.</div>
+      <div class="source">&#x1F4D6; Amsden, A.H. (1989), <em>Asia&rsquo;s Next Giant: South Korea and Late Industrialization</em>. Wade, R. (1990), <em>Governing the Market</em>. World Bank, &ldquo;The East Asian Miracle&rdquo; (1993).</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 6 &mdash; Trapped by What&rsquo;s Already Been Spent:</strong> The February 26 rebels had staked their careers, ideology, and lives on a coup already launched, making retreat feel like betrayal even as the tide turned decisively against them once the Emperor refused to legitimise their action. The British and French governments funding Concorde faced a milder version of the same trap: continuing to pour money into a plane already proven unprofitable rather than admit the funds already committed were gone regardless of what came next.</p>
+      <p><strong>So what:</strong> Whether the stakes are a coup or a budget line, the hardest moment to change course is exactly the moment you&rsquo;ve already committed the most, which is precisely when a decision should be judged purely on what happens next, not on what&rsquo;s already been spent.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, &ldquo;Voyager 2: Uranus.&rdquo; Smith, B.A. et al. (1986), <em>Science</em>.</li>
+      <li><strong>Card 2:</strong> 秦郁彥《昭和史の軍部と政治》；波多野澄雄等編《決定版 二・二六事件》；Britannica, &ldquo;February 26 Incident.&rdquo;</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Fall of the Berlin Wall.&rdquo; Sarotte, M.E. (2014).</li>
+      <li><strong>Card 4:</strong> 《韓非子》〈孤憤〉〈五蠹〉〈定法〉；司馬遷《史記&middot;老子韓非列傳》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Kant, I. (1785). Stanford Encyclopedia of Philosophy, &ldquo;Kant&rsquo;s Moral Philosophy.&rdquo;</li>
+      <li><strong>Card 6:</strong> Arkes, H.R. &amp; Blumer, C. (1985). Britannica, &ldquo;Concorde fallacy.&rdquo;</li>
+      <li><strong>Card 7:</strong> Bertolini, G. &amp; Straumann, D. (2016), <em>Frontiers in Neurology</em>. Britannica, &ldquo;Motion sickness.&rdquo;</li>
+      <li><strong>Card 8:</strong> Roberts, L.A. et al. (2015), <em>The Journal of Physiology</em>. Cochrane Database of Systematic Reviews.</li>
+      <li><strong>Card 9:</strong> Levine, B.D. &amp; Stray-Gundersen, J. (1997), <em>Journal of Applied Physiology</em>. NSCA.</li>
+      <li><strong>Card 10:</strong> Bogle, J.C. (1999). Vanguard Group corporate history archives.</li>
+      <li><strong>Card 11:</strong> Amsden, A.H. (1989). Wade, R. (1990). World Bank, &ldquo;The East Asian Miracle&rdquo; (1993).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-09: Voyager 2 at Uranus (1986) &bull; 二二六事件 (1936) &bull; Fall of the Berlin Wall (1989) &bull; 韓非子與法家「勢術法」思想 &bull; Kant&rsquo;s Categorical Imperative &bull; Sunk Cost Fallacy / Concorde Fallacy &bull; Motion Sickness / Sensory Conflict Theory &bull; Cold Water Immersion / Ice Bath Recovery &bull; Altitude Training / Live High Train Low &bull; John Bogle &amp; the Birth of Index Funds &bull; East Asian Developmental State vs Washington Consensus</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-09.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-09.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 9 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
