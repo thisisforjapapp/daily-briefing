@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 13 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 13 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <!-- Yesterday's Spark -->
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from the last briefing, <em>9 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Voyager 2 at Uranus</span>The only spacecraft ever to visit Uranus found a planet so featureless the imaging team feared their cameras had failed.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 二二六事件</span>少壯軍官兵變失敗，反令軍部從此凌駕文官政府。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Fall of the Berlin Wall</span>One unbriefed spokesman&rsquo;s improvised &ldquo;effective immediately&rdquo; opened the Wall within hours, ending it in a single night.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 韓非子勢術法</span>韓非集法家大成建構專制理論，自己卻死於同門權術之下。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Kant&rsquo;s Categorical Imperative</span>Kant judged actions not by their outcomes but by whether the rule behind them could become universal law.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Sunk Cost Fallacy</span>Two governments kept funding Concorde long after they knew it would never profit, naming the bias after it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Motion Sickness</span>Nausea comes from your inner ear and eyes disagreeing about whether you&rsquo;re moving, not from motion itself.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Ice Baths</span>Cold plunges eased soreness but blunted long-term strength gains when taken right after resistance training.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Altitude Training</span>Thin mountain air triggers extra red blood cell production, a boost that only pays off back at sea level.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Birth of Index Funds</span>Bogle&rsquo;s 1976 fund was mocked as &ldquo;Bogle&rsquo;s Folly&rdquo; for aiming only to match the market, never beat it.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Developmental State</span>South Korea and Taiwan grew fastest while breaking nearly every free-market development rule prescribed to them.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1: Astronomy -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Most Famous Photograph in Astronomy &mdash; and What Webb Found Hiding Inside It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1995, Hubble photographed three towering columns of gas and dust that became probably the most reproduced astronomical image ever made. In 2022, the James Webb Space Telescope pointed at the exact same columns using infrared light instead of visible light. Before reading on, what do you think changed in the picture, and why would seeing in infrared reveal things that were completely invisible before?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Eagle_nebula_pillars.jpg" alt="The Pillars of Creation in the Eagle Nebula" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Pillars of Creation (創生之柱) in the Eagle Nebula (鷹星雲), first photographed by the Hubble Space Telescope (哈勃太空望遠鏡) in 1995 &mdash; three columns of cold gas and dust roughly five light-years tall. Credit: <a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 1 April 1995, astronomers Jeff Hester (赫斯特) and Paul Scowen (斯考恩) pointed the Hubble Space Telescope (哈勃太空望遠鏡) at a small patch of the Eagle Nebula (鷹星雲), about 6,500 light-years away in the constellation Serpens (巨蛇座). What came back looked less like an astronomical measurement than a cathedral: three enormous columns of cold gas and dust, the tallest roughly five light-years from base to tip, glowing at their edges and standing against a luminous background. The image was nicknamed the Pillars of Creation (創生之柱), and it went on to appear on stamps, album covers, and television screens worldwide.</p>
+      <p>The columns exist because they are being eaten. Just above the frame sit several enormous, extremely hot young stars in the cluster NGC 6611, pouring out ultraviolet radiation and stellar winds that boil away the surrounding gas cloud. Where a pocket of gas happens to be denser, it resists longer, and the material behind it is sheltered in its shadow, leaving a column pointing back toward the eroding source. The glowing rims are the surfaces actively evaporating. Embedded in the tips are dense knots where gravity is pulling gas together into brand-new stars, which is why the structure earned its name.</p>
+      <p>In October 2022, the James Webb Space Telescope (韋伯太空望遠鏡) photographed the same columns in near-infrared light, and the difference is startling. Infrared passes through dust that blocks visible light entirely, so the pillars that looked opaque and inky in Hubble&rsquo;s view turned translucent and smoky, and hundreds of newborn stars that had been buried inside suddenly appeared as points of light. Crimson streaks at the pillar tips mark ejections from stars only a few hundred thousand years old. Both images are true; they simply catch different wavelengths, and neither alone tells the whole story of what is inside.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Pillars aren&rsquo;t being built &mdash; they&rsquo;re being carved away, and stars are being born inside the leftovers.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do the Pillars of Creation have their column shape, and why did Webb&rsquo;s infrared view show newborn stars that Hubble&rsquo;s visible-light view could not?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Ultraviolet radiation from nearby hot young stars is eroding the gas cloud; denser pockets resist longer and shelter the material behind them, leaving columns. Infrared light penetrates dust that blocks visible light, so Webb saw stars buried inside the pillars.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA, &ldquo;Webb Takes a Stunning, Star-Filled Portrait of the Pillars of Creation&rdquo; (19 Oct 2022). Hester, J.J. et al. (1996), <em>The Astronomical Journal</em>.</div>
+    </article>
+
+    <!-- CARD 2: Eastern History -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>土木堡之變——一個宦官的虛榮，如何令二十萬明軍與皇帝一同覆沒</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1449年，明英宗在宦官王振慫恿下御駕親征，率二十萬大軍北上迎擊瓦剌。你認為這場親征結果如何？而當皇帝本人被敵軍生擒、成為人質之後，北京城裡的朝廷又該如何應對這種前所未有的困局？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>明英宗朱祁鎮；司禮監太監王振；瓦剌太師也先；兵部侍郎于謙。</p>
+        <p><strong>事件：</strong>1449年8月，明軍於土木堡（今河北懷來）全軍覆沒，明英宗被瓦剌俘虜，史稱「土木堡之變」。</p>
+        <p><strong>時代背景：</strong>明成祖五次北征後，明廷對蒙古草原長期採取羈縻與朝貢並用的政策。至正統年間，瓦剌部在也先領導下整合蒙古諸部，實力大盛；而明廷內部，年輕的英宗寵信宦官王振，宦官權勢首次凌駕於文官與勳貴之上，軍政決策日益脫離專業將領之手。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Tumu_Crisis.jpg" alt="土木堡之變形勢圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">土木堡之變形勢示意——1449年瓦剌分兵多路南下，明軍主力在土木堡遭圍殲，英宗被俘。來源：<a href="https://en.wikipedia.org/wiki/Tumu_Crisis" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1449年7月，瓦剌太師也先以明廷削減馬匹貢價為藉口，分四路大舉南侵，主力直逼大同。消息傳至北京，司禮監太監王振力主英宗御駕親征，以效法成祖北伐的威風；兵部尚書鄺埜、侍郎于謙等力陳準備不足、糧秣未集，皆遭斥退。七月十六日，英宗率號稱五十萬（實數約二十萬）大軍倉卒出發，隨行文武百官逾百人。行軍途中連日大雨，糧道混亂，士卒未至前線已疲憊不堪，沿途所見盡是先前戰死明軍的屍骸，軍心早已動搖。</p>
+      <p>大軍抵大同後，王振得知前方戰況慘烈，臨陣改變主意下令班師。撤退路線一改再改：據載王振原欲繞道其家鄉蔚州「衣錦還鄉」，中途又恐大軍踐踏自家田禾，再度改道，白白耗去寶貴時間。八月十四日，明軍退至土木堡，此地地勢高亢、缺乏水源，隨行官員力請再進十餘里入懷來城據守，王振以輜重未至為由堅拒。也先騎兵隨即合圍，斷絕水道。次日瓦剌佯裝議和誘明軍移營取水，饑渴難耐的士卒陣形一散，伏兵四起。</p>
+      <p>結果是明朝開國以來最慘重的一次覆敗：隨征的英國公張輔、兵部尚書鄺埜等數十名重臣戰死，王振本人亦死於亂軍之中，英宗被瓦剌生擒。消息傳回北京，朝中一度有南遷之議，兵部侍郎于謙厲聲反對，力主固守，並擁立英宗之弟郕王朱祁鈺即位為景帝，遙尊英宗為太上皇——如此一來，也先手中的人質頓時失去要挾價值。同年十月，于謙指揮北京保衛戰擊退瓦剌。此役之後，明朝京營精銳盡喪，對蒙古由攻轉守，長城防線的修築自此成為國防主軸。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tumu_Crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 于謙另立新君的一著，等於當眾宣布人質已無價值——這是化解綁架勒索最徹底、也最冷酷的辦法。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>英宗被俘後，于謙為何主張另立景帝？此舉如何改變了明廷與也先之間的談判形勢？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">另立新君使被俘的英宗從「當今皇帝」變成「太上皇」，也先手中的人質頓時失去要挾朝廷的籌碼。明廷得以放手備戰，于謙隨後指揮北京保衛戰擊退瓦剌。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《明史&middot;英宗本紀》《明史&middot;于謙傳》；《明實錄&middot;英宗實錄》；Twitchett &amp; Mote (eds.), <em>The Cambridge History of China, Vol. 7: The Ming Dynasty</em>.</div>
+    </article>
+
+    <!-- CARD 3: Western History -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Walls That Held for a Thousand Years, and the Cannon That Ended Them in Seven Weeks</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For over a thousand years, one city&rsquo;s land walls had turned back army after army &mdash; Persians, Arabs, Bulgars, Rus. In 1453 an Ottoman sultan not yet twenty-two arrived outside them. Before reading on, what do you think finally made the difference, and why might a defensive system that had worked for a millennium suddenly become obsolete in a single generation?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Mehmed II (穆罕默德二世, &ldquo;the Conqueror&rdquo;), Ottoman sultan aged 21; Constantine XI Palaiologos (君士坦丁十一世), last Byzantine emperor; Orban (烏爾班), the Hungarian gunfounder.</p>
+        <p><strong>Event at stake:</strong> The fall of Constantinople (君士坦丁堡) on 29 May 1453, ending the Byzantine Empire (拜占庭帝國) after roughly eleven centuries.</p>
+        <p><strong>Big picture:</strong> By 1453 the &ldquo;empire&rdquo; was barely more than the city itself and a few scraps of territory, its population shrunk to perhaps 50,000, surrounded on all sides by Ottoman land. What made the siege a hinge point in history was not the size of the prize but the technology that took it.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg/1280px-Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg" alt="Fresco depicting the siege of Constantinople" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A sixteenth-century fresco of the siege of Constantinople (君士坦丁堡), Moldovi&#x21B;a Monastery, Romania (羅馬尼亞). Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Theodosian Walls (狄奧多西城牆), built in the fifth century, were the reason Constantinople (君士坦丁堡) had survived so long: a layered system of an outer moat, a low outer wall, a terrace, and then a massive inner wall studded with 96 towers, so that an attacker who breached one line found himself in a killing ground facing the next. Sieges had broken against them for a millennium. But the walls were designed against battering rams, ladders, and torsion catapults, weapons that deliver energy slowly and locally. They were never designed against something that could deliver a stone ball weighing half a tonne at once.</p>
+      <p>That is what Mehmed II (穆罕默德二世) brought. A Hungarian gunfounder named Orban (烏爾班) had first offered his services to the Byzantines, who could not afford to pay him; he went to the sultan, who could. The resulting bombard was reportedly over eight metres long and needed dozens of oxen to move, and it fired stone shot of enormous weight, though it could only be fired a handful of times a day and cracked during the siege. Alongside dozens of smaller guns, it pounded the same wall sections repeatedly, and unlike ram damage, cannon damage could not be repaired faster than it accumulated.</p>
+      <p>The siege ran from 6 April to 29 May 1453. Constantine XI (君士坦丁十一世) had perhaps 7,000 defenders, including a skilled Genoese contingent under Giovanni Giustiniani (朱斯蒂尼亞尼), against an Ottoman force many times larger. A chain across the Golden Horn (金角灣) blocked the harbour, so Mehmed had ships dragged overland on greased rollers to get behind it. The final assault came before dawn on 29 May; Giustiniani was wounded and withdrew, the defence wavered, and the city fell. Constantine died fighting and his body was never identified. Within a generation, European rulers everywhere were rebuilding fortresses low, thick, and angled &mdash; the age of the high stone wall was over.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A defence isn&rsquo;t strong in the abstract &mdash; it&rsquo;s strong against a particular attack, and stays strong only until that attack changes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the Theodosian Walls fail in 1453 after resisting sieges for a thousand years, and what does that reveal about how they had been designed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They were built against rams, ladders and catapults, which damage walls slowly enough to repair. Gunpowder artillery delivered massive impact repeatedly to the same points, accumulating damage faster than the defenders could rebuild.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Fall of Constantinople.&rdquo; Runciman, S. (1965), <em>The Fall of Constantinople 1453</em>, Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 4: Eastern Philosophy -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>王陽明龍場悟道——一個被貶到瘴癘之地的官員，如何推翻朱熹的讀書求理之路</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明代一位年輕士人為了實踐朱熹「格物致知」之教，曾對著自家庭前竹子連續苦思七日，結果不但沒有悟出天理，反而病倒。你認為他後來得出甚麼結論？而「知行合一」四字，究竟是勸人多實踐，還是在說一件更根本的事？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王守仁（號陽明，1472&ndash;1529年，浙江餘姚人）；其思想對手為朱熹（1130&ndash;1200年）所代表的程朱理學；當朝權宦劉瑾。</p>
+        <p><strong>核心思想：</strong>「心即理」「知行合一」「致良知」——道德之理不在外物，而在人心；真知必然發為行動，不行者即是未知。</p>
+        <p><strong>時代背景：</strong>明代科舉以朱熹注解的四書為標準，程朱理學已成官學。朱熹主張「格物窮理」，即透過逐一考察外在事物累積對天理的認識。此說行之既久，流弊漸生：讀書人終日章句訓詁，道德修養與現實行為脫節，「知而不行」成為普遍現象。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王守仁（王陽明）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王守仁（王陽明，1472&ndash;1529）畫像——明代心學集大成者，提出「心即理」「知行合一」「致良知」。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王守仁少年時篤信朱熹之學。據《傳習錄》及年譜記載，他為求「格物」之實效，曾與友人相約靜坐格竹，欲從竹子身上格出天理，苦思七日，理未得而人先病。此事使他開始懷疑：若天理真的散在萬物之中，須逐一格盡方能貫通，則窮盡一生亦不可能完成，而聖賢之道豈能如此遙不可及？此後他出入佛老、留心兵事、鑽研辭章，數度轉向而未得定論。</p>
+      <p>轉機來自一場政治災難。正德元年（1506年），王守仁上疏營救被宦官劉瑾下獄的言官戴銑等人，觸怒劉瑾，遭廷杖四十，貶為貴州龍場驛驛丞。龍場地處萬山叢中，瘴癘瀰漫，語言不通，隨行僕從相繼病倒，反須由他親自劈柴煮粥照料。他自製石棺置於居所，日夜端居澄默，反覆自問：「聖人處此，更有何道？」正德三年（1508年）某夜，忽然大悟格物致知之旨，據載「不覺呼躍」——他斷定聖人之道本自具足於吾心，向外求理於事物，方向根本錯了。此即「龍場悟道」。</p>
+      <p>由此推出的「知行合一」，並非單純勸人多實踐，而是一個關於「知」的定義主張。王陽明認為，說一個人「知孝而不行孝」，其實是誤用了「知」字：真正知孝者必已行孝，正如真正知痛者必已痛過。知而不行，只是未知。這一說法直指當時士人熟讀道德文章而行為不副的痼疾。他晚年再提「致良知」，主張人心本有分辨是非的良知，工夫只在於不被私欲遮蔽。此學說在明代中後期風行一時，其後傳入日本，深刻影響幕末志士如吉田松陰、西鄉隆盛等人的行動哲學。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王陽明沒有說「知道了就要去做」，他說的是：做不到，就代表你根本未曾真正知道。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em>王陽明「知行合一」的主張，與一般所理解的「理論要配合實踐」有何根本分別？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">一般說法把知與行視為兩件先後之事；王陽明則重新定義「知」——真知必然已含行動，知而不行只是未知，如同真知痛者必已親身痛過。這是關於知識本質的主張，而非行動勸勉。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《傳習錄》；《王文成公全書&middot;年譜》；Stanford Encyclopedia of Philosophy, &ldquo;Wang Yangming.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5: Western Philosophy -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Scottish Sceptic Who Pointed Out That Science Has No Logical Foundation</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The sun has risen every morning for as long as anyone has recorded. A philosopher in 1739 asked a deceptively simple question: what exactly justifies your confidence that it will rise tomorrow? Before reading on, try to give a reason that does not itself quietly assume the very thing it is supposed to prove.</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> David Hume (大衛&middot;休謨, 1711&ndash;1776), Scottish philosopher and historian, a central figure of the Scottish Enlightenment (蘇格蘭啟蒙運動).</p>
+        <p><strong>Problem at stake:</strong> Whether inductive reasoning &mdash; inferring general laws or future events from past observations &mdash; can be rationally justified at all.</p>
+        <p><strong>Rival view:</strong> Rationalists held that reason alone could establish necessary truths about the world. Hume argued that outside of mathematics and logic, all our knowledge of matters of fact rests on experience, and experience cannot underwrite its own extension into the future.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/David_Hume_Ramsay.jpg/330px-David_Hume_Ramsay.jpg" alt="Portrait of David Hume by Allan Ramsay" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">David Hume (大衛&middot;休謨), painted by Allan Ramsay (拉姆齊) in 1766. His <em>Treatise</em> of 1739 &ldquo;fell dead-born from the press,&rdquo; in his own words. Credit: <a href="https://en.wikipedia.org/wiki/David_Hume" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>A Treatise of Human Nature</em> (人性論, 1739), David Hume (休謨) drew a sharp line between two kinds of claim. &ldquo;Relations of ideas&rdquo; &mdash; mathematics, logic, definitions &mdash; are certain, because denying them produces contradiction. &ldquo;Matters of fact&rdquo; &mdash; that bread nourishes, that fire burns, that the sun will rise &mdash; are different: their opposites are perfectly conceivable, so no amount of pure reasoning can establish them. They must come from experience. Hume then asked the question that made him famous: what licenses us to move from experience of the past to expectations about the future?</p>
+      <p>His answer was that nothing does, at least not by reason. Every attempt to justify induction (歸納法) smuggles in the assumption that nature is uniform, that the future will resemble the past. But that assumption is itself a matter of fact, and the only evidence for it is that it has held up so far &mdash; which is an inductive argument, and therefore circular. Hume was emphatic that he was not urging anyone to stop expecting the sun to rise. He was making a narrower and more unsettling point: our confidence is produced by habit and custom, not derived by argument.</p>
+      <p>This became known as the problem of induction (歸納問題), and it has never been cleanly solved. Immanuel Kant (康德) said reading Hume woke him from his &ldquo;dogmatic slumber&rdquo; and spent much of his career trying to answer him. Two centuries later Karl Popper (波柏爾) conceded Hume was right and rebuilt scientific method around falsification instead: science never proves a theory, it only fails to refute it so far. Whether Popper escaped the problem or relocated it is still argued. Hume&rsquo;s challenge remains the sharpest reminder that empirical knowledge is powerful but never logically guaranteed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Problem_of_induction" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; &ldquo;It has always worked&rdquo; is evidence, not proof &mdash; and the gap between the two is where every model quietly hides its risk.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Hume argue that inductive reasoning cannot be rationally justified, and what did he say actually produces our confidence in it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Any justification of induction assumes nature is uniform, but the only evidence for uniformity is that it has held so far &mdash; an inductive argument, hence circular. Hume held our confidence comes from habit and custom rather than from reasoning.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hume, D. (1739), <em>A Treatise of Human Nature</em>; (1748), <em>An Enquiry Concerning Human Understanding</em>. Stanford Encyclopedia of Philosophy, &ldquo;The Problem of Induction.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6: Psychology -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a Crowd Can Be the Worst Place to Have an Emergency</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">If you collapsed in the street, would you rather one stranger were present, or thirty? Most people instinctively answer thirty. Before reading on, what do you think the experimental evidence actually shows, and what mechanism could possibly make more potential helpers translate into a lower chance of being helped?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Site_of_the_murder_of_Kitty_Genovese_in_alleyway_from_Kew_Gardens_LIRR_station_to_Lefferts_Boulevard.jpg/330px-Site_of_the_murder_of_Kitty_Genovese_in_alleyway_from_Kew_Gardens_LIRR_station_to_Lefferts_Boulevard.jpg" alt="The alleyway in Kew Gardens, Queens, associated with the Kitty Genovese case" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Kew Gardens (邱園區), Queens (皇后區), New York &mdash; the 1964 Kitty Genovese (吉諾維斯) case that prompted the first bystander experiments, though the press account of it was substantially wrong. Credit: <a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In March 1964, a young woman named Kitty Genovese (吉諾維斯) was murdered outside her apartment building in Queens (皇后區), New York. Two weeks later <em>The New York Times</em> reported that 38 neighbours had watched and done nothing, and the story became a parable of urban indifference. It also prompted two social psychologists, Bibb Latan&eacute; (拉塔內) and John Darley (達利), to ask whether apathy was really the explanation, or whether something about the presence of others itself was doing the work. Their instinct was that the crowd was not a bystander to the failure but the cause of it.</p>
+      <p>Their 1968 experiments were elegantly simple. In one, students discussing personal problems over an intercom heard another participant apparently having a seizure. When a participant believed they were the only listener, 85% went for help within a few minutes. When they believed four others were also listening, only 31% did. In a companion study, participants filling in a questionnaire watched smoke seep into the room; alone, most reported it quickly, but seated with two calm confederates, most sat there as the room filled. Two mechanisms were at work: diffusion of responsibility (責任分散), where the felt obligation to act splits across everyone present, and pluralistic ignorance (多數無知), where each person reads everyone else&rsquo;s inaction as evidence that nothing is wrong.</p>
+      <p>The effect itself has held up well across decades of replication, but the founding story has not. Historical work by Manning, Levine and Collins (2007) in <em>American Psychologist</em> showed the &ldquo;38 witnesses who watched and did nothing&rdquo; account was substantially inaccurate: most heard rather than saw, few grasped what was happening, and at least one did call the police. More recently, Philpot et al. (2020) analysed real CCTV footage of public conflicts in three countries and found someone intervened in about nine out of ten cases &mdash; and that more bystanders meant a higher chance of intervention. The lesson is not that nobody helps, but that in genuinely ambiguous situations diffusion is real. The practical countermeasure is to destroy the ambiguity: single someone out by clothing or position and give them one specific instruction.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Don&rsquo;t shout &ldquo;somebody help&rdquo; &mdash; point at one person, describe them, and tell them exactly what to do.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the two mechanisms Latan&eacute; and Darley identified behind the bystander effect, and what did later research reveal about the Kitty Genovese story itself?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Diffusion of responsibility, where obligation to act is split among those present, and pluralistic ignorance, where others&rsquo; calm is read as evidence nothing is wrong. Later historical work showed the &ldquo;38 witnesses&rdquo; newspaper account was substantially inaccurate.</div>
+      </details>
+      <div class="source">&#x1F4D6; Darley, J.M. &amp; Latan&eacute;, B. (1968), <em>Journal of Personality and Social Psychology</em>. Manning, R., Levine, M. &amp; Collins, A. (2007), <em>American Psychologist</em>. Philpot, R. et al. (2020), <em>American Psychologist</em>.</div>
+    </article>
+
+    <!-- CARD 7: Physiology -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Brain Freeze: Why Cold Ice Cream Hurts in Your Forehead, Not Your Mouth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Drink an icy slush too fast and within seconds a sharp ache appears &mdash; but not where the cold actually is. The cold is on the roof of your mouth; the pain shows up behind your forehead. Before reading on, what do you think explains that mismatch in location, and why does pressing your tongue against the roof of your mouth often end it within seconds?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Girl_with_Ice_Cream_-_Southend-on-Sea_-_Essex_-_England_%2827713936233%29.jpg/330px-Girl_with_Ice_Cream_-_Southend-on-Sea_-_Essex_-_England_%2827713936233%29.jpg" alt="A child eating ice cream" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold-stimulus headache (冷刺激性頭痛), or &ldquo;brain freeze,&rdquo; was formally recognised as a headache type by the International Headache Society (國際頭痛學會) in 1988. Credit: <a href="https://en.wikipedia.org/wiki/Ice_cream_headache" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Brain freeze has a proper clinical name, cold-stimulus headache (冷刺激性頭痛), sometimes called sphenopalatine ganglioneuralgia (蝶顎神經節神經痛), and it has been a recognised headache category in the International Headache Society (國際頭痛學會) classification since 1988. It is one of the few headaches that can be induced on demand in a laboratory, which is precisely why researchers find it useful. The trigger is not cold in the stomach or throat but rapid cooling of the palate (上顎) and the back of the mouth, typically when something very cold is consumed faster than the mouth can warm it.</p>
+      <p>The best-supported account is vascular. Work presented by Jorge Serrador (塞拉多爾) and colleagues used transcranial Doppler (經顱多普勒超聲) to watch blood flow while volunteers sipped ice water through a straw aimed at the palate. Pain onset coincided with rapid dilation of the anterior cerebral artery (大腦前動脈), and the pain subsided as that vessel constricted again. The interpretation is that sudden palatal cooling triggers a protective surge of warm blood to the brain; the resulting pressure change inside a rigid skull is registered as pain. Cooling is sensed by the same trigeminal nerve (三叉神經) branches that serve the face.</p>
+      <p>That last detail explains the strange geography. The trigeminal nerve carries sensation from the palate and from the forehead along shared pathways into the brainstem, and the brain, receiving an unusual signal, attributes it to the region it maps most richly &mdash; the forehead and temples. This is referred pain, the same principle behind cardiac pain felt in the left arm. It also explains the folk remedy that actually works: pressing the tongue flat against the roof of the mouth rewarms the palate, ending the vascular response, usually within seconds. Eating cold food slowly, or keeping it toward the front of the mouth, prevents it entirely.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ice_cream_headache" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The pain isn&rsquo;t where the cold is &mdash; press your tongue to the roof of your mouth and it stops in seconds.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is brain freeze felt in the forehead when the cold stimulus is on the palate, and why does warming the palate with your tongue relieve it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The trigeminal nerve carries signals from both palate and forehead along shared pathways, so the brain misattributes the signal to the more richly mapped forehead &mdash; referred pain. Warming the palate reverses the artery dilation that generates the pain.</div>
+      </details>
+      <div class="source">&#x1F4D6; Serrador, J.M. et al., Experimental Biology 2012 presentation, reported in <em>ScienceDaily</em> (2013). International Headache Society, <em>ICHD-3</em>, &ldquo;Cold-stimulus headache.&rdquo;</div>
+    </article>
+
+    <!-- CARD 8: Health -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Doctor Who Cracked One Hand for Sixty Years to Settle an Argument With His Mother</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone has been told that cracking your knuckles will give you arthritis. Before reading on, what do you think actually makes the popping sound, and how confident are you that the arthritis warning has ever been tested rather than simply repeated?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Knuckles.jpg/330px-Knuckles.jpg" alt="Human knuckles on a clenched fist" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The pop comes from the metacarpophalangeal joint (掌指關節), not from bone grinding on bone. Credit: <a href="https://en.wikipedia.org/wiki/Knuckle" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Start with the sound itself, because the mechanism was disputed for almost a century. Finger joints are enclosed capsules containing synovial fluid (滑液), which lubricates the joint and holds dissolved gases. Pulling the joint apart drops the pressure inside sharply, and a gas-filled cavity forms in the fluid &mdash; a process called tribonucleation. A 2015 study by Kawchuk and colleagues in <em>PLOS ONE</em> filmed the event in real time using MRI (磁力共振) and found the pop coincides with the cavity forming, not collapsing. The joint cannot be cracked again for roughly twenty minutes because the gas needs time to redissolve.</p>
+      <p>The arthritis claim, by contrast, has been tested repeatedly and has not held up. The most charming test was run by Donald Unger (昂格爾), a physician who, having been told repeatedly by his mother that the habit would cripple him, cracked the knuckles of his left hand at least twice daily for over sixty years while never cracking his right, using it as a control. He reported the result in <em>Arthritis and Rheumatism</em> in 1998: no arthritis in either hand, no detectable difference between them. He received the 2009 Ig Nobel Prize (搞笑諾貝爾獎) in Medicine, and used his acceptance to address mothers everywhere.</p>
+      <p>A single-subject study proves little on its own, but larger work agrees. DeWeber and colleagues (2011) in the <em>Journal of the American Board of Family Medicine</em> compared 215 people and found the prevalence of hand osteoarthritis (手部骨關節炎) was essentially the same among habitual crackers and non-crackers. Some earlier work has reported associations with reduced grip strength or hand swelling in heavy crackers, and these findings are not fully settled, so the habit is not necessarily costless. But the specific claim &mdash; that knuckle cracking causes arthritis &mdash; is one of the most thoroughly tested and most consistently unsupported pieces of health folklore in circulation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The pop is a gas bubble forming in joint fluid &mdash; and sixty years of one-handed self-experimentation found no arthritis either way.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What physically produces the cracking sound in a knuckle, and what did Unger&rsquo;s sixty-year self-experiment and the later DeWeber study find about arthritis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Pulling the joint apart drops the pressure and a gas cavity forms in the synovial fluid; MRI showed the pop occurs as the cavity forms. Unger found no arthritis in either hand after sixty years, and DeWeber&rsquo;s 215-person study found no difference in hand osteoarthritis prevalence.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kawchuk, G.N. et al. (2015), <em>PLOS ONE</em>. Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em> 41(5). deWeber, K. et al. (2011), <em>Journal of the American Board of Family Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 9: Sports Science -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Thirty-Minute Protein Window That Turned Out To Be Several Hours Wide</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Gym culture insists you must get protein in within about thirty minutes of your last set or the session is wasted. Before reading on, do you think the evidence supports a window that narrow &mdash; and if the effect largely disappears once one particular variable is controlled for, what would you guess that variable is?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Whey_powder.jpg" alt="Whey protein powder" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Whey protein (乳清蛋白) powder. Meta-analysis found the apparent benefit of post-workout timing largely disappeared once total daily protein intake was equated. Credit: <a href="https://en.wikipedia.org/wiki/Whey_protein" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &ldquo;anabolic window&rdquo; (合成代謝窗口) is one of the most durable ideas in gym culture: consume protein within roughly thirty to sixty minutes of finishing resistance training, or the growth stimulus is largely lost. The idea was not invented from nothing. Resistance exercise does elevate muscle protein synthesis (肌肉蛋白質合成), and providing amino acids while it is elevated does increase the response, so the underlying biology is real. The question was always whether that acute laboratory effect translates into meaningfully more muscle over months of actual training.</p>
+      <p>Brad Schoenfeld (舍恩菲爾德), Alan Aragon (阿拉貢) and James Krieger addressed this in a 2013 meta-analysis in the <em>Journal of the International Society of Sports Nutrition</em>, pooling 23 studies. The raw analysis did show a small benefit for protein timing on hypertrophy. But when they applied a regression controlling for total daily protein intake, the effect essentially vanished. The timing groups in most studies had simply been eating more protein overall than the control groups, and it was the total, not the clock, doing the work. Their conclusion was that the window is far wider than claimed &mdash; plausibly several hours either side of training.</p>
+      <p>What this changes in practice is priority order. First, hit an adequate daily total: current sports-nutrition consensus sits around 1.6 to 2.2 grams per kilogram of body weight per day for people training for muscle. Second, distribute it across roughly three to five meals rather than loading one. Only then does timing around the session matter, and even then modestly. One genuine caveat: if you train fasted, having eaten nothing for many hours beforehand, eating reasonably soon afterwards does matter more, because the pre-workout meal is normally still releasing amino acids into the bloodstream during and after training.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Nutrient_timing" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Total daily protein is the lever; the post-workout clock is a rounding error unless you trained fasted.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What happened to the apparent benefit of post-workout protein timing in the 2013 meta-analysis once total daily protein intake was controlled for, and what does that imply about priorities?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The effect essentially disappeared &mdash; timing groups had simply consumed more total daily protein. Priority should therefore go to hitting an adequate daily total spread over several meals, with timing around the session a minor factor except when training fasted.</div>
+      </details>
+      <div class="source">&#x1F4D6; Schoenfeld, B.J., Aragon, A.A. &amp; Krieger, J.W. (2013), <em>Journal of the International Society of Sports Nutrition</em> 10:53. Aragon, A.A. &amp; Schoenfeld, B.J. (2013), &ldquo;Nutrient timing revisited.&rdquo;</div>
+    </article>
+
+    <!-- CARD 10: Investing -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Hedge Fund With Two Nobel Laureates That Lost Almost Everything in Four Months</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A hedge fund launched in 1994 with two future Nobel economics laureates on its board returned roughly 40% a year for its first three years by exploiting tiny, statistically reliable price gaps in bond markets. Before reading on, what do you think went wrong in 1998, and why might a strategy that is genuinely low-risk on each individual trade still be capable of destroying the entire fund?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Myron_Scholes_2008_in_Lindau.png" alt="Myron Scholes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Myron Scholes (邁倫&middot;舒爾斯), co-recipient of the 1997 Nobel Memorial Prize in Economics and a principal at Long-Term Capital Management (長期資本管理公司). Credit: <a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Long-Term Capital Management (長期資本管理公司, LTCM) was founded in 1994 by John Meriwether (梅里韋瑟), formerly head of bond arbitrage at Salomon Brothers (所羅門兄弟). Its board included Myron Scholes (邁倫&middot;舒爾斯) and Robert Merton (羅伯特&middot;默頓), who in 1997 shared the Nobel Memorial Prize in Economics for the option-pricing work behind the Black-Scholes model (布萊克&mdash;舒爾斯模型). The strategy was convergence arbitrage: find pairs of bonds that history said should trade at nearly identical prices, buy the cheap one, short the expensive one, and wait for the gap to close. Returns after fees ran roughly 40%, 41% and 17% in 1995 to 1997.</p>
+      <p>The gaps being exploited were tiny, so the profits came from leverage (槓桿). By early 1998 LTCM held roughly $125 billion in assets against about $4.7 billion of equity &mdash; over 25 to 1 on the balance sheet, with far greater notional exposure through derivatives. This is not reckless if the historical relationships hold, and the firm&rsquo;s risk models, calibrated on years of data, said a loss large enough to threaten the fund was so improbable it could effectively be ignored. That confidence rested entirely on the assumption that the future distribution of prices would resemble the past.</p>
+      <p>On 17 August 1998 Russia (俄羅斯) devalued the rouble and defaulted on domestic debt. Investors worldwide fled simultaneously into the safest, most liquid assets, and every convergence trade LTCM held moved against it at once &mdash; positions the models had treated as largely independent turned out to be different expressions of the same bet on calm markets. The fund lost about 44% in August alone. Because its counterparties were the major banks, a forced liquidation risked seizing up global credit markets, so on 23 September the Federal Reserve Bank of New York (紐約聯邦儲備銀行) convened fourteen institutions, which put in about $3.6 billion of their own capital &mdash; not public money &mdash; to unwind the book in an orderly way.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Long-Term_Capital_Management" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Diversification across positions is worthless if every position is secretly the same bet on markets staying calm.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did LTCM&rsquo;s individually low-risk trades become catastrophic together in 1998, and what assumption in its risk models failed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Its trades were treated as largely independent but were all versions of the same bet on calm, converging markets, so Russia&rsquo;s default moved them against the fund simultaneously. The models assumed future price behaviour would resemble the historical data they were calibrated on.</div>
+      </details>
+      <div class="source">&#x1F4D6; Federal Reserve History, &ldquo;Near Failure of Long-Term Capital Management.&rdquo; Lowenstein, R. (2000), <em>When Genius Failed</em>. President&rsquo;s Working Group on Financial Markets (1999).</div>
+    </article>
+
+    <!-- CARD 11: Political Economics -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Two Economists Who Drove Around New Jersey and Broke a Textbook Law</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Map_of_US_minimum_wage_by_state.svg/960px-Map_of_US_minimum_wage_by_state.svg.png" alt="Map of minimum wage levels by US state" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Minimum wage (最低工資) levels vary by US state, creating the natural experiments economists use to test employment effects. Credit: <a href="https://en.wikipedia.org/wiki/Minimum_wage_in_the_United_States" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">On 1 April 1992 New Jersey (新澤西州) raised its minimum wage (最低工資) from $4.25 to $5.05 an hour. Neighbouring Pennsylvania (賓夕法尼亞州) did not, creating a near-perfect natural experiment across a state line.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">The competitive labour market model, standard in every introductory textbook, holds that a wage floor set above the market-clearing wage must reduce employment: employers facing a higher price for labour buy less of it. This was near-consensus among economists into the 1990s.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">David Card (卡德) and Alan Krueger (克魯格) surveyed 410 fast-food restaurants on both sides of the border before and after the rise. Employment in New Jersey did not fall relative to Pennsylvania; if anything it rose slightly. Published in the <em>American Economic Review</em> in 1994, the result was fiercely contested &mdash; Neumark and Wascher&rsquo;s payroll-record reanalysis found job losses &mdash; but three decades of subsequent studies have broadly supported small or negligible employment effects at moderate minimums.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Monopsony (買方壟斷) models fit better: where employers have wage-setting power, a mandated increase can raise both wages and employment. Card shared the 2021 Nobel Memorial Prize, largely for the natural-experiment method itself. Where exactly the harmless range ends remains genuinely open.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The finding that changed economics wasn&rsquo;t about wages &mdash; it was that you could test a textbook law by driving across a state line and counting.</div>
+      <div class="source">&#x1F4D6; Card, D. &amp; Krueger, A.B. (1994), <em>American Economic Review</em> 84(4); NBER Working Paper 4509. Neumark, D. &amp; Wascher, W. (2000), <em>American Economic Review</em>. Nobel Prize committee, Economic Sciences 2021 scientific background.</div>
+    </article>
+
+    <!-- Connection of the Day -->
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 10 &mdash; The Bill for Assuming Tomorrow Resembles Yesterday:</strong> Hume&rsquo;s problem of induction says no amount of past regularity logically guarantees the future, because any justification for expecting continuity has to assume continuity. It reads like a seminar puzzle until you look at LTCM. Its models were calibrated on years of bond-price history that said certain relationships always converge and rarely move together. Every individual inference was sound induction. Russia&rsquo;s default in 1998 was simply the future declining to resemble the past, and a fund run by Nobel laureates lost 44% in a month.</p>
+      <p><strong>So what:</strong> When something is described as low risk, ask what historical window that judgement was computed over and what would have to change for the window to stop applying. That question doesn&rsquo;t predict the shock &mdash; it just tells you how much of your confidence is evidence and how much is habit.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA, &ldquo;Webb Takes a Stunning, Star-Filled Portrait of the Pillars of Creation&rdquo; (2022). Hester, J.J. et al. (1996), <em>The Astronomical Journal</em>.</li>
+      <li><strong>Card 2:</strong> 《明史&middot;英宗本紀》《明史&middot;于謙傳》；《明實錄&middot;英宗實錄》；<em>The Cambridge History of China, Vol. 7</em>.</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Fall of Constantinople.&rdquo; Runciman, S. (1965), <em>The Fall of Constantinople 1453</em>.</li>
+      <li><strong>Card 4:</strong> 《傳習錄》；《王文成公全書&middot;年譜》；Stanford Encyclopedia of Philosophy, &ldquo;Wang Yangming.&rdquo;</li>
+      <li><strong>Card 5:</strong> Hume, D. (1739), <em>A Treatise of Human Nature</em>. Stanford Encyclopedia of Philosophy, &ldquo;The Problem of Induction.&rdquo;</li>
+      <li><strong>Card 6:</strong> Darley &amp; Latan&eacute; (1968), <em>JPSP</em>. Manning, Levine &amp; Collins (2007), <em>American Psychologist</em>. Philpot et al. (2020).</li>
+      <li><strong>Card 7:</strong> Serrador, J.M. et al., Experimental Biology 2012, via <em>ScienceDaily</em>. International Headache Society, <em>ICHD-3</em>.</li>
+      <li><strong>Card 8:</strong> Kawchuk et al. (2015), <em>PLOS ONE</em>. Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em>. deWeber et al. (2011), <em>JABFM</em>.</li>
+      <li><strong>Card 9:</strong> Schoenfeld, Aragon &amp; Krieger (2013), <em>JISSN</em> 10:53. Aragon &amp; Schoenfeld (2013), &ldquo;Nutrient timing revisited.&rdquo;</li>
+      <li><strong>Card 10:</strong> Federal Reserve History, &ldquo;Near Failure of LTCM.&rdquo; Lowenstein, R. (2000), <em>When Genius Failed</em>.</li>
+      <li><strong>Card 11:</strong> Card &amp; Krueger (1994), <em>American Economic Review</em> 84(4). Neumark &amp; Wascher (2000). Nobel Prize committee (2021).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-13: Pillars of Creation (Hubble 1995 vs JWST 2022) &bull; 土木堡之變 (1449) &bull; Fall of Constantinople (1453) &bull; 王陽明龍場悟道與知行合一 &bull; Hume&rsquo;s Problem of Induction &bull; Bystander Effect / Kitty Genovese &bull; Brain Freeze / Cold-Stimulus Headache &bull; Knuckle Cracking &amp; Arthritis Myth &bull; Anabolic Window / Protein Timing &bull; Long-Term Capital Management 1998 &bull; Card &amp; Krueger Minimum Wage Natural Experiment</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-13.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-13.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 13 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
