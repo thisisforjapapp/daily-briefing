@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 11 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 11 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>10 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Shoemaker-Levy 9</span>A comet torn into twenty fragments hit Jupiter on camera in 1994, leaving scars larger than Earth.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 阿育王詔敕</span>征服者親手把懺悔刻在石頭上，成為印度最早的可靠成文史料。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Pompeii</span>Vesuvius buried a town in oxygen-poor ash, preserving bread in ovens and election posters on walls.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 道元只管打坐</span>道元說坐禪不是求開悟的手段，坐下來本身就是佛的行為。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; The Trolley Problem</span>Foot invented the tram case to test double effect in an essay about abortion, not about trams.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Stanford Prison Experiment</span>Archived recordings showed the guards were coached toward cruelty rather than discovering it themselves.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why Chilli Burns</span>Capsaicin opens the same nerve channel as damaging heat, so the brain gets a burn signal with no burn.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The 10,000-Step Myth</span>The number came from a 1960s Japanese pedometer brand name; mortality benefit levels off nearer 7,500.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Rest Intervals</span>Three minutes between sets beat one minute for both muscle and strength, because total quality work rose.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The Mississippi Bubble</span>John Law printed banknotes to lend against shares his own printing was inflating, and France distrusted paper money for a century.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Productivity Paradox</span>Decades of computer investment barely showed up in productivity statistics, and the argument is still open.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Mysterious Bright Spots on a Dwarf Planet, Solved by Getting Closer</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">As a NASA spacecraft approached the largest object in the asteroid belt in 2015, its first blurry images showed something nobody expected: two brilliant white spots glowing against a dark grey surface, so bright they saturated the camera. Before reading on, what do you think they turned out to be, and what does their existence imply about what is beneath the surface?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Crater_Occator_without_Crater_Illusion.jpg/330px-Crater_Occator_without_Crater_Illusion.jpg" alt="Occator crater on Ceres with its bright deposits" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Occator crater on Ceres (穀神星), photographed by NASA&rsquo;s Dawn spacecraft (曙光號). The bright material is salt left behind by briny water reaching the surface. Credit: <a href="https://en.wikipedia.org/wiki/Occator_(crater)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Ceres (穀神星) is the largest object in the asteroid belt between Mars (火星) and Jupiter (木星), about 940 kilometres across, and the only dwarf planet in the inner solar system. It was discovered on the first night of the nineteenth century, 1 January 1801, by Giuseppe Piazzi (皮亞齊) in Palermo, and was briefly counted as a planet before the discovery of many similar bodies demoted it to an asteroid. For two centuries it remained a smudge of light. NASA&rsquo;s Dawn spacecraft (曙光號), which used ion propulsion to visit two destinations in one mission, arrived in orbit in March 2015.</p>
+      <p>The approach images produced an immediate puzzle. In a crater later named Occator, two patches shone far brighter than anything around them &mdash; bright enough to overexpose the camera at settings tuned for a dark, carbon-rich surface. Speculation ranged over exposed water ice, cryovolcanic deposits, and, inevitably, less sober suggestions. Ice was the natural first guess, but ice exposed on an airless surface in sunlight sublimates away over geological time, so a bright ice patch would have to be very recently emplaced or continuously renewed.</p>
+      <p>Closer orbits and spectroscopy settled it. The bright material is largely sodium carbonate (碳酸鈉), a salt, with some ammonium chloride, deposited when briny liquid water reached the surface from below and evaporated, leaving the dissolved salts behind. Subsequent gravity and shape analysis, published in 2020, indicated a deep reservoir of brine beneath Occator, and some deposits appear to be only a few million years old, meaning the process may be ongoing. That makes Ceres a small, cold body that nonetheless retains liquid water and active chemistry, which is why planetary scientists now discuss it alongside Europa and Enceladus rather than as an inert rock.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ceres_(dwarf_planet)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The brightest thing in the asteroid belt is dried salt &mdash; evidence that a dwarf planet still has liquid water underneath.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the bright spots in Occator crater made of, and why does their brightness imply an ongoing process rather than an ancient one?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">They are mostly sodium carbonate salt left behind when briny water from below reached the surface and evaporated. Exposed bright material darkens or sublimates over geological time, so its brightness implies recent or continuing emplacement, supported by evidence of a brine reservoir beneath.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, Dawn mission science results. De Sanctis, M.C. et al. (2016), <em>Nature</em> 536. Raymond, C.A. et al. (2020), <em>Nature Astronomy</em> 4.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>尼布楚條約——中華帝國第一次與歐洲強權平等簽約，靠的卻是兩位耶穌會傳教士</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">十七世紀末，清帝國與俄羅斯在黑龍江流域爆發衝突，最終坐下來談判劃界。你認為在一個以「天朝」自居、慣以朝貢體系看待外邦的帝國裡，這場談判會用甚麼身分、甚麼語言進行？而條約最終是以哪一種文字為準？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>清康熙帝；領侍衛內大臣索額圖；俄方全權代表戈洛文（Fyodor Golovin）；隨清方擔任翻譯的耶穌會士張誠（Jean-Fran&ccedil;ois Gerbillon）與徐日昇（Tom&aacute;s Pereira）。</p>
+        <p><strong>事件：</strong>1685至1686年兩次雅克薩之戰，及1689年9月簽訂的《尼布楚條約》。</p>
+        <p><strong>時代背景：</strong>俄羅斯自十六世紀末越過烏拉爾山東擴，至十七世紀中葉哥薩克探險隊已抵黑龍江流域，在雅克薩（阿爾巴津）築城。清廷則剛平定三藩之亂、收取台灣，同時面對準噶爾部噶爾丹的壓力，急需穩定北方邊界。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/%D0%9B%D0%B0%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B8%D0%B8_%D0%A2%D0%B5%D0%BA%D1%81%D1%82_%D0%9D%D0%B5%D1%80%D1%87%D0%B8%D0%BD%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D0%94%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80a_%28%D0%B0%D0%B2%D0%BF%D1%80%2C_%D5%93._163%2C_%D0%9E%D0%BF._1%2C_%D0%94._22%2C_%D0%90%D0%BB._6_%D0%9E%D0%B1.%29_-_1.jpg" alt="尼布楚條約拉丁文本" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《尼布楚條約》的拉丁文本——中俄雙方均不通對方語言，最終以耶穌會士草擬的拉丁文本為準。來源：<a href="https://en.wikipedia.org/wiki/Treaty_of_Nerchinsk" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>衝突的起點是黑龍江上游的雅克薩城。俄國哥薩克在此築堡收貂皮貢賦，清廷視該地為滿洲龍興之地的外圍屏障，屢遣使交涉未果。1685年康熙下令進攻，清軍以優勢兵力與火砲圍城，俄軍守將托爾布津投降撤走，清軍毀城而還。俄軍旋即重返修築更堅固的堡壘，1686年清軍再度圍城，這一次守軍拒不投降，被圍近一年，八百餘人僅存百餘。就在攻城最艱難之際，俄國使節抵京請求談判，康熙下令解圍。</p>
+      <p>1689年8月，雙方代表在尼布楚（涅爾琴斯克）會談。困難不只在利益，也在形式：清廷慣以朝貢體系看待外邦，此前並無與外國「平等締約」的先例；而雙方均無人通曉對方語言。解決辦法是借助當時在清廷供職的耶穌會士——法國人張誠與葡萄牙人徐日昇。談判以拉丁文進行，由傳教士居間轉譯，最終條約以拉丁文本為準，另備滿文與俄文本。索額圖起初主張以勒拿河為界，戈洛文則要求整個黑龍江，經反覆折衝始達成妥協。</p>
+      <p>條約劃定以外興安嶺與額爾古納河為界，雅克薩城拆毀，俄人撤出黑龍江流域；同時開放兩國商旅持證通商，並訂明逃人相互遣返。對清廷而言，這是難得的務實決策：康熙以邊界讓步換取北方安定，得以集中力量對付噶爾丹。就國際法意義而言，《尼布楚條約》是中國歷史上第一份與歐洲國家在對等基礎上締結、且長期有效的條約，比一般認知中「近代外交自鴉片戰爭始」的說法早了一個半世紀。它也是清代中期中西交流的縮影：耶穌會士的語言與科學技能，換來了朝廷對傳教活動的容忍。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Treaty_of_Nerchinsk" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 清帝國第一次與歐洲強權平起平坐，用的既不是中文也不是俄文，而是兩位傳教士的拉丁文。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 《尼布楚條約》為何以拉丁文本為準？此事反映了當時清廷處理對外關係的甚麼特點？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">清俄雙方均無人通曉對方語言，談判須借助在清廷供職的耶穌會士張誠與徐日昇以拉丁文居間轉譯。這顯示清廷在缺乏對等外交先例與外語人才的情況下，務實地借用了傳教士的語言技能。</div>
+      </details>
+      <div class="source">&#x1F4D6; Mancall, M. (1971), <em>Russia and China: Their Diplomatic Relations to 1728</em>, Harvard University Press. 《清聖祖實錄》；Britannica, &ldquo;Treaty of Nerchinsk.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Fire That Burned London for Four Days and Killed Almost Nobody</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In September 1666 a fire starting in a single bakery destroyed roughly 13,000 houses and left perhaps 70,000 Londoners homeless. The officially recorded death toll was six. Before reading on, do you think that figure is plausible, and what would you want to know about how deaths were counted in a seventeenth-century city before believing or dismissing it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Thomas Farriner (法里納), the king&rsquo;s baker in Pudding Lane; Sir Thomas Bloodworth (布拉德沃思), the Lord Mayor who delayed demolitions; Samuel Pepys (佩皮斯), diarist and naval administrator; Christopher Wren (雷恩), who rebuilt St Paul&rsquo;s Cathedral (聖保羅座堂).</p>
+        <p><strong>Event at stake:</strong> The Great Fire of London (倫敦大火), 2&ndash;6 September 1666.</p>
+        <p><strong>Big picture:</strong> London was a medieval city of narrow lanes and timber-framed houses whose upper storeys projected over the street, storing pitch, oil and timber along the riverfront. It had just endured the Great Plague of 1665. The summer of 1666 had been unusually dry, and a strong easterly wind was blowing.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Great_Fire_London.jpg/3840px-Great_Fire_London.jpg" alt="Painting of the Great Fire of London" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Great Fire of London (倫敦大火), September 1666, seen from the Thames &mdash; a contemporary painting by an unknown artist. Credit: <a href="https://en.wikipedia.org/wiki/Great_Fire_of_London" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The fire began in the small hours of Sunday 2 September 1666 in Thomas Farriner&rsquo;s (法里納) bakery on Pudding Lane, close to the Thames warehouses stocked with tar, oil, spirits and coal. The standard firefighting method of the day was to create firebreaks by pulling down houses with hooks, but this required the Lord Mayor&rsquo;s authority and made him liable for compensation. Sir Thomas Bloodworth (布拉德沃思), summoned in the night, is reported to have dismissed the blaze contemptuously and gone back to bed. By the time demolition began in earnest, the fire had a hold and the wind was spreading it westward.</p>
+      <p>Samuel Pepys (佩皮斯), whose diary is the most vivid surviving account, walked to the Tower, took a boat along the river, and noted that people stayed in their houses saving possessions until the flames touched them, then fled to boats. He went to Whitehall and told the king directly that nothing would stop the fire without pulling down houses, and Charles II eventually put his brother James in charge of firefighting. The fire burned until Wednesday, destroying about 13,200 houses, 87 parish churches, the Royal Exchange, and old St Paul&rsquo;s Cathedral, whose lead roof ran molten down the streets.</p>
+      <p>Only six deaths were officially recorded, a figure historians treat with scepticism rather than acceptance: the deaths of the poor were often not registered, and temperatures in the fire&rsquo;s core were high enough to leave no identifiable remains. What is better documented is the aftermath. A French watchmaker, Robert Hubert, falsely confessed to starting the fire and was hanged, though he had not even been in England when it began. The Rebuilding Acts of 1667 mandated brick and stone rather than timber and widened key streets, Wren rebuilt St Paul&rsquo;s and dozens of churches, and the need to insure against such losses drove the creation of the first fire insurance companies.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Fire_of_London" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The recorded death toll of six says more about who got counted in 1666 than about how many died.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the Great Fire spread so far before serious firefighting began, and why do historians doubt the official death toll?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Firebreaks required demolishing houses, which needed the Lord Mayor&rsquo;s authority and exposed him to compensation claims; Bloodworth dismissed the fire and delayed. The toll of six is doubted because poor people&rsquo;s deaths were often unregistered and the fire was hot enough to leave no identifiable remains.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Great Fire of London.&rdquo; Tinniswood, A. (2003), <em>By Permission of Heaven: The Story of the Great Fire of London</em>. Pepys, S., <em>Diary</em>, 2&ndash;7 September 1666.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>《薄伽梵歌》——一個拒絕上戰場的戰士，與印度哲學最著名的一段對話</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">印度史詩中最著名的一段哲學對話，發生在兩軍對陣的戰場中央。主角是一名弓箭手，他看見對面陣營全是自己的親族與師長，於是放下弓，拒絕作戰。你認為他的車夫（其實是化身為人的神）會如何回應——勸他放下屠刀，還是要他打下去？答案可能比你想的複雜。</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>阿周那（Arjuna），般度族的頂尖弓箭手；黑天（Krishna），毗濕奴的化身，此戰中充當阿周那的御者。</p>
+        <p><strong>核心文本：</strong>《薄伽梵歌》（Bhagavad Gita，意為「神之歌」），全書七百頌，嵌於史詩《摩訶婆羅多》之中，成書年代約在公元前二世紀至公元二世紀之間。</p>
+        <p><strong>時代背景：</strong>當時印度思想界正經歷激烈交鋒：吠陀祭祀傳統強調履行種姓義務，而《奧義書》與沙門思潮（佛教、耆那教）則主張出離世間、棄絕行動方能解脫。《薄伽梵歌》正是在這兩極之間尋找出路。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/BhagavadGita-19th-century-Illustrated-Sanskrit-Chapter_1.20.21.jpg" alt="十九世紀《薄伽梵歌》插圖抄本" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">十九世紀《薄伽梵歌》梵文插圖抄本，描繪黑天為阿周那御車、於兩軍陣前說法的場面。來源：<a href="https://en.wikipedia.org/wiki/Bhagavad_Gita" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>故事的設定極具張力。俱盧之野兩軍列陣，阿周那請御者黑天將戰車駛至陣前，好看清對手。他看見的是自己的堂兄弟、恩師德羅納、族中長老毗濕摩——全是至親。弓從手中滑落，他對黑天說：即使能得三界之主，他也不願為此殺害親族；與其如此，寧可讓對方殺死自己而不還手。這不是怯懦，而是一個道德困局：他的種姓義務要求他作戰，但作戰意味著殺死他有義務保護的人。</p>
+      <p>黑天的回應分幾個層次。首先是形上學的：真我（Atman）不生不滅，兵刃不能斬、烈火不能焚，肉身的死亡不等於存在的終結，故悲痛的根源本身建立在誤認之上。其次是義務論的：阿周那身為剎帝利，護持正法本是其本分（svadharma），逃避戰場並非棄絕行動，而只是換一種被慾望與恐懼驅動的行動。最關鍵的一層是「業瑜伽」（karma yoga）：真正的問題不在於做或不做，而在於執著於結果。「你只有行動的權利，沒有支配結果的權利。」</p>
+      <p>這句話成為全書最深遠的影響所在。它提供了一條中道：既不必如祭祀傳統那樣為求福報而行動，也不必如出世思潮那樣棄絕行動，而是全力做該做的事，同時放下對成敗得失的執取。歷代注家對此各有詮釋——商羯羅視之為指向棄世的知識之道，羅摩奴闍則強調虔信（bhakti）。近代以來，甘地稱《薄伽梵歌》為他的「精神辭典」，並以非暴力立場重讀那場戰爭為心靈內部的鬥爭；而同一文本亦曾被激進民族主義者引為武裝抗爭的依據。一部關於如何行動的經典，本身也成為爭奪詮釋權的戰場。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bhagavad_Gita" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 「你只有行動的權利，沒有支配結果的權利」——盡全力，然後放手，這是《薄伽梵歌》給焦慮者的處方。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 《薄伽梵歌》的「業瑜伽」如何在「履行義務」與「棄絕行動」兩種立場之間開出第三條路？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">業瑜伽主張問題不在於做或不做，而在於是否執著結果。人應全力履行本分，同時放下對成敗得失的執取——如此行動便不再積累業縛，既不必為求福報而行，也不必逃離世間。</div>
+      </details>
+      <div class="source">&#x1F4D6; <em>Bhagavad Gita</em> 2.47; Stanford Encyclopedia of Philosophy, &ldquo;Bhagavad Gita.&rdquo; Zaehner, R.C. (1969), <em>The Bhagavad-G&#x012B;t&#x0101;</em>, Oxford University Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Bishop Who Stole Pears He Didn&rsquo;t Want, and Spent a Lifetime Asking Why</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A teenage boy and his friends shake a neighbour&rsquo;s pear tree at night, take the fruit, and throw it to pigs without eating it. Decades later, as a bishop, he devotes pages of his autobiography to this trivial theft. Before reading on, why do you think a petty prank troubled him more than his more serious sins &mdash; and what does that suggest about what he thought evil actually was?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Augustine of Hippo (奧古斯丁, 354&ndash;430), born in Roman North Africa, bishop of Hippo Regius (今阿爾及利亞), the most influential Latin theologian of late antiquity.</p>
+        <p><strong>Problem at stake:</strong> If God is wholly good and all-powerful, where does evil come from? And are human beings genuinely free if God already knows what they will do?</p>
+        <p><strong>Rival view:</strong> Augustine spent nine years as a Manichaean (摩尼教徒), holding that good and evil are two co-eternal cosmic substances at war. His later work is largely an argument against the position he once held.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Saint_Augustine_by_Philippe_de_Champaigne.jpg/330px-Saint_Augustine_by_Philippe_de_Champaigne.jpg" alt="Portrait of Saint Augustine by Philippe de Champaigne" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Augustine of Hippo (奧古斯丁), painted by Philippe de Champaigne (香帕涅) in the seventeenth century. Credit: <a href="https://en.wikipedia.org/wiki/Augustine_of_Hippo" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Augustine (奧古斯丁) wrote the <em>Confessions</em> (懺悔錄) around 397, and it is usually called the first Western autobiography, though it is more accurately an extended argument addressed to God about how a mind changes. The pear theft in Book II is its most discussed episode precisely because it is so slight. He was sixteen, the pears were not appealing, he was not hungry, and he did not eat them. What he says troubled him is that he could find no motive at all except the pleasure of transgression itself, and the fact that friends were doing it with him.</p>
+      <p>That absence of motive is doing philosophical work. Augustine had spent nine years as a Manichaean (摩尼教徒), a system in which evil is a substance, an independent cosmic force invading the good. He came to reject this, partly through reading Neoplatonist philosophy, and argued instead that evil has no substance of its own: it is <em>privatio boni</em>, a privation or falling-short of good, in the way that darkness is not a thing but the absence of light. A theft with no object is the purest illustration &mdash; nothing positive was gained, only a good will turned aside from a greater good toward a lesser one.</p>
+      <p>This move solves one problem and creates another. If evil is not a rival substance, then God did not create it, and the origin of evil shifts to the misuse of created free will. But if God foreknows every choice, is the will genuinely free? Augustine&rsquo;s answer is that foreknowledge is not causation: knowing what someone will freely do does not compel them to do it. His later dispute with Pelagius (佩拉糾) pushed him further toward emphasising divine grace over human capacity, and it is this later, harsher Augustine, on original sin and predestination, that Luther and Calvin drew on more than a thousand years afterwards.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Augustine_of_Hippo" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Augustine&rsquo;s answer to the problem of evil was that evil is not a thing at all, only a good will bending toward something lesser.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is Augustine&rsquo;s <em>privatio boni</em> account of evil, and why did the motiveless pear theft matter so much to him?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Evil has no substance of its own; it is a privation of good, as darkness is the absence of light. The pear theft mattered because it had no gain or motive at all, illustrating evil as a will simply turning from a greater good to a lesser one &mdash; against the Manichaean view of evil as a rival substance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Augustine, <em>Confessions</em>, Book II; <em>City of God</em>, Book XII. Stanford Encyclopedia of Philosophy, &ldquo;Saint Augustine.&rdquo; Brown, P. (1967), <em>Augustine of Hippo: A Biography</em>.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Eight People Pulling a Rope Pull Less Than Eight Times as Hard</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A French agricultural engineer in the 1880s measured how hard people pulled on a rope, alone and in groups. If one person pulls with 100 units of force, you might expect eight people to produce about 800. Before reading on, what do you think he actually measured &mdash; and can you think of two quite different reasons the total might fall short?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Queen_Mary%27s_Auxilary_Army_Corps_tug-o-war%2C_3_August_1918_%28cropped%29.jpg/3840px-Queen_Mary%27s_Auxilary_Army_Corps_tug-o-war%2C_3_August_1918_%28cropped%29.jpg" alt="A tug-of-war team pulling a rope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ringelmann&rsquo;s (林格曼) rope-pulling measurements were the first evidence that individual effort falls as group size rises. Credit: <a href="https://en.wikipedia.org/wiki/Social_loafing" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Maximilien Ringelmann (林格曼), a French agricultural engineer, published rope-pulling measurements in 1913 based on work carried out decades earlier. His finding was that per-person force fell steadily as the group grew: two people together produced roughly 93% of the sum of their individual efforts, three about 85%, and eight only around half. The effect became known as the Ringelmann effect (林格曼效應). Ringelmann himself, as an engineer, attributed it mainly to coordination loss &mdash; people pulling at slightly different angles and moments, so forces partly cancel.</p>
+      <p>Bibb Latan&eacute; (拉塔內) and colleagues tested whether motivation was also involved, in a 1979 study using a neat design. Blindfolded participants wearing headphones were asked to shout as loudly as possible, and were told either that they were shouting alone or that others were shouting with them, when in fact they always shouted alone. Because they were always solo, coordination loss was impossible; any drop in effort had to be motivational. Volume fell substantially when participants believed others were shouting too. This motivational component is what psychologists now call social loafing (社會惰化).</p>
+      <p>A meta-analysis by Karau and Williams (1993), covering 78 studies, found the effect robust but highly conditional. It shrinks or disappears when individual contributions are identifiable, when the task is personally meaningful or difficult, when the group is small, and when people value the group they belong to; it tends to be somewhat weaker in collectivist cultural settings. The practical implication is not that teams are inefficient but that anonymity within teams is. If you want group effort without loafing, make each person&rsquo;s contribution visible, assign distinct rather than pooled responsibilities, and keep the working group small.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Social_loafing" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; People don&rsquo;t slack in groups &mdash; they slack when their individual contribution stops being visible.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did the shouting experiment separate coordination loss from motivation loss, and what conditions reduce social loafing?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Blindfolded participants always shouted alone but believed others were shouting with them, so coordination loss was impossible and any drop had to be motivational. Loafing shrinks when contributions are identifiable, the task is meaningful, the group is small, and people value the group.</div>
+      </details>
+      <div class="source">&#x1F4D6; Ringelmann, M. (1913), <em>Annales de l&rsquo;Institut National Agronomique</em>. Latan&eacute;, B., Williams, K. &amp; Harkins, S. (1979), <em>Journal of Personality and Social Psychology</em>. Karau, S.J. &amp; Williams, K.D. (1993), <em>JPSP</em> 65(4).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Tube in Your Head That Only Opens When You Swallow</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Your ears block on a descending aeroplane, and swallowing or yawning suddenly clears them with an audible click. Before reading on, what do you think is physically happening in that instant &mdash; and why does the discomfort tend to be much worse coming down than going up?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Gray907.png" alt="Anatomical diagram of the middle ear and Eustachian tube" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Eustachian tube (耳咽管) connects the middle ear (中耳) to the back of the nose, and normally sits closed. Credit: <a href="https://en.wikipedia.org/wiki/Eustachian_tube" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The eardrum separates the outer ear canal, open to the atmosphere, from the middle ear (中耳), a sealed air-filled cavity containing the three smallest bones in the body. For the eardrum to vibrate efficiently, pressure must be roughly equal on both sides. The only route for air to reach the middle ear is the Eustachian tube (耳咽管), a narrow passage running down to the back of the nose. Crucially it is normally closed, held shut by soft tissue, and opens only briefly when muscles of the palate contract &mdash; which happens when you swallow, yawn or chew.</p>
+      <p>On ascent, cabin pressure falls, so the trapped middle-ear air is at relatively higher pressure and pushes the tube open from the inside fairly easily, often producing small clicks you barely notice. On descent the geometry works against you: outside pressure rises while middle-ear pressure stays low, so the higher external pressure presses the flexible tube shut, and the pressure difference must be equalised against a passage that is being held closed. This is why descent is worse, and why active swallowing, yawning or the Valsalva manoeuvre &mdash; gently blowing against a pinched nose and closed mouth &mdash; is needed to force it open.</p>
+      <p>The same anatomy explains several everyday phenomena. Children get middle ear infections far more often than adults because their Eustachian tubes are shorter, narrower and more horizontal, draining poorly and allowing bacteria easier passage from the nose. A cold or allergy inflames the tube lining, which is why flying with congestion is painful and why decongestants sometimes help. And your own voice sounds strangely loud and muffled when your ears are blocked because bone-conducted sound reaches the inner ear normally while air-conducted sound from outside is dampened by a stiffened eardrum.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Eustachian_tube" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your ears pop on landing because rising outside pressure squeezes the tube shut &mdash; swallowing is what pries it open.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is ear discomfort typically worse on descent than on ascent, and why do children get middle ear infections more often than adults?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">On ascent, higher middle-ear pressure pushes the tube open from inside; on descent, higher external pressure presses the flexible tube shut, so it must be forced open by swallowing. Children&rsquo;s Eustachian tubes are shorter, narrower and more horizontal, so they drain poorly and admit bacteria more easily.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Eustachian tube.&rdquo; Bluestone, C.D. (2005), <em>Eustachian Tube: Structure, Function, Role in Otitis Media</em>. NIH/NIDCD, &ldquo;Ear Infections in Children.&rdquo;</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Five-Second Rule Has Been Tested, and the Answer Is Not Reassuring</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Drop a biscuit on the kitchen floor and pick it up fast enough, the folk rule says, and it is fine. Before reading on, do you think contact time makes any measurable difference at all &mdash; and if researchers tested four foods on four surfaces, which variable would you guess mattered most?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Spilled_strawberries.jpg/330px-Spilled_strawberries.jpg" alt="Spilled strawberries on the ground" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Moisture, not time, turned out to be the dominant factor in how much bacteria transfers from a surface to dropped food. Credit: <a href="https://en.wikipedia.org/wiki/Five-second_rule" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The most thorough test is by Miranda and Schaffner (2016) in <em>Applied and Environmental Microbiology</em>, at Rutgers University (羅格斯大學). They inoculated four surfaces &mdash; stainless steel, ceramic tile, wood and carpet &mdash; with a bacterium closely related to <em>Salmonella</em> (沙門氏菌), then dropped four foods on them: watermelon, plain bread, buttered bread, and gummy sweets. Each combination was tested at contact times of under one second, five seconds, thirty seconds and three hundred seconds, across more than two and a half thousand measurements.</p>
+      <p>Two findings emerged. Contact time did matter: longer contact transferred more bacteria, so the rule is not pure superstition. But it mattered far less than moisture. Watermelon, the wettest food, picked up the most bacteria by a wide margin, and did so almost instantly &mdash; transfer at under one second was already substantial. Gummy sweets, which are dry, picked up the least. Surface texture also mattered in a counterintuitive direction: carpet transferred markedly less than tile or steel, because bacteria on carpet sit on fibres with less direct contact area, while a smooth surface presses fully against the food.</p>
+      <p>The practical reading is proportionate rather than alarmist. Contamination is essentially instantaneous for anything wet, so the five-second threshold has no protective meaning. But whether that matters depends entirely on what is on the floor: a home kitchen floor is typically not a serious source of pathogens, whereas a floor where raw meat has been handled, or a public floor, genuinely is. The risk is driven by the surface&rsquo;s microbial load and the food&rsquo;s moisture, not by the clock. Dry food on a clean domestic floor is low risk at any speed; anything wet, or any floor you are unsure about, is not made safe by being quick.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Five-second_rule" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Wet food picks up bacteria instantly &mdash; the risk is set by what&rsquo;s on the floor, not by how fast you grab it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the Rutgers study find mattered more than contact time, and why did carpet transfer fewer bacteria than tile?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Moisture mattered most: watermelon picked up substantial bacteria in under a second, while dry gummy sweets picked up least. Carpet transferred less because bacteria sit on fibres with limited contact area, whereas a smooth surface presses fully against the food.</div>
+      </details>
+      <div class="source">&#x1F4D6; Miranda, R.C. &amp; Schaffner, D.W. (2016), <em>Applied and Environmental Microbiology</em> 82(21). Rutgers University press release, September 2016.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>&ldquo;Muscle Confusion&rdquo; Is Marketing &mdash; What Variation Actually Does</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A popular training claim holds that you must constantly change your exercises so your muscles never adapt and are &ldquo;kept guessing.&rdquo; Before reading on, does that idea make biological sense given how muscle actually grows &mdash; and if constant variation has a real cost, what would you guess it is?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Man_lifting_a_heavy_barbell.jpg/3840px-Man_lifting_a_heavy_barbell.jpg" alt="A man lifting a heavy barbell" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Progressive overload (漸進超負荷) &mdash; adding load or repetitions to the same movements over time &mdash; remains the primary driver of adaptation. Credit: <a href="https://en.wikipedia.org/wiki/Progressive_overload" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &ldquo;muscle confusion&rdquo; claim inverts the actual mechanism. Muscle grows through adaptation to a stress it has been exposed to repeatedly and progressively &mdash; the principle of progressive overload (漸進超負荷). Adaptation is the goal, not the enemy. There is no physiological process by which a muscle is &ldquo;confused&rdquo; or has to guess; there are only mechanical tension, accumulated fatigue and the recovery response. Changing exercises constantly does not add a growth stimulus, and it removes the ability to track whether you are actually getting stronger at anything.</p>
+      <p>That cost is the main one. If you squat this week, leg-press next week and lunge the week after, you cannot tell whether load is increasing on any movement, so the single most reliable progress signal is lost. There is also a skill component: strength expression is partly neurological, and every lift has a learning curve, so a movement performed rarely never reaches the point where you can load it properly. This is why training programmes with demonstrated results tend to keep a small set of core lifts stable for months and progress the load or repetitions within them.</p>
+      <p>Variation is not worthless, though. Randomised work by Fonseca and colleagues (2014) in the <em>Journal of Strength and Conditioning Research</em> found that varying exercise selection produced more uniform hypertrophy across the different heads of the quadriceps than a single exercise did, because different movements bias different portions of a muscle. Rotating exercises every several weeks also reduces overuse strain on the same joints and helps with boredom. The distinction worth holding is between planned variation, changing a few accessory movements every one to two months while core lifts stay, and random variation, which is what &ldquo;confusion&rdquo; marketing actually sells.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Progressive_overload" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Keep your core lifts stable and add load; rotate accessories every month or two. Confusion isn&rsquo;t a training stimulus.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does &ldquo;muscle confusion&rdquo; misdescribe how muscle grows, and what genuine benefit does planned exercise variation provide?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Muscle grows by adapting to repeated, progressively heavier stress, so adaptation is the goal, not something to avoid; constant change also destroys your ability to track progression. Planned variation does help produce more uniform growth across different regions of a muscle and reduces overuse strain.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fonseca, R.M. et al. (2014), <em>Journal of Strength and Conditioning Research</em> 28(11). Kassiano, W. et al. (2022), <em>Journal of Strength and Conditioning Research</em>. NSCA, <em>Essentials of Strength Training and Conditioning</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Family Office Nobody Had Heard Of That Cost the Banks Ten Billion Dollars</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In March 2021, a private investment firm managing one man&rsquo;s money collapsed over two days and inflicted more than $10 billion of losses on some of the world&rsquo;s largest banks. Almost no one outside finance had heard of it, and its positions had not appeared in any public filing despite being enormous. Before reading on, how do you think a fund could hold vast stakes in listed companies without disclosing them?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Credit_Suisse_-_Paradeplatz_2011-08-01_16-35-48_ShiftN.jpg/3840px-Credit_Suisse_-_Paradeplatz_2011-08-01_16-35-48_ShiftN.jpg" alt="Credit Suisse headquarters at Paradeplatz, Zurich" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Credit Suisse (瑞士信貸) headquarters in Zurich (蘇黎世). Its roughly $5.5 billion Archegos loss was a step on the road to the bank&rsquo;s 2023 rescue. Credit: <a href="https://en.wikipedia.org/wiki/Archegos_Capital_Management" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Archegos Capital Management (Archegos 資本管理) was the family office of Bill Hwang (黃&middot;比爾), a former Tiger Management analyst. A family office manages one family&rsquo;s own money and is therefore exempt from most of the registration and disclosure rules that apply to funds handling outside investors. Archegos took highly concentrated bets on a handful of stocks, including ViacomCBS and several Chinese technology companies, and by early 2021 its economic exposure was reported at roughly $100 billion against considerably smaller actual capital.</p>
+      <p>The instrument that made this possible was the total return swap (總收益互換). Instead of buying shares, Archegos entered contracts with prime brokers in which the bank bought and held the shares while Archegos received the gains and paid the losses, posting margin. Two consequences followed. First, because the bank was the registered holder, Archegos had no disclosure obligation, so its positions were invisible to the market. Second, and more dangerously, each bank could see only its own book. Several banks were separately financing overlapping positions in the same illiquid stocks, and none could see the aggregate.</p>
+      <p>When ViacomCBS announced a share sale in late March 2021 and the price fell, margin calls followed that Archegos could not meet. The prime brokers then faced a classic collective action problem: whoever liquidated first would get out at better prices. Goldman Sachs and Morgan Stanley moved fastest and escaped comparatively lightly. Credit Suisse (瑞士信貸) and Nomura (野村) moved slowly and lost roughly $5.5 billion and $2.9 billion respectively. Credit Suisse&rsquo;s own commissioned report found the loss came from a failure to enforce its own margin rules rather than from anything exotic. Hwang was convicted of fraud in 2024. The episode is cited in regulatory reviews of prime brokerage and swap disclosure.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Archegos_Capital_Management" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Leverage that no single counterparty can see the whole of is not measured risk &mdash; it is unmeasured risk with a margin call attached.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did total return swaps let Archegos hold enormous positions invisibly, and why did the losses fall so unevenly across its banks?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The banks bought and held the shares as registered owners while Archegos took the economic gains and losses, so Archegos had no disclosure duty and each bank saw only its own book. When margin calls failed, banks that liquidated fastest sold at better prices; slower movers like Credit Suisse and Nomura absorbed the worst losses.</div>
+      </details>
+      <div class="source">&#x1F4D6; Credit Suisse Group Special Committee of the Board (2021), <em>Report on Archegos Capital Management</em>. US Securities and Exchange Commission litigation release (2022). Bank for International Settlements Quarterly Review (2021).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Capital Was Supposed to Flow Freely Across Borders. Mostly It Stays Home.</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Martin_Feldstein_in_1982.jpg" alt="Martin Feldstein" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Martin Feldstein (費爾德斯坦), whose 1980 paper with Charles Horioka produced what Obstfeld and Rogoff later called the biggest puzzle in international macroeconomics. Credit: <a href="https://en.wikipedia.org/wiki/Martin_Feldstein" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 1970s, capital controls have been dismantled across most advanced economies, trading costs have collapsed, and cross-border financial flows have grown enormously. On paper, an investor in Tokyo (東京) can fund a factory in Ireland (愛爾蘭) as easily as one at home.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">With integrated capital markets, savings should flow wherever returns are highest. A country&rsquo;s domestic saving rate should therefore tell you almost nothing about its domestic investment rate &mdash; the two should be close to uncorrelated across countries.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Martin Feldstein (費爾德斯坦) and Charles Horioka (堀岡) tested this in 1980 across sixteen OECD countries and found a correlation of roughly 0.9: countries overwhelmingly invest what they themselves save. Obstfeld and Rogoff (2000) listed it first among the six major puzzles of international macroeconomics. The correlation has weakened since, particularly within the euro area, but has not disappeared.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Competing explanations include home bias driven by information asymmetry and legal risk; the intertemporal budget constraint, since a country cannot run current account deficits indefinitely, which mechanically ties saving to investment over long horizons; and common productivity shocks that move saving and investment together. Each accounts for part of the correlation; none commands consensus. Open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Money is free to go anywhere and mostly doesn&rsquo;t &mdash; which is a warning about how much frictionless models leave out.</div>
+      <div class="source">&#x1F4D6; Feldstein, M. &amp; Horioka, C. (1980), <em>The Economic Journal</em> 90(358); NBER Working Paper 310. Obstfeld, M. &amp; Rogoff, K. (2000), <em>NBER Macroeconomics Annual</em> 15.</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 10 &amp; 11 &mdash; Two Ways Money Refuses to Behave Like the Model:</strong> The Feldstein-Horioka puzzle says that capital, formally free to seek the highest return anywhere, overwhelmingly stays where it was saved &mdash; frictions, information gaps and constraints the frictionless model omits turn out to dominate. Archegos is the same lesson from the opposite side. Each prime broker was running a sensible risk model on its own book, but the thing that mattered, aggregate exposure to a handful of illiquid stocks, existed only across books that no one could see. In both cases the model was not wrong about its own variables; it was silent about the ones that decided the outcome.</p>
+      <p><strong>So what:</strong> When a model produces a clean prediction, ask what it assumes is observable. Assumed-visible information that is in fact invisible is where the surprises come from, whether that is another bank&rsquo;s ledger or a foreign legal system you cannot assess.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, Dawn mission science results. De Sanctis, M.C. et al. (2016), <em>Nature</em> 536. Raymond, C.A. et al. (2020), <em>Nature Astronomy</em> 4.</li>
+      <li><strong>Card 2:</strong> Mancall, M. (1971), <em>Russia and China: Their Diplomatic Relations to 1728</em>, Harvard University Press. 《清聖祖實錄》；Britannica, &ldquo;Treaty of Nerchinsk.&rdquo;</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Great Fire of London.&rdquo; Tinniswood, A. (2003), <em>By Permission of Heaven: The Story of the Great Fire of London</em>. Pepys, S., <em>Diary</em>, 2&ndash;7 September 1666.</li>
+      <li><strong>Card 4:</strong> <em>Bhagavad Gita</em> 2.47; Stanford Encyclopedia of Philosophy, &ldquo;Bhagavad Gita.&rdquo; Zaehner, R.C. (1969), <em>The Bhagavad-G&#x012B;t&#x0101;</em>, Oxford University Press.</li>
+      <li><strong>Card 5:</strong> Augustine, <em>Confessions</em>, Book II; <em>City of God</em>, Book XII. Stanford Encyclopedia of Philosophy, &ldquo;Saint Augustine.&rdquo; Brown, P. (1967), <em>Augustine of Hippo: A Biography</em>.</li>
+      <li><strong>Card 6:</strong> Ringelmann, M. (1913), <em>Annales de l&rsquo;Institut National Agronomique</em>. Latan&eacute;, B., Williams, K. &amp; Harkins, S. (1979), <em>Journal of Personality and Social Psychology</em>. Karau, S.J. &amp; Williams, K.D. (1993), <em>JPSP</em> 65(4).</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Eustachian tube.&rdquo; Bluestone, C.D. (2005), <em>Eustachian Tube: Structure, Function, Role in Otitis Media</em>. NIH/NIDCD, &ldquo;Ear Infections in Children.&rdquo;</li>
+      <li><strong>Card 8:</strong> Miranda, R.C. &amp; Schaffner, D.W. (2016), <em>Applied and Environmental Microbiology</em> 82(21). Rutgers University press release, September 2016.</li>
+      <li><strong>Card 9:</strong> Fonseca, R.M. et al. (2014), <em>Journal of Strength and Conditioning Research</em> 28(11). Kassiano, W. et al. (2022), <em>Journal of Strength and Conditioning Research</em>. NSCA, <em>Essentials of Strength Training and Conditioning</em>.</li>
+      <li><strong>Card 10:</strong> Credit Suisse Group Special Committee of the Board (2021), <em>Report on Archegos Capital Management</em>. US Securities and Exchange Commission litigation release (2022). Bank for International Settlements Quarterly Review (2021).</li>
+      <li><strong>Card 11:</strong> Feldstein, M. &amp; Horioka, C. (1980), <em>The Economic Journal</em> 90(358); NBER Working Paper 310. Obstfeld, M. &amp; Rogoff, K. (2000), <em>NBER Macroeconomics Annual</em> 15.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-11: Ceres &amp; Occator&rsquo;s bright spots (Dawn 2015) &bull; 雅克薩之戰與《尼布楚條約》(1685&ndash;1689) &bull; The Great Fire of London (1666) &bull; 《薄伽梵歌》與業瑜伽 &bull; Augustine on evil as <em>privatio boni</em> &bull; Ringelmann Effect / Social Loafing &bull; Eustachian Tube &amp; Ear Popping &bull; The Five-Second Rule Tested &bull; &ldquo;Muscle Confusion&rdquo; Myth &bull; Archegos Capital Management (2021) &bull; The Feldstein-Horioka Puzzle</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-11.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-11.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 11 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

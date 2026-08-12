@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 12 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 12 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>11 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Ceres&rsquo; Bright Spots</span>The dazzling patches in Occator crater are dried salt, evidence of briny water still reaching the surface.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 尼布楚條約</span>清俄第一份對等條約，靠兩位耶穌會士以拉丁文居間促成。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Great Fire of London</span>A delayed decision to demolish firebreaks let a bakery fire destroy 13,000 houses in four days.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 《薄伽梵歌》</span>你只有行動的權利，沒有支配結果的權利——業瑜伽的中道。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Augustine on Evil</span>Augustine argued evil is no substance at all, only a good will turning toward something lesser.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Social Loafing</span>Blindfolded shouters went quieter when they merely believed others were shouting too.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why Ears Pop</span>Rising outside pressure on descent squeezes the Eustachian tube shut, so you must swallow to pry it open.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Five-Second Rule</span>Moisture, not time, drives contamination &mdash; wet food picks up bacteria almost instantly.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; &ldquo;Muscle Confusion&rdquo;</span>Adaptation is the goal, not the enemy; constant exercise-swapping destroys your ability to track progression.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Archegos</span>Total return swaps hid $100 billion of exposure because each bank could only see its own book.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Feldstein-Horioka</span>Capital is free to go anywhere yet countries still invest almost exactly what they themselves save.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Galaxy Shaped Like a Wagon Wheel, and the Collision That Made It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most galaxies are spirals or fuzzy ellipticals. One, about 500 million light-years away, looks like a wagon wheel: a bright outer ring, a distinct inner ring, and spokes of gas connecting them. Before reading on, what kind of event do you think could rearrange an entire galaxy into that shape, and why would the resulting ring keep expanding outward?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Cartwheel_Galaxy.jpg/330px-Cartwheel_Galaxy.jpg" alt="The Cartwheel Galaxy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Cartwheel Galaxy (車輪星系), about 500 million light-years away in Sculptor (玉夫座). Its rings are the wake of a head-on collision. Credit: <a href="https://en.wikipedia.org/wiki/Cartwheel_Galaxy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Cartwheel Galaxy (車輪星系) sits roughly 500 million light-years away in the constellation Sculptor (玉夫座), and it does not look like anything else in a typical sky survey. A brilliant outer ring of blue, star-forming material encircles a smaller, redder inner ring, with faint spokes of gas and dust bridging the two. It was catalogued by Fritz Zwicky (茲維基) in 1941, who called it one of the most complicated structures awaiting explanation. The explanation, worked out over subsequent decades, is that this was once an ordinary spiral galaxy.</p>
+      <p>Then something went through it. A smaller galaxy passed nearly straight through the centre of the disc, and the crucial point is that it almost certainly never touched a single star &mdash; stars are so widely separated that direct collisions are vanishingly unlikely. What collided was gravity. The intruder&rsquo;s gravitational pull tugged the disc material inward and then released it, and the resulting disturbance propagates outward as a density wave, like the ripple from a stone dropped in a pond. Gas piles up at the wave front, is compressed, and collapses into new stars, which is why the outer ring blazes blue with hot young stars.</p>
+      <p>In July 2022 the James Webb Space Telescope (韋伯太空望遠鏡) imaged the galaxy in infrared, and its instruments cut through the obscuring dust to show the structure of the spokes and the silicate dust distribution, plus the hydrocarbon chemistry along the ring. The image made clear that the galaxy is caught in an unfinished process: the ring is still expanding, at something like 200 kilometres per second, and will continue to reshape over hundreds of millions of years. Ring galaxies are rare precisely because they require a near-perfect head-on passage, and because the configuration is transient.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cartwheel_Galaxy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two galaxies collided and no stars hit &mdash; the wagon-wheel shape is the wake of gravity alone.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What produced the Cartwheel Galaxy&rsquo;s ring structure, and why is the outer ring so bright and blue?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A smaller galaxy passed head-on through the disc; its gravity, not any physical star collisions, set off a density wave propagating outward. Gas piles up and is compressed at the wave front, collapsing into hot young stars, which glow blue.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA Webb release, &ldquo;Webb Captures Stellar Gymnastics in the Cartwheel Galaxy&rdquo; (2 Aug 2022). Struck, C. &amp; Higdon, J.L. (2010), review of collisional ring galaxies.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>闍耶跋摩七世——吳哥王朝最偉大的建設者，如何在亡國之後才登上王位</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">十二世紀，高棉帝國的首都被占婆國從水路突襲攻陷，國王戰死，國家陷入四年混亂。此時一位年過五十、長期被排除在王位繼承之外的王族挺身而出。你認為他奪回國家之後，會把資源投入建造甚麼？答案可能與你對古代帝王的印象不太一樣。</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>闍耶跋摩七世（Jayavarman VII，約1122&ndash;1218年，1181年即位）；其對手為占婆國（今越南中南部）。</p>
+        <p><strong>事件：</strong>1177年占婆水軍溯湄公河與洞里薩湖突襲，攻陷吳哥；1181年闍耶跋摩七世擊退占婆並即位，展開高棉史上規模最大的建設期。</p>
+        <p><strong>時代背景：</strong>吳哥王朝自九世紀立國，歷代君主多奉印度教，蘇利耶跋摩二世於十二世紀初建成供奉毗濕奴的吳哥窟。闍耶跋摩七世則篤信大乘佛教，其治下高棉帝國的宗教取向出現重大轉折。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/JayavarmanVII.jpg/330px-JayavarmanVII.jpg" alt="闍耶跋摩七世石雕頭像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">闍耶跋摩七世石雕像——低垂雙目、面帶靜穆微笑的造型，與其大乘佛教信仰一致。來源：<a href="https://en.wikipedia.org/wiki/Jayavarman_VII" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1177年，占婆國水軍循湄公河進入洞里薩湖，出其不意攻陷高棉首都吳哥，國王被殺，都城遭洗劫。此後四年，高棉陷入群龍無首的混亂。闍耶跋摩七世出身王族，卻長年在外，此前曾遠赴占婆，據碑銘所載，他在得知都城陷落後返國組織抵抗。他花了數年時間重整軍隊，最終在洞里薩湖上的水戰中擊敗占婆——這場戰役後來被詳細刻在巴戎寺的浮雕壁上，連戰船、士兵髮式與船上炊事的場面都一一呈現。1181年，他年約六十歲時即位。</p>
+      <p>即位後的建設規模在東南亞史上罕有其匹。他營建新都吳哥城（Angkor Thom），周長十二公里，四面高牆環繞，五座城門上各雕巨大人面。城中心的巴戎寺（Bayon）建有數十座塔，每塔四面皆刻靜穆微笑的巨型面容，一般認為兼具觀世音菩薩與國王本人的形象。他另建塔布蘢寺（Ta Prohm）與班蒂喀黛等大型寺院，前者的碑銘記載該寺供養人數以萬計，並列出所屬村落與物資清單，是研究吳哥經濟的重要材料。</p>
+      <p>更值得注意的是他的公共工程。碑銘記載他在全國道路沿線設立一百餘所「阿羅迦舍羅」（arogyasala，醫院或療養所），並建有百餘座供旅人歇宿的驛站，配合連接首都與各省的道路網。塔布蘢寺碑文中有一句常被引用的自述，大意是眾生的病苦比他自身的痛苦更令他難受。這些工程的財政負擔極重，有學者認為正是這一輪大興土木耗盡了帝國的資源與水利體系的維護能力，加上其後氣候變遷造成的旱澇交替，成為吳哥於十五世紀衰落並最終遷都的遠因之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jayavarman_VII" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 他在六十歲收復亡國，然後把國力投在寺院、道路與百餘所醫院上——也可能因此耗盡了帝國。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 闍耶跋摩七世的建設事業有何獨特之處？為何有學者認為這些工程與吳哥王朝其後的衰落有關？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">除吳哥城、巴戎寺等宗教建築外，他還在全國建立逾百所醫院與旅人驛站及配套道路網，屬公共設施而非純粹王室紀念物。有學者認為這輪大興土木耗盡財政與水利體系的維護能力，加上其後氣候變遷，成為吳哥衰落的遠因之一。</div>
+      </details>
+      <div class="source">&#x1F4D6; Coed&egrave;s, G. (1968), <em>The Indianized States of Southeast Asia</em>, University of Hawaii Press. Higham, C. (2001), <em>The Civilization of Angkor</em>. Britannica, &ldquo;Jayavarman VII.&rdquo;</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Doctor Who Mapped a Cholera Outbreak and Broke a Theory With a Pump Handle</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1854 London, the medical establishment was near-unanimous that cholera spread through foul air. One physician disagreed, and to prove it he did something no one had thought to do: he drew a map. Before reading on, what do you think the map showed &mdash; and would you expect removing the handle from one water pump to have ended the outbreak?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> John Snow (約翰&middot;斯諾, 1813&ndash;1858), physician and pioneer anaesthetist; Henry Whitehead (懷特黑德), the local curate who initially disagreed with him; William Farr (法爾), the statistician who defended the prevailing theory.</p>
+        <p><strong>Event at stake:</strong> The Broad Street cholera outbreak in Soho, London, from 31 August 1854, which killed over 600 people in a few weeks.</p>
+        <p><strong>Big picture:</strong> The dominant explanation of epidemic disease was miasma theory (瘴氣論) &mdash; that disease arose from foul air produced by rot and filth. Germ theory did not yet exist; <em>Vibrio cholerae</em> would not be convincingly identified until Robert Koch&rsquo;s work in 1884.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Pump_Handle_-_John_Snow_.jpg/1920px-Pump_Handle_-_John_Snow_.jpg" alt="Replica of the Broad Street pump commemorating John Snow" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The replica pump in Soho, London, marking the site of the 1854 Broad Street outbreak and John Snow&rsquo;s (約翰&middot;斯諾) investigation. Credit: <a href="https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>John Snow (約翰&middot;斯諾) had already argued in 1849 that cholera was spread by something swallowed rather than something inhaled, but he had no way to demonstrate it against the entrenched miasma theory (瘴氣論). When an explosive outbreak began in Soho on 31 August 1854, he walked the district recording where the dead had lived and plotting each death as a mark on a street map. The pattern was unmistakable: deaths clustered tightly around the public water pump on Broad Street, and thinned sharply with distance from it.</p>
+      <p>The anomalies were what made the argument. A workhouse in the middle of the affected zone, with over five hundred inmates, had very few deaths &mdash; it had its own well. A nearby brewery had none among its workers, who drank the beer they made and had a private supply. Conversely a woman in Hampstead, well outside the district, died of cholera, and inquiry found she liked the taste of Broad Street water and had it carted to her regularly. These cases fitted a waterborne explanation and fitted no plausible account based on local air.</p>
+      <p>On 8 September Snow persuaded the parish Board of Guardians to remove the pump handle, and this is where the popular story usually stops. The honest version is that the outbreak was already declining, partly because much of the population had fled, so the removal probably did not end it. The real vindication came from the follow-up: Henry Whitehead (懷特黑德), a sceptical local curate, investigated in order to refute Snow and instead traced the index case to an infant whose mother had washed soiled nappies into a cesspit beside the well. The pit was found to be leaking into it. Snow died in 1858 without seeing his theory accepted; London&rsquo;s sewer system, built in the 1860s, was justified on miasma grounds and worked anyway.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Snow won not with the pump handle but with the exceptions &mdash; the brewery and the workhouse that had their own water.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Which anomalies made Snow&rsquo;s waterborne argument persuasive, and why is the pump-handle story misleading?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A workhouse and a brewery inside the affected area had almost no deaths because they had their own water supplies, while a woman far away died after having Broad Street water delivered. The handle was removed as the outbreak was already declining, so it probably did not end it; Whitehead&rsquo;s tracing of the index case to a leaking cesspit was the real confirmation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;John Snow.&rdquo; Snow, J. (1855), <em>On the Mode of Communication of Cholera</em>, 2nd ed. Johnson, S. (2006), <em>The Ghost Map</em>.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>荻生徂徠——一位江戶儒者如何主張，讀朱熹之前必須先忘記日文</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶時代的日本，官學是朱子學。一位學者卻主張：後世儒者對經典的理解全部走偏了，因為他們用自己時代的語言與觀念去讀一千多年前的文本。你認為他提出的補救方法是甚麼？他的答案影響了此後日本的思想史，甚至波及對日本自身古典的研究。</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>荻生徂徠（1666&ndash;1728年），江戶中期儒者，曾任幕府側用人柳澤吉保的侍講；其先行者為主張回歸孔孟原典的伊藤仁齋。</p>
+        <p><strong>核心主張：</strong>「古文辭學」——先掌握古代漢語的實際用法，才能讀懂六經；並主張「道」是先王制作的禮樂制度，而非朱子學所說的內在天理。</p>
+        <p><strong>時代背景：</strong>德川幕府以朱子學為官學，強調格物窮理與心性修養。至十七世紀後期，部分學者開始質疑宋儒注解是否忠實於先秦原典，古學派由此興起。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Ogyuh_Sorai.jpg" alt="荻生徂徠畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">荻生徂徠（1666&ndash;1728）畫像——江戶古文辭學派創始者，主張讀經必先通古代漢語。來源：<a href="https://en.wikipedia.org/wiki/Ogyu_Sorai" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>荻生徂徠的核心洞見是一個語言學問題。他指出，日本儒者長期以「訓讀」方式讀漢籍，即按日語語序顛倒漢文並加上助詞來理解，這實質上是一種翻譯，而翻譯必然帶入譯者時代的語感。更根本的是，宋代朱熹等人注解先秦典籍時，本身已隔了一千多年，所用的「理」「氣」「性」等概念多屬宋代語境，未必是孔子時代的原意。他因此主張須直接以古代漢語誦讀原典，用《詩》《書》時代的用例來確定詞義，此即「古文辭學」。</p>
+      <p>由此得出的結論極具顛覆性。朱子學把「道」理解為存在於萬物與人心中的普遍天理，修養工夫在於窮理與存養心性。徂徠則主張，六經中的「道」指的是堯舜禹湯文武周公等「先王」所制作的禮、樂、刑、政等具體制度，是為了安定天下而人為建立的秩序，並非自然存在的形上原理。他在《辨道》《辨名》中直言，離開制度去談心性，是後儒把政治之學縮小成了個人修身之學。</p>
+      <p>這一轉向的政治意涵相當明確：治國的關鍵在於制度設計是否合乎人情、能否安民，而非統治者個人道德是否純粹。徂徠在《政談》中據此向幕府提出具體改革建議，包括讓武士回歸土地以緩解城市經濟壓力。其學派在江戶中期一度極盛，門下有太宰春台等人。更深遠的影響在方法論上：本居宣長等國學家借用他「先通古語再解古書」的路徑，轉而研究《古事記》《萬葉集》，反過來質疑儒學在日本文化中的位置。二十世紀，丸山真男在《日本政治思想史研究》中將徂徠視為日本近代政治思維萌芽的關鍵人物，此說影響甚廣，亦有學者批評其過度以近代框架回溯。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ogyu_Sorai" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 徂徠說：你以為在讀孔子，其實在讀宋朝人的孔子——要見原典，先得學會用它自己的語言聽它說話。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 荻生徂徠對「道」的理解與朱子學有何根本分歧？這一分歧如何改變了儒學的政治意涵？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱子學視「道」為存於萬物人心的普遍天理，工夫在窮理修心；徂徠則主張「道」是先王制作的禮樂刑政等具體制度。由此治國關鍵轉為制度是否合乎人情、能否安民，而非統治者個人道德修養。</div>
+      </details>
+      <div class="source">&#x1F4D6; 荻生徂徠《辨道》《辨名》《政談》；丸山真男《日本政治思想史研究》；Stanford Encyclopedia of Philosophy, &ldquo;Japanese Confucian Philosophy.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Twenty-Five-Year-Old Who Proved Mathematics Can Never Prove Itself</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1900 the greatest mathematician of the age set a programme: put all of mathematics on a foundation that is provably complete and provably free of contradiction. Thirty-one years later a young logician showed the goal was impossible in principle, not merely difficult. Before reading on, how could anyone prove that something can never be proved &mdash; and what would such an argument have to look like?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Kurt G&ouml;del (哥德爾, 1906&ndash;1978), Austrian logician; David Hilbert (希爾伯特), who set the formalist programme G&ouml;del overturned; Bertrand Russell (羅素) and Alfred North Whitehead, whose <em>Principia Mathematica</em> was the target system.</p>
+        <p><strong>Problem at stake:</strong> Whether a formal system rich enough to express arithmetic can be both complete (proving every truth in its language) and consistent (never proving a contradiction), with its consistency provable from within.</p>
+        <p><strong>Rival view:</strong> Hilbert&rsquo;s formalism held that mathematics could be reduced to symbol manipulation under finite rules, with certainty secured by a finitary consistency proof. G&ouml;del showed that specific goal cannot be met.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Kurt_g%C3%B6del.jpg" alt="Portrait of Kurt Gödel" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Kurt G&ouml;del (哥德爾), who published the incompleteness theorems (不完備定理) in 1931 at the age of twenty-five. Credit: <a href="https://en.wikipedia.org/wiki/Kurt_G%C3%B6del" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>David Hilbert (希爾伯特) had proposed that all of mathematics be built on an explicit set of axioms and rules, and then proved, using only unobjectionable finite methods, to be free of contradiction. The appeal was that certainty would no longer depend on intuition about infinite objects. In 1931 Kurt G&ouml;del (哥德爾), then twenty-five, published a paper showing this could not work for any formal system powerful enough to express ordinary arithmetic.</p>
+      <p>His method was the striking part. G&ouml;del assigned a unique number to every symbol, formula and proof in the system, a technique now called G&ouml;del numbering, so that statements about proofs became statements about numbers &mdash; which the system could itself express. He then constructed a sentence that, decoded, says of itself that it has no proof in the system. If the system could prove it, the system would prove something false and so be inconsistent; if the system is consistent, the sentence is true and unprovable within it. That is the first incompleteness theorem (第一不完備定理): any consistent system of that strength contains true statements it cannot prove.</p>
+      <p>The second theorem follows and is sharper: such a system cannot prove its own consistency. One can prove the consistency of arithmetic using stronger assumptions, as Gentzen did in 1936, but that only relocates the question. What the theorems do <em>not</em> say is worth stating plainly, because the misreadings are widespread: they do not show mathematics is unreliable, that truth is subjective, or that human minds transcend machines &mdash; the latter is a contested philosophical argument made by Lucas and Penrose, not a corollary. They do show that no single formal system can be the final foundation, and they laid the groundwork for Turing&rsquo;s work on computability.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; G&ouml;del made arithmetic talk about itself, then wrote a true sentence it could never prove.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did G&ouml;del numbering let a formal system make statements about its own proofs, and what do the two incompleteness theorems each establish?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Assigning unique numbers to symbols, formulas and proofs turned statements about provability into statements about numbers, which arithmetic can express. The first theorem: any consistent system expressing arithmetic contains true but unprovable statements. The second: such a system cannot prove its own consistency.</div>
+      </details>
+      <div class="source">&#x1F4D6; G&ouml;del, K. (1931), &ldquo;&Uuml;ber formal unentscheidbare S&auml;tze&hellip;&rdquo;, <em>Monatshefte f&uuml;r Mathematik und Physik</em>. Stanford Encyclopedia of Philosophy, &ldquo;G&ouml;del&rsquo;s Incompleteness Theorems.&rdquo; Nagel, E. &amp; Newman, J.R. (1958), <em>G&ouml;del&rsquo;s Proof</em>.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Everything Looks Obvious Once You Know How It Turned Out</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Ask people to predict an event and they give uncertain odds. Tell them the outcome, then ask them to recall what odds they gave, and their memory shifts systematically toward what actually happened. Before reading on, why do you think this happens &mdash; and what does it cost an organisation that reviews its own past decisions?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/A_crystal_ball_at_work.jpg/330px-A_crystal_ball_at_work.jpg" alt="A crystal ball" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hindsight bias (後見之明偏誤) makes past uncertainty feel like it was never really uncertain. Credit: <a href="https://en.wikipedia.org/wiki/Hindsight_bias" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Baruch Fischhoff (菲施霍夫) demonstrated the effect in 1975 with a simple design. Participants read an account of an obscure historical conflict and estimated the probability of several possible outcomes. A second group read the same account but were told which outcome had occurred, and were asked to state the probability they <em>would</em> have assigned had they not been told. They could not do it. Their estimates shifted markedly toward the known outcome, even though they were explicitly instructed to ignore it. Fischhoff called it &ldquo;creeping determinism&rdquo;; it is now called hindsight bias (後見之明偏誤).</p>
+      <p>The mechanism is memory reconstruction rather than dishonesty. When you learn an outcome, that information is integrated into your understanding of the events, and the details that fit it become more accessible while the ones that pointed elsewhere fade. When you later try to recall your earlier belief, you do not retrieve a stored copy; you rebuild it from what now seems to make sense. The result feels like accurate recall from the inside, which is precisely why the bias is so resistant to simply being warned about it.</p>
+      <p>The costs are practical. It makes learning from experience harder, because a decision that was reasonable given what was known at the time looks negligent afterwards, so reviews punish outcomes rather than process. It fuels overconfidence, since a past that seems predictable implies a future that should be too. And it distorts legal and medical judgement: research on jury and clinical decisions has found that knowing a bad outcome occurred raises judgements of how foreseeable it was. The most reliable countermeasure is documentary rather than mental &mdash; write down your prediction and your reasoning before the outcome, so review compares against a record rather than a reconstruction. Deliberately listing reasons the opposite outcome could have occurred also reduces the effect.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hindsight_bias" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Write your prediction down before the result &mdash; your memory of what you expected will otherwise quietly rewrite itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is hindsight bias a memory phenomenon rather than dishonesty, and what is the most reliable way to counter it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Learning the outcome reorganises what you remember: supporting details become accessible and contrary ones fade, so recalling an earlier belief means rebuilding it rather than retrieving it. The most reliable countermeasure is writing predictions and reasoning down beforehand, so review compares against a record.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fischhoff, B. (1975), <em>Journal of Experimental Psychology: Human Perception and Performance</em> 1(3). Roese, N.J. &amp; Vohs, K.D. (2012), <em>Perspectives on Psychological Science</em> 7(5).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>A Bruise Changes Colour Because You Are Watching Your Body Recycle Blood</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A bruise goes red, then purple-black, then green, then yellow-brown before fading. That sequence is remarkably consistent across people. Before reading on, what do you think is actually changing to produce those specific colours in that specific order &mdash; and why green in particular?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Pferdekuss.jpg/330px-Pferdekuss.jpg" alt="A bruise on skin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A bruise (瘀傷) changes colour as haemoglobin (血紅蛋白) is broken down into a sequence of differently coloured pigments. Credit: <a href="https://en.wikipedia.org/wiki/Bruise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A bruise, clinically a contusion, forms when blunt force ruptures small blood vessels beneath intact skin, so blood leaks into the surrounding tissue instead of escaping. Because the skin is unbroken, the body cannot simply flush the blood away; it has to dismantle it in place. The colour sequence you see is the visible timetable of that dismantling, and it is consistent because the chemistry is the same in everyone. Immediately after the injury the area looks red, because the escaped blood is still oxygenated haemoglobin (血紅蛋白).</p>
+      <p>Within a day or two the trapped blood loses oxygen and the haemoglobin becomes deoxygenated, which shifts the colour toward dark purple or blue-black; the overlying skin scatters light in a way that pushes the appearance further toward blue. Then macrophages (巨噬細胞), the immune system&rsquo;s scavenging cells, arrive and begin breaking down the haemoglobin. The enzyme haem oxygenase converts haem into biliverdin (膽綠素), which is green. This is the stage most people find surprising, but it is the same pigment that makes some bird eggshells green, and it is an obligatory intermediate.</p>
+      <p>Biliverdin is then reduced to bilirubin (膽紅素), which is yellow-brown &mdash; the same pigment responsible for the yellow tint of jaundice and the colour of bile. The bilirubin is gradually cleared into the bloodstream and processed by the liver. Typical resolution takes two to three weeks. Some practical points follow: bruising more easily with age reflects thinner skin and more fragile capillaries with less supporting fat, not necessarily illness; anticoagulants and heavy alcohol use increase it; and bruises appearing without remembered trauma, or accompanied by bleeding gums or nosebleeds, warrant medical assessment. Forensic attempts to date bruises precisely by colour have been shown to be unreliable.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bruise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Red, purple, green, yellow &mdash; you are watching haemoglobin become biliverdin become bilirubin, in real time under your skin.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What produces the green and yellow stages of a healing bruise, and why does a bruise change colour at all rather than simply fading?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Macrophages break down haemoglobin via haem oxygenase into biliverdin, which is green, and biliverdin is then reduced to yellow-brown bilirubin. Because the skin is intact, the blood cannot drain away and must be dismantled in place, so you see each pigment stage in sequence.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Bruise.&rdquo; Tortora, G.J. &amp; Derrickson, B., <em>Principles of Anatomy and Physiology</em>. Pilling, M.L. et al. (2010), <em>Journal of Forensic and Legal Medicine</em>, on the unreliability of dating bruises by colour.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Many People Who React Badly to Bread Are Not Reacting to Gluten</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Large numbers of people without coeliac disease report bloating, pain and fatigue after eating wheat, and feel better avoiding gluten. When researchers ran a blinded crossover trial that controlled for one other component of wheat, the gluten effect largely vanished. Before reading on, what else in wheat might be doing the damage?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Gluten_Sources.png" alt="Common sources of gluten" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Wheat contains gluten (麩質) but also fructans, a fermentable carbohydrate that trials suggest is the more common culprit in non-coeliac reactions. Credit: <a href="https://en.wikipedia.org/wiki/Gluten" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Two conditions are genuinely gluten-driven and not in dispute. Coeliac disease (乳糜瀉) is an autoimmune disorder in which gluten triggers immune damage to the small intestine lining; it affects roughly 1% of people, is diagnosable by serology and biopsy, and requires strict lifelong avoidance. Wheat allergy is a separate, IgE-mediated allergic response. The contested category is the much larger group who test negative for both and still report symptoms after eating wheat &mdash; labelled non-coeliac gluten sensitivity (非乳糜瀉麩質敏感).</p>
+      <p>Biesiekierski and colleagues tested this directly in a 2013 study in <em>Gastroenterology</em>. They took people who self-reported gluten sensitivity and had already improved on a gluten-free diet, placed them all on a diet low in FODMAPs (可發酵短鏈碳水化合物) &mdash; fermentable carbohydrates including the fructans abundant in wheat &mdash; and then, in a blinded crossover, challenged them with gluten or placebo. Symptoms improved substantially on the low-FODMAP diet regardless of gluten, and the gluten challenges produced no consistent dose-dependent effect. The implication is that for many people the trigger is fructans, not gluten.</p>
+      <p>This matters practically because the two answers lead to different diets. FODMAPs are not confined to wheat; onions, garlic, legumes and certain fruits are also high, so a person avoiding gluten alone may keep symptoms while unnecessarily excluding foods. Two cautions belong here. First, coeliac disease must be excluded <em>before</em> removing gluten, because the diagnostic tests require recent gluten exposure to be accurate. Second, not everything is FODMAPs: some researchers point to wheat amylase-trypsin inhibitors as a possible immune trigger, and the field is not settled. Anyone reacting badly to wheat is better served by proper testing than by self-diagnosis.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Non-celiac_gluten_sensitivity" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Get tested for coeliac disease before cutting gluten &mdash; and if wheat upsets you, fructans are the more likely culprit.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2013 blinded crossover trial find about gluten in self-reported sensitive people, and why must coeliac testing come before removing gluten?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Symptoms improved on a low-FODMAP diet regardless of gluten, and blinded gluten challenges produced no consistent effect, pointing to fructans rather than gluten. Coeliac serology and biopsy require recent gluten exposure to be accurate, so removing gluten first invalidates the tests.</div>
+      </details>
+      <div class="source">&#x1F4D6; Biesiekierski, J.R. et al. (2013), <em>Gastroenterology</em> 145(2). Skodje, G.I. et al. (2018), <em>Gastroenterology</em> 154(3). NIH/NIDDK, &ldquo;Celiac Disease.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>No, Lifting Weights Does Not Stunt a Teenager&rsquo;s Growth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Generations of parents and coaches have warned that weight training will damage a growing child&rsquo;s growth plates and leave them shorter. Before reading on, do you think the evidence supports that &mdash; and if you compared injury rates between supervised youth resistance training and ordinary school sports, which would you guess is higher?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="A small group fitness training session" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Supervised, properly loaded resistance training (阻力訓練) has a lower injury rate in young people than most competitive sports. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The concern has a real anatomical basis, which is why it persisted. Growing bones have epiphyseal plates (骺板), cartilage regions near the ends of long bones where lengthening occurs; they are weaker than mature bone, and a fracture through one can in principle disturb growth. Older case reports of growth plate injuries in young lifters gave the warning apparent support. What those reports had in common, on review, was maximal or near-maximal lifting, usually unsupervised, often with poor technique, and frequently involving overhead lifts attempted at loads far beyond the individual&rsquo;s capacity.</p>
+      <p>When training is supervised and appropriately loaded, the evidence points the other way. Position statements from the National Strength and Conditioning Association (NSCA, 美國國家肌力與體能協會), the American Academy of Pediatrics (美國兒科學會) and international consensus groups all conclude that resistance training is safe and beneficial for children and adolescents, and that it does not impair growth. Reviews consistently find injury rates in supervised youth resistance training lower than in football, basketball or gymnastics. Documented benefits include increased strength, better bone mineral density, improved motor coordination, and reduced sports injury risk.</p>
+      <p>There is a genuine physiological difference worth understanding, though it is not about height. Before puberty, strength gains come overwhelmingly from neural adaptation &mdash; better motor unit recruitment and coordination &mdash; rather than muscle growth, because circulating androgens are low. Prepubescent children therefore get noticeably stronger without much visible size change, which is entirely normal. The practical guidance is straightforward: qualified supervision, technique before load, submaximal weights for higher repetitions, avoid one-repetition-maximum testing until skeletal maturity, and progress gradually. The risk in youth lifting comes from unsupervised maximal attempts, not from resistance training as such.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Supervised lifting is safer for teenagers than most team sports &mdash; the danger was always unsupervised maximal attempts.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the growth-stunting warning seem credible, and why do prepubescent children get much stronger without much visible muscle growth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Growth plates are genuinely weaker than mature bone, and older case reports of injuries in young lifters involved maximal, unsupervised attempts with poor technique. Before puberty, low androgen levels mean strength gains come mainly from neural adaptation &mdash; better motor unit recruitment &mdash; rather than muscle size.</div>
+      </details>
+      <div class="source">&#x1F4D6; Faigenbaum, A.D. et al. (2009), NSCA Position Statement, <em>Journal of Strength and Conditioning Research</em>. American Academy of Pediatrics (2020), &ldquo;Resistance Training for Children and Adolescents,&rdquo; <em>Pediatrics</em>. Lloyd, R.S. et al. (2014), <em>British Journal of Sports Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Million-Dollar Bet That an Index Fund Would Beat the Smartest People in Finance</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2007 an investor publicly offered to bet $1 million that over ten years a plain, low-cost index fund would outperform any basket of hedge funds a professional could assemble. Only one firm took the other side. Before reading on, how do you think it turned out &mdash; and, more usefully, what would the result tell you even if the margin had been narrow?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="Warren Buffett" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Warren Buffett (華倫&middot;巴菲特), whose ten-year public wager tested fees against skill in the most direct way available. Credit: <a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2007 Warren Buffett (華倫&middot;巴菲特) publicly offered a $1 million wager: over the ten years from 1 January 2008, an S&amp;P 500 (標準普爾500指數) index fund would outperform any collection of hedge funds an opponent chose, measured after all fees and costs. His argument was not that hedge fund managers lack skill. It was arithmetic: the typical fee structure of roughly 2% of assets annually plus 20% of profits, compounded over a decade and layered with the fund-of-funds manager&rsquo;s own fee on top, is a very high hurdle to clear consistently.</p>
+      <p>Ted Seides of Protégé Partners accepted, selecting five funds of hedge funds holding stakes in more than a hundred underlying funds &mdash; a deliberately broad, professionally constructed portfolio rather than a single manager&rsquo;s bet. The starting timing appeared to favour him: 2008 brought the financial crisis, the index fell about 37%, and the hedge fund basket, which could hold cash and hedge, lost far less. Seides was comfortably ahead after the first year.</p>
+      <p>Over the full ten years the index fund returned roughly 125.8% cumulatively, against about 36.3% for the hedge fund basket &mdash; an annualised gap of around 7.1% versus 2.2%. Seides conceded before the end. Two honest caveats belong with the result. First, one ten-year window that began at a market bottom and ran through an exceptional bull market is a single sample, not a law. Second, some hedge funds exist to reduce volatility rather than maximise return, and judging them purely on total return is not entirely fair. But the core point survives both: fees compound relentlessly and reliably, while outperformance does not. The stakes went to Girls Inc. of Omaha.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Skill is uncertain and fees are certain &mdash; over ten years, certainty won by about ninety percentage points.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Buffett&rsquo;s actual argument in the bet, and what are the two main caveats to reading the result as decisive?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">His argument was arithmetic, not about skill: roughly 2-and-20 fees plus a fund-of-funds layer compound into a very high hurdle. Caveats: a single ten-year window starting at a market bottom is one sample, and some hedge funds aim to reduce volatility rather than maximise return.</div>
+      </details>
+      <div class="source">&#x1F4D6; Berkshire Hathaway Shareholder Letter (2017). Longbets.org, &ldquo;Buffett vs. Prot&eacute;g&eacute; Partners.&rdquo; Seides, T. (2017), <em>Bloomberg</em> concession commentary.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Governments Are Supposed to Boom Right Before Elections. Mostly They Don&rsquo;t.</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/William_Nordhaus_EM1B6043_%2846234132921%29.jpg/330px-William_Nordhaus_EM1B6043_%2846234132921%29.jpg" alt="William Nordhaus" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">William Nordhaus (諾德豪斯), whose 1975 paper formalised the opportunistic political business cycle (政治商業周期). Credit: <a href="https://en.wikipedia.org/wiki/William_Nordhaus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">It is a near-universal assumption in political commentary that incumbents engineer a boom before polling day &mdash; loosening policy to lift growth and employment when it will be noticed, and paying for it afterwards.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">William Nordhaus (諾德豪斯) formalised this in 1975 as the opportunistic political business cycle (政治商業周期): if voters weight recent economic conditions heavily and there is an exploitable inflation-unemployment trade-off, a vote-maximising incumbent will systematically stimulate before elections and contract after.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The prediction has held up poorly in developed democracies. Alesina, Roubini and Cohen&rsquo;s cross-country work found little consistent evidence of pre-election output or unemployment cycles in OECD countries. What does appear robustly is a <em>fiscal</em> cycle &mdash; visible spending and transfers rising before elections &mdash; and it is concentrated in newer democracies and countries with weaker fiscal transparency, as Brender and Drazen documented in 2005 and 2008.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Two accounts fit better. Partisan theory (Hibbs 1977, Alesina 1987) holds that parties pursue genuinely different objectives, so cycles track which party wins rather than the electoral calendar. Rogoff&rsquo;s rational political budget cycle (1990) replaces fooling voters with signalling competence through visible spending, which explains why the cycle shows up in budgets rather than in output, and why independent central banks blunt the monetary version. Unresolved.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Where the pre-election cycle shows up is in visible spending, not in growth &mdash; and mainly where voters can least verify the budget.</div>
+      <div class="source">&#x1F4D6; Nordhaus, W.D. (1975), <em>The Review of Economic Studies</em> 42(2). Alesina, A., Roubini, N. &amp; Cohen, G. (1997), <em>Political Cycles and the Macroeconomy</em>, MIT Press. Brender, A. &amp; Drazen, A. (2005), <em>Journal of Monetary Economics</em>; (2008), <em>American Economic Review</em>.</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; Judging by Outcome Instead of Process:</strong> Hindsight bias makes a past decision look obvious once the result is in, so reviews end up grading outcomes rather than the reasoning available at the time. The Buffett bet is the disciplined opposite. Its terms were fixed in advance, the horizon was ten years, the measure was defined, and both sides were locked in before anyone knew the market&rsquo;s path &mdash; which is why the result is informative at all. Had the bet been settled by recollection in 2018, both sides would have remembered having expected what happened.</p>
+      <p><strong>So what:</strong> Whenever you want to learn from a decision, the useful record is the one you wrote before the outcome existed. A prediction with a date, a measure and a stated reason is the only thing hindsight cannot quietly edit &mdash; and it costs about two minutes to create.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA Webb release, &ldquo;Webb Captures Stellar Gymnastics in the Cartwheel Galaxy&rdquo; (2 Aug 2022). Struck, C. &amp; Higdon, J.L. (2010), review of collisional ring galaxies.</li>
+      <li><strong>Card 2:</strong> Coed&egrave;s, G. (1968), <em>The Indianized States of Southeast Asia</em>, University of Hawaii Press. Higham, C. (2001), <em>The Civilization of Angkor</em>. Britannica, &ldquo;Jayavarman VII.&rdquo;</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;John Snow.&rdquo; Snow, J. (1855), <em>On the Mode of Communication of Cholera</em>, 2nd ed. Johnson, S. (2006), <em>The Ghost Map</em>.</li>
+      <li><strong>Card 4:</strong> 荻生徂徠《辨道》《辨名》《政談》；丸山真男《日本政治思想史研究》；Stanford Encyclopedia of Philosophy, &ldquo;Japanese Confucian Philosophy.&rdquo;</li>
+      <li><strong>Card 5:</strong> G&ouml;del, K. (1931), &ldquo;&Uuml;ber formal unentscheidbare S&auml;tze&hellip;&rdquo;, <em>Monatshefte f&uuml;r Mathematik und Physik</em>. Stanford Encyclopedia of Philosophy, &ldquo;G&ouml;del&rsquo;s Incompleteness Theorems.&rdquo; Nagel, E. &amp; Newman, J.R. (1958), <em>G&ouml;del&rsquo;s Proof</em>.</li>
+      <li><strong>Card 6:</strong> Fischhoff, B. (1975), <em>Journal of Experimental Psychology: Human Perception and Performance</em> 1(3). Roese, N.J. &amp; Vohs, K.D. (2012), <em>Perspectives on Psychological Science</em> 7(5).</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Bruise.&rdquo; Tortora, G.J. &amp; Derrickson, B., <em>Principles of Anatomy and Physiology</em>. Pilling, M.L. et al. (2010), <em>Journal of Forensic and Legal Medicine</em>, on the unreliability of dating bruises by colour.</li>
+      <li><strong>Card 8:</strong> Biesiekierski, J.R. et al. (2013), <em>Gastroenterology</em> 145(2). Skodje, G.I. et al. (2018), <em>Gastroenterology</em> 154(3). NIH/NIDDK, &ldquo;Celiac Disease.&rdquo;</li>
+      <li><strong>Card 9:</strong> Faigenbaum, A.D. et al. (2009), NSCA Position Statement, <em>Journal of Strength and Conditioning Research</em>. American Academy of Pediatrics (2020), &ldquo;Resistance Training for Children and Adolescents,&rdquo; <em>Pediatrics</em>. Lloyd, R.S. et al. (2014), <em>British Journal of Sports Medicine</em>.</li>
+      <li><strong>Card 10:</strong> Berkshire Hathaway Shareholder Letter (2017). Longbets.org, &ldquo;Buffett vs. Prot&eacute;g&eacute; Partners.&rdquo; Seides, T. (2017), <em>Bloomberg</em> concession commentary.</li>
+      <li><strong>Card 11:</strong> Nordhaus, W.D. (1975), <em>The Review of Economic Studies</em> 42(2). Alesina, A., Roubini, N. &amp; Cohen, G. (1997), <em>Political Cycles and the Macroeconomy</em>, MIT Press. Brender, A. &amp; Drazen, A. (2005), <em>Journal of Monetary Economics</em>; (2008), <em>American Economic Review</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-12: Cartwheel Galaxy &amp; ring galaxy formation (JWST 2022) &bull; 闍耶跋摩七世與吳哥王朝的建設 &bull; John Snow &amp; the 1854 Broad Street cholera outbreak &bull; 荻生徂徠古文辭學與「道」為先王制度 &bull; G&ouml;del&rsquo;s Incompleteness Theorems &bull; Hindsight Bias (Fischhoff 1975) &bull; Why Bruises Change Colour &bull; Non-Coeliac Gluten Sensitivity &amp; FODMAPs &bull; Youth Resistance Training &amp; the Growth-Plate Myth &bull; The Buffett Bet (2008&ndash;2017) &bull; The Political Business Cycle</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-12.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-12.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 12 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
