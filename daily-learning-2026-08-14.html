@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 14 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 14 August 2026 &nbsp;&middot;&nbsp; ~26 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>13 August 2026 (2nd edition)</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The First Black Hole Photo</span>Eight linked radio telescopes captured not a black hole itself, but the shadow it casts on glowing plasma nearby.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 鄭和下西洋</span>成祖派鄭和七下西洋宣揚國威，其後朝廷卻焚毀航海檔案、厲行海禁。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Spanish Armada</span>English fireships scattered the Armada, but autumn storms off Scotland and Ireland did the real damage.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 惠能與六祖壇經</span>不識字的樵夫以「本來無一物」一偈勝過神秀，開創禪宗頓悟法門。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Nietzsche&rsquo;s Eternal Recurrence</span>Nietzsche's test for a life well lived: could you will living every moment of it again, forever?</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Cognitive Dissonance</span>A doomsday cult grew more evangelistic, not less, after its prophesied flood failed to arrive.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Supertasters</span>A single gene variant explains why the same broccoli tastes bitter to you and bland to a friend.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The 8 Glasses Myth</span>No study ever established that number &mdash; thirst and pale urine are better hydration guides than a fixed quota.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Creatine &amp; Kidneys</span>Creatine raises a kidney marker simply because it works as intended, not because it causes damage.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The 1929 Crash</span>Margin buying turned a price decline into a self-reinforcing spiral of forced selling.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Dutch Disease</span>A 1959 gas discovery made the Dutch guilder stronger and quietly hollowed out Dutch manufacturing.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Star Photographing Its Own Death, Thousands of Years Early</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A star roughly 30 times heavier than the Sun is shedding its outer layers so violently that astronomers can watch the gas and dust pile up in real time, thousands of years before it's due to explode. Before reading on, what do you think happens to all that shed stellar material &mdash; does it just drift away and disappear, or does it go on to do something else?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Wolf-Rayet_124_%28NIRCam_and_MIRI_composite_image%29.tif/lossy-page1-3840px-Wolf-Rayet_124_%28NIRCam_and_MIRI_composite_image%29.tif.jpg" alt="JWST composite image of Wolf-Rayet star WR 124 surrounded by a halo of ejected gas and dust" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">WR 124, imaged by JWST's NIRCam and MIRI instruments in 2023: a dying star roughly 30 solar masses shedding its outer layers into a glowing halo of gas and dust. Credit: <a href="https://en.wikipedia.org/wiki/WR_124" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In March 2023 NASA released one of the James Webb Space Telescope's (詹姆斯&middot;韋伯太空望遠鏡, JWST) most striking early images: WR 124, a Wolf-Rayet star (沃夫&ndash;瑞葉星) roughly 15,000 light-years away in the constellation Sagitta (天箭座). The star, about 30 times the Sun's mass, has already shed roughly 10 solar masses of material, and JWST's image shows the result as a luminous, asymmetric halo of gas and dust glowing around a brilliant core. Wolf-Rayet stars are named after French astronomers Charles Wolf (沃夫) and Georges Rayet (瑞葉), who first catalogued their unusual spectra in 1867, decades before anyone understood the extreme physics producing them.</p>
+      <p>A Wolf-Rayet phase is one of the shortest, most violent chapters in a massive star's life, lasting only a few hundred thousand years before core collapse ends it in a supernova (超新星). Stars this heavy burn through their nuclear fuel so fast that powerful stellar winds strip away their outer hydrogen layers, exposing the hot inner core and blasting expelled gas outward at speeds of millions of kilometres per hour. JWST's NIRCam and MIRI instruments, tuned to different infrared wavelengths, let astronomers separate the star's blinding light from the cooler surrounding dust, resolving fine clumpy structure invisible to earlier telescopes like Hubble (哈勃太空望遠鏡).</p>
+      <p>The dust itself is the real surprise. Astronomers had long debated whether dying massive stars like WR 124 could produce enough cosmic dust to explain the huge quantities observed in galaxies, including very young ones in the early universe. The JWST image shows the star's ejected material is dustier and more structured than models predicted, hinting that stars in this brief, violent phase may seed space with much of the raw material that later collapses into new stars and planets. Some of that dust, in other words, could eventually become part of a future solar system not unlike our own.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/WR_124" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A star's most explosive death throes may also be doing quiet, essential work: building the dust that becomes the next generation of stars.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What makes the Wolf-Rayet phase so brief, and why does the dust in WR 124's image matter beyond this one star?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Wolf-Rayet stars burn through fuel so fast that powerful winds strip their outer layers in a phase lasting only a few hundred thousand years before supernova. The dust in the ejected material is more abundant and structured than models predicted, suggesting such stars help seed galaxies with the raw material for future stars and planets.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA Webb Space Telescope press release (2023), &ldquo;Star Nears End of Life in Webb's Image of WR 124.&rdquo; Lau, R.M. et al. (2023), &ldquo;JWST Observations of Dust Formation and Wind Structure in the Wolf-Rayet Binary WR 124,&rdquo; <em>The Astrophysical Journal Letters</em>.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>桶狹間之戰&mdash;&mdash;織田信長如何以兩千兵力擊潰兩萬五千大軍</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1560年，駿河、遠江、三河三國太守今川義元率領號稱兩萬五千大軍西上，意圖直取京都；尾張的織田信長手上兵力不足三千，眾家臣力主固守待援，甚至暗中已備棄城逃亡的退路。你認為，信長最終如何以懸殊兵力扭轉戰局？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>織田信長（1534&ndash;1582年，尾張大名）；今川義元（1519&ndash;1560年，駿河、遠江、三河太守，人稱東海道第一弓取）。</p>
+        <p><strong>事件：</strong>永祿三年（1560年）五月十九日，今川義元率大軍西上，於桶狹間遭織田信長奇襲，義元陣亡。</p>
+        <p><strong>時代背景：</strong>日本戰國時代群雄割據，尾張織田家夾在今川、齋藤、松平等強鄰之間，形勢岌岌可危；今川義元挾三國之力西進，意在假道尾張直取京都、號令天下。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Odanobunaga.jpg" alt="織田信長畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">織田信長畫像。他在桶狹間之戰以懸殊劣勢兵力突襲今川義元本陣，一戰成名。來源：<a href="https://en.wikipedia.org/wiki/Oda_Nobunaga" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>永祿三年（1560年）五月，駿河、遠江、三河三國太守今川義元親率號稱兩萬五千大軍西上，旗號直指上洛（進京號令天下）。尾張大名織田信長彼時麾下兵力不足三千，今川軍先鋒已攻陷丸根、鷲津兩座前線砦城，尾張家臣人人自危，有主張固守清洲城待援，亦有暗中已備棄城逃亡的退路。信長召開軍議，一夜未做明確指示，翌晨清晨卻突然披甲上馬，僅率數騎親隨衝出城外，令家臣措手不及，倉皇隨行。</p>
+      <p>信長先趕赴熱田神宮參拜祈戰，藉此聚集沿途趕來的兵員，抵達戰場前兵力已增至約二千至三千人，仍遠遜於今川大軍。當日午後驟雨大作，信長趁豪雨掩護，率軍繞道逼近今川本陣所在的桶狹間山間窪地&mdash;&mdash;今川義元自恃前線已捷，正在此地休整犒賞將士，戒備鬆懈。雨歇之際，信長軍突然自高處殺出，今川本陣猝不及防，一時大亂，將士競相奔逃。</p>
+      <p>亂軍之中，今川義元本人竟被織田家臣毛利新介、服部小平太等人尋獲並斬殺，一代大名死於己方潰兵當中，成為戰國時代最具戲劇性的逆轉之一。今川氏自此一蹶不振，勢力範圍迅速瓦解；原臣屬今川的松平元康（即後來的德川家康）趁勢脫離今川陣營，轉與信長結盟，成為其後統一天下的關鍵伏筆。桶狹間之戰奠定織田信長從「尾張的大傻瓜」翻身為戰國霸主的起點，此後他相繼平定美濃、上洛擁立將軍，開啟通往天下布武的道路。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Oda_Nobunaga" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 兩千餘人能擊潰兩萬五千大軍&mdash;&mdash;不靠正面硬拚，而是精準掌握天時、地利與敵軍鬆懈的一瞬。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 織田信長如何以懸殊劣勢的兵力擊敗今川義元？這場勝利對戰國局勢帶來甚麼長遠影響？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">信長趁豪雨掩護迂迴逼近戒備鬆懈的今川本陣，突襲斬殺今川義元。今川氏自此瓦解，原臣屬松平元康（德川家康）轉投信長陣營，為信長其後統一天下奠定基礎。</div>
+      </details>
+      <div class="source">&#x1F4D6; 太田牛一《信長公記》；藤本正行 (2010)，《桶狭間の戦い&mdash;信長の決断&middot;義元の誤算》，洋泉社；Turnbull, S. (1996), <em>Samurai Warfare</em>, Cassell.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Fire That Burned Rome &mdash; and Nero's Reputation &mdash; For Centuries</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July of 64 CE a fire broke out in Rome and burned for over a week, destroying much of the city. Ancient writers claimed the emperor Nero fiddled while Rome burned, or even started the fire himself to clear land for a new palace. Before reading on, do you think the historical evidence actually supports blaming Nero &mdash; or is this one of history's most durable rumours?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Nero (尼祿, r. 54&ndash;68 CE), fifth Roman emperor; Tacitus (塔西佗), historian writing roughly 50 years later; early Christians (基督徒), later blamed for the fire.</p>
+        <p><strong>Event at stake:</strong> On the night of 18&ndash;19 July 64 CE, a fire broke out near the Circus Maximus (馬克西穆斯競技場) and burned through Rome for six to nine days.</p>
+        <p><strong>Big picture:</strong> Nero was already an unpopular, financially reckless emperor; ancient historians writing under later dynasties had every incentive to blacken his reputation further, making it hard to separate contemporary fact from posthumous legend.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Robert%2C_Hubert_-_Incendie_%C3%A0_Rome_-.jpg/330px-Robert%2C_Hubert_-_Incendie_%C3%A0_Rome_-.jpg" alt="Painting depicting the Great Fire of Rome" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An artist's later depiction of the Great Fire of Rome, 64 CE, which burned for six to nine days and destroyed or damaged most of the city. Credit: <a href="https://en.wikipedia.org/wiki/Great_Fire_of_Rome" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On the night of 18 July 64 CE, a fire broke out among the shops near Rome's Circus Maximus (馬克西穆斯競技場) and, fed by cramped wooden tenements and summer winds, burned for six to nine days. According to the historian Tacitus (塔西佗), writing roughly fifty years later, only four of Rome's fourteen districts escaped damage entirely, and three were reduced completely to ash. The emperor Nero (尼祿) was away at Antium (安提烏姆) when the fire started and returned to organise relief efforts, opening his own gardens to the homeless and importing grain to prevent famine &mdash; details Tacitus records even while reporting the rumours already swirling against him.</p>
+      <p>The most famous accusation, that Nero "fiddled while Rome burned," is almost certainly false on its own technical merits: the fiddle did not exist for another 1,500 years, and even the story's ancient version, that he sang of Troy's destruction from a private stage while the city burned, appears only in later, hostile sources like Suetonius (蘇埃托尼烏斯) and Cassius Dio (卡西烏斯&middot;狄奧), writing decades after Tacitus and further still from the event. Tacitus himself, the earliest and generally most careful source, reports the arson rumour only as unverified gossip, explicitly noting Nero was not in Rome when the fire began.</p>
+      <p>What is well documented is what came after: Nero rebuilt burned districts with wider streets and fire-resistant materials, and seized part of the cleared land to build his lavish Domus Aurea (金宮, "Golden House") palace complex, feeding suspicion that he had profited from the disaster regardless of who started it. Tacitus also records that Nero, needing someone else to blame, accused the new religious sect of Christians (基督徒) of starting the fire and had many executed in brutal public spectacles &mdash; the first documented state persecution of Christians, whatever the fire's true origin. Modern historians generally regard accidental fire, common in ancient Rome's dense wooden housing, as the more plausible explanation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Fire_of_Rome" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nero probably didn't fiddle while Rome burned &mdash; but the persecution he ordered afterward may be the fire's most consequential legacy.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the earliest surviving source, Tacitus, actually say about Nero's role in starting the fire, and what did Nero do afterward that shaped his historical reputation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Tacitus reports the arson rumour only as unverified gossip and notes Nero was away when the fire began. Afterward Nero rebuilt using cleared land for the Domus Aurea palace and blamed and executed Christians for the fire, actions later writers used to cement his villainous reputation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Tacitus, <em>Annals</em>, Book 15. Suetonius, <em>The Twelve Caesars</em>, &ldquo;Nero.&rdquo; Champlin, E. (2003), <em>Nero</em>, Harvard University Press.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>貝原益軒&mdash;&mdash;八十四歲寫成《養生訓》的江戶醫者哲學</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶時代的貝原益軒自幼體弱多病，卻活到八十五歲高齡，並在人生最後一年寫成日本最具影響力的養生著作。你認為，一個自稱體質羸弱的人，如何總結出讓後世奉行三百多年的養生之道？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>貝原益軒（1630&ndash;1714年，江戶時代儒學者、本草學者，福岡藩士）。</p>
+        <p><strong>核心主張：</strong>「養生」&mdash;&mdash;身體是父母及天地所賜，珍惜保養身體本身即是孝道與敬天之實踐；重視「知足」「節制」與日常習慣多於藥石。</p>
+        <p><strong>時代背景：</strong>江戶時代太平日久，庶民識字率提升、出版業興盛，儒學由武士階層普及至商人庶民；貝原益軒畢生體弱多病，遍讀中日醫書本草，晚年將心得寫成通俗易懂的養生著作。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Kaibara_Ekiken_monument.jpg/3840px-Kaibara_Ekiken_monument.jpg" alt="貝原益軒紀念碑" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">貝原益軒紀念碑。這位江戶儒者晚年將畢生養生心得寫成《養生訓》，成為日本家喻戶曉的養生經典。來源：<a href="https://en.wikipedia.org/wiki/Kaibara_Ekken" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>貝原益軒生於1630年，福岡藩儒臣家庭，自幼體弱多病，青年時代更曾一度被藩主放逐、生計無著。他早年赴京都遊學，師從朱子學者及本草學者，博覽醫書藥典，其後獲藩主重新起用，歷任藩儒、編修藩史，並長年鑽研本草學（即中日傳統藥物與博物學），著有《大和本草》等著作，記錄日本動植物與藥用價值，被視為日本博物學先驅之一。他一生體弱，卻活到八十五歲高齡，遠超當時平均壽命，晚年常被求教養生之道。</p>
+      <p>正德二年（1712年），八十三歲的貝原益軒將畢生養生心得整理成書，翌年出版《養生訓》，是他辭世前一年才完成的晚年代表作。書中主張養生之本在於「知足」與「節制」&mdash;&mdash;飲食宜八分飽、忌暴飲暴食，起居宜規律、忌貪睡耽逸，情志宜平和、忌大喜大怒，並強調身體髮膚受之父母天地，善加保養既是對父母的孝道，亦是對天地生養之恩的回報，將養生提升至倫理與宗教實踐的高度，而非單純醫學技術問題。</p>
+      <p>《養生訓》全書以淺白日文寫成，一改當時醫書多用艱澀漢文的傳統，令庶民百姓亦能閱讀奉行，出版後迅即成為江戶社會家喻戶曉的暢銷書，影響持續至明治以後。書中不少觀點&mdash;&mdash;例如飲食節制、規律運動、情緒平和有益健康&mdash;&mdash;與現代預防醫學的核心原則不謀而合，惟其亦摻雜「氣」的傳統醫學宇宙觀，與現代生理學的解釋機制不同。貝原益軒晚年與妻子東軒感情甚篤，二人共同生活直至益軒八十五歲辭世前數月。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Kaibara_Ekken" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一個自稱體弱的人，用「知足與節制」活到八十五歲，並寫成影響日本三百年的養生經典。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 貝原益軒的《養生訓》核心主張是甚麼？他為何用日文而非漢文寫作此書？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">核心主張是飲食起居情志皆需「知足」與「節制」，並將保養身體視為對父母天地之孝道。他以淺白日文寫作，是為了讓不諳漢文的庶民百姓也能閱讀奉行，而非僅限士人階層。</div>
+      </details>
+      <div class="source">&#x1F4D6; 貝原益軒《養生訓》(1713年)；Bardsley, J. (2021), &ldquo;Kaibara Ekken's Precepts for Health,&rdquo; <em>Monumenta Nipponica</em>; Encyclopaedia Britannica, &ldquo;Kaibara Ekken.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Violinist Thought Experiment That Changed How Philosophers Argue About Rights</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine waking up plugged into a famous violinist whose survival depends on your kidneys for nine months. You never consented to this. Philosopher Judith Jarvis Thomson used this scenario to make a controversial argument. Before reading on, what do you think she was trying to prove &mdash; and does the fact that you didn't consent change your obligation to stay connected?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Judith Jarvis Thomson (茱迪絲&middot;賈維斯&middot;湯姆森, 1929&ndash;2020), MIT (麻省理工學院) philosopher.</p>
+        <p><strong>Problem at stake:</strong> Even granting, for argument's sake, that a fetus (胎兒) has a full right to life, does that alone establish a right to use another person's body to stay alive?</p>
+        <p><strong>Rival view:</strong> Many opponents of abortion (墮胎) argued the debate hinged entirely on whether the fetus counts as a person; Thomson tried to show the argument doesn't end there even if it does.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/3/3f/Judith_Jarvis_Thomson%2C_philosopher_%281929_%E2%80%93_2020%29.jpg" alt="Portrait of philosopher Judith Jarvis Thomson" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Judith Jarvis Thomson (1929&ndash;2020), whose 1971 violinist thought experiment reshaped how philosophers argue about rights and consent. Credit: <a href="https://en.wikipedia.org/wiki/Judith_Jarvis_Thomson" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In her 1971 paper "A Defense of Abortion (墮胎辯護)," published in the journal <em>Philosophy &amp; Public Affairs</em>, Judith Jarvis Thomson (茱迪絲&middot;賈維斯&middot;湯姆森) tried something unusual in the abortion debate: rather than arguing about when personhood (人格) begins, she granted her opponents their strongest premise &mdash; that a fetus is a person with a full right to life from conception &mdash; and asked whether that premise alone settles the moral question. Her famous thought experiment (思想實驗) imagines waking up surgically connected to a world-famous violinist with a fatal kidney ailment; the Society of Music Lovers kidnapped you overnight because you alone were a biological match, and unplugging him now would kill him.</p>
+      <p>Thomson's point was that most people, even granting the violinist a full right to life, would still say you are not morally obligated to remain connected to him for nine months, however admirable it would be if you chose to. A right to life, she argued, does not automatically include a right to use someone else's body without their consent (同意) &mdash; even when withdrawing that use causes death. This distinguished the violinist's right to life from any supposed right to your kidneys specifically, a distinction Thomson argued applies with equal force to pregnancy resulting from rape, though she treated pregnancy from consensual sex as a genuinely harder case deserving separate argument.</p>
+      <p>The paper became one of the most reprinted and taught texts in twentieth-century philosophy, less because it settled the abortion question than because of the analytical move it modelled: separating the right to life from the right to the specific means of staying alive. Critics, including philosopher Frances Kamm (法蘭西斯&middot;卡姆), objected that pregnancy differs morally from kidnapping because a woman who had consensual sex bears some responsibility for the fetus's dependent state, unlike the violinist's involuntary kidnap victim &mdash; a rejoinder still actively debated. Thomson's method, isolating one variable in an otherwise fixed moral scenario, also influenced later trolley-problem (電車難題) literature by philosophers like Philippa Foot.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Judith_Jarvis_Thomson" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Even granting a fetus a full right to life doesn't automatically answer whether anyone has a right to use another person's body to survive.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What premise did Thomson deliberately grant her opponents, and what distinction did the violinist thought experiment aim to establish?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">She granted that a fetus has a full right to life from conception, then argued a right to life doesn't include a right to use someone else's body without consent, even if withdrawing it causes death &mdash; separating the right to life from a right to specific life-support.</div>
+      </details>
+      <div class="source">&#x1F4D6; Thomson, J.J. (1971), &ldquo;A Defense of Abortion,&rdquo; <em>Philosophy &amp; Public Affairs</em> 1(1). Stanford Encyclopedia of Philosophy, &ldquo;Abortion.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You'd Pay Less for a Mug Than You'd Demand to Give One Up</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine researchers randomly hand half a classroom a coffee mug, then ask the mug owners the lowest price they'd sell it for while asking the mug-less half the most they'd pay to buy one. Both groups are looking at the identical mug. Before reading on, do you think the average selling price and buying price would end up roughly equal &mdash; or dramatically different?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" alt="Photo of Daniel Kahneman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Daniel Kahneman (丹尼爾&middot;卡尼曼), co-author of the 1990 mug experiment that demonstrated the endowment effect (稟賦效應). Credit: <a href="https://en.wikipedia.org/wiki/Daniel_Kahneman" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a now-classic 1990 study, psychologist Daniel Kahneman (丹尼爾&middot;卡尼曼) and economists Jack Knetsch (傑克&middot;克內奇) and Richard Thaler (理察&middot;塞勒) randomly gave university coffee mugs to half the participants in a classroom experiment, then let "sellers" and "buyers" trade with each other. Classical economic theory (經濟理論) predicted roughly half the mugs should change hands, since ownership was assigned randomly and should have no bearing on how much anyone values the mug. Instead, sellers demanded roughly twice as much to give up their mugs as buyers were willing to pay for one, and far fewer than half of the mugs actually traded.</p>
+      <p>This gap, the endowment effect (稟賦效應), shows that simply owning something increases the value people place on it, independent of the object's actual usefulness or any sentimental attachment built up over time &mdash; the mugs had been in participants' hands for only a few minutes. The effect is closely tied to loss aversion (損失規避), the broader finding from prospect theory (展望理論) that losses loom larger psychologically than equivalent gains: giving up the mug feels like a loss to sellers, while not acquiring it feels like merely forgoing a gain to buyers, and losses are weighted more heavily than potential gains of identical size.</p>
+      <p>The endowment effect has real consequences well beyond mug experiments: it helps explain why people hold onto losing stocks longer than winning ones, why homeowners often price houses above market value, and why free trials are so effective at converting browsers into buyers, since possession itself creates reluctance to give something back. The effect is not universal, however &mdash; experienced traders in professional markets, and goods explicitly held "for exchange" rather than personal use, show a much weaker or absent endowment effect, suggesting the bias reflects a psychological framing of ownership rather than an unshakeable feature of human valuation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Endowment_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Owning something for even a few minutes can double what you'd need to be paid to give it up.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the mug experiment find about selling prices versus buying prices for the identical object, and what psychological mechanism explains the gap?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Sellers who had been randomly given mugs demanded roughly twice what buyers were willing to pay for an identical mug. The gap is explained by loss aversion &mdash; giving up an owned object feels like a loss, weighted more heavily than an equivalent forgone gain.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kahneman, D., Knetsch, J.L. &amp; Thaler, R.H. (1990), &ldquo;Experimental Tests of the Endowment Effect and the Coase Theorem,&rdquo; <em>Journal of Political Economy</em> 98(6). Thaler, R.H. (1980), &ldquo;Toward a Positive Theory of Consumer Choice.&rdquo;</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Your Fingers Prune Up in the Bath &mdash; and Why It's Not What You Think</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone assumes wrinkly fingers after a bath happen because skin passively absorbs water and swells. Before reading on: if that were true, would you expect someone with certain nerve damage in a hand to still get wrinkly fingers after soaking it &mdash; or not?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Hard_rain_on_a_roof.jpg/3840px-Hard_rain_on_a_roof.jpg" alt="Rain falling, an image evoking prolonged water exposure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Prolonged water exposure is what triggers finger wrinkling &mdash; an active nerve-controlled response, not passive swelling. Credit: <a href="https://en.wikipedia.org/wiki/Skin_wrinkling" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For most of the twentieth century, doctors assumed finger wrinkling (手指起皺) after a long bath was simple physics: the outer layer of skin, the keratin-rich stratum corneum (角質層), soaks up water like a sponge and swells until it wrinkles, exactly as a dried bean does when rehydrated. That explanation had one glaring problem, noted almost in passing in medical literature for decades: patients with certain nerve injuries in a hand do not develop wrinkled fingers when that hand is soaked, even though the skin itself is structurally intact. If wrinkling were purely passive water absorption, nerve damage should make no difference at all.</p>
+      <p>The nerve connection turned out to be the real clue. Finger wrinkling is controlled by the sympathetic nervous system (交感神經系統), the same branch responsible for fight-or-flight responses, which constricts blood vessels beneath wet skin and pulls the skin inward around fixed anchor points, producing the wrinkled pattern rather than simple swelling. A 2011 hypothesis by neurobiologist Mark Changizi (馬克&middot;昌吉茲) drew on this mechanism to propose an evolutionary explanation: wrinkled, channelled fingertips may function like rain treads on a tyre, improving grip on wet surfaces. Consistent with this, the wrinkle pattern is not random but forms a consistent, tree-like channel network, similar across different people.</p>
+      <p>A 2013 study testing grip performance on wet, wrinkled versus unwrinkled fingertips found people handled wet marbles and other smooth wet objects measurably faster with wrinkled fingers, lending some support to the wet-grip hypothesis, though the evolutionary explanation remains debated, since some researchers argue the effect is too small or inconsistent to have been strongly selected for. What is well established is the mechanism itself: wrinkling requires an intact nervous system and blood vessel response, taking three to five minutes of immersion to develop, which is why it reliably reverses once fingers dry, unlike genuine tissue swelling.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Skin_wrinkling" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Wrinkly fingers aren't passive swelling &mdash; they're an active nerve-controlled response, possibly evolved to improve your grip on wet objects.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What single clinical observation proved that finger wrinkling can't be simple passive water absorption, and what system actually controls it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Patients with certain hand nerve injuries don't develop wrinkled fingers even when soaked, which passive swelling alone couldn't explain. Wrinkling is instead controlled by the sympathetic nervous system, which constricts underlying blood vessels and pulls the skin inward.</div>
+      </details>
+      <div class="source">&#x1F4D6; Changizi, M., Weber, R., Kotecha, R. &amp; Palazzo, J. (2011), &ldquo;Are Wet-Induced Wrinkled Fingers Primate Rain Treads?,&rdquo; <em>Brain, Behavior and Evolution</em> 77(4). Kareklas, K. et al. (2013), &ldquo;Water-induced Finger Wrinkles Improve Handling of Wet Objects,&rdquo; <em>Biology Letters</em>.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>What Cold Showers Actually Do to Your Body, According to the Trials</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Cold showers and ice baths are widely claimed to boost immunity, burn fat and prevent illness. Before reading on, which of these claims do you think holds up in controlled trials &mdash; all of them, some, or essentially none?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/IMG_Duschender.jpg/330px-IMG_Duschender.jpg" alt="A person taking a shower" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cold showers, popularised by figures like Dutch extreme athlete Wim Hof (韋姆&middot;霍夫), have been the subject of several controlled trials into their actual health effects. Credit: <a href="https://en.wikipedia.org/wiki/Wim_Hof" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold showers and ice baths have surged in popularity partly through figures like Dutch extreme athlete Wim Hof (韋姆&middot;霍夫), who claims cold exposure combined with breathing techniques can boost immunity and endurance. The best controlled evidence comes from a 2016 study by Geert Buijze (基爾特&middot;拜澤) and colleagues, which randomised over 3,000 adults to either finish their normal daily shower with 30, 60 or 90 seconds of cold water, or continue showering as normal, then tracked sick days (病假日) over several months. The cold-shower groups took roughly 29% fewer sick days than the control group &mdash; a real, statistically significant effect.</p>
+      <p>The catch is what that finding does and does not show: the cold-shower groups did not get sick less often &mdash; illness incidence (發病率) was essentially identical across all groups &mdash; they simply returned to work slightly faster when they did fall ill, an effect the researchers themselves described as modest and possibly linked to feeling more energised and resilient rather than any measurable immune (免疫) change. No blood marker of immune function was tracked in that trial, so the mechanism remains speculative, and duration of illness, unlike frequency, is a softer outcome that self-reported energy and motivation can influence.</p>
+      <p>Other specific claims fare worse under testing: a well-cited 2015 study found cold water immersion after strength training blunted long-term muscle growth and strength gains by suppressing the adaptive inflammatory signalling (發炎訊號) muscles need to rebuild larger, and no rigorous trial has shown cold exposure alone meaningfully burns fat, since the metabolic boost from shivering thermogenesis (顫抖產熱) is real but small and short-lived. The honest summary is narrower than the marketing: cold showers may modestly shorten sick days and reliably feel invigorating, but the sweeping immunity-boosting and fat-burning claims built around them outrun what controlled trials actually support.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wim_Hof" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Cold showers may cut sick days slightly &mdash; but they don't prevent illness, and the "boosted immunity" story isn't backed by the actual data.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Did the 2016 cold-shower trial find people got sick less often, and what did it actually find instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">No &mdash; illness incidence was essentially identical across groups. The cold-shower groups took about 29% fewer sick days, meaning they recovered and returned to work slightly faster when ill, not that they avoided illness in the first place.</div>
+      </details>
+      <div class="source">&#x1F4D6; Buijze, G.A. et al. (2016), &ldquo;The Effect of Cold Showering on Health and Work: A Randomized Controlled Trial,&rdquo; <em>PLOS ONE</em>. Roberts, L.A. et al. (2015), <em>Journal of Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why You Can't Choose Where Your Body Loses Fat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Countless workout plans promise exercises to "target" belly fat or "tone" inner thighs specifically. Before reading on, do you think doing hundreds of sit-ups actually burns fat preferentially from your abdomen &mdash; or does the body decide where fat comes from some other way?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/FloorCrunch.JPG" alt="A person performing an abdominal crunch exercise" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Abdominal exercises strengthen the muscles underneath belly fat &mdash; they don't preferentially burn the fat covering them. Credit: <a href="https://en.wikipedia.org/wiki/Crunch_(exercise)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>"Spot reduction (局部減脂)" &mdash; the idea that exercising a specific muscle burns fat preferentially from the skin covering it &mdash; is one of the most persistent myths in fitness marketing, and it has been directly tested. In a frequently cited 2007 study, researchers led by Robert Kostek (羅伯特&middot;科斯泰克) at the University of Connecticut had subjects perform resistance training on only one arm for weeks, then measured fat biopsies from both the trained and untrained sides. If spot reduction were real, the trained side's fat cells should have shown measurably more fat breakdown activity than the untrained side's; instead, both sides showed statistically indistinguishable changes, despite one side doing all the work.</p>
+      <p>The physiological reason is straightforward: when the body needs energy beyond what food provides, it releases fatty acids (脂肪酸) into the bloodstream from fat stores across the whole body, governed by hormonal signalling rather than by which specific muscle is contracting nearby. Which fat deposits shrink first and fastest is determined mainly by genetics, sex hormones and overall body-fat distribution patterns, not by which muscle group is being exercised &mdash; this is why some people lose visible belly fat quickly while others lose it last, following broadly the reverse of the order in which fat was originally gained.</p>
+      <p>None of this means targeted exercises are pointless &mdash; sit-ups and crunches genuinely strengthen and can visibly tone the abdominal muscles (腹肌) underneath, and building visible muscle definition anywhere requires both resistance training in that area and low enough overall body fat for the muscle to show through. The practical implication is one of sequencing, not futility: total-body fat loss through a sustained calorie deficit determines whether a six-pack becomes visible, while localized ab training determines how developed the muscle looks once the fat covering it is gone &mdash; two separate processes that spot-reduction marketing conflates into one.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Crunch_(exercise)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Crunches build the muscle under your belly fat &mdash; they don't burn the fat covering it. Fat loss is body-wide, muscle tone is local.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the one-arm training study find, and what actually determines which fat deposits shrink first?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Both the trained and untrained side showed statistically indistinguishable fat breakdown, disproving spot reduction. Fat is released into the bloodstream from stores across the whole body via hormonal signalling, and which deposits shrink first is mainly determined by genetics and sex hormones, not local exercise.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kostek, M.A. et al. (2007), &ldquo;Subcutaneous Fat Alterations Resulting from an Upper-Body Resistance Training Program,&rdquo; <em>Medicine &amp; Science in Sports &amp; Exercise</em> 39(7). Ramirez-Campillo, R. et al. (2013), <em>Journal of Strength and Conditioning Research</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>How a Small Japanese Rate Hike Triggered a Global Market Panic</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 5 August 2024, Japan's stock market suffered its worst single-day crash since 1987, and markets from New York to Seoul plunged in sympathy &mdash; despite no major company scandal or economic crisis. Before reading on, what do you think a routine interest-rate decision by Japan's central bank had to do with a global stock selloff?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Bank_of_Japan_2010.jpg/330px-Bank_of_Japan_2010.jpg" alt="The Bank of Japan headquarters building" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Bank of Japan (日本銀行), whose July 2024 rate hike helped trigger a rapid global unwind of yen-funded carry trades. Credit: <a href="https://en.wikipedia.org/wiki/Bank_of_Japan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For years, Japan kept interest rates near zero while other major economies raised theirs sharply to fight inflation (通脹), making it cheap to borrow Japanese yen (日圓) and invest the proceeds in higher-yielding assets abroad &mdash; a strategy known as the carry trade (套息交易). By mid-2024, hedge funds (對沖基金) and other investors had built an enormous, hard-to-measure amount of these yen-funded positions across global stocks, bonds and currencies, profiting from the interest-rate gap as long as the yen stayed weak and borrowing stayed cheap. The trade worked well for years, but it depended entirely on Japan's rates staying near zero indefinitely.</p>
+      <p>On 31 July 2024 the Bank of Japan (日本銀行) raised its policy rate to around 0.25%, a modest move by global standards but a sharp break from years of near-zero policy, and signalled further hikes were possible. Combined with weaker-than-expected US jobs data days later, the yen (日圓) surged rapidly against the dollar, which meant the debt underlying carry trades suddenly cost more to repay in local terms just as the underlying foreign assets began falling. That combination forced funds to unwind positions fast, selling assets across multiple markets simultaneously to raise yen and repay loans, regardless of each asset's individual merit.</p>
+      <p>The result, on 5 August 2024, was Japan's Nikkei 225 (日經225指數) falling roughly 12.4% in a single day, its worst one-day drop since the 1987 Black Monday crash, while South Korea, Taiwan and eventually US and European markets fell sharply in overlapping trading hours. Markets stabilised within days once the Bank of Japan signalled it would move cautiously going forward, and most major indices recovered their losses within weeks &mdash; but the episode was a vivid demonstration of how a single, relatively modest central-bank decision in one country can cascade through globally interconnected, leveraged positions that have nothing directly to do with the companies whose share prices actually fell.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bank_of_Japan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A quarter-point rate hike in Tokyo triggered a worldwide stock selloff &mdash; because the real driver was leveraged bets, not company fundamentals.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made the yen carry trade suddenly unwind in August 2024, and why did the resulting selloff spread across unrelated global markets?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Bank of Japan's rate hike combined with weak US jobs data caused the yen to surge, making carry-trade debt suddenly more expensive to repay just as leveraged positions were losing value. Funds sold assets across multiple markets simultaneously to raise yen and repay loans, spreading the selloff regardless of each asset's own fundamentals.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bank of Japan monetary policy statement, 31 July 2024. IMF Global Financial Stability Report and Federal Reserve Bank of San Francisco commentary on the August 2024 yen carry-trade unwind.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Winning an Auction Can Be the Worst Outcome</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Petroleum_sample.jpg" alt="A sample of crude petroleum" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A crude oil sample. Offshore oil-lease auctions (石油租賃拍賣) were the setting where the winner's curse (贏家詛咒) was first documented in 1971. Credit: <a href="https://en.wikipedia.org/wiki/Winner%27s_curse" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1971 three Atlantic Richfield petroleum engineers, Edward Capen, Robert Clapp and William Campbell, examined decades of Gulf of Mexico offshore oil-lease auctions (石油租賃拍賣) and found a striking pattern: companies that won bids for drilling rights systematically earned lower-than-expected returns, with the very highest bidders often losing money outright &mdash; a pattern they named the winner's curse (贏家詛咒).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard auction theory (拍賣理論) for goods with a shared, uncertain true value &mdash; like the amount of recoverable oil under a plot, unknown to any bidder &mdash; predicts that if every bidder submits an unbiased, independent estimate, the average of all bids should cluster around the true value, and competitive bidding should efficiently allocate the asset.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Capen, Clapp and Campbell showed that in a common-value auction (共同價值拍賣) with many bidders, the winning bid is not a random draw from an unbiased distribution &mdash; it is, almost by mathematical necessity, the single highest overestimate among all estimates submitted. The more bidders and the greater the uncertainty, the larger the systematic overpayment, a pattern later observed in corporate takeover premiums and sports free-agent contracts too.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Game theorists including Paul Milgrom (保羅&middot;米爾格龍, later a 2020 Nobel laureate for auction design) showed rational bidders who anticipate the curse should shade their bids downward, and well-designed auction formats can reduce, though not eliminate, the effect. Why persistent overpayment still shows up so often among sophisticated professional bidders remains debated &mdash; incomplete bid-shading, overconfidence, or the pressure to win competitive bidding itself creates.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; In an auction over an uncertain prize, winning is itself a warning sign &mdash; it usually means you overestimated the most.</div>
+      <div class="source">&#x1F4D6; Capen, E.C., Clapp, R.V. &amp; Campbell, W.M. (1971), &ldquo;Competitive Bidding in High-Risk Situations,&rdquo; <em>Journal of Petroleum Technology</em> 23(6). Thaler, R.H. (1988), &ldquo;Anomalies: The Winner's Curse,&rdquo; <em>Journal of Economic Perspectives</em>. Milgrom, P. (2004), <em>Putting Auction Theory to Work</em>.</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 11 &mdash; Isolating the Variable That Actually Matters:</strong> Judith Jarvis Thomson's violinist thought experiment strips away every distracting detail of pregnancy to isolate one question &mdash; does a right to life include a right to someone else's body &mdash; while Capen, Clapp and Campbell's winner's curse analysis strips away the specifics of any one oil auction to isolate one statistical fact: that bidding under uncertainty systematically rewards overestimation, not accuracy. Both show a stubborn intuition (that consent and personhood settle everything; that competition efficiently prices things) collapsing once you carefully isolate the one variable actually doing the work.</p>
+      <p><strong>So what:</strong> When an argument or a deal seems to "obviously" follow from an accepted premise, check whether the premise really implies the conclusion &mdash; or whether something else, an unstated right or the structure of the contest itself, is quietly deciding the outcome.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA Webb Space Telescope press release (2023), &ldquo;Star Nears End of Life in Webb's Image of WR 124.&rdquo; Lau, R.M. et al. (2023), <em>The Astrophysical Journal Letters</em>.</li>
+      <li><strong>Card 2:</strong> 太田牛一《信長公記》；藤本正行 (2010)，《桶狭間の戦い》，洋泉社；Turnbull, S. (1996), <em>Samurai Warfare</em>, Cassell.</li>
+      <li><strong>Card 3:</strong> Tacitus, <em>Annals</em>, Book 15. Suetonius, <em>The Twelve Caesars</em>. Champlin, E. (2003), <em>Nero</em>, Harvard University Press.</li>
+      <li><strong>Card 4:</strong> 貝原益軒《養生訓》(1713年)；Bardsley, J. (2021), <em>Monumenta Nipponica</em>; Encyclopaedia Britannica, &ldquo;Kaibara Ekken.&rdquo;</li>
+      <li><strong>Card 5:</strong> Thomson, J.J. (1971), &ldquo;A Defense of Abortion,&rdquo; <em>Philosophy &amp; Public Affairs</em> 1(1). Stanford Encyclopedia of Philosophy, &ldquo;Abortion.&rdquo;</li>
+      <li><strong>Card 6:</strong> Kahneman, D., Knetsch, J.L. &amp; Thaler, R.H. (1990), <em>Journal of Political Economy</em> 98(6). Thaler, R.H. (1980).</li>
+      <li><strong>Card 7:</strong> Changizi, M. et al. (2011), <em>Brain, Behavior and Evolution</em> 77(4). Kareklas, K. et al. (2013), <em>Biology Letters</em>.</li>
+      <li><strong>Card 8:</strong> Buijze, G.A. et al. (2016), <em>PLOS ONE</em>. Roberts, L.A. et al. (2015), <em>Journal of Physiology</em>.</li>
+      <li><strong>Card 9:</strong> Kostek, M.A. et al. (2007), <em>Medicine &amp; Science in Sports &amp; Exercise</em> 39(7). Ramirez-Campillo, R. et al. (2013).</li>
+      <li><strong>Card 10:</strong> Bank of Japan monetary policy statement, 31 July 2024. IMF Global Financial Stability Report commentary.</li>
+      <li><strong>Card 11:</strong> Capen, E.C., Clapp, R.V. &amp; Campbell, W.M. (1971), <em>Journal of Petroleum Technology</em> 23(6). Thaler, R.H. (1988). Milgrom, P. (2004).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-14: WR 124 (JWST, dying Wolf-Rayet star) &bull; 桶狹間之戰&mdash;織田信長 &bull; The Great Fire of Rome &amp; Nero (64 CE) &bull; 貝原益軒與《養生訓》 &bull; Judith Jarvis Thomson's Violinist Argument &bull; The Endowment Effect (Kahneman, Knetsch &amp; Thaler 1990) &bull; Why Fingers Wrinkle in Water &bull; Cold Showers / Cold-Water Immersion &bull; The Spot Reduction Myth &bull; The August 2024 Yen Carry Trade Unwind &bull; The Winner's Curse (Auction Theory)</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-14.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-14.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 14 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
