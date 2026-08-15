@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 15 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 15 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>14 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; WR 124</span>A dying star 30 times the Sun's mass sheds material that may seed the next generation of stars and planets.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 桶狹間之戰</span>織田信長以不足三千兵力，趁豪雨奇襲斬殺今川義元，一戰翻身戰國霸主。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Great Fire of Rome</span>Nero probably didn't fiddle while Rome burned, but the persecution he ordered afterward became the fire's lasting legacy.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 貝原益軒與《養生訓》</span>體弱多病的貝原益軒活到八十五歲，並寫成三百年來家喻戶曉的養生經典。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Thomson's Violinist</span>Even granting a fetus full personhood, Thomson argued, doesn't settle whether anyone has a right to use your body.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Endowment Effect</span>Owning a mug for a few minutes was enough to double what people demanded to give it up.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why Fingers Wrinkle</span>Wrinkly fingers aren't passive swelling &mdash; they're an active nerve-controlled response that may improve grip on wet objects.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Cold Showers</span>Cold showers cut sick days by nearly a third without actually reducing how often people got sick in the first place.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; The Spot Reduction Myth</span>A one-arm training study proved you can't spot-reduce fat &mdash; it's released from stores across the whole body.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The 2024 Yen Carry Trade Unwind</span>A modest Bank of Japan rate hike triggered a global stock selloff by unwinding years of yen-funded leveraged bets.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Winner's Curse</span>In auctions over uncertain value, the winning bid is almost always the single largest overestimate in the room.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Spider-Shaped Nursery Where 800,000 Stars Are Being Born</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In September 2022, astronomers released a new infrared portrait of a nebula so tangled with glowing filaments that 16th-century observers nicknamed it after a spider. Earlier telescopes showed mostly an empty-looking cavity at its centre. Before reading on, what do you think was hiding in that seemingly empty space, invisible until infrared eyes could see it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Tarantula_Nebula_by_JWST.jpg/3840px-Tarantula_Nebula_by_JWST.jpg" alt="JWST NIRCam mosaic image of the Tarantula Nebula showing glowing gas filaments and clusters of young stars" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Tarantula Nebula (NGC 2070), imaged by JWST's NIRCam in 2022: a 340-light-year-wide star-forming region in the Large Magellanic Cloud (大麥哲倫雲). Credit: <a href="https://en.wikipedia.org/wiki/Tarantula_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In September 2022 NASA and ESA released the James Webb Space Telescope's (JWST, 詹姆斯&middot;韋伯太空望遠鏡) portrait of the Tarantula Nebula, officially NGC 2070, some 161,000 light-years away in the Large Magellanic Cloud (大麥哲倫雲), a small satellite galaxy of the Milky Way. Sixteenth-century observers named it for the wispy, leg-like filaments of glowing gas radiating from its core. It is the largest and brightest star-forming region in our galactic neighbourhood, the Local Group, and a favourite target for telescopes since well before Webb &mdash; but Webb's near-infrared vision showed astronomers something earlier images had simply never captured.</p>
+      <p>At the nebula's centre sits a cavity that looked largely empty in visible-light images, hollowed out by the ferocious radiation and stellar winds (恆星風) of a dense cluster of massive young stars. Webb's NIRCam instrument, tuned to near-infrared wavelengths that pass through obscuring dust far more easily than visible light, revealed that this "empty" cavity was anything but: tens of thousands of previously hidden young stars appeared in the image, some blazing pale blue as newly exposed massive stars, others still glowing red, wrapped in the dusty cocoons they had not yet burned away.</p>
+      <p>The Tarantula Nebula matters to astronomers beyond its striking appearance because its gas has relatively low levels of heavier elements (metallicity, 金屬豐度), chemically similar to conditions during "cosmic noon" (宇宙正午) roughly 10 billion years ago, when star formation across the universe peaked. Studying such a close, well-resolved example of low-metallicity star birth gives astronomers a rare local laboratory for understanding how stars formed throughout most of cosmic history, in galaxies far too distant and faint to examine in this kind of detail.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tarantula_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; What looked like an empty cavity in visible light turned out to be a nursery for tens of thousands of stars &mdash; infrared vision was the only thing missing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the Tarantula Nebula's central cavity look empty in earlier images, and what did Webb's infrared imaging reveal there instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The cavity is hollowed out by radiation and winds from massive stars, and thick dust hid what was inside it from visible-light telescopes. Webb's near-infrared NIRCam instrument pierced that dust and revealed tens of thousands of previously hidden young stars, some newly exposed and others still wrapped in dusty cocoons.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA Webb Space Telescope press release (2022), &ldquo;A Cosmic Tarantula, Caught by NASA's Webb.&rdquo; ESA/Webb image release weic2212a.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>李舜臣如何以十二艘戰船，擊退一百三十三艘日艦？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1597年，朝鮮水師在漆川梁海戰全軍覆沒，僅剩十餘艘戰船，朝廷一度打算乾脆放棄水軍、全力固守陸地。重新受命統領殘部的李舜臣卻堅持繼續以水師迎戰數十倍於己的日本艦隊。你認為，他最終如何以懸殊劣勢的兵力扭轉戰局？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李舜臣（1545&ndash;1598年，朝鮮王朝三道水軍統制使）；元均（前任統制使，漆川梁海戰戰死）。</p>
+        <p><strong>事件：</strong>宣祖三十年（1597年）九月十六日（陽曆10月26日），李舜臣於鳴梁海峽以十二至十三艘戰船擊退日本水軍約一百三十三艘戰船。</p>
+        <p><strong>時代背景：</strong>壬辰倭亂進入第二階段（丁酉再亂），元均在漆川梁海戰幾乎斷送朝鮮水師全部戰力；日軍意圖水陸並進直取王京漢陽，朝鮮存亡繫於能否守住西南海路。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Bust_of_Yi_Sun-sin_01.jpg" alt="李舜臣半身像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">李舜臣半身像。這位朝鮮水軍統制使在鳴梁海戰以十餘艘戰船擊退逾百艘日艦，成為朝鮮民族英雄。來源：<a href="https://en.wikipedia.org/wiki/Yi_Sun-sin" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>元均在漆川梁海戰幾乎斷送朝鮮水師全部戰船後，朝廷一度傾向放棄水軍、集中兵力固守陸地。李舜臣臨危受命重掌統制使一職，手上僅餘十二艘板屋船，卻上疏宣祖力陳「今臣戰船，尚有十二，出死力拒戰，則猶可為也。今若全廢舟師，是賊之所以為幸，而由湖右達於漢水，此臣之所恐也。且臣戰船雖寡，微臣不死，則賊不敢侮我矣」，說服朝廷保留水師，繼續以海路阻擋日軍西進。</p>
+      <p>1597年九月十六日，李舜臣率殘部進駐鳴梁海峽&mdash;&mdash;此地水道狹窄、潮流湍急，一日之內方向數變。日軍水軍將領來島通總率約一百三十三艘戰船逼近，朝鮮諸將見敵勢浩大多有懼色，遲遲不敢向前。李舜臣座艦率先衝入敵陣纏戰，其後鳴金擊鼓嚴令各船跟進；狹窄海峽令日艦無法展開陣形只能魚貫而入，加上李舜臣善用潮流轉向的時機，朝鮮板屋船火砲居高臨下發威，來島通總陣亡，日軍陣腳大亂，最終潰敗，損失約三十一艘戰船。</p>
+      <p>鳴梁海戰重挫日軍水路補給與西進計劃，粉碎其水陸夾擊漢陽的部署，為朝鮮爭得喘息之機，亦保住了尚存的朝鮮水師戰力。翌年（1598年）十一月，李舜臣在露梁海戰中率朝鮮、明朝聯合艦隊截擊撤退日軍時中彈陣亡，臨終前仍下令「戰方急，慎勿言我死」，以免動搖軍心。他其後被奉為朝鮮民族英雄，鳴梁與露梁兩役至今仍是韓國歷史教育與影視作品反覆重述的題材。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Yi_Sun-sin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 十二艘戰船能擊退逾百艘敵艦&mdash;&mdash;靠的不是兵力，而是地形、潮汐與一位主帥拒絕放棄的意志。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 李舜臣如何說服朝廷保留水師？他在鳴梁海戰中如何利用地形與潮汐以寡擊眾？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李舜臣上疏宣祖，指出「今臣戰船，尚有十二」，力陳廢除水師只會令日軍長驅直入，說服朝廷保留殘餘戰船。鳴梁海戰中，他利用海峽狹窄令日艦無法展開陣形，並掌握潮流轉向的時機，以火砲優勢擊潰敵軍前鋒，穩住全局。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《亂中日記》（李舜臣陣中日記）；《宣祖實錄》；Hawley, S. (2005), <em>The Imjin War</em>, Royal Asiatic Society Korea Branch.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Letter That Saved Parliament &mdash; and Doomed the Plotters</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the autumn of 1605, a group of English Catholics had packed 36 barrels of gunpowder into a cellar directly beneath the House of Lords, planning to kill the king and much of the government in one explosion. The plot was meticulously planned and nearly worked. Before reading on, what do you think went wrong &mdash; a guard's suspicion, an informant, or something else entirely?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Robert Catesby (羅伯特&middot;凱茨比), the plot's organiser; Guy Fawkes (蓋伊&middot;福克斯), the explosives expert caught guarding the gunpowder; King James I (詹姆斯一世).</p>
+        <p><strong>Event at stake:</strong> A planned gunpowder explosion beneath the House of Lords (上議院) timed for the State Opening of Parliament (國會) on 5 November 1605.</p>
+        <p><strong>Big picture:</strong> English Catholics had endured decades of persecution under Elizabeth I and hoped James I, son of a Catholic mother, would ease it; when he did not, a small group turned to violence.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/GunpowderPlot.jpg" alt="Contemporary engraving depicting eight of the Gunpowder Plot conspirators" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A 1605 engraving of eight of the Gunpowder Plot conspirators, including Robert Catesby (second from left) and Guy Fawkes (third from right). Credit: <a href="https://en.wikipedia.org/wiki/Gunpowder_Plot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Robert Catesby (羅伯特&middot;凱茨比), a charismatic and devout Catholic gentleman, recruited a small circle of fellow believers after King James I (詹姆斯一世) failed to deliver the religious tolerance many English Catholics had hoped for. Their plan was audacious: kill the king, his heir and much of the Protestant aristocracy in a single stroke by blowing up the House of Lords (上議院) during the State Opening of Parliament (國會), then install James's young daughter as a Catholic figurehead monarch. Conspirator Thomas Percy leased an undercroft directly beneath the House of Lords, and over months the group smuggled in 36 barrels of gunpowder, enough to level the surrounding buildings.</p>
+      <p>The plot unravelled through an anonymous letter. On 26 October 1605, Lord Monteagle, related by marriage to one of the conspirators, received a warning urging him to stay away from Parliament, since "they shall receive a terrible blow this parliament and yet they shall not see who hurts them." Monteagle handed the letter to the king's officials, who ordered a search of the buildings around Parliament. Just after midnight on 5 November, searchers found Guy Fawkes (蓋伊&middot;福克斯), the group's explosives expert, hidden among the gunpowder barrels with a slow match and lantern, ready to light the fuse hours before the king's arrival.</p>
+      <p>Fawkes was arrested and, after torture, revealed his fellow conspirators. Catesby and several others fled London for the Midlands, hoping to spark a Catholic uprising that never materialised; cornered at Holbeach House in Staffordshire, Catesby was shot and killed resisting capture. Fawkes and the surviving plotters were tried, convicted of high treason, and executed in January 1606. Parliament declared 5 November a day of thanksgiving for the king's survival, and the tradition endures in Britain today as Bonfire Night (篝火之夜), marked with fireworks and the burning of Guy Fawkes effigies.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Gunpowder_Plot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Thirty-six barrels of gunpowder and months of planning were undone by one anonymous letter and a search that came just hours too late for the plotters.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What tipped off the authorities to the Gunpowder Plot, and where and when was Guy Fawkes actually caught?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">An anonymous letter warned Lord Monteagle to stay away from Parliament, prompting a search of the buildings nearby. Guy Fawkes was found just after midnight on 5 November 1605 in the cellar beneath the House of Lords, guarding the 36 barrels of gunpowder with a slow match ready to light.</div>
+      </details>
+      <div class="source">&#x1F4D6; UK Parliament, &ldquo;The Gunpowder Plot of 1605.&rdquo; Fraser, A. (1996), <em>The Gunpowder Plot: Terror and Faith in 1605</em>, Weidenfeld &amp; Nicolson.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>白隱慧鶴&mdash;&mdash;一句「隻手之聲」如何救活衰落的臨濟禪</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶中期的臨濟宗一度法脈式微、修行流於形式。禪僧白隱慧鶴年輕時曾因參禪過度陷入身心俱疲的「禪病」，四肢冰冷、心悸不止，幾乎廢學。你認為，一個曾被自己的修行方式拖垮身心的人，後來如何反過來復興了整個宗派？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>白隱慧鶴（1686&ndash;1769年，江戶中期臨濟宗僧，駿河原宿人）。</p>
+        <p><strong>核心主張：</strong>公案參究優於單純靜坐默照；自創「隻手之聲」公案，逼使修行者放棄邏輯推敲、直接體悟本性。</p>
+        <p><strong>時代背景：</strong>江戶臨濟宗當時法脈式微、多流於形式化儀軌；白隱少年因聽聞地獄之說驚恐立志學佛，青年參禪屢屢自認已悟卻遭老師否定，一度陷入身心失調的「禪病」，後靠白幽仙人所授調息之法而癒，晚年致力以公案與書畫重振宗風。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zen-Master-Hakuin-Ekaku-Self-Portrait-1767.png/330px-Zen-Master-Hakuin-Ekaku-Self-Portrait-1767.png" alt="白隱慧鶴1767年自畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">白隱慧鶴1767年自畫像。他自創「隻手之聲」公案，並以淺白書畫弘法，成為臨濟宗中興之祖。來源：<a href="https://en.wikipedia.org/wiki/Hakuin_Ekaku" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>白隱慧鶴生於1686年，駿河國原宿（今靜岡縣）一介商家。相傳他八歲時聽聞法話中對地獄烈焰的描述，驚恐不已，自此立志學佛以求解脫，十五歲正式出家。青年時代他四處遊歷參禪，屢次自認已徹悟，卻一再遭老師當頭棒喝否定；長期高強度的坐禪與自我逼迫，令他陷入四肢冰冷、心悸不止、精神恍惚的身心失調狀態，時人稱為「禪病」，一度幾近廢學。</p>
+      <p>白隱其後遍訪名醫療法無效，相傳最終從隱居白幽山中的仙人「白幽子」處習得一套調息內觀之法，配合觀想身心如軟酥般由頭頂緩緩融化滲透全身的練習，身心逐漸康復，其後修行亦更加精進。他認為當時流行的單純靜坐默照禪過於消極，容易流於形式，唯有公案參究才能真正截斷修行者慣性的邏輯思慮，逼近開悟的臨界點。他自創「隻手之聲」公案&mdash;&mdash;「雙手擊掌自有聲響，那麼單手之聲又是甚麼？」&mdash;&mdash;作為比傳統「無」字公案更難以用邏輯迴避的入門考驗，要求弟子徹底放棄智性推敲，直接體悟。</p>
+      <p>為使禪法普及庶民百姓，而非僅限士人與僧侶階層，白隱以淺白的假名文寫作，並繪製大量禪畫（如達摩圖）巡迴各地說法弘教，弟子與追隨者遍佈日本各地。後世日本臨濟宗幾乎所有現存法脈皆可溯源至白隱一系，故被尊為「五百年來出一人」的臨濟宗中興之祖，其公案體系至今仍是臨濟禪修行的入門教材。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hakuin_Ekaku" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 白隱把自己最私人的身心崩潰化為一套調息之法，也把最艱深的開悟考驗，濃縮成一句人人都能問自己的問題。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 白隱慧鶴為何自創「隻手之聲」公案？他如何從「禪病」中康復？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他認為公案參究比單純靜坐默照更能截斷修行者的邏輯慣性思慮，故自創「隻手之聲」作為比傳統公案更難迴避的入門考驗。他因長期高強度坐禪陷入「禪病」，相傳靠白幽仙人所授的調息內觀之法康復。</div>
+      </details>
+      <div class="source">&#x1F4D6; 白隱慧鶴《夜船閑話》《遠羅天釜》；Waddell, N. (1999), <em>Wild Ivy: The Spiritual Autobiography of Zen Master Hakuin</em>, Shambhala.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Told Alexander the Great to Get Out of His Sunlight</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A penniless philosopher who owned almost nothing and lived in a large ceramic jar in the marketplace was once visited by the most powerful man in the known world, who offered to grant him any favour he wished. Before reading on, what do you think the philosopher asked for &mdash; money, safety, freedom for someone else, or something stranger still?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Diogenes of Sinope (錫諾普的第歐根尼, c. 412&ndash;323 BCE), founder of Cynicism (犬儒主義).</p>
+        <p><strong>Problem at stake:</strong> How much of conventional life &mdash; wealth, status, shame, comfort &mdash; is genuinely necessary for a good life, and how much is simply inherited social convention?</p>
+        <p><strong>Rival view:</strong> Mainstream Athenian values prized wealth, reputation and civic honour; Diogenes staged his own life as a public argument against all three.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Diogenes_Mosaic_R%C3%B6misch-Germanisches_Museum.jpg" alt="Roman mosaic depicting Diogenes of Sinope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A Roman-era mosaic depicting Diogenes of Sinope, the Cynic philosopher who lived in the Athenian marketplace and owned almost nothing. Credit: <a href="https://en.wikipedia.org/wiki/Diogenes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Diogenes of Sinope (錫諾普的第歐根尼) arrived in Athens as an exile, reportedly after a scandal involving his banker father debasing the local currency &mdash; a biographical detail later Cynics loved to read symbolically, since Diogenes went on to spend his life "defacing" the counterfeit currency of social convention itself. He became a student of Antisthenes (安提斯泰尼), a follower of Socrates, but pushed his teacher's austerity to theatrical extremes: Diogenes lived in a large ceramic storage jar (pithos) in the Athenian marketplace, owned barely more than a cloak, a stick and a bowl (which he reportedly discarded after watching a boy drink from cupped hands), and begged for his food.</p>
+      <p>His public behaviour was designed to provoke. Ancient biographer Diogenes Laertius (第歐根尼&middot;拉爾修) records that Diogenes once walked through crowded Athens in broad daylight carrying a lit lamp, telling puzzled onlookers he was "looking for an honest man." His most famous encounter came when Alexander the Great (亞歷山大大帝), then the most powerful ruler in the Greek world, sought him out and offered to grant him any favour. Diogenes, sunning himself, is said to have replied only: "Stand out of my light." Alexander reportedly told his companions afterward, "Were I not Alexander, I would wish to be Diogenes."</p>
+      <p>Diogenes founded Cynicism (犬儒主義, from kynikos, "dog-like," a mocking reference to his shameless public conduct), built on the idea that a genuinely good life requires living "according to nature" and stripping away the artificial wants &mdash; wealth, status, reputation &mdash; that convention insists are necessary. Almost everything known about him comes from anecdotes collected centuries later, making exact facts hard to verify, but the consistency of the portrait across sources suggests a real, deliberately provocative figure. His self-sufficiency (autarkeia) influenced his student Crates (克拉特斯), whose own student Zeno of Citium (季蒂昂的芝諾) went on to found Stoicism (斯多葛學派), building a more systematic philosophy on Cynic foundations.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Diogenes" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Diogenes didn't just argue that you need less than you think &mdash; he lived it in public, in front of the most powerful man alive, to prove the point.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Diogenes actually ask Alexander the Great for, and what philosophical point was that answer meant to demonstrate?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Offered any favour by Alexander the Great, Diogenes asked only that he step out of his sunlight. The reply demonstrated Cynicism's core claim: that a person who has stripped away artificial wants needs nothing even the most powerful ruler in the world can give him.</div>
+      </details>
+      <div class="source">&#x1F4D6; Diogenes Laertius, <em>Lives of Eminent Philosophers</em>, Book VI. Stanford Encyclopedia of Philosophy, &ldquo;Cynics.&rdquo; Navia, L.E. (2005), <em>Diogenes the Cynic: The War Against the World</em>, Humanity Books.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Sugar Pill That Worked Even When Patients Knew It Was Fake</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Doctors have long assumed placebos only work through deception &mdash; patients have to believe they're receiving real medicine. In 2010, researchers gave a group of patients pills in a bottle explicitly labelled "placebo pills made of an inert substance," and told them clearly there was no active drug inside. Before reading on, do you think patients who knowingly took a fake pill still improved &mdash; or did knowing the truth cancel out any effect?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Cebocap.jpg" alt="A placebo capsule used in clinical research" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A placebo capsule of the kind used in clinical trials. In 2010, patients told explicitly that their pills contained no active ingredient still showed measurable symptom relief. Credit: <a href="https://en.wikipedia.org/wiki/Placebo" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For most of modern medicine, the placebo effect (安慰劑效應) was assumed to require deception: a patient has to believe a sugar pill is real medicine for it to have any effect on how they feel. In 2010, Harvard Medical School's (哈佛醫學院) Ted Kaptchuk (泰德&middot;卡普查克) tested that assumption directly, publishing a randomised trial in patients with irritable bowel syndrome (IBS, 腸易激綜合症). One group received a bottle explicitly labelled "placebo pills made of an inert substance," with a doctor explaining that placebo pills have been shown in rigorous clinical trials to produce meaningful improvement through the body's own self-healing processes; a second group received no pills at all.</p>
+      <p>Despite knowing exactly what they were taking, 59% of patients given the honest placebo reported adequate relief from their symptoms after three weeks, compared with 35% in the no-treatment group &mdash; a gap comparable to what many approved IBS medications achieve in trials. The result challenged the field's core assumption: deception, it turned out, was not the active ingredient. What patients seemed to respond to instead was the ritual of treatment itself &mdash; taking a pill twice daily, following a clear clinical rationale, and being cared for within a doctor-patient relationship.</p>
+      <p>Later open-label placebo (誠實安慰劑) trials found similar effects in conditions like chronic lower back pain, migraine and cancer-related fatigue, suggesting the pattern is not a fluke specific to IBS. The effect is not unlimited, however: it shows up reliably for subjective, centrally-mediated symptoms like pain, nausea and fatigue, where expectation and conditioned physiological responses genuinely shape what the brain and body report, but placebos do not shrink tumours, clear infections or repair broken bones &mdash; the benefit is real but confined to how a condition is experienced, not its underlying biology.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Placebo" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A treatment can work partly because of the ritual of taking it, not only because of what's inside the pill.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Kaptchuk's 2010 trial, did patients believe their pills were real medicine, and what did the result challenge about how placebos were assumed to work?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">No &mdash; patients were told explicitly and honestly that their pills were inert placebos, yet 59% still reported adequate symptom relief versus 35% with no treatment. This challenged the long-standing assumption that deception is necessary for a placebo to produce a measurable effect.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kaptchuk, T.J. et al. (2010), &ldquo;Placebos without Deception: A Randomized Controlled Trial in Irritable Bowel Syndrome,&rdquo; <em>PLOS ONE</em> 5(12).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Fat That Burns Calories Instead of Storing Them</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Newborn babies can barely shiver, yet they're remarkably good at staying warm in a cold room. Before reading on, if shivering isn't doing the work, what do you think generates the heat &mdash; and could that same mechanism still be active somewhere in your own body right now?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Brownfat_PETCT.jpg/330px-Brownfat_PETCT.jpg" alt="PET-CT scan showing active brown adipose tissue deposits in an adult" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A PET-CT scan showing active brown adipose tissue (dark patches, neck and shoulders) in an adult exposed to cold &mdash; deposits once assumed to disappear after infancy. Credit: <a href="https://en.wikipedia.org/wiki/Brown_adipose_tissue" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Most body fat is white adipose tissue, built almost entirely for energy storage. Brown adipose tissue (BAT, 棕色脂肪組織) does the opposite: it is packed with mitochondria containing a protein called UCP1 (解偶聯蛋白1, uncoupling protein 1) that short-circuits the normal process of turning food energy into ATP, the cell's usual energy currency, and instead releases that energy directly as heat. This process, called non-shivering thermogenesis (非顫抖性產熱), lets the body warm itself without any muscle contraction at all &mdash; the tissue's entire biological job is, in effect, to waste energy productively.</p>
+      <p>Newborn infants carry proportionally large BAT deposits around the back of the neck and between the shoulder blades, because they cannot yet shiver effectively and are especially vulnerable to heat loss. For decades doctors assumed adults lost nearly all of this tissue after infancy. That assumption was overturned in 2009, when researchers noticed small, symmetrical "hot spots" repeatedly showing up as an apparent nuisance artefact on PET-CT cancer scans &mdash; investigation confirmed these were active brown fat deposits, still present in many adults, typically clustered around the neck, collarbone and upper spine.</p>
+      <p>Cold exposure activates BAT through the sympathetic nervous system (交感神經系統), which releases norepinephrine (去甲腎上腺素) to switch on UCP1 in brown fat cells; adult deposits tend to be more active in leaner individuals and in colder climates. This discovery reopened interest in BAT as a possible target for obesity and metabolic disease treatment, but the effect size in adults remains far smaller than in infants, and popular claims that cold showers or ice baths meaningfully "boost metabolism" through brown fat activation outrun what the research has actually demonstrated at a clinically significant scale.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Brown_adipose_tissue" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You have a tissue whose entire job is to waste energy as heat &mdash; a deliberate biological inefficiency built in to keep you warm.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does UCP1 actually do inside brown fat cells, and how were active brown fat deposits in adults first discovered?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">UCP1 short-circuits the normal process of converting food energy into ATP, releasing that energy directly as heat instead. Active adult brown fat deposits were discovered in 2009 after researchers investigated symmetrical "hot spots" that kept appearing as an apparent nuisance artefact on PET-CT cancer scans.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cannon, B. &amp; Nedergaard, J. (2004), &ldquo;Brown Adipose Tissue: Function and Physiological Significance,&rdquo; <em>Physiological Reviews</em> 84(1). Cypess, A.M. et al. (2009), &ldquo;Identification and Importance of Brown Adipose Tissue in Adult Humans,&rdquo; <em>New England Journal of Medicine</em> 360.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>What Probiotics Actually Do &mdash; and Where the Evidence Runs Out</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Probiotic supplements and yogurts are marketed for everything from digestion to immunity to mood. Before reading on, do you think the clinical evidence for probiotics is broad and consistent across all these claims &mdash; or narrow and concentrated in just one or two specific, well-tested situations?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Lactobacillus_sp_01.png" alt="Microscope image of Lactobacillus bacteria, a common probiotic strain" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Lactobacillus (乳桿菌), one of the most widely studied probiotic bacterial genera. Credit: <a href="https://en.wikipedia.org/wiki/Lactobacillus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Probiotics (益生菌) are live bacterial or yeast strains &mdash; commonly Lactobacillus (乳桿菌) or Saccharomyces boulardii (布拉酵母菌) &mdash; taken with the aim of supporting gut microbial balance. Marketing around them is broad, promising benefits for digestion, immunity, mood and general "gut health," but the strength of clinical evidence varies enormously depending on exactly which claim is being tested, which strain is used, and at what dose &mdash; details that matter far more for probiotics than they do for most conventional drugs.</p>
+      <p>The strongest, most consistent evidence sits in one specific, narrow scenario: preventing antibiotic-associated diarrhea (抗生素相關性腹瀉). A Cochrane review (Cochrane系統性回顧) of 33 studies in children found antibiotic-associated diarrhea occurred in about 8% of children given probiotics alongside antibiotics, versus 19% given a placebo; a separate meta-analysis of 42 studies in adults found probiotics reduced the relative risk of antibiotic-associated diarrhea by roughly 37%. Both findings held specifically for tested strains taken during antibiotic treatment, not for probiotics in general.</p>
+      <p>That narrow, well-supported benefit does not automatically transfer to retail yogurts, capsules or fermented drinks marketed for everyday wellness, since most consumer products haven't been tested at the specific strain, dose and population that produced these results, and general immunity or mood claims for otherwise healthy people rest on far thinner evidence. A further caveat applies to people with weakened immune systems, in whom probiotics have occasionally caused rare but serious bloodstream infections &mdash; a reminder that "live bacteria" products are not automatically risk-free simply because they're sold as supplements rather than drugs.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lactobacillus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Probiotics have real, narrow evidence behind them &mdash; mainly for preventing diarrhea during antibiotic use &mdash; not the broad wellness benefits the marketing implies.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the single clinical scenario where probiotics have the strongest evidence, and why doesn't that finding automatically apply to a random probiotic yogurt or supplement?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The strongest evidence is for preventing antibiotic-associated diarrhea when specific tested strains are taken alongside antibiotics. Most retail probiotic products haven't been tested at the specific strain, dose and population that produced those results, so the benefit doesn't automatically generalise to them or to broader wellness claims.</div>
+      </details>
+      <div class="source">&#x1F4D6; Goldenberg, J.Z. et al. (2015), &ldquo;Probiotics for the Prevention of Pediatric Antibiotic-Associated Diarrhea,&rdquo; <em>Cochrane Database of Systematic Reviews</em>. Cochrane 2021 adult antibiotic-associated diarrhea meta-analysis.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Changing Your Rep Range Every Workout Might Beat a Slow Ramp-Up</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Classic strength programs often spend weeks at a higher-rep range before gradually shifting to fewer, heavier reps over months. Before reading on, do you think switching rep ranges every single workout &mdash; heavy one day, moderate the next, light after that &mdash; would confuse the body and slow progress, or actually build strength faster than a slow, steady ramp-up?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="People performing resistance training in a group fitness session" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Structuring training load over time &mdash; periodization &mdash; shapes how quickly strength actually develops. Credit: <a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Periodization (週期化訓練) is the practice of deliberately structuring training volume and intensity over time, rather than repeating the same workout indefinitely. The classic model, linear periodization (線性週期化), traces back to mid-20th-century Soviet sports science and progresses in blocks: several weeks at a higher-rep, lower-intensity range like 8 repetitions per set, then several weeks at a moderate range like 6, then several weeks at a heavier, lower-rep range like 4, gradually building toward peak strength over months.</p>
+      <p>In 2002, researchers led by Matthew Rhea published a randomised trial in the <em>Journal of Strength and Conditioning Research</em> comparing linear periodization against daily undulating periodization (DUP, 每日波動週期化), where the rep range rotates within the same week instead of shifting block by block &mdash; for example, 8 repetitions on Monday, 6 on Wednesday and 4 on Friday, repeated every week for the programme's duration. Over 12 weeks, with total volume and intensity equated between groups, the DUP group gained substantially more strength than the linear group: roughly 28.8% versus a smaller gain on bench press, and 55.8% versus a smaller gain on leg press.</p>
+      <p>The proposed mechanism is that frequent variation prevents the staleness of long, single-rep-range blocks and gives the body more frequent exposure to a range of stimuli for both neural and muscular adaptation. Later replications of the DUP-versus-linear comparison have produced more mixed results, with the advantage shrinking or disappearing in already well-trained lifters, so the safest practical takeaway is narrower than "DUP always wins": rigid, unvaried long training blocks are probably leaving strength gains on the table compared with structured variation, whichever specific format that variation takes.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Varying intensity within the week, not just across months, may build strength faster than a slow, steady ramp-up &mdash; for the same total training volume.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the core difference between linear periodization and daily undulating periodization, and what did Rhea's 2002 trial find when comparing them?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Linear periodization shifts rep ranges block by block over weeks or months, while daily undulating periodization rotates rep ranges within the same week. With total volume and intensity equated, Rhea's 2002 trial found the undulating group gained substantially more strength on bench press and leg press over 12 weeks.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rhea, M.R. et al. (2002), &ldquo;A Comparison of Linear and Daily Undulating Periodized Programs with Equated Volume and Intensity for Strength,&rdquo; <em>Journal of Strength and Conditioning Research</em> 16(2).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Night One Man's Library Became the Federal Reserve's Blueprint</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In October 1907, a failed attempt to corner a single copper company's stock set off a banking panic that threatened to collapse the entire US financial system &mdash; and at the time, the United States had no central bank to stop it. Before reading on, who or what do you think actually stepped in to prevent total collapse?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/1907_Panic_crop.png" alt="Crowd gathered outside a New York bank during the Panic of 1907" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Depositors gather outside a New York bank during the Panic of 1907, which J.P. Morgan personally organised a rescue for &mdash; and which helped drive the creation of the Federal Reserve. Credit: <a href="https://en.wikipedia.org/wiki/Panic_of_1907" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In October 1907, a failed scheme to corner the stock of the United Copper Company (聯合銅業公司) collapsed, dragging down the Knickerbocker Trust Company (尼克博克信託公司), then New York's third-largest trust, when depositors rushed to pull their money out. With no central bank to act as a lender of last resort, panic spread rapidly to other trusts and banks, and the entire financial system threatened to seize up as institution after institution faced runs it could not survive.</p>
+      <p>The rescue that followed was organised not by any government body but by 70-year-old financier J.P. Morgan (摩根), who summoned dozens of bank and trust company presidents to his private library on Madison Avenue. Working through the night, Morgan and a small circle of trusted lieutenants examined the assembled bankers' books to judge which institutions were merely short of cash and worth saving versus genuinely insolvent. When several officials balked at the rescue terms in the early hours, Morgan reportedly locked the library doors and kept the key until an agreement was reached; a signed pledge finally came together just after four in the morning, with committed sums from the assembled bankers plus John D. Rockefeller.</p>
+      <p>The improvised, essentially private bailout worked &mdash; the panic subsided within weeks &mdash; but it exposed an uncomfortable truth: the stability of the entire US financial system had depended on one wealthy individual's willingness, judgment and personal authority to coordinate a rescue, with no institutional backstop if he had chosen not to act, or had lacked the resources to succeed. The episode directly fed into the National Monetary Commission's work over the following years and the passage of the Federal Reserve Act (聯邦儲備系統) in 1913, creating a permanent central bank precisely so that future crises would not hinge on any single banker's library and goodwill.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Panic_of_1907" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The US central bank exists partly because, in 1907, the only alternative to a national lender of last resort was one man's private library and force of will.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Who organised the rescue during the Panic of 1907, and what long-term institutional change did the crisis directly help bring about?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Financier J.P. Morgan personally organised the rescue, summoning bank and trust presidents to his private library and coordinating a pledged bailout overnight. The crisis exposed the danger of having no central bank and directly drove the creation of the Federal Reserve in 1913.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bruner, R.F. &amp; Carr, S.D. (2007), <em>The Panic of 1907: Lessons Learned from the Market's Perfect Storm</em>, Wiley. Federal Reserve History, &ldquo;The Panic of 1907.&rdquo;</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>How Hong Kong Defended Its Currency by Buying Its Own Stock Market</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Hong_Kong_Monetary_Authority.jpg" alt="Hong Kong Monetary Authority building" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Hong Kong Monetary Authority (香港金融管理局), which broke with textbook currency-board practice in August 1998 to defend the currency peg. Credit: <a href="https://en.wikipedia.org/wiki/Hong_Kong_Monetary_Authority" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In August 1998, during the Asian Financial Crisis, international speculators mounted a coordinated "double play" attack on Hong Kong: shorting Hong Kong dollar interest-rate-sensitive stocks and futures while simultaneously attacking the currency's linked exchange rate system (聯繫匯率制度, pegged at 7.8 HKD per USD since 1983), betting that defending the peg through higher interest rates would crash the stock market regardless of what the Hong Kong Monetary Authority (香港金融管理局, HKMA) did.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Under a textbook currency board system, the monetary authority should only ever intervene in the foreign-exchange market to defend the peg, letting interest rates adjust automatically through arbitrage; discretionary intervention in equities is considered outside a currency board's proper toolkit and risks undermining the rules-based credibility that makes such systems work.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">On 14 August 1998, the HKMA broke with that orthodoxy, spending roughly HK$118 billion &mdash; about 18% of the Exchange Fund (外匯基金) &mdash; over two weeks to directly buy shares across all 33 Hang Seng Index (恒生指數) constituents, defeating the double-play attack and later exiting the position profitably through the newly created Tracker Fund (盈富基金).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Whether discretionary equity intervention preserved or damaged the currency board's credibility remains debated: purists argue any departure from automatic, rules-based action erodes the very commitment mechanism that makes a currency board credible, while the HKMA's own account frames the intervention as a one-off defence against manipulation, not a lasting shift in doctrine.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Sometimes defending a rules-based system convincingly requires breaking its own rules once, decisively.</div>
+      <div class="source">&#x1F4D6; Hong Kong Monetary Authority, &ldquo;Why We Intervened&rdquo; (August 1998 speech). Chan, N. (2019), &ldquo;The Battle to Defend Hong Kong's Financial Stability,&rdquo; HKMA Insight. Yam, J. (1998), HKMA Annual Report.</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 10 &mdash; When Refusing to Fold Was the Rational Move:</strong> Admiral Yi Sun-sin, down to twelve battered ships after Korea's navy was nearly annihilated at Chilcheollyang, refused the court's suggestion to abandon the fleet and fight on land instead &mdash; his own ship held the line at Myeongnyang until the rest of his hesitant captains followed. J.P. Morgan, almost three centuries later and half a world away, refused to let a banking panic run its natural course, locking rival financiers in his library until they backed his rescue plan. Neither man held any formal authority forcing the outcome; both succeeded largely because each was the one person in the room unwilling to accept that the fight was already lost.</p>
+      <p><strong>So what:</strong> Institutions and systems rarely collapse purely from a lack of resources &mdash; they collapse when everyone capable of acting decides resistance is pointless first, which is exactly the moment one stubborn holdout can still change the outcome.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA Webb Space Telescope press release (2022), &ldquo;A Cosmic Tarantula, Caught by NASA's Webb.&rdquo; ESA/Webb image release weic2212a.</li>
+      <li><strong>Card 2:</strong> 《亂中日記》；《宣祖實錄》；Hawley, S. (2005), <em>The Imjin War</em>, Royal Asiatic Society Korea Branch.</li>
+      <li><strong>Card 3:</strong> UK Parliament, &ldquo;The Gunpowder Plot of 1605.&rdquo; Fraser, A. (1996), <em>The Gunpowder Plot</em>, Weidenfeld &amp; Nicolson.</li>
+      <li><strong>Card 4:</strong> 白隱慧鶴《夜船閑話》《遠羅天釜》；Waddell, N. (1999), <em>Wild Ivy</em>, Shambhala.</li>
+      <li><strong>Card 5:</strong> Diogenes Laertius, <em>Lives of Eminent Philosophers</em>, Book VI. Navia, L.E. (2005), <em>Diogenes the Cynic</em>, Humanity Books.</li>
+      <li><strong>Card 6:</strong> Kaptchuk, T.J. et al. (2010), <em>PLOS ONE</em> 5(12).</li>
+      <li><strong>Card 7:</strong> Cannon, B. &amp; Nedergaard, J. (2004), <em>Physiological Reviews</em> 84(1). Cypess, A.M. et al. (2009), <em>New England Journal of Medicine</em> 360.</li>
+      <li><strong>Card 8:</strong> Goldenberg, J.Z. et al. (2015), <em>Cochrane Database of Systematic Reviews</em>.</li>
+      <li><strong>Card 9:</strong> Rhea, M.R. et al. (2002), <em>Journal of Strength and Conditioning Research</em> 16(2).</li>
+      <li><strong>Card 10:</strong> Bruner, R.F. &amp; Carr, S.D. (2007), <em>The Panic of 1907</em>, Wiley. Federal Reserve History.</li>
+      <li><strong>Card 11:</strong> Hong Kong Monetary Authority, &ldquo;Why We Intervened&rdquo; (1998). Chan, N. (2019), HKMA Insight.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-15: Tarantula Nebula (JWST, 2022) &bull; 李舜臣與鳴梁海戰 &bull; The Gunpowder Plot (1605) &bull; 白隱慧鶴與「隻手之聲」 &bull; Diogenes of Sinope / Cynicism &bull; The Placebo Effect (Kaptchuk 2010 open-label trial) &bull; Brown Adipose Tissue / Non-Shivering Thermogenesis &bull; Probiotics &amp; the Evidence &bull; Periodization (Linear vs Daily Undulating) &bull; The Panic of 1907 &amp; J.P. Morgan &bull; Hong Kong's Linked Exchange Rate System (1998 Defense)</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-15.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-15.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 15 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
