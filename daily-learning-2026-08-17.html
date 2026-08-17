@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 17 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 17 August 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>15 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Tarantula Nebula</span>Webb's infrared image revealed tens of thousands of hidden young stars in a cavity that looked empty in visible light.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 李舜臣與鳴梁海戰</span>李舜臣僅憑十二戰船，藉海峽地形潮汐大破逾百日艦。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Gunpowder Plot</span>An anonymous tip-off letter led searchers to catch Guy Fawkes guarding 36 barrels of gunpowder beneath Parliament.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 白隱慧鶴與「隻手之聲」</span>白隱慧鶴曾患禪病，康復後創「隻手之聲」公案重振臨濟宗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Diogenes of Sinope</span>When Alexander the Great offered him any favour, Diogenes simply asked him to step out of his sunlight.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Placebo Effect</span>Patients told explicitly their pills were fake still reported real symptom relief, challenging assumptions about deception.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Brown Adipose Tissue</span>A "wasteful" tissue that burns energy as pure heat was found still active in adults via misread cancer scans.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Probiotics</span>Strong evidence for probiotics is narrow &mdash; mainly preventing diarrhea during antibiotic use, not general wellness claims.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Periodization</span>Rotating rep ranges weekly (DUP) beat a slow linear ramp-up for building strength in a 2002 trial.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The Panic of 1907</span>With no central bank to intervene, J.P. Morgan personally organised an overnight bailout in his own library.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Hong Kong's Currency Defense</span>The HKMA broke currency-board orthodoxy in 1998, buying Hang Seng stocks outright to defeat a speculative attack.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Ice-Cold World That Turned Out to Be Alive</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2015, a spacecraft that had traveled nine and a half years and three billion miles sent back the first close-up pictures of Pluto &mdash; a small, frozen world so far from the Sun that scientists expected a dead, heavily cratered ball of ice, much like our Moon. Before reading on, what do you think the images actually showed instead?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Pluto_in_True_Color_-_High-Res.png/3840px-Pluto_in_True_Color_-_High-Res.png" alt="True-color image of Pluto from NASA's New Horizons spacecraft showing the heart-shaped Tombaugh Regio" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Pluto, imaged by NASA's New Horizons spacecraft during its July 2015 flyby. The pale heart-shaped region is Tombaugh Regio (湯博區). Credit: <a href="https://en.wikipedia.org/wiki/Pluto" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 July 2015, NASA's (美國太空總署) New Horizons (新視野號) spacecraft, launched in January 2006, swept past Pluto (冥王星) after a nine-and-a-half-year, three-billion-mile journey &mdash; the first and only close-up visit to the dwarf planet. Mission scientists broadly expected a dead, ancient, heavily cratered world resembling Earth's Moon, given Pluto's tiny size and extreme distance, roughly 40 times farther from the Sun than Earth is. What the spacecraft's cameras revealed instead, as images streamed back over the following months, upended that assumption almost immediately.</p>
+      <p>Dominating one hemisphere was a huge, pale, heart-shaped region now named Tombaugh Regio (湯博區, after Pluto's discoverer Clyde Tombaugh), whose western lobe is a smooth nitrogen-ice (氮冰) plain called Sputnik Planitia (史普尼克平原), broken into polygonal cells with essentially no impact craters &mdash; geological evidence that the surface is being actively resurfaced, not fossilised. Nearby, New Horizons photographed water-ice (水冰) mountains up to 3,500 metres tall, standing like icebergs (冰山) within the softer nitrogen ice, alongside features resembling slow-flowing nitrogen glaciers around their base.</p>
+      <p>An uncratered plain implies ongoing geological activity on a small, cold world with no obvious internal heat source strong enough to power it, a puzzle scientists are still working through. New Horizons also imaged Pluto's largest moon, Charon (卡戎), finding a startling dark red polar cap, before continuing onward to fly past the Kuiper Belt (柯伊伯帶) object Arrokoth in January 2019 &mdash; the most distant close-up images ever taken of any object in the solar system.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pluto" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A world assumed dead because of its size and distance turned out to be geologically alive &mdash; "small and cold" isn't the same as "inactive."</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did scientists expect Pluto's surface to look like before New Horizons arrived, and what did the mission actually find that contradicted that expectation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Scientists expected an ancient, heavily cratered world like the Moon, given Pluto's small size and extreme distance from the Sun. Instead, New Horizons found a huge, crater-free nitrogen-ice plain and towering water-ice mountains, evidence of ongoing geological resurfacing on a world assumed too small and cold to be active.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA New Horizons mission press releases (2015). Stern, S.A. et al. (2015), &ldquo;The Pluto System: Initial Results from Its Exploration by New Horizons,&rdquo; <em>Science</em> 350(6258).</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>玄奘西行&mdash;&mdash;一位偷渡出關的僧人，如何取回佛法真經？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">貞觀初年，唐朝厲行邊禁，嚴禁百姓私自出境西域，違者可處死刑。一位年輕僧人卻堅持要偷渡出關，隻身穿越大漠與雪山，前往天竺（印度）求法。你認為，是甚麼原因讓他甘冒殺頭之罪，也要違禁西行？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>玄奘（602&ndash;664年，唐代高僧，俗姓陳，河南洛陽人）。</p>
+        <p><strong>事件：</strong>貞觀三年（629年），玄奘違反唐廷邊禁，偷渡出玉門關西行，歷十七年，往返五萬里，赴天竺（印度）那爛陀寺求法。</p>
+        <p><strong>時代背景：</strong>唐初建國未穩，西域局勢動盪，朝廷厲行邊禁以防人口外流與敵國滲透；佛教經典漢譯本歧義紛紜，玄奘欲赴源頭求證。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Xuanzang_w.jpg" alt="玄奘畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">玄奘畫像。他偷渡出關西行十七年，帶回六百五十七部梵文經典，開啟唐代最重要的譯經事業。來源：<a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>玄奘自幼出家，遍讀國內佛典，卻發現各家漢譯本對同一經文解釋歧異甚大，尤其是「一切眾生皆有佛性」抑或部分眾生無法成佛的爭論，令他無所適從。他認定唯有親赴佛法發源地天竺（印度），求得梵文原典並向名師求證，才能解開心中疑惑。他曾上表朝廷請求西行，卻遭以邊防不穩為由拒絕。當時唐朝初建，西域局勢未靖，朝廷嚴禁百姓私自出關，違者可處死刑。</p>
+      <p>玄奘不顧禁令，貞觀三年（629年）獨自偷渡出玉門關，穿越八百里流沙（今新疆莫賀延磧沙漠），一度迷路四天五夜滴水未進，幾乎喪命，全靠識途老馬引路方才脫困。其後翻越終年積雪的凌山（今天山山脈），隨行者凍死大半，僅剩玄奘與少數隨從抵達西域諸國。沿途高昌王麴文泰極為敬重，欲強留玄奘為國師，玄奘絕食明志，麴文泰才放行並資助其西行路費、馬匹與隨從。</p>
+      <p>玄奘抵達印度那爛陀寺（Nalanda），師從戒賢法師學習《瑜伽師地論》，並遊歷印度各地參學辯經，聲名遠播，據載曾在戒日王主持的曲女城無遮大會上論辯十八日無人能破。貞觀十九年（645年），玄奘攜六百五十七部梵文經典返抵長安，唐太宗雖對其違禁出境既往不咎，反而大力支持譯經事業。玄奘其後主持譯出經論七十五部、一千三百三十五卷，並口述西行見聞成《大唐西域記》，成為研究七世紀中亞、南亞歷史地理的重要史料。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場違反禁令的偷渡之旅，最終換來的是中國佛教史上最重要的一次經典校勘與翻譯工程。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 玄奘為何不顧朝廷禁令堅持西行？他最終帶回多少部經典，並完成了甚麼重要著作？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">玄奘因不滿漢譯佛典歧義紛紜，欲赴天竺求證梵文原典，故不顧邊禁偷渡出關。他於貞觀十九年帶回六百五十七部梵文經典，主持譯出七十五部經論，並口述成《大唐西域記》。</div>
+      </details>
+      <div class="source">&#x1F4D6; 玄奘《大唐西域記》；慧立、彥悰《大慈恩寺三藏法師傳》；Wriggins, S.H. (2004), <em>The Silk Road Journey with Xuanzang</em>, Westview Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Men Who Fell From a Window and Survived &mdash; and Started a War</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In May 1618, a group of angry Protestant nobles in Prague seized two royal officials, put them on trial in a castle room, and threw them out of a third-floor window. Catholic accounts claimed the men survived by landing softly with divine help; Protestant accounts credited a large pile of manure below. Before reading on, do you think this odd, almost farcical incident actually mattered, or faded into a historical footnote?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Count Jindřich Matyáš Thurn (瑟恩伯爵), leader of the Protestant nobles; officials Vilém Slavata (斯拉瓦塔) and Jaroslav Bořita (馬丁尼茲伯爵), the men thrown from the window; Ferdinand (斐迪南), the future Holy Roman Emperor.</p>
+        <p><strong>Event at stake:</strong> The Second Defenestration of Prague (布拉格擲窗事件), 23 May 1618 &mdash; Protestant nobles throwing two Catholic royal governors from a window of Prague Castle (布拉格城堡).</p>
+        <p><strong>Big picture:</strong> Rising tension between Bohemia's Protestant nobility and the Catholic Habsburg (哈布斯堡王朝) monarchy over religious rights guaranteed by the 1609 Letter of Majesty, which Ferdinand's officials were seen as violating.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Prager_Fenstersturz_Wahrhafftige_Zeitung_aus_Prag.JPG" alt="Contemporary depiction of the 1618 Defenestration of Prague" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A contemporary depiction of the Second Defenestration of Prague, 23 May 1618, the incident that helped trigger the Thirty Years' War. Credit: <a href="https://en.wikipedia.org/wiki/Defenestrations_of_Prague" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Bohemia's Protestant nobles had won broad religious toleration in 1609 under the Letter of Majesty (敕令詔書, granted by Emperor Rudolf II), but by 1617 the devoutly Catholic Ferdinand (斐迪南, later Holy Roman Emperor Ferdinand II) had been elected King of Bohemia and began appointing officials hostile to that toleration, ordering some Protestant churches closed. Convinced their rights were being systematically dismantled, a group of nobles led by Count Jindřich Matyáš Thurn (瑟恩伯爵) confronted two of Ferdinand's regents, Vilém Slavata (斯拉瓦塔) and Jaroslav Bořita (馬丁尼茲伯爵), directly at Prague Castle (布拉格城堡) on 23 May 1618.</p>
+      <p>After a hostile mock trial inside the castle's Bohemian Chancellery, the nobles seized both officials and their secretary and threw all three from a third-floor window, roughly 21 metres above the ground. All three survived &mdash; Catholic accounts credited the intervention of angels or the Virgin Mary cushioning their fall, while Protestant pamphlets more prosaically attributed survival to a large pile of manure and refuse in the dry moat below, which softened the impact. Either way, the men climbed out largely unharmed and fled to report the incident to the imperial court in Vienna.</p>
+      <p>What might have remained a strange, near-farcical local incident instead triggered the Bohemian Revolt (波希米亞起義), as the rebellious nobles formed a provisional government and raised an army against Habsburg rule. The conflict escalated far beyond Bohemia's borders as foreign powers took sides, spiralling into the Thirty Years' War (三十年戰爭, 1618&ndash;1648), one of the most destructive conflicts in European history, killing an estimated 4.5 to 8 million people and redrawing the religious and political map of Central Europe through the eventual Peace of Westphalia (西發里亞和約) in 1648.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Defenestrations_of_Prague" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Three men falling from a castle window and surviving became the spark for a war that killed millions &mdash; historical turning points aren't always dignified.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What happened to the two officials thrown from the window in the 1618 Defenestration of Prague, and what large-scale conflict did the incident help trigger?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Both officials and their secretary survived the roughly 21-metre fall, reportedly cushioned by a pile of manure in the castle's dry moat. The incident triggered the Bohemian Revolt against Habsburg rule, which escalated into the Thirty Years' War, a conflict that killed millions across Central Europe.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wilson, P.H. (2009), <em>Europe's Tragedy: A New History of the Thirty Years War</em>, Penguin. Britannica, &ldquo;Defenestration of Prague.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>龍樹菩薩如何用一句「緣起性空」瓦解形上學爭論？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">佛陀入滅後數百年，印度佛教內部對「法」（構成世界的最小單位）是否真實存在、如何存在，發展出繁複的哲學爭論。一位南印度僧人卻主張，這些爭論本身建基於錯誤的預設，從根本上便無法成立。你認為，他如何論證「一切事物皆無自性」，卻又不至於淪為虛無主義？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>龍樹（約公元二至三世紀，南印度人，大乘佛教中觀學派創始人）。</p>
+        <p><strong>核心主張：</strong>緣起性空&mdash;&mdash;一切事物皆依因緣和合而生，故無獨立不變的自性；「空」並非「不存在」，而是「不具備獨立自存的本質」。</p>
+        <p><strong>時代背景：</strong>佛滅後部派佛教（尤其說一切有部）發展出「法有我無」的實在論，主張構成世界的最小單位「法」真實存在；龍樹著《中論》系統反駁此說，重新詮釋佛陀「緣起」教法。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Nagarjuna_with_84_mahasiddha_cropped.jpg" alt="龍樹菩薩畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">龍樹菩薩畫像。他所著《中論》以「緣起性空」瓦解部派佛教的實在論，被後世尊為「八宗共祖」。來源：<a href="https://en.wikipedia.org/wiki/Nagarjuna" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>佛陀入滅後數百年間，部派佛教尤其是說一切有部，發展出一套精密的「法有我無」理論&mdash;&mdash;主張雖然「自我」是虛幻的，但構成世界的最小單位「法」（如色、受、想、行、識等基本元素）卻具有真實不變的自性，是分析到最後不可再分的實在。龍樹認為，這套理論表面上否定了「我」，實際上卻把「法」偷偷變成了另一種變相的永恆實體，違背了佛陀「諸行無常」的根本教法。</p>
+      <p>龍樹在其代表作《中論》中，以嚴密的邏輯逐一檢視因果、運動、時間、自我等範疇，反覆論證：凡是依賴其他條件（因緣）才能生起的事物，必然沒有獨立不變的自性；反之，若某物真有獨立自性，它便不可能依賴任何條件而生，也不可能變化。他由此得出「緣起性空」的核心命題&mdash;&mdash;一切現象皆是因緣和合的產物，故其本質是「空」，但這個「空」並非「甚麼都不存在」的虛無，而是「不具備獨立自存本質」的意思。</p>
+      <p>龍樹進一步提出「二諦」說，區分世俗諦（日常語言與經驗層面的真實）與勝義諦（究竟層面的空性），主張「空」本身亦是因緣安立的假名，不可執著為另一種形上實體，否則便落入他所批判的「惡取空」。這套中觀學說其後傳入中國，深刻影響三論宗、天台宗乃至禪宗的思想；亦傳入西藏，成為藏傳佛教格魯派等主要宗派的哲學根基，龍樹因而被後世尊為「八宗共祖」。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Nagarjuna" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 龍樹的「空」不是說甚麼都不存在，而是說沒有任何事物能獨立於因緣條件之外自己存在。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 龍樹如何反駁部派佛教「法有我無」的理論？他所說的「空」是甚麼意思？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">龍樹指出，凡依賴因緣條件而生的事物必然沒有獨立不變的自性，「法」若真實不變便不可能因緣和合而生，故「法有」理論實為變相的永恆實體。他所說的「空」，是指一切現象皆無獨立自存的本質，而非「甚麼都不存在」的虛無。</div>
+      </details>
+      <div class="source">&#x1F4D6; 龍樹《中論》；Garfield, J.L. (1995), <em>The Fundamental Wisdom of the Middle Way</em>, Oxford University Press；Stanford Encyclopedia of Philosophy, &ldquo;N&#257;g&#257;rjuna.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The One Sentence Mill Thought Should Limit All Government Power</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In Victorian Britain, laws and social pressure regulated everything from private drinking habits to which books could be sold, often justified by protecting people's morals or their own wellbeing. One philosopher proposed a single, simple test for when society is ever entitled to interfere with what a person does. Before reading on, what do you think that test was?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> John Stuart Mill (約翰&middot;彌爾, 1806&ndash;1873), English philosopher and Member of Parliament.</p>
+        <p><strong>Problem at stake:</strong> When, if ever, is society or government justified in restricting an individual's freedom of action?</p>
+        <p><strong>Rival view:</strong> Victorian moral and legal orthodoxy widely accepted paternalistic and moralistic restrictions on private conduct, justified by protecting individuals from themselves or upholding shared morality.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/John_Stuart_Mill_by_London_Stereoscopic_Company%2C_c1870.jpg" alt="Photographic portrait of John Stuart Mill, c. 1870" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Stuart Mill, c. 1870. His 1859 essay On Liberty proposed the harm principle as the sole legitimate limit on restricting individual freedom. Credit: <a href="https://en.wikipedia.org/wiki/John_Stuart_Mill" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>John Stuart Mill (約翰&middot;彌爾) published On Liberty (論自由) in 1859, at a time when Victorian Britain (維多利亞時代英國) freely used law and overwhelming social pressure to police private conduct that harmed no one but the person doing it &mdash; drinking, unconventional beliefs, unorthodox lifestyles &mdash; justified either by protecting individuals from their own bad choices or by upholding a shared public morality. Mill, having suffered his own famous nervous breakdown partly from the rigid utilitarian (功利主義) upbringing his father imposed on him, was unusually alert to the damage that conformity and coercion could do to individual development.</p>
+      <p>Mill proposed a single test, now known as the harm principle (傷害原則): "the only purpose for which power can be rightfully exercised over any member of a civilised community, against his will, is to prevent harm to others." Purely self-regarding conduct &mdash; actions affecting only the person doing them &mdash; should be entirely free from interference, however unwise or offensive society finds it; interference is justified only once conduct risks harming other people. Mill was explicit that this excluded both "harm to oneself" and mere moral disapproval as legitimate grounds for restriction.</p>
+      <p>The principle proved far harder to apply cleanly than to state, since almost any action can be described as affecting others indirectly, and Mill's own exceptions &mdash; excluding children, "backward" societies, and cases of implied consent like contracts &mdash; drew immediate criticism for their vagueness. Contemporary critic James Fitzjames Stephen (詹姆斯&middot;斯蒂芬) argued some shared morality is necessary to hold any society together, a debate that resurfaced almost verbatim a century later in the Hart-Devlin debate (哈特&mdash;德夫林論戰) over whether law should enforce sexual morality, and continues today in disputes over paternalistic public-health regulation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/John_Stuart_Mill" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Mill's test wasn't "is this wise or moral" but "does this harm someone else" &mdash; a distinction still argued over in every debate about what law should regulate.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Mill's harm principle, what is the only legitimate justification for restricting an individual's freedom, and what two justifications did he explicitly rule out?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mill argued power can only be rightfully exercised over someone against their will to prevent harm to others. He explicitly ruled out both protecting the person from their own bad choices and enforcing shared moral disapproval as legitimate grounds for restricting purely self-regarding conduct.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mill, J.S. (1859), <em>On Liberty</em>. Stanford Encyclopedia of Philosophy, &ldquo;John Stuart Mill.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why a Longer, More Painful Procedure Can Leave a Better Memory Than a Shorter One</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a study, patients undergoing colonoscopies rated their moment-to-moment pain throughout the procedure. Some had the standard procedure; others had the same procedure but with a few extra minutes of mild, non-zero discomfort added at the end before the scope was withdrawn. Before reading on, which group do you think rated the overall experience as less unpleasant afterward?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg/330px-Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" alt="Photograph of psychologist Daniel Kahneman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Daniel Kahneman, whose 1996 colonoscopy study with Barbara Fredrickson revealed the peak-end rule. Credit: <a href="https://en.wikipedia.org/wiki/Daniel_Kahneman" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1996, Daniel Kahneman (丹尼爾&middot;卡尼曼), Barbara Fredrickson and colleagues studied how patients remembered the pain of colonoscopies (結腸鏡檢查), having them rate their discomfort every 60 seconds throughout the procedure on a real-time dial. One group underwent the standard procedure; a second group had an identical procedure but with the colonoscope left in place, motionless, for an extra few minutes afterward &mdash; adding real but mild additional discomfort rather than ending immediately at the point of highest pain.</p>
+      <p>Despite objectively experiencing more total pain and more total time in discomfort, patients in the extended group rated the overall procedure as less unpleasant in retrospect, and were more willing to return for a repeat colonoscopy later. Kahneman explained this with what he called the peak-end rule (峰終定律): people's remembered evaluation of an experience is dominated by two moments &mdash; the single worst or best point, the peak, and how it felt right at the end &mdash; largely ignoring the actual duration, a pattern he termed duration neglect (持續時間忽略).</p>
+      <p>The finding reveals a systematic gap between the "experiencing self," which lives through an event moment by moment, and the "remembering self," which later constructs a summary judgment that goes on to guide future decisions, such as whether to return for the same procedure again. The effect has since been replicated across contexts from cold-water immersion experiments to vacation memories, with a practical clinical application: ending an uncomfortable procedure on a milder note, even if it takes longer overall, can measurably improve how patients remember it afterward.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Daniel_Kahneman" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; How an experience ends shapes your memory of the whole thing far more than how long it actually lasted.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Kahneman's colonoscopy study, which group rated the procedure as less unpleasant afterward, and what does the peak-end rule say determines how we remember an experience?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Patients whose procedure was extended with mild added discomfort at the end rated it as less unpleasant overall than those who had the shorter procedure. The peak-end rule holds that remembered evaluations are dominated by the single worst or best moment and the ending, largely ignoring total duration.</div>
+      </details>
+      <div class="source">&#x1F4D6; Redelmeier, D.A. &amp; Kahneman, D. (1996), &ldquo;Patients' Memories of Painful Medical Treatments,&rdquo; <em>Pain</em> 66(1). Kahneman, D. (2011), <em>Thinking, Fast and Slow</em>.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Two Runners With Identical Fitness Can Burn Different Amounts of Fuel at the Same Pace</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two marathon runners can have nearly identical VO2 max &mdash; the maximum oxygen uptake often used as the go-to measure of aerobic fitness &mdash; yet one consistently outperforms the other at world-class pace. Before reading on, what do you think explains the gap, if not raw aerobic capacity?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Eliud_Kipchoge_in_Berlin_-_2015_%28cropped%29.jpg" alt="Marathon runner Eliud Kipchoge racing in Berlin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Elite marathoners' performance depends heavily on running economy &mdash; how efficiently the body converts oxygen into forward motion &mdash; not just raw aerobic capacity. Credit: <a href="https://en.wikipedia.org/wiki/Eliud_Kipchoge" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>VO2 max (最大攝氧量, the maximum rate the body can use oxygen during exercise) has long been treated as the headline number in endurance performance, but by the late 1970s, exercise physiologists noticed elite runners with near-identical VO2 max values still produced very different race times. The missing variable was running economy (跑步經濟性): the amount of oxygen, and therefore energy, a runner burns to maintain a given pace &mdash; akin to a car's fuel efficiency rather than the size of its fuel tank.</p>
+      <p>Much of the variation traces to how efficiently the body's tendons, especially the Achilles tendon (跟腱), store and return elastic energy with each stride, functioning like a biological spring: a stiffer, more elastic tendon returns more of the energy absorbed on landing rather than dissipating it as heat, reducing the muscular work needed to propel the body forward each step. Stride mechanics, muscle-fibre efficiency and even body proportions such as lighter lower legs, which cut the energy cost of swinging the limb, all compound this effect across tens of thousands of strides in a marathon.</p>
+      <p>Critically, running economy is not simply fixed at birth: longitudinal studies show it improves substantially with years of consistent training, partly through neuromuscular adaptations that make stride patterns more efficient and partly through tendons genuinely stiffening in response to repeated loading, alongside coaching that trims wasteful motion. Elite East African distance runners as a group tend to show favourable running economy on average, but researchers studying the pattern point to lifelong high-volume training from a young age and lighter limb proportions as substantial contributing mechanisms, not any single decisive gene.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Eliud_Kipchoge" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two runners can have identical aerobic engines and still perform differently &mdash; fitness isn't just how much oxygen you can use, but how little you waste getting the job done.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is running economy, and what physical mechanism helps explain why it varies between runners with similar VO2 max?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Running economy is the amount of oxygen and energy a runner burns to sustain a given pace, distinct from VO2 max. Variation is partly explained by how efficiently tendons, especially the Achilles tendon, store and return elastic energy like a spring, reducing the muscular work needed with each stride.</div>
+      </details>
+      <div class="source">&#x1F4D6; Saunders, P.U. et al. (2004), &ldquo;Factors Affecting Running Economy in Trained Distance Runners,&rdquo; <em>Sports Medicine</em> 34(7). Barnes, K.R. &amp; Kilding, A.E. (2015), <em>Sports Medicine &ndash; Open</em>.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Why the "Glass of Red Wine Is Good for Your Heart" Claim Is Falling Apart</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, health advice suggested moderate drinking &mdash; especially red wine &mdash; might protect the heart, based on studies showing moderate drinkers had better outcomes than non-drinkers. Before reading on, do you think more recent, better-designed research confirms this protective effect, or does it point to a hidden flaw in how the original studies picked their comparison group?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Red_and_white_wine_in_glass.jpg" alt="Glasses of red and white wine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The idea that moderate wine drinking protects the heart traces to a statistical flaw in how early studies defined their "non-drinker" comparison group. Credit: <a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Since the 1980s, numerous observational studies found that moderate drinkers had lower rates of heart disease and death than either heavy drinkers or complete abstainers, producing a J-shaped curve (J型曲線) when health outcomes were plotted against alcohol intake &mdash; a pattern widely popularised as evidence that a glass of red wine (紅酒) a day could be good for the heart, sometimes attributed to resveratrol (白藜蘆醇), a compound in grape skins.</p>
+      <p>A major flaw emerged once researchers scrutinised who exactly made up the "non-drinker" comparison group: it typically lumped lifelong abstainers together with former drinkers who had quit due to illness, alcoholism or doctor's orders, dragging down the non-drinker group's average health and making moderate drinkers look artificially healthier by comparison &mdash; a statistical trap known as the "sick quitter" effect. Studies correcting for this, including Chikritzhs et al.'s 2015 reanalysis, found the apparent protective effect shrank substantially or disappeared once former drinkers were properly excluded from the baseline group.</p>
+      <p>A 2018 Lancet Global Burden of Disease analysis of 592 studies across 195 countries concluded that the level of alcohol consumption minimising overall health risk is zero, since even modest protective associations for heart disease are offset by increased risks of cancer, liver disease and injury; a 2022 Mendelian randomization study using genetic variants, which aren't confounded by past drinking history, found no protective cardiovascular effect from light-to-moderate drinking. Health bodies including the WHO now describe no level of alcohol consumption as demonstrably safe, a marked shift from the "moderate drinking is heart-healthy" message common a generation ago.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The "healthy moderate drinker" comparison group was quietly padded with sick people who'd already quit &mdash; correct for that, and the protective effect mostly vanishes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was the "sick quitter" flaw in the studies behind the red-wine-is-heart-healthy claim, and what did later research find once it was corrected for?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The non-drinker comparison group lumped lifelong abstainers together with former drinkers who had quit due to illness, dragging down its average health and making moderate drinkers look artificially healthier. Once studies excluded former drinkers from the baseline group, the apparent protective effect shrank substantially or disappeared.</div>
+      </details>
+      <div class="source">&#x1F4D6; Chikritzhs, T. et al. (2015), &ldquo;Has the Leaning Tower of Presumed Health Benefits from &lsquo;Moderate&rsquo; Alcohol Use Finally Collapsed?,&rdquo; <em>Addiction</em> 110(5). GBD 2016 Alcohol Collaborators (2018), <em>The Lancet</em> 392(10152).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Stretching Before You Lift Might Make You Weaker That Day</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Static stretching &mdash; holding a muscle in a lengthened position for 20 to 60 seconds &mdash; has long been part of standard pre-workout routines, on the idea that a more flexible, "warmed up" muscle performs better. Before reading on, do you think stretching a muscle right before a heavy lift makes it stronger, weaker, or has no measurable effect on the very next set?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/TwoDumbbells.JPG" alt="A pair of dumbbells" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Whether stretching before lifting helps or hurts strength depends heavily on how long each hold lasts. Credit: <a href="https://en.wikipedia.org/wiki/Dumbbell" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Static stretching (靜態伸展) &mdash; holding a muscle at a lengthened position without movement, typically for 15 to 60 seconds &mdash; has been a default part of pre-exercise warm-ups for decades, generally justified by the belief that a more flexible muscle performs better and is less prone to injury. Starting in the early 2000s, a growing body of controlled research began testing that assumption directly by measuring strength and power output immediately after a bout of static stretching, rather than simply assuming a benefit.</p>
+      <p>Behm and Chaouachi's 2011 review, synthesising dozens of studies, found that static stretching held for more than about 60 seconds per muscle group produced a measurable, acute reduction in maximal strength, power output and speed on the very next set, with effects sometimes lasting 30 minutes or more. Proposed mechanisms include reduced musculotendinous stiffness, where the muscle-tendon unit becomes "looser" and transmits force less efficiently, and altered neural drive, where the nervous system briefly sends a weaker activation signal to the stretched muscle.</p>
+      <p>The effect is dose-dependent rather than universal: shorter static stretches, under roughly 30 to 45 seconds per muscle, show minimal or no measurable strength impairment, and the practical guidance to emerge is not "never stretch" but "sequence and dose it deliberately" &mdash; save longer static holds for after training or separate flexibility sessions, and favour dynamic warm-ups (動態熱身), involving moving stretches like leg swings and walking lunges, immediately before strength or power-focused training.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dumbbell" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Long static stretches right before lifting can temporarily weaken the muscle you just stretched &mdash; save the deep holds for after training.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Behm and Chaouachi's 2011 review, what duration of static stretching starts to measurably reduce strength and power on the very next set, and what warm-up alternative is generally recommended instead before lifting?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Static stretches held for more than about 60 seconds per muscle group produced measurable acute reductions in strength and power, sometimes lasting 30 minutes or more. Dynamic warm-ups involving moving stretches like leg swings are generally recommended instead immediately before strength or power-focused training.</div>
+      </details>
+      <div class="source">&#x1F4D6; Behm, D.G. &amp; Chaouachi, A. (2011), &ldquo;A Review of the Acute Effects of Static and Dynamic Stretching on Performance,&rdquo; <em>European Journal of Applied Physiology</em> 111(11).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Computer Trading Strategy That Was Supposed to Prevent Crashes &mdash; and Made One Worse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 19 October 1987, the Dow Jones Industrial Average fell 22.6% in a single day, still the largest one-day percentage decline in its history &mdash; nearly double the worst day of the 1929 crash. There was no major economic news, no bank failure, no war that day. Before reading on, what do you think actually drove such an extreme, sudden drop?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/S%26P_500_index_around_the_time_of_the_crash.png" alt="Chart of the S&amp;P 500 index around the time of the October 1987 crash" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The S&amp;P 500 index around Black Monday, 19 October 1987, when automated "portfolio insurance" selling amplified a modest decline into a historic crash. Credit: <a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Through the mid-1980s, a strategy called portfolio insurance (投資組合保險) grew rapidly popular among large institutional investors, promising to protect stock portfolios from losses using a computer-driven formula: as prices fell, the programme automatically sold stock index futures (股指期貨) to hedge the decline, and as prices fell further, it sold progressively more, without requiring a human trader to make a fresh judgment call each time. By October 1987, an estimated $60 billion or more in institutional assets was following some version of this automated approach.</p>
+      <p>On 19 October 1987 &mdash; a day now called Black Monday (黑色星期一) &mdash; a modest opening decline, triggered by prior-week jitters over interest rates and a weakening US dollar, set portfolio insurance programmes selling automatically; that selling pushed prices down further, which triggered even more automated selling from the same formula-driven strategies, in a self-reinforcing feedback loop. The Dow Jones Industrial Average (道瓊斯工業平均指數) fell 22.6% in a single session, and because so many funds ran the identical strategy simultaneously, sell orders overwhelmed the exchange floor's capacity, feeding the panic further.</p>
+      <p>A Presidential task force led by Nicholas Brady (the Brady Report) concluded portfolio insurance's mechanical, price-agnostic selling was a central amplifying cause of the crash's severity, since it treated a falling price purely as a trigger for more selling, regardless of any change in underlying company value. The episode led directly to circuit breakers (熔斷機制) &mdash; automatic trading halts that pause markets after large, fast declines to break exactly this kind of feedback loop &mdash; becoming a standard feature of US and global exchanges, a reform still in place today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Black_Monday_(1987)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A strategy each fund used to protect itself from losses became, once thousands of funds ran it simultaneously, the very mechanism that made the crash worse.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was portfolio insurance, and how did the Brady Report conclude it contributed to the severity of the 1987 crash?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Portfolio insurance was a computer-driven strategy that automatically sold stock index futures as prices fell, to hedge institutional portfolios against losses. The Brady Report concluded this mechanical, price-agnostic selling created a self-reinforcing feedback loop, since so many funds ran the same strategy simultaneously, amplifying the crash's severity.</div>
+      </details>
+      <div class="source">&#x1F4D6; Brady Commission Report (1988), <em>Report of the Presidential Task Force on Market Mechanisms</em>. Carlson, M. (2007), &ldquo;A Brief History of the 1987 Stock Market Crash,&rdquo; Federal Reserve Board.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Doesn't Capital Flow From Rich Countries to Poor Ones?</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Foreign_direct_investment_by_country.webp" alt="World map showing foreign direct investment by country" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Global foreign direct investment still concentrates overwhelmingly among wealthy countries, the puzzle at the heart of the Lucas Paradox. Credit: <a href="https://en.wikipedia.org/wiki/Foreign_direct_investment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since capital controls loosened from the 1970s onward, cross-border investment has grown enormously, yet the overwhelming majority of international capital continues flowing between wealthy countries &mdash; the US, Europe, Japan &mdash; rather than toward poorer, capital-scarce economies where textbook theory predicts it should be most profitable.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard neoclassical growth models predict that capital, facing diminishing returns wherever it is already abundant, should flow toward capital-poor countries offering higher returns per dollar invested, gradually equalising income levels across nations through this arbitrage.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Robert Lucas's influential 1990 paper, &ldquo;Why Doesn't Capital Flow from Rich to Poor Countries?&rdquo;, quantified the puzzle starkly: using standard models, he calculated the return on capital in India should have been roughly 58 times higher than in the United States in 1988 &mdash; a gap that should have triggered a capital flood, yet observed flows remained comparatively modest.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Subsequent research points to institutional quality, weak property rights and political risk (Alfaro, Kalemli-Ozcan &amp; Volosovych, 2008), alongside human capital and technology gaps, as the missing variables depressing poor countries' actual, risk-adjusted returns far below the naive textbook calculation; which factor dominates, and whether targeted reforms could unlock the "missing" capital, remains actively debated.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The gap between where economic theory says capital should go and where it actually goes is explained less by opportunity than by trust and institutions.</div>
+      <div class="source">&#x1F4D6; Lucas, R.E. (1990), &ldquo;Why Doesn't Capital Flow from Rich to Poor Countries?,&rdquo; <em>American Economic Review</em> 80(2). Alfaro, L., Kalemli-Ozcan, S. &amp; Volosovych, V. (2008), <em>Review of Economics and Statistics</em> 90(2). Never recycles Card 10 domain (1987 program-trading crash mechanics vs. international capital-flow theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 8 &amp; 11 &mdash; The Number That Looked Final Until Someone Asked What Was Missing:</strong> The red-wine-is-heart-healthy claim and the Lucas Paradox are the same statistical trap wearing two different disguises. Both started from a striking number &mdash; a J-shaped survival curve, a 58-times return gap &mdash; that looked like a complete explanation on its own. Both turned out to be missing a hidden variable quietly built into the comparison: sick people who had already quit drinking dragging down the "non-drinker" baseline in one case, institutional quality and political risk depressing poor countries' true risk-adjusted returns in the other.</p>
+      <p><strong>So what:</strong> The most seductive statistics are the ones nobody has yet asked "what's missing from this comparison group" about &mdash; treating a striking correlation as an invitation to interrogate its hidden variables, rather than as a finished conclusion, is the more reliable habit.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA New Horizons mission press releases (2015). Stern, S.A. et al. (2015), <em>Science</em> 350(6258).</li>
+      <li><strong>Card 2:</strong> 玄奘《大唐西域記》；慧立、彥悰《大慈恩寺三藏法師傳》；Wriggins, S.H. (2004), <em>The Silk Road Journey with Xuanzang</em>, Westview Press.</li>
+      <li><strong>Card 3:</strong> Wilson, P.H. (2009), <em>Europe's Tragedy</em>, Penguin. Britannica, &ldquo;Defenestration of Prague.&rdquo;</li>
+      <li><strong>Card 4:</strong> 龍樹《中論》；Garfield, J.L. (1995), <em>The Fundamental Wisdom of the Middle Way</em>, Oxford University Press.</li>
+      <li><strong>Card 5:</strong> Mill, J.S. (1859), <em>On Liberty</em>. Stanford Encyclopedia of Philosophy, &ldquo;John Stuart Mill.&rdquo;</li>
+      <li><strong>Card 6:</strong> Redelmeier, D.A. &amp; Kahneman, D. (1996), <em>Pain</em> 66(1). Kahneman, D. (2011), <em>Thinking, Fast and Slow</em>.</li>
+      <li><strong>Card 7:</strong> Saunders, P.U. et al. (2004), <em>Sports Medicine</em> 34(7). Barnes, K.R. &amp; Kilding, A.E. (2015), <em>Sports Medicine &ndash; Open</em>.</li>
+      <li><strong>Card 8:</strong> Chikritzhs, T. et al. (2015), <em>Addiction</em> 110(5). GBD 2016 Alcohol Collaborators (2018), <em>The Lancet</em> 392(10152).</li>
+      <li><strong>Card 9:</strong> Behm, D.G. &amp; Chaouachi, A. (2011), <em>European Journal of Applied Physiology</em> 111(11).</li>
+      <li><strong>Card 10:</strong> Brady Commission Report (1988). Carlson, M. (2007), Federal Reserve Board.</li>
+      <li><strong>Card 11:</strong> Lucas, R.E. (1990), <em>American Economic Review</em> 80(2). Alfaro, L. et al. (2008), <em>Review of Economics and Statistics</em> 90(2).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-17: New Horizons Pluto Flyby (2015) &bull; 玄奘西行取經 &bull; The Defenestration of Prague (1618) &bull; 龍樹菩薩與《中論》緣起性空 &bull; John Stuart Mill's Harm Principle &bull; The Peak-End Rule (Kahneman 1996 colonoscopy study) &bull; Running Economy in Elite Marathoners &bull; Moderate Drinking / The J-Curve Debunked &bull; Static Stretching Before Lifting &bull; Black Monday 1987 &amp; Portfolio Insurance &bull; The Lucas Paradox</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-17.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-17.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 17 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
