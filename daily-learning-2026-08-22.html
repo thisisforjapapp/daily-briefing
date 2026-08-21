@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 22 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 22 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>17 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; New Horizons at Pluto</span>NASA&rsquo;s New Horizons flyby found an ancient, dead dwarf planet was instead a geologically active world with crater-free ice plains.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 玄奘西行</span>玄奘不顧唐廷邊禁偷渡出關，歷十七年赴印度求法，帶回六百多部經典。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Defenestration of Prague</span>Two royal officials survived being thrown from a Prague Castle window, an incident that helped trigger the Thirty Years&rsquo; War.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 龍樹與《中論》</span>龍樹以「緣起性空」反駁部派佛教「法有」之說，成為八宗共祖。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Mill&rsquo;s Harm Principle</span>Mill argued the only legitimate reason to restrict someone&rsquo;s freedom is to prevent harm to others, not to protect them from themselves.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Peak-End Rule</span>Kahneman&rsquo;s colonoscopy study found patients remembered a longer, milder-ending procedure as less unpleasant than a shorter one.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Running Economy</span>Elite runners with identical VO2 max can differ in performance because of how efficiently their tendons store and return elastic energy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Red Wine Myth</span>The heart-healthy case for moderate drinking mostly traces to a flawed comparison group padded with sick ex-drinkers.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Stretching Before Lifting</span>Static stretches held over 60 seconds can temporarily weaken the very muscle you just stretched.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Black Monday 1987</span>Automated &ldquo;portfolio insurance&rdquo; selling by thousands of funds running the same formula turned a decline into a historic crash.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Lucas Paradox</span>Capital theoretically should flood from rich to poor countries for higher returns, but weak institutions keep it mostly at home.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Planet Astronomers Had Already Photographed Without Realising It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2003, a telescope in Chile captured a faint point of light next to a young star &mdash; and astronomers dismissed it as instrument noise. Five years later, a different team detected the same faint point and confirmed it was real. Before reading on, what do you think that point of light turned out to be, and why did revisiting the old 2003 image matter so much?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Betapic_orbit_v2_reduced.gif" alt="Animation showing the orbital motion of the exoplanet Beta Pictoris b around its star across several years of observations" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Multi-year observations of Beta Pictoris b tracing its actual orbital motion around its star &mdash; one of the first planets beyond our solar system ever directly imaged in motion. Credit: <a href="https://en.wikipedia.org/wiki/Beta_Pictoris_b" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Beta Pictoris (皮克托座&#x03B2;星) is a young star some 63 light-years away, only 20 to 26 million years old &mdash; a toddler next to our 4.6-billion-year-old Sun (太陽). In 1984, astronomers captured the first resolved image of a disk of gas and dust encircling another star, using a coronagraph (日冕儀) to block the star&rsquo;s glare. For two decades, the disk&rsquo;s odd warps and clumps hinted that unseen planets were sculpting it from within, but no one could actually see one: a planet is roughly a billion times fainter than the star it orbits, drowned out at every wavelength astronomers tried.</p>
+      <p>In 2003, a team using the European Southern Observatory&rsquo;s (歐洲南天天文台) Very Large Telescope (甚大望遠鏡) in Chile photographed a faint point of light close to the star, dismissed it as instrumental noise, and set the image aside. Five years later, Anne-Marie Lagrange (拉格朗日) and colleagues, using sharper adaptive optics (自適應光學), detected the same faint point again in new observations from 2008 and 2009 &mdash; and confirmed it moved exactly as a planet&rsquo;s orbit would predict. Only then did someone check the old 2003 data and realise the &ldquo;noise&rdquo; had been the planet all along.</p>
+      <p>Because the same object, later named Beta Pictoris b (皮克托座&#x03B2; b), had now been captured at multiple points in its orbit years apart, astronomers could for the first time trace a planet&rsquo;s actual path around another sun directly, rather than inferring its existence indirectly from a star&rsquo;s wobble or a dip in brightness. The planet turned out to be roughly nine to thirteen times the mass of Jupiter (木星), still glowing from the heat of its own formation. A second, closer planet, Beta Pictoris c, was confirmed in 2019, and in 2023 the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) re-imaged the system&rsquo;s warped disk in far sharper detail.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Beta_Pictoris_b" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Sometimes discovery isn&rsquo;t seeing something new &mdash; it&rsquo;s recognising that you&rsquo;d already seen it, years earlier, and hadn&rsquo;t known it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made Beta Pictoris b&rsquo;s confirmation especially significant compared to earlier, indirect exoplanet-detection methods, and what earlier image turned out, in hindsight, to already contain it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">For the first time, astronomers could directly image a planet&rsquo;s actual orbital motion around another star across multiple years, rather than inferring its existence indirectly from a star&rsquo;s wobble or dimming. A 2003 VLT image, initially dismissed as noise, was later recognised as an earlier capture of the very same planet.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lagrange, A.-M. et al. (2009), &ldquo;A Probable Giant Planet Imaged in the &beta; Pictoris Disk,&rdquo; <em>Astronomy &amp; Astrophysics</em> 493(2). NASA/ESO press materials.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>宇佐八幡宮神託事件&mdash;&mdash;一則假神諭，如何幾乎讓一介僧人登上天皇之位？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">奈良時代末年，一位深受女帝寵信的僧人權傾朝野，據稱九州宇佐八幡宮傳來神諭，聲稱若讓此僧登基為帝，天下便能太平。這道神諭若被朝廷採信，日本天皇世系將首次落入非皇室血統之手。你認為，朝廷最終如何應對這場足以動搖皇統的政治危機？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>道鏡（？&ndash;772年，法相宗僧人）；稱德天皇（孝謙天皇，718&ndash;770年，日本第46代及第48代天皇，兩度即位）；和気清麻呂（733&ndash;799年，貴族官員，奉命赴宇佐八幡宮查證神諭）。</p>
+        <p><strong>事件：</strong>神護景雲三年（769年），大宰府官員習宣阿曾麻呂奏報，稱九州宇佐八幡宮神諭「令道鏡即帝位，天下太平」；稱德天皇遣和気清麻呂親赴宇佐核實神諭真偽。</p>
+        <p><strong>時代背景：</strong>稱德天皇篤信佛教，寵信僧人道鏡，任其官至太政大臣禪師、法王，權勢凌駕群臣；朝廷內部對僧侶干政、乃至僧人登基的可能性憂心忡忡，皇統傳承面臨自建國以來最嚴峻的挑戰。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Wake_no_Kiyomaro_statue.JPG" alt="和気清麻呂像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">和気清麻呂像。他奉命親赴宇佐八幡宮查核神諭真偽，帶回否定道鏡繼位的神諭，扭轉了一場皇統危機。來源：<a href="https://en.wikipedia.org/wiki/Wake_no_Kiyomaro" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>稱德天皇（即孝謙天皇，日本史上少數兩度登基的女帝）自患病痊癒後，對僧人道鏡篤信不疑，視為救命恩人與精神支柱，一路擢升其官位，先後任命為太政大臣禪師，其後更破格封為「法王」，儀制幾與天皇相埒。道鏡雖為僧侶，卻實際掌握朝政大權，朝中不少官員或懾於其勢，或真心依附，形成一股獨立於傳統皇室與藤原氏之外的政治勢力，令朝局微妙失衡。</p>
+      <p>神護景雲三年（769年），大宰府主神官習宣阿曾麻呂上奏，聲稱九州宇佐八幡宮降下神諭，主張「令道鏡即天皇位，天下必得太平」。此一神諭若獲確認屬實，將意味日本皇統史上首次由非皇室血統之人繼承帝位，稱德天皇雖寵信道鏡，仍不敢輕率採信，遂遣貴族官員和気清麻呂親赴宇佐八幡宮，查核神諭真偽。</p>
+      <p>和気清麻呂抵達宇佐後，帶回的神諭卻與此前奏報截然相反：「我國家開闢以來，君臣定矣，未曾以臣為君；天之日嗣必立皇緒，無道之人宜早掃除」，明確否定道鏡繼位的正當性。道鏡大怒，將和気清麻呂降職流放，惟稱德天皇翌年病逝後，道鏡隨即失勢，被貶往下野國（今栃木縣）藥師寺，鬱鬱而終。此事件其後亦成為桓武天皇遷都平安京的考量之一，藉此擺脫奈良佛教僧團對朝政的深遠影響。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wake_no_Kiyomaro" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場動搖皇統的政治危機，最終不是靠武力鎮壓化解，而是靠一則被重新查核、推翻的神諭扭轉過來。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 習宣阿曾麻呂最初奏報的神諭內容為何？和気清麻呂查核後帶回的神諭又如何推翻此說？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">習宣阿曾麻呂奏稱神諭主張讓道鏡即天皇位方能天下太平。和気清麻呂親赴宇佐查核後，帶回的神諭明確否定此說，強調日本皇統必須由皇室血脈繼承，道鏡因此失去繼位的正當性。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《續日本紀》；坂本太郎《日本古代史の基礎的研究》；Piggott, J.R. (1997), <em>The Emergence of Japanese Kingship</em>, Stanford University Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Ocean Liner Sunk in Eighteen Minutes That Pushed America Toward War</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 7 May 1915, a British ocean liner carrying nearly 2,000 passengers, including more than 100 Americans, was crossing the Atlantic when a single torpedo struck it off the coast of Ireland. The ship sank in under twenty minutes &mdash; far faster than anyone expected for a vessel its size. Before reading on, what do you think explains why it sank so quickly, and why the incident became a turning point rather than just another wartime tragedy?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Walther Schwieger (施維格), captain of German submarine U-20 (U-20號潛艇); William Thomas Turner (特納), Lusitania&rsquo;s captain; Woodrow Wilson (威爾遜), US President.</p>
+        <p><strong>Event at stake:</strong> The sinking of RMS Lusitania (盧西塔尼亞號) by a German U-boat (U型潛艇) torpedo on 7 May 1915, killing 1,198 of the roughly 1,959 people aboard, including 128 Americans.</p>
+        <p><strong>Big picture:</strong> Germany&rsquo;s declaration of unrestricted submarine warfare (無限制潛艇戰) around Britain in February 1915, and the United States&rsquo; (美國) still-fragile neutrality in the First World War (第一次世界大戰).</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/RMS_Lusitania_coming_into_port%2C_possibly_in_New_York%2C_1907-13-crop.jpg/330px-RMS_Lusitania_coming_into_port%2C_possibly_in_New_York%2C_1907-13-crop.jpg" alt="RMS Lusitania arriving in port before the First World War" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">RMS Lusitania (盧西塔尼亞號), photographed arriving in port before the war. It sank in eighteen minutes after a single torpedo strike on 7 May 1915. Credit: <a href="https://en.wikipedia.org/wiki/RMS_Lusitania" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In February 1915, Germany (德國) declared the waters around Britain (英國) a war zone, announcing that any merchant ship flying an Allied flag could be sunk without warning by U-boats (U型潛艇) &mdash; a sharp break from the older convention that warships must stop merchant vessels and allow crew and passengers to escape before sinking them. On 7 May 1915, the German submarine U-20 (U-20號潛艇), commanded by Walther Schwieger (施維格), spotted the British ocean liner RMS Lusitania (盧西塔尼亞號) off the coast of Ireland (愛爾蘭), sailing from New York to Liverpool, and fired a single torpedo without warning.</p>
+      <p>The torpedo struck the starboard side and triggered a second, far larger internal explosion seconds later, widely believed at the time to prove Germany&rsquo;s claims that the liner secretly carried munitions &mdash; a suspicion later supported by wreck surveys finding rifle ammunition on the cargo manifest. The ship listed so severely, so quickly, that many lifeboats could not be launched properly, and it sank in just eighteen minutes, far faster than the far larger Titanic (鐵達尼號) three years earlier. Of the 1,959 people aboard, 1,198 died, including 128 American (美國) citizens, provoking outrage across the still-neutral United States.</p>
+      <p>President Woodrow Wilson (威爾遜) resisted immediate calls for war, instead sending strongly worded diplomatic protests demanding Germany abandon unrestricted attacks on passenger ships; Germany largely complied for nearly two years to avoid provoking American entry. That restraint collapsed in January 1917, when Germany resumed unrestricted submarine warfare (無限制潛艇戰) anyway, gambling it could starve Britain before America mobilised &mdash; a bet that, combined with the intercepted Zimmermann Telegram (齊默爾曼電報), finally brought the United States into the war in April 1917, tipping the balance on the Western Front.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/RMS_Lusitania" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single torpedo didn&rsquo;t start America&rsquo;s war &mdash; but it started the clock that ran out when Germany gambled on unrestricted submarine warfare again in 1917.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the Lusitania sink so quickly compared to other large ocean liners, and how did the US government initially respond to the sinking instead of declaring war immediately?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A second internal explosion, likely triggered by munitions in its cargo, caused the ship to list severely and sink in just eighteen minutes. Rather than declaring war, President Wilson sent diplomatic protests demanding Germany halt unrestricted attacks on passenger ships, which Germany largely honoured until resuming the practice in 1917.</div>
+      </details>
+      <div class="source">&#x1F4D6; Preston, D. (2002), <em>Lusitania: An Epic Tragedy</em>, Walker &amp; Company. Britannica, &ldquo;Lusitania.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>帕坦伽利如何用一部只有195句箴言的經典，為「瑜伽」下了千古定義？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">今天許多人一想起「瑜伽」，便聯想到伸展體位與健身運動。但在一部成書於約公元二世紀、僅195句箴言的印度哲學經典中，「瑜伽」的核心定義卻與伸展筋骨幾乎無關。你認為，這部經典真正定義的「瑜伽」，所指的究竟是甚麼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>帕坦伽利（生平不詳，約公元二世紀，傳統上被視為《瑜伽經》的編纂者）。</p>
+        <p><strong>核心主張：</strong>瑜伽即「心念止息」&mdash;&mdash;控制、止息心識的種種波動與造作，方能令真我從物質世界中得見自身本來面目。</p>
+        <p><strong>時代背景：</strong>印度數論派哲學早已建立「真我」與「物質」二元對立的形上學架構，惟缺乏具體實踐方法；《瑜伽經》正是在此基礎上，系統整理出一套八支修行體系。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/Patanjali.jpg" alt="帕坦伽利像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">傳統形象中的帕坦伽利，《瑜伽經》的編纂者。他將瑜伽定義為「心念諸般造作之止息」。來源：<a href="https://en.wikipedia.org/wiki/Patanjali" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>《瑜伽經》開篇第二句，即為全書定調：「瑜伽即心念諸般造作之止息」。帕坦伽利所處的哲學背景，是印度數論派早已確立的二元論架構：宇宙由永恆不變的「真我」（純粹意識）與不斷變化的「物質」（涵蓋身體、心智、情緒等一切現象）構成；眾生受苦，皆因誤將心識的種種造作與波動，誤認為真我本身。</p>
+      <p>為止息這些心念造作，帕坦伽利提出著名的「八支瑜伽」體系，依序為：持戒（對外的倫理規範）、精進（對內的自律）、體位法、調息法、制感（收攝感官）、專注、禪定，以及三摩地（最終的三昧境界）。值得注意的是，體位法在原典中僅佔極小篇幅，且原意僅指「穩定、舒適的坐姿」，用以支持長時間靜坐冥想，與現代健身房中種類繁多的伸展體位相去甚遠。</p>
+      <p>帕坦伽利認為，唯有依循此八支循序漸進修行，方能令心念完全止息，使真我從對物質世界的誤認中解脫，證得「獨存」之境。《瑜伽經》其後與數論派哲學共同構成印度六派正統哲學之一的「瑜伽派」，對印度教冥想傳統影響深遠；二十世紀西方健身文化興起後，經印度導師傳入的體位練習被大幅擴充發展，逐漸演變為當代以體位法為主的瑜伽運動，與帕坦伽利原典中以禪定解脫為核心的宗旨已有明顯差異。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Patanjali" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 帕坦伽利的「瑜伽」原意是止息心念以求解脫，不是伸展筋骨；今天健身房裡的體位練習，只是原典中一個極小環節被放大千百倍的結果。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 《瑜伽經》開篇如何定義「瑜伽」？「體位法」在原典中的本意是甚麼，與今天流行的瑜伽體位練習有何差異？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">《瑜伽經》定義瑜伽為「心念諸般造作之止息」，目的是令真我從物質世界的誤認中解脫。原典中的體位法僅指穩定舒適的靜坐姿勢，用以支持長時間冥想，與今天種類繁多、以伸展健身為主的體位練習相去甚遠。</div>
+      </details>
+      <div class="source">&#x1F4D6; 帕坦伽利《瑜伽經》；Whicher, I. (1998), <em>The Integrity of the Yoga Dar&#347;ana</em>, State University of New York Press；Stanford Encyclopedia of Philosophy, &ldquo;Yoga.&rdquo;</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Argued No Amount of Science Could Tell You What It&rsquo;s Like to Be a Bat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Bats navigate the world almost entirely through echolocation, a sense so alien to human experience that we have no direct analogy for it. A philosopher asked: even if scientists eventually mapped every neuron and signal involved in a bat&rsquo;s echolocation, would that description ever let you know what it actually feels like to be a bat? Before reading on, what do you think &mdash; could a complete physical description ever fully capture subjective experience?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Thomas Nagel (內格爾, born 1937), American philosopher at New York University (紐約大學).</p>
+        <p><strong>Problem at stake:</strong> Whether a complete, third-person physical description of a mind could ever capture the subjective, first-person quality of conscious experience &mdash; what philosophers call qualia (感質).</p>
+        <p><strong>Rival view:</strong> Physicalism (物理主義), the then-dominant view in philosophy of mind, held that mental states are ultimately nothing over and above physical brain states, fully describable in objective, scientific terms.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Thomas_Nagel_%28cropped%29.jpg" alt="Photograph of philosopher Thomas Nagel" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Thomas Nagel (內格爾), whose 1974 paper &ldquo;What Is It Like to Be a Bat?&rdquo; challenged physicalist confidence about explaining consciousness. Credit: <a href="https://en.wikipedia.org/wiki/Thomas_Nagel" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his 1974 paper &ldquo;What Is It Like to Be a Bat?&rdquo;, published in <em>The Philosophical Review</em>, Thomas Nagel (內格爾) challenged the reigning physicalist (物理主義) confidence that consciousness (意識) would eventually be fully explained by neuroscience, in the same way heat had been explained as molecular motion. He chose bats (蝙蝠) deliberately: close enough to humans to clearly possess rich subjective experience, yet equipped with echolocation (回聲定位), a sensory system so different from human senses that we cannot imagine it by simply extrapolating from our own experience, the way we might imagine what it&rsquo;s like to be blind or deaf.</p>
+      <p>Nagel&rsquo;s central claim was that even a complete, objective, third-person description of a bat&rsquo;s neurology, however detailed, would tell you everything about the physical processes involved, yet leave out something essential: what it is actually like, from the inside, to be that bat, navigating a cave by sound alone. This subjective, first-person quality of experience, he argued, resists translation into the purely physical, objective language science uses, because science&rsquo;s method is precisely to strip out any particular point of view, while consciousness (意識) is constituted by having one.</p>
+      <p>The paper became one of the most cited works in modern philosophy of mind, giving philosophers a durable vocabulary &mdash; the &ldquo;hard problem&rdquo; of consciousness, later named by David Chalmers (查爾莫斯) in 1995, and the notion of an experience&rsquo;s irreducible &ldquo;what-it&rsquo;s-like-ness&rdquo; &mdash; for a gap physicalists insisted didn&rsquo;t really exist. Critics like Daniel Dennett (丹尼特) argued Nagel&rsquo;s argument merely exploited the limits of human imagination rather than proving a genuine gap in physical explanation, a dispute over the nature of consciousness that remains unresolved and central to philosophy of mind today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Thomas_Nagel" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A complete scientific description of a brain can tell you everything about how it works, and still tell you nothing about what it&rsquo;s like to be the creature having the experience.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Nagel, what specifically can&rsquo;t a complete objective, physical description of a bat&rsquo;s neurology capture, and why did he choose bats specifically to make this point?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Nagel argued even a complete physical description leaves out the subjective, first-person &ldquo;what it&rsquo;s like&rdquo; quality of an experience, since science strips out any particular point of view while consciousness consists of having one. He chose bats because echolocation is a sense too alien for humans to imagine simply by analogy with our own senses.</div>
+      </details>
+      <div class="source">&#x1F4D6; Nagel, T. (1974), &ldquo;What Is It Like to Be a Bat?,&rdquo; <em>The Philosophical Review</em> 83(4). Stanford Encyclopedia of Philosophy, &ldquo;Consciousness.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why the Wobbly Shelf You Built Yourself Feels More Valuable Than an Identical One Bought Assembled</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a study, participants built a piece of IKEA furniture, folded origami, or assembled Lego blocks, then were asked to value their own creation alongside an identical, professionally-made version. Before reading on, which item do you think people valued more &mdash; and would pay more for &mdash; even though both were functionally identical?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Assembling_an_Ikea_po%C3%A4ng_chair_%289055631329%29.jpg" alt="A person assembling a piece of IKEA flat-pack furniture" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Assembling flat-pack furniture &mdash; the everyday act behind Norton, Mochon and Ariely&rsquo;s 2012 study on the IKEA effect. Credit: <a href="https://en.wikipedia.org/wiki/IKEA_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a 2011 study led by Michael Norton (諾頓), Daniel Mochon and Dan Ariely (艾瑞利), participants assembled simple products themselves &mdash; IKEA (宜家) storage boxes, origami (摺紙) figures, or Lego (樂高) sets &mdash; and then stated how much they would pay for their own creation. Separately, other participants were shown an identical, already-assembled version made by someone else and asked to value that instead. Despite the finished products being functionally indistinguishable, people who built the item themselves valued their own creation on average about 63% more than non-builders valued the identical pre-assembled version.</p>
+      <p>The researchers named this the IKEA effect (宜家效應), after the Swedish furniture retailer whose self-assembly business model unintentionally illustrates it at scale. Crucially, the effect required actually completing the task successfully: participants who assembled a Lego set but then had it disassembled before valuation, or who gave up partway through a frustrating build, showed no inflated valuation at all, suggesting the effect stems specifically from a sense of competent effort and personal achievement, not merely from spending time handling the object.</p>
+      <p>The finding echoes a much older, informal commercial discovery: in the 1950s, cake-mix (蛋糕預拌粉) manufacturers found that mixes requiring only water sold poorly, but sales improved once the recipe was changed to require the baker to crack and add a real egg &mdash; giving just enough genuine effort and contribution to make the result feel like &ldquo;their&rdquo; cake. The IKEA effect has since informed product design, education and workplace management, suggesting that letting people invest real, successful effort into something increases their attachment to it far more than simply handing them the finished result.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/IKEA_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; People don&rsquo;t just value things for what they are &mdash; they value them more for the competent effort they personally put into making them.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In the Norton, Mochon and Ariely study, roughly how much more did self-assemblers value their own creation compared to non-builders valuing an identical pre-made version, and what condition eliminated this inflated valuation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Self-assemblers valued their own creation about 63% more than non-builders valued an identical pre-assembled version. The effect disappeared when the build was unsuccessful or incomplete, such as when a finished Lego set was disassembled before valuation, showing it depends on a sense of successful, competent effort.</div>
+      </details>
+      <div class="source">&#x1F4D6; Norton, M.I., Mochon, D. &amp; Ariely, D. (2012), &ldquo;The IKEA Effect: When Labor Leads to Love,&rdquo; <em>Journal of Consumer Psychology</em> 22(3).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Sudden Falling Sensation That Jolts You Awake Right as You Drift Off</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many people, just as they&rsquo;re drifting into sleep, experience a sudden, involuntary muscle jerk, sometimes paired with a vivid sensation of falling or tripping, that startles them fully awake. Before reading on, what do you think is actually happening in the brain to cause this strange, almost universal sensation?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Domenico_Fetti_-_Sleeping_Girl_-_WGA7863.jpg" alt="Painting of a sleeping figure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The transition into sleep, when the brain&rsquo;s arousal and motor-control systems can briefly misfire, producing the hypnic jerk. Credit: <a href="https://en.wikipedia.org/wiki/Hypnic_jerk" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The hypnic jerk (入睡抽動, also called a sleep start) is a sudden, brief, involuntary contraction of muscles, most often in the legs, that occurs during the transition from wakefulness into sleep, affecting an estimated 60 to 70% of people at some point. It is frequently accompanied by a vivid sensory hallucination, most commonly a sensation of falling or tripping, occasionally a flash of light or a loud bang, and can jolt a person fully back to wakefulness, sometimes with a racing heart.</p>
+      <p>One long-standing explanatory theory holds that as the brain transitions into sleep, activity in the reticular activating system (網狀激活系統), which regulates arousal, and motor-control circuits can briefly desynchronise, producing a short, uncoordinated burst of muscle activity before the body settles into the more regulated paralysis of deeper sleep. A separate, more speculative evolutionary theory, sometimes called the &ldquo;falling primate&rdquo; hypothesis, proposes the jerk is a vestigial reflex inherited from tree-dwelling ancestors, where a sudden loss of muscle tone signalling a fall from a branch would trigger a protective, corrective muscle spasm.</p>
+      <p>Hypnic jerks are considered a normal, benign phenomenon rather than a disorder, distinct from more serious conditions like periodic limb movement disorder, which involves repetitive jerks throughout sleep rather than a single jerk at sleep onset. They are known to occur more frequently under sleep deprivation, high caffeine (咖啡因) intake, stress, or intense physical exercise close to bedtime, and while no single cause has been definitively confirmed, reducing these triggers is the most commonly recommended, evidence-informed way to lessen their frequency.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hypnic_jerk" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; That jolt of &ldquo;falling&rdquo; as you drift off isn&rsquo;t your body malfunctioning &mdash; it&rsquo;s likely a harmless misfire in the brain&rsquo;s handoff between wakefulness and sleep.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is a hypnic jerk, and what are two proposed explanations for why it happens?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A hypnic jerk is a brief, involuntary muscle contraction occurring as a person drifts into sleep, often paired with a sensation of falling. Proposed explanations include a brief desynchronisation between the brain&rsquo;s arousal and motor-control systems, and an evolutionary &ldquo;falling primate&rdquo; reflex inherited from tree-dwelling ancestors.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sleep Foundation clinical review. Oswald, I. (1959), &ldquo;Sudden Bodily Jerks on Falling Asleep,&rdquo; <em>Brain</em> 82(1).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Parenting Advice on Food Allergies That Got Reversed by a Landmark Trial</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For roughly two decades starting in the late 1990s, official paediatric guidance in the US and UK advised parents to delay giving babies peanut-containing foods, especially in families with a history of allergies, on the theory that early exposure would trigger allergic sensitisation. Before reading on, do you think a major clinical trial confirmed this delay reduced peanut allergy, or found the opposite?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Nut_warning_1.jpg" alt="A food allergy warning label mentioning nuts" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A food-allergy warning label. Guidance on early peanut exposure in infants was reversed after a landmark 2015 clinical trial. Credit: <a href="https://en.wikipedia.org/wiki/Peanut_allergy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1998 and 2000, UK and US paediatric bodies advised delaying peanut (花生) introduction until age 2 or 3 for high-risk infants, reasoning that an immature immune system exposed early to a potent allergen would be more likely to develop an allergic reaction later. Over the following decade, paediatric allergist Gideon Lack (雷克) noticed that Jewish children in Israel, who commonly eat a peanut-based snack called Bamba from infancy, had roughly a tenth the peanut allergy rate of Jewish children in the UK, where early peanut exposure was actively discouraged &mdash; the opposite of what the delay theory predicted.</p>
+      <p>To test this rigorously, Lack led the LEAP (Learning Early About Peanut Allergy) trial, published in the <em>New England Journal of Medicine</em> in 2015, randomly assigning over 600 high-risk infants either to avoid peanut products entirely or to consume them regularly starting between 4 and 11 months of age. By age 5, infants who had regularly eaten peanut products showed roughly an 80% lower rate of peanut allergy than those who had avoided them, a result strong enough that the trial&rsquo;s data safety board halted the analysis early specifically to communicate the reversal urgently to clinical guidance bodies.</p>
+      <p>Major paediatric and allergy organisations, including the American Academy of Pediatrics, formally reversed their guidance by 2017, now recommending introducing peanut-containing foods to most infants around 4 to 6 months, and even earlier, under medical supervision, for infants at highest risk due to severe eczema (濕疹) or egg allergy. The reversal is now considered a textbook case of how a plausible-sounding precautionary recommendation, adopted widely without a definitive trial behind it, can persist for years despite pointing in exactly the wrong direction.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Peanut_allergy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Decades of &ldquo;avoid the allergen&rdquo; advice had it backwards &mdash; for most infants, early, regular exposure lowers the risk of developing a peanut allergy rather than raising it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What real-world observation led Gideon Lack to question the &ldquo;delay peanut exposure&rdquo; guidance, and what did the LEAP trial ultimately find?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Lack noticed Israeli children, who eat peanut snacks from infancy, had a far lower peanut allergy rate than UK children of similar background raised to avoid early exposure. The LEAP trial found infants who regularly ate peanut products from 4-11 months had about 80% lower peanut allergy rates by age 5 than those who avoided them.</div>
+      </details>
+      <div class="source">&#x1F4D6; Du Toit, G. et al. (2015), &ldquo;Randomized Trial of Peanut Consumption in Infants at Risk for Peanut Allergy,&rdquo; <em>New England Journal of Medicine</em> 372(9).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Set-Extending Trick That Lets You Build Muscle in Less Time at the Gym</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A drop set involves taking an exercise to or near failure, then immediately reducing the weight by 20-30% and continuing for more repetitions without resting, sometimes repeating this two or three times in a row. Before reading on, do you think this time-efficient technique builds meaningfully more muscle than straight sets with normal rest, or is it mostly just a way to feel more fatigued without extra benefit?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Arnold_Schwarzenegger_1974.jpg" alt="Arnold Schwarzenegger training in 1974" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Drop sets were popularised in bodybuilding gyms decades before controlled trials tested whether they actually outperformed straight sets. Credit: <a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A drop set (遞減組) is performed by taking a set to or near muscular failure (肌肉力竭, the point where another full repetition can&rsquo;t be completed with good form), then immediately reducing the weight, typically by 20 to 30%, and continuing for further repetitions with minimal or no rest, sometimes repeating the drop two or three more times. The technique has circulated in bodybuilding gyms since at least the mid-20th century, popularised partly by Arnold Schwarzenegger (阿諾&middot;施瓦辛格) and other competitive bodybuilders, long before controlled research examined whether it actually outperformed conventional straight sets.</p>
+      <p>Fink et al.&rsquo;s 2018 controlled trial compared drop sets against traditional straight sets matched for total training time, and found comparable gains in muscle hypertrophy (肌肉肥大) between the two approaches, despite the drop-set group spending noticeably less total time training &mdash; since eliminating rest between the weight drops packs more effective volume into a shorter session. The proposed mechanism is that pushing well past initial failure while fatigued still recruits and sufficiently stresses muscle fibres, particularly higher-threshold motor units, generating comparable mechanical tension and metabolic stress to a longer straight-set protocol.</p>
+      <p>The main practical trade-off is subjective effort and recovery cost: drop sets are reported as substantially more uncomfortable per set than straight sets, and because they push well past the initial failure point, they may require slightly more recovery time before the same muscle group is trained again. Current evidence-based guidance treats drop sets not as a replacement for a full training programme but as a useful, time-efficient tool, best used occasionally, especially on isolation exercises or when a session&rsquo;s time is limited rather than on every set of every workout.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Drop sets don&rsquo;t build more muscle than straight sets &mdash; they build comparable muscle in noticeably less time, at the cost of feeling considerably harder.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Fink et al.&rsquo;s 2018 trial, how did muscle hypertrophy from drop sets compare to traditional straight sets, and what was the main practical advantage of drop sets?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Fink et al. found drop sets produced comparable muscle hypertrophy to traditional straight sets. The main practical advantage was time efficiency &mdash; drop sets achieved similar results in noticeably less total training time, though participants reported them as substantially more uncomfortable.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fink, J. et al. (2018), &ldquo;Effect of Drop Set Resistance Training on Muscle Hypertrophy,&rdquo; <em>Journal of Physical Education and Sport</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Wall Street Analyst Who Spent Nine Years Warning Regulators About a Fraud Everyone Believed</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For years, one of Wall Street&rsquo;s most respected money managers reported strikingly consistent annual returns of roughly 10-12%, in good markets and bad alike, attracting billions of dollars from banks, charities and pension funds. A financial analyst became convinced the returns were mathematically impossible and repeatedly warned regulators, in writing, that it was fraud. Before reading on, how many years do you think it took before that warning was acted on?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Bernard_Madoff_2009_mug_shot_%283x4_cropped%29.jpg" alt="Bernard Madoff's 2009 mugshot" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Bernard Madoff (馬多夫) in his 2009 mugshot, following his arrest for running the largest Ponzi scheme in history. Credit: <a href="https://en.wikipedia.org/wiki/Bernie_Madoff" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Bernard Madoff (馬多夫), a former chairman of the NASDAQ (納斯達克) stock exchange and founder of a respected Wall Street investment firm, ran what would become the largest Ponzi scheme (龐氏騙局) in history, reporting suspiciously smooth annual returns of around 10 to 12% for decades, regardless of whether the broader stock market rose or fell. Rather than actually investing client funds, Madoff simply paid returns to earlier investors using money deposited by newer investors, a structure that can continue only as long as new money keeps flowing in faster than withdrawals.</p>
+      <p>Financial analyst Harry Markopolos (馬科波洛斯) became convinced by 1999 that Madoff&rsquo;s reported returns were mathematically impossible to achieve legitimately given his stated strategy, and submitted detailed written warnings to the US Securities and Exchange Commission (美國證券交易委員會) in 2000, 2001 and 2005, explicitly titling his final 2005 submission &ldquo;The World&rsquo;s Largest Hedge Fund is a Fraud.&rdquo; The SEC investigated multiple times but never uncovered the fraud, partly due to Madoff&rsquo;s stature and connections within the industry.</p>
+      <p>The scheme finally collapsed in December 2008, when the global financial crisis triggered a wave of client withdrawal requests that outpaced new investment, and Madoff could no longer pay redemptions; he confessed to his sons, who reported him to authorities the next day. Investigators estimated the fraud&rsquo;s on-paper losses at roughly $65 billion, though actual cash losses to victims were closer to $17-20 billion; Madoff was sentenced to 150 years in prison in 2009 and died in prison in 2021, and the case prompted significant reforms to SEC investigative procedures for complex financial fraud.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bernie_Madoff" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nine years of detailed written warnings to regulators weren&rsquo;t enough to stop the fraud &mdash; it took a market crash draining the pool of new money to finally force it into the open.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made Bernie Madoff&rsquo;s reported returns mathematically suspicious to analyst Harry Markopolos, and what event finally caused the scheme to collapse?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Madoff reported unusually smooth, consistent 10-12% annual returns regardless of overall market conditions, which Markopolos calculated was statistically implausible given Madoff&rsquo;s stated strategy. The scheme collapsed in December 2008 when the financial crisis triggered a wave of client withdrawals that outpaced new investment, leaving Madoff unable to pay redemptions.</div>
+      </details>
+      <div class="source">&#x1F4D6; Markopolos, H. (2010), <em>No One Would Listen</em>, Wiley. U.S. SEC Office of Investigations (2009), <em>Report on Investigation of Madoff</em>.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Do Sugar Tariffs Survive Decades of Economists Calling Them a Mistake?</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Sucre_blanc_cassonade_complet_rapadura.jpg" alt="Varieties of sugar" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US sugar import quotas have kept domestic prices roughly double the world price for decades &mdash; a textbook case study in public choice theory. Credit: <a href="https://en.wikipedia.org/wiki/Sugar" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 1980s, US sugar import quotas and price supports have persisted essentially unchanged, keeping domestic sugar prices roughly double the world price and costing American consumers and food manufacturers billions of dollars annually &mdash; even as economists across the political spectrum have repeatedly identified the policy as a clear net loss for the country as a whole.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Classical welfare economics predicts democratic policymaking should tend to eliminate policies with large, well-documented net costs, since a rational, informed electorate would organise to oppose measures that make the country poorer overall.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Public choice theory (公共選擇理論, James Buchanan and Gordon Tullock, 1962) explains the persistence instead: sugar quota benefits concentrate heavily among a small number of politically organised producers, while costs spread thinly across millions of consumers, each paying only a small amount more per product &mdash; too little individually to justify the effort of organised opposition.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Mancur Olson&rsquo;s <em>Logic of Collective Action</em> (1965) reinforces this concentrated-benefit, diffuse-cost dynamic as a general feature of democratic policymaking; whether transparency reforms or trade agreements can reliably overcome it, rather than merely relocating which industries capture the benefit, remains an open, largely unresolved question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The people who benefit from a wasteful policy have every incentive to organise and fight for it; the millions who quietly pay for it rarely have enough at stake individually to fight back.</div>
+      <div class="source">&#x1F4D6; Buchanan, J.M. &amp; Tullock, G. (1962), <em>The Calculus of Consent</em>, University of Michigan Press. Olson, M. (1965), <em>The Logic of Collective Action</em>, Harvard University Press.</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 11 &mdash; Why We Overvalue What We Personally Put Into Something, at Every Scale:</strong> The IKEA effect and public choice theory both describe how personal stake distorts judgment about value. A person who assembled their own shelf overvalues it because their own effort went in; a sugar producer who has spent years lobbying for a quota overvalues defending it for the same reason, while millions of consumers, each paying only a few extra cents, have no comparable personal stake pulling them the other way.</p>
+      <p><strong>So what:</strong> Whenever a judgment about value seems oddly resistant to outside argument, ask who has personally invested effort or stood to lose from admitting they were wrong &mdash; that stake, not the merits, is often doing the real work.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Lagrange, A.-M. et al. (2009), <em>Astronomy &amp; Astrophysics</em> 493(2). NASA/ESO press materials.</li>
+      <li><strong>Card 2:</strong> 《續日本紀》；坂本太郎《日本古代史の基礎的研究》；Piggott, J.R. (1997), <em>The Emergence of Japanese Kingship</em>, Stanford University Press.</li>
+      <li><strong>Card 3:</strong> Preston, D. (2002), <em>Lusitania: An Epic Tragedy</em>, Walker &amp; Company. Britannica, &ldquo;Lusitania.&rdquo;</li>
+      <li><strong>Card 4:</strong> 帕坦伽利《瑜伽經》；Whicher, I. (1998), <em>The Integrity of the Yoga Dar&#347;ana</em>, SUNY Press。</li>
+      <li><strong>Card 5:</strong> Nagel, T. (1974), <em>The Philosophical Review</em> 83(4). Stanford Encyclopedia of Philosophy, &ldquo;Consciousness.&rdquo;</li>
+      <li><strong>Card 6:</strong> Norton, M.I., Mochon, D. &amp; Ariely, D. (2012), <em>Journal of Consumer Psychology</em> 22(3).</li>
+      <li><strong>Card 7:</strong> Sleep Foundation clinical review. Oswald, I. (1959), <em>Brain</em> 82(1).</li>
+      <li><strong>Card 8:</strong> Du Toit, G. et al. (2015), <em>New England Journal of Medicine</em> 372(9).</li>
+      <li><strong>Card 9:</strong> Fink, J. et al. (2018), <em>Journal of Physical Education and Sport</em>.</li>
+      <li><strong>Card 10:</strong> Markopolos, H. (2010), <em>No One Would Listen</em>, Wiley. U.S. SEC Office of Investigations (2009).</li>
+      <li><strong>Card 11:</strong> Buchanan, J.M. &amp; Tullock, G. (1962), <em>The Calculus of Consent</em>. Olson, M. (1965), <em>The Logic of Collective Action</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-22: Beta Pictoris b Direct Imaging &bull; 宇佐八幡宮神託事件（道鏡） &bull; The Sinking of RMS Lusitania (1915) &bull; 帕坦伽利《瑜伽經》 &bull; Thomas Nagel, &ldquo;What Is It Like to Be a Bat?&rdquo; &bull; The IKEA Effect &bull; The Hypnic Jerk &bull; Peanut Allergy / The LEAP Trial &bull; Drop Sets &bull; The Bernie Madoff Ponzi Scheme &bull; Public Choice Theory &amp; US Sugar Tariffs</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-22.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-22.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 22 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
