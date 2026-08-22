@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 21 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 21 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>20 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Hoag&rsquo;s Object</span>A near-perfect ring galaxy whose leading explanation is a collision, objected to because it looks far too tidy.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 元寇來襲</span>兩場「神風」勝仗沒有新領地可封賞，反而拖垮了鎌倉幕府的御恩奉公制。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Krakatoa 1883</span>Most victims died by tsunami, and stratospheric sulphur cooled the planet by up to 1.2&deg;C for years.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 方以智「質測」與「通幾」</span>方以智區分實證考察與終極探究，評西學「質測頗精，通幾未舉」。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Moral Luck</span>Williams and Nagel showed we blame people for outcomes luck decided, and Kant&rsquo;s pure will nearly vanishes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Decoy Effect</span>A pointless third option shifted subscription choices from 68/32 to 16/84 by manufacturing an easy comparison.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why Onions Make You Cry</span>Cutting mixes two separated components; the resulting gas forms sulphuric acid in your tear film.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Swallowed-Gum Myth</span>Peristalsis moves indigestible material mechanically, so gum passes through in days, not seven years.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Antagonist Supersets</span>Pairing opposing muscle groups roughly halves session time with comparable strength and size outcomes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The London Whale</span>A hedge grew so large it moved the market it traded in, and a flawed risk model halved the reported danger.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Gerschenkron</span>Late industrialisers substitute banks and states for absent private capital, and can skip a technology generation.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Spacecraft Sent on a Suicide Run to Photograph a Comet&rsquo;s Heart</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In March 1986, a European spacecraft flew deliberately into the dust cloud surrounding Halley&rsquo;s Comet, closer than anyone had dared, knowing particles hitting at 68 kilometres per second would likely destroy it. Before reading on, what do you think humanity had never actually seen before that flight &mdash; and what did the pictures reveal about what a comet is made of?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/92/Giotto_%28spacecraft%29.jpg" alt="The Giotto spacecraft" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">ESA&rsquo;s Giotto spacecraft, which flew to within about 600 km of Halley&rsquo;s nucleus in March 1986 and returned the first close-up images of a comet&rsquo;s heart. Credit: <a href="https://en.wikipedia.org/wiki/Giotto_(spacecraft)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Halley&rsquo;s Comet (哈雷彗星) returns roughly every 76 years and has been recorded for over two millennia &mdash; it appears in Chinese records from 240 BCE and on the Bayeux Tapestry (貝葉掛毯) of 1066. Yet by 1986 nobody had ever seen a comet&rsquo;s actual solid body. From Earth, the nucleus is hidden inside the coma, the vast glowing cloud of gas and dust it sheds. The nature of that hidden body was genuinely uncertain: Fred Whipple (惠普爾) had proposed in 1950 that it was a &ldquo;dirty snowball&rdquo; of ice and dust, but the model was unconfirmed.</p>
+      <p>The 1986 return prompted an international armada of five spacecraft, and the European Space Agency&rsquo;s (歐洲太空總署) Giotto &mdash; named after the painter who depicted the comet as the Star of Bethlehem around 1305 &mdash; took the most dangerous assignment, flying closest. On 14 March 1986, it passed within roughly 600 kilometres of the nucleus, encountering dust at about 68 kilometres per second. A large particle struck the spacecraft and sent it wobbling, and its camera was destroyed shortly after closest approach &mdash; but not before the images had been transmitted.</p>
+      <p>What they showed was startling. The nucleus was a peanut-shaped body roughly 15 by 8 kilometres, and it was extraordinarily dark &mdash; reflecting only about 4% of the light hitting it, making it one of the darkest objects in the solar system, blacker than coal. The ice was not on the surface but beneath a crust of dark organic-rich dust, with jets of gas escaping only from a few active vents on the sunlit side. Whipple&rsquo;s dirty snowball was broadly vindicated, with a correction that stuck: comets are less dirty snowballs than snowy dirtballs.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Halley%27s_Comet" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The brightest object in the sky turned out to be built around one of the darkest &mdash; the glow was never the comet, just what it was losing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why had nobody seen a comet&rsquo;s nucleus before 1986, and what surprising property did Giotto reveal about Halley&rsquo;s surface?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">From Earth the nucleus is hidden inside the coma, the bright cloud of gas and dust surrounding it. Giotto found the nucleus reflects only about 4% of incoming light, making it darker than coal, because the ice lies beneath a crust of dark organic-rich dust with gas escaping from only a few active vents.</div>
+      </details>
+      <div class="source">&#x1F4D6; ESA Giotto mission results (1986). Keller, H.U. et al. (1986), &ldquo;First Halley Multicolour Camera Imaging Results from Giotto,&rdquo; <em>Nature</em> 321.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>李元昊建西夏&mdash;&mdash;一個政權如何靠發明自己的文字，換取三方鼎立的地位？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">十一世紀初，党項首領李元昊在宋遼夾縫之間建立西夏。他即位後所做的第一批大事，並非整軍或擴張，而是下令改變髮式服飾、創制一套全新文字，並廢除中原王朝賜予的姓氏。你認為，他為何把這些看似象徵性的舉措，看得比軍事準備更為優先？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李元昊（1003&ndash;1048年，党項族首領，西夏開國皇帝，史稱夏景宗）；野利仁榮（奉命創制西夏文的重臣）；宋仁宗、遼興宗。</p>
+        <p><strong>事件：</strong>1038年李元昊稱帝建大夏（史稱西夏）；1040至1042年三敗宋軍；1044年宋夏「慶曆和議」，宋以歲賜換取名義上的稱臣。</p>
+        <p><strong>時代背景：</strong>宋遼澶淵之盟後維持長期和平，西北党項勢力則在夾縫中坐大；西夏控制河西走廊，掌握中原通往西域的商路要衝。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/%E8%A5%BF%E5%A4%8F%E7%94%B7%E4%BE%9B%E9%A4%8A%E4%BA%BA%E5%83%8F.png" alt="西夏男供養人像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">西夏男供養人像。西夏創制自身文字與服制，在宋遼之間維持獨立政權近兩百年。來源：<a href="https://en.wikipedia.org/wiki/Western_Xia" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>党項族自唐末以來即據有夏州一帶，因助唐平亂而獲賜李姓，宋初又獲賜趙姓，長期以中原王朝藩屬身分存在。李元昊繼位後，判斷這種身分本身就是最大的束縛&mdash;&mdash;只要接受賜姓與冊封，政權的正當性便始終來自他人授予。他因此先廢唐宋所賜李、趙二姓，改姓「嵬名」，自稱「兀卒」（意為青天子），從名分上切斷與中原的隸屬關係。</p>
+      <p>接著是一連串文化建構工程。他下令党項人恢復「禿髮」舊俗，並限期執行，違者處死；重新規定官民服飾制度，使西夏人在外觀上與宋人明確區隔；1036年命重臣野利仁榮創制西夏文，這套文字有六千餘字，筆畫繁複，形似漢字卻完全不能以漢字讀法解讀，隨即用於官方文書、法典與佛經翻譯，並設「蕃學」培養本族官員。1038年，他正式稱帝建國。</p>
+      <p>軍事上，李元昊利用西夏騎兵機動與地形優勢，於1040至1042年間在三川口、好水川、定川寨三敗宋軍。但西夏地狹民貧，長期戰爭同樣難以為繼，加上宋朝關閉榷場禁絕貿易，經濟壓力沉重。1044年雙方達成「慶曆和議」：李元昊名義上向宋稱臣，宋則每年賜銀、絹、茶合計數十萬。這套「實質獨立、名義稱臣」的安排，使西夏在宋遼之間維持近兩百年，直至1227年為蒙古所滅。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Western_Xia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 李元昊明白，一個政權若連姓氏與文字都是別人給的，再多的軍事勝利也換不來真正的獨立地位。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 李元昊為何要廢除唐宋所賜姓氏並創制西夏文？「慶曆和議」的實質內容是甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他認為接受賜姓與冊封意味政權正當性來自他人授予，故改姓嵬名、創制西夏文、恢復禿髮與獨立服制，從文化與名分上切斷隸屬關係。慶曆和議則是他名義上向宋稱臣，宋每年賜銀絹茶數十萬，形成實質獨立而名義稱臣的安排。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《宋史&middot;夏國傳》；吳廣成《西夏書事》；Dunnell, R.W. (1996), <em>The Great State of White and High</em>, University of Hawaii Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Protest Against a Tax Cut That Started a Revolution</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In December 1773, colonists in Boston destroyed 342 chests of tea belonging to the East India Company. The Tea Act they were protesting had actually made legally imported tea <em>cheaper</em> than before, and cheaper than smuggled tea. Before reading on, why do you think a price reduction provoked one of the most famous protests in history?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Samuel Adams (山繆&middot;亞當斯) and the Sons of Liberty (自由之子); Thomas Hutchinson (哈欽森), royal governor of Massachusetts (麻薩諸塞); Lord North (諾斯勳爵), British Prime Minister.</p>
+        <p><strong>Event at stake:</strong> The Boston Tea Party (波士頓傾茶事件), 16 December 1773 &mdash; the destruction of about 92,000 pounds of tea in Boston Harbor (波士頓港).</p>
+        <p><strong>Big picture:</strong> The Tea Act of 1773 was designed to rescue the financially failing East India Company (東印度公司) by granting it a direct-sale monopoly in the colonies, while retaining a small existing tea duty.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Longjing_tea_steeping_in_gaiwan.jpg/330px-Longjing_tea_steeping_in_gaiwan.jpg" alt="Tea steeping in a vessel" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Tea Act made legal tea cheaper &mdash; which is precisely why colonial leaders regarded it as a trap. Credit: <a href="https://en.wikipedia.org/wiki/Tea" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 1773 the East India Company (東印度公司) was near collapse, holding vast unsold tea stocks. Parliament&rsquo;s Tea Act allowed it to ship tea directly to the American colonies through selected consignees, cutting out British middlemen and the associated costs. The effect on price was real: legally imported tea became cheaper than before, and cheaper than the Dutch tea that colonial merchants had long smuggled. On a purely economic reading, colonists were being offered a better deal.</p>
+      <p>Colonial leaders read it as a trap, and the objection had two parts. First, the Act retained the Townshend duty on tea &mdash; a tax imposed by a Parliament in which the colonies had no representatives. Accepting cheap taxed tea would amount to conceding Parliament&rsquo;s right to tax them, purchased with a discount; the slogan &ldquo;no taxation without representation&rdquo; was about the principle of consent, not the amount. Second, the consignee system granted a monopoly to a favoured company and specific merchants, ruining independent colonial traders and smugglers &mdash; including, notably, John Hancock (漢考克).</p>
+      <p>When three ships arrived in Boston, colonists demanded they return to Britain without unloading; Governor Thomas Hutchinson (哈欽森), whose own sons were consignees, refused clearance. On the night of 16 December 1773, roughly 100 men, some disguised as Mohawk (莫霍克族), boarded the ships and dumped 342 chests into the harbour, destroying property worth around &pound;10,000. Parliament responded with the Coercive Acts, closing Boston&rsquo;s port and curtailing Massachusetts self-government &mdash; measures that united previously divided colonies and led directly to the First Continental Congress in 1774.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Boston_Tea_Party" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The cheaper price was the problem &mdash; accepting a discount on a tax you deny is owed concedes the right to levy it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did colonists object to the Tea Act despite it lowering tea prices, and what was Parliament&rsquo;s response to the destruction of the tea?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Act retained the Townshend tea duty, so buying cheap taxed tea would concede Parliament&rsquo;s right to tax colonists without representation; it also granted a monopoly to favoured consignees, ruining independent colonial merchants and smugglers. Parliament responded with the Coercive Acts, closing Boston&rsquo;s port and curtailing Massachusetts self-government.</div>
+      </details>
+      <div class="source">&#x1F4D6; Labaree, B.W. (1964), <em>The Boston Tea Party</em>, Oxford University Press. Carp, B.L. (2010), <em>Defiance of the Patriots</em>, Yale University Press.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>石田梅岩與石門心學&mdash;&mdash;在商人被視為末流的江戶，他如何論證買賣即是修行？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶時代的官方身分秩序為「士農工商」，商人位居末流，其利潤常被儒者視為不事生產的剝削。一位京都商家出身的學者，卻公開主張商人的利潤在道德上與武士的俸祿完全等同。你認為，他以甚麼論證支撐這個在當時相當大膽的主張？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>石田梅岩（1685&ndash;1744年，丹波國人，京都商家掌櫃出身，石門心學創始人）；手島堵庵（其弟子，將心學推廣至全國）。</p>
+        <p><strong>核心主張：</strong>「商人の買利は士の禄に同じ」&mdash;&mdash;商人取得的利潤，與武士領受的俸祿在道德性質上並無高下；並倡「儉約」「正直」「知足」為商人之德。</p>
+        <p><strong>時代背景：</strong>江戶中期町人（市民商工階層）經濟力大增，文化興盛，惟身分制度仍將商人置於最末，商業活動長期缺乏道德辯護的思想資源。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Osaka_Castle_03bs3200.jpg" alt="大阪城" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">江戶時代的商業城市孕育了町人文化。石田梅岩的石門心學，為商人階層提供了首套系統的道德辯護。來源：<a href="https://en.wikipedia.org/wiki/Ishida_Baigan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>石田梅岩出身丹波農家，十一歲赴京都商家當學徒，長年任掌櫃，四十餘歲方辭職講學。他的特殊之處，在於同時具備商業實務經驗與儒釋道三教的自學根柢。1729年，他在京都自宅開講，不收學費、不問身分、男女皆可聽講，這在階級森嚴的江戶社會相當罕見。其代表作《都鄙問答》以問答體寫成，直接回應當時對商人最尖銳的道德質疑。</p>
+      <p>他的核心論證環繞「職分」概念。梅岩主張，士農工商並非道德高低的排序，而是社會分工的不同崗位，每個崗位各有其「天職」；商人的天職，是把物資從有餘之處流通到不足之處，此一功能與農民生產糧食、武士維持秩序同樣不可或缺。既然功能正當，報酬便正當&mdash;&mdash;故「商人の買利は士の禄に同じ」，商人取正當利潤，與武士領俸祿在性質上並無二致。</p>
+      <p>但梅岩並未因此為一切商業行為背書。他嚴格區分「正直」的利潤與貪婪的暴利：欺瞞顧客、囤積居奇、以次充好所得之利，不僅不道德，長遠亦必自毀商譽。他因而力倡「儉約」與「知足」，主張商人應節制私慾、誠實交易、以長久信用為本。這套後稱「石門心學」的思想經手島堵庵等弟子推廣，遍及全國心學講舍，被不少研究者視為日本商業倫理的重要源頭之一，其影響常被與後世澀澤榮一「論語與算盤」的思路相提並論。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ishida_Baigan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 梅岩的論證極簡潔：若商人的功能對社會不可或缺，那麼他的報酬就沒有理由比別人低一等。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 石田梅岩以甚麼論證主張商人利潤的正當性？他如何區分正當利潤與不當之利？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他主張士農工商是社會分工而非道德排序，商人的天職是使物資從有餘流向不足，功能既正當則報酬亦正當，故「商人の買利は士の禄に同じ」。他同時嚴分正直之利與貪婪暴利，認為欺瞞囤積所得不道德且必自毀商譽，故倡儉約、正直、知足。</div>
+      </details>
+      <div class="source">&#x1F4D6; 石田梅岩《都鄙問答》《儉約齊家論》；Bellah, R.N. (1957), <em>Tokugawa Religion</em>, Free Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Ancient Argument That Motion Is Impossible, and Why It Took 2,000 Years to Answer</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Around 450 BCE, a Greek philosopher argued that a runner can never finish a race: to reach the end he must first reach the halfway point, then half of what remains, and so on without end &mdash; an infinite number of tasks. Before reading on, where do you think the flaw is &mdash; and are you sure it&rsquo;s where you think it is?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Zeno of Elea (埃利亞的芝諾, c. 490&ndash;430 BCE), student of Parmenides (巴門尼德); Aristotle (亞里士多德), his most influential early critic.</p>
+        <p><strong>Idea at stake:</strong> Zeno&rsquo;s paradoxes of motion (芝諾悖論) &mdash; the Dichotomy, Achilles and the Tortoise, and the Arrow.</p>
+        <p><strong>Big picture:</strong> Parmenides argued that change and plurality are illusions and reality is a single unchanging whole. Zeno&rsquo;s paradoxes were reportedly constructed to defend that view by showing the common-sense alternative leads to absurdity.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Achilles_fighting_against_Memnon_Leiden_Rijksmuseum_voor_Oudheden.jpg" alt="Ancient Greek vase depicting Achilles in combat" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Achilles, whose race against a tortoise became philosophy&rsquo;s most famous argument that motion is impossible. Credit: <a href="https://en.wikipedia.org/wiki/Zeno%27s_paradoxes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Zeno of Elea (埃利亞的芝諾) was defending his teacher Parmenides (巴門尼德), who held that reality is one, unchanging, and that motion is illusion. Rather than argue for that directly, Zeno attacked the opposing view. In the Achilles paradox, swift Achilles races a tortoise given a head start. By the time Achilles reaches where the tortoise began, it has moved slightly ahead; by the time he reaches that point, it has moved again. There are infinitely many such points, so Achilles apparently never passes it &mdash; despite everyone knowing that he obviously does.</p>
+      <p>Aristotle (亞里士多德) offered the first influential response, distinguishing potential from actual infinity: a distance is infinitely divisible in principle, but that does not mean it is composed of actually infinite parts that must be traversed one by one. The reply was widely accepted but left something unresolved &mdash; it explains why the division is legitimate to refuse, not how an infinite series of ever-smaller intervals gets completed if you do accept the division.</p>
+      <p>The modern treatment came with the rigorous theory of limits developed by Cauchy (柯西) and Weierstrass (魏爾斯特拉斯) in the nineteenth century, which made precise the idea that an infinite series of decreasing terms can converge to a finite sum: the distances form a series like 1/2 + 1/4 + 1/8 + &hellip; summing to 1, and the corresponding times sum to a finite total too. Yet many philosophers hold this is not a full dissolution. It shows the mathematics is consistent, but the metaphysical question &mdash; how a supertask consisting of infinitely many discrete steps is actually completed &mdash; remains discussed, and the paradoxes are still live in philosophy of space and time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zeno%27s_paradoxes" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Zeno wasn&rsquo;t denying that runners finish races &mdash; he was showing that our ordinary account of how they do it contains something we cannot easily explain.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Aristotle&rsquo;s response to Zeno&rsquo;s paradoxes, and why do some philosophers argue the modern mathematical solution doesn&rsquo;t fully dissolve them?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Aristotle distinguished potential from actual infinity: a distance is infinitely divisible in principle without being composed of infinitely many actual parts to traverse. The modern limit-theory solution shows infinite decreasing series converge to finite sums, but critics note this establishes mathematical consistency without explaining how a supertask of infinitely many discrete steps is metaphysically completed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aristotle, <em>Physics</em> VI. Salmon, W.C. (ed.) (1970), <em>Zeno&rsquo;s Paradoxes</em>. Stanford Encyclopedia of Philosophy, &ldquo;Zeno&rsquo;s Paradoxes.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why the Risks That Frighten Us Most Are Rarely the Ones Most Likely to Harm Us</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">People consistently overestimate deaths from dramatic causes &mdash; plane crashes, shark attacks, terrorism &mdash; and underestimate deaths from mundane ones like heart disease and diabetes, often by enormous margins. Before reading on, what do you think drives the gap: is it purely that dramatic events get more coverage, or is something in the mind actively doing the distortion?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Factors_of_risk_perceptions._Adapted_from_Godovykh_et_al._%282021%29.jpg/330px-Factors_of_risk_perceptions._Adapted_from_Godovykh_et_al._%282021%29.jpg" alt="Diagram of factors influencing risk perception" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Risk perception is shaped by how easily examples come to mind, not by base rates &mdash; a bias that media attention amplifies into cascades. Credit: <a href="https://en.wikipedia.org/wiki/Risk_perception" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The foundation is the availability heuristic (可得性捷思), identified by Amos Tversky (特沃斯基) and Daniel Kahneman (卡尼曼) in 1973: people judge how likely something is by how easily examples come to mind. Because vivid, emotional and heavily reported events are far easier to recall than statistically common but undramatic ones, the resulting estimates are systematically skewed. Lichtenstein and colleagues demonstrated this in 1978, finding people overestimated rare dramatic causes of death by large factors while underestimating common ones such as stroke and diabetes.</p>
+      <p>Timur Kuran (庫蘭) and Cass Sunstein (桑斯坦) extended this in 1999 into what they called an availability cascade (可得性瀑布) &mdash; a self-reinforcing social process rather than an individual bias. A vivid event is reported; reporting makes it more available; heightened public concern generates further reporting and political attention; and, crucially, individuals begin endorsing the concern partly because others appear to hold it, a mechanism they termed availability entrepreneurship when activists deliberately amplify the loop. Perceived risk can then detach substantially from measured risk.</p>
+      <p>The consequences are practical rather than academic. Kuran and Sunstein argued cascades can drive regulatory resources toward vivid low-probability hazards while leaving larger diffuse ones underfunded. A frequently cited example is that after the September 2001 attacks, increased driving in place of flying is estimated by Gigerenzer (吉仁澤) and others to have caused roughly 1,500 additional US road deaths &mdash; deaths caused by avoiding a risk. The defensive habit is straightforward: when a risk feels vivid, deliberately look up its base rate before acting, because the feeling of likelihood is measuring memorability, not frequency.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Availability_cascade" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your sense of how likely something is measures how easily you can picture it &mdash; which is a fact about coverage and memory, not about the world.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the difference between the availability heuristic and an availability cascade, and what real-world cost did Gigerenzer attribute to post-9/11 risk avoidance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The availability heuristic is an individual bias &mdash; judging likelihood by ease of recall &mdash; while an availability cascade is a self-reinforcing social process where reporting, public concern and social endorsement amplify each other. Gigerenzer estimated that Americans driving instead of flying after September 2001 caused roughly 1,500 additional road deaths.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kuran, T. &amp; Sunstein, C.R. (1999), &ldquo;Availability Cascades and Risk Regulation,&rdquo; <em>Stanford Law Review</em> 51(4). Gigerenzer, G. (2006), <em>Risk Analysis</em> 26(2).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Two Litres of Fluid Your Mouth Quietly Produces Every Day</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Saliva seems like the least interesting fluid the body makes &mdash; mostly water, produced constantly, noticed only when there&rsquo;s too much or too little. Yet people with damaged salivary glands suffer rapid tooth decay, difficulty speaking, and altered taste. Before reading on, what do you think saliva is doing that makes losing it so consequential?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Saliva_Baby.jpg" alt="An infant producing saliva" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The salivary glands produce roughly 0.5 to 1.5 litres daily, performing digestive, protective and sensory functions. Credit: <a href="https://en.wikipedia.org/wiki/Saliva" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Three pairs of major salivary glands (唾液腺) &mdash; the parotid, submandibular and sublingual &mdash; along with hundreds of minor glands, produce roughly 0.5 to 1.5 litres of saliva daily. Production is controlled by the autonomic nervous system (自主神經系統), which is why it is involuntary, and why the two branches produce different fluid: parasympathetic activation yields copious watery saliva, while sympathetic activation, as during stress or fear, yields scant thick saliva &mdash; the physiological basis of dry mouth before public speaking.</p>
+      <p>The functions extend well past lubrication. Saliva begins carbohydrate digestion via the enzyme amylase (澱粉酶), which is why a plain cracker held in the mouth turns faintly sweet as starch is broken into sugars. It also acts as a solvent: taste receptors can only detect molecules in solution, so without saliva, food is substantially tasteless. Its buffering capacity, chiefly from bicarbonate, neutralises acids produced by oral bacteria after eating, and it is saturated with calcium and phosphate ions that actively remineralise (再礦化) early enamel damage &mdash; making saliva the mouth&rsquo;s primary defence against tooth decay.</p>
+      <p>Anticipatory salivation, the mouth watering at the sight or smell of food, is a conditioned reflex demonstrated by Ivan Pavlov (巴甫洛夫) and mediated by the brainstem&rsquo;s salivary nuclei. Saliva also contains antimicrobial agents including lysozyme, lactoferrin and immunoglobulin A. This explains why xerostomia (口乾症) &mdash; from Sj&ouml;gren&rsquo;s syndrome, radiotherapy or as a side effect of many common medications &mdash; produces rapid tooth decay, oral infections and difficulty speaking and swallowing: it removes several defences at once.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Saliva" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Saliva is why food has taste and why enamel repairs itself &mdash; which is why losing it damages teeth faster than almost anything else.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does food become nearly tasteless without saliva, and how does saliva protect teeth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Taste receptors can only detect molecules dissolved in solution, and saliva is the solvent that carries them, so without it food is substantially tasteless. Saliva protects teeth by buffering bacterial acids, chiefly with bicarbonate, and by supplying calcium and phosphate ions that remineralise early enamel damage.</div>
+      </details>
+      <div class="source">&#x1F4D6; Humphrey, S.P. &amp; Williamson, R.T. (2001), &ldquo;A Review of Saliva,&rdquo; <em>Journal of Prosthetic Dentistry</em> 85(2). NIH National Institute of Dental and Craniofacial Research.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>&ldquo;Always Finish the Course&rdquo; Is Being Quietly Retired</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, patients have been told to complete every antibiotic course even after feeling better, on the grounds that stopping early breeds resistant bacteria. In 2017, a group of infectious disease specialists published an argument in the <em>BMJ</em> that this advice is not supported by evidence. Before reading on, what do you think their reasoning was?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Staphylococcus_aureus_%28AB_Test%29.jpg/330px-Staphylococcus_aureus_%28AB_Test%29.jpg" alt="Antibiotic sensitivity testing of bacteria on a culture plate" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Antibiotic sensitivity testing. The evidence increasingly suggests longer courses drive resistance rather than prevent it. Credit: <a href="https://en.wikipedia.org/wiki/Antimicrobial_resistance" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The traditional rationale traces to the earliest days of antibiotics, including Alexander Fleming&rsquo;s (弗萊明) 1945 Nobel lecture warning that under-dosing could select for resistant organisms. The intuition seems sound: kill some bacteria but not all, and the survivors are the hardier ones. But in 2017, Martin Llewelyn and colleagues argued in the <em>BMJ</em> that this reasoning conflates two different situations, and that for most common infections it is the wrong model.</p>
+      <p>The distinction turns on what kind of resistance is at stake. In infections like tuberculosis (肺結核), resistance arises within the target organism itself, and incomplete treatment genuinely does select resistant strains &mdash; there the full course is essential and not in dispute. For most everyday infections, however, resistance emerges mainly through collateral selection: the antibiotic exerts pressure on the vast population of bystander bacteria the patient carries in gut, skin and airways. Under that mechanism, every additional day of exposure increases selection pressure, so longer courses drive resistance rather than prevent it.</p>
+      <p>The evidence has moved with the argument. Randomised trials across community-acquired pneumonia, urinary tract and intra-abdominal infections have found shorter courses frequently non-inferior to traditional longer ones, and standard durations have been shortened in many guidelines accordingly. Public messaging in the UK and elsewhere has shifted from &ldquo;always complete the course&rdquo; toward &ldquo;take antibiotics exactly as prescribed.&rdquo; The critical practical point is that this is a change in what clinicians prescribe, not a licence for patients to self-shorten: nobody should stop an antibiotic early without asking the prescriber, and for tuberculosis in particular completing treatment remains essential.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Antimicrobial_resistance" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; For most infections resistance builds in the bystander bacteria you carry, not the ones making you ill &mdash; so extra days of antibiotics add pressure rather than safety.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two mechanisms of antibiotic resistance does the 2017 <em>BMJ</em> argument distinguish, and why does that distinction change the advice for most common infections?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Resistance can arise within the target organism, as in tuberculosis, where completing the full course genuinely prevents resistant strains; or through collateral selection on bystander bacteria in the gut, skin and airways, which is the dominant route for most common infections. Under collateral selection each extra day of exposure increases selection pressure, so longer courses drive resistance rather than prevent it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Llewelyn, M.J. et al. (2017), &ldquo;The Antibiotic Course Has Had Its Day,&rdquo; <em>BMJ</em> 358. UK Health Security Agency antimicrobial prescribing guidance.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>How Close to Failure Do You Actually Need to Train?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Gym culture is split between &ldquo;every set to absolute failure&rdquo; and &ldquo;always leave a couple of reps in the tank.&rdquo; Both camps claim the science supports them. Before reading on, do you think training every set to failure produces meaningfully more muscle growth than stopping one to three reps short?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Small_group_fitness_sessions_bundall.jpg/330px-Small_group_fitness_sessions_bundall.jpg" alt="People weight training in a gym" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Training close to failure appears to matter for hypertrophy; reaching absolute failure on every set does not clearly add more. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Muscular failure (肌肉力竭) means the point at which another repetition cannot be completed with proper form. The theoretical case for training to it is motor unit recruitment: as a set progresses and fatigue accumulates, the nervous system progressively recruits higher-threshold motor units, so going to failure guarantees the largest, most growth-responsive fibres have been stimulated. The counter-case is that failure disproportionately increases fatigue, potentially reducing the total quality volume achievable across a session and week.</p>
+      <p>The useful measure here is reps in reserve (預留次數, RIR) &mdash; how many repetitions you could still have performed. Research including work by Refalo and colleagues, and meta-analytic reviews of proximity to failure, generally finds that training within roughly 0 to 3 reps of failure produces similar hypertrophy (肌肉肥大), with no consistent additional benefit from reaching absolute failure. Grgic et al.&rsquo;s work indicates that for maximal strength, stopping short of failure may actually be preferable, since strength adaptations depend heavily on quality practice with heavy loads that excessive fatigue degrades.</p>
+      <p>Fatigue cost is the decisive practical consideration. Training to failure, particularly on heavy compound lifts like squats and deadlifts, substantially raises recovery demand and can compromise subsequent sets and sessions; it also degrades technique at exactly the moment technique matters most. Reasonable evidence-informed practice is to keep most working sets around 1 to 3 RIR, reserve occasional true failure for machine or isolation exercises where the safety and fatigue costs are lower, and note that untrained lifters commonly overestimate their proximity to failure &mdash; making occasional calibration against a genuine failure set useful for learning what the sensation actually is.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Getting close to failure appears to be what drives growth; arriving at it mainly buys fatigue you then have to pay for elsewhere.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the evidence suggest about training to absolute failure versus stopping 1&ndash;3 reps short, and why might stopping short be preferable for strength specifically?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Training within roughly 0 to 3 reps of failure produces similar hypertrophy, with no consistent added benefit from reaching absolute failure. For maximal strength, stopping short may be preferable because strength adaptations depend on quality practice with heavy loads, and the fatigue generated by failure degrades technique and subsequent training quality.</div>
+      </details>
+      <div class="source">&#x1F4D6; Refalo, M.C. et al. (2023), &ldquo;Influence of Resistance Training Proximity-to-Failure,&rdquo; <em>Sports Medicine</em> 53. Grgic, J. et al. (2022), <em>Journal of Sport and Health Science</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Corner So Successful It Crashed the Market It Was Trying to Win</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In May 1901, two rival groups of financiers fought to control a railroad by buying its shares. They succeeded so completely that between them they had bought more shares than existed. Before reading on, what do you think happened to everyone who had sold that stock short &mdash; and what did it do to the rest of the market?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/J.P._Morgan_%28cropped%29.jpg/330px-J.P._Morgan_%28cropped%29.jpg" alt="Portrait of J.P. Morgan" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">J.P. Morgan (摩根), whose battle with Harriman and Schiff over the Northern Pacific Railway produced the corner and panic of May 1901. Credit: <a href="https://en.wikipedia.org/wiki/J._P._Morgan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1901, control of the Northern Pacific Railway (北太平洋鐵路) was contested by two of the most powerful financial alliances in America: J.P. Morgan (摩根) with James J. Hill, and Edward H. Harriman (哈里曼) backed by Jacob Schiff (希夫) of Kuhn, Loeb &amp; Co. The prize was not the railway alone but the Chicago, Burlington and Quincy line it controlled, which offered access to Chicago. Both sides began quietly buying Northern Pacific shares in the open market, each determined to secure a controlling stake before the other noticed.</p>
+      <p>Because neither side would stop, and neither knew precisely how much the other held, they collectively purchased more shares than were actually in circulation. Meanwhile, other traders, seeing Northern Pacific rise on no apparent news, concluded it was overvalued and sold it short &mdash; borrowing shares to sell, intending to buy them back cheaper. When the short sellers came to close their positions, there were effectively no shares available to buy at any price, because both warring camps were holding everything and refusing to sell.</p>
+      <p>On 9 May 1901, Northern Pacific spiked from roughly $170 to a reported $1,000 a share intraday. To raise cash to cover, short sellers dumped everything else they owned, and the resulting forced liquidation crashed the broader market &mdash; the Northern Pacific Corner. Recognising that ruining the shorts would destabilise the entire system, Morgan and Harriman agreed to settle at $150 a share, sparing many from bankruptcy, and then resolved their fight by forming the Northern Securities Company holding company. That trust was ordered dissolved by the Supreme Court in 1904 under the Sherman Antitrust Act (謝爾曼反壟斷法), a landmark victory for Theodore Roosevelt&rsquo;s (羅斯福) trust-busting campaign.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Northern_Pacific_Railway" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; When more shares have been bought than exist, the price stops describing value and starts describing how desperate the sellers are.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did two rival buyers end up owning more Northern Pacific shares than existed, and why did that crash the wider market?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Morgan&rsquo;s and Harriman&rsquo;s camps each bought aggressively without knowing the other&rsquo;s holdings, collectively purchasing more than the shares in circulation. Short sellers then found no shares available to buy back at any price, so to raise cash to cover they liquidated everything else they held, and that forced selling crashed the broader market.</div>
+      </details>
+      <div class="source">&#x1F4D6; Chernow, R. (1990), <em>The House of Morgan</em>, Atlantic Monthly Press. Northern Securities Co. v. United States, 193 U.S. 197 (1904).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>What Happened When Governments Tested the Theory That Deficits Don&rsquo;t Constrain Them</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/World_inflation_rate.png/330px-World_inflation_rate.png" alt="Chart of world inflation rates over time" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The 2021&ndash;22 inflation surge became the first large-scale test of competing claims about deficit-financed spending. Credit: <a href="https://en.wikipedia.org/wiki/Inflation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Between 2020 and 2021, advanced economies ran the largest peacetime fiscal deficits on record alongside major central-bank asset purchases. Inflation, which had remained stubbornly below target for over a decade despite similar warnings, rose sharply in 2021&ndash;22 to levels not seen in forty years.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Modern Monetary Theory (現代貨幣理論), associated with Stephanie Kelton (凱爾頓) and L. Randall Wray, holds that a government issuing debt in its own sovereign currency cannot be forced to default, so the binding constraint on spending is not solvency but real resource availability &mdash; and therefore inflation, to be managed primarily by fiscal policy and taxation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Both camps face awkward evidence. Orthodox monetarist predictions of inflation from post-2008 quantitative easing failed for over a decade, which MMT proponents cite. But the 2021&ndash;22 surge arrived faster than MMT&rsquo;s framework suggested policymakers could respond, since raising taxes to cool inflation proved politically near-impossible &mdash; the mechanism the theory relies on was not available in practice.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">The fiscal theory of the price level, developed by John Cochrane, offers a competing account in which inflation adjusts to bring real government debt into line with expected future surpluses. How much of the 2021&ndash;22 inflation was fiscal, monetary, or supply-shock driven remains genuinely unresolved, with credible estimates spanning a wide range.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A theory that relies on raising taxes to control inflation has an untested assumption at its centre: that a government facing inflation is politically able to raise taxes.</div>
+      <div class="source">&#x1F4D6; Kelton, S. (2020), <em>The Deficit Myth</em>, PublicAffairs. Cochrane, J. (2023), <em>The Fiscal Theory of the Price Level</em>, Princeton University Press. Distinct from Card 10&rsquo;s domain (equity market cornering).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; When Everyone Reacting to the Same Signal Becomes the Signal:</strong> An availability cascade works because each person treats other people&rsquo;s concern as evidence, so belief feeds on belief until perceived risk detaches from measured risk. The Northern Pacific corner is the mechanism in its purest financial form: short sellers saw a rising price, inferred overvaluation, and sold &mdash; then their own collective scramble to cover became the thing driving the price to $1,000, a number describing nothing but their desperation.</p>
+      <p><strong>So what:</strong> Before treating widespread agreement as evidence, ask whether the people agreeing had independent information or were mostly reading each other &mdash; because a crowd reacting to itself produces a very confident signal about nothing.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> ESA Giotto mission results (1986). Keller, H.U. et al. (1986), <em>Nature</em> 321.</li>
+      <li><strong>Card 2:</strong> 《宋史&middot;夏國傳》；吳廣成《西夏書事》；Dunnell, R.W. (1996), <em>The Great State of White and High</em>.</li>
+      <li><strong>Card 3:</strong> Labaree, B.W. (1964), <em>The Boston Tea Party</em>. Carp, B.L. (2010), <em>Defiance of the Patriots</em>, Yale University Press.</li>
+      <li><strong>Card 4:</strong> 石田梅岩《都鄙問答》《儉約齊家論》；Bellah, R.N. (1957), <em>Tokugawa Religion</em>, Free Press.</li>
+      <li><strong>Card 5:</strong> Aristotle, <em>Physics</em> VI. Salmon, W.C. (ed.) (1970), <em>Zeno&rsquo;s Paradoxes</em>. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Kuran, T. &amp; Sunstein, C.R. (1999), <em>Stanford Law Review</em> 51(4). Gigerenzer, G. (2006), <em>Risk Analysis</em> 26(2).</li>
+      <li><strong>Card 7:</strong> Humphrey, S.P. &amp; Williamson, R.T. (2001), <em>Journal of Prosthetic Dentistry</em> 85(2). NIH NIDCR.</li>
+      <li><strong>Card 8:</strong> Llewelyn, M.J. et al. (2017), <em>BMJ</em> 358. UK Health Security Agency antimicrobial prescribing guidance.</li>
+      <li><strong>Card 9:</strong> Refalo, M.C. et al. (2023), <em>Sports Medicine</em> 53. Grgic, J. et al. (2022), <em>Journal of Sport and Health Science</em>.</li>
+      <li><strong>Card 10:</strong> Chernow, R. (1990), <em>The House of Morgan</em>. Northern Securities Co. v. United States, 193 U.S. 197 (1904).</li>
+      <li><strong>Card 11:</strong> Kelton, S. (2020), <em>The Deficit Myth</em>. Cochrane, J. (2023), <em>The Fiscal Theory of the Price Level</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-21: Giotto &amp; Halley&rsquo;s Comet &bull; 李元昊建西夏 &bull; The Boston Tea Party &bull; 石田梅岩與石門心學 &bull; Zeno&rsquo;s Paradoxes of Motion &bull; Availability Cascades &bull; Saliva &amp; the Salivary Glands &bull; &ldquo;Finish the Course&rdquo; Antibiotic Advice &bull; Training to Failure / Reps in Reserve &bull; The Northern Pacific Corner (1901) &bull; Modern Monetary Theory vs the 2021&ndash;22 Inflation</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-21.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-21.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 21 August 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 16 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 16 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>15 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Tarantula Nebula</span>Webb&rsquo;s infrared image revealed tens of thousands of hidden young stars in a cavity that looked empty in visible light.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 李舜臣與鳴梁海戰</span>李舜臣僅憑十二戰船，藉海峽地形潮汐大破逾百日艦。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Gunpowder Plot</span>An anonymous tip-off letter led searchers to catch Guy Fawkes guarding 36 barrels of gunpowder beneath Parliament.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 白隱慧鶴與「隻手之聲」</span>白隱慧鶴曾患禪病，康復後創「隻手之聲」公案重振臨濟宗。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Diogenes of Sinope</span>When Alexander the Great offered him any favour, Diogenes simply asked him to step out of his sunlight.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Placebo Effect</span>Patients told explicitly their pills were fake still reported real symptom relief, challenging assumptions about deception.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Brown Adipose Tissue</span>A &ldquo;wasteful&rdquo; tissue that burns energy as pure heat was found still active in adults via misread cancer scans.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Probiotics</span>Strong evidence for probiotics is narrow &mdash; mainly preventing diarrhea during antibiotic use, not general wellness claims.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Periodization</span>Rotating rep ranges weekly (DUP) beat a slow linear ramp-up for building strength in a 2002 trial.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The Panic of 1907</span>With no central bank to intervene, J.P. Morgan personally organised an overnight bailout in his own library.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Hong Kong&rsquo;s Currency Defense</span>The HKMA broke currency-board orthodoxy in 1998, buying Hang Seng stocks outright to defeat a speculative attack.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Delicate Ribbon of Light That Is Actually a 20,000-Year-Old Explosion</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Through a telescope, one object in the constellation Cygnus looks like a curtain of impossibly fine, glowing threads &mdash; delicate, lacy, almost hand-drawn. It looks like the gentlest thing in the sky. Before reading on, what do you think actually created it, and what is it still doing right now?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Veil_Nebula_-_NGC6960.jpg/3840px-Veil_Nebula_-_NGC6960.jpg" alt="The Veil Nebula, showing delicate filaments of glowing gas" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Veil Nebula (面紗星雲), the visible wreckage of a star that exploded roughly 10,000 to 20,000 years ago. Credit: <a href="https://en.wikipedia.org/wiki/Veil_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the constellation Cygnus (天鵝座), about 2,400 light-years away, hangs one of the most beautiful objects amateur astronomers can find: the Veil Nebula (面紗星雲), a set of gossamer-thin filaments of glowing gas that look less like an astronomical object than like smoke frozen mid-curl, or a lace curtain caught in light. It is faint enough that it went unnoticed until William Herschel (赫歇爾) catalogued parts of it in 1784, and even today it is best seen through a special filter that blocks all light except the narrow colours the gas itself emits.</p>
+      <p>What those delicate threads actually are is the shredded corpse of a star. Somewhere between 10,000 and 20,000 years ago, a star roughly 20 times the mass of our Sun (太陽) exhausted its fuel and detonated as a supernova (超新星), briefly outshining everything around it. The blast wave has been expanding ever since, and the Veil is the visible portion of that expanding shell, now stretched roughly 110 light-years across &mdash; wide enough that from Earth it covers about six times the area of the full Moon, which is precisely why most people never realise how large it is.</p>
+      <p>The filaments look thread-like for a counterintuitive reason: they are not threads at all, but the thin, rippled edges of a vast bubble seen nearly edge-on, the way the rim of a soap bubble looks like a bright line while its face looks like nothing. Where the expanding blast wave slams into surrounding interstellar gas at hundreds of kilometres per second, it heats that gas until it glows &mdash; oxygen (氧) emitting blue-green, hydrogen (氫) and nitrogen (氮) emitting red. The shock is still travelling outward today, meaning the picture is not a still life but a single frame of an explosion still in progress.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Veil_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most delicate-looking object in the night sky is a stellar explosion still expanding, caught in a single frame far too slow for human eyes to see move.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does the Veil Nebula appear as thin, thread-like filaments rather than a solid glowing cloud, and what causes the gas to glow at all?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The filaments are the rippled edges of a vast expanding bubble seen nearly edge-on, much as a soap bubble&rsquo;s rim looks like a bright line. The gas glows because the supernova blast wave is slamming into surrounding interstellar material at hundreds of kilometres per second, heating it until it emits light.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA Hubble Space Telescope press releases on the Veil Nebula. Blair, W.P. et al., Johns Hopkins University Cygnus Loop research.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>三家分晉&mdash;&mdash;三個家臣如何瓜分主君的國家，並改寫整個時代的規則？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">春秋末年，中原最強大的國家並非後來統一天下的秦國，而是晉國。然而這個霸主之國，最終並非亡於外敵入侵，而是被自己的三個卿大夫家族瓜分。你認為，是甚麼樣的內部演變，令一個超級強國從內部被和平地分割？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>智伯瑤（智氏家主，晉國執政）；趙襄子（趙無恤，趙氏家主）；韓康子、魏桓子（韓、魏兩氏家主）；周威烈王（東周天子）。</p>
+        <p><strong>事件：</strong>公元前453年，趙、韓、魏三家聯手於晉陽消滅智氏；公元前403年，周威烈王正式冊封三家為諸侯，史稱「三家分晉」，晉國自此不復存在。</p>
+        <p><strong>時代背景：</strong>春秋後期，晉國公室權力旁落，六卿家族坐大，互相兼併至僅剩智、趙、韓、魏四家；此事件被司馬光《資治通鑑》定為春秋與戰國的分界。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Chinese_plain_5c._BC-en.svg/960px-Chinese_plain_5c._BC-en.svg.png" alt="公元前五世紀中原諸國形勢圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">公元前五世紀中原局勢。晉國原為中原霸主，最終被趙、韓、魏三家瓜分，開啟戰國時代。來源：<a href="https://en.wikipedia.org/wiki/Partition_of_Jin" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>晉國自晉文公稱霸以來，長期為中原第一強國，惟其公室因早年「曲沃代翼」的內鬥陰影，刻意排斥公族子弟參政，改而重用異姓卿大夫。此舉短期內確實提升行政效率，長遠卻令軍政大權盡落於少數家族之手。至春秋末年，六卿彼此攻伐兼併，僅餘智、趙、韓、魏四家，其中以智氏勢力最盛，家主智伯瑤執掌晉國國政，公室名存實亡。</p>
+      <p>智伯瑤自恃強盛，先後向韓、魏兩家索取土地，兩家忌其勢大，皆忍讓割地；惟趙襄子斷然拒絕。智伯遂脅韓、魏兩家共同出兵伐趙，圍困趙氏於晉陽（今山西太原）長達兩年有餘。智伯更引晉水灌城，城中「懸釜而炊，易子而食」，僅差三版之高便告淪陷。危急之際，趙襄子遣家臣張孟談夜縋出城，秘密遊說韓、魏兩家：智伯貪得無厭，趙氏一亡，下一個便輪到你們。</p>
+      <p>韓、魏兩家權衡利害後倒戈，於公元前453年反決堤水淹智伯軍營，三家聯手滅智氏，盡分其地。此後三家共掌晉國，公元前403年，周威烈王正式承認趙、韓、魏三家的諸侯地位，等同以天子名義追認了臣子瓜分主君之國的既成事實。司馬光在《資治通鑑》開篇即以此事為全書起點，並嚴厲批評周天子「自壞其禮」，認為名分一旦崩解，此後兼併篡奪便再無道德屏障可言。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Partition_of_Jin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 晉國不是被敵人打敗的，而是被自己為防範內亂而設計的制度，一步步交到了外姓家臣手上。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 晉國公室權力為何會旁落於異姓卿大夫？趙襄子在晉陽被圍時，以甚麼理由說服韓、魏兩家倒戈？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">晉國因早年公族內鬥的教訓，刻意排斥公族參政而重用異姓卿大夫，導致軍政大權長期外移。趙襄子遣張孟談遊說韓、魏，指出智伯貪得無厭，趙氏一旦滅亡，兩家必成下一個目標，遂促成三家倒戈滅智。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬光《資治通鑑&middot;周紀一》；《史記&middot;趙世家》；Lewis, M.E. (1999), <em>The Cambridge History of Ancient China</em>, Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Church Bell That Started a Massacre and Toppled a Mediterranean Empire</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On Easter Monday in 1282, outside a church in Palermo, an argument between a French soldier and a local Sicilian woman escalated within hours into a citywide massacre, and within weeks into an island-wide uprising. Before reading on, what do you think turned an ordinary street quarrel into the collapse of one of Europe&rsquo;s most powerful royal projects?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Charles I of Anjou (安茹的查理), French-born King of Sicily; Peter III of Aragon (阿拉貢的彼得三世), rival claimant; Pope Martin IV (教宗馬丁四世), Charles&rsquo;s backer.</p>
+        <p><strong>Event at stake:</strong> The Sicilian Vespers (西西里晚禱事件), a rebellion beginning 30 March 1282 in Palermo (巴勒莫) that expelled Angevin (安茹) French rule from Sicily (西西里).</p>
+        <p><strong>Big picture:</strong> Charles had used Sicily as the tax base for an ambitious plan to conquer Constantinople (君士坦丁堡) and restore a Latin empire in the east; the island&rsquo;s population bore heavy taxation and resented French officials.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Sicilian_Vespers_1281_How_and_after_what_manner_the_island_of_Sicily_rebelled_against_King_Charles_Nuova_Cronica_Giovanni_Villani_14th_century.png" alt="Fourteenth-century chronicle illustration of the Sicilian Vespers uprising" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A fourteenth-century depiction of the Sicilian Vespers from Giovanni Villani&rsquo;s <em>Nuova Cronica</em>. Credit: <a href="https://en.wikipedia.org/wiki/Sicilian_Vespers" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Charles I of Anjou (安茹的查理), a younger brother of France&rsquo;s King Louis IX (路易九世), had taken Sicily (西西里) by papal invitation in 1266, defeating the previous Hohenstaufen (霍亨斯陶芬) rulers. But Charles treated the island less as a kingdom to govern than as a treasury to drain: he moved his capital to Naples (拿坡里) on the mainland, staffed Sicilian offices with French officials, and imposed heavy taxes to finance an enormous ambition &mdash; assembling a fleet to conquer Constantinople (君士坦丁堡) and restore the Latin Empire that Byzantine forces had reclaimed in 1261.</p>
+      <p>On the evening of 30 March 1282, Easter Monday, crowds gathered for vespers outside the Church of the Holy Spirit near Palermo (巴勒莫). A French sergeant named Drouet reportedly harassed a Sicilian woman in the crowd; her husband, or a bystander, stabbed him. As the church bells rang for the evening service, the brawl exploded into a general assault on French soldiers and settlers throughout the city, then spread across the island over the following weeks, killing an estimated two to four thousand French residents. The chronicler&rsquo;s detail that mattered most was practical: rebels reportedly identified French speakers by making suspects pronounce Sicilian words they could not manage.</p>
+      <p>Peter III of Aragon (阿拉貢的彼得三世), who had married into the displaced Hohenstaufen line and had a fleet conveniently nearby, accepted the rebels&rsquo; invitation and landed that August, claiming the crown. The resulting War of the Sicilian Vespers dragged on for twenty years, permanently destroyed Charles&rsquo;s eastern expedition before a single ship sailed for Constantinople, and split the kingdom in two &mdash; Aragonese Sicily and Angevin Naples &mdash; a division that shaped southern Italian politics for centuries and drew Aragon into a Mediterranean empire it had not planned on building.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sicilian_Vespers" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A street quarrel became a revolution because the grievance behind it was already universal &mdash; the spark only mattered because the fuel had been stacked for sixteen years.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What larger ambition was Charles of Anjou taxing Sicily to fund, and what happened to that plan after the Vespers uprising?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Charles was heavily taxing Sicily to assemble a fleet for conquering Constantinople and restoring the Latin Empire in the east. The Vespers uprising and the twenty-year war that followed destroyed the expedition before it ever sailed, and split his kingdom between Aragonese Sicily and Angevin Naples.</div>
+      </details>
+      <div class="source">&#x1F4D6; Runciman, S. (1958), <em>The Sicilian Vespers</em>, Cambridge University Press. Britannica, &ldquo;Sicilian Vespers.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>王艮與泰州學派&mdash;&mdash;一個煮鹽的灶丁，如何把儒學講給不識字的百姓聽？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明代中葉，儒學仍主要是士大夫階層的學問，講學論道多在書院之中，聽眾亦以讀書人為主。一位出身鹽場、幾乎未受正規教育的灶丁，卻主張聖人之道人人可學、當下即是，並把講席直接搬到市井田間。你認為，他憑甚麼理論基礎，論證一個不識字的農夫也能成聖？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王艮（1483&ndash;1541年，號心齋，江蘇泰州安豐場鹽丁出身，王陽明弟子，泰州學派創始人）。</p>
+        <p><strong>核心主張：</strong>「百姓日用即道」&mdash;&mdash;聖人之道不在深奧典籍，而就在尋常百姓的日常生活與自然需求之中；並提出「淮南格物」與「安身立本」之說。</p>
+        <p><strong>時代背景：</strong>王陽明「致良知」之學打破朱熹格物窮理的讀書門檻，主張人人本具良知；王艮承此路向再推一步，將講學對象由士大夫擴展至農工商賈。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王守仁畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王守仁（王陽明）畫像。王艮為其晚年最特殊的弟子，將師門「致良知」之學推向平民階層，開創泰州學派。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王艮出身江蘇泰州安豐場的鹽丁之家，少年時因家貧輟學，隨父兄煮鹽經商，僅粗通文字。他二十餘歲隨商隊北上山東，於曲阜謁孔廟時大受震動，自語「夫子亦人也，我亦人也」，自此發憤自學，以《孝經》《論語》隨身誦讀。三十八歲時聞王陽明講學於江西，遂前往問學，初見時仍執己見與陽明反覆辯論，數日後方心服拜師，卻始終保持獨立思考的性格。</p>
+      <p>王艮學說的核心是「百姓日用即道」。他認為，若聖人之道必須透過艱深典籍才能求得，則天下絕大多數不識字的百姓便永無成聖之望，這與孔孟「人皆可以為堯舜」的本意相違。既然良知人人本具，那麼道就必然體現在最平常的地方&mdash;&mdash;童僕的灑掃應對、農夫的耕作、商賈的買賣，皆是道的流行。他更提出「安身立本」，主張人須先保全自身、滿足合理的生存需求，才談得上齊家治國，此說在當時極為大膽。</p>
+      <p>基於這套理論，王艮把講學場所從書院搬到市井鄉間，聽眾包括樵夫、陶匠、農民與商販，泰州學派因而被後世稱為「平民儒學」。其門下確有樵夫朱恕、陶匠韓貞等以工匠身分傳道講學者。惟此一路向亦引來嚴厲批評：學派後期部分成員言行狂放，被東林學派人士斥為「猖狂自恣」，甚至歸咎其助長晚明士風敗壞；黃宗羲在《明儒學案》中則評其「非名教之所能羈絡」，一語道盡此派解放力量與失控風險的一體兩面。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Gen" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王艮把「道」從書齋搬到灶台與田間&mdash;&mdash;若真理只有讀書人能懂，那它就不可能是人人本具的良知。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王艮「百姓日用即道」的論證邏輯為何？後世對泰州學派的主要批評是甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王艮認為良知既然人人本具，道就不可能只存在於艱深典籍中，否則不識字的百姓永無成聖之望，故道必體現於日常生活。批評者則指泰州學派後期言行狂放，黃宗羲評其「非名教之所能羈絡」，東林人士更歸咎其助長晚明士風敗壞。</div>
+      </details>
+      <div class="source">&#x1F4D6; 黃宗羲《明儒學案&middot;泰州學案》；王艮《心齋先生全集》；de Bary, W.T. (1970), <em>Self and Society in Ming Thought</em>, Columbia University Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Argument That Tries to Prove God Exists Using Nothing but a Definition</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1078, a monk proposed an argument for God&rsquo;s existence that used no observation of the world at all &mdash; no design in nature, no first cause, no miracles. It began from a definition alone and claimed to reach its conclusion by pure logic. Before reading on, how do you think a definition could possibly prove that something actually exists?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Anselm of Canterbury (安瑟倫, 1033&ndash;1109), Benedictine monk and Archbishop of Canterbury (坎特伯雷); Gaunilo of Marmoutiers (高尼羅), a fellow monk and his first critic.</p>
+        <p><strong>Idea at stake:</strong> The ontological argument (本體論論證) from Anselm&rsquo;s <em>Proslogion</em> (1078), which attempts to prove God&rsquo;s existence from the concept of God alone.</p>
+        <p><strong>Rival view:</strong> Every other major argument for God at the time &mdash; from design, motion, or causation &mdash; started from observed features of the world. Anselm&rsquo;s started from nothing but a definition.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Anselm_of_Canterbury%2C_seal.svg/960px-Anselm_of_Canterbury%2C_seal.svg.png" alt="The seal of Anselm of Canterbury" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The seal of Anselm of Canterbury (安瑟倫), whose <em>Proslogion</em> introduced the ontological argument in 1078. Credit: <a href="https://en.wikipedia.org/wiki/Anselm_of_Canterbury" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Anselm of Canterbury (安瑟倫) opened his <em>Proslogion</em> (《宣講》) by defining God as &ldquo;that than which nothing greater can be conceived.&rdquo; His argument then runs deceptively simply: even someone who denies God exists must understand that definition, and so has the idea in their mind. But something that exists both in the mind and in reality is greater than something existing only in the mind. So if the greatest conceivable being existed only as an idea, one could conceive of something greater &mdash; the same being, existing in reality &mdash; which contradicts the definition. Therefore, Anselm concluded, that being must exist.</p>
+      <p>The first serious objection arrived almost immediately from a fellow monk, Gaunilo of Marmoutiers (高尼羅), writing &ldquo;On Behalf of the Fool.&rdquo; Gaunilo argued the same reasoning could conjure anything into existence: imagine the greatest conceivable island, more perfect than any real island; by Anselm&rsquo;s logic it must exist, or it wouldn&rsquo;t be the greatest conceivable. Since no such island exists, something in the argument must be broken. Anselm replied that the reasoning applies uniquely to a being whose very nature is maximal greatness, not to islands, whose greatness has no intrinsic upper limit &mdash; a response philosophers still debate.</p>
+      <p>The deeper objection came from Immanuel Kant (康德) in 1781: existence, Kant argued, is not a property that makes a thing greater, the way wisdom or power would be. Saying &ldquo;this being is wise&rdquo; adds something to the concept; saying &ldquo;this being exists&rdquo; does not describe the being at all, it asserts that the concept has an instance in reality. If existence isn&rsquo;t a perfection, Anselm&rsquo;s crucial step collapses. Yet the argument refuses to die: Kurt G&ouml;del (哥德爾) left a formal modal version at his death, and philosophers including Alvin Plantinga (普蘭丁格) have revived it in modal logic (模態邏輯), keeping a thousand-year-old dispute unresolved.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ontological_argument" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; An argument that has been declared refuted for a thousand years, yet keeps being rebuilt, usually means the flaw is harder to locate than everyone assumes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Gaunilo&rsquo;s &ldquo;perfect island&rdquo; objection, and what different objection did Kant later raise against the ontological argument?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Gaunilo argued the same logic would prove a &ldquo;greatest conceivable island&rdquo; must exist, which is absurd, so the reasoning must be flawed. Kant objected differently: existence is not a property that makes something greater, but merely the assertion that a concept has an instance, so Anselm&rsquo;s key step fails.</div>
+      </details>
+      <div class="source">&#x1F4D6; Anselm (1078), <em>Proslogion</em>. Stanford Encyclopedia of Philosophy, &ldquo;Ontological Arguments.&rdquo; Kant, I. (1781), <em>Critique of Pure Reason</em>.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Spilling Coffee on Yourself Can Make People Like You More</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a 1966 experiment, participants listened to a recording of a candidate answering quiz questions. In some versions, the candidate performed brilliantly; in others, poorly. At the end of some recordings, the candidate clumsily spilled a cup of coffee on himself. Before reading on, which candidate do you think listeners rated as most likeable &mdash; and did the coffee spill help or hurt?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Elliot_Aronson_1972.jpg" alt="Photograph of psychologist Elliot Aronson" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Elliot Aronson (阿倫森), whose 1966 experiment identified what became known as the pratfall effect. Credit: <a href="https://en.wikipedia.org/wiki/Elliot_Aronson" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1966, social psychologist Elliot Aronson (阿倫森), working with Ben Willerman and Joanne Floyd, played university students an audio recording of a supposed candidate for a quiz team. Two variables were manipulated: the candidate either answered about 92% of difficult questions correctly, presenting as highly competent, or about 30%, presenting as average. Independently, some recordings ended with the sound of the candidate clumsily knocking over a cup of coffee and exclaiming that he had ruined his new suit.</p>
+      <p>The results were asymmetric in a revealing way. The highly competent candidate was rated most likeable of all when he spilled the coffee &mdash; the blunder made him <em>more</em> attractive to listeners, not less. But when the average candidate spilled the coffee, his likeability ratings dropped. Aronson named this the pratfall effect (出醜效應): a visible minor blunder increases likeability, but only for someone already perceived as highly capable, whose competence the mishap cannot seriously call into question.</p>
+      <p>The proposed mechanism is that near-flawless competence creates distance, making a person seem unrelatable or intimidating; a small, harmless slip humanises them without undermining the evidence of their ability. For someone whose competence is already in doubt, the same slip simply confirms the doubt. Later research has complicated the picture &mdash; effects vary with the observer&rsquo;s own self-esteem and with gender, and some replications find weaker or conditional results &mdash; so the honest reading is that the effect is real but narrow, and depends heavily on having demonstrated genuine competence first.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pratfall_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A visible small mistake makes a highly capable person more likeable and a struggling person less so &mdash; the blunder only humanises what competence has already established.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Aronson&rsquo;s pratfall experiment, for which type of candidate did the coffee spill <em>increase</em> likeability, and what is the proposed mechanism?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The spill increased likeability only for the highly competent candidate; for the average-performing candidate it reduced likeability. The proposed mechanism is that near-flawless competence creates distance, and a harmless blunder humanises the person without casting genuine doubt on their demonstrated ability.</div>
+      </details>
+      <div class="source">&#x1F4D6; Aronson, E., Willerman, B. &amp; Floyd, J. (1966), &ldquo;The Effect of a Pratfall on Increasing Interpersonal Attractiveness,&rdquo; <em>Psychonomic Science</em> 4(6).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Your Own Recorded Voice Sounds Like a Stranger&rsquo;s</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone dislikes hearing a recording of their own voice, and most people describe it as sounding higher, thinner, or somehow &ldquo;not like me.&rdquo; Everyone else, meanwhile, insists the recording sounds exactly like you. Before reading on, what do you think explains the gap &mdash; and which version is the real one?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Human_voice_spectrogram.jpg/330px-Human_voice_spectrogram.jpg" alt="Spectrogram of a human voice" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A spectrogram of the human voice. What you hear when you speak includes low frequencies that reach your inner ear through bone, not air. Credit: <a href="https://en.wikipedia.org/wiki/Human_voice" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When you speak, sound reaches your cochlea (耳蝸, the inner ear&rsquo;s hearing organ) by two separate routes at once. The first is air conduction (空氣傳導): sound leaves your mouth, travels through the air, and enters your ear canal like any other external sound. The second is bone conduction (骨傳導): vibrations from your vocal folds (聲帶) travel directly through the bones and soft tissues of your skull to the cochlea, bypassing the outer ear entirely. Everyone else hears only the first route. You hear both, blended into one impression.</p>
+      <p>The critical detail is that bone is a better conductor of low frequencies than air. Skull tissue transmits the deeper components of your voice efficiently while damping higher ones, so the bone-conducted signal adds substantial bass to what you perceive. The voice in your head is therefore genuinely lower, richer and fuller than the voice anyone else hears. Strip that route away &mdash; which is exactly what a recording does, since a microphone captures only the air-conducted sound &mdash; and what remains sounds thinner and higher-pitched by comparison.</p>
+      <p>This means the recording is the accurate one: it is what your voice actually sounds like to every other person. The discomfort is not really an acoustic problem but an expectation-violation one, sometimes called voice confrontation, first described by Holzman and Rousey in 1966. They found people disliked their recorded voices even when they could not identify them as their own, suggesting the reaction involves more than surprise at the pitch &mdash; the recording strips away not just bass but also the self-image bundled with the familiar internal version.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bone_conduction" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The recording isn&rsquo;t distorting your voice &mdash; your skull has been adding bass to it your entire life, and only you ever heard that version.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two routes carry your own voice to your inner ear, and why does removing one of them make a recording sound higher-pitched than you expect?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Your voice reaches the cochlea by air conduction through the ear canal and by bone conduction through the skull. Bone transmits low frequencies particularly well, adding bass to what you perceive; a microphone captures only air-conducted sound, so the recording lacks that bass and sounds thinner and higher.</div>
+      </details>
+      <div class="source">&#x1F4D6; Holzman, P.S. &amp; Rousey, C. (1966), &ldquo;The Voice as a Percept,&rdquo; <em>Journal of Personality and Social Psychology</em> 4(1). Stenfelt, S. (2011), <em>Advances in Oto-Rhino-Laryngology</em> 71.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Shaving Does Not Make Hair Grow Back Thicker &mdash; and We&rsquo;ve Known Since 1928</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Nearly everyone has heard that shaving makes hair grow back thicker, darker, or coarser &mdash; and many people report having observed exactly that on their own body. Before reading on, do you think the observation is simply wrong, or that people are accurately observing something real and misinterpreting its cause?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Crema_para_afeitar.JPG/3840px-Crema_para_afeitar.JPG" alt="Shaving cream and a razor" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Controlled studies dating back to 1928 have consistently found shaving has no effect on hair thickness, colour or growth rate. Credit: <a href="https://en.wikipedia.org/wiki/Shaving" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The claim is unusually easy to test, and it has been tested repeatedly. In 1928, a controlled study published in the <em>Journal of the American Medical Association</em> tracked men shaving one area of the body while leaving a comparable area unshaved, and found no difference in hair growth rate, thickness or colour. Later work, including a 1970 study by Lynfield and MacWilliams, reached the same conclusion. The reason is anatomical: hair growth originates in the follicle (毛囊) beneath the skin, and a razor cuts the shaft above the surface, never touching the structure that determines a hair&rsquo;s diameter, pigment or growth rate.</p>
+      <p>So why does regrowth so reliably <em>look</em> thicker? Two things change, neither of them the hair itself. An uncut hair tapers to a fine, worn point at its tip; a shaved hair is sliced off flat, leaving a blunt end with the full shaft diameter exposed, which both looks and feels coarser against the skin. Second, hair that has spent time above the skin is bleached slightly by sunlight (陽光) and weathered by washing, while freshly emerged hair has not been, so it appears darker by contrast against the surrounding skin.</p>
+      <p>The illusion is also reinforced by timing: people most often begin shaving during adolescence, exactly when hormonal changes are independently causing body hair to become genuinely thicker and darker. The two changes coincide, and the shaving gets the credit. The practical upshot is that shaving is neutral with respect to hair growth &mdash; it neither worsens nor improves it &mdash; so decisions about shaving can be made on grounds of comfort and preference, with concerns about &ldquo;making it worse&rdquo; set aside.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Shaving" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A razor cuts the shaft, never the follicle &mdash; the blunt cut end just feels coarser, and adolescence gets to take the credit it deserves.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why can&rsquo;t shaving change hair thickness, and what two things make regrowth genuinely appear thicker and darker?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hair thickness, colour and growth rate are determined by the follicle beneath the skin, which a razor never touches. Regrowth appears thicker because the cut leaves a blunt end with full shaft diameter rather than a tapered tip, and appears darker because fresh hair hasn&rsquo;t yet been sun-bleached and weathered.</div>
+      </details>
+      <div class="source">&#x1F4D6; Trotter, M. (1928), <em>JAMA</em>. Lynfield, Y.L. &amp; MacWilliams, P. (1970), &ldquo;Shaving and Hair Growth,&rdquo; <em>Journal of Investigative Dermatology</em> 55(3).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Machines Versus Free Weights: The Argument That Turns Out to Be Mostly Settled</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Gym orthodoxy has long held that free weights are simply superior to machines &mdash; more &ldquo;functional,&rdquo; recruiting more stabilising muscles, producing better real-world strength. Before reading on, do you think controlled trials comparing the two find a meaningful difference in muscle growth, and if so, in which direction?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="People training with weights in a gym" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Controlled trials comparing machines and free weights find similar hypertrophy when effort and volume are matched. Credit: <a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The case for free weights rests on a real mechanical difference. A barbell (槓鈴) or dumbbell (啞鈴) moves freely in three dimensions, so the lifter&rsquo;s stabilising muscles must control the path as well as produce force. A machine constrains the path along a fixed track, removing much of that stabilisation demand. Electromyography (肌電圖) studies confirm this: free-weight variations generally show greater activation in stabilising musculature than their machine equivalents, which is where the &ldquo;more functional&rdquo; claim originates.</p>
+      <p>What that difference does <em>not</em> reliably produce is more muscle. A 2020 systematic review by Haugen and colleagues, and subsequent work including Schwanbeck et al. (2020), found that when training volume and proximity to failure are matched, machines and free weights produce broadly comparable hypertrophy (肌肉肥大) and strength gains in the trained muscles. Strength improvements do show specificity &mdash; train on a machine and you test better on that machine; train with free weights and you test better with free weights &mdash; but the underlying muscle growth is similar either way.</p>
+      <p>That reframes the choice as practical rather than moral. Machines lower the skill barrier, are easier to use safely without a spotter, and let a trainee push closer to failure on isolation work without stabiliser fatigue becoming the limiting factor &mdash; genuinely useful for beginners, for high-fatigue sets, and when training around an injury. Free weights offer specificity for sports and lifts performed freely, greater loading potential on compound movements, and better transfer to balance-dependent tasks. Most evidence-informed guidance now recommends using both, chosen by purpose rather than picking a side.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Machines and free weights build similar muscle when effort matches &mdash; the real difference is what each makes easier, not which one is superior.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What measurable difference do free weights genuinely produce compared with machines, and why doesn&rsquo;t that translate into greater muscle growth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Free weights require stabilising muscles to control the movement path, and electromyography confirms greater stabiliser activation. But when volume and proximity to failure are matched, hypertrophy in the trained muscles is comparable; strength gains show specificity to the mode trained rather than a general advantage.</div>
+      </details>
+      <div class="source">&#x1F4D6; Haugen, M.E. et al. (2023), &ldquo;Effects of Free-Weight and Machine-Based Strength Training on Muscle Hypertrophy,&rdquo; <em>BMC Sports Science, Medicine and Rehabilitation</em>. Schwanbeck, S.R. et al. (2020), <em>Journal of Strength and Conditioning Research</em> 34(7).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Brothers Who Tried to Buy Every Ounce of Silver on Earth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Between 1973 and January 1980, two brothers from a Texas oil family accumulated an estimated third of the world&rsquo;s privately held silver, driving the price from around $6 to roughly $50 an ounce. Their position was worth billions on paper. Before reading on, what do you think finally broke the corner &mdash; and what does that suggest about cornering any market?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Silver_crystal.jpg/3840px-Silver_crystal.jpg" alt="A crystal of pure silver" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Silver. The Hunt brothers&rsquo; attempt to corner the market ended on &ldquo;Silver Thursday,&rdquo; 27 March 1980. Credit: <a href="https://en.wikipedia.org/wiki/Silver_Thursday" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Nelson Bunker Hunt (亨特) and William Herbert Hunt, sons of Texas oil magnate H.L. Hunt, began buying silver (白銀) heavily in 1973, convinced that inflation (通脹) would destroy the dollar and that hard assets were the only refuge. Crucially, rather than settling futures contracts for cash as most speculators did, they took physical delivery, chartering aircraft to fly bullion to vaults in Switzerland. By late 1979, with allied Saudi investors, they controlled an estimated third of the world&rsquo;s privately held silver, and the price had climbed from about $6 to roughly $50 an ounce in January 1980.</p>
+      <p>A corner works only while the cornerer can keep absorbing supply, and both sides of that equation turned. Sky-high prices pulled enormous quantities of silver out of hiding as ordinary households melted heirlooms, cutlery and jewellery for sale, while industrial buyers substituted away from silver where they could. More decisively, the exchanges intervened: in January 1980, COMEX adopted &ldquo;Silver Rule 7,&rdquo; sharply restricting buying on margin (保證金交易) and effectively limiting new long positions, which removed the Hunts&rsquo; ability to keep buying and signalled to the market that the squeeze had a ceiling.</p>
+      <p>Prices collapsed. On 27 March 1980 &mdash; &ldquo;Silver Thursday&rdquo; &mdash; silver fell to about $11 an ounce, and the Hunts, unable to meet a margin call reported at over $100 million, triggered fears that their brokers would fail and cascade through the financial system. A consortium of banks arranged a roughly $1.1 billion loan to unwind the position in an orderly way. The brothers were later found liable for conspiring to manipulate the market and filed for bankruptcy in 1988. The structural lesson is durable: a corner is a bet that you can hold the position longer than supply, substitution and the rulemakers can move against you &mdash; and rulemakers can change the rules.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Silver_Thursday" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Cornering a market means betting that supply, substitutes and regulators will all stay still &mdash; and the regulator is the one player who can simply change the rules.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What three forces broke the Hunt brothers&rsquo; silver corner, and which of them was decisive?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">High prices drew huge quantities of scrap silver onto the market, industrial users substituted away, and COMEX changed its rules. The decisive blow was COMEX&rsquo;s &ldquo;Silver Rule 7&rdquo; in January 1980, which restricted margin buying and removed the Hunts&rsquo; capacity to keep absorbing supply.</div>
+      </details>
+      <div class="source">&#x1F4D6; Federal Reserve Bank of Chicago (1980s) analyses of the silver market. Fay, S. (1982), <em>Beyond Greed</em>, Viking Press. CFTC records on Hunt v. commodity manipulation findings.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Every Push Toward Freer Markets Seems to Summon Its Own Backlash</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Euro_M%C3%BCnzgeld_und_Portmonee_mit_gr%C3%BCnem_Pfeil_%28Geld%2C_Kleingeld%2C_M%C3%BCnzen%29.jpg" alt="Coins and a purse representing market exchange" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Karl Polanyi argued markets are always embedded in society, and that attempts to disembed them reliably provoke a protective counter-movement. Credit: <a href="https://en.wikipedia.org/wiki/Karl_Polanyi" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Across the 2010s and 2020s, decades of trade liberalisation and market deregulation in advanced economies were followed by a broad political turn toward tariffs, industrial policy and restrictions on capital and labour mobility &mdash; occurring across countries with very different political systems and party structures, rather than in one national context.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Karl Polanyi (博蘭尼) argued in <em>The Great Transformation</em> (1944) that a &ldquo;self-regulating market&rdquo; is a utopian construct, because land, labour and money are &ldquo;fictitious commodities&rdquo; &mdash; things not produced for sale, and which societies will not indefinitely allow to be governed purely by price.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Standard liberalisation models predict that as gains from trade accumulate, political support for open markets should consolidate. Instead Polanyi&rsquo;s &ldquo;double movement&rdquo; (雙向運動) is repeatedly observed: market expansion generates a spontaneous protective counter-movement, and critically, this backlash has arisen from both left and right, which class-based accounts of trade politics struggle to predict.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Dani Rodrik&rsquo;s globalisation trilemma (globalisation, democracy and national sovereignty cannot be fully combined) offers a competing mechanism grounded in institutional constraint rather than social self-protection. Whether backlash is fundamentally about material dislocation, cultural status, or institutional mismatch remains unresolved and actively contested.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Polanyi&rsquo;s claim wasn&rsquo;t that markets fail, but that societies refuse to let land, labour and money be governed by price alone &mdash; and push back whichever direction politics allows.</div>
+      <div class="source">&#x1F4D6; Polanyi, K. (1944), <em>The Great Transformation</em>, Farrar &amp; Rinehart. Rodrik, D. (2011), <em>The Globalization Paradox</em>, W.W. Norton. Distinct from Card 10&rsquo;s domain (commodity market manipulation mechanics).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 9 &mdash; When the Obvious Advantage Turns Out to Be Conditional:</strong> The pratfall effect and the free-weights-versus-machines debate are the same shape of finding. In both cases a popular belief states a plain advantage &mdash; blunders make you relatable, free weights build more muscle &mdash; and in both cases controlled testing finds the effect exists but only under a condition people leave out. The blunder helps only if competence is already established; the stabiliser demand is real but doesn&rsquo;t produce extra growth when effort is matched.</p>
+      <p><strong>So what:</strong> When you hear a confident claim that X beats Y, the useful question is rarely &ldquo;is it true&rdquo; but &ldquo;under what condition was it measured&rdquo; &mdash; because the condition is usually where the entire effect lives.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA Hubble Space Telescope Veil Nebula releases; Johns Hopkins Cygnus Loop research.</li>
+      <li><strong>Card 2:</strong> 司馬光《資治通鑑&middot;周紀一》；《史記&middot;趙世家》；Lewis, M.E. (1999), <em>The Cambridge History of Ancient China</em>.</li>
+      <li><strong>Card 3:</strong> Runciman, S. (1958), <em>The Sicilian Vespers</em>, Cambridge University Press. Britannica.</li>
+      <li><strong>Card 4:</strong> 黃宗羲《明儒學案&middot;泰州學案》；王艮《心齋先生全集》；de Bary, W.T. (1970), <em>Self and Society in Ming Thought</em>.</li>
+      <li><strong>Card 5:</strong> Anselm (1078), <em>Proslogion</em>. Stanford Encyclopedia of Philosophy. Kant, I. (1781), <em>Critique of Pure Reason</em>.</li>
+      <li><strong>Card 6:</strong> Aronson, E., Willerman, B. &amp; Floyd, J. (1966), <em>Psychonomic Science</em> 4(6).</li>
+      <li><strong>Card 7:</strong> Holzman, P.S. &amp; Rousey, C. (1966), <em>Journal of Personality and Social Psychology</em> 4(1). Stenfelt, S. (2011).</li>
+      <li><strong>Card 8:</strong> Trotter, M. (1928), <em>JAMA</em>. Lynfield, Y.L. &amp; MacWilliams, P. (1970), <em>Journal of Investigative Dermatology</em> 55(3).</li>
+      <li><strong>Card 9:</strong> Haugen, M.E. et al. (2023), <em>BMC Sports Science, Medicine and Rehabilitation</em>. Schwanbeck, S.R. et al. (2020).</li>
+      <li><strong>Card 10:</strong> Fay, S. (1982), <em>Beyond Greed</em>. Federal Reserve Bank of Chicago silver market analyses. CFTC records.</li>
+      <li><strong>Card 11:</strong> Polanyi, K. (1944), <em>The Great Transformation</em>. Rodrik, D. (2011), <em>The Globalization Paradox</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-16: The Veil Nebula &bull; 三家分晉 &bull; The Sicilian Vespers (1282) &bull; 王艮與泰州學派 &bull; Anselm&rsquo;s Ontological Argument &bull; The Pratfall Effect &bull; Bone Conduction / Why Your Recorded Voice Sounds Wrong &bull; The Shaving-Makes-Hair-Thicker Myth &bull; Machines vs Free Weights &bull; The Hunt Brothers&rsquo; Silver Corner &bull; Polanyi&rsquo;s Double Movement</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-16.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-16.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 16 August 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

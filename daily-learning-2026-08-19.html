@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 19 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 19 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>18 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Horsehead Nebula</span>A dark dust column visible only as a silhouette against glowing hydrogen behind it, dissolving into structure in infrared.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 威化島回軍</span>李成桂奉命北伐遼東，卻以「四不可」為由掉頭南下，四年後建立朝鮮王朝。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Great Irish Famine</span>Ireland exported grain and cattle throughout the famine, because tenants had to sell them to pay rent.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 吉藏「破邪顯正」</span>吉藏主張破除偏執本身即是顯正，四重二諦層層拆解，不另立最終答案。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Derek Parfit</span>Parfit argued personal identity can be genuinely indeterminate, and that psychological continuity is what actually matters.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Overjustification Effect</span>Children promised a certificate for drawing later drew half as much, while unexpected rewards did no harm.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why You Can&rsquo;t Tickle Yourself</span>The cerebellum predicts and cancels self-generated sensation; a 200ms delay restores ticklishness.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Cold Weather and Colds</span>A 5&deg;C drop in nasal temperature cut antiviral vesicle release by ~42%, weakening the nose&rsquo;s first defence.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; The RICE Retraction</span>The doctor who coined RICE withdrew it in 2015, since inflammation is the repair process, not just damage.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The 2010 Flash Crash</span>A volume-targeting algorithm accelerated its own selling, and algorithmic liquidity vanished when needed most.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Duverger&rsquo;s Law</span>First-past-the-post pushes toward two parties per district, but regional parties break the pattern nationally.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Sketch That Proved the Universe Has Spirals in It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1845, an Irish aristocrat pointed the largest telescope on Earth at a faint smudge in the constellation Canes Venatici and drew what he saw by hand. His drawing showed something no one had ever recorded in the sky before. Before reading on, what do you think he drew &mdash; and why did nobody know whether it was real?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Messier51_sRGB.jpg/330px-Messier51_sRGB.jpg" alt="The Whirlpool Galaxy, showing its spiral arms and companion galaxy" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Whirlpool Galaxy (渦狀星系, M51), the first object in which spiral structure was ever recognised, with its companion NGC 5195 at the tip of one arm. Credit: <a href="https://en.wikipedia.org/wiki/Whirlpool_Galaxy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the 1840s, William Parsons (帕森斯), the third Earl of Rosse, built a telescope at Birr Castle in Ireland (愛爾蘭) with a 1.8-metre metal mirror &mdash; the largest in the world for the next seventy years, and nicknamed the &ldquo;Leviathan of Parsonstown.&rdquo; In 1845 he turned it on M51, one of the faint fuzzy patches Charles Messier (梅西耶) had catalogued in the 1770s simply as things that were not comets. What Rosse saw, and painstakingly sketched by hand at the eyepiece, was a clear spiral: curling arms winding out from a bright centre.</p>
+      <p>Nobody knew what that meant. The great debate of the era was whether such &ldquo;nebulae&rdquo; were clouds of gas inside our own Milky Way (銀河系) &mdash; perhaps solar systems caught mid-formation, which the spiral seemed to support &mdash; or entire separate galaxies at enormous distances. Rosse&rsquo;s drawing was so unlike anything previously recorded that some astronomers suspected it was an artefact of his unusual instrument. The question was not settled until 1923, when Edwin Hubble (哈勃) identified Cepheid variable stars (造父變星) in Andromeda and used them to measure a distance far beyond our galaxy.</p>
+      <p>M51 is now known as the Whirlpool Galaxy (渦狀星系), about 31 million light-years away, and it remains among the most photographed objects in the sky because it sits nearly face-on to Earth, showing its structure with unusual clarity. The small companion galaxy NGC 5195 at the tip of one arm is not merely a background object: it has passed through the Whirlpool&rsquo;s disk, and the gravitational disturbance from that encounter is understood to have compressed gas and driven the vivid star formation that makes the arms so bright &mdash; meaning the galaxy&rsquo;s beauty is partly the result of a collision still underway.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Whirlpool_Galaxy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first spiral ever recorded was drawn by hand in 1845, and it took another 78 years before anyone could say what a spiral actually was.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why couldn&rsquo;t astronomers in 1845 tell what Rosse&rsquo;s spiral drawing represented, and what makes the Whirlpool&rsquo;s arms so bright today?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It was unknown whether such nebulae were gas clouds within the Milky Way or separate galaxies far outside it &mdash; a question only resolved in 1923 when Hubble measured distances using Cepheid variables. The Whirlpool&rsquo;s arms are unusually bright because its companion NGC 5195 passed through its disk, compressing gas and driving intense star formation.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA Hubble Space Telescope M51 releases. Royal Astronomical Society records on the Leviathan of Parsonstown.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>張騫鑿空&mdash;&mdash;一場失敗的軍事外交，如何意外打通了絲綢之路？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元前138年，漢武帝派遣一名郎官出使西域，任務是聯絡月氏國夾擊匈奴。此人一去十三年，兩度被匈奴扣留，回國時隨行百餘人僅剩兩人，而且原定的軍事任務徹底失敗。你認為，這樣一次失敗的出使，為何仍被後世稱為「鑿空」？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>張騫（？&ndash;前114年，漢中成固人，漢武帝時郎官）；堂邑父（匈奴籍隨從，通曉草原語言與射獵，助張騫脫困）；漢武帝劉徹。</p>
+        <p><strong>事件：</strong>公元前138至126年，張騫首次出使西域，欲聯月氏夾擊匈奴未果；前119年二度出使烏孫。司馬遷《史記》稱其功為「鑿空」。</p>
+        <p><strong>時代背景：</strong>漢初國力未復，對匈奴長期採和親政策；漢武帝即位後轉守為攻，急需西域盟友，惟中原對蔥嶺以西地理幾乎一無所知。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Silk_road_Kazakhstan.svg/960px-Silk_road_Kazakhstan.svg.png" alt="絲綢之路路線示意圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">絲綢之路路線示意。張騫兩次出使西域帶回的地理與物產情報，成為此後歐亞商路的基礎。來源：<a href="https://en.wikipedia.org/wiki/Zhang_Qian" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>漢武帝從匈奴降人口中得知，月氏原居敦煌祁連之間，其王被匈奴老上單于所殺，頭骨更被製成飲器，故月氏與匈奴有不共戴天之仇，卻因西遷而勢孤。武帝遂決意遣使聯絡月氏，約其東西夾擊匈奴。當時中原對蔥嶺以西幾乎一無所知，此行等同深入完全未知之地，招募時應者寥寥，張騫以郎官身分自願請行。</p>
+      <p>張騫一行百餘人於公元前138年西出隴西，旋即在河西走廊被匈奴俘獲，扣留長達十餘年。匈奴單于為消磨其志，為他娶妻生子，張騫卻始終「持漢節不失」。其後趁隙西逃，穿越大宛、康居，終於在今阿姆河流域尋得大月氏。然而月氏西遷後土地肥饒、生活安定，早已無意東返復仇，張騫留居年餘仍勸說無果，只得東返，途中再度被匈奴扣留一年餘，前126年方乘匈奴內亂脫身返漢。</p>
+      <p>軍事目標雖告失敗，張騫帶回的情報卻價值連城：他詳述了大宛、康居、大月氏、大夏、安息等國的方位、物產、兵力與風俗，更在大夏市集見到蜀布與邛竹杖，據此推斷存在一條經身毒（印度）通往西南的商路。司馬遷因而以「鑿空」二字形容其功&mdash;&mdash;鑿通一條前所未有的通道。此後漢朝陸續遣使西域，葡萄、苜蓿、石榴東傳，絲綢西運，這條後世稱為「絲綢之路」的歐亞幹線自此成形。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zhang_Qian" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 張騫沒有完成任何一項既定任務，卻帶回了比任務本身重要得多的東西&mdash;&mdash;一份世界地圖。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 張騫出使月氏的原定任務為何失敗？司馬遷為何仍以「鑿空」形容其功績？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">月氏西遷後土地肥饒、生活安定，已無意東返復仇，故聯合夾擊匈奴的軍事目標失敗。但張騫帶回大宛、康居、大夏、安息等國的地理物產情報，並推斷出經身毒的商路，等同為漢朝鑿通一條前所未有的通道，故稱「鑿空」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 司馬遷《史記&middot;大宛列傳》；班固《漢書&middot;張騫傳》；Hansen, V. (2012), <em>The Silk Road: A New History</em>, Oxford University Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Complaint Letter That Broke Christendom Because of a New Machine</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In October 1517, an obscure German monk wrote out 95 debating points criticising a Church fundraising practice and sent them to his archbishop. Similar criticisms had been made for over a century without consequence. Within two months, his text was being read across Germany. Before reading on, what do you think made this particular complaint different?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Martin Luther (馬丁&middot;路德, 1483&ndash;1546), Augustinian friar and professor at Wittenberg (維滕貝格); Johann Tetzel (特策爾), indulgence preacher; Pope Leo X (教宗利奧十世); Emperor Charles V (查理五世).</p>
+        <p><strong>Event at stake:</strong> The Ninety-five Theses (九十五條論綱), October 1517, protesting the sale of indulgences (贖罪券) &mdash; payments claimed to reduce punishment for sins.</p>
+        <p><strong>Big picture:</strong> The papacy was funding the rebuilding of St Peter&rsquo;s Basilica (聖伯多祿大殿) partly through indulgence campaigns; earlier reformers such as Jan Hus (胡斯) had raised similar objections and been burned in 1415.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Luther_95_Thesen.png/330px-Luther_95_Thesen.png" alt="An early printed edition of Luther's Ninety-five Theses" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An early printed edition of the Ninety-five Theses (九十五條論綱). Printing turned an academic complaint into a mass movement within weeks. Credit: <a href="https://en.wikipedia.org/wiki/Ninety-five_Theses" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Martin Luther (馬丁&middot;路德) was a professor of theology at the small university of Wittenberg (維滕貝格) when Johann Tetzel (特策爾) began preaching indulgences (贖罪券) nearby, reportedly with the jingle that as soon as a coin in the coffer rings, a soul from purgatory springs. Luther&rsquo;s objection was initially technical and pastoral rather than revolutionary: he argued that if the Pope had power to release souls from purgatory, he should do so out of love rather than for money, and that the practice gave ordinary people a false and dangerous confidence about their salvation.</p>
+      <p>None of this was novel. John Wycliffe (威克里夫) in England and Jan Hus (胡斯) in Bohemia had made comparable criticisms in the previous century; Hus was burned at the stake in 1415 and his movement contained. The decisive difference in 1517 was infrastructure. Johannes Gutenberg&rsquo;s (古騰堡) printing press (印刷術), developed around 1440, had spread across Europe, and printers seized on Luther&rsquo;s Latin theses, translated them into German, and reproduced them in cheap pamphlets. Within roughly two months the text had circulated throughout Germany &mdash; a speed of dissemination the Church had no mechanism to counter.</p>
+      <p>Luther refused to recant at the Diet of Worms (沃姆斯會議) in 1521, reportedly declaring that his conscience was captive to the Word of God. Excommunicated and declared an outlaw, he was sheltered by Frederick the Wise of Saxony (智者腓特烈), and used the time to translate the New Testament into German &mdash; a text printing again spread widely, shaping the modern German language itself. The resulting Reformation (宗教改革) fractured Western Christianity permanently, and the political conflicts it opened ran through Europe for over a century.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ninety-five_Theses" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Luther&rsquo;s argument wasn&rsquo;t new &mdash; the printing press was. The same complaint that got Hus burned in 1415 became unstoppable once it could be copied faster than it could be suppressed.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Luther&rsquo;s criticism of indulgences succeed when Jan Hus&rsquo;s comparable criticism a century earlier did not?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The substance of the criticism was largely similar, but Gutenberg&rsquo;s printing press had since spread across Europe. Printers translated Luther&rsquo;s theses into German and reproduced them in cheap pamphlets, circulating the text throughout Germany within about two months &mdash; a speed the Church had no means of countering.</div>
+      </details>
+      <div class="source">&#x1F4D6; MacCulloch, D. (2003), <em>Reformation: Europe&rsquo;s House Divided</em>, Allen Lane. Britannica, &ldquo;Ninety-five Theses.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>本居宣長「物哀」&mdash;&mdash;他為何主張，用道德讀《源氏物語》是徹底讀錯了？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">江戶時代的學者長期以儒家倫理解讀《源氏物語》，視其為「勸善懲惡」之作，甚至因書中描寫不倫之戀而視之為淫書。一位國學者卻主張，這兩種讀法都同樣錯誤，因為它們用了根本不屬於這部作品的尺子。你認為，他提出以甚麼標準取而代之？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>本居宣長（1730&ndash;1801年，伊勢松阪人，醫師兼國學者，江戶國學四大家之一）；賀茂真淵（其師，國學先驅）。</p>
+        <p><strong>核心主張：</strong>「物哀」&mdash;&mdash;文學的本質在於如實呈現人心接觸事物時自然湧現的深切感受，而非教化勸懲；讀者應以感受而非道德判斷來理解作品。</p>
+        <p><strong>時代背景：</strong>江戶中期儒學（尤其朱子學）為官方學問，主導一切經典詮釋；國學運動則主張回歸日本古典本身，剝除後世加諸其上的中國思想框架。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Itsukushima_Gate.jpg/330px-Itsukushima_Gate.jpg" alt="嚴島神社鳥居" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">本居宣長的國學主張回歸日本古典自身的感受方式，剝除後世儒佛框架。圖為嚴島神社鳥居。來源：<a href="https://en.wikipedia.org/wiki/Motoori_Norinaga" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>本居宣長本業為醫師，畢生於松阪行醫講學，卻以三十五年時間完成《古事記傳》四十四卷，逐字考訂這部以漢字標音、當時幾乎已無人能讀的日本最古史書。他所繼承的國學傳統，核心關懷是剝除平安時代以降積累在日本古典之上的中國思想框架&mdash;&mdash;他稱之為「漢意」&mdash;&mdash;以求還原日本人固有的感受與思維方式，他稱之為「大和心」。</p>
+      <p>在《紫文要領》與《源氏物語玉小櫛》中，宣長系統批判了當時兩種主流讀法。儒者視《源氏物語》為勸善懲惡的教化之書，佛者則讀出無常與因果報應，而道學家因書中描寫源氏與繼母藤壺的不倫之戀，斥其為淫書。宣長指出，這些讀法全都預設了作品必須服務於某種外部教義；但若真依儒家倫理，作者何以對源氏充滿同情？他認為，紫式部真正要寫的，是「知物哀」。</p>
+      <p>所謂「物哀」，是人心接觸外物時自然湧現的深切感受&mdash;&mdash;見花開而喜、見花落而傷、遇不當之情而仍為之動容。宣長主張，文學的價值正在於如實呈現這種感受本身，而非判定其道德對錯；能為他人處境動情者即「知物哀」，是為人性之深。此說將文學從道德教化中解放出來，成為日本近代美學的核心概念之一。惟其學說中「漢意」與「大和心」的對立框架，後來亦被明治以降的國家主義者選擇性挪用，成為其思想遺產中爭議最大的一面。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Motoori_Norinaga" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 宣長主張文學不是用來判斷對錯的，而是用來如實呈現人心真正被觸動的樣子。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 本居宣長如何反駁儒家對《源氏物語》的道德解讀？「物哀」所指為何？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他指出若作品真依儒家倫理勸懲，作者便不應對源氏充滿同情，故道德框架與文本自身不符。「物哀」指人心接觸外物時自然湧現的深切感受，文學的價值在於如實呈現此種感受，而非判定其道德對錯。</div>
+      </details>
+      <div class="source">&#x1F4D6; 本居宣長《源氏物語玉小櫛》《紫文要領》；Nosco, P. (1990), <em>Remembering Paradise: Nativism and Nostalgia in Eighteenth-Century Japan</em>, Harvard University Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Three-Page Paper That Broke a 2,000-Year-Old Definition</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Since Plato, philosophers had broadly agreed that knowledge is justified true belief: you know something if you believe it, it&rsquo;s true, and you have good reason for believing it. In 1963, a philosopher published a three-page paper that convinced almost the entire field this definition was wrong. Before reading on, what kind of counterexample do you think could break it?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Edmund Gettier (蓋提爾, 1927&ndash;2021), American philosopher at Wayne State University, who published almost nothing else in his career.</p>
+        <p><strong>Problem at stake:</strong> Whether &ldquo;justified true belief&rdquo; is a correct analysis of what knowledge (知識) is.</p>
+        <p><strong>Rival view:</strong> The tripartite analysis traced to Plato&rsquo;s (柏拉圖) <em>Theaetetus</em> and broadly assumed for two millennia: knowledge = justified + true + belief.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Tetradrachm_Athens_480-420BC_MBA_Lyon.jpg/330px-Tetradrachm_Athens_480-420BC_MBA_Lyon.jpg" alt="An ancient Athenian tetradrachm coin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The &ldquo;justified true belief&rdquo; analysis of knowledge traces back to Plato&rsquo;s Athens, and stood until a three-page paper in 1963. Credit: <a href="https://en.wikipedia.org/wiki/Gettier_problem" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Edmund Gettier (蓋提爾) reportedly wrote his 1963 paper, &ldquo;Is Justified True Belief Knowledge?&rdquo;, largely because his department required publications and he had none. It ran to about three pages and contained two short counterexamples. Both had the same structure: a person forms a belief on good evidence, that belief turns out to be true, but it is true for reasons entirely disconnected from the evidence &mdash; so calling it knowledge feels plainly wrong even though all three conditions are satisfied.</p>
+      <p>A standard illustration works like this. You look at a clock in the hall showing 3:00 and form the justified belief that it is 3:00. It really is 3:00, so your belief is true. But unknown to you, the clock stopped exactly twelve hours ago, and you happened to glance at it at the one moment it was accidentally right. You had a justified true belief. Almost nobody wants to say you <em>knew</em> the time. What went wrong is that the justification was not connected to what made the belief true &mdash; the truth arrived by luck.</p>
+      <p>The paper triggered decades of attempts to patch the definition. Proposals included adding a &ldquo;no false lemmas&rdquo; condition, requiring a reliable causal connection between fact and belief, or abandoning internal justification for external reliability of the belief-forming process. Each attracted new counterexamples in turn, leading Linda Zagzebski (扎格澤布斯基) to argue in 1994 that any analysis combining truth with a separately specified condition will remain vulnerable in principle. Some philosophers, notably Timothy Williamson (威廉森), responded by treating knowledge as unanalysable and primitive &mdash; a working state of affairs that traces to three pages published to satisfy an administrator.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Gettier_problem" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A belief can be justified, true, and still not knowledge &mdash; if the reason it&rsquo;s true has nothing to do with the reason you believed it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What structural feature do all Gettier cases share, and why does it stop justified true belief from counting as knowledge?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">In every Gettier case a person holds a belief that is both justified and true, but the justification is disconnected from what actually makes it true &mdash; the truth arrives by luck, as with reading a stopped clock at the moment it happens to be right. Since the justification doesn&rsquo;t explain the truth, we don&rsquo;t want to call it knowledge.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gettier, E. (1963), &ldquo;Is Justified True Belief Knowledge?,&rdquo; <em>Analysis</em> 23(6). Stanford Encyclopedia of Philosophy, &ldquo;The Analysis of Knowledge.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You Remember the Start and the End of a List, and Lose the Middle</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Read someone a list of twenty unrelated words at a steady pace, then ask them to recall as many as they can in any order. The pattern of what they remember is strikingly consistent across people. Before reading on, which words do you think get remembered best &mdash; and what would happen if you made them wait thirty seconds before recalling?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Memory.gif" alt="Illustration representing memory processes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The serial-position effect: items at the start and end of a list are recalled far better than those in the middle. Credit: <a href="https://en.wikipedia.org/wiki/Serial-position_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The pattern was first described by Hermann Ebbinghaus (艾賓浩斯) in the 1880s and named the serial-position effect (序列位置效應): plot recall accuracy against an item&rsquo;s position in a list, and you get a distinctive U-shaped curve. Items near the beginning are recalled well &mdash; the primacy effect (首因效應) &mdash; and items near the end are recalled well too &mdash; the recency effect (近因效應) &mdash; while the middle sags badly. The effect is one of the most reliably replicated findings in the whole of memory research.</p>
+      <p>The two halves of the curve have different causes, which is what makes the finding genuinely informative rather than merely descriptive. Early items get more rehearsal time and opportunity to be encoded into long-term memory (長期記憶) before attention is consumed. Late items are still sitting in short-term or working memory (工作記憶) when recall begins, requiring no retrieval from storage at all. Middle items receive neither advantage: attention has been diluted by rehearsing earlier items, and they have been displaced from working memory by later ones.</p>
+      <p>Murdock&rsquo;s 1962 experiments confirmed the dissociation elegantly. Inserting a brief distraction task &mdash; typically about 30 seconds of counting backwards &mdash; between presentation and recall eliminates the recency effect almost entirely while leaving primacy intact, since the distraction flushes working memory but cannot touch what has already reached long-term storage. Slowing the presentation rate does the reverse, strengthening primacy by allowing more rehearsal, while leaving recency unchanged. Practically, the effect argues for putting what matters most at the very start or very end of a presentation, and for deliberately revisiting middle material rather than trusting it to stick.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Serial-position_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The beginning survives because you rehearsed it and the end survives because it hasn&rsquo;t left working memory yet &mdash; the middle gets neither advantage.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why do primacy and recency have different underlying causes, and what happens to each when you insert a 30-second distraction before recall?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Primacy comes from early items receiving more rehearsal and reaching long-term memory; recency comes from late items still occupying working memory at recall. A 30-second distraction task flushes working memory, eliminating recency almost entirely, while primacy remains intact because those items are already in long-term storage.</div>
+      </details>
+      <div class="source">&#x1F4D6; Murdock, B.B. (1962), &ldquo;The Serial Position Effect of Free Recall,&rdquo; <em>Journal of Experimental Psychology</em> 64(5). Ebbinghaus, H. (1885), <em>&Uuml;ber das Ged&auml;chtnis</em>.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why a Year Felt Enormous at Eight and Vanishes at Forty</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone reports that time seems to accelerate as they get older &mdash; a childhood summer felt endless, while recent years seem to compress into nothing. The clock has not changed. Before reading on, what do you think is actually different about how an older brain processes the passage of time?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg/330px-Pendulum_clock_by_Jacob_Kock%2C_antique_furniture_photography%2C_IMG_0931_edit.jpg" alt="An antique pendulum clock" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Clock time is constant; remembered time is not. Retrospective duration depends heavily on how much novel information the brain encoded. Credit: <a href="https://en.wikipedia.org/wiki/Time_perception" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The first thing to separate is that humans have two distinct senses of duration. Prospective timing &mdash; judging how long something is taking while it happens &mdash; is handled reasonably accurately and does not change dramatically with age. Retrospective timing &mdash; judging in hindsight how long a past period lasted &mdash; works completely differently: the brain appears to estimate elapsed duration largely by how much distinct, retrievable memory was laid down. A period densely packed with novel experience reads as long; a period of repetition reads as short.</p>
+      <p>This explains the childhood asymmetry. For a child, almost everything is a first: new places, new skills, new social situations, all encoded in detail because none of it can be handled by an existing template. Adult life, by contrast, is increasingly routine, and the brain processes routine efficiently by relying on prediction rather than fresh encoding. Two years of a familiar commute and a familiar job may generate fewer distinct memory traces than a single childhood summer, so hindsight compresses them. Psychologists sometimes call this the &ldquo;holiday paradox&rdquo;: a novel week abroad feels fast while living it, yet expands in memory afterwards, precisely the opposite of a routine week.</p>
+      <p>A second contributor is proportional: a year is a full eighth of an eight-year-old&rsquo;s life but a fortieth of a forty-year-old&rsquo;s, an idea proposed by Paul Janet in 1877 and still debated. Adrian Bejan proposed in 2019 that slower processing of visual images with age also contributes, though that account is contested. What follows practically is reasonably well supported: deliberately introducing novelty &mdash; new routes, new skills, unfamiliar places &mdash; increases the density of distinct memories, and periods rich in distinct memories are the ones that feel, in retrospect, to have lasted.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Time_perception" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Remembered time is measured in distinct memories, not minutes &mdash; which is why routine disappears in hindsight and novelty stretches.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the difference between prospective and retrospective timing, and why does routine make a period feel shorter in hindsight?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Prospective timing judges duration while an event is happening and stays fairly accurate with age; retrospective timing judges a past period in hindsight, and appears to rely on how many distinct memories were encoded. Routine is processed efficiently by prediction rather than fresh encoding, so it leaves few distinct traces and compresses in memory.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wearden, J.H. (2016), <em>The Psychology of Time Perception</em>, Palgrave Macmillan. Janet, P. (1877) proportional theory; Bejan, A. (2019), <em>European Review</em> 27(2).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Egg Was Blamed for Cholesterol for Fifty Years on Thin Evidence</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">From 1968 until 2015, official US dietary guidance advised limiting cholesterol intake to 300mg a day &mdash; roughly one and a half eggs. In 2015 that specific numeric limit was removed. Before reading on, do you think the reversal happened because eggs turned out to be harmless, or because the underlying assumption about how dietary cholesterol works was wrong?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Huevo_frito.jpg/3840px-Huevo_frito.jpg" alt="A fried egg" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US dietary guidelines dropped their specific numeric limit on dietary cholesterol in 2015. Credit: <a href="https://en.wikipedia.org/wiki/Egg_as_food" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The 300mg limit rested on an intuitive chain of reasoning: blood cholesterol (膽固醇) is associated with cardiovascular disease, eggs are high in cholesterol, therefore eggs raise cardiovascular risk. The weak link is the middle step. The liver (肝臟) manufactures most of the cholesterol in your blood, and in most people it compensates for dietary intake &mdash; eat more, and the liver produces less. Research distinguishes &ldquo;hyper-responders,&rdquo; roughly a quarter of people, whose blood cholesterol does rise appreciably with dietary intake, from the majority in whom the effect is modest.</p>
+      <p>By 2015, the Dietary Guidelines Advisory Committee concluded that available evidence showed no appreciable relationship between consumption of dietary cholesterol and serum cholesterol, and the specific 300mg cap was dropped from US guidance. Large cohort studies had generally found little association between moderate egg consumption and cardiovascular events in the general population. Saturated fat and trans fats, meanwhile, were found to raise LDL cholesterol (低密度脂蛋白膽固醇) considerably more than dietary cholesterol does &mdash; which is why what eggs are cooked in and served alongside matters more than the eggs.</p>
+      <p>The honest current picture is more nuanced than &ldquo;eggs are fine.&rdquo; A 2019 <em>JAMA</em> analysis by Zhong and colleagues, pooling six US cohorts, did find a dose-dependent association between higher dietary cholesterol and cardiovascular risk, reopening the question. Guidance in most countries now advises that cholesterol intake still not be excessive without specifying a hard number, and recommends more caution for people with diabetes (糖尿病) or existing cardiovascular disease. The reversal is best read not as vindication of eggs but as a caution about how confidently a plausible mechanism was turned into a precise number.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Egg_as_food" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Cholesterol you eat and cholesterol in your blood are loosely linked because the liver adjusts its own production &mdash; the arrow was never as direct as the guideline implied.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why doesn&rsquo;t dietary cholesterol translate directly into blood cholesterol for most people, and what evidence has complicated the &ldquo;eggs are fine&rdquo; conclusion?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The liver produces most blood cholesterol and generally compensates by making less when dietary intake rises, though about a quarter of people are &ldquo;hyper-responders.&rdquo; The 2019 <em>JAMA</em> pooled-cohort analysis by Zhong et al. found a dose-dependent association between dietary cholesterol and cardiovascular risk, reopening the question.</div>
+      </details>
+      <div class="source">&#x1F4D6; 2015&ndash;2020 Dietary Guidelines Advisory Committee Report, USDA/HHS. Zhong, V.W. et al. (2019), <em>JAMA</em> 321(11).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Warm-Up Sets Most People Either Skip Entirely or Massively Overdo</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before a heavy set, some lifters do nothing, some do twenty minutes of cardio and stretching, and some do several progressively heavier sets of the exact lift they&rsquo;re about to perform. Before reading on, which approach do you think the evidence actually supports &mdash; and what is the warm-up primarily doing physiologically?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Small_group_fitness_sessions_bundall.jpg/330px-Small_group_fitness_sessions_bundall.jpg" alt="People training in a gym" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Specific warm-up sets &mdash; progressively heavier sets of the lift itself &mdash; are better supported than general cardio or static stretching. Credit: <a href="https://en.wikipedia.org/wiki/Warming_up" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A warm-up does several measurable things. Raising muscle temperature by one to two degrees increases the rate of enzymatic reactions and speeds nerve conduction, improving force production and rate of force development. It also reduces muscle-tendon stiffness in a way that improves movement quality, and increases blood flow to working tissue. Bishop&rsquo;s influential 2003 two-part review in <em>Sports Medicine</em> established that these effects are real and that performance benefits are reasonably well documented &mdash; particularly for power and speed.</p>
+      <p>What the evidence supports less well is the injury-prevention claim that motivates most warm-ups. Reviews consistently find the evidence for general warm-ups reducing injury to be weak and inconsistent, with the notable exception of structured neuromuscular programmes such as FIFA 11+, which do show meaningful injury reduction in team sports. Static stretching (靜態伸展) before heavy lifting, as covered previously, can acutely reduce force output when held long, making it a poor choice immediately pre-lift.</p>
+      <p>The best-supported approach for strength training is a specific warm-up: perform the actual lift with progressively increasing loads. A practical structure widely used and consistent with the evidence is a few minutes of light general activity to raise core temperature, then roughly three to five ascending sets &mdash; for example around 50%, 70% and 85% of the working weight for decreasing repetitions &mdash; with the final warm-up sets deliberately kept low-volume so they prime the nervous system and rehearse the movement pattern without generating fatigue that would compromise the working sets themselves.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Warming_up" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A warm-up should rehearse the exact movement under rising load, not exhaust you before it &mdash; the goal is priming, not pre-fatigue.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What physiological changes does a warm-up produce, and why is a &ldquo;specific&rdquo; warm-up preferred over general cardio before heavy lifting?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Raising muscle temperature speeds enzymatic reactions and nerve conduction, improving force production and rate of force development, while increasing blood flow and reducing muscle-tendon stiffness. Specific warm-up sets additionally rehearse the exact movement pattern and prime the nervous system under rising load, without the fatigue that longer general work would add.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bishop, D. (2003), &ldquo;Warm Up I &amp; II,&rdquo; <em>Sports Medicine</em> 33(6&ndash;7). Fradkin, A.J. et al. (2010), <em>Journal of Strength and Conditioning Research</em> 24(1).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Missing $2 Billion That Auditors Signed Off On for Years</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">By 2018, a German payments company had joined the DAX 30, was valued above Deutsche Bank, and was celebrated as Europe&rsquo;s answer to Silicon Valley. Journalists had been publishing detailed allegations of accounting fraud since 2015. Before reading on, what do you think the German financial regulator did in response to those allegations?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/3840px-Stadtbild_M%C3%BCnchen.jpg" alt="Munich cityscape" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Wirecard was headquartered near Munich and joined Germany&rsquo;s DAX 30 index before collapsing in 2020 over &euro;1.9 billion that did not exist. Credit: <a href="https://en.wikipedia.org/wiki/Wirecard" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Wirecard (威卡) was founded in 1999 near Munich and grew into a payment processor that by 2018 had displaced Commerzbank in Germany&rsquo;s DAX 30 index, reaching a market capitalisation above &euro;24 billion &mdash; more than Deutsche Bank. Much of its reported growth came from opaque &ldquo;third-party acquiring&rdquo; partners in Asia and the Middle East, arrangements in which outside firms supposedly processed payments on Wirecard&rsquo;s behalf and held the resulting cash in escrow accounts, structures that were both hard to verify and central to reported profits.</p>
+      <p>From 2015, and intensively from 2019, the <em>Financial Times</em>, principally through reporter Dan McCrum, published detailed allegations of accounting irregularities supported by internal documents. The institutional response is the striking part: rather than investigating the allegations, German regulator BaFin filed a criminal complaint against the journalists and, in February 2019, imposed an unprecedented two-month ban on short-selling Wirecard shares &mdash; effectively protecting the company from the market participants doing the scrutiny. Auditor EY signed off on Wirecard&rsquo;s accounts for roughly a decade.</p>
+      <p>In June 2020, EY finally refused to sign the 2019 accounts, stating it could not verify &euro;1.9 billion supposedly held in two Philippine banks. Both banks confirmed the documents were spurious and that no such accounts existed; the money had never been there. CEO Markus Braun resigned and was arrested, COO Jan Marsalek fled and remains at large, and Wirecard filed for insolvency within days. The episode prompted BaFin&rsquo;s leadership to be replaced and German audit reform, and stands as a case study in how regulatory deference to a national champion can invert scrutiny onto the people providing it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wirecard" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; When a regulator investigates the people raising the alarm instead of the allegation, the missing money tends to stay missing for years.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did German regulator BaFin respond to journalists&rsquo; fraud allegations against Wirecard, and what finally triggered the collapse in 2020?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">BaFin filed a criminal complaint against the <em>Financial Times</em> journalists and banned short-selling of Wirecard shares for two months, rather than investigating the allegations. The collapse came when auditor EY refused to sign the 2019 accounts because it could not verify &euro;1.9 billion supposedly held in Philippine banks &mdash; money that had never existed.</div>
+      </details>
+      <div class="source">&#x1F4D6; McCrum, D. (2022), <em>Money Men</em>, Bantam Press. German Bundestag Wirecard inquiry committee report (2021).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Organisations Founded to Spread Power Tend to Concentrate It</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/People_approving_for_change_at_Parivartan_Yatra%2C_Beohari_in_April_2013.jpg/330px-People_approving_for_change_at_Parivartan_Yatra%2C_Beohari_in_April_2013.jpg" alt="A crowd at a political rally" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Michels argued that even organisations explicitly founded on democratic principles tend to develop entrenched leadership. Credit: <a href="https://en.wikipedia.org/wiki/Iron_law_of_oligarchy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Trade unions, political parties, cooperatives and NGOs founded on explicitly democratic, member-controlled constitutions have repeatedly developed entrenched professional leaderships, low membership participation and leadership tenures measured in decades &mdash; a pattern observed across very different countries, sectors and eras.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Robert Michels (米歇爾斯) proposed the iron law of oligarchy (寡頭鐵律) in <em>Political Parties</em> (1911): any large organisation necessarily requires division of labour and delegation, which gives leaders superior information, control of communication and specialised skill &mdash; advantages that entrench them regardless of formal democratic rules. &ldquo;Who says organisation, says oligarchy.&rdquo;</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The law is stated as inevitable, yet exceptions persist. Lipset, Trow and Coleman&rsquo;s <em>Union Democracy</em> (1956) documented the International Typographical Union sustaining genuine two-party internal competition and regular leadership turnover for decades &mdash; a case an &ldquo;iron law&rdquo; should not permit at all.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Lipset&rsquo;s account treats oligarchy as a strong tendency rather than a law, arguing that specific conditions &mdash; occupational communities outside work, relatively equal member status, and institutionalised internal factions &mdash; can sustain contestation. Whether these are reproducible design features or historical accidents remains unresolved.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Delegation creates expertise, expertise creates advantage, and advantage entrenches &mdash; which is why democratic rules alone rarely keep an organisation democratic.</div>
+      <div class="source">&#x1F4D6; Michels, R. (1911), <em>Political Parties</em>. Lipset, S.M., Trow, M. &amp; Coleman, J. (1956), <em>Union Democracy</em>, Free Press. Distinct from Card 10&rsquo;s domain (corporate accounting fraud).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 3 &amp; 10 &mdash; The Institution That Cannot Outrun the Information:</strong> Luther&rsquo;s complaint was not new; what was new was that printing let it circulate faster than the Church could suppress it, and an institution that had contained the identical criticism a century earlier suddenly could not. Wirecard is the inversion: detailed, well-documented allegations existed for five years, but the institution with the power to act spent that time investigating the journalists instead, and the information simply sat there.</p>
+      <p><strong>So what:</strong> Whether uncomfortable information changes anything depends less on its quality than on whether it can reach people the institution does not control &mdash; so when evaluating a claim that &ldquo;this would already be known if it were true,&rdquo; ask who would have had to permit it to be known.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA Hubble M51 releases; Royal Astronomical Society records on the Leviathan of Parsonstown.</li>
+      <li><strong>Card 2:</strong> 司馬遷《史記&middot;大宛列傳》；班固《漢書&middot;張騫傳》；Hansen, V. (2012), <em>The Silk Road: A New History</em>.</li>
+      <li><strong>Card 3:</strong> MacCulloch, D. (2003), <em>Reformation: Europe&rsquo;s House Divided</em>, Allen Lane. Britannica.</li>
+      <li><strong>Card 4:</strong> 本居宣長《源氏物語玉小櫛》《紫文要領》；Nosco, P. (1990), <em>Remembering Paradise</em>, Harvard University Press.</li>
+      <li><strong>Card 5:</strong> Gettier, E. (1963), <em>Analysis</em> 23(6). Stanford Encyclopedia of Philosophy, &ldquo;The Analysis of Knowledge.&rdquo;</li>
+      <li><strong>Card 6:</strong> Murdock, B.B. (1962), <em>Journal of Experimental Psychology</em> 64(5). Ebbinghaus, H. (1885).</li>
+      <li><strong>Card 7:</strong> Wearden, J.H. (2016), <em>The Psychology of Time Perception</em>. Bejan, A. (2019), <em>European Review</em> 27(2).</li>
+      <li><strong>Card 8:</strong> 2015&ndash;2020 Dietary Guidelines Advisory Committee Report, USDA/HHS. Zhong, V.W. et al. (2019), <em>JAMA</em> 321(11).</li>
+      <li><strong>Card 9:</strong> Bishop, D. (2003), <em>Sports Medicine</em> 33(6&ndash;7). Fradkin, A.J. et al. (2010), <em>JSCR</em> 24(1).</li>
+      <li><strong>Card 10:</strong> McCrum, D. (2022), <em>Money Men</em>. German Bundestag Wirecard inquiry committee report (2021).</li>
+      <li><strong>Card 11:</strong> Michels, R. (1911), <em>Political Parties</em>. Lipset, Trow &amp; Coleman (1956), <em>Union Democracy</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-19: The Whirlpool Galaxy &amp; Lord Rosse &bull; 張騫鑿空與絲綢之路 &bull; Luther&rsquo;s Ninety-five Theses &amp; the Printing Press &bull; 本居宣長「物哀」 &bull; The Gettier Problem &bull; The Serial-Position Effect &bull; Why Time Speeds Up With Age &bull; Dietary Cholesterol &amp; Eggs &bull; Warm-Up Sets &bull; The Wirecard Fraud &bull; The Iron Law of Oligarchy</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-19.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-19.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 19 August 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

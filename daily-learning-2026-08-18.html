@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 18 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 18 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>17 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; New Horizons at Pluto</span>NASA&rsquo;s flyby found that a world assumed dead was geologically active, with crater-free nitrogen-ice plains.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 玄奘西行</span>玄奘不顧唐廷邊禁偷渡出關，歷十七年赴印度求法，帶回六百多部經典。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Defenestration of Prague</span>Two royal officials survived being thrown from a castle window, an incident that helped trigger the Thirty Years&rsquo; War.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 龍樹與《中論》</span>龍樹以「緣起性空」反駁部派佛教「法有」之說，成為八宗共祖。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Mill&rsquo;s Harm Principle</span>Mill argued the only legitimate reason to restrict freedom is preventing harm to others, not protecting people from themselves.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Peak-End Rule</span>Kahneman&rsquo;s colonoscopy study found patients remembered a longer, milder-ending procedure as less unpleasant.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Running Economy</span>Runners with identical VO2 max differ in performance partly through how efficiently tendons store elastic energy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Red Wine Myth</span>The heart-healthy case for moderate drinking traces to a comparison group padded with sick ex-drinkers.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Stretching Before Lifting</span>Static stretches held over 60 seconds can temporarily weaken the very muscle you just stretched.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Black Monday 1987</span>Automated portfolio-insurance selling by thousands of funds running one formula turned a decline into a crash.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Lucas Paradox</span>Capital should flood from rich to poor countries for higher returns, but weak institutions keep it mostly at home.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Dark Shape in Orion That Is Only Visible Because of What&rsquo;s Behind It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">One of the most recognisable shapes in the night sky is a dark silhouette resembling a horse&rsquo;s head, set against a glowing red background. It was first spotted in 1888 on a photographic plate, and nearly dismissed as a flaw in the emulsion. Before reading on, what do you think the dark shape actually is &mdash; and why is it dark?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Nebulosa_testa_di_cavallo_con_SPECULOOS.jpg" alt="The Horsehead Nebula silhouetted against glowing background gas" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Horsehead Nebula (馬頭星雲) in Orion &mdash; a cold column of dust silhouetted against glowing hydrogen behind it. Credit: <a href="https://en.wikipedia.org/wiki/Horsehead_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1888, Williamina Fleming (弗萊明), one of the women computers employed at Harvard College Observatory (哈佛學院天文台) to analyse photographic plates, noticed an odd dark notch intruding on a bright band of light in the constellation Orion (獵戶座). Because dark features on plates were usually defects, such marks were routinely ignored; Fleming instead catalogued it. The object, roughly 1,375 light-years away, became known as the Horsehead Nebula (馬頭星雲), and today is among the most photographed objects in astronomy despite being invisible to the naked eye and difficult even in amateur telescopes.</p>
+      <p>The horse&rsquo;s head is not glowing. It is a dense, cold column of interstellar dust (星際塵埃) and molecular gas that blocks light, and it is visible only because it happens to sit directly in front of a vast, bright curtain of ionised hydrogen (氫) &mdash; gas being made to glow red by ultraviolet radiation from the nearby hot star Sigma Orionis. The nebula is a shadow, essentially: we see its shape the way you see a hand held up against a lit window, defined entirely by the brightness it interrupts.</p>
+      <p>That opacity is also why infrared changed everything. Dust blocks visible light but is far more transparent to infrared, so when the Hubble Space Telescope (哈勃太空望遠鏡) imaged the Horsehead in infrared for its 2013 anniversary, and the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡) returned far sharper infrared images in 2024, the solid silhouette dissolved into delicate, translucent structure. Webb resolved the illuminated top edge of the column in unprecedented detail, revealing it as an active photodissociation region, where radiation is steadily eroding the pillar &mdash; a structure astronomers estimate has roughly five million years left before it disperses entirely.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Horsehead_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Horsehead is a shadow, not an object &mdash; we only see it because something vast and bright happens to be glowing directly behind it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why is the Horsehead Nebula dark, and why does imaging it in infrared change its appearance so dramatically?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It is a dense, cold column of dust and molecular gas that blocks light, visible only as a silhouette against bright ionised hydrogen glowing behind it. Dust blocks visible light but is far more transparent to infrared, so infrared imaging sees through the column and resolves its internal structure instead of a solid shape.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA Hubble 2013 anniversary release; NASA/ESA/CSA James Webb Space Telescope Horsehead Nebula release (2024).</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>威化島回軍&mdash;&mdash;一位將軍奉命北伐，卻掉頭攻陷自己的首都</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1388年，高麗王朝派出大軍北伐遼東。統帥率軍抵達鴨綠江中的威化島後，卻上書力陳此戰不可為，請求撤兵；朝廷斷然拒絕。你認為，這位將軍最終選擇服從命令渡江北上，還是做了別的決定？而這個決定又如何改寫了往後五百年的朝鮮歷史？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李成桂（1335&ndash;1408年，高麗名將，後為朝鮮王朝太祖）；崔瑩（高麗權臣，北伐主導者）；鄭道傳（新進士大夫，李成桂重要謀士）。</p>
+        <p><strong>事件：</strong>1388年，李成桂於威化島回軍，返攻開京推翻崔瑩勢力；1392年廢高麗恭讓王自立，建立朝鮮王朝，國祚延續至1897年。</p>
+        <p><strong>時代背景：</strong>元明交替之際，高麗朝廷在親元與親明之間搖擺；國內權門世族兼併土地嚴重，新進士大夫階層力主改革，寺院與貴族勢力則竭力維持現狀。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/King_Taejo_Yi_02.jpg" alt="朝鮮太祖李成桂御真" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">朝鮮太祖李成桂御真。他於威化島回軍後推翻高麗，建立延續五百餘年的朝鮮王朝。來源：<a href="https://en.wikipedia.org/wiki/Taejo_of_Joseon" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>十四世紀後期，元朝國勢傾頹，新興的明朝崛起，高麗朝廷在外交路線上嚴重分裂。1388年，明朝宣布於高麗東北部設置鐵嶺衛，欲收回原屬元朝雙城總管府的領地，高麗權臣崔瑩視之為奇恥大辱，力主出兵攻打遼東，並說服禑王調集約五萬大軍北伐。李成桂雖為當時最負盛名的武將，卻自始反對此議。</p>
+      <p>大軍行至鴨綠江中的威化島時，正值雨季，江水暴漲，糧運不繼，軍中疫病流行、逃兵漸增。李成桂上書提出著名的「四不可」論：以小逆大不可、夏月發兵不可、舉國遠征則倭寇乘虛不可、時值梅雨弓弩膠解且軍中易疫不可。朝廷仍嚴令進軍。權衡之下，李成桂於同年五月率軍掉頭南下，史稱「威化島回軍」，迅速攻陷首都開京，流放並處死崔瑩，掌握實權。</p>
+      <p>此後四年，李成桂在鄭道傳等新進士大夫協助下推行「科田法」，重新分配權門世族兼併的土地，既瓦解舊貴族的經濟基礎，亦爭取到中下層官員支持。1392年，他廢黜恭讓王自立為王，改國號「朝鮮」，遷都漢陽（今首爾）。新王朝以性理學為國家意識形態，抑制高麗以來勢力龐大的佛教寺院，此一「崇儒抑佛」路線深刻形塑了往後五百餘年朝鮮半島的政治、教育與社會結構。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Taejo_of_Joseon" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一支奉命北伐的軍隊掉頭南下，改變的不只是一個王朝的歸屬，更是往後五百年半島的意識形態底色。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 李成桂反對北伐遼東的理由是甚麼？他建立朝鮮王朝後，推行了哪項關鍵的土地改革？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李成桂提出「四不可」：以小逆大、夏月發兵、舉國遠征致倭寇乘虛、梅雨致弓弩膠解且軍中易疫。他掌權後推行「科田法」，重新分配權門世族兼併的土地，瓦解舊貴族經濟基礎並爭取中下層官員支持。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《高麗史》；《朝鮮王朝實錄&middot;太祖實錄》；Seth, M.J. (2010), <em>A History of Korea</em>, Rowman &amp; Littlefield.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Famine Where Food Left the Country by the Shipload</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Between 1845 and 1852, roughly one million people died of starvation and disease in Ireland, and a further million emigrated &mdash; a population loss of about a quarter. A potato disease destroyed the crop that most of the poor depended on. Before reading on, do you think Ireland during those years was a country with no food, or something more complicated?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Charles Trevelyan (特里維廉), Assistant Secretary to the British Treasury (英國財政部) directing relief; Sir Robert Peel (皮爾) and Lord John Russell (羅素), successive Prime Ministers.</p>
+        <p><strong>Event at stake:</strong> The Great Famine (大饑荒), 1845&ndash;1852, triggered by the potato blight <em>Phytophthora infestans</em> destroying successive potato harvests in Ireland (愛爾蘭).</p>
+        <p><strong>Big picture:</strong> Most Irish tenant farmers grew cash crops and livestock to pay rent to landlords, while subsisting themselves almost entirely on potatoes grown on tiny plots &mdash; a structure that made a single crop failure catastrophic.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Skibbereen_by_James_Mahony%2C_1847.JPG" alt="1847 illustration of famine conditions in Skibbereen, Ireland" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Skibbereen, drawn by James Mahony for the <em>Illustrated London News</em>, 1847 &mdash; one of the images that brought famine conditions to British public attention. Credit: <a href="https://en.wikipedia.org/wiki/Great_Famine_(Ireland)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By the 1840s, roughly a third of Ireland&rsquo;s population depended on the potato (馬鈴薯) for nearly all their calories. The reason was structural rather than cultural: land was concentrated among a small landlord class, tenants held tiny subdivided plots, and the potato was the only crop yielding enough calories per acre to feed a family on such a plot. Worse, Irish cultivation relied heavily on a single variety, the &ldquo;Irish Lumper,&rdquo; leaving the entire food base genetically uniform &mdash; and therefore uniformly vulnerable.</p>
+      <p>When the water mould <em>Phytophthora infestans</em> arrived in 1845, it destroyed roughly a third to a half of that year&rsquo;s crop and almost the entire crop in 1846. Yet throughout the famine years, Ireland continued to export food. Grain, cattle, butter and pork left Irish ports for Britain in substantial quantities, because tenants had to sell those goods to pay rent or face eviction. Historians debate whether halting exports alone could have fed the population &mdash; most conclude it could not have fully closed the caloric gap &mdash; but the fact of continued export remains central to how the period is understood.</p>
+      <p>British relief policy was shaped by laissez-faire (自由放任) economic doctrine and by moral judgments about dependency. Peel&rsquo;s early intervention, importing maize and repealing the Corn Laws (穀物法) in 1846, gave way under Russell to Charles Trevelyan&rsquo;s administration of relief through public works and workhouses, on the principle that markets should not be disrupted; Trevelyan wrote of the famine as a &ldquo;mechanism for reducing surplus population.&rdquo; The result was a population fall from about 8.5 million to 6.5 million, mass emigration that reshaped America&rsquo;s cities, and a lasting political grievance that fed Irish nationalism for generations.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Famine_(Ireland)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A famine is rarely just an absence of food &mdash; it is usually a question of who has a claim on the food that exists.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why were Irish tenants so dependent on the potato specifically, and what happened to Irish food exports during the famine years?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Land concentration left tenants with tiny subdivided plots, and the potato was the only crop yielding enough calories per acre to feed a family on such land; reliance on one variety made the crop uniformly vulnerable. Food exports continued throughout the famine, since tenants had to sell grain, cattle and butter to pay rent or be evicted.</div>
+      </details>
+      <div class="source">&#x1F4D6; Woodham-Smith, C. (1962), <em>The Great Hunger</em>, Hamish Hamilton. &Oacute; Gr&aacute;da, C. (1999), <em>Black &rsquo;47 and Beyond</em>, Princeton University Press.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>吉藏「破而不立」&mdash;&mdash;一位僧人如何主張，最高的真理是不再持有任何主張？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">隋唐之際，一位僧人以擅長論辯著稱，卻主張自己的學說「只破不立」&mdash;&mdash;他不提出任何正面的哲學命題，只負責拆解別人的立場。你認為，一套完全不提出主張的學說，如何能夠自稱為真理，而不淪為單純的詭辯？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>吉藏（549&ndash;623年，祖籍安息，生於金陵，三論宗集大成者，世稱嘉祥大師）。</p>
+        <p><strong>核心主張：</strong>「破邪顯正」與「二諦是教」&mdash;&mdash;破除一切偏執本身即是顯正，真理不在另立一說；二諦並非兩層客觀實在，而是引導眾生的教學方便。</p>
+        <p><strong>時代背景：</strong>鳩摩羅什漢譯龍樹《中論》《百論》《十二門論》後，中觀學說在南北朝屢遭誤解為虛無主義；吉藏以《三論玄義》等著作系統重建其詮釋。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Kash%C5%8D_Daishi_%28Todaiji%29.jpg" alt="嘉祥大師吉藏畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">嘉祥大師吉藏畫像（東大寺藏）。他集三論宗之大成，主張「破邪即顯正」。來源：<a href="https://en.wikipedia.org/wiki/Jizang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>吉藏所面對的難題，是龍樹中觀學說傳入漢地後的持續誤讀。鳩摩羅什譯出《中論》等三論之後，南北朝諸家多把「空」理解為某種形上實體，或索性視為否定一切的虛無主義。吉藏認為，這兩種讀法都犯了同一個錯誤：把「空」當成一個可以被主張、被持有的立場。他因而提出，三論宗的工作是「破邪顯正」&mdash;&mdash;破除偏執的過程本身即是顯正，並非破完之後另立一個正確答案。</p>
+      <p>其論證核心是「四重二諦」的層層遞進。第一重以「有」為俗諦、「空」為真諦；第二重則指出，若執著於「空」，這個「空」便又成了新的「有」，故須以「非有非空」為真諦；如此逐層拆解，每一層的真諦一旦被執取，即降格為下一層的俗諦，須再被超越。這套方法的用意不在於建立一個最終答案，而在於示範任何答案一旦被牢牢抓住，都會立刻變成新的束縛。</p>
+      <p>吉藏進一步提出「二諦是教」的著名判定：真諦與俗諦並非兩層客觀存在的實在，而是佛陀因應不同根器眾生而施設的教學方便，猶如指月之指，不可誤認手指為月亮。此說使三論宗與同期天台、華嚴等強調圓融實相的宗派形成鮮明對比。惟三論宗於吉藏之後迅速衰微，其精神則被禪宗吸收轉化&mdash;&mdash;禪宗「不立文字」與遇執即破的機鋒手法，正可視為這條思路的延續。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jizang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 吉藏的真理不是一個可以抓住的答案，而是一種不斷鬆手的能力&mdash;&mdash;任何答案抓緊了，都會變成下一個要破的執。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 吉藏「四重二諦」的遞進邏輯為何？他所謂「二諦是教」是甚麼意思？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">四重二諦逐層遞進：每一層的真諦一旦被執取，即降格為下一層的俗諦，須再被超越，藉此示範任何答案抓緊了都會成為新束縛。「二諦是教」則指真俗二諦並非兩層客觀實在，而是因應不同根器施設的教學方便。</div>
+      </details>
+      <div class="source">&#x1F4D6; 吉藏《三論玄義》《二諦義》；Stanford Encyclopedia of Philosophy, &ldquo;Chinese Madhyamaka&rdquo;；Liu, M.W. (1994), <em>Madhyamaka Thought in China</em>, Brill.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Concluded That Personal Identity Is Not What Matters</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine a teleporter that scans your body atom by atom, destroys the original, and reconstructs a perfect copy on Mars with all your memories intact. Now imagine a malfunction: the original isn&rsquo;t destroyed, so there are two of you. Before reading on, which one is you &mdash; and what do you think a philosopher concluded when he realised the question might have no answer?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Derek Parfit (帕菲特, 1942&ndash;2017), British philosopher at Oxford University (牛津大學).</p>
+        <p><strong>Problem at stake:</strong> What makes a person at one time the same person as someone at a later time &mdash; and whether that identity is what we should actually care about.</p>
+        <p><strong>Rival view:</strong> Both the traditional soul-based view and John Locke&rsquo;s (洛克) memory-continuity view assume identity is always a determinate fact: there is a real answer to whether a future person is you.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Le_Penseur_by_Rodin_%28Kunsthalle_Bielefeld%29_2014-04-10.JPG/330px-Le_Penseur_by_Rodin_%28Kunsthalle_Bielefeld%29_2014-04-10.JPG" alt="Rodin's The Thinker" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Derek Parfit&rsquo;s <em>Reasons and Persons</em> (1984) used teleporter and split-brain thought experiments to argue that personal identity is not what matters. Credit: <a href="https://en.wikipedia.org/wiki/Derek_Parfit" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>Reasons and Persons</em> (1984), Derek Parfit (帕菲特) built his case from cases medicine had made real. In some patients treated for severe epilepsy, surgeons had severed the corpus callosum (胼胝體) connecting the brain&rsquo;s hemispheres, producing evidence that the two halves could process information somewhat independently. Parfit pushed this to a thought experiment: imagine your brain divided, each half transplanted into a different body, both waking with your memories and character. Which one is you? Not both, since they are two people. Not neither, since each has as good a claim as you would in ordinary survival. Not one rather than the other, since nothing distinguishes them.</p>
+      <p>Parfit&rsquo;s conclusion was that the question is empty. There is no hidden further fact &mdash; no soul, no metaphysical thread &mdash; that settles it; identity in such cases is simply indeterminate. What actually exists is psychological continuity and connectedness: overlapping chains of memory, intention, personality and belief, which can hold to varying degrees, and can branch. His resulting slogan was that &ldquo;identity is not what matters in survival.&rdquo; What matters is that continuity, and it can be preserved even where identity fails to have a determinate answer.</p>
+      <p>Parfit took this as liberating rather than bleak, writing that when he ceased believing in a separately existing self, the walls of his &ldquo;glass tunnel&rdquo; disappeared and he became less concerned about his own death. The view also has ethical bite: if the connection between you now and you in forty years is a matter of degree, your future self is in some respects like another person, complicating how much weight self-interest deserves, and grounding stronger obligations to future generations. Critics including Richard Swinburne (斯溫伯恩) maintain there must be a further fact about identity, and the dispute remains live in personal-identity theory.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Derek_Parfit" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Parfit&rsquo;s move wasn&rsquo;t answering &ldquo;which one is really me&rdquo; but showing the question can be empty &mdash; and that what we care about survives its emptiness.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Parfit conclude from the brain-division thought experiment, and what did he claim matters instead of identity?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He concluded the question of which resulting person is &ldquo;really you&rdquo; is empty, since no further fact settles it and identity is simply indeterminate in such cases. What matters instead is psychological continuity and connectedness &mdash; overlapping chains of memory, intention and character, which can hold in degrees and can branch.</div>
+      </details>
+      <div class="source">&#x1F4D6; Parfit, D. (1984), <em>Reasons and Persons</em>, Oxford University Press. Stanford Encyclopedia of Philosophy, &ldquo;Personal Identity.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>How Paying Children to Draw Made Them Stop Wanting To</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a 1973 study, nursery-school children who already loved drawing with markers were split into groups. One group was promised a certificate for drawing, one got an unexpected certificate afterward, and one got nothing. Two weeks later, researchers measured how much each group chose to draw during free play. Before reading on, which group do you think drew the least?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Schoolgirls_in_Bamozai.JPG/330px-Schoolgirls_in_Bamozai.JPG" alt="Children in a classroom setting" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Lepper, Greene and Nisbett&rsquo;s 1973 nursery-school study showed that expected rewards can undermine pre-existing intrinsic motivation. Credit: <a href="https://en.wikipedia.org/wiki/Overjustification_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Mark Lepper (萊珀), David Greene and Richard Nisbett (尼斯貝特) selected nursery-school children who had already shown, during unprompted free play, that they enjoyed drawing with felt-tip markers &mdash; the enjoyment was established before the experiment began. The children were then randomly assigned to three conditions: an expected-reward group told in advance they would receive a &ldquo;Good Player&rdquo; certificate for drawing; an unexpected-reward group given the same certificate afterwards without warning; and a control group given nothing.</p>
+      <p>Roughly two weeks later, the markers were made available again during ordinary free play, with no rewards mentioned. Children in the expected-reward group spent about half as much time drawing as they had originally, and significantly less than either of the other groups, whose interest remained roughly unchanged. The reward had not merely failed to increase motivation; it had reduced motivation that already existed. Lepper called this the overjustification effect (過度理由效應).</p>
+      <p>The proposed mechanism is a shift in self-perception: a child who draws for enjoyment infers &ldquo;I draw because I like it,&rdquo; but a child who draws for a promised certificate infers &ldquo;I draw to get the certificate&rdquo; &mdash; and once the certificate disappears, so does the reason. Crucially, the effect depends on the reward being expected and contingent on merely doing the task; unexpected rewards and rewards tied to genuine quality of performance generally do not undermine motivation, and a well-known 1999 meta-analysis by Deci, Koestner and Ryan found the strongest undermining precisely for tangible, expected, task-contingent rewards.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Overjustification_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Paying someone to do what they already loved can replace their reason for doing it &mdash; and the new reason leaves when the payment does.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Which reward condition reduced children&rsquo;s later interest in drawing, and what type of reward generally does <em>not</em> produce the overjustification effect?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Only the expected-reward group, promised a certificate in advance for simply doing the task, drew substantially less afterwards. Unexpected rewards and rewards contingent on genuine quality of performance generally do not undermine intrinsic motivation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lepper, M.R., Greene, D. &amp; Nisbett, R.E. (1973), <em>Journal of Personality and Social Psychology</em> 28(1). Deci, E.L., Koestner, R. &amp; Ryan, R.M. (1999), <em>Psychological Bulletin</em> 125(6).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why You Cannot Tickle Yourself, and What That Reveals About the Brain</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">You can tickle another person easily, and they can tickle you. But if you run your own fingers along your own ribs in exactly the same way, almost nothing happens. The nerve endings and the sensation are identical. Before reading on, what do you think the brain is doing differently when the hand belongs to you?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Gehirn%2C_lateral_-_Lobi_%2B_Stammhirn_%2B_Cerebellum_eng.svg/960px-Gehirn%2C_lateral_-_Lobi_%2B_Stammhirn_%2B_Cerebellum_eng.svg.png" alt="Diagram of the human brain showing the cerebellum" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The cerebellum (小腦), which predicts the sensory consequences of your own movements and cancels the resulting sensation. Credit: <a href="https://en.wikipedia.org/wiki/Cerebellum" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Every time you move, your brain issues not only a motor command but also an internal copy of that command, known as an efference copy (傳出副本). The cerebellum (小腦) uses this copy to generate a forward model &mdash; a prediction of exactly what sensations the movement should produce. When the incoming sensory signal matches that prediction, the brain attenuates it, because a self-generated sensation carries no new information about the outside world. Unpredicted touch, by contrast, might be a threat, and gets full attention.</p>
+      <p>Sarah-Jayne Blakemore (布萊克莫爾), Daniel Wolpert and Chris Frith demonstrated this experimentally in 1998 and 2000 using a robotic device that let participants tickle their own palm indirectly. When the robot reproduced the participant&rsquo;s movement immediately and exactly, the sensation felt weak, as self-tickling does. But when the researchers introduced a delay of roughly 200 milliseconds, or rotated the movement&rsquo;s direction, ticklishness rose steadily with the mismatch &mdash; participants became able to tickle themselves precisely to the degree the prediction failed.</p>
+      <p>This prediction-and-cancellation system explains a good deal beyond tickling: it is why your visual world stays still despite constant eye movements, and why you can ignore the feeling of your own clothes. It also has clinical relevance. Some people experiencing certain symptoms of schizophrenia show reduced attenuation of self-generated sensation, and Blakemore&rsquo;s group found such individuals were more able to tickle themselves &mdash; consistent with theories that some experiences of alien control may involve a disruption in the brain&rsquo;s tagging of actions as self-produced.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tickling" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your brain constantly predicts what your own body will feel and subtracts it &mdash; ticklishness is what happens when the prediction misses.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What mechanism prevents you from tickling yourself, and what experimental manipulation restored the ticklish sensation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The cerebellum uses an efference copy of the motor command to predict the sensation your movement will produce, then attenuates the matching incoming signal. Introducing a delay of around 200 milliseconds, or rotating the movement direction, created a mismatch and restored ticklishness in proportion to the discrepancy.</div>
+      </details>
+      <div class="source">&#x1F4D6; Blakemore, S.-J., Wolpert, D.M. &amp; Frith, C.D. (1998), &ldquo;Central Cancellation of Self-Produced Tickle Sensation,&rdquo; <em>Nature Neuroscience</em> 1(7); and (2000), <em>NeuroReport</em> 11(11).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does Cold Weather Actually Give You a Cold? The Answer Changed Recently</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For most of the past century, doctors dismissed the idea that being cold causes colds as folk superstition: colds are caused by viruses, and cold air is not a virus. Yet colds really are far more common in winter. Before reading on, do you think the folk belief was simply wrong, or that it was pointing at something real that hadn&rsquo;t been identified yet?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Rhinovirus_isosurface.png/330px-Rhinovirus_isosurface.png" alt="Structural model of a rhinovirus particle" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Rhinovirus (鼻病毒), the most common cause of the common cold. A 2022 study identified a cold-sensitive immune mechanism in the nose. Credit: <a href="https://en.wikipedia.org/wiki/Rhinovirus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The strict version of the medical correction is true: cold air does not create a cold. Colds are caused by viruses, most commonly rhinovirus (鼻病毒), and without exposure to a virus no amount of chilliness will produce infection. Classic experiments appeared to settle it &mdash; a well-known 1968 study by Douglas and colleagues chilled volunteers who had been inoculated with rhinovirus and found no significant difference in infection rates compared with those kept warm. For decades, that was taken as the end of the matter.</p>
+      <p>The seasonal pattern nonetheless demanded explanation, and several partial ones accumulated: people gather indoors in closer proximity in winter, ventilation is reduced, and low absolute humidity both helps virus particles remain airborne longer and dries the nasal mucosa. Then in December 2022, a team led by Benjamin Bleier and Mansoor Amiji published work in the <em>Journal of Allergy and Clinical Immunology</em> identifying a specific mechanism inside the nose itself.</p>
+      <p>They had previously shown that cells lining the nose release billions of extracellular vesicles &mdash; tiny fluid-filled sacs that swarm and neutralise inhaled viruses before they can infect cells. In the 2022 work, they found that dropping the temperature inside the nose by about 5&deg;C, roughly what happens on stepping into cold air, cut that vesicle response by nearly 42% and impaired the vesicles&rsquo; antiviral function. So the folk belief was pointing at something real: cold air doesn&rsquo;t cause colds, but it appears to measurably weaken the nose&rsquo;s first line of defence against them, which is a good practical argument for covering your nose in the cold.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Common_cold" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Cold air doesn&rsquo;t give you a cold, but it appears to switch down your nose&rsquo;s antiviral defences &mdash; the old wives&rsquo; tale had the mechanism wrong, not the pattern.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Bleier and Amiji&rsquo;s 2022 study find happens in the nose when its temperature drops by about 5&deg;C, and why does that not mean cold air &ldquo;causes&rdquo; colds?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A roughly 5&deg;C drop in nasal temperature cut the release of antiviral extracellular vesicles by nearly 42% and impaired their function. Cold air still doesn&rsquo;t cause colds, since a virus is required for infection &mdash; it appears instead to weaken the nose&rsquo;s innate defence against viruses you encounter.</div>
+      </details>
+      <div class="source">&#x1F4D6; Huang, D. et al. (2022), &ldquo;Cold Exposure Impairs Extracellular Vesicle Swarm-Mediated Nasal Antiviral Immunity,&rdquo; <em>Journal of Allergy and Clinical Immunology</em> 151(2). Douglas, R.G. et al. (1968), <em>New England Journal of Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Doctor Who Invented RICE and Then Publicly Retracted It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Rest, Ice, Compression, Elevation &mdash; the RICE protocol has been standard advice for sprains and soft-tissue injuries since 1978, taught in first-aid courses worldwide. Before reading on, what do you think happened when the physician who coined the acronym reviewed the evidence decades later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Ankle.jpg/330px-Ankle.jpg" alt="A human ankle" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ankle sprains are among the most common injuries treated with the RICE protocol &mdash; whose originator later withdrew his support for it. Credit: <a href="https://en.wikipedia.org/wiki/Sprained_ankle" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Dr Gabe Mirkin (米爾金) coined the acronym RICE &mdash; Rest, Ice, Compression, Elevation &mdash; in his 1978 book <em>The Sportsmedicine Book</em>, and it became the near-universal standard for treating sprains and soft-tissue injuries. The rationale was intuitive: ice constricts blood vessels, reducing swelling and pain, while rest prevents further damage. It was never built on strong trial evidence, but its plausibility and simplicity made it stick for decades in clinical practice, sports coaching and first-aid curricula.</p>
+      <p>In 2015, Mirkin publicly retracted the advice on his own website, writing that &ldquo;coaches have used my &lsquo;RICE&rsquo; guideline for decades, but now it appears that both ice and complete rest may delay healing, instead of helping.&rdquo; The reasoning turns on what inflammation (發炎) actually does. Inflammation is not merely damage &mdash; it is the repair process. Immune cells called macrophages (巨噬細胞) migrate to injured tissue and release insulin-like growth factor (胰島素樣生長因子), which is required for tissue regeneration. Aggressively suppressing that response with prolonged icing may blunt the very signalling that repair depends on.</p>
+      <p>Newer frameworks have replaced the acronym. Dubois and Esculier proposed PEACE &amp; LOVE in 2019 (<em>British Journal of Sports Medicine</em>): Protect, Elevate, Avoid anti-inflammatories, Compress, Educate, then Load, Optimism, Vascularisation and Exercise &mdash; emphasising early, controlled movement over extended rest. The honest state of the evidence is that ice remains reasonable for short-term pain relief, that it is not established as accelerating healing, and that prolonged complete rest is now generally discouraged in favour of gradual, pain-guided loading. Anyone with a significant injury should still be assessed by a clinician rather than self-managing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/RICE_(medicine)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Inflammation is the repair crew, not the damage &mdash; which is why suppressing it aggressively for days may slow down the very healing you want.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Gabe Mirkin retract the RICE protocol, and what biological role does inflammation play that the protocol may have suppressed?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mirkin concluded that both ice and complete rest may delay healing rather than help it. Inflammation is the repair process itself: macrophages migrate to injured tissue and release insulin-like growth factor needed for regeneration, so aggressively suppressing inflammation may blunt the signalling that repair depends on.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mirkin, G. (2015), public retraction, drmirkin.com. Dubois, B. &amp; Esculier, J.-F. (2020), &ldquo;Soft-Tissue Injuries Simply Need PEACE and LOVE,&rdquo; <em>British Journal of Sports Medicine</em> 54(2).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Thirty-Six Minutes When a Trillion Dollars Vanished and Came Back</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 6 May 2010, the Dow Jones Industrial Average fell almost 1,000 points in minutes, wiping out close to a trillion dollars of market value &mdash; and then recovered most of it within about half an hour. Some individual shares briefly traded at one cent. Before reading on, what do you think could make a market break that badly and then repair itself that fast?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/DJIA_historical_graph_%28log%29.svg/960px-DJIA_historical_graph_%28log%29.svg.png" alt="Historical graph of the Dow Jones Industrial Average" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The 2010 Flash Crash saw the Dow fall nearly 1,000 points and recover within about 36 minutes. Credit: <a href="https://en.wikipedia.org/wiki/2010_flash_crash" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>At around 2:32pm on 6 May 2010, US markets were already jittery over the European debt crisis when a mutual fund company, later identified as Waddell &amp; Reed, began selling 75,000 E-Mini S&amp;P 500 futures contracts, worth about $4.1 billion. The sale was executed by an automated algorithm instructed to target a fixed percentage of trading volume, but given no limit on price and no instruction on timing. That design flaw proved critical: as the algorithm sold, volume rose, and rising volume told the algorithm to sell faster.</p>
+      <p>High-frequency trading (高頻交易) firms initially absorbed the contracts, then began rapidly passing them back and forth to each other &mdash; a pattern investigators called &ldquo;hot potato&rdquo; trading &mdash; which inflated volume without providing genuine liquidity, further accelerating the algorithm. As prices plunged, many market makers withdrew entirely rather than trade into chaos, so liquidity evaporated exactly when it was most needed. Some shares executed against &ldquo;stub quotes,&rdquo; placeholder orders never meant to trade: Accenture briefly printed at one cent, while Sotheby&rsquo;s reportedly traded near $100,000.</p>
+      <p>The Dow fell roughly 998 points and recovered most of the loss within about 36 minutes. The 2010 joint SEC-CFTC report attributed the crash to this interaction of an aggressive automated sell programme with fragile, algorithm-dominated liquidity; a 2015 case against trader Navinder Sarao for spoofing added a further contested contributing factor. Regulators responded by introducing single-stock circuit breakers and later the limit up-limit down mechanism, plus stricter rules on stub quotes. The lesson that endures is that liquidity supplied by algorithms with no obligation to trade can be enormous in normal conditions and absent precisely when a market needs it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/2010_flash_crash" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Liquidity provided by parties with no obligation to provide it is not liquidity &mdash; it is a service that withdraws exactly when you need it most.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What design flaw in the initial selling algorithm made the 2010 Flash Crash self-reinforcing, and why did prices fall so far so fast?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The algorithm targeted a fixed percentage of trading volume with no price limit or timing constraint, so as its own selling raised volume, it sold even faster. Prices collapsed because high-frequency firms passed contracts back and forth inflating volume without real liquidity, while market makers withdrew, leaving orders to execute against placeholder stub quotes.</div>
+      </details>
+      <div class="source">&#x1F4D6; U.S. SEC &amp; CFTC (2010), <em>Findings Regarding the Market Events of May 6, 2010</em>. Kirilenko, A. et al. (2017), &ldquo;The Flash Crash,&rdquo; <em>Journal of Finance</em> 72(3).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Countries Keep Two Parties and Others Keep Twelve</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Election_MG_3455.JPG/3840px-Election_MG_3455.JPG" alt="A ballot box at a polling station" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Duverger&rsquo;s law predicts that first-past-the-post electoral systems tend toward two dominant parties. Credit: <a href="https://en.wikipedia.org/wiki/Duverger%27s_law" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">The United States and the United Kingdom both use first-past-the-post voting, yet the US has sustained two dominant parties for over 150 years while the UK has repeatedly produced significant third and fourth parties &mdash; the Liberal Democrats, the SNP, and others &mdash; winning parliamentary seats under supposedly identical electoral incentives.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Duverger&rsquo;s law (杜瓦傑定律), formulated by Maurice Duverger (杜瓦傑) in 1951, holds that single-member district plurality voting tends to produce two-party systems, through a mechanical effect (small parties win far fewer seats than votes) and a psychological effect (voters abandon parties they expect to lose).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Canada and India have maintained durable multiparty competition under first-past-the-post for decades, and the UK&rsquo;s third parties persist. William Riker noted as early as 1982 that the law holds nationally far less reliably than it does district by district &mdash; regionally concentrated parties can win seats efficiently even while placing third nationwide.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Gary Cox&rsquo;s <em>Making Votes Count</em> (1997) reframes the law as operating at district level, with national party numbers depending on whether local competitions get &ldquo;linked&rdquo; across districts by presidential elections or centralised institutions. Whether electoral rules or underlying social cleavages dominate remains contested.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Duverger&rsquo;s law works reliably inside a single district and unreliably across a country &mdash; the gap is where regional parties live.</div>
+      <div class="source">&#x1F4D6; Duverger, M. (1951), <em>Les Partis Politiques</em>. Cox, G.W. (1997), <em>Making Votes Count</em>, Cambridge University Press. Riker, W.H. (1982), <em>American Political Science Review</em> 76(4). Distinct from Card 10&rsquo;s domain (market microstructure).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 7 &amp; 10 &mdash; Systems That Work Beautifully Until Their Predictions Stop Matching:</strong> Your cerebellum keeps the world feeling stable by predicting the sensory consequences of your own actions and subtracting them &mdash; and the moment a 200-millisecond delay breaks the match, the suppressed sensation floods back. The 2010 Flash Crash was a market-scale version: algorithms priced and supplied liquidity on a model of how volume behaves, and when their own selling made volume behave differently, the model inverted from stabiliser to accelerant.</p>
+      <p><strong>So what:</strong> Any system that runs on predictions has a hidden failure mode that only appears when the prediction breaks &mdash; so the useful question about an automated process is not &ldquo;does it work&rdquo; but &ldquo;what does it assume, and what happens the moment that assumption is false?&rdquo;</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA Hubble 2013 anniversary release; NASA/ESA/CSA JWST Horsehead Nebula release (2024).</li>
+      <li><strong>Card 2:</strong> 《高麗史》；《朝鮮王朝實錄&middot;太祖實錄》；Seth, M.J. (2010), <em>A History of Korea</em>.</li>
+      <li><strong>Card 3:</strong> Woodham-Smith, C. (1962), <em>The Great Hunger</em>. &Oacute; Gr&aacute;da, C. (1999), <em>Black &rsquo;47 and Beyond</em>, Princeton University Press.</li>
+      <li><strong>Card 4:</strong> 吉藏《三論玄義》《二諦義》；Stanford Encyclopedia of Philosophy, &ldquo;Chinese Madhyamaka&rdquo;；Liu, M.W. (1994), <em>Madhyamaka Thought in China</em>.</li>
+      <li><strong>Card 5:</strong> Parfit, D. (1984), <em>Reasons and Persons</em>, Oxford University Press. Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Lepper, Greene &amp; Nisbett (1973), <em>JPSP</em> 28(1). Deci, Koestner &amp; Ryan (1999), <em>Psychological Bulletin</em> 125(6).</li>
+      <li><strong>Card 7:</strong> Blakemore, Wolpert &amp; Frith (1998), <em>Nature Neuroscience</em> 1(7); (2000), <em>NeuroReport</em> 11(11).</li>
+      <li><strong>Card 8:</strong> Huang, D. et al. (2022), <em>Journal of Allergy and Clinical Immunology</em> 151(2). Douglas, R.G. et al. (1968), <em>NEJM</em>.</li>
+      <li><strong>Card 9:</strong> Mirkin, G. (2015) retraction. Dubois, B. &amp; Esculier, J.-F. (2020), <em>British Journal of Sports Medicine</em> 54(2).</li>
+      <li><strong>Card 10:</strong> U.S. SEC &amp; CFTC (2010) Flash Crash report. Kirilenko, A. et al. (2017), <em>Journal of Finance</em> 72(3).</li>
+      <li><strong>Card 11:</strong> Duverger, M. (1951). Cox, G.W. (1997), <em>Making Votes Count</em>. Riker, W.H. (1982), <em>APSR</em> 76(4).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-18: The Horsehead Nebula &bull; 威化島回軍與朝鮮開國 &bull; The Great Irish Famine &bull; 吉藏「破邪顯正」與四重二諦 &bull; Derek Parfit on Personal Identity &bull; The Overjustification Effect &bull; Why You Can&rsquo;t Tickle Yourself &bull; Cold Weather &amp; Colds &bull; The RICE Protocol Retraction &bull; The 2010 Flash Crash &bull; Duverger&rsquo;s Law</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-18.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-18.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 18 August 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

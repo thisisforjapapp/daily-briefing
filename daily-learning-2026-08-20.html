@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 20 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 20 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>19 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Whirlpool Galaxy</span>Lord Rosse hand-sketched the first spiral ever recorded in 1845, but nobody knew what a spiral was until 1923.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 張騫鑿空</span>張騫聯月氏夾擊匈奴的任務失敗，卻帶回西域地理情報，開通絲綢之路。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Luther&rsquo;s Ninety-five Theses</span>The complaint was a century old; the printing press was what made it impossible to suppress this time.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 本居宣長「物哀」</span>宣長主張文學在於呈現人心真實感受，而非儒家道德勸懲。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; The Gettier Problem</span>A three-page 1963 paper showed a belief can be justified and true yet still not count as knowledge.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Serial-Position Effect</span>List beginnings survive via rehearsal and endings via working memory; the middle gets neither advantage.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Why Time Speeds Up</span>Remembered duration tracks how many distinct memories were encoded, so routine compresses in hindsight.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Dietary Cholesterol</span>The liver makes most blood cholesterol and compensates for intake, so the 300mg egg rule was dropped in 2015.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Warm-Up Sets</span>Specific ascending sets of the actual lift beat general cardio; the goal is priming, not pre-fatigue.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The Wirecard Fraud</span>Germany&rsquo;s regulator investigated the journalists instead of the &euro;1.9 billion that turned out never to have existed.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Iron Law of Oligarchy</span>Delegation creates expertise and expertise entrenches, so democratic rules alone rarely keep organisations democratic.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Galaxy Shaped Like a Perfect Ring That Nobody Can Fully Explain</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1950, an astronomer photographed an object that looked like a bright ring of blue stars surrounding a golden core, with apparently empty space between them &mdash; almost too geometrically perfect to be natural. Before reading on, what do you think could produce a shape like that, and why has it stayed a puzzle for seventy years?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Hoag%27s_object.jpg/330px-Hoag%27s_object.jpg" alt="Hoag's Object, a ring galaxy with a bright core surrounded by a detached ring of blue stars" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Hoag&rsquo;s Object (霍格天體), a near-perfect ring galaxy about 600 million light-years away. A second, more distant ring galaxy is visible through the gap. Credit: <a href="https://en.wikipedia.org/wiki/Hoag%27s_Object" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Arthur Hoag (霍格) spotted the object in 1950 and was not sure what he was looking at. His first thought was a planetary nebula (行星狀星雲) &mdash; a shell of gas thrown off by a dying star &mdash; or possibly a gravitational lens (重力透鏡), where a foreground mass bends the light of something behind it into a ring. Later spectroscopy ruled both out: the core and the ring are at essentially the same distance, about 600 million light-years away, and the ring is composed of genuine, hot young blue stars. It is a single galaxy, and it really is shaped like that.</p>
+      <p>The structure is startling in scale. The yellowish central core, made of older stars, is roughly 17,000 light-years across; the outer ring of young blue stars spans about 121,000 light-years, comparable to the whole Milky Way (銀河系); and between them lies a gap that appears nearly empty, though it likely contains some faint material. Hubble Space Telescope (哈勃太空望遠鏡) imaging added a genuine coincidence: through the gap, at roughly the one-o&rsquo;clock position, sits another, far more distant ring galaxy, entirely unrelated.</p>
+      <p>Explanations remain contested. A leading account is that Hoag&rsquo;s Object is the result of a galactic collision roughly two to three billion years ago, in which a smaller galaxy passed through a larger one, sending a wave of compression outward that triggered ring-shaped star formation. The difficulty is that such collisions normally leave visible debris and distortion, and Hoag&rsquo;s Object shows almost none &mdash; it is unusually symmetric. Alternative proposals involve a bar instability that dissolved, or slow accretion of material from a companion, and no single account has become consensus.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hoag%27s_Object" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The best explanation for Hoag&rsquo;s Object is a violent collision &mdash; and the main objection is that it looks far too tidy for one.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two explanations did Hoag first consider and why were they ruled out, and what is the main objection to the collision hypothesis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">He considered a planetary nebula and a gravitational lens; spectroscopy ruled both out by showing the core and ring lie at the same distance and the ring consists of real young blue stars. The collision hypothesis struggles because galactic collisions typically leave visible debris and distortion, yet Hoag&rsquo;s Object is unusually symmetric and clean.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hoag, A.A. (1950), <em>Astronomical Journal</em> 55. Finkelman, I. et al. (2011), <em>Monthly Notices of the Royal Astronomical Society</em>. NASA/ESA Hubble releases.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>元寇來襲&mdash;&mdash;兩場颱風如何造就「神風」神話，又如何拖垮鎌倉幕府？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1274年與1281年，元朝兩度大舉渡海進攻日本，兩次皆因颱風而以慘敗收場，日本人稱之為「神風」。表面看來，鎌倉幕府贏得了兩場保衛國土的大勝。你認為，這兩場勝利對幕府的統治基礎，究竟是鞏固還是損害？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>北条時宗（1251&ndash;1284年，鎌倉幕府第八代執權，主戰派）；忽必烈（元世祖）；竹崎季長（御家人，繪製《蒙古襲來繪詞》記錄戰功以求恩賞）。</p>
+        <p><strong>事件：</strong>文永之役（1274年）與弘安之役（1281年），元朝兩次渡海侵日；第二次動員約十四萬人，為當時世界史上規模最大的海上遠征之一。</p>
+        <p><strong>時代背景：</strong>鎌倉幕府以「御恩」與「奉公」的封建契約維繫&mdash;&mdash;御家人為幕府作戰，幕府則以土地封賞回報。此制度預設戰爭會帶來可分配的新領地。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Mongol_invasions_of_Japan_1274%2C_1281.jpg" alt="蒙古襲來繪詞描繪的元日戰爭場面" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《蒙古襲來繪詞》所繪元日戰爭場面。此卷由御家人竹崎季長委製，用以向幕府證明戰功、爭取恩賞。來源：<a href="https://en.wikipedia.org/wiki/Mongol_invasions_of_Japan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>忽必烈滅南宋前後，屢遣使要求日本稱臣納貢，均被年輕的執權北条時宗斷然拒絕，甚至斬殺來使。1274年文永之役，元軍約三萬人自高麗渡海，先後攻陷對馬、壹岐，登陸博多灣。元軍使用集團密集戰術、毒箭與名為「鐵炮」的火藥爆炸武器，令習慣一騎討單挑作戰的日本武士極為狼狽。元軍當夜退回船上，恰遇風暴，損失慘重而撤。</p>
+      <p>此役之後，幕府未敢鬆懈，沿博多灣修築長約二十公里的石築地（防壘），並整編沿海防務。1281年弘安之役，元軍分東路軍與江南軍兩路，總兵力約十四萬人，是當時世界史上規模最大的海上遠征之一。石壘有效阻止元軍登陸，雙方僵持約兩個月，元軍被迫長期滯留船上，疫病叢生。同年八月，一場猛烈颱風襲擊博多灣，元軍船隊幾乎全毀，據載生還者不足三成。</p>
+      <p>日本自此以「神風」解釋兩次勝利，此一觀念延續至二十世紀。然而對幕府而言，這是一場毀滅性的勝利。鎌倉封建制建基於「御恩奉公」的契約：御家人出戰，幕府以土地封賞。但這是防禦戰，並無新領地可分，御家人卻為修築防壘、長期戒備而傾家蕩產。竹崎季長甚至親赴鎌倉，攜繪卷力陳戰功以求恩賞。無法履行封賞義務的幕府迅速喪失御家人忠誠，五十餘年後即為後醍醐天皇與足利尊氏所推翻。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mongol_invasions_of_Japan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場沒有戰利品的勝仗，對建基於論功行賞的政權而言，比一場敗仗更致命。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 元日戰爭兩次勝利為何反而動搖鎌倉幕府的統治？御家人為何心生不滿？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">鎌倉封建制以「御恩奉公」為基礎，御家人出戰換取土地封賞。但這是防禦戰，並無新領地可供分配，御家人卻因修築石壘與長期戒備而耗盡財力，幕府無法履行封賞義務，忠誠迅速瓦解，五十餘年後政權即告覆亡。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《蒙古襲來繪詞》；《八幡愚童訓》；Conlan, T.D. (2001), <em>In Little Need of Divine Intervention</em>, Cornell University East Asia Program.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Explosion Heard 4,800 Kilometres Away That Cooled the Entire Planet</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In August 1883, an island volcano in the Sunda Strait erupted so violently that the sound was reportedly heard in Australia and on Rodrigues Island near Mauritius, roughly 4,800 kilometres away. Before reading on, what do you think killed the overwhelming majority of the roughly 36,000 victims &mdash; and what did the eruption do to global weather afterwards?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key context:</strong> Krakatoa (喀拉喀托火山) sat in the Sunda Strait between Java (爪哇) and Sumatra (蘇門答臘), in the Dutch East Indies (荷屬東印度), one of the world&rsquo;s busiest shipping corridors.</p>
+        <p><strong>Event at stake:</strong> The eruption of 26&ndash;27 August 1883, which destroyed most of the island and killed an estimated 36,000 people.</p>
+        <p><strong>Big picture:</strong> The world had just been wired together by the submarine telegraph (海底電報), so for arguably the first time in history a distant catastrophe was reported globally within hours rather than months.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Augustine_volcano_Jan_24_2006_-_Cyrus_Read.jpg/330px-Augustine_volcano_Jan_24_2006_-_Cyrus_Read.jpg" alt="A volcanic eruption column" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A volcanic eruption column. Krakatoa&rsquo;s 1883 eruption injected sulphate aerosols into the stratosphere, measurably cooling global temperatures. Credit: <a href="https://en.wikipedia.org/wiki/Volcano" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Krakatoa (喀拉喀托火山) had shown activity through mid-1883, but on 26 and 27 August it entered a catastrophic phase, culminating in four enormous explosions. The final blast is estimated at roughly 200 megatons of TNT equivalent, and it was audible at extraordinary distances &mdash; reportedly in Perth, Australia (澳洲) and on Rodrigues Island near Mauritius (毛里裘斯), about 4,800 kilometres away, making it among the loudest sounds in recorded history. The pressure wave circled the globe several times, recorded by barometers worldwide.</p>
+      <p>The great majority of the roughly 36,000 deaths were not caused by lava or falling ash. As the volcano&rsquo;s magma chamber emptied, the structure collapsed and the sea rushed in, generating tsunamis (海嘯) reaching over 30 metres in places, which obliterated coastal towns on Java (爪哇) and Sumatra (蘇門答臘). Pyroclastic flows also travelled across the water&rsquo;s surface, reaching the Sumatran coast some 40 kilometres away. The island of Krakatoa itself largely ceased to exist.</p>
+      <p>The eruption injected roughly 20 million tonnes of sulphur dioxide into the stratosphere, forming sulphate aerosols that reflected sunlight and lowered average global temperatures by about 0.4 to 1.2&deg;C for several years, disrupting weather patterns worldwide. It also produced vivid red sunsets across Europe and North America for months, sometimes blamed for the lurid sky in Edvard Munch&rsquo;s <em>The Scream</em> &mdash; a plausible but unproven attribution. Because submarine telegraph cables carried news within hours, Krakatoa is often described as the first global news event, and the eruption became a foundational data set for understanding volcanic climate forcing.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/1883_eruption_of_Krakatoa" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The volcano killed mostly by water, not fire &mdash; and cooled the whole planet for years by putting sulphur where rain could not wash it out.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What killed most of Krakatoa&rsquo;s victims, and by what mechanism did the eruption cool global temperatures?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Most deaths came from tsunamis over 30 metres high, generated when the emptied magma chamber collapsed and the sea rushed in, plus pyroclastic flows crossing the water. Roughly 20 million tonnes of sulphur dioxide reached the stratosphere and formed sulphate aerosols that reflected sunlight, lowering global temperatures by around 0.4 to 1.2&deg;C for several years.</div>
+      </details>
+      <div class="source">&#x1F4D6; Simkin, T. &amp; Fiske, R.S. (1983), <em>Krakatau 1883</em>, Smithsonian Institution Press. Winchester, S. (2003), <em>Krakatoa</em>, HarperCollins.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>方以智《物理小識》&mdash;&mdash;一位明遺民為何主張，通曉萬物之理仍不足以安身立命？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明清易代之際，一位曾與西洋傳教士往來、熟悉天文曆算與物理實測的學者，一方面大力提倡對具體事物的實證考察，另一方面卻堅持這類知識有其根本限度。你認為，他如何區分兩種不同層次的「理」，而這個區分要解決甚麼問題？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>方以智（1611&ndash;1671年，安徽桐城人，明末四公子之一，明亡後出家為僧，法名弘智）。</p>
+        <p><strong>核心主張：</strong>區分「質測」（對具體事物的實證考察）、「宰理」（社會政治倫理）與「通幾」（探究終極根據的形上學），三者層次不同而不可互相取代。</p>
+        <p><strong>時代背景：</strong>晚明西學東漸，利瑪竇等傳教士帶入西方天文、幾何與物理知識；同時明朝覆亡令士人深刻反省空談心性之弊，實學思潮興起。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/%E6%96%B9%E4%BB%A5%E6%99%BA.jpg/330px-%E6%96%B9%E4%BB%A5%E6%99%BA.jpg" alt="方以智畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">方以智畫像。他兼通中西學問，提出「質測」與「通幾」之分，是中國思想史上少見的科學哲學論述。來源：<a href="https://en.wikipedia.org/wiki/Fang_Yizhi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>方以智出身桐城望族，早年即與西洋傳教士往來，接觸天文、曆算、幾何與光學知識，其代表作《物理小識》記錄大量對自然現象的觀察與推論，涵蓋天文、氣象、醫藥、器物與音律，在同時代中國學者中極為罕見。他明確主張學問須落實於具體事物的考察與驗證，反對空談心性、以玄虛之語掩飾對世界的無知，此一態度與晚明實學思潮相呼應。</p>
+      <p>然而方以智並未因此走向以自然知識取代哲學的立場。他提出著名的三分架構：「質測」指對具體事物性質的實證考察，即今日所謂自然科學的範圍；「宰理」指人倫社會的治理之道；「通幾」則指探究萬物所以然的終極根據，屬形上學層次。他認為三者層次分明，各有其不可替代的功能，因而批評「泰西質測頗精，通幾未舉」&mdash;&mdash;西學於實測極為精密，但於終極根據的探究則未及深入。</p>
+      <p>這個判斷的關鍵，在於他認為「質測」能回答事物「如何運作」，卻無法回答「何以有此世界」與「人應如何自處」；若以為窮盡物理即可安身立命，便是層次的混淆。方以智晚年於明亡後出家為僧，在《東西均》中進一步以「合二而一」的辯證思路調和儒釋道與中西學術。他的三分架構被後世視為中國思想史上罕見的科學哲學自覺，惟其著作長期湮沒，至二十世紀方經侯外廬等學者重新發掘研究。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fang_Yizhi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 方以智承認西學實測精密，卻指出精密地知道世界如何運作，並不等於知道人該如何自處。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 方以智「質測」與「通幾」的分別為何？他以此評價西學的結論是甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">「質測」指對具體事物性質的實證考察，回答事物如何運作；「通幾」指探究萬物終極根據的形上學，回答何以有此世界與人應如何自處。他據此評西學為「泰西質測頗精，通幾未舉」&mdash;&mdash;實測精密而終極探究不足。</div>
+      </details>
+      <div class="source">&#x1F4D6; 方以智《物理小識》《東西均》；Peterson, W.J. (1979), <em>Bitter Gourd: Fang I-chih and the Impetus for Intellectual Change</em>, Yale University Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>Two Drivers, One Child, and the Luck That Decides Who Is a Monster</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Two drivers are equally negligent &mdash; both glance at their phones for the same two seconds at the same speed. A child happens to step into one driver&rsquo;s path and not the other&rsquo;s. One becomes a killer; the other arrives home unaware anything happened. Before reading on: are they equally blameworthy, and does your answer survive contact with how we actually treat them?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Bernard Williams (威廉斯, 1929&ndash;2003) and Thomas Nagel (內格爾), who published companion papers on the topic in 1976.</p>
+        <p><strong>Problem at stake:</strong> Moral luck (道德運氣) &mdash; whether it is coherent to praise or blame people for outcomes substantially determined by factors outside their control.</p>
+        <p><strong>Rival view:</strong> Immanuel Kant&rsquo;s (康德) principle that moral worth lies in the will alone, so that luck should be entirely irrelevant to moral assessment.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Tintoretto_Allegory.jpg/330px-Tintoretto_Allegory.jpg" alt="An allegorical painting representing justice and virtue" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Moral luck asks whether praise and blame can be coherent when outcomes depend heavily on factors beyond anyone&rsquo;s control. Credit: <a href="https://en.wikipedia.org/wiki/Moral_luck" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Immanuel Kant (康德) held that the only thing good without qualification is a good will, and that moral worth therefore cannot depend on results the agent did not control. The principle has intuitive force: it seems unfair to judge someone for what luck did rather than what they chose. Yet in 1976, Bernard Williams (威廉斯) and Thomas Nagel (內格爾) independently argued that our actual moral practice contradicts this thoroughly, and that we cannot simply reform the practice without losing something we are not willing to give up.</p>
+      <p>Nagel distinguished several kinds of luck. Resultant luck concerns how actions turn out &mdash; the two negligent drivers, identical in choice, treated utterly differently in law and by themselves. Circumstantial luck concerns what situations you face: a person who lived quietly in 1930s Germany might, in another country, never have confronted a test they failed or passed. Constitutive luck concerns the temperament, capacities and dispositions you did not choose. Causal luck concerns whether your choices are themselves products of prior causes.</p>
+      <p>The unsettling conclusion is that once all four are subtracted, almost nothing remains to be judged &mdash; the &ldquo;pure will&rdquo; Kant wanted to isolate seems to shrink to a point. Williams pressed a different angle with his example of an artist who abandons his family to paint, arguing that whether the choice was justified may depend on whether the resulting work is good, which is not fully in his control. Neither philosopher proposed a solution. The problem is generally treated as a genuine paradox in ethics: our practices assume luck matters, our principles insist it must not, and no reconciliation commands agreement.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Moral_luck" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Strip away everything luck gave you &mdash; outcomes, circumstances, temperament, causes &mdash; and it becomes unclear what is left to praise or blame.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the four kinds of moral luck Nagel identified, and why does the problem threaten Kant&rsquo;s position specifically?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Resultant luck (how actions turn out), circumstantial luck (what situations you face), constitutive luck (your unchosen temperament and capacities), and causal luck (whether choices are themselves caused). Kant held moral worth lies in the will alone, but once all luck-dependent factors are excluded, almost nothing appears to remain for moral assessment.</div>
+      </details>
+      <div class="source">&#x1F4D6; Williams, B. (1981), &ldquo;Moral Luck,&rdquo; in <em>Moral Luck</em>, Cambridge University Press. Nagel, T. (1979), &ldquo;Moral Luck,&rdquo; in <em>Mortal Questions</em>.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Useless Option on the Menu That Exists to Change Your Mind</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A magazine offered three subscriptions: web only for $59, print only for $125, and print-and-web for $125. Almost nobody chooses print-only, which is obviously worse than print-and-web at the same price. Before reading on, why do you think a publisher would deliberately list an option nobody should ever pick?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Decoy_pricing.svg/960px-Decoy_pricing.svg.png" alt="Diagram illustrating decoy pricing" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The decoy effect: adding an option that is clearly worse than one existing choice shifts preferences toward that choice. Credit: <a href="https://en.wikipedia.org/wiki/Decoy_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Dan Ariely (艾瑞利) described testing exactly this pricing structure, drawn from a real <em>Economist</em> subscription page, with 100 MIT students. Offered all three options, 16 chose web-only at $59, nobody chose print-only at $125, and 84 chose the print-and-web bundle at $125. When he removed the apparently pointless print-only option and offered the same 100-student pool just the two remaining choices, the result inverted: 68 chose web-only and just 32 chose the bundle. The &ldquo;useless&rdquo; option had shifted a majority of the choices.</p>
+      <p>This is the decoy effect (誘餌效應), formally the asymmetric dominance effect, first documented by Joel Huber, John Payne and Christopher Puto in 1982. The mechanism turns on how people evaluate options: comparing web-only against print-and-web is genuinely difficult, since they differ on multiple dimensions with no obvious common scale. But comparing print-only against print-and-web is trivial &mdash; same price, strictly more product. The decoy manufactures an easy comparison that one real option decisively wins, and that visible victory transfers into overall preference.</p>
+      <p>The effect matters because it violates a basic assumption of rational choice theory (理性選擇理論) known as independence of irrelevant alternatives: adding a third option that nobody selects should not change the relative ranking of the first two. It reliably does. The practical defence is procedural rather than clever: before comparing options against each other, decide independently what you actually need &mdash; if you never wanted print, the bundle&rsquo;s dominance over print-only is information about nothing. Note that some replications find the effect weaker with real purchases and experienced buyers than in classic laboratory studies.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Decoy_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A decoy doesn&rsquo;t make an option better &mdash; it manufactures an easy comparison that option wins, and lets you mistake winning for wanting.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does adding a clearly inferior third option shift choices, and which principle of rational choice theory does this violate?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Comparing two genuinely different options is hard, but a decoy that is strictly worse than one of them creates an easy comparison that option decisively wins, and that visible victory transfers into overall preference. It violates independence of irrelevant alternatives, which holds that adding an unchosen option shouldn&rsquo;t change the ranking of the others.</div>
+      </details>
+      <div class="source">&#x1F4D6; Huber, J., Payne, J.W. &amp; Puto, C. (1982), <em>Journal of Consumer Research</em> 9(1). Ariely, D. (2008), <em>Predictably Irrational</em>, HarperCollins.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Chemical Weapon an Onion Only Builds After You Cut It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">An intact onion sitting on a counter does nothing to your eyes. Slice into it, and within seconds you are crying. The compound responsible does not exist in the onion beforehand &mdash; it is manufactured on the spot. Before reading on, why would a plant evolve to build a weapon only at the moment it is already being damaged?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Mixed_onions.jpg/330px-Mixed_onions.jpg" alt="Several varieties of onion" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Onions manufacture their tear-inducing compound only when cut, through a two-enzyme reaction released by ruptured cells. Credit: <a href="https://en.wikipedia.org/wiki/Onion" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>An intact onion (洋蔥) keeps its components carefully separated. Sulphur-containing amino acid derivatives sit in the cell cytoplasm, while the enzyme alliinase (蒜氨酸酶) is stored separately in vacuoles. Cutting ruptures the cells and mixes the two. Alliinase acts on the sulphur compounds to produce an unstable intermediate, and a second enzyme &mdash; lachrymatory factor synthase, identified by Japanese researchers at House Foods in 2002 &mdash; converts that intermediate into the volatile gas syn-propanethial-S-oxide (硫代丙醛-S-氧化物).</p>
+      <p>That gas rises and reaches the eye, where it dissolves in the tear film and forms small amounts of sulphuric acid (硫酸). This irritates free nerve endings of the cornea, which are supplied by the trigeminal nerve (三叉神經) &mdash; the same nerve involved in facial pain sensation. The brain receives a chemical-irritation signal and triggers the lacrimal glands (淚腺) to flood the eye with reflex tears to dilute and flush the irritant, which is why the response is involuntary and cannot be suppressed by willpower.</p>
+      <p>The two-stage design is the elegant part: manufacturing a volatile irritant on demand costs the plant nothing while intact and delivers a defence precisely when tissue is being damaged, targeting the herbivore in the act. Practically, this suggests what actually works. Chilling the onion slows the enzymatic reaction and reduces gas production; a sharp knife ruptures fewer cells than a dull one that crushes; cutting under running water or near an extractor carries the gas away; and since the gas is denser than air and rises slowly, keeping your face further back genuinely helps.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Onion" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The onion doesn&rsquo;t carry a weapon, it carries the two halves of one &mdash; and cutting it is what assembles them.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What has to happen inside an onion before the tear-inducing gas exists, and what does that gas do once it reaches your eye?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cutting ruptures cells, mixing sulphur compounds with the enzyme alliinase stored separately; a second enzyme, lachrymatory factor synthase, then converts the intermediate into volatile syn-propanethial-S-oxide. In the eye, the gas dissolves in the tear film forming small amounts of sulphuric acid, irritating corneal nerve endings and triggering reflex tears.</div>
+      </details>
+      <div class="source">&#x1F4D6; Imai, S. et al. (2002), &ldquo;An Onion Enzyme That Makes the Eyes Water,&rdquo; <em>Nature</em> 419(6908). Block, E. (2010), <em>Garlic and Other Alliums</em>, Royal Society of Chemistry.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Swallowed Gum Does Not Sit in Your Stomach for Seven Years</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Generations of children have been warned that swallowed chewing gum stays in the stomach for seven years because the body cannot digest it. The first half of that claim is essentially true &mdash; gum base really is largely indigestible. Before reading on, what do you think actually happens to it, and where does the specific number seven come from?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Chewing_gum_stick.jpg" alt="A stick of chewing gum" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Gum base is largely indigestible, but indigestible is not the same as immovable. Credit: <a href="https://en.wikipedia.org/wiki/Chewing_gum" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Modern chewing gum base is typically made of synthetic elastomers such as polyisobutylene, along with resins and waxes. Human digestive enzymes cannot break these down, so the claim that gum is indigestible is accurate. But the inference drawn from it &mdash; that indigestible therefore means stuck &mdash; does not follow. The gastrointestinal tract moves material along mechanically, by waves of smooth-muscle contraction called peristalsis (蠕動), and this process does not depend on whether a substance has been chemically broken down.</p>
+      <p>Plenty of other material passes through undigested for exactly this reason: insoluble fibre such as corn hulls, seeds, and small swallowed objects routinely traverse the tract intact. Swallowed gum behaves the same way, typically passing through and being excreted within a few days, on roughly the same timescale as ordinary food residue. There is no mechanism by which the stomach would selectively retain it while continuing to empty everything else, and no clinical evidence of gum persisting for years.</p>
+      <p>The seven-year figure appears to have no medical origin at all and functions as folklore &mdash; a memorable number attached to a plausible-sounding mechanism, likely propagated because it usefully discouraged children from swallowing gum. That said, the underlying caution is not entirely baseless. Case reports document rare bezoars &mdash; compacted masses causing intestinal obstruction &mdash; in young children who swallowed large quantities of gum repeatedly over a short period, notably a 1998 <em>Pediatrics</em> report by Milov and colleagues. The sensible reading is that occasional accidental swallowing is harmless, while habitual swallowing in small children is worth discouraging.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Chewing_gum" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Indigestible does not mean immovable &mdash; peristalsis moves things along mechanically whether or not your enzymes ever touched them.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why doesn&rsquo;t indigestible gum remain in the stomach, and what genuine risk does the folklore inadvertently point at?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The gut moves material mechanically by peristalsis, which doesn&rsquo;t depend on chemical digestion, so gum passes through within a few days like other indigestible material such as insoluble fibre. The genuine risk is rare bezoars &mdash; compacted obstructive masses &mdash; documented in young children who swallowed large amounts of gum repeatedly.</div>
+      </details>
+      <div class="source">&#x1F4D6; Milov, D.E., Andres, J.M. et al. (1998), &ldquo;Chewing Gum Bezoars of the Gastrointestinal Tract,&rdquo; <em>Pediatrics</em> 102(2).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Pairing Opposite Exercises to Cut Your Gym Time Roughly in Half</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A superset means performing two exercises back to back with little or no rest. Intuitively, doing more work with less rest should reduce performance on the second exercise. Before reading on, do you think pairing <em>opposing</em> muscle groups &mdash; chest and back, biceps and triceps &mdash; reduces performance the same way, or does something different happen?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Arnold_Schwarzenegger_1974.jpg" alt="Weight training in a gym" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Antagonist supersets pair opposing muscle groups, roughly halving session time with little performance cost. Credit: <a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Supersets come in distinct varieties that behave very differently, and conflating them is the source of most confusion. An agonist superset pairs two exercises for the same muscle &mdash; bench press followed immediately by dumbbell flyes &mdash; and reliably reduces performance on the second exercise, since the same tissue is already fatigued. An antagonist superset pairs opposing muscle groups, such as a pulling movement with a pushing one, so that while one muscle group works, its opposite is effectively resting.</p>
+      <p>Antagonist pairing appears to do more than merely save time. Robbins and colleagues, in work published around 2010 in the <em>Journal of Strength and Conditioning Research</em>, found that performing a set for an antagonist muscle before the target exercise could maintain or slightly improve subsequent performance compared with equivalent straight sets. One proposed mechanism involves reduced reciprocal inhibition &mdash; the nervous system&rsquo;s tendency to dampen activation of a muscle while its opposite contracts &mdash; along with possible elastic and neural potentiation effects, though the mechanisms remain debated.</p>
+      <p>The headline practical finding is time. Weakley et al. (2017) and related work report that antagonist supersets can reduce total session duration substantially &mdash; roughly by half in some protocols &mdash; while producing comparable strength and hypertrophy (肌肉肥大) outcomes to traditional straight sets. The cost is elevated cardiovascular demand and higher perceived exertion during the session, plus somewhat greater fatigue afterwards. They suit accessory and isolation work well; most guidance still recommends full rest between heavy compound lifts such as squats and deadlifts, where technique degradation under fatigue carries real injury risk.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Weight_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Pairing opposing muscles lets one rest while the other works &mdash; roughly the same results in roughly half the time, at the cost of feeling much harder.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the difference between agonist and antagonist supersets, and what is the main documented benefit of the antagonist version?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Agonist supersets pair two exercises for the same muscle and reduce performance on the second; antagonist supersets pair opposing muscle groups so one rests while the other works. The main documented benefit is substantially reduced session time &mdash; roughly half in some protocols &mdash; with comparable strength and hypertrophy outcomes.</div>
+      </details>
+      <div class="source">&#x1F4D6; Robbins, D.W. et al. (2010), <em>Journal of Strength and Conditioning Research</em> 24(10). Weakley, J.J.S. et al. (2017), <em>European Journal of Applied Physiology</em> 117(9).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Hedge That Grew Too Big to Hedge Anything</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2012, a trading desk at one of the world&rsquo;s most respected banks &mdash; a desk whose official purpose was reducing risk &mdash; lost more than $6 billion. Its positions had grown so large that other traders could identify them in market prices. Before reading on, how do you think a risk-reduction operation ends up producing one of the largest trading losses in banking history?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/270parkave_from_empirestate_03_14_2025_%28cropped%29.jpg/330px-270parkave_from_empirestate_03_14_2025_%28cropped%29.jpg" alt="JPMorgan Chase headquarters building in New York" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">JPMorgan Chase&rsquo;s Chief Investment Office lost over $6 billion in 2012 in what became known as the London Whale episode. Credit: <a href="https://en.wikipedia.org/wiki/2012_JPMorgan_Chase_trading_loss" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>JPMorgan Chase&rsquo;s (摩根大通) Chief Investment Office existed to manage the bank&rsquo;s excess deposits and hedge (對沖) firm-wide risks &mdash; a defensive function. Its London desk built enormous positions in credit default swaps (信貸違約掉期), instruments that pay out if a bond issuer defaults, tied to an index of corporate credit. Over time the book stopped resembling a hedge: rather than offsetting an existing exposure, it had become a large directional bet that corporate credit conditions would improve, funded by the bank&rsquo;s own balance sheet.</p>
+      <p>The position grew so large relative to the market that it distorted the index&rsquo;s pricing. Hedge funds on the other side noticed, nicknamed the unseen counterparty the &ldquo;London Whale&rdquo; &mdash; trader Bruno Iksil &mdash; and began trading against it, knowing the position was too big to exit quietly. This is the structural trap: a position large enough to move prices cannot be closed without moving prices against itself, so the only ways out are absorbing a large loss or adding to the position and hoping. The desk chose the second, and the losses compounded.</p>
+      <p>Internal risk controls failed in a specific, instructive way: the desk had adopted a new value-at-risk model that roughly halved reported risk, and a US Senate subcommittee later found the model contained spreadsheet errors, including a formula dividing by a sum rather than an average. CEO Jamie Dimon (戴蒙) initially dismissed press reports as a &ldquo;tempest in a teapot,&rdquo; a characterisation he later publicly retracted. Total losses exceeded $6 billion, the bank paid over $920 million in regulatory penalties, and the episode became a central argument in debates over the Volcker Rule (沃爾克規則) and how reliably a &ldquo;hedge&rdquo; can be distinguished from a bet.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/2012_JPMorgan_Chase_trading_loss" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Any position big enough to move the market is a position you cannot quietly leave &mdash; and a risk model that halves your reported risk deserves more scrutiny, not less.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why couldn&rsquo;t the London Whale position simply be closed once it started losing money, and what was found wrong with the desk&rsquo;s risk model?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The position was so large it distorted the index&rsquo;s pricing, so exiting would move prices against itself, and hedge funds who identified it traded against it deliberately. The desk&rsquo;s new value-at-risk model roughly halved reported risk and was later found by a Senate subcommittee to contain spreadsheet errors, including dividing by a sum rather than an average.</div>
+      </details>
+      <div class="source">&#x1F4D6; U.S. Senate Permanent Subcommittee on Investigations (2013), <em>JPMorgan Chase Whale Trades</em>. JPMorgan Chase Task Force Report (2013).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Starting Late Sometimes Beats Starting Early</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Maddison_GDP_per_capita_1500-1950.svg/960px-Maddison_GDP_per_capita_1500-1950.svg.png" alt="Chart of GDP per capita across countries, 1500-1950" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Long-run GDP per capita across countries. Gerschenkron argued late industrialisers follow structurally different paths, not delayed copies of the British one. Credit: <a href="https://en.wikipedia.org/wiki/Economic_history" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Germany industrialised in the late nineteenth century through large universal banks financing heavy industry; Russia did so through direct state mobilisation; Japan through state-sponsored zaibatsu conglomerates &mdash; none reproducing Britain&rsquo;s path of gradual, textile-led growth financed by retained earnings and small private capital.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Alexander Gerschenkron (格申克龍) argued in <em>Economic Backwardness in Historical Perspective</em> (1962) that the more backward an economy at the point it begins industrialising, the more its industrialisation will rely on substitute institutions &mdash; banks, then the state &mdash; standing in for absent private capital and entrepreneurship, and the more it will start in heavy industry at large scale.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Conventional stage models, including Rostow&rsquo;s take-off framework, treat development as a common sequence all countries traverse. Gerschenkron&rsquo;s cases show relative backwardness itself changes the sequence &mdash; latecomers can skip intermediate technologies and adopt the current frontier directly, an &ldquo;advantage of backwardness&rdquo; that early starters, locked into sunk infrastructure, cannot access.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Later scholarship questions how well the framework generalises: Sylla and Toniolo&rsquo;s edited reassessments find the bank-substitution mechanism fits Germany better than it fits Italy or Russia, and Acemoglu-style institutional accounts argue prior property-rights institutions predict outcomes better than backwardness alone. Whether &ldquo;advantages of backwardness&rdquo; are reliably available or contingent on specific state capacity remains open.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Being behind is not simply being early-but-later &mdash; it changes which institutions do the work, and occasionally lets you skip a generation of infrastructure entirely.</div>
+      <div class="source">&#x1F4D6; Gerschenkron, A. (1962), <em>Economic Backwardness in Historical Perspective</em>, Harvard University Press. Sylla, R. &amp; Toniolo, G. (eds.) (1991), <em>Patterns of European Industrialization</em>. Distinct from Card 10&rsquo;s domain (bank risk management).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 10 &mdash; The Victory and the Hedge That Both Destroyed Their Owners:</strong> The Kamakura shogunate won both Mongol invasions and was fatally weakened by winning, because its entire legitimacy rested on rewarding vassals with conquered land, and a successful defence produces no land. JPMorgan&rsquo;s Chief Investment Office was designed to reduce risk and produced a $6 billion loss, because a hedge that grows large enough to move the market has quietly become the exposure it was meant to offset.</p>
+      <p><strong>So what:</strong> Institutions are usually destroyed not by failing at their stated purpose but by succeeding at it in a form the underlying structure cannot absorb &mdash; so when something is working, it is worth asking what the structure needs the win to look like.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Hoag, A.A. (1950), <em>Astronomical Journal</em> 55. Finkelman, I. et al. (2011), <em>MNRAS</em>. NASA/ESA Hubble.</li>
+      <li><strong>Card 2:</strong> 《蒙古襲來繪詞》；《八幡愚童訓》；Conlan, T.D. (2001), <em>In Little Need of Divine Intervention</em>.</li>
+      <li><strong>Card 3:</strong> Simkin, T. &amp; Fiske, R.S. (1983), <em>Krakatau 1883</em>, Smithsonian. Winchester, S. (2003), <em>Krakatoa</em>.</li>
+      <li><strong>Card 4:</strong> 方以智《物理小識》《東西均》；Peterson, W.J. (1979), <em>Bitter Gourd</em>, Yale University Press.</li>
+      <li><strong>Card 5:</strong> Williams, B. (1981), <em>Moral Luck</em>, Cambridge University Press. Nagel, T. (1979), <em>Mortal Questions</em>.</li>
+      <li><strong>Card 6:</strong> Huber, Payne &amp; Puto (1982), <em>Journal of Consumer Research</em> 9(1). Ariely, D. (2008), <em>Predictably Irrational</em>.</li>
+      <li><strong>Card 7:</strong> Imai, S. et al. (2002), <em>Nature</em> 419(6908). Block, E. (2010), <em>Garlic and Other Alliums</em>, RSC.</li>
+      <li><strong>Card 8:</strong> Milov, D.E., Andres, J.M. et al. (1998), <em>Pediatrics</em> 102(2).</li>
+      <li><strong>Card 9:</strong> Robbins, D.W. et al. (2010), <em>JSCR</em> 24(10). Weakley, J.J.S. et al. (2017), <em>EJAP</em> 117(9).</li>
+      <li><strong>Card 10:</strong> U.S. Senate Permanent Subcommittee on Investigations (2013). JPMorgan Chase Task Force Report (2013).</li>
+      <li><strong>Card 11:</strong> Gerschenkron, A. (1962). Sylla, R. &amp; Toniolo, G. (eds.) (1991), <em>Patterns of European Industrialization</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-20: Hoag&rsquo;s Object &bull; 元寇（文永・弘安之役）與鎌倉幕府衰亡 &bull; The 1883 Eruption of Krakatoa &bull; 方以智「質測」與「通幾」 &bull; Moral Luck (Williams &amp; Nagel) &bull; The Decoy Effect &bull; Why Onions Make You Cry &bull; The Swallowed-Gum Myth &bull; Antagonist Supersets &bull; The London Whale &bull; Gerschenkron on Economic Backwardness</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-20.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-20.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 20 August 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
