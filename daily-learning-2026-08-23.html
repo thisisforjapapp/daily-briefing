@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 23 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 23 August 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>22 August 2026 (Edition 2)</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Voyager 1&#x2019;s Pale Blue Dot</span>Voyager 1&#x2019;s 1990 photo, urged by Carl Sagan, captured Earth as under a single pixel from 6 billion km away.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 靖難之役</span>燕王朱棣以「清君側」起兵，三年後攻陷南京，奪得帝位。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Christmas Truce of 1914</span>Enemy soldiers spontaneously sang carols, shared gifts, and played football across no man&#x2019;s land on Christmas Eve.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 荀子「性惡論」</span>荀子主張人性本惡，唯靠禮義教化方能成聖。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Rawls&#x2019;s Veil of Ignorance</span>Rawls argued fair social rules should be chosen without knowing your own future place in society.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Paradox of Choice</span>A 24-jam tasting table drew more browsers, but a 6-jam table sold roughly ten times more jars.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Contagious Yawning</span>Seeing others yawn triggers your own via mirror neurons and brain regions tied to empathy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Beta-Carotene Trial Paradox</span>Beta-carotene pills were expected to prevent lung cancer in smokers but measurably raised the risk instead.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Foam Rolling</span>Foam rolling doesn&#x2019;t break up fascia; benefits likely come from dulled nerve pain signals, not tissue change.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The South Sea Bubble (1720)</span>A dubious debt-conversion scheme sent shares tenfold higher before collapsing &mdash; even fooling Isaac Newton.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Phillips Curve Breakdown</span>1970s stagflation broke the assumed inflation-unemployment trade-off, vindicating Friedman&#x2019;s prior prediction.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Deepest Photo of the Universe Was Unveiled a Day Early</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 11 July 2022, the White House held a special preview event for a single photograph, a day ahead of its official scheduled release &mdash; an image that took only about 12.5 hours to capture, yet astronomers called it the deepest, most detailed view of the universe ever taken. Before reading on, what do you think made this particular patch of seemingly empty sky worth unveiling early?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Webb%27s_First_Deep_Field.jpg/3840px-Webb%27s_First_Deep_Field.jpg" alt="Webb's First Deep Field, showing galaxy cluster SMACS 0723 surrounded by thousands of distant galaxies" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Webb&#x2019;s First Deep Field, released 11&ndash;12 July 2022: galaxy cluster SMACS 0723 surrounded by thousands of background galaxies, some lensed into faint arcs. Credit: <a href="https://en.wikipedia.org/wiki/Webb%27s_First_Deep_Field" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 11 July 2022, US President Joe Biden unveiled a single photograph at the White House, a day ahead of its official scheduled release by NASA, ESA and the Canadian Space Agency (加拿大太空局). The image, formally named Webb&#x2019;s First Deep Field, showed galaxy cluster SMACS 0723 (SMACS 0723星系團), roughly 4.6 billion light-years away, captured by the James Webb Space Telescope&#x2019;s (詹姆斯&middot;韋伯太空望遠鏡) NIRCam instrument. What made the early unveiling remarkable was less the cluster itself than what surrounded it: thousands of galaxies packed into a patch of sky roughly the size of a grain of sand held at arm&#x2019;s length.</p>
+      <p>The cluster&#x2019;s own mass acts as a gravitational lens (重力透鏡), bending and magnifying light from galaxies far behind it that would otherwise be too faint and distant to see at all. Some of the faint reddish arcs and smudges in the image are galaxies whose light has taken over 13 billion years to reach Earth, appearing as they existed when the universe was only a few percent of its current age. Nothing in the frame was truly empty; every point of light, however faint, was another galaxy, each containing billions of stars of its own.</p>
+      <p>What stunned astronomers most was how quickly the image was made: just 12.5 hours of combined exposure time, compared to the roughly two weeks the Hubble Space Telescope (哈勃太空望遠鏡) needed for its comparably deep fields in the 1990s and 2000s. Webb&#x2019;s larger mirror and infrared sensitivity let it gather fainter, more distant, more reddened light far faster than its predecessor, previewing the pace at which the new telescope would go on to reshape astronomers&#x2019; picture of the early universe (早期宇宙) in the years that followed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Webb%27s_First_Deep_Field" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Every point of light in that seemingly empty patch of sky was an entire galaxy &mdash; nothing in the frame was actually empty.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made Webb&#x2019;s First Deep Field possible to capture in just 12.5 hours, and what optical effect let it reveal galaxies over 13 billion light-years away?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Webb&#x2019;s larger mirror and infrared sensitivity let it gather faint, distant light far faster than Hubble could. Gravitational lensing from the foreground cluster SMACS 0723 bent and magnified light from much more distant background galaxies, making some of the oldest, faintest galaxies visible at all.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA James Webb Space Telescope mission archives, 11&ndash;12 July 2022 release.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>永嘉之亂&mdash;&mdash;西晉為何在統一天下短短三十餘年後就走向覆亡？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">西晉統一三國僅三十餘年，皇室內部卻爆發長達十六年的骨肉相殘，中央軍力耗盡之際，北方一支胡族騎兵直逼京城洛陽。你認為，這場動亂最終如何演變成中原政權首次全面南遷、東亞歷史格局徹底改寫的轉捩點？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>晉懷帝司馬熾（西晉皇帝）；劉淵、劉聰（匈奴貴族，漢趙政權開國者與繼承者）；王衍（西晉重臣，清談領袖）。</p>
+        <p><strong>事件：</strong>311年（永嘉五年），劉聰遣石勒、劉曜等攻陷西晉京城洛陽，晉懷帝被俘，公卿士民死者數萬，史稱「永嘉之亂」。</p>
+        <p><strong>時代背景：</strong>西晉統一僅三十餘年，宗室諸王為爭奪權力爆發長達十六年的「八王之亂」，中央軍力耗盡，北方胡族乘虛而起，西晉由盛轉衰，終至滅亡。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Harvard_drs_49802792_%E7%B9%A1%E5%83%8F%E4%B8%89%E5%9C%8B%E6%BC%94%E7%BE%A9%E7%BA%8C%E7%B7%A8_v.1_%28%E6%99%89%E6%87%B7%E5%B8%9D%29.jpg" alt="清代刻本描繪晉懷帝的插圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">清代刻本插圖中的晉懷帝司馬熾，311年洛陽城破後被俘北遷，兩年後遇害。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Huai_of_Jin" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>西晉統一三國未滿四十年，惠帝司馬衷昏庸無能，皇后賈南風擅權亂政，引發宗室諸王爭奪輔政大權，自291年起爆發長達十六年的「八王之亂」。諸王互相攻伐，甚至勾結內遷的匈奴、鮮卑等胡族兵馬助戰，中央禁軍與地方精銳在內鬥中損耗殆盡，北方經濟殘破，流民四起。匈奴貴族劉淵早年曾在洛陽為質，深諳中原政治，見西晉國力衰竭，於304年自立為漢王，建立漢趙政權，公然打出「復漢」旗號，實則趁勢崛起，成為壓垮西晉的外部力量。</p>
+      <p>劉淵死後，其子劉聰繼位，遣部將石勒、王彌等南下侵擾，劉淵姪兒劉曜亦率軍會攻洛陽。311年（永嘉五年），洛陽城破，晉軍潰敗，公卿百官與城中軍民死者數以萬計，皇宮府庫遭焚掠一空，晉懷帝司馬熾被俘北遷平陽，兩年後遇害。素以清談聞名、官至太尉的重臣王衍，兵敗被俘後仍試圖以「少不豫事」為己開脫，反遭石勒斥責誤國，命人推倒牆垣將其壓死，成為西晉清談誤國最著名的反面例證。</p>
+      <p>永嘉之亂後，中原世族與百姓為避戰禍大舉南遷，史稱「衣冠南渡」，數十萬人渡江南下，成為東亞歷史上首次大規模的政治與人口重心南移。317年，晉室宗親司馬睿在南方士族擁戴下於建康（今南京）稱帝，建立東晉，中原則陷入「五胡十六國」長期分裂割據的局面。這場動亂不僅終結了西晉的統一局面，更徹底改寫其後近三百年中國南北分治的歷史走向，直至589年隋朝重新統一為止。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Disaster_of_Yongjia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場歷時十六年的皇室內鬥，最終讓外族騎兵不費太大氣力就攻陷了京城&mdash;&mdash;內耗往往比外敵更致命。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 永嘉之亂如何導致西晉滅亡？其後又引發了甚麼歷史性的人口與政治變化？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">西晉因八王之亂耗盡國力，匈奴劉淵、劉聰父子乘勢崛起，311年攻陷洛陽、俘殺晉懷帝，史稱永嘉之亂。此後中原世族大舉南遷（衣冠南渡），317年東晉於建康建立，中原則陷入五胡十六國分裂局面。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《晉書&middot;孝懷帝紀》；《資治通鑑&middot;晉紀》；田余慶《東晉門閥政治》，北京大學出版社。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Pandemic That Killed More People Than the War It Overlapped With</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">By the time the influenza pandemic of 1918 finally burned out, it had killed more people worldwide than the First World War it overlapped with &mdash; yet its most common nickname points to a country that many historians agree probably wasn&#x2019;t where it started. Before reading on, why do you think it got that name anyway?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> no single leader directed the pandemic response; front-line doctors and nurses worldwide, and virologist Jeffery Taubenberger (陶本伯格), who reconstructed the virus&#x2019;s genome decades later.</p>
+        <p><strong>Event at stake:</strong> the 1918 influenza pandemic (1918年流感大流行), which killed an estimated 50 to 100 million people worldwide in under two years.</p>
+        <p><strong>Big picture:</strong> the First World War (第一次世界大戰) was still raging, and wartime press censorship in combatant nations suppressed early reports of the outbreak, while neutral Spain (西班牙) reported it freely &mdash; accidentally giving the pandemic its misleading name.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Emergency_hospital_during_Influenza_epidemic%2C_Camp_Funston%2C_Kansas_-_NCP_1603.jpg/3840px-Emergency_hospital_during_Influenza_epidemic%2C_Camp_Funston%2C_Kansas_-_NCP_1603.jpg" alt="Emergency hospital ward filled with rows of beds treating influenza patients at Camp Funston, Kansas, 1918" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An emergency ward at Camp Funston, Kansas, 1918, treating soldiers during the influenza pandemic. Some researchers consider this Kansas camp a leading candidate for where the outbreak began. Credit: <a href="https://en.wikipedia.org/wiki/Spanish_flu" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When an unusually severe strain of influenza (流感) began spreading through military camps and cities in early 1918, the warring nations of the First World War &mdash; Britain, France, Germany, the United States &mdash; suppressed news of it under wartime censorship, unwilling to broadcast anything that could damage morale or reveal troop weakness to the enemy. Spain (西班牙) had stayed neutral and had no such press restrictions, so when the flu reached Madrid that spring and infected the king, Spanish newspapers reported it openly. The rest of the world, reading only the uncensored Spanish coverage, wrongly concluded the outbreak was a Spanish problem and named it accordingly &mdash; Spain itself, confused by the attention, nicknamed it the &ldquo;French flu.&rdquo;</p>
+      <p>The pandemic arrived in three distinct waves between spring 1918 and early 1919, with the second wave that autumn by far the deadliest, and one of its most disturbing features was an unusual mortality pattern: alongside the elderly and very young typically hit hardest by flu, this strain also killed unusually large numbers of otherwise healthy adults aged 20 to 40. One leading explanation is a cytokine storm (細胞因子風暴) &mdash; an overwhelming immune overreaction more likely in people with strong immune systems &mdash; which may help explain why young soldiers packed into crowded, war-disrupted troop camps and transport ships proved especially vulnerable, accelerating spread along military supply lines.</p>
+      <p>Estimates of the global death toll range from roughly 50 to 100 million people, likely exceeding the approximately 17 million killed by the war it overlapped with, though patchy record-keeping in many regions makes the true number uncertain. In 2005, virologist Jeffery Taubenberger&#x2019;s team reconstructed the complete genome of the virus using preserved lung tissue from a victim buried in Alaskan permafrost (阿拉斯加永凍土), identifying it as an H1N1 strain of avian origin and finally allowing researchers to study, nearly a century later, exactly what had made this particular flu so lethal.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Spanish_flu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The &ldquo;Spanish flu&rdquo; was named after the one country honest enough to report it, not the country where it began.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the 1918 pandemic become known as the &ldquo;Spanish flu,&rdquo; and what made its mortality pattern unusual compared to typical influenza?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Wartime censorship suppressed flu coverage in combatant nations, while neutral Spain reported it openly, so the world wrongly assumed it started there. Unlike typical flu, it killed unusually large numbers of healthy adults aged 20&ndash;40, likely due to a cytokine storm &mdash; an immune overreaction more common in strong immune systems.</div>
+      </details>
+      <div class="source">&#x1F4D6; Taubenberger, J.K. &amp; Morens, D.M. (2006), &ldquo;1918 Influenza: The Mother of All Pandemics,&rdquo; <em>Emerging Infectious Diseases</em> 12(1). CDC 1918 Pandemic Influenza Historic Timeline.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>何心隱&mdash;&mdash;他為何甘願因反對禁毀書院而瘐死獄中？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明代泰州學派本已主張「百姓日用即道」，肯定凡夫俗子皆可成聖，但其中一位傳人卻更進一步，公然主張人的情慾本身並非罪惡，更身體力行創辦公有共居的組織實踐理想社會。你認為，這樣一位敢於挑戰主流禮教的思想家，最終為何死於獄中？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>何心隱（原名梁汝元，1517&ndash;1579，江西吉安人，泰州學派傳人，師事顏鈞）；張居正（萬曆朝內閣首輔，下令禁毀天下書院）。</p>
+        <p><strong>核心主張：</strong>反對「存天理，滅人欲」，主張人的情慾與物質需求本屬合理，應當「育欲」而非壓抑；並身體力行創辦「聚和堂」，以宗族公產共同生活實踐儒家理想社會。</p>
+        <p><strong>時代背景：</strong>明代中後期泰州學派興起，講學結社風氣盛行；張居正當國推行嚴厲的中央集權改革，視地方書院為異議溫床，1579年下令禁毀天下書院，何心隱因奔走反對而遭通緝下獄。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/%E5%BC%B5%E5%B1%85%E6%AD%A3-%E6%B8%85%E6%99%B0%E7%89%88.jpeg" alt="清代刻本張居正畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">清代刻本中的張居正畫像。這位萬曆朝內閣首輔於1579年下令禁毀天下書院，直接導致何心隱被通緝下獄。來源：<a href="https://en.wikipedia.org/wiki/Zhang_Juzheng" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>何心隱原名梁汝元，江西吉安永豐人，早年師事顏鈞（王艮再傳弟子，泰州學派中人），深受「百姓日用即道」思想薰陶，但比其師更進一步：他公然反對程朱理學「存天理，滅人欲」之說，主張人的情慾與物質需求本屬天性，不應壓抑禁絕，而應加以疏導滿足，稱之為「育欲」而非「寡欲」。這種正面肯定人欲的立場，在當時以理學為官方正統的思想界，可謂石破天驚。</p>
+      <p>何心隱不僅坐而論道，更身體力行：他在家鄉創辦「聚和堂」，將族人聚居一處，統一收支、共同耕作、合力教育子弟，嘗試以宗族公產制度實踐儒家「大同」理想中的共同生活。他又因不滿地方官吏苛捐雜稅，率眾抗糧，屢屢與官府衝突，早已為當道所忌。萬曆年間，內閣首輔張居正推行嚴厲的中央集權改革，視地方書院講學結社為滋生異議、動搖政令之溫床，於1579年下令拆毀天下書院。</p>
+      <p>何心隱四處奔走聯絡士人，公開反對張居正禁毀書院之政，觸怒當道，遭到通緝追捕，最終在湖廣被捕入獄，瘐死獄中（一說遭杖殺），死時年僅六十三歲。後世黃宗羲《明儒學案》將其列入泰州學派，評其「赤身擔當，無有放下時節」；同時代思想家李贄亦極為推崇，稱其為「英雄漢子」。何心隱一生敢於挑戰主流禮教與政治強權，最終以身殉道，成為晚明思想解放浪潮中最具悲劇色彩的人物之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/He_Xinyin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 何心隱肯定的不是放縱，而是承認慾望本身並非罪惡&mdash;&mdash;這個立場，最終要他付上生命的代價。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 何心隱與傳統理學「存天理滅人欲」的主張有何根本分歧？他最終因何事而入獄？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">何心隱主張人的情慾本屬合理天性，應當疏導滿足（育欲），而非壓抑禁絕，與理學「滅人欲」之說根本對立。他因公開反對張居正禁毀天下書院之政令，遭通緝追捕，最終瘐死獄中。</div>
+      </details>
+      <div class="source">&#x1F4D6; 黃宗羲《明儒學案&middot;泰州學案》；容肇祖《何心隱集》，中華書局；de Bary, W.T., <em>Self and Society in Ming Thought</em>, Columbia University Press。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Invented a Literary Form Just to Ask &ldquo;What Do I Know?&rdquo;</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the late 16th century, a French nobleman retired from public life at 38 and shut himself in a tower library, eventually having a motto engraved that essentially asked, &ldquo;What do I actually know?&rdquo; Before reading on, why do you think retreating into doubt, rather than certainty, made him one of the most influential thinkers of his era?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Michel de Montaigne (米歇爾&middot;德&middot;蒙田, 1533&ndash;1592), French nobleman, magistrate and mayor of Bordeaux (波爾多).</p>
+        <p><strong>Problem at stake:</strong> how to live and think honestly in an age of dogmatic religious certainty, given how little any individual can truly claim to know.</p>
+        <p><strong>Moment:</strong> France&#x2019;s Wars of Religion (法國宗教戰爭) between Catholics and Huguenots were tearing the country apart, and Montaigne had just lost his closest friend, &Eacute;tienne de La Bo&eacute;tie (艾蒂安&middot;德拉博埃西), when he withdrew from public life in 1571 at age 38.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Portrait_of_Michel_de_Montaigne%2C_circa_unknown.jpg" alt="Portrait of Michel de Montaigne" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Michel de Montaigne, whose tower-library retreat in 1571 produced the essay as a literary form. Credit: <a href="https://en.wikipedia.org/wiki/Michel_de_Montaigne" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Michel de Montaigne (米歇爾&middot;德&middot;蒙田) was a nobleman, magistrate and later mayor of Bordeaux (波爾多) in southwestern France, but at 38, following the death of his closest friend &Eacute;tienne de La Bo&eacute;tie and the deaths of several of his own children, he withdrew from public life to a round tower library in his family ch&acirc;teau. There, beginning around 1571, he began writing short, wandering pieces he called &ldquo;essais&rdquo; &mdash; literally &ldquo;attempts&rdquo; or &ldquo;trials&rdquo; in French &mdash; a term that gave the modern essay (隨筆) its name and its exploratory spirit, since Montaigne treated each piece as a genuine attempt to test out an idea rather than a finished argument.</p>
+      <p>What made Montaigne&#x2019;s project radical was its subject: himself. He wrote candidly about his kidney stones, his habits, his fear of death, and his changing opinions, treating his own irregular, contradictory mind as a legitimate object of philosophical study, on the premise that an honest examination of one particular human life could reveal something universal about human nature. He had a medal struck with the motto &ldquo;Que sçay-je?&rdquo; &mdash; &ldquo;What do I know?&rdquo; &mdash; expressing a skeptical humility drawn partly from ancient Pyrrhonism (皮浪懷疑論), the school of thought holding that certainty is rarely available and that suspending judgment is often the wiser, calmer path.</p>
+      <p>This scepticism let Montaigne take positions strikingly ahead of his time: in his essay &ldquo;Of Cannibals,&rdquo; he argued that Europeans calling indigenous American peoples &ldquo;barbarians&rdquo; (野蠻人) said more about European self-satisfaction than about any real moral inferiority elsewhere, since every culture judges others by the arbitrary customs it happens to have grown up with. His conversational, digressive style and willingness to say &ldquo;I don&#x2019;t know&rdquo; directly influenced later thinkers including Descartes (笛卡兒), Blaise Pascal (帕斯卡), and Ralph Waldo Emerson, and the essay form he invented remains one of the most widely used ways of thinking in writing today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Michel_de_Montaigne" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Montaigne&#x2019;s radical idea wasn&#x2019;t a new answer &mdash; it was making &ldquo;I&#x2019;m not sure&rdquo; a legitimate philosophical position.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What literary form did Montaigne invent, and what was distinctive about how he used his own life as its subject matter?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Montaigne invented the essay (&ldquo;essai,&rdquo; meaning &ldquo;attempt&rdquo;), using short, exploratory pieces to test out ideas rather than argue fixed conclusions. He made himself &mdash; his habits, fears and changing opinions &mdash; his central subject, on the premise that honest self-examination could reveal something universal about human nature.</div>
+      </details>
+      <div class="source">&#x1F4D6; Montaigne, M. de (1580&ndash;1595), <em>Essais</em>. Bakewell, S. (2010), <em>How to Live: A Life of Montaigne</em>, Other Press.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Line-Judging Test Where People Chose the Group Over Their Own Eyes</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine sitting in a room with seven other people, shown a reference line and three comparison lines, and asked which one matches &mdash; a task so easy that alone, people get it right over 99% of the time. Now imagine everyone else in the room, who you don&#x2019;t know are secretly part of the experiment, confidently gives the same wrong answer before your turn. Before reading on, what do you think you&#x2019;d do?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/8d/Solomon_Asch.jpg" alt="Photograph of psychologist Solomon Asch" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Solomon Asch, whose 1951 line-judgment experiments became one of psychology&#x2019;s best-known studies of conformity. Credit: <a href="https://en.wikipedia.org/wiki/Asch_conformity_experiments" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1951, psychologist Solomon Asch (所羅門&middot;阿希) at Swarthmore College (斯沃斯莫爾學院) designed a deceptively simple experiment: a group of students, most secretly working for Asch, sat together and were shown a reference line, then three comparison lines, one of which obviously matched the reference &mdash; a task easy enough that people tested alone got it right more than 99% of the time. The one real participant in each group always answered last or near-last, after hearing every confederate (實驗同謀) confidently state the same, sometimes obviously wrong, answer.</p>
+      <p>Across many trials, roughly 75% of genuine participants conformed to the group&#x2019;s incorrect answer at least once, and on the specific trials where confederates gave a wrong answer, about 37% of individual responses matched the group&#x2019;s error rather than the participant&#x2019;s own eyes. In follow-up interviews, some participants said they had genuinely started doubting their own perception, but many admitted they saw the correct answer clearly and conformed anyway, simply to avoid the discomfort of visibly standing out from the group.</p>
+      <p>One variation proved especially powerful: adding just a single confederate who broke ranks and gave the correct answer sharply reduced conformity, even though the participant was still outnumbered by the group giving wrong answers &mdash; suggesting people conform less to avoid being wrong than to avoid being alone in disagreement. Later cross-cultural replications, summarised in Bond and Smith&#x2019;s 1996 meta-analysis (元分析), found conformity rates run higher in more collectivist cultures, showing the effect&#x2019;s strength is shaped by how a society weighs group harmony against individual judgment.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Asch_conformity_experiments" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; People didn&#x2019;t conform because they lost trust in their eyes &mdash; most conformed because they didn&#x2019;t want to be the only one disagreeing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In Asch&#x2019;s experiment, what fraction of individual responses matched an obviously wrong group answer, and what single change sharply reduced conformity?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">About 37% of individual responses matched the group&#x2019;s wrong answer on critical trials, and roughly 75% of participants conformed at least once across the study. Adding just one confederate who broke ranks and gave the correct answer sharply reduced conformity, even though the participant remained outnumbered.</div>
+      </details>
+      <div class="source">&#x1F4D6; Asch, S.E. (1951), &ldquo;Effects of Group Pressure upon the Modification and Distortion of Judgments,&rdquo; in <em>Groups, Leadership and Men</em>. Bond, R. &amp; Smith, P.B. (1996), <em>Psychological Bulletin</em> 119(1).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>How a Mirror Convinced the Brain a Missing Hand Was Still There</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many people who lose an arm or leg continue to feel the missing limb vividly &mdash; sometimes trapped in a painful clenched position they cannot consciously release. Before reading on, how do you think a simple mirror, reflecting the person&#x2019;s intact limb, could possibly help relieve pain in a limb that no longer exists?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/35/US_Navy_110613-N-YM336-079_Lynn_Boulanger%2C_an_occupational_therapy_assistant_and_certified_hand_therapist%2C_uses_mirror_therapy_to_help_address_phan.jpg" alt="An occupational therapist uses a mirror box to treat a patient's phantom limb pain" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A therapist uses mirror therapy, in which the reflection of an intact limb creates the visual illusion that a missing limb is present and moving. Credit: <a href="https://en.wikipedia.org/wiki/Phantom_limb" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Many people who lose an arm or leg continue to feel the missing limb as though it were still attached, a phenomenon called phantom limb (幻肢), and for a significant number of amputees that phantom sensation includes genuine, sometimes severe pain. One especially distressing pattern involves a phantom hand that feels permanently clenched into a painful fist the person cannot consciously relax, even though there is no longer any hand, muscle, or nerve signal actually there to control.</p>
+      <p>Neuroscientist V.S. Ramachandran (拉馬錢德蘭) proposed that the sensation stems from cortical remapping (皮質重組) in the brain&#x2019;s somatosensory cortex (體感皮質), the strip of tissue that maps sensation across the body. When a limb&#x2019;s nerve input disappears, the brain region that once represented it doesn&#x2019;t go silent &mdash; it gets gradually invaded by signals from neighbouring body-map regions, such as the face, so that touching the cheek can trigger a sensation felt as coming from the missing hand, and a &ldquo;stuck&rdquo; motor command with no limb to execute it can register as a constant painful clench.</p>
+      <p>In the 1990s, Ramachandran built a simple mirror box (鏡箱): the patient places their intact hand inside, positioned so its mirror reflection appears to occupy the space where the missing hand would be, creating a convincing visual illusion that the phantom limb is present and moving. When patients then attempt to &ldquo;move&rdquo; the phantom while watching the mirrored reflection, many report the visual feedback lets the brain finally perceive the clenched phantom fist opening, easing pain in some cases within minutes &mdash; a low-cost therapy built directly from a theory about how the brain&#x2019;s body map can misfire.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Phantom_limb" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The pain wasn&#x2019;t coming from a hand that no longer existed &mdash; it was coming from a brain map that hadn&#x2019;t updated. Tricking the map with a mirror sometimes fixed it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does cortical remapping propose explains phantom limb sensations, and how does mirror therapy attempt to relieve phantom limb pain?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cortical remapping proposes that after a limb is lost, neighbouring body-map regions like the face gradually invade the somatosensory cortex area that once represented it, causing misattributed or &ldquo;stuck&rdquo; sensations. Mirror therapy uses a mirror reflection of the intact limb to visually trick the brain into perceiving the phantom limb moving or relaxing, sometimes easing pain.</div>
+      </details>
+      <div class="source">&#x1F4D6; Ramachandran, V.S. &amp; Rogers-Ramachandran, D. (1996), &ldquo;Synaesthesia in Phantom Limbs Induced with Mirrors,&rdquo; <em>Proceedings of the Royal Society B</em>. Ramachandran, V.S. (1998), <em>Phantoms in the Brain</em>.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Diet Villain a Cherry-Picked Study Helped Crown</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, one scientist&#x2019;s research linking a specific dietary fat to heart disease reshaped what an entire generation of Western households believed was healthy eating. Before reading on, what do you think happens when later researchers go back and check whether the original data actually supported that conclusion as firmly as everyone assumed?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/8/88/Ancel-Keys.jpg" alt="Photograph of physiologist Ancel Keys" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ancel Keys, whose Seven Countries Study shaped decades of dietary guidance on saturated fat. Credit: <a href="https://en.wikipedia.org/wiki/Ancel_Keys" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>From the 1950s onward, physiologist Ancel Keys (安塞爾&middot;基斯) championed the diet-heart hypothesis (飲食&ndash;心臟假說): that dietary saturated fat (飽和脂肪) raises blood cholesterol and directly drives coronary heart disease (冠心病). His Seven Countries Study, launched in 1958, tracked diet and heart disease across roughly 12,000 men in Finland, Greece, Italy, Japan, the Netherlands, the United States and Yugoslavia, finding a striking correlation between average saturated fat intake and heart disease death rates. The finding was enormously influential, shaping US dietary guidelines from the 1970s onward and pushing food manufacturers toward low-fat, often trans-fat-heavy processed alternatives.</p>
+      <p>Critics later pointed out that Keys had data available from 22 countries when he selected the seven for his headline analysis, and when researchers eventually examined the fuller dataset, the tight correlation weakened considerably &mdash; countries like France and West Germany, with relatively high saturated fat intake but comparatively low heart disease rates, sat awkwardly outside the pattern. This doesn&#x2019;t mean Keys fabricated anything, but it illustrates how an influential finding built on a curated subset of available data can look far more conclusive than the full picture supports.</p>
+      <p>Large modern meta-analyses, including Siri-Tarino et al. (2010) and Chowdhury et al. (2014) in the <em>Annals of Internal Medicine</em> (內科學年鑑), have found no statistically significant association between total saturated fat intake and coronary heart disease risk across dozens of pooled studies, reopening a debate many assumed settled. Later work suggests what saturated fat is replaced with matters more than removing it alone: swapping it for refined carbohydrates shows no cardiovascular benefit, while swapping it for polyunsaturated fat shows a modest one &mdash; a more nuanced answer than the &ldquo;saturated fat is the villain&rdquo; story that shaped decades of dietary advice.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ancel_Keys" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A landmark study that shaped what an entire generation ate was built on 7 of the 22 countries with usable data &mdash; the full picture told a messier story.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did later meta-analyses find when they re-examined the link between saturated fat intake and heart disease risk, and what factor turned out to matter more than saturated fat alone?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Large meta-analyses (Siri-Tarino 2010, Chowdhury 2014) found no statistically significant association between total saturated fat intake and coronary heart disease risk. What saturated fat is replaced with matters more: swapping it for refined carbohydrates shows no benefit, while swapping it for polyunsaturated fat shows a modest one.</div>
+      </details>
+      <div class="source">&#x1F4D6; Keys, A. et al. (1980), <em>Seven Countries Study</em>. Chowdhury, R. et al. (2014), <em>Annals of Internal Medicine</em> 160(6). Siri-Tarino, P.W. et al. (2010), <em>American Journal of Clinical Nutrition</em> 91(3).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Stretching After Your Workout Does Something Stretching Before It Doesn&#x2019;t</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Static stretching held before a workout has been shown to temporarily reduce muscle strength and power. Before reading on, do you think stretching the exact same muscles for the exact same duration after a workout carries that same performance cost &mdash; and if not, what do you think it&#x2019;s actually good for?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Hamstrings.gif/330px-Hamstrings.gif" alt="Anatomical diagram of the hamstring muscle group" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The hamstrings, one of the muscle groups most commonly targeted by post-workout static stretching for long-term flexibility. Credit: <a href="https://en.wikipedia.org/wiki/Stretching" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Static stretching (靜態伸展) &mdash; holding a muscle at a lengthened position for an extended period &mdash; has a well-documented downside when performed immediately before a workout: research summarised in Behm et al.&#x2019;s reviews shows it can temporarily reduce maximum strength, power output and jump height for up to 30 minutes afterward, likely from reduced muscle-tendon stiffness and altered nerve signalling. That well-known finding has led many gym-goers to avoid static stretching altogether, but timing matters enormously &mdash; the same stretch performed after training, once the session&#x2019;s strength and power demands are already finished, carries none of that performance cost.</p>
+      <p>Where post-workout static stretching earns its keep is in genuine long-term flexibility: Thomas et al.&#x2019;s 2018 review found that consistent stretching sessions, held for meaningful durations across weeks and months, reliably increase range of motion (關節活動範圍) over time, an effect far better supported by evidence than stretching&#x2019;s often-claimed role in preventing injury or reducing next-day soreness, both of which multiple meta-analyses have found weak or inconsistent. Its effect on delayed-onset muscle soreness (延遲性肌肉痠痛) specifically remains small and unreliable, so it should not be relied on as a recovery tool.</p>
+      <p>The mechanism behind long-term flexibility gains is still debated: one older theory held that regularly stretched muscles physically add new sarcomeres (肌節) in series, lengthening the muscle-tendon unit itself, while a 2010 review by Weppler and Magnusson argued the dominant driver is instead increased stretch tolerance &mdash; the nervous system simply permitting the muscle to lengthen further before triggering a protective resistance reflex, rather than any real structural change. Either way, the practical takeaway is straightforward: save static stretching for after training or as its own dedicated flexibility session, not as a pre-workout warm-up.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Stretching" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The same stretch that weakens a muscle before lifting does nothing of the sort afterward &mdash; timing, not the stretch itself, is what matters.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why doesn&#x2019;t post-workout static stretching carry the same performance-reducing downside as pre-workout static stretching, and what benefit does it reliably provide instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Post-workout static stretching doesn&#x2019;t reduce strength or power because the session&#x2019;s performance demands are already finished by the time it&#x2019;s performed. What it reliably provides instead is long-term range-of-motion improvement when done consistently over weeks and months, though its effect on injury prevention or next-day soreness remains weak.</div>
+      </details>
+      <div class="source">&#x1F4D6; Behm, D.G. et al. (2016), &ldquo;Acute Effects of Muscle Stretching on Physical Performance,&rdquo; <em>Applied Physiology, Nutrition, and Metabolism</em> 41(1). Thomas, E. et al. (2018), <em>International Journal of Sports Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Billion-Dollar Bet a Hedge Fund Legend Couldn&#x2019;t Win</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In December 2012, a prominent hedge fund manager stood on stage for roughly three and a half hours to explain why he&#x2019;d bet $1 billion that a major public company&#x2019;s stock would collapse, calling it an elaborate scheme preying on vulnerable people. Before reading on, do you think he turned out to be right &mdash; and do you think being right was enough to make the bet profitable?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Valeant_Pharmaceuticals%27_Business_Model_%28headshot%29.jpg" alt="Photograph of hedge fund manager Bill Ackman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Bill Ackman of Pershing Square Capital Management, whose $1 billion short position against Herbalife became one of the most public trades in hedge fund history. Credit: <a href="https://en.wikipedia.org/wiki/Bill_Ackman" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In December 2012, hedge fund manager Bill Ackman (比爾&middot;艾克曼) of Pershing Square Capital Management (潘興廣場資本管理) announced a roughly $1 billion short position (沽空倉位) against Herbalife (賀寶芙), a multi-level marketing (多層次傳銷) nutrition company, in a marathon presentation lasting about three and a half hours. Ackman called Herbalife &ldquo;an elaborate pyramid scheme&rdquo; that enriched a small number of top distributors while systematically extracting money from low-income recruits, mostly in Latino communities, who bought inventory and recruited others but rarely earned meaningful income, and pledged to donate his personal profits from the trade to charity.</p>
+      <p>Fellow billionaire investor Carl Icahn (卡爾&middot;伊坎) took the opposite view, building a large long position in Herbalife stock, and the rivalry became public spectacle in January 2013 when the two men shouted over each other for nearly half an hour in a now-famous live exchange on CNBC. As Herbalife defended itself publicly, lobbied regulators, and bought back shares, the stock price &mdash; rather than collapsing as Ackman predicted &mdash; climbed substantially over the following years, squeezing short-sellers and turning Ackman&#x2019;s public conviction trade into a multi-year drain on his fund&#x2019;s returns.</p>
+      <p>In 2016, the US Federal Trade Commission (聯邦貿易委員會) settled with Herbalife for $200 million and required the company to restructure its compensation plan, but stopped short of declaring it an outright pyramid scheme &mdash; a partial, ambiguous vindication that satisfied neither side. Ackman finally closed the short position in early 2018, reportedly at a loss estimated in the hundreds of millions of dollars, in one of the most publicly documented losing trades in hedge fund history, a reminder that being fundamentally right about a company&#x2019;s flaws doesn&#x2019;t guarantee a profitable trade if timing, market structure, or determined opponents intervene first.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bill_Ackman" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Ackman may have been substantially right about Herbalife&#x2019;s business model &mdash; and still lost hundreds of millions, because being right and being paid are not the same thing in markets.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Bill Ackman allege about Herbalife&#x2019;s business model, and how did the trade ultimately turn out for him financially?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Ackman alleged Herbalife was an elaborate pyramid scheme that enriched top distributors while extracting money from low-income recruits who rarely earned meaningful income. Despite a 2016 FTC settlement requiring changes to Herbalife&#x2019;s compensation plan, the stock rose rather than collapsed, and Ackman closed his short position in 2018 at a reported loss of hundreds of millions of dollars.</div>
+      </details>
+      <div class="source">&#x1F4D6; Federal Trade Commission (2016), Herbalife settlement press release. Copeland, R. (2018), &ldquo;Ackman Closes Out Money-Losing Herbalife Bet,&rdquo; <em>The Wall Street Journal</em>.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Bad Laws Never Die &mdash; They Have Two Very Different Friends</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Detroit_police_inspecting_equipment_found_in_a_clandestine_underground_brewery_during_the_prohibition_era_-_NARA_-_541928.jpg/330px-Detroit_police_inspecting_equipment_found_in_a_clandestine_underground_brewery_during_the_prohibition_era_-_NARA_-_541928.jpg" alt="Detroit police inspecting equipment from a clandestine underground brewery during Prohibition" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Detroit police inspect a clandestine brewery during Prohibition &mdash; the era whose enforcement politics inspired Bruce Yandle&#x2019;s &ldquo;Bootleggers and Baptists&rdquo; framework. Credit: <a href="https://en.wikipedia.org/wiki/Bootleggers_and_Baptists" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Sunday alcohol-sales bans and other alcohol &ldquo;blue laws&rdquo; (藍色法律) persisted in many US states for decades after Prohibition (禁酒令) ended in 1933, and modern &ldquo;control states&rdquo; still restrict liquor retail licensing (酒類零售牌照) far more tightly than most other consumer goods.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist Bruce Yandle&#x2019;s 1983 &ldquo;Bootleggers and Baptists&rdquo; theory (私酒販與浸信會理論) argues such regulations endure because they attract two very different coalitions: &ldquo;Baptists&rdquo; who support the restriction for genuine moral or public-interest reasons, such as temperance advocates wanting fewer Sunday alcohol sales, and &ldquo;Bootleggers&rdquo; who profit economically from it, such as existing license-holders shielded from Sunday competition.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Standard public-interest regulatory theory struggles to explain why such laws survive so long after their original moral urgency fades, or why licensed incumbents so often lobby quietly alongside religious groups to preserve rules that, on their face, look purely moralistic rather than economically self-interested.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Yandle&#x2019;s framework extends George Stigler&#x2019;s 1971 regulatory capture theory (監管俘獲理論), and an open question remains how far the Bootlegger-Baptist pattern generalises beyond alcohol &mdash; to tariffs, environmental rules, and occupational licensing &mdash; where similar moral-economic coalitions are often harder to spot.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A law can survive for decades not because it works, but because it has two very different kinds of friends &mdash; one supplying the moral cover, the other the money.</div>
+      <div class="source">&#x1F4D6; Yandle, B. (1983), &ldquo;Bootleggers and Baptists: The Education of a Regulatory Economist,&rdquo; <em>Regulation</em> magazine. Stigler, G.J. (1971), &ldquo;The Theory of Economic Regulation,&rdquo; <em>Bell Journal of Economics and Management Science</em> 2(1). Never recycles Card 10 domain (hedge-fund short-selling activism vs. regulatory political economy).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 10 &mdash; The Cost of Disagreeing With the Crowd:</strong> Solomon Asch&#x2019;s conformity experiments and Bill Ackman&#x2019;s Herbalife short sit on opposite sides of the same pressure. Most of Asch&#x2019;s subjects caved to a confidently wrong group to avoid the discomfort of standing out, while Ackman spent five years refusing to cave to a stock price moving against him &mdash; and while conforming cost Asch&#x2019;s subjects only a wrong answer on a line-judging task, Ackman&#x2019;s refusal to conform cost his fund hundreds of millions of real dollars.</p>
+      <p><strong>So what:</strong> Before assuming a confident consensus must be right, it&#x2019;s worth asking whether that agreement reflects independently formed conviction or the same unspoken pressure to avoid disagreeing out loud &mdash; and separately, whether being right is even enough, since markets and crowds alike can stay wrong for far longer than a lone dissenter can stay comfortable, or solvent.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA James Webb Space Telescope mission archives, 11&ndash;12 July 2022 release.</li>
+      <li><strong>Card 2:</strong> 《晉書&middot;孝懷帝紀》；《資治通鑑&middot;晉紀》；田余慶《東晉門閥政治》，北京大學出版社。</li>
+      <li><strong>Card 3:</strong> Taubenberger, J.K. &amp; Morens, D.M. (2006), <em>Emerging Infectious Diseases</em> 12(1). CDC 1918 Pandemic Influenza Historic Timeline.</li>
+      <li><strong>Card 4:</strong> 黃宗羲《明儒學案&middot;泰州學案》；容肇祖《何心隱集》，中華書局；de Bary, W.T., <em>Self and Society in Ming Thought</em>, Columbia University Press。</li>
+      <li><strong>Card 5:</strong> Montaigne, M. de (1580&ndash;1595), <em>Essais</em>. Bakewell, S. (2010), <em>How to Live: A Life of Montaigne</em>, Other Press.</li>
+      <li><strong>Card 6:</strong> Asch, S.E. (1951), in <em>Groups, Leadership and Men</em>. Bond, R. &amp; Smith, P.B. (1996), <em>Psychological Bulletin</em> 119(1).</li>
+      <li><strong>Card 7:</strong> Ramachandran, V.S. &amp; Rogers-Ramachandran, D. (1996), <em>Proceedings of the Royal Society B</em>. Ramachandran, V.S. (1998), <em>Phantoms in the Brain</em>.</li>
+      <li><strong>Card 8:</strong> Keys, A. et al. (1980), <em>Seven Countries Study</em>. Chowdhury, R. et al. (2014), <em>Annals of Internal Medicine</em> 160(6).</li>
+      <li><strong>Card 9:</strong> Behm, D.G. et al. (2016), <em>Applied Physiology, Nutrition, and Metabolism</em> 41(1). Thomas, E. et al. (2018), <em>International Journal of Sports Medicine</em>.</li>
+      <li><strong>Card 10:</strong> Federal Trade Commission (2016), Herbalife settlement press release. Copeland, R. (2018), <em>The Wall Street Journal</em>.</li>
+      <li><strong>Card 11:</strong> Yandle, B. (1983), <em>Regulation</em> magazine. Stigler, G.J. (1971), <em>Bell Journal of Economics and Management Science</em> 2(1).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-23: Webb&#x2019;s First Deep Field (SMACS 0723) &bull; 永嘉之亂 &bull; The 1918 Spanish Flu Pandemic &bull; 何心隱 &bull; Michel de Montaigne &amp; the Essay &bull; Solomon Asch Conformity Experiments &bull; Phantom Limb Pain &amp; Mirror Therapy &bull; Saturated Fat &amp; Ancel Keys&#x2019; Seven Countries Study &bull; Post-Workout Static Stretching &bull; Bill Ackman vs Herbalife &bull; Bootleggers and Baptists</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-23.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-23.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 23 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
