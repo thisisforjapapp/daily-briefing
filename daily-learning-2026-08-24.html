@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 24 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 24 August 2026 &nbsp;&middot;&nbsp; ~28 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>23 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Webb&#x2019;s First Deep Field</span>Biden previewed a JWST image a day early, showing thousands of galaxies gravitationally lensed into faint arcs.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 永嘉之亂</span>西晉八王內鬥耗盡國力，匈奴攻陷洛陽，衣冠南渡建東晉。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The 1918 Spanish Flu Pandemic</span>Wartime censorship hid outbreaks elsewhere, so neutral Spain&#x2019;s honest reporting wrongly gave the pandemic its name.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 何心隱</span>何心隱主張情慾非罪，因反對禁毀書院被通緝下獄。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Michel de Montaigne &amp; the Essay</span>Montaigne retreated to a tower at 38 and invented the essay to explore &ldquo;What do I know?&rdquo;</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Solomon Asch Conformity Experiments</span>About 37% of people gave an obviously wrong answer just to match a unanimous but mistaken group.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Phantom Limb Pain &amp; Mirror Therapy</span>A mirror trick convinced the brain a missing hand was moving, easing pain from a &ldquo;stuck&rdquo; phantom fist.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Saturated Fat &amp; Ancel Keys&#x2019; Seven Countries Study</span>Keys studied 7 of 22 available countries; later meta-analyses found no significant fat&ndash;heart disease link.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Post-Workout Static Stretching</span>Unlike pre-workout stretching, stretching after training carries no strength cost and builds long-term flexibility.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Bill Ackman vs Herbalife</span>Ackman bet $1 billion Herbalife would collapse as a pyramid scheme; the stock rose and he lost hundreds of millions.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Bootleggers and Baptists</span>Some bad laws survive for decades because they&#x2019;re backed by both moral crusaders and businesses profiting from them.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The &ldquo;Dead&rdquo; Dwarf Planet That Turned Out to Have a Beating Heart</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Before New Horizons reached Pluto in 2015 after a nine-year, 3-billion-mile journey, scientists largely expected to find a frozen, geologically dead world too small and too cold for anything interesting to still be happening on its surface. Before reading on, what do you think the spacecraft&#x2019;s cameras revealed instead, in the brief hours it had to look?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/PIA19936_-_Sputnik_Planum_region_on_Pluto.jpg" alt="Sputnik Planitia, the heart-shaped nitrogen ice plain on Pluto, imaged by New Horizons" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sputnik Planitia, Pluto&#x2019;s heart-shaped nitrogen-ice basin, imaged by NASA&#x2019;s New Horizons during its 14 July 2015 flyby. Credit: <a href="https://en.wikipedia.org/wiki/Sputnik_Planitia" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 July 2015, NASA&#x2019;s New Horizons spacecraft, after a nine-and-a-half-year journey covering roughly 3 billion miles (48億公里), swept past Pluto at over 30,000 mph, allotted only a matter of hours for its one and only close flyby before continuing deeper into the solar system. Launched in 2006, back when Pluto was still officially classified as the ninth planet, the mission arrived just months after the International Astronomical Union (國際天文聯會) had reclassified it as a dwarf planet (矮行星), making New Horizons humanity&#x2019;s first, and so far only, close-up look at a world most astronomers expected to be a frozen, featureless, ancient relic.</p>
+      <p>Instead, the spacecraft&#x2019;s cameras revealed a strikingly varied landscape, dominated by a vast, pale, heart-shaped plain roughly the size of Texas and Oklahoma combined, later named Sputnik Planitia (史普尼克平原) after the first artificial satellite. Rather than a static crater field, this region turned out to be a churning basin of nitrogen ice (氮冰), divided into cellular patterns resembling a slow-motion lava lamp, evidence of solid-state convection actively resurfacing itself from below. Nearby, New Horizons also spotted mountain ranges of water ice (水冰) up to 11,000 feet tall and what appeared to be nitrogen glaciers flowing gradually downhill.</p>
+      <p>The most surprising implication was that Pluto (冥王星), despite receiving roughly 1,600 times less sunlight than Earth and sitting far from any obvious internal heat source, still showed geological activity occurring within the last 10 million years &mdash; a blink of an eye on planetary timescales. Researchers proposed that a subsurface ocean (地下海洋) of liquid water beneath the icy crust, kept from freezing solid by a mix of ammonia and radioactive decay, could explain the ongoing convection. The findings forced planetary scientists to reconsider what small, distant, sunlight-starved worlds might be capable of.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sputnik_Planitia" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A dwarf planet three billion miles from the sun turned out to be geologically alive &mdash; proof that &ldquo;small and far away&rdquo; doesn&#x2019;t mean &ldquo;frozen and finished.&rdquo;</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did New Horizons find at Sputnik Planitia that contradicted expectations of Pluto as a geologically dead world, and what&#x2019;s the leading explanation for it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">New Horizons found a heart-shaped basin of nitrogen ice divided into convecting cells, evidence of active resurfacing within the last 10 million years, despite Pluto&#x2019;s extreme distance from the sun. The leading explanation is a subsurface ocean of liquid water, kept from freezing by ammonia and radioactive decay, driving the convection from below.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA New Horizons mission archives, 14 July 2015 flyby. Moore, J.M. et al. (2016), &ldquo;The Geology of Pluto and Charon Through the Eyes of New Horizons,&rdquo; <em>Science</em> 351(6279).</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>王安石變法&mdash;&mdash;一場為救國庫空虛而起的改革，為何演變成北宋黨爭的導火線？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">北宋立國百年，財政早已入不敷出，冗官冗兵耗盡國庫，西北邊患未息。一位素有清名的官員銳意推行全面改革，卻在短短數年間，把整個朝廷分裂成勢不兩立的兩派。你認為，這場旨在富國強兵的變法，最終為何反而加速了北宋的衰亡？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王安石（1021&ndash;1086，改革派領袖，兩度拜相）；司馬光（保守派領袖，《資治通鑑》編者）；宋神宗（支持變法的皇帝）。</p>
+        <p><strong>事件：</strong>1069年，宋神宗起用王安石為參知政事，推行青苗法、免役法、市易法等一系列新政，史稱「熙寧變法」或「王安石變法」。</p>
+        <p><strong>時代背景：</strong>北宋立國百年，官僚機構臃腫（冗官）、常備軍龐大（冗兵）、對遼夏歲幣沉重（冗費），財政長期入不敷出，同時西北邊防屢遭西夏侵擾，朝野皆知非改革不可，但對改革方向與手段爭論激烈。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Wang_Anshi.jpg" alt="明代畫像中的王安石" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王安石畫像。1069年獲宋神宗起用推行新政，主導北宋歷史上規模最大的一場改革。來源：<a href="https://en.wikipedia.org/wiki/Wang_Anshi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>北宋建國逾百年，承平日久，官僚機構層層疊床架屋，科舉與恩蔭並行令官員數目激增，加上龐大禁軍耗費軍餉，每年對遼、西夏繳納的歲幣亦是沉重負擔，朝廷財政早已入不敷出，史稱「冗官、冗兵、冗費」三冗之弊。1067年宋神宗即位，年輕氣盛，銳意求治，次年起用時任江寧知府、素有清名且屢次上書言事的王安石為參知政事，委以變法重任，君臣二人一拍即合，決心徹底整頓國家財政與軍事積弱局面。</p>
+      <p>王安石自1069年起陸續推行多項新法：青苗法由官府在青黃不接時貸款給農民，收取二分利息，取代民間高利貸盤剝；免役法讓百姓繳錢代替勞役，官府另雇人應役；市易法由官府介入市場平抑物價、提供貿易貸款；又設保甲法、將兵法整頓地方治安與軍隊訓練。這些新法立意在於增加財政收入、減輕百姓實際負擔、同時強化國防，部分措施在推行初期確實使國庫收入顯著增加。</p>
+      <p>然而新法在地方執行時屢生流弊：青苗法本意惠民，但地方官員為求政績強制攤派貸款、利息層層加碼，反成擾民之政；市易法亦被批評與民爭利。以司馬光為首的保守派士大夫堅決反對，認為新法違背祖宗成法、與民爭利，雙方在朝堂上爭辯激烈，王安石兩度罷相又復用，變法斷斷續續推行約十六年，最終隨神宗駕崩、司馬光拜相盡廢新法而告終。此後新舊黨爭延續數十年，成為北宋後期政治分裂、乃至靖康之難時朝廷應對失措的重要遠因。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Anshi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王安石想解決的是國庫空虛，最終卻打開了黨爭的潘朵拉盒子&mdash;&mdash;制度的立意再好，執行走樣就足以反噬整場改革。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王安石變法推行的青苗法原意為何？它在地方執行時又出現了甚麼流弊？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">青苗法原意是由官府在青黃不接時以低息貸款農民，取代民間高利貸盤剝。但地方官員為求政績，往往強制攤派貸款並層層加碼利息，反而變成擾民之政，這正是新法屢遭保守派抨擊的主因之一。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《宋史&middot;王安石傳》；漆俠《王安石變法》，河北人民出版社；James T.C. Liu, <em>Reform in Sung China: Wang An-shih (1021&ndash;1086) and His New Policies</em>, Harvard University Press。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Argument That Started With Two Men Thrown Out a Window &mdash; and Ended With Millions Dead</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In May 1618, a group of Protestant noblemen in Prague, furious over the violation of their religious rights, seized two Catholic royal officials and threw them out of a castle window roughly 70 feet above the ground. Before reading on, do you think those two men survived the fall &mdash; and how do you think a single act of political theatre spiraled into one of the deadliest wars in European history?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Count Jind&#x0159;ich Maty&#x00E1;&#x0161; Thurn (圖爾恩伯爵), leader of the Protestant noblemen; the two defenestrated officials, Vil&#x00E9;m Slavata (斯拉瓦塔) and Jaroslav Bo&#x0159;ita of Martinice (馬丁尼采); Ferdinand II (斐迪南二世), the future Holy Roman Emperor whose religious policies triggered the crisis.</p>
+        <p><strong>Event at stake:</strong> the Second Defenestration of Prague (布拉格第二次擲出窗外事件), 23 May 1618, when Protestant noblemen threw two Catholic imperial officials from a window of Prague Castle (布拉格城堡).</p>
+        <p><strong>Big picture:</strong> tension between Bohemia&#x2019;s Protestant nobility and the Catholic Habsburg monarchy (哈布斯堡王朝) over religious rights guaranteed decades earlier had been building for years, and the incident became the spark for the Thirty Years&#x2019; War (三十年戰爭), one of the most destructive conflicts in European history.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Prager_Fenstersturz_Wahrhafftige_Zeitung_aus_Prag.JPG" alt="Contemporary 1618 print depicting the Second Defenestration of Prague" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A contemporary 1618 print depicting the Second Defenestration of Prague, the spark for the Thirty Years&#x2019; War. Credit: <a href="https://en.wikipedia.org/wiki/Second_Defenestration_of_Prague" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1609, Bohemia&#x2019;s Protestant nobles had won a formal guarantee of religious toleration from the Holy Roman Emperor (神聖羅馬帝國皇帝), the Letter of Majesty (敕許狀), allowing them to build Protestant churches on royal and church land. When the increasingly hardline Catholic Ferdinand II (斐迪南二世) became King of Bohemia in 1617, construction of two such churches was halted and one demolished, and Protestant noblemen saw this as a direct violation of their guaranteed rights. On 23 May 1618, a delegation led by Count Jind&#x0159;ich Maty&#x00E1;&#x0161; Thurn (圖爾恩伯爵) marched into Prague Castle (布拉格城堡) to confront the royal governors directly.</p>
+      <p>After a heated exchange, the noblemen seized two of Ferdinand&#x2019;s regents, Vil&#x00E9;m Slavata (斯拉瓦塔) and Jaroslav Bo&#x0159;ita of Martinice (馬丁尼采), along with a secretary, and threw all three out of a roughly 70-foot-high castle window into the moat below. Remarkably, all three survived the fall &mdash; Catholic accounts credited the intervention of the Virgin Mary, while Protestant pamphleteers preferred the less miraculous explanation that they landed in a large pile of manure and household refuse in the dry moat. Either way, the men escaped with only minor injuries and fled to report the attack to the emperor.</p>
+      <p>The Bohemian nobles followed the defenestration by forming a provisional government and raising an army, rejecting Ferdinand&#x2019;s authority outright, and their revolt drew in Protestant and Catholic powers across Europe as each side sought advantage in the growing conflict. What began as a regional dispute over church-building rights escalated into the Thirty Years&#x2019; War (三十年戰爭, 1618&ndash;1648), fought largely across the fragmented territories of the Holy Roman Empire, killing an estimated 4.5 to 8 million people through combat, famine and disease &mdash; in some regions, population losses exceeded a third, making it one of the deadliest conflicts in European history before the twentieth century.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Second_Defenestration_of_Prague" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two men survived a 70-foot fall into a dung heap, and the political fallout from throwing them out that window helped kill millions across Central Europe over the next three decades.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered the Second Defenestration of Prague in 1618, and how did the incident escalate into the Thirty Years&#x2019; War?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Protestant noblemen threw two Catholic imperial regents out of a Prague Castle window after Ferdinand II halted the construction of Protestant churches guaranteed by an earlier toleration agreement. The Bohemian nobles then formed a rebel government and army, drawing in Protestant and Catholic powers across Europe and igniting the Thirty Years&#x2019; War, one of history&#x2019;s deadliest conflicts.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wilson, P.H. (2009), <em>Europe&#x2019;s Tragedy: A New History of the Thirty Years War</em>, Harvard University Press. Britannica, &ldquo;Defenestration of Prague.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>王陽明龍場悟道&mdash;&mdash;一位被貶謫至蠻荒之地的官員，如何在絕境中開創一套新儒學？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">王陽明因得罪權宦劉瑾，被貶至偏遠荒蕪、瘴癘橫行的貴州龍場當一名小小驛丞，隨行僕從相繼病倒，他甚至為自己備好棺木以待死。你認為，這樣一個近乎絕望的處境，如何反而成為他一生思想成就的轉捩點？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王陽明（王守仁，1472&ndash;1529，明代思想家，心學集大成者）；劉瑾（權宦，王陽明遭貶的直接原因）。</p>
+        <p><strong>核心事件：</strong>1506年王陽明因上疏營救因彈劾劉瑾而下獄的官員，觸怒劉瑾，遭廷杖四十，貶謫至貴州龍場（今貴陽附近）任驛丞；1508年在龍場困境中「頓悟」，史稱「龍場悟道」。</p>
+        <p><strong>時代背景：</strong>明代中期程朱理學（官方正統思想）盛行已久，強調「格物致知」須向外在事物窮究天理；王陽明早年篤信朱子之學，曾格竹七日而病，對「向外格物」的方法漸生懷疑，龍場的極端困境成為其思想突破的契機。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王陽明（王守仁）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王陽明（王守仁）畫像。1508年於貴州龍場悟道，奠定心學核心突破。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王陽明早年篤信程朱理學，青年時曾依朱熹「格物致知」之說，與友人「格」庭前竹子，一連七日苦思竹中所蘊天理，最終甚麼道理也沒悟出，自己反倒病倒，這次失敗經驗令他對「向外物窮究天理」的方法產生根本懷疑。1506年，他因上疏營救因彈劾權宦劉瑾而下獄的官員戴銑等人，觸怒劉瑾，遭廷杖四十，幾乎斃命，隨後被貶謫至萬里之外、地處西南邊陲、瘴癘橫行的貴州龍場，出任一個從九品的小小驛丞。</p>
+      <p>龍場當時尚未開化，語言不通，隨行僕從相繼病倒，王陽明甚至為自己鑿石為槨、備好棺木，日夜靜坐澄心，思考「聖人處此，更有何道」的問題。1508年某夜，他忽然大悟格物致知之旨，明白聖人之道並非向外物中尋求，而是「吾性自足，向之求理於事物者誤也」&mdash;&mdash;天理本就內在於每個人的心中，無須外求，這就是後世所稱的「龍場悟道」，心學的核心突破自此奠定。</p>
+      <p>龍場悟道後，王陽明進一步發展出「知行合一」與「致良知」的學說，主張道德認知與道德實踐本是一體，人人心中皆有能辨是非善惡的「良知」，只須去除私欲蒙蔽即可彰顯。這套心學思想後來與程朱理學分庭抗禮，門人遍及全國，甚至遠傳日本、朝鮮，深刻影響東亞近世思想史，而其起點，正正是那個看似絕望、隨時可能客死異鄉的貶謫之地。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王陽明在準備迎接死亡的絕境中，悟出的道理竟是「道就在自己心中」&mdash;&mdash;有時候，逼到盡頭反而看得最清楚。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王陽明「龍場悟道」悟出的核心道理是甚麼？這與他早年信奉的程朱理學方法有何根本分歧？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王陽明悟出天理本就內在於人心，「吾性自足」，無須向外在事物中窮究尋求。這與程朱理學主張「格物致知」、須向外物探求天理的方法根本相反，是心學突破理學的關鍵一步。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《王陽明年譜》；陳來《有無之境：王陽明哲學的精神》，北京大學出版社；Tu Wei-ming, <em>Neo-Confucian Thought in Action: Wang Yang-ming&#x2019;s Youth</em>, University of California Press。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Excommunicated at 23 for an Idea So Dangerous His Own Community Cursed Him By Name</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1656, a 23-year-old man from Amsterdam&#x2019;s Portuguese-Jewish community was issued one of the harshest excommunication decrees on record &mdash; cursed &ldquo;by day and by night,&rdquo; with instructions that no one speak to him or read anything he wrote. Before reading on, what do you think this young man had said or written that provoked such an extreme reaction?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Baruch Spinoza (巴魯赫&middot;斯賓諾莎, 1632&ndash;1677), Dutch philosopher of Portuguese-Jewish descent, later a professional lens-grinder.</p>
+        <p><strong>Problem at stake:</strong> whether God (神) is a personal, transcendent being separate from creation, or identical with nature itself &mdash; and what that question means for free will, scripture, and religious authority.</p>
+        <p><strong>Moment:</strong> in 1656, at age 23, Spinoza was issued a cherem (逐出教門令), a formal writ of excommunication, by the leadership of Amsterdam&#x2019;s Portuguese-Jewish community, for views he had not yet even published.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Spinoza.jpg" alt="Portrait of Baruch Spinoza" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Baruch Spinoza, excommunicated by Amsterdam&#x2019;s Portuguese-Jewish community in 1656 at age 23. Credit: <a href="https://en.wikipedia.org/wiki/Baruch_Spinoza" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 27 July 1656, the leaders of Amsterdam&#x2019;s Portuguese-Jewish community (阿姆斯特丹葡萄牙猶太社群) issued a cherem (逐出教門令) against 23-year-old Baruch Spinoza (斯賓諾莎), one of the harshest such writs on record, cursing him &ldquo;by day and by night,&rdquo; &ldquo;lying down and rising up,&rdquo; and forbidding anyone from communicating with him, reading anything he wrote, or even standing within four cubits of him. The exact charges were never fully recorded, but Spinoza was already known within the community for questioning core doctrines, including the immortality of the soul (靈魂不朽) and whether God possessed a body, at a time when the recently resettled Sephardic community was anxious to appear doctrinally unimpeachable to Amsterdam&#x2019;s Christian authorities.</p>
+      <p>Spinoza went on to support himself as a lens-grinder (磨鏡師), producing optical lenses for microscopes and telescopes, and quietly developed the philosophy that made the excommunication look, in hindsight, almost prophetic. In his posthumously published Ethics (倫理學), he argued for a thoroughgoing pantheism (泛神論) captured in the phrase &ldquo;Deus sive Natura&rdquo; &mdash; &ldquo;God, or Nature&rdquo; &mdash; holding that God is not a separate, personal creator standing outside the universe, but is identical with the single, infinite substance that nature itself consists of, meaning everything that happens, happens by the same necessity as a mathematical theorem.</p>
+      <p>This view demolished the idea of a God who intervenes, judges, or grants free will in any conventional sense, and it enraged religious authorities across Christian Europe just as it had Amsterdam&#x2019;s Jewish community &mdash; his works were placed on the Catholic Church&#x2019;s Index of Forbidden Books (禁書目錄), and even fellow philosophers often called him an atheist despite his insistence he was describing God more fully, not eliminating him. Later thinkers including Einstein, who once said he believed &ldquo;in Spinoza&#x2019;s God,&rdquo; and the German Idealists and Romantics who revived his reputation a century after his death, treated Spinoza&#x2019;s fusion of God and nature as one of philosophy&#x2019;s most radical and enduring provocations.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Baruch_Spinoza" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Spinoza wasn&#x2019;t excommunicated for rejecting God &mdash; he was excommunicated for redefining God as identical with the universe itself, leaving no room for a God who judges or intervenes.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the core claim of Spinoza&#x2019;s pantheism captured in the phrase &ldquo;Deus sive Natura,&rdquo; and how did it differ from conventional religious conceptions of God?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">&ldquo;Deus sive Natura&rdquo; (&ldquo;God, or Nature&rdquo;) holds that God is identical with the single, infinite substance that makes up nature itself, not a separate, personal being standing outside the universe. This ruled out a God who intervenes, judges, or grants free will in the conventional sense, since everything follows by the same necessity as a mathematical theorem.</div>
+      </details>
+      <div class="source">&#x1F4D6; Spinoza, B. (1677), <em>Ethics</em>. Nadler, S. (1999), <em>Spinoza: A Life</em>, Cambridge University Press.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Marshmallow Test&#x2019;s Famous Finding Didn&#x2019;t Hold Up the Way Everyone Remembered It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the late 1960s, a psychologist put four-year-olds alone in a room with one marshmallow, telling them they could eat it now or wait several minutes for two. Decades later, follow-up studies claimed the children who waited longer went on to have better life outcomes as adults. Before reading on, what do you think happened when a much larger, more carefully controlled study tried to replicate that finding decades later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Marshmallows.JPG" alt="A bowl of marshmallows, the reward used in Walter Mischel's delay-of-gratification experiments" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Marshmallows, the reward at the centre of Walter Mischel&#x2019;s Stanford delay-of-gratification experiments. Credit: <a href="https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Beginning in the late 1960s, psychologist Walter Mischel (沃爾特&middot;米歇爾) and colleagues at Stanford ran a series of experiments on preschoolers, later dubbed the &ldquo;marshmallow test&rdquo; (棉花糖實驗): a child was left alone in a room with a single marshmallow and told that if they could wait about 15 minutes without eating it, they would receive two instead of one. Small follow-up studies over the following decades, tracking the same children into adolescence and adulthood, reported correlations between how long a child waited and later outcomes including SAT scores, educational attainment and body mass index, and the test became widely cited as evidence that early self-control (自制力) predicts lifelong success.</p>
+      <p>In 2018, researchers Tyler Watts, Greg Duncan and Haonan Quan published a much larger, more demographically diverse replication in <em>Psychological Science</em>, this time statistically controlling for factors like family income and the mother&#x2019;s education level, which the original small-sample studies (largely drawn from children of Stanford faculty and staff) had not been able to do. Once those background factors were accounted for, the relationship between waiting time and later achievement shrank dramatically, and for children from less economically secure households in particular, the correlation became statistically negligible.</p>
+      <p>The more likely explanation researchers now favour is not that some children simply have more innate willpower, but that a child&#x2019;s environment shapes both their ability to delay gratification (延遲滿足) and their later outcomes independently &mdash; a child who has learned that adults don&#x2019;t reliably follow through on promised rewards has a rational reason to take the marshmallow now, regardless of their capacity for self-control. The marshmallow test isn&#x2019;t worthless, but its most famous headline &mdash; that willpower alone predicts your future &mdash; turned out to be a smaller piece of a much more complicated picture once economic background entered the analysis.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Stanford_marshmallow_experiment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The marshmallow test didn&#x2019;t just measure willpower &mdash; it also measured whether a child had learned that adults keep their promises.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2018 Watts, Duncan &amp; Quan replication find when it controlled for family income and mother&#x2019;s education, and what does that suggest about the original marshmallow test findings?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Once family income and mother&#x2019;s education were statistically controlled for, the correlation between waiting time and later achievement shrank dramatically and became negligible for children from less economically secure households. This suggests environment shapes both delay ability and outcomes, rather than willpower alone driving future success.</div>
+      </details>
+      <div class="source">&#x1F4D6; Watts, T.W., Duncan, G.J. &amp; Quan, H. (2018), &ldquo;Revisiting the Marshmallow Test,&rdquo; <em>Psychological Science</em> 29(7). Mischel, W. (1972), original delay-of-gratification studies, Stanford University.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why a Cold Breeze and a Chill-Inducing Song Both Give You the Same Bumpy Skin</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Goosebumps appear both when you&#x2019;re cold and, for many people, during an emotionally powerful moment in a piece of music &mdash; a completely different trigger producing the exact same physical reaction. Before reading on, what do you think these two very different situations have in common at the level of your nervous system?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/2003-09-17_Goose_bumps.jpg" alt="Close-up photograph of goosebumps on human skin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Goosebumps, produced when the arrector pili muscles at the base of each hair follicle contract. Credit: <a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Goosebumps (雞皮疙瘩), medically called piloerection (豎毛反應) or cutis anserina, occur when tiny muscles called arrector pili (豎毛肌), attached to the base of each hair follicle, contract and pull the hair upright, puckering the surrounding skin into small bumps. The reflex is controlled by the sympathetic nervous system (交感神經系統), the same &ldquo;fight-or-flight&rdquo; branch responsible for a racing heart or sweaty palms, and in cold conditions it&#x2019;s triggered by temperature receptors signalling the hypothalamus (下丘腦), which coordinates the body&#x2019;s temperature-regulation response.</p>
+      <p>In most mammals, piloerection serves two genuinely useful functions: raising fur traps a thicker layer of insulating air against the cold, and puffing up fur makes an animal look larger, a defensive bluff against predators or rivals. Humans, having lost most of our body hair over evolutionary time while keeping the underlying muscle and nerve circuitry intact, still perform the full reflex, but it produces almost no insulating or size-enhancing benefit on our comparatively bare skin &mdash; a vestigial (退化的) leftover of a system that made far more sense on a furrier ancestor.</p>
+      <p>The same sympathetic reflex can also fire in response to strong emotion rather than cold, producing what researchers call frisson (寒顫感) or &ldquo;skin orgasm&rdquo; &mdash; the chills some people feel during a powerful musical passage, a moving scene in a film, or an unexpected key change. Neuroimaging studies link this emotional piloerection to activity in the brain&#x2019;s dopamine-driven reward pathways (多巴胺獎賞路徑), the same circuitry involved in anticipation and pleasure, suggesting the goosebump reflex has been co-opted by an entirely different, emotionally driven trigger system layered on top of its original temperature-regulation purpose.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Goosebumps from cold and goosebumps from a beautiful piece of music travel through the same muscle and nerve pathway &mdash; only the trigger upstream is different.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the two very different triggers that can both cause goosebumps, and what physiological function did piloerection likely serve in human ancestors?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Goosebumps can be triggered by cold, via temperature receptors and the hypothalamus, or by strong emotion, via dopamine-linked reward pathways producing &ldquo;frisson.&rdquo; In furrier human ancestors, piloerection likely trapped insulating air for warmth and made the individual appear larger as a defensive bluff.</div>
+      </details>
+      <div class="source">&#x1F4D6; Benedek, M. &amp; Kaernbach, C. (2011), &ldquo;Physiological Correlates and Emotional Specificity of Human Piloerection,&rdquo; <em>Biological Psychology</em> 86(3). Britannica, &ldquo;Goose bumps.&rdquo;</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Doctor Who Cracked One Hand&#x2019;s Knuckles for 60 Years Just to Prove His Mother Wrong</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For generations, parents have warned children that cracking their knuckles will give them arthritis later in life. Before reading on, what do you think a doctor found after deliberately cracking the knuckles of only one hand, every day, for over sixty years, while leaving the other hand alone?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Hand%2C_fingers_-_back.jpg" alt="Photograph of the back of a human hand and finger joints" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The finger joints most commonly cracked &mdash; cavitation in the synovial fluid, not bone grinding, produces the sound. Credit: <a href="https://en.wikipedia.org/wiki/Hand" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The popping sound produced when someone cracks a knuckle comes from inside the synovial fluid (滑液) that lubricates each joint, not from bone grinding on bone as many assume. Synovial fluid contains dissolved gases, mainly nitrogen, and when a joint is stretched or bent past its normal range, the fluid-filled joint capsule suddenly expands, dropping pressure sharply enough to form a gas bubble almost instantly &mdash; a process called cavitation (空穴現象). The audible crack is the sound of that bubble rapidly forming or collapsing, and the joint typically can&#x2019;t be cracked again for a period afterward while the gas slowly redissolves back into the fluid.</p>
+      <p>Physician Donald Unger (唐納德&middot;昂格) decided to test the popular warning that knuckle-cracking causes arthritis with an extreme personal experiment: for more than sixty years, he cracked the knuckles on his left hand at least twice a day, while deliberately never cracking those on his right hand, giving himself a built-in control group. In 2009 he published his results, finding no difference in arthritis, joint mobility or hand function between his two hands, and was awarded the satirical Ig Nobel Prize in Medicine (搞笑諾貝爾獎) for the self-experiment &mdash; an accolade that celebrates real research that first makes people laugh, then makes them think.</p>
+      <p>Larger formal studies back up Unger&#x2019;s single-subject result: a 2011 study by Deweber et al. surveying over 200 people found no significant association between habitual knuckle-cracking and hand osteoarthritis (骨關節炎), though it did find a modest association with reduced grip strength and hand swelling in heavy crackers. The original fear appears to have conflated an unrelated question &mdash; whether the habit is annoying to people nearby, which it demonstrably is &mdash; with a medical claim about joint damage that decades of research has failed to support.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hand" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A doctor spent sixty years cracking only one hand&#x2019;s knuckles and won an Ig Nobel Prize for proving his mother&#x2019;s warning wrong &mdash; the sound is gas bubbles, not bone damage.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What actually causes the popping sound when a knuckle is cracked, and what did Donald Unger&#x2019;s sixty-year self-experiment find?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The sound comes from cavitation &mdash; a gas bubble rapidly forming in the synovial fluid when a joint is stretched past its normal range, not bone grinding on bone. Unger found no difference in arthritis or joint function between the hand he cracked daily for sixty years and the hand he never cracked.</div>
+      </details>
+      <div class="source">&#x1F4D6; Unger, D.L. (2009), &ldquo;Does Knuckle Cracking Lead to Arthritis of the Fingers?&rdquo; and Ig Nobel Prize 2009 citation. Deweber, K. et al. (2011), <em>Journal of the American Board of Family Medicine</em> 24(2).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Training for a Marathon Might Be Quietly Sabotaging Your Squat</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many gym-goers assume that adding running or cycling to a strength programme is purely additive &mdash; more cardio fitness stacked on top of the same strength gains. Before reading on, do you think combining serious endurance training with serious strength training in the same programme comes at any cost to either goal?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="A group strength training session in a gym" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Strength training, the modality most affected when combined with high-volume running in a concurrent training programme. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1980, exercise physiologist Robert Hickson (羅伯特&middot;希克森) published a now-classic study comparing three groups: one doing only strength training, one doing only endurance training, and one doing both in the same programme. The strength-only group&#x2019;s leg strength climbed steadily across ten weeks, but the combined-training group&#x2019;s strength gains plateaued and then actually declined in the final weeks, even though their aerobic endurance kept improving normally &mdash; a phenomenon that became known as the interference effect (干擾效應) or concurrent training (併行訓練) problem.</p>
+      <p>Researchers have proposed several overlapping mechanisms: endurance training activates the AMPK (AMPK酶) cellular energy-sensing pathway, which can blunt the mTOR (mTOR訊號路徑) signalling pathway responsible for muscle protein synthesis and hypertrophy; accumulated fatigue from frequent cardio sessions can also simply leave too little recovery capacity for strength adaptations to fully consolidate. A 2012 meta-analysis by Wilson et al. in the <em>Journal of Strength and Conditioning Research</em> confirmed the interference effect is real but highly modality-dependent &mdash; running interferes with strength gains considerably more than cycling does, likely because running&#x2019;s eccentric, high-impact muscle damage competes more directly with the same lower-body muscle groups used in strength training.</p>
+      <p>The practical takeaway isn&#x2019;t to avoid combining cardio and strength training, since most recreational lifters see negligible interference at moderate training volumes, but rather to manage the details when both goals matter seriously: separating cardio and strength sessions by at least 6&ndash;24 hours where possible, prioritising cycling or swimming over running when interference is a concern, and ensuring adequate protein and recovery time between sessions. For anyone specifically training for a strength or hypertrophy goal, keeping concurrent endurance work moderate in volume and low in impact preserves most of the strength adaptation that heavy cardio volume would otherwise blunt.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Combining serious cardio and serious strength training isn&#x2019;t free &mdash; but choosing cycling over running, and spacing sessions apart, preserves most of your strength gains.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Hickson&#x2019;s 1980 concurrent training study find, and which cardio modality interferes more with strength gains &mdash; running or cycling?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hickson found that a group doing both strength and endurance training saw their strength gains plateau and then decline, while a strength-only group kept improving steadily. Running interferes with strength gains considerably more than cycling, likely due to running&#x2019;s high-impact eccentric muscle damage competing with the same muscle groups.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hickson, R.C. (1980), &ldquo;Interference of Strength Development by Simultaneously Training for Strength and Endurance,&rdquo; <em>European Journal of Applied Physiology</em> 45. Wilson, J.M. et al. (2012), <em>Journal of Strength and Conditioning Research</em> 26(8).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Company That Invented the Stock Market &mdash; and Was Almost Undone by History&#x2019;s First Short Seller</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1602, a group of Dutch merchants created a company that would go on to invent an entire financial system still in use today &mdash; the public stock exchange. Before reading on, what do you think it took to convince investors, for the very first time in history, to hand over money for shares in a company they might never see a direct return from for years?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Flag_of_the_Dutch_East_India_Company.svg" alt="Flag of the Dutch East India Company (VOC)" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The flag of the Dutch East India Company (VOC), chartered in 1602 and financed by the world&#x2019;s first permanent, publicly tradable shares. Credit: <a href="https://en.wikipedia.org/wiki/Dutch_East_India_Company" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1602, the Dutch States General (荷蘭聯省議會) chartered the Vereenigde Oostindische Compagnie (荷蘭東印度公司), or VOC, granting it a 21-year monopoly on Dutch trade with Asia and, unusually, quasi-governmental powers to wage war, negotiate treaties and build fortresses. To fund the enormously expensive and risky spice-trading voyages, the VOC&#x2019;s founders did something no company had done before at this scale: instead of raising money for a single voyage that dissolved once profits were split, they offered shares (股份) in the company itself, permanently tradable and open to any resident of the Dutch Republic, raising roughly 6.4 million guilders from over 1,800 investors.</p>
+      <p>To let investors buy and sell these shares among themselves rather than being locked in until the company eventually wound down, the VOC&#x2019;s shares began trading on the newly formed Amsterdam Stock Exchange (阿姆斯特丹證券交易所), widely considered the world&#x2019;s first formal stock exchange, where continuous price discovery, share transferability and even early options and futures contracts on VOC shares soon developed. This combination &mdash; permanent capital, freely tradable ownership, and a dedicated marketplace &mdash; is essentially the template every modern public company and stock exchange still follows four centuries later.</p>
+      <p>The new system was tested almost immediately by Isaac Le Maire (艾薩克&middot;勒梅爾), a disgruntled former VOC director who, after a bitter falling-out with the company&#x2019;s board, organised a syndicate in 1609 to sell VOC shares he didn&#x2019;t own, betting on a price decline &mdash; history&#x2019;s first documented short-selling (沽空) operation. VOC directors, alarmed at the downward pressure on their own stock, lobbied Dutch authorities to ban short selling outright, and in 1610 the Amsterdam city council obliged, making it one of the earliest instances of a now-familiar pattern: a financial innovation appears, someone uses it against an incumbent&#x2019;s interests, and regulators move to restrict it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dutch_East_India_Company" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first modern stock market and the first short-selling ban arrived within eight years of each other &mdash; the tools of modern finance and the fights over them were born together.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two financial innovations did the VOC and the Amsterdam Stock Exchange pioneer together in 1602, and what event in 1609&ndash;1610 became one of the earliest regulatory reactions to short selling?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The VOC pioneered permanent, freely tradable company shares rather than per-voyage payouts, and the Amsterdam Stock Exchange became the first dedicated marketplace for trading them. In 1609, Isaac Le Maire organised history&#x2019;s first documented short-selling operation against VOC shares, prompting Amsterdam authorities to ban short selling in 1610.</div>
+      </details>
+      <div class="source">&#x1F4D6; de Vries, J. &amp; van der Woude, A. (1997), <em>The First Modern Economy</em>, Cambridge University Press. Petram, L. (2011), <em>The World&#x2019;s First Stock Exchange</em>, Columbia University Press.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Some Oil-Rich Countries Stay Poor While One Diamond-Rich Country Got Rich</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg" alt="Flag of Botswana" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Botswana, one of the world&#x2019;s most diamond-dependent economies and a leading anomaly against the resource curse hypothesis. Credit: <a href="https://en.wikipedia.org/wiki/Botswana" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Since the 1970s, many resource-rich developing countries &mdash; Nigeria (奈及利亞), Venezuela (委內瑞拉), Angola &mdash; have grown more slowly than comparable resource-poor peers, despite oil and mineral windfalls that should, in theory, have accelerated development.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Jeffrey Sachs and Andrew Warner&#x2019;s 1995 &ldquo;resource curse&rdquo; (資源詛咒) hypothesis argues resource wealth itself can hinder growth: it triggers currency appreciation that hollows out manufacturing exports (Dutch disease, 荷蘭病), fuels corruption and rent-seeking, and weakens incentives for institutional investment when government doesn&#x2019;t depend on broad-based taxation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Botswana (博茨瓦納), one of the world&#x2019;s most diamond-dependent economies, has been among Africa&#x2019;s fastest-growing since its 1966 independence, converting diamond wealth into infrastructure, education and stable democracy &mdash; directly defying the curse, alongside Norway (挪威) and Chile (智利).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Mehlum, Moene and Torvik&#x2019;s 2006 institutional-quality framework argues the outcome depends on whether a country&#x2019;s institutions were &ldquo;producer-friendly&rdquo; before the windfall arrived &mdash; Botswana&#x2019;s strong pre-diamond tribal governance and revenue-sharing with De Beers get cited as key differences from Nigeria&#x2019;s extraction-oriented colonial institutions. Whether institutions or resource type truly decides remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The same windfall that entrenched corruption in Nigeria helped build schools and roads in Botswana &mdash; the resource wasn&#x2019;t the deciding factor, the institutions receiving it were.</div>
+      <div class="source">&#x1F4D6; Sachs, J.D. &amp; Warner, A.M. (1995), &ldquo;Natural Resource Abundance and Economic Growth,&rdquo; NBER Working Paper 5398. Mehlum, H., Moene, K. &amp; Torvik, R. (2006), &ldquo;Institutions and the Resource Curse,&rdquo; <em>Economic Journal</em> 116(508). Never recycles Card 10 domain (17th-century stock market origins vs. modern development economics).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 4 &amp; 5 &mdash; Exile as the Precondition for the Insight:</strong> Wang Yangming&#x2019;s decisive philosophical breakthrough came only after he was banished to a remote, disease-ridden outpost by a vengeful court eunuch, and Spinoza&#x2019;s foundational philosophy took shape only after his own religious community formally cursed and cast him out. Neither man discovered his defining idea while still comfortably embedded inside the institution that had trained him &mdash; both had to be pushed entirely outside it first.</p>
+      <p><strong>So what:</strong> Genuinely novel thinking often requires enough distance from an institution&#x2019;s assumptions to see them as assumptions at all, rather than as simply how things are &mdash; worth remembering next time an idea feels obviously true just because everyone in the room already agrees with it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA New Horizons mission archives, 14 July 2015 flyby. Moore, J.M. et al. (2016), <em>Science</em> 351(6279).</li>
+      <li><strong>Card 2:</strong> 《宋史&middot;王安石傳》；漆俠《王安石變法》，河北人民出版社；James T.C. Liu, <em>Reform in Sung China</em>, Harvard University Press。</li>
+      <li><strong>Card 3:</strong> Wilson, P.H. (2009), <em>Europe&#x2019;s Tragedy: A New History of the Thirty Years War</em>, Harvard University Press.</li>
+      <li><strong>Card 4:</strong> 《王陽明年譜》；陳來《有無之境：王陽明哲學的精神》，北京大學出版社。</li>
+      <li><strong>Card 5:</strong> Spinoza, B. (1677), <em>Ethics</em>. Nadler, S. (1999), <em>Spinoza: A Life</em>, Cambridge University Press.</li>
+      <li><strong>Card 6:</strong> Watts, T.W., Duncan, G.J. &amp; Quan, H. (2018), <em>Psychological Science</em> 29(7).</li>
+      <li><strong>Card 7:</strong> Benedek, M. &amp; Kaernbach, C. (2011), <em>Biological Psychology</em> 86(3).</li>
+      <li><strong>Card 8:</strong> Unger, D.L. (2009); Deweber, K. et al. (2011), <em>Journal of the American Board of Family Medicine</em> 24(2).</li>
+      <li><strong>Card 9:</strong> Hickson, R.C. (1980), <em>European Journal of Applied Physiology</em> 45. Wilson, J.M. et al. (2012), <em>Journal of Strength and Conditioning Research</em> 26(8).</li>
+      <li><strong>Card 10:</strong> de Vries, J. &amp; van der Woude, A. (1997), <em>The First Modern Economy</em>, Cambridge University Press.</li>
+      <li><strong>Card 11:</strong> Sachs, J.D. &amp; Warner, A.M. (1995), NBER Working Paper 5398. Mehlum, H., Moene, K. &amp; Torvik, R. (2006), <em>Economic Journal</em> 116(508).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-24: New Horizons at Pluto &amp; Sputnik Planitia &bull; 王安石變法 &bull; The Second Defenestration of Prague (1618) &bull; 王陽明龍場悟道 &bull; Baruch Spinoza&#x2019;s Excommunication &amp; Pantheism &bull; The Stanford Marshmallow Test Replication &bull; Goosebumps &amp; Piloerection &bull; Knuckle Cracking Myth (Donald Unger) &bull; Concurrent Training / Interference Effect &bull; The Dutch East India Company &amp; Birth of the Stock Market &bull; The Resource Curse vs Botswana</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-24.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-24.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 24 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
