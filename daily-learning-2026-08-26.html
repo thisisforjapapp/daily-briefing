@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 26 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 26 August 2026 &nbsp;&middot;&nbsp; ~28 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>25 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; JWST Southern Ring Nebula</span>Webb&#x2019;s infrared images revealed a second, dust-hidden dying star at the nebula&#x2019;s centre, invisible to Hubble.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 陳勝吳廣起義</span>兩名戍卒因大雨誤期、按秦律必死，遂殺軍官起義，點燃推翻秦朝的第一把火。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Salem Witch Trials</span>Two girls&#x2019; unexplained fits triggered a witchcraft panic built on unfalsifiable &ldquo;spectral evidence,&rdquo; ending in nineteen hangings.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 陳白沙十年靜坐</span>陳白沙棄繁瑣格物之法，閉門靜坐十年，悟出「靜坐為先」，開嶺南心學先河。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Boethius&#x2019;s Consolation of Philosophy</span>Awaiting execution, Boethius argued true happiness can&#x2019;t depend on Fortune&#x2019;s arbitrary, ever-turning wheel.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Choice Blindness</span>A rigged card trick showed people will confidently defend photo choices they never actually made.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Brown Adipose Tissue</span>&ldquo;Noise&rdquo; on cancer scans turned out to be a working internal heater some adults still carry as adults.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Sunscreen &amp; Vitamin D Myth</span>Real-world sunscreen use is too thin and patchy to meaningfully block the vitamin D your skin makes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Rest-Pause Training</span>Short 10&ndash;20 second pauses within a set let lifters squeeze out near-maximal reps a straight set can&#x2019;t.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Railway Mania (1840s)</span>Britain&#x2019;s railway bubble ruined its &ldquo;Railway King&rdquo; but left physical tracks running for a century after.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Shenzhen SEZ vs Shock Therapy</span>China&#x2019;s gradual, piloted reform in Shenzhen outgrew Russia&#x2019;s textbook &ldquo;shock therapy&rdquo; approach.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Message Humanity Sent to the Stars &mdash; Then Followed Anyway</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1977, NASA attached a gold-plated phonograph record to each of the Voyager probes before launching them toward the edge of the solar system and beyond. Before reading on, what do you think a small committee of scientists decided to put on a record meant to represent all of humanity to whoever might one day find it &mdash; and what happened to the probes themselves after their original mission ended?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/The_Sounds_of_Earth_-_GPN-2000-001976.jpg" alt="The Voyager Golden Record and its cover, showing symbolic playback instructions" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Voyager Golden Record and its engraved cover, bolted to both Voyager probes before their 1977 launch. Credit: <a href="https://en.wikipedia.org/wiki/Voyager_Golden_Record" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 20 August and 5 September 1977, NASA (美國太空總署) launched the twin Voyager 1 and Voyager 2 (旅行者一號及二號) probes toward the outer planets and, eventually, interstellar space (星際空間). Bolted to each spacecraft is a gold-plated copper phonograph record, the Voyager Golden Record (航海家金唱片), assembled in barely six frantic weeks by a committee led by astronomer Carl Sagan (卡爾&middot;薩根). It carries 116 images, spoken greetings in 55 human languages plus one recorded from a humpback whale, and roughly 90 minutes of sound and music chosen to represent, as best a small committee could manage, the whole of human experience to whoever might one day find it.</p>
+      <p>The musical choices caused real arguments: Bach (巴赫) and Beethoven (貝多芬) made the list easily, but Chuck Berry&#x2019;s rock-and-roll track &ldquo;Johnny B. Goode&rdquo; nearly didn&#x2019;t, dismissed by some committee members as too adolescent &mdash; it stayed, and <em>Saturday Night Live</em> later joked that NASA had received a coded alien reply reading simply &ldquo;Send more Chuck Berry.&rdquo; The record&#x2019;s cover is etched with symbolic playback instructions and a map locating the Sun (太陽) relative to 14 pulsars (脈衝星), whose precise, clock-like spin lets any sufficiently advanced finder calculate both Earth&#x2019;s position and the year of launch.</p>
+      <p>Voyager 1 crossed into interstellar space in 2012 and Voyager 2 followed in 2018, making them the only human-built objects ever to leave the Sun&#x2019;s direct influence. Both probes still faintly transmit today, though NASA has been switching off their instruments one by one to stretch the dwindling power from their plutonium generators, expecting the last signal sometime in the early 2030s. After that, the spacecraft and their golden records will drift in silence for hundreds of millions of years &mdash; less a message anyone expects to be received than a record of what one species once wanted to say for itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Voyager_Golden_Record" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Voyager Golden Record was never really built to be found &mdash; it was built so that, whether or not anyone ever hears it, humanity would have tried to say something true about itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How does the Voyager Golden Record&#x2019;s cover let a potential finder calculate both Earth&#x2019;s location and when the probes launched?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It is etched with a map showing the Sun&#x2019;s position relative to 14 pulsars, whose extremely precise, clock-like spin rates let a finder triangulate Earth&#x2019;s location. Because pulsar spin rates slowly decay in a known way, the map also lets a finder estimate the year the probes launched.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, &ldquo;Voyager Golden Record.&rdquo; Sagan, C. et al. (1978), <em>Murmurs of Earth: The Voyager Interstellar Record</em>, Random House.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>王莽篡漢&mdash;&mdash;一個以「聖人」姿態奪權的外戚，如何一手拖垮了新朝？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">王莽在稱帝之前，已經以謙讓有禮、生活簡樸的形象經營了三十年名聲，甚至有數十萬官員百姓聯署上書，要求他「即真天子位」。你認為，一個靠「眾望所歸」方式奪取皇位的人，登基後最需要證明甚麼？他最終選擇的治國方式，又如何反而加速了新朝的滅亡？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王莽（前45&ndash;23年，西漢外戚，篡漢建新朝）；漢平帝（王莽擁立的傀儡皇帝）；孺子嬰（王莽攝政時期名義上的皇太子）。</p>
+        <p><strong>事件：</strong>王莽以外戚身分逐步掌控朝政，於9年廢孺子嬰自立，改國號「新」，托古改制，最終於23年綠林軍攻入長安時被殺，新朝滅亡。</p>
+        <p><strong>時代背景：</strong>西漢末年外戚勢力坐大，土地兼併嚴重、貧富懸殊，加上讖緯符命之說盛行，社會瀰漫「漢祚將終」的氣氛，為王莽以「順天命」姿態奪權提供了土壤。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/WUL-he21_01467_%E6%96%B0%E9%90%AB%E7%B9%AA%E5%83%8F%E6%9D%B1%E8%A5%BF%E6%BC%A2%E5%85%A8%E5%82%B3_01_%28%E7%8E%8B%E8%8E%BD%29.jpg" alt="王莽古代繪像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王莽古代繪像，出自《新鐫繪像東西漢全傳》。來源：<a href="https://en.wikipedia.org/wiki/Wang_Mang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王莽出身於西漢外戚王氏家族，其姑母王政君為漢元帝皇后，王氏一門權傾朝野，然而王莽本人早年喪父，家道中落，故其為人刻意謙恭儉樸、禮賢下士，與其他驕奢的王氏子弟截然不同，因而贏得朝野一致讚譽。他歷任大司馬等要職，屢次以謙讓辭官姿態博取聲望，前後長達三十年之久。前1年漢哀帝駕崩，王莽再度出任大司馬，擁立年僅九歲的漢平帝，並將女兒許配予平帝為后，進一步鞏固外戚地位；5年，平帝暴斃（後世多疑為王莽毒殺），王莽改立年僅兩歲的孺子嬰為皇太子，自己則以「攝皇帝」身分代行天子之事，距離皇位僅一步之遙。</p>
+      <p>其時民間讖緯符命之說盛行，各地屢有「石牛」「銅符」「金匱」等物「顯現」，皆宣稱天命歸於王莽，加上前後有數十萬官民聯署上書，勸進王莽「即真天子位」。9年，王莽終於順應「民意」，廢孺子嬰，自立為帝，改國號「新」，西漢自此告終。王莽即位後醉心於復古改制，一心仿效《周禮》推行井田制、王田私屬制，禁止土地與奴婢買賣；又屢次改革幣制，短短數年間五次更改貨幣，幣值混亂不堪，加上頻繁對外用兵、更改官制地名，政令朝令夕改，百姓無所適從，民間怨聲載道。</p>
+      <p>連年天災加上苛政橫徵，終於引爆大規模民變，綠林、赤眉等起義軍相繼而起，勢如燎原。23年，綠林軍攻破長安，王莽在混亂中被商人杜吳所殺，新朝僅維持十五年便告滅亡，其後劉秀重建漢室，史稱「光武中興」。班固在《漢書》中將王莽列入〈王莽傳〉而非帝王本紀，斥其「始建國，自以為過黃帝、大禹」，後世史家亦多譏其「書生誤國」，其復古改制的失敗，成為中國歷史上少數以近乎和平方式奪權，卻又迅速自我崩潰的典型案例。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Mang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王莽花了三十年經營「謙讓有禮」的聖人形象換來皇位，卻只用了十五年，就親手證明了理想主義治國與現實政治之間，往往隔著一條難以跨越的鴻溝。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王莽如何在不靠武力政變的情況下奪得皇位？他即位後推行的復古改制，為何反而加速了新朝的滅亡？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他靠三十年謙恭儉樸的聲譽，以及讖緯符命與官民聯署勸進的「民意」，以近乎和平禪讓的方式奪得皇位。即位後他托古改制，強行推行井田制及頻繁改革幣制，政令朝令夕改，加上天災苛政，終致民變四起，新朝迅速崩潰。</div>
+      </details>
+      <div class="source">&#x1F4D6; 班固《漢書&middot;王莽傳》；呂思勉《秦漢史》，上海古籍出版社；Hans Bielenstein, &ldquo;Wang Mang, the Restoration of the Han Dynasty, and Later Han,&rdquo; in <em>The Cambridge History of China</em>, Vol. 1。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Rebellion That Began With a Rifle Cartridge and Ended an Empire&#x2019;s Old Order</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1857, Indian sepoy soldiers serving in the British East India Company&#x2019;s army began refusing to load their new rifles, on the grounds that the cartridges were greased with animal fat that would violate their religious beliefs the moment loading required them to bite the paper open. Before reading on, what do you think happened when the Company dismissed and imprisoned the soldiers who refused &mdash; and how far do you think a protest over a single cartridge could actually spread?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Mangal Pandey (曼加爾&middot;潘迪), a sepoy whose attack on officers at Barrackpore in March 1857 became an early flashpoint; Bahadur Shah II (巴哈杜爾沙二世), the last Mughal emperor, briefly declared the rebellion&#x2019;s nominal leader.</p>
+        <p><strong>Event at stake:</strong> the Indian Rebellion of 1857 (1857年印度民族起義), a widespread uprising against the British East India Company&#x2019;s (英國東印度公司) rule that began among sepoy soldiers and spread into a broader revolt.</p>
+        <p><strong>Big picture:</strong> decades of annexation, unpopular land and tax policies, and cultural insensitivity had built deep resentment across Indian society, which the cartridge controversy detonated rather than caused.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Indian_Rebellion_of_1857.jpg/330px-Indian_Rebellion_of_1857.jpg" alt="19th-century depiction of the Indian Rebellion of 1857" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A 19th-century depiction of fighting during the Indian Rebellion of 1857. Credit: <a href="https://en.wikipedia.org/wiki/Indian_Rebellion_of_1857" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By the 1850s, the British East India Company (英國東印度公司) governed most of the Indian subcontinent through a mix of direct rule and treaties with local princes, backed by an army of roughly 300,000 Indian sepoys (印度兵) commanded largely by British officers. Resentment had been building for years over the Company&#x2019;s aggressive annexation policy &mdash; including the 1856 seizure of the kingdom of Awadh (阿瓦德) on the pretext of misgovernment &mdash; and a widely resented land-revenue system that displaced traditional landholders. Into this tension arrived the new Pattern 1853 Enfield rifle (恩菲爾德步槍), whose paper cartridges had to be bitten open before loading.</p>
+      <p>Rumours spread rapidly among sepoys that the cartridges were greased with a mixture of cow and pig fat, making them religiously unacceptable to both Hindu (印度教) and Muslim (伊斯蘭教) soldiers alike, regardless of whether the rumour was entirely accurate. In March 1857, sepoy Mangal Pandey (曼加爾&middot;潘迪) attacked British officers at Barrackpore (巴拉克普爾) in protest and was executed; weeks later, on 10 May, sepoys at Meerut (密拉特) refused the cartridges outright, freed imprisoned comrades, killed their officers, and marched to Delhi (德里), proclaiming the aged, largely powerless Mughal emperor Bahadur Shah II (巴哈杜爾沙二世) their nominal leader.</p>
+      <p>The revolt spread across northern and central India through 1857 and into 1858, drawing in disbanded soldiers, displaced landholders and ordinary civilians angered by years of Company policy, though large regions of India stayed loyal or uninvolved. Fighting was brutal on both sides, including massacres of British civilians at Kanpur (坎普爾) and mass reprisal executions by British forces after Delhi&#x2019;s recapture. Once the rebellion was crushed in mid-1858, the British Crown formally abolished the East India Company and took direct control of India, ending nearly a century of Company rule &mdash; remembered in India today as the First War of Independence (第一次獨立戰爭).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Indian_Rebellion_of_1857" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single rumour about rifle grease didn&#x2019;t create a century of accumulated resentment against Company rule &mdash; it simply gave that resentment a spark and a shared grievance to rally around.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific grievance about the new Enfield rifle cartridges triggered the 1857 rebellion, and what deeper set of resentments did it detonate rather than cause?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Rumours that the cartridges were greased with cow and pig fat, requiring soldiers to bite something religiously unacceptable to Hindus and Muslims alike, triggered the initial refusals. This ignited deeper resentment over Company land-revenue policy and aggressive annexations like Awadh, which had been building for years.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dalrymple, W. (2006), <em>The Last Mughal: The Fall of a Dynasty, Delhi 1857</em>, Bloomsbury. Metcalf, T.R. (1964), <em>The Aftermath of Revolt: India, 1857&ndash;1870</em>, Princeton University Press.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>墨子「兼愛非攻」&mdash;&mdash;一個木匠出身的思想家，如何憑一場沙盤推演，硬生生阻止了一場滅國之戰？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元前五世紀，楚國準備出動精良的雲梯攻打弱小的宋國，墨子聽聞後，徒步十日十夜從魯國趕赴楚都，竟只憑口舌與一場模擬攻防的演練，就成功說服楚王罷兵。你認為，墨子用了甚麼方法，讓一個手握強大攻城武器的君主，甘願放棄一場看似穩勝的戰爭？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>墨翟（約前470&ndash;前391年，墨家創始人，出身工匠平民）；公輸班（即魯班，著名工匠，為楚國設計雲梯攻城器械）；楚惠王（戰國初期楚國君主）。</p>
+        <p><strong>事件：</strong>墨子聞楚國將以公輸班所製雲梯攻打宋國，徒步十日十夜趕赴楚都，與公輸班進行沙盤攻防推演，最終說服楚王罷兵，史稱「止楚攻宋」。</p>
+        <p><strong>時代背景：</strong>春秋戰國之交，諸侯兼併頻仍，大國恃強凌弱乃是常態；墨子出身平民工匠階層，其學說處處針對貴族奢靡好戰之風，主張「兼愛」「非攻」，在諸子百家中獨樹一幟。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Birth_Places_of_Chinese_Philosophers.png/330px-Birth_Places_of_Chinese_Philosophers.png" alt="先秦諸子出生地地圖" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">先秦諸子百家出生地地圖，墨子與同期諸子皆活躍於此一思想爆發的時代。來源：<a href="https://en.wikipedia.org/wiki/Mozi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>墨翟出身工匠平民，相傳曾學於儒者，卻因不滿儒家繁複的喪葬禮制，另立門戶創立墨家，其學派紀律嚴明，首領稱「鉅子」，弟子必須服從號令，甚至可為理想赴死，組織形態近乎宗教團體或俠義社群。墨子提出「兼愛」思想，主張愛人如己、不分親疏貴賤，直接挑戰儒家「愛有差等」的倫理秩序&mdash;&mdash;由近及遠、由親及疏的差序之愛；孟子後來便嚴厲批評墨子「兼愛」是「無父」，認為抹殺了人倫親疏之別。墨子又提出「非攻」，反對一切侵略性戰爭，認為攻打他國掠奪土地財物，本質上與盜賊殺人越貨無異，只是規模較大而已。</p>
+      <p>墨子的「非攻」並非空談。相傳楚國欲以能工巧匠公輸班（即後世尊稱的魯班）新製的雲梯攻打弱小的宋國，墨子聞訊，徒步十日十夜從魯國趕赴楚都郢，先以言辭質問公輸班「義不殺少而殺眾」的邏輯矛盾，再當面向楚王剖析：楚國土地有餘而人民不足，攻打宋國實屬得不償失。楚王與公輸班仍未死心，墨子遂解下衣帶為城，以木片為械，與公輸班進行九次沙盤攻防推演，公輸班九次攻城器械皆被墨子一一化解；公輸班黔驢技窮，暗示可殺墨子以絕後患，墨子卻早已安排三百弟子在宋國城牆嚴陣以待，楚王見狀，終於打消攻宋念頭，史稱「止楚攻宋」。</p>
+      <p>除「兼愛」「非攻」外，墨子亦主張「尚賢」（不論出身、唯才是舉）、「節用」「節葬」「非樂」，處處針對貴族奢靡厚葬與繁複禮樂之風，體現其平民工匠階層的務實立場。墨家在戰國初期一度與儒家並稱「顯學」，門徒遍及天下，然而秦漢大一統後，其嚴密的組織形態與「非攻」主張與中央集權及征伐統一的現實漸不相容，加上缺乏強大政治勢力扶持，遂逐漸衰落式微，僅存《墨子》殘篇及其中艱澀的〈墨辯〉邏輯學說流傳後世，直至近代才重新受到學界重視。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mozi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 墨子從不靠武力威嚇，只憑一場沙盤推演與三百弟子的部署，就讓一場滅國之戰胎死腹中&mdash;&mdash;證明說服一位君主放棄戰爭，有時候比打贏一場戰爭更需要智慧。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 墨子如何說服楚王放棄攻打宋國？他的「兼愛」思想與儒家的倫理觀有何根本分歧？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">墨子先以言辭指出公輸班製造攻城器械的道德矛盾，再與其進行九次沙盤攻防推演，逐一化解楚國攻勢，並透露三百弟子已在宋國城牆佈防，令楚王打消攻宋念頭。墨子主張「兼愛」，愛人不分親疏貴賤，與儒家「愛有差等」、由親及疏的倫理觀根本對立，孟子更批評此說「無父」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《墨子&middot;公輸》；《墨子&middot;兼愛》；馮友蘭《中國哲學史》；Angus C. Graham, <em>Disputers of the Tao: Philosophical Argument in Ancient China</em>。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Ship That Sailed for Centuries &mdash; And the Puzzle It Left Philosophy to Solve</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">According to an ancient story, the ship in which Theseus sailed home to Athens was preserved for centuries by the Athenians, who replaced each rotting plank with a new one as it decayed. Before reading on, what do you think happens to a thing&#x2019;s identity once every single one of its original parts has eventually been swapped out &mdash; is it still, in any meaningful sense, the same ship?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Plutarch (普魯塔克, c. 46&ndash;120 CE), the Greek biographer who first recorded the puzzle in his <em>Life of Theseus</em>.</p>
+        <p><strong>Problem at stake:</strong> whether an object that has had every one of its original physical components gradually replaced remains, in any meaningful sense, the same object.</p>
+        <p><strong>Moment:</strong> the puzzle was later sharpened by philosopher Thomas Hobbes (霍布斯) into one of the most durable thought experiments in the history of metaphysics.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Ship_of_Theseus.svg/330px-Ship_of_Theseus.svg.png" alt="Diagram illustrating the Ship of Theseus paradox" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram illustrating the Ship of Theseus paradox: planks replaced one by one over time. Credit: <a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Greek biographer Plutarch (普魯塔克) recorded that the ship in which the legendary hero Theseus (忒修斯) sailed back to Athens (雅典) from Crete was preserved by the Athenians for centuries as a monument, with rotting planks removed and replaced by sound new timber as decay demanded. Plutarch himself noted the philosophical puzzle this created: the ship remained functionally and continuously the same vessel to everyone who saw it, yet given enough time, every single plank, beam and fitting in it would eventually be new, with none of the original material Theseus actually sailed on left anywhere in the structure.</p>
+      <p>In the 17th century, English philosopher Thomas Hobbes (霍布斯) sharpened the puzzle further by imagining that someone had collected every discarded original plank as it was removed and used them to secretly assemble a second ship elsewhere. By the time the Athenians&#x2019; continuously repaired vessel was entirely rebuilt from new material, this second ship, made purely from every original Theseus-era plank, would also exist &mdash; leaving two vessels, each with a plausible claim to being &ldquo;the real&rdquo; ship of Theseus (忒修斯之船), with no obvious principle for choosing between continuity of form and continuity of matter.</p>
+      <p>The puzzle isn&#x2019;t really about ships at all &mdash; it&#x2019;s a compact test case for personal identity (個人同一性): the human body replaces nearly all its cells over roughly seven to ten years, and a person&#x2019;s beliefs, memories and personality shift substantially over a lifetime too, raising the same question about what actually makes someone &ldquo;the same person&rdquo; they were decades earlier. Modern philosophers distinguish continuity of matter, continuity of form, and continuity of function as competing answers, none fully satisfying on its own &mdash; a genuinely unresolved puzzle still cited in debates over personal identity, corporate identity, and even software systems rebuilt piece by piece over time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ship_of_Theseus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Ship of Theseus was never really a puzzle about wood and nails &mdash; it&#x2019;s the oldest recorded proof that &ldquo;sameness&rdquo; over time is a much slipperier idea than it feels.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did Thomas Hobbes sharpen Plutarch&#x2019;s original ship of Theseus puzzle, and what deeper question does the thought experiment actually probe?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hobbes imagined someone secretly rebuilding a second ship entirely from the original discarded planks, creating two vessels each with a plausible claim to being the &ldquo;real&rdquo; ship. The puzzle actually probes personal identity &mdash; what makes something, or someone, the same thing over time despite near-total material change.</div>
+      </details>
+      <div class="source">&#x1F4D6; Plutarch, <em>Life of Theseus</em>. Hobbes, T. (1655), <em>De Corpore</em>. Stanford Encyclopedia of Philosophy, &ldquo;Identity Over Time.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You End Up Liking the Song You Never Chose to Hear Fifty Times</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In a famous set of 1968 experiments, participants were briefly shown a series of meaningless symbols &mdash; Chinese characters they couldn&#x2019;t read and had never seen before &mdash; with some symbols flashed far more often than others. Before reading on, what do you think happened when researchers later asked participants which symbols they liked best, given that none of the symbols meant anything to them at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Hanzi.svg/500px-Hanzi.svg.png" alt="Chinese characters, similar to the unfamiliar symbols used in Zajonc's original exposure experiments" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Chinese characters &mdash; the kind of unfamiliar symbol Robert Zajonc used in his original 1968 mere-exposure experiments. Credit: <a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1968, Polish-American psychologist Robert Zajonc (羅伯特&middot;扎瓊茨) published a landmark study testing a deceptively simple idea: that mere repeated exposure to something, with no reward, meaning or new information attached, is enough on its own to increase how much people like it. Across several experiments, Zajonc showed participants nonsense words, unfamiliar Chinese characters (漢字), and photographs of strangers&#x2019; faces, varying only how many times each item appeared, then asked participants to rate how much they liked each one &mdash; deliberately stripping out any possibility that participants were responding to the item&#x2019;s actual content or quality.</p>
+      <p>The pattern held with striking consistency: items shown more frequently were rated significantly more likeable than equally meaningless items shown only once or twice, even though participants had no memory of having decided to prefer them and often couldn&#x2019;t recall which items they&#x2019;d seen before at all. Zajonc named this the mere-exposure effect (單純曝光效應), and later work by Kunst-Wilson and Zajonc in 1980 found the effect held even when images were flashed too briefly to consciously register, suggesting familiarity operates below the level of conscious recognition.</p>
+      <p>A 1989 meta-analysis by Robert Bornstein (羅伯特&middot;伯恩斯坦), pooling over 200 studies, confirmed the effect is real but bounded: it&#x2019;s strongest for genuinely neutral stimuli, weakens or even reverses for things people disliked on first exposure, and typically plateaus after roughly ten to twenty exposures rather than climbing indefinitely. The effect helps explain everyday phenomena from advertising jingles to the slow warming many people feel toward songs, coworkers or neighbourhoods that were initially unremarkable &mdash; and offers a caution: liking something more the more you&#x2019;ve encountered it is not, by itself, evidence that it deserved the liking.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mere-exposure_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Simply being exposed to something repeatedly, with nothing else attached, is often enough to make people like it more &mdash; which is exactly why familiarity and genuine quality are so easy to confuse.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Zajonc&#x2019;s 1968 experiments show about the relationship between repeated exposure and liking, and what did the 1980 follow-up study add?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Items shown more frequently, even meaningless nonsense words or unfamiliar characters, were consistently rated as more likeable than equally meaningless items shown rarely. The 1980 follow-up found this mere-exposure effect held even when exposures were too brief to consciously register, suggesting familiarity operates below conscious awareness.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zajonc, R.B. (1968), &ldquo;Attitudinal Effects of Mere Exposure,&rdquo; <em>Journal of Personality and Social Psychology</em> 9(2). Bornstein, R.F. (1989), <em>Psychological Bulletin</em> 106(2).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Reflex That Fires Before You Even Decide to Panic</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">The gag reflex triggers almost instantly when something touches the back of the throat, well before a person has time to consciously think about it &mdash; yet some people gag at the lightest touch of a toothbrush while others tolerate a dental instrument far back in the mouth with barely a flinch. Before reading on, what do you think causes this reflex to fire, and why might it vary so dramatically between two otherwise healthy people?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Illu01_head_neck.jpg" alt="Diagram of the human head and neck anatomy, including the pharynx" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The pharynx and surrounding head-and-neck anatomy, the site where touch triggers the gag reflex. Credit: <a href="https://en.wikipedia.org/wiki/Pharyngeal_reflex" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The gag reflex, medically termed the pharyngeal reflex (咽反射), is triggered when the back of the tongue, soft palate (軟顎) or rear wall of the throat is touched, activating sensory fibres in the glossopharyngeal nerve (舌咽神經) and vagus nerve (迷走神經). These nerves relay the signal directly to the brainstem (腦幹), which fires an immediate, involuntary contraction of the throat muscles &mdash; closing off the airway and triggering a retching motion &mdash; entirely bypassing conscious decision-making. The reflex almost certainly evolved as a last line of defence against choking, expelling an object or substance before it can slip further down into the airway.</p>
+      <p>Sensitivity varies enormously between individuals for reasons only partly understood: some of the variation is anatomical, since a lower-set soft palate or a naturally sensitive throat lining means the trigger zone gets touched more easily during ordinary activities like brushing teeth or eating; some is neurological, with certain people simply carrying a lower activation threshold in the reflex arc itself. Anxiety and prior negative experiences &mdash; a bad gagging episode at the dentist, for instance &mdash; can also lower the threshold further through classical conditioning (經典制約), making the reflex fire even at anticipatory touch or the mere sight of an approaching instrument.</p>
+      <p>Dentists and endoscopy clinicians manage an overly sensitive gag reflex with techniques that work with, rather than against, the nervous system: distracting the patient&#x2019;s attention, having them breathe steadily through the nose, applying topical anaesthetic to the trigger zone, or simply repeating controlled, brief touches so the reflex habituates and quietens with repeated exposure. In rare cases the reflex is absent entirely, which is actually a clinical concern rather than a convenience, since it can signal impaired swallowing safety and an increased choking or aspiration risk.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pharyngeal_reflex" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A hair-trigger gag reflex isn&#x2019;t a personal failing or a matter of willpower &mdash; it&#x2019;s simply a faster, more sensitive version of the same protective wiring everyone has.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Which two nerves carry the signal that triggers the gag reflex, and what factors explain why sensitivity varies so much between people?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The glossopharyngeal and vagus nerves carry the sensory signal from the throat to the brainstem, which fires the involuntary reflex. Sensitivity varies due to anatomical differences like the position of the soft palate, a naturally lower neurological activation threshold in some people, and conditioned anxiety from prior negative experiences.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bassi, G.S. et al. (2004), &ldquo;Measurement of the Gag Reflex With a New Reflex Scale,&rdquo; <em>Journal of Dentistry</em>. Chaudhary, S. et al. (2015), <em>Journal of Clinical and Diagnostic Research</em>.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Kitchen-Cabinet Weight-Loss Claim That&#x2019;s Mostly Vinegar, Not Magic</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Apple cider vinegar has been promoted online for years as a near-effortless way to lose weight, boost metabolism and control blood sugar, often with claims of dramatic results from just a tablespoon or two a day. Before reading on, what do you think happens when researchers actually put these claims through controlled trials &mdash; and how much of any real effect turns out to come from the vinegar itself versus the diet changes people make alongside it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Apple_Cider_Vinegar_%284108653248%29.jpg/3840px-Apple_Cider_Vinegar_%284108653248%29.jpg" alt="A bottle of apple cider vinegar" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Apple cider vinegar &mdash; its modest, inconsistent weight-loss effect is often overstated online. Credit: <a href="https://en.wikipedia.org/wiki/Apple_cider_vinegar" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Apple cider vinegar (蘋果醋) is fermented apple juice containing roughly 5&ndash;6% acetic acid (乙酸), the same compound responsible for vinegar&#x2019;s sharp taste and smell, and proponents claim daily doses can suppress appetite, boost metabolism, and meaningfully accelerate weight loss. The proposed mechanism has some real biochemistry behind it: acetic acid can modestly slow gastric emptying and blunt the blood sugar spike that follows a carbohydrate-heavy meal, and animal studies have shown weight-related effects at doses far higher than anyone would comfortably drink. Whether this translates into a meaningful real-world weight-loss effect in humans is a separate, much less settled question.</p>
+      <p>A widely cited 2009 Japanese trial found participants drinking diluted vinegar lost roughly one to two kilograms more than a placebo group over 12 weeks &mdash; a real but genuinely modest effect, especially set against the discomfort of drinking vinegar daily. A 2024 systematic review of the broader evidence base found the effect across studies was small and inconsistent, and frequently confounded by the fact that people who commit to a daily vinegar ritual often simultaneously make other diet changes, making it hard to isolate the vinegar&#x2019;s own contribution; a widely shared 2024 Lebanese teen study was separately flagged by other researchers for data irregularities.</p>
+      <p>Beyond the weak evidence for dramatic weight loss, undiluted apple cider vinegar carries genuine risks: its acidity can erode tooth enamel (琺瑯質) with regular exposure and, if drunk without dilution, can cause oesophageal (食道) irritation or burns, particularly with the &ldquo;shot&rdquo;-style consumption often shown online. If tried at all, the more cautious approach is heavily diluting one to two tablespoons in a full glass of water, rather than treating it as a substitute for the diet and exercise changes that carry far stronger evidence for weight loss.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Apple_cider_vinegar" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Apple cider vinegar&#x2019;s real effect on weight is small and easily swamped by the diet changes people make alongside it &mdash; the vinegar itself is not doing the heavy lifting.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the proposed biochemical mechanism behind apple cider vinegar&#x2019;s weight-loss claims, and why do researchers find it difficult to isolate its real-world effect?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Acetic acid can modestly slow gastric emptying and blunt post-meal blood sugar spikes, which is the proposed mechanism. Isolating its real-world effect is difficult because people who commit to a daily vinegar routine often simultaneously change their broader diet, confounding studies that try to measure vinegar&#x2019;s contribution alone.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kondo, T. et al. (2009), <em>Bioscience, Biotechnology, and Biochemistry</em> 73(8). Systematic review (2024), <em>Journal of Functional Foods</em>.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Barbell Sensor That Tells You You&#x2019;re Weaker Today Before Your Muscles Do</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A person&#x2019;s true one-rep maximum can fluctuate by as much as 5 to 18% from one day to the next depending on sleep, stress and recovery, even though most training programmes prescribe weight as a fixed percentage of a maximum tested weeks earlier. Before reading on, what do you think happens when a lifter trains at a percentage calculated for a &ldquo;good day&rdquo; on a day their body genuinely isn&#x2019;t ready for it &mdash; and how might measuring the speed of the bar itself help solve that problem?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Bench_press_1.jpg" alt="A lifter performing a barbell bench press" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Barbell training &mdash; velocity-based training measures how fast the bar moves on each rep to gauge a lifter&#x2019;s true readiness that day. Credit: <a href="https://en.wikipedia.org/wiki/Bench_press" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Velocity-based training (VBT，速度導向訓練) uses a sensor &mdash; typically a linear position transducer or accelerometer clipped to the barbell &mdash; to measure exactly how fast the bar moves during each repetition, in metres per second. Because bar speed at a given percentage of one-rep maximum (1RM) follows a fairly consistent relationship for most lifters, VBT allows a coach to estimate a lifter&#x2019;s true strength on any given day directly from how the bar is actually moving, rather than relying on a fixed percentage calculated from a 1RM test performed weeks or months earlier, when recovery, sleep and stress may have been entirely different.</p>
+      <p>This solves a real problem documented in sports science research: a lifter&#x2019;s genuine one-rep maximum fluctuates day to day by roughly 5 to 18%, depending on factors like sleep quality, cumulative fatigue and psychological stress, meaning a fixed-percentage programme can inadvertently prescribe a weight that&#x2019;s either dangerously heavy or uselessly light relative to how the athlete&#x2019;s body actually is that day. With VBT, if the bar moves slower than expected at a prescribed weight, the coach can reduce the load in real time; if it moves faster, they can add weight &mdash; a form of daily autoregulation (自我調節) driven by objective data rather than feel alone.</p>
+      <p>VBT is also used to target specific training goals precisely, since different bar speeds correspond to different adaptations: very slow bar speeds near a lifter&#x2019;s absolute limit build maximal strength, while faster, more explosive bar speeds at lighter loads build power output more relevant to sports involving jumping, sprinting or throwing. The main practical limitation is cost and setup complexity &mdash; quality sensors and the expertise to interpret velocity data in real time aren&#x2019;t universally accessible &mdash; and the velocity-to-percentage relationship itself varies between individual lifters and exercises, meaning VBT works best layered on top of, rather than as a replacement for, well-designed traditional programming.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bench_press" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The load on the bar tells you what the programme expected of you today &mdash; the speed the bar actually moves tells you what your body is capable of right now, and the two aren&#x2019;t always the same number.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does training at a fixed percentage of a one-rep maximum tested weeks earlier create a problem, and how does velocity-based training address it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A lifter&#x2019;s true one-rep maximum fluctuates day to day by roughly 5 to 18% depending on sleep, fatigue and stress, so a fixed-percentage load can be too heavy or too light on a given day. VBT measures actual bar speed in real time, letting a coach adjust the load to match true readiness.</div>
+      </details>
+      <div class="source">&#x1F4D6; Zourdos, M.C. et al. (2016), <em>Journal of Strength and Conditioning Research</em> 30(1). Gonz&#xE1;lez-Badillo, J.J. &amp; S&#xE1;nchez-Medina, L. (2010), <em>International Journal of Sports Medicine</em> 31(5).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The One-Page Shareholder Letter Jeff Bezos Reprinted Every Year for Decades</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In Amazon&#x2019;s very first annual shareholder letter, written in 1997 when the company was still primarily an online bookstore losing money on every sale, founder Jeff Bezos made an unusual promise: that Amazon would prioritise long-term market leadership over near-term profitability, and he asked shareholders who disagreed with that trade-off not to invest. Before reading on, what do you think happened to Amazon&#x2019;s stock price in the company&#x2019;s first few years under this philosophy &mdash; and why might a company deliberately choose to look financially worse in the short term?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/260202-D-PM193-2205_SECWAR_Arsenal_of_Freedom_Tour_-_Florida_%283x4_cropped_on_Bezos_and_rotated%29.jpg" alt="Photograph of Jeff Bezos" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jeff Bezos, whose 1997 shareholder letter became a template for long-term-focused corporate strategy. Credit: <a href="https://en.wikipedia.org/wiki/Jeff_Bezos" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In April 1997, roughly six months after Amazon&#x2019;s IPO, founder Jeff Bezos (傑夫&middot;貝佐斯) wrote a shareholder letter (股東信) that would become one of the most influential documents in corporate strategy: it explicitly stated Amazon would make decisions based on long-term market leadership and cash flow rather than short-term profitability or Wall Street&#x2019;s quarterly earnings expectations, and warned that the company would continue to reinvest aggressively rather than show near-term accounting profits. Bezos included this same one-page letter, titled &ldquo;It&#x2019;s All About the Long Term,&rdquo; as an appendix to every subsequent annual report for years &mdash; a deliberate reminder of the philosophy shareholders had signed up for.</p>
+      <p>The commitment wasn&#x2019;t just rhetoric: Amazon (亞馬遜) posted losses for most of its first seven years as a public company, reinvesting revenue into warehouses, technology and expansion rather than distributing profits, and its stock fell roughly 90% during the dot-com crash (網絡泡沫) of 2000&ndash;2002 alongside far weaker companies that never recovered. What set Amazon apart from failed dot-com peers like Pets.com and Webvan wasn&#x2019;t immunity to the crash &mdash; its share price collapse was comparably brutal &mdash; but that the underlying business fundamentals Bezos had prioritised, customer trust, operational scale and reinvestment discipline, kept compounding through the downturn rather than masking a business that was never viable to begin with.</p>
+      <p>The letter also introduced Bezos&#x2019;s now-famous &ldquo;Day 1&rdquo; (第一天) framing &mdash; the idea that a company must operate with the urgency and customer obsession of a young startup, because &ldquo;Day 2&rdquo; inevitably means stagnation and decline. This long-term-over-quarterly-earnings philosophy became a template widely cited, and often only partially imitated, by other founders promising patient shareholders similar trade-offs; the harder lesson is that the framework only works if the long-term bet is genuinely sound, since plenty of companies that asked investors for patience under similar language never delivered the underlying business Amazon eventually built.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jeff_Bezos" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Amazon&#x2019;s founder didn&#x2019;t hide the trade-off from investors &mdash; he put &ldquo;we will prioritise the long term over your next quarterly earnings report&rdquo; in writing, every single year, so no shareholder could later claim they weren&#x2019;t warned.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific commitment did Bezos make in Amazon&#x2019;s 1997 shareholder letter, and what happened to Amazon&#x2019;s stock during the dot-com crash despite that philosophy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Bezos committed Amazon to prioritising long-term market leadership and cash flow over near-term profitability and quarterly earnings, warning shareholders who disagreed not to invest. Despite this philosophy, Amazon&#x2019;s stock still fell roughly 90% during the 2000&ndash;2002 dot-com crash, though the underlying business kept compounding and eventually recovered.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bezos, J. (1997), Amazon.com 1997 Annual Report Letter to Shareholders. Stone, B. (2013), <em>The Everything Store: Jeff Bezos and the Age of Amazon</em>, Little, Brown.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Economic Law That Said Depressions Couldn&#x2019;t Happen &mdash; Written While One Was Happening</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/John_Maynard_Keynes_%281929%29.jpg" alt="Photograph of John Maynard Keynes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Maynard Keynes, whose 1936 <em>General Theory</em> challenged classical economics&#x2019; prediction that depressions self-correct. Credit: <a href="https://en.wikipedia.org/wiki/John_Maynard_Keynes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">By 1932, at the depth of the Great Depression (大蕭條), roughly a quarter of the US workforce was unemployed and factories sat idle with unsold goods stacked in warehouses, a condition persisting for years rather than self-correcting within the months classical economic theory predicted.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Say&#x2019;s Law (賽伊定律), associated with French economist Jean-Baptiste Say (讓-巴蒂斯特&middot;賽伊, 1803), held that &ldquo;supply creates its own demand&rdquo; &mdash; that producing goods generates the income needed to buy other goods, making a general, economy-wide glut and involuntary unemployment logically impossible in a properly functioning market.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Mass involuntary unemployment (非自願性失業) and unsold industrial output persisted for over a decade in some economies, directly contradicting Say&#x2019;s Law. Wages and prices fell as classical theory said they should, yet employment failed to self-correct back toward full capacity as the theory promised it would.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">British economist John Maynard Keynes (約翰&middot;梅納德&middot;凱恩斯) argued in his 1936 <em>The General Theory of Employment, Interest and Money</em> that aggregate demand (總需求) can fall persistently short of an economy&#x2019;s productive capacity, and that government spending can fill the gap &mdash; reshaping 20th-century macroeconomic policy, though how much active demand management helps versus distorts markets remains debated today.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Say&#x2019;s Law wasn&#x2019;t refuted by an argument &mdash; it was refuted by roughly a quarter of a workforce standing idle for over a decade while the theory insisted that couldn&#x2019;t happen.</div>
+      <div class="source">&#x1F4D6; Keynes, J.M. (1936), <em>The General Theory of Employment, Interest and Money</em>, Macmillan. Say, J.B. (1803), <em>Trait&#xE9; d&#x2019;&#xE9;conomie politique</em>. Never recycles Card 10 domain (Amazon&#x2019;s shareholder-letter investment philosophy vs. macroeconomic theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 9 &mdash; What You Assume Stays Constant Rarely Does:</strong> The Ship of Theseus asks whether something with every original part replaced is still &ldquo;the same&rdquo; vessel, while velocity-based training exists precisely because a lifter&#x2019;s own body isn&#x2019;t the same from one day to the next &mdash; a fixed one-rep-max tested weeks ago is already a ship with different planks in it by the time it&#x2019;s used to set today&#x2019;s training load.</p>
+      <p><strong>So what:</strong> Whether you&#x2019;re managing a decades-old institution, a workout programme, or your own sense of who you are, the safest assumption is that the version you&#x2019;re measuring against is already out of date &mdash; worth remeasuring directly rather than trusting a snapshot taken under different conditions.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, &ldquo;Voyager Golden Record.&rdquo; Sagan, C. et al. (1978), <em>Murmurs of Earth</em>, Random House.</li>
+      <li><strong>Card 2:</strong> 班固《漢書&middot;王莽傳》；呂思勉《秦漢史》，上海古籍出版社。</li>
+      <li><strong>Card 3:</strong> Dalrymple, W. (2006), <em>The Last Mughal</em>, Bloomsbury.</li>
+      <li><strong>Card 4:</strong> 《墨子&middot;公輸》；《墨子&middot;兼愛》；馮友蘭《中國哲學史》。</li>
+      <li><strong>Card 5:</strong> Plutarch, <em>Life of Theseus</em>. Hobbes, T. (1655), <em>De Corpore</em>.</li>
+      <li><strong>Card 6:</strong> Zajonc, R.B. (1968), <em>Journal of Personality and Social Psychology</em> 9(2).</li>
+      <li><strong>Card 7:</strong> Bassi, G.S. et al. (2004), <em>Journal of Dentistry</em>.</li>
+      <li><strong>Card 8:</strong> Kondo, T. et al. (2009), <em>Bioscience, Biotechnology, and Biochemistry</em> 73(8).</li>
+      <li><strong>Card 9:</strong> Zourdos, M.C. et al. (2016), <em>Journal of Strength and Conditioning Research</em> 30(1).</li>
+      <li><strong>Card 10:</strong> Bezos, J. (1997), Amazon.com Annual Report Letter. Stone, B. (2013), <em>The Everything Store</em>.</li>
+      <li><strong>Card 11:</strong> Keynes, J.M. (1936), <em>The General Theory of Employment, Interest and Money</em>, Macmillan.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-26: The Voyager Golden Record &bull; 王莽篡漢 &bull; The Indian Rebellion of 1857 &bull; 墨子兼愛非攻 &bull; The Ship of Theseus &bull; Mere-Exposure Effect (Zajonc 1968) &bull; The Gag Reflex &bull; Apple Cider Vinegar Weight-Loss Claims &bull; Velocity-Based Training &bull; Amazon&#x2019;s 1997 Shareholder Letter &bull; Say&#x2019;s Law vs Keynes&#x2019; General Theory</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-26.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-26.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 26 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
