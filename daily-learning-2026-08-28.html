@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 28 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 28 August 2026 &nbsp;&middot;&nbsp; ~27 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>27 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Pillars of Creation</span>A famous star-forming nebula photographed by Hubble may already have been destroyed by a supernova shockwave millennia ago.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 解體新書</span>幾位不諳荷蘭語的醫生，苦譯四年成就日本首部解剖學譯著。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Fall of Constantinople</span>A cannon rejected by a cash-poor Byzantine emperor was built for the Ottoman sultan instead, ending a thousand-year empire.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 六祖慧能</span>不識字的舂米雜役，靠一首偈頌意外奪得禪宗衣缽傳承。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; The Trolley Problem</span>Two structurally identical dilemmas produce opposite moral verdicts depending on how directly a person's hand causes harm.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Framing Effect</span>Describing identical statistics as gains versus losses flipped most people's risk preferences entirely.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Natural Short Sleepers</span>A rare gene mutation lets a tiny fraction of people thrive on four to six hours of sleep.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The &ldquo;Eight Glasses of Water&rdquo; Myth</span>The famous hydration rule traces to a 1945 recommendation whose &ldquo;mostly from food&rdquo; caveat got dropped over decades.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Blood Flow Restriction Training</span>A pressurised cuff lets very light weights trigger muscle growth comparable to heavy lifting.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Long-Term Capital Management</span>A hedge fund run by Nobel laureates collapsed when Russia's 1998 default broke the correlations its models relied on.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Tragedy of the Commons vs Ostrom</span>A 500-year-old Swiss pasture survived without private ownership or state control, defying a famous prediction of collapse.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photograph of Something That, By Definition, Can&#x2019;t Be Seen</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 10 April 2019, astronomers around the world released the first-ever photograph of a black hole &mdash; an object defined by the fact that no light can escape it. Before reading on, what do you think the image actually showed, and how did a team manage to photograph something that is, by its very nature, invisible?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Event_Horizon_Telescope_Collaboration_%28testing-general-relativity-with-the-event-horizon%29.jpg" alt="The first image of a black hole, showing a glowing ring around a dark shadow" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The first-ever image of a black hole, at the centre of galaxy M87, released by the Event Horizon Telescope collaboration in 2019. Credit: <a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In April 2019, the Event Horizon Telescope (事件視界望遠鏡) collaboration released the first-ever direct image of a black hole (黑洞): a fuzzy orange ring surrounding a dark central shadow, captured at the heart of the galaxy Messier 87 (M87星系), roughly 55 million light-years from Earth. The black hole itself, since no light can escape its event horizon (事件視界), is by definition invisible; what the image actually shows is the glowing ring of superheated gas swirling just outside that boundary, silhouetting the shadow the black hole casts against it. Its estimated mass: roughly 6.5 billion times that of the Sun.</p>
+      <p>Producing the image required linking eight radio telescopes (射電望遠鏡) spanning from Antarctica to Spain into a single Earth-sized virtual instrument, a technique called very-long-baseline interferometry (特長基線干涉測量法), synchronised using atomic clocks precise enough to combine data collected thousands of kilometres apart. The resulting datasets, too large to transmit over the internet, were physically flown on hard drives to processing centres. Four independent teams then reconstructed the image separately from the raw data, without comparing notes, specifically to guard against any single team&#x2019;s assumptions biasing the result &mdash; and all four converged on the same glowing ring.</p>
+      <p>The image confirmed a prediction Einstein&#x2019;s general relativity (廣義相對論) had made over a century earlier: that a sufficiently compact mass would warp spacetime so severely that light bends around it, producing exactly this kind of ring-and-shadow silhouette. In 2022, the same collaboration released a second image, this time of Sagittarius A* (人馬座A*), the much smaller black hole at the centre of our own Milky Way (銀河系). Together the two images turned a century-old mathematical abstraction into an object astronomers could finally, however indirectly, actually see.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Event_Horizon_Telescope" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; You can&#x2019;t photograph a black hole itself &mdash; only the shadow it casts on the light trying to escape around it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the glowing ring in the black hole image actually show, since the black hole itself can&#x2019;t emit or reflect any light?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It shows superheated gas swirling just outside the event horizon, silhouetting the dark shadow the black hole casts against that ring. Four independent teams reconstructed the same image separately from raw telescope data without comparing notes, confirming the result wasn&#x2019;t an artefact of one team&#x2019;s assumptions.</div>
+      </details>
+      <div class="source">&#x1F4D6; Event Horizon Telescope Collaboration (2019), &ldquo;First M87 Event Horizon Telescope Results,&rdquo; <em>Astrophysical Journal Letters</em> 875(1). NASA.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>世宗大王與《訓民正音》&mdash;&mdash;一位帝王為何要為百姓發明一套全新文字？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">十五世紀朝鮮，識字幾乎是貴族與士大夫的專利，尋常百姓即使終身勤奮，也難以讀懂官方使用的漢字文書。1443年，朝鮮世宗大王卻親自主持創製一套全新文字系統。你認為，一位身處漢字文化圈核心的君主，為何甘冒觸怒士大夫階層之險，堅持為平民百姓發明全新文字？這套文字後來的命運又是如何？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>世宗大王（朝鮮王朝第四代君主，1418至1450年在位）；鄭麟趾等集賢殿學士（協助制定文字系統的儒臣）。</p>
+        <p><strong>事件：</strong>世宗於1443年主持創製「訓民正音」，1446年正式頒布，是一套以發音器官形狀為基礎設計的表音文字系統。</p>
+        <p><strong>時代背景：</strong>朝鮮王朝奉行漢字為官方書寫系統，士大夫階層壟斷讀寫能力；平民百姓因不諳漢字，難以理解法律文書、申訴冤情，甚至無法記錄日常生計所需的契約與帳目。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Hunminjeongum.jpg" alt="《訓民正音》原文頁面" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《訓民正音》(1446) 原文頁面，世宗大王頒布的表音文字系統。來源：<a href="https://en.wikipedia.org/wiki/Hunminjeongeum" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>十五世紀的朝鮮王朝，官方文書、科舉考試與儒家經典一律使用漢字書寫，然而漢字筆畫繁複、需要多年苦讀方能掌握，尋常百姓終日勞作，根本無暇鑽研，結果導致絕大多數平民終身目不識丁，遇上官司訴訟或田產糾紛，往往因無法閱讀文書而任人擺佈。世宗大王早年即留意到此一弊病，據《訓民正音》序言記載，他認為「國之語音，異乎中國，與文字不相流通，故愚民有所欲言，而終不得伸其情者多矣」，遂決心親自主持研製一套朝鮮語專屬的表音文字，讓百姓「易習，便於日用」。</p>
+      <p>世宗召集鄭麟趾等集賢殿學士秘密展開研究，最終設計出一套極具科學性的文字系統：子音字母模仿發聲時舌頭、牙齒、喉嚨的實際形狀而造，例如「ㄱ」象徵舌根抵住上顎的形狀；母音字母則以天、地、人三才為基礎組合而成。整套系統僅得二十八個基本字母，卻能靈活拼寫朝鮮語幾乎所有讀音，任何人只需數日便可學會拼讀，與需要數年苦讀的漢字形成強烈對比。1446年，世宗正式頒布《訓民正音》，並親自撰寫序言解釋其創製動機。</p>
+      <p>新文字頒布後，卻遭崔萬理等部分士大夫強烈反對，斥之為「棄中國自同夷狄」，擔心動搖漢字所代表的儒家文化正統地位，訓民正音因此長期未能取代漢字，僅在婦女、平民及佛教典籍翻譯中流傳，甚至一度被貶稱為「諺文」。直至十九世紀末至二十世紀，在朝鮮民族主義興起及語言認同運動推動下，這套文字才正式定名「한글」（韓文字母），成為今日南韓、北韓共同使用的官方文字，被語言學界公認為世上少數有明確發明者與頒布日期、且設計最具系統性的文字之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Hunminjeongeum" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 世宗大王證明了，真正屬於人民的文字，從來不是由士大夫階層決定，而是由誰真正能讀得懂它決定。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 世宗大王創製《訓民正音》的主要動機是甚麼？這套文字為何在頒布初期未能立即取代漢字？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">世宗認為漢字筆畫繁複，百姓終身勞作無暇苦讀，導致無法申訴冤情、記錄契約，故創製一套僅二十八字母、易學易用的表音文字。然而崔萬理等士大夫視漢字為儒家文化正統，強烈反對新文字，使其長期僅在婦女與平民間流傳，直至十九世紀末民族主義興起後才被正式確立為官方文字。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《訓民正音》(1446)；Kim-Renaud, Y-K. (1997), <em>The Korean Alphabet: Its History and Structure</em>, University of Hawaii Press。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Necklace the Queen Never Bought, But Paid for Anyway</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1785, a con artist convinced a French cardinal he was secretly negotiating on behalf of Queen Marie Antoinette to buy an extraordinarily expensive diamond necklace, using forged letters and a hired impersonator meeting him at midnight in the palace gardens. Before reading on, what do you think happened when the truth came out &mdash; and why might a scandal the queen had nothing to do with still have helped bring down the French monarchy?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Marie Antoinette (瑪麗&middot;安東妮), Queen of France; Jeanne de la Motte (珍妮&middot;德拉莫特), the con artist who orchestrated the fraud; Cardinal Louis Ren&eacute; &Eacute;douard de Rohan (羅昂樞機主教), the nobleman she deceived.</p>
+        <p><strong>Event at stake:</strong> the Affair of the Diamond Necklace (鑽石項鍊事件), a 1785 fraud that publicly humiliated the French monarchy just four years before the Revolution.</p>
+        <p><strong>Big picture:</strong> a royal court already resented for extravagance found itself entangled in a scandal it hadn&#x2019;t caused, at the exact moment public trust in the crown was collapsing.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Le_Collier_de_la_reine.jpg" alt="Illustration of the diamond necklace at the centre of the affair" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The diamond necklace at the centre of the 1785 fraud that implicated Marie Antoinette. Credit: <a href="https://en.wikipedia.org/wiki/Affair_of_the_Diamond_Necklace" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1785, a French noblewoman named Jeanne de la Motte (珍妮&middot;德拉莫特), living on the fringes of Versailles society, devised an elaborate confidence scheme targeting Cardinal Louis Ren&eacute; &Eacute;douard de Rohan (羅昂樞機主教), a nobleman desperate to regain Queen Marie Antoinette&#x2019;s (瑪麗&middot;安東妮) favour after years of her open disdain. La Motte convinced Rohan she was a close confidante of the queen, forged letters in the queen&#x2019;s handwriting, and eventually arranged a midnight meeting in the palace gardens where a hired impersonator, dressed and coached to resemble Marie Antoinette, handed Rohan a rose and murmured a few words in the dark.</p>
+      <p>Convinced he now had the queen&#x2019;s trust, Rohan agreed to secretly broker the purchase of an extraordinarily expensive diamond necklace, originally commissioned for Louis XV&#x2019;s mistress, on the queen&#x2019;s supposed behalf, signing for it as her agent. La Motte took possession of the necklace, had it broken apart, and sold the diamonds piecemeal across Europe, while Marie Antoinette, who had never requested or seen the necklace at all, remained entirely unaware the fraud was even happening in her name. When payments inevitably went unmade, jewellers appealed directly to the queen, exposing the scheme.</p>
+      <p>Though Marie Antoinette was the fraud&#x2019;s victim, not its perpetrator, the public trial that followed became a referendum on royal excess: pamphleteers seized on the scandal as proof of a decadent, untrustworthy court, and Rohan&#x2019;s eventual acquittal was read by many as an implicit public verdict against the queen herself. Historians have long argued the affair did lasting damage to the monarchy&#x2019;s credibility that outlasted the actual facts of the case, feeding the resentment that erupted four years later in the French Revolution (法國大革命) of 1789.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Affair_of_the_Diamond_Necklace" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A scandal Marie Antoinette had nothing to do with still helped convict her in the court of public opinion &mdash; reputation, once poisoned, doesn&#x2019;t wait for facts to catch up.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why was Marie Antoinette blamed for the Diamond Necklace Affair even though she never requested, saw, or purchased the necklace at all?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Con artist Jeanne de la Motte forged letters and staged a fake midnight meeting to convince Cardinal Rohan he was secretly buying the necklace on the queen&#x2019;s behalf. When the fraud unravelled publicly, the scandal fed existing resentment of royal extravagance, and Marie Antoinette&#x2019;s reputation absorbed the damage regardless of her actual innocence.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Affair of the Diamond Necklace.&rdquo; Thomas, C. (2001), <em>The Wicked Queen: The Origins of the Myth of Marie-Antoinette</em>, Zone Books.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>韓非子&mdash;&mdash;一個口吃的法家巨匠，如何死於昔日同窗的嫉妒之手？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國末年，韓國公子韓非師從荀子，與同窗李斯情誼深厚，才學卻遠勝李斯，其著作甚至令秦王嬴政讀後感嘆「寡人得見此人與之遊，死不恨矣」。然而，當韓非終於得以親身見到秦王，等待他的卻不是重用，而是牢獄與毒藥。你認為，是甚麼原因，讓昔日同窗最終決定除去這位才華橫溢的老友？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>韓非（戰國末年韓國公子，法家思想集大成者）；李斯（韓非同窗，後任秦國丞相）；秦王嬴政（後為秦始皇）。</p>
+        <p><strong>事件：</strong>韓非著書闡述「法、術、勢」結合的治國理論，深得秦王賞識並召其入秦，卻因李斯進讒言，最終被下獄並被迫服毒自盡。</p>
+        <p><strong>時代背景：</strong>戰國末年群雄爭霸，各國君主亟需一套能有效集中王權、富國強兵的治術；法家思想正是在此背景下，由早期商鞅、申不害、慎到分別提出「法」「術」「勢」，最終由韓非加以整合集大成。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Statue_Of_Han_Fei.png" alt="韓非塑像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">韓非塑像，戰國末年法家思想集大成者。來源：<a href="https://en.wikipedia.org/wiki/Han_Fei" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>韓非為戰國末年韓國公子，因患口吃而不擅言辭，遂轉而發憤著書，與後來出任秦國丞相的李斯同拜荀子門下學習。韓非眼見韓國國勢日益衰弱，屢次上書韓王獻策圖強，卻始終不獲重用，遂退而著書立說，寫成《孤憤》《五蠹》《說難》等篇章，系統整合商鞅的「法」（明確法令賞罰）、申不害的「術」（君主駕馭臣下的權術）、慎到的「勢」（君主憑藉權位而非個人才德統治），構建出一套完整的法家治國理論。</p>
+      <p>韓非著作輾轉流傳至秦國，秦王嬴政讀後大為讚嘆，甚至感嘆若能親見此人一面，死而無憾，遂下令攻打韓國以迫使韓非入秦。韓非抵秦後，昔日同窗李斯此時已任秦國要職，深知韓非才學遠勝自己，恐其一旦得秦王重用，自身地位不保，遂與另一大臣姚賈聯手進讒，向秦王進言韓非終究是韓國公子，必定心向韓國而非秦國，不可輕信重用，若不能為秦所用，不如及早除去以絕後患。</p>
+      <p>秦王聽信讒言，下令將韓非收押下獄，李斯隨即派人送毒藥逼令韓非自盡，韓非雖曾上書欲當面向秦王申辯，卻始終未能獲得召見機會，終含冤服毒而死；秦王事後雖一度後悔，遣人赦免，卻為時已晚。韓非雖未及親眼見證自己學說的實踐成果，其法家理論卻由李斯等人繼續奉行，成為秦國統一六國、建立中央集權帝制的重要理論基礎，深刻影響其後兩千年中國政治制度的根本邏輯。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Han_Fei" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 韓非子一生鑽研權術洞悉人性，卻終究未能看穿，真正要他性命的，是最了解他才華的昔日同窗。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 韓非子的法家理論整合了哪三位前人的思想？他最終因何原因死於獄中？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">韓非整合商鞅的「法」、申不害的「術」、慎到的「勢」三家學說。他因秦王嬴政賞識其才學而召其入秦，卻遭昔日同窗李斯忌憚其才華，聯合姚賈進讒言指其必定心向韓國，秦王遂將他收押下獄，李斯隨後逼令他服毒自盡。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《韓非子》；司馬遷《史記&middot;老子韓非列傳》；Graham, A.C. (1989), <em>Disputers of the Tao</em>, Open Court。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Ten Minutes That Ended With a Fireplace Poker</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 25 October 1946, two of the twentieth century&#x2019;s most famous philosophers, Ludwig Wittgenstein and Karl Popper, met for the first and only time at a Cambridge University discussion society &mdash; a meeting that lasted barely ten minutes before it reportedly ended with a raised fireplace poker. Before reading on, what philosophical disagreement do you think could escalate so quickly between two brilliant minds, and what does the incident reveal about how philosophers actually argue?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Ludwig Wittgenstein (路德維希&middot;維根斯坦), the dominant philosopher then teaching at Cambridge; Karl Popper (卡爾&middot;波普爾), the Vienna-born philosopher of science invited to speak.</p>
+        <p><strong>Problem at stake:</strong> whether philosophy deals in genuine problems worth solving, or merely puzzles about language, as Wittgenstein controversially claimed.</p>
+        <p><strong>Moment:</strong> a single tense meeting became a symbol of a much deeper divide over what philosophy is actually for.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Ludwig_Wittgenstein_1929.jpg" alt="Photograph of Ludwig Wittgenstein" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ludwig Wittgenstein, photographed in 1929, who clashed with Karl Popper at a 1946 Cambridge seminar. Credit: <a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 25 October 1946, Karl Popper (卡爾&middot;波普爾) was invited to present a paper titled &ldquo;Are There Philosophical Problems?&rdquo; to the Cambridge Moral Sciences Club (劍橋道德科學俱樂部), a discussion group then dominated by its most famous member, Ludwig Wittgenstein (路德維希&middot;維根斯坦), who habitually interrupted speakers and controlled the room&#x2019;s direction. Popper deliberately chose his topic to provoke Wittgenstein, who had built his later philosophy around the claim that most traditional philosophical problems were really just confusions about language, dissolvable through careful analysis rather than genuine puzzles requiring solutions.</p>
+      <p>Accounts of what followed differ sharply, but the core story holds: Wittgenstein, sitting by the fireplace, picked up a poker (撥火棍) and gestured with it while demanding Popper give a single example of a genuine moral principle; Popper offered, &ldquo;not to threaten visiting lecturers with pokers,&rdquo; a line that landed as a direct jab at Wittgenstein&#x2019;s famous temper. Wittgenstein reportedly stormed out of the room moments later, and the meeting, scheduled for a full evening, ended after roughly ten minutes, leaving witnesses to spend decades afterward disputing exactly what had happened.</p>
+      <p>The 2001 book <em>Wittgenstein&#x2019;s Poker</em>, by journalists David Edmonds and John Eidinow, later reconstructed the event from dozens of conflicting eyewitness accounts, finding no two attendees agreed on details as basic as whether Wittgenstein actually threatened Popper or merely gestured while making a point. The incident endures precisely because it crystallises a genuine philosophical rift still unresolved today: whether philosophy&#x2019;s job is dissolving linguistic confusion, as Wittgenstein insisted, or tackling real, substantive problems about knowledge, ethics, and science, as Popper&#x2019;s entire career argued.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ludwig_Wittgenstein" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Even philosophers who&#x2019;ve spent their lives studying how to argue rigorously can still end a debate with a raised poker rather than a resolved premise.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What real philosophical disagreement was actually at stake in the Wittgenstein-Popper poker incident, beneath the dramatic anecdote?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The dispute was over whether philosophy deals with genuine problems, as Popper argued throughout his career, or is really just confusion about language dissolvable through analysis, as Wittgenstein&#x2019;s later philosophy claimed. Popper&#x2019;s provocative topic and moral-principle jab were designed to challenge that view directly.</div>
+      </details>
+      <div class="source">&#x1F4D6; Edmonds, D. &amp; Eidinow, J. (2001), <em>Wittgenstein&#x2019;s Poker: The Story of a Ten-Minute Argument Between Two Great Philosophers</em>, Ecco.</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Murder That (Probably) Never Had 38 Witnesses Who Did Nothing</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In March 1964, a New York Times report claimed 38 witnesses watched or heard the murder of Kitty Genovese unfold outside her apartment building and did nothing to help &mdash; a story that became a foundational case in psychology. Before reading on, what do you think the real story turned out to be when researchers later re-investigated it, and why might the psychological effect the case inspired still hold up even if some of the original reporting didn&#x2019;t?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Site_of_the_murder_of_Kitty_Genovese_in_alleyway_from_Kew_Gardens_LIRR_station_to_Lefferts_Boulevard.jpg" alt="The Kew Gardens, Queens site associated with the Kitty Genovese case" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Kew Gardens, Queens neighbourhood where Kitty Genovese was murdered in 1964, inspiring decades of bystander-effect research. Credit: <a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 13 March 1964, Kitty Genovese (凱蒂&middot;吉諾維斯) was murdered outside her Queens, New York apartment building in an attack lasting roughly half an hour. Two weeks later, a <em>New York Times</em> (紐約時報) article reported that 38 witnesses had watched or heard the attack from their windows and did nothing to intervene or call police, a claim that shocked the nation and became a widely cited symbol of urban apathy &mdash; even inspiring the coining of the term &ldquo;Genovese syndrome&rdquo; to describe collective bystander inaction in the face of visible suffering.</p>
+      <p>The dramatic &ldquo;38 witnesses&rdquo; figure, subsequent investigations found, was substantially exaggerated: later reporting established that far fewer people had a clear, sustained view of the actual attack, at least one witness did call police, and the attack itself happened in stages that made it harder for any single witness to grasp its full severity from a partial view. Psychologists Bibb Latan&eacute; (比布&middot;拉塔內) and John Darley (約翰&middot;達利), however, took the widely reported story seriously enough to design controlled experiments testing whether the presence of other people genuinely does reduce an individual&#x2019;s likelihood of helping in an emergency.</p>
+      <p>Their 1968 experiments found a robust and replicable effect regardless of the original story&#x2019;s accuracy: participants who believed they were the only witness to a staged emergency intervened far more often and faster than participants who believed multiple other witnesses were also present, a phenomenon they named the bystander effect (旁觀者效應), driven partly by diffusion of responsibility (責任分散) &mdash; each individual assumes someone else will act &mdash; and partly by social pressure to mirror the apparent calm of other bystanders rather than risk an embarrassing overreaction.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bystander_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The more people who witness an emergency, the less likely any single one of them feels personally responsible for acting &mdash; so if you need help in public, point at one specific person, not the crowd.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Latan&eacute; and Darley&#x2019;s 1968 experiments actually establish about the bystander effect, independent of the accuracy of the original Kitty Genovese reporting?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Participants who believed they were the sole witness to a staged emergency helped far more often and faster than those who believed other witnesses were also present. The effect is driven by diffusion of responsibility and social pressure to match other bystanders&#x2019; apparent calm, and it replicates reliably regardless of the original news story&#x2019;s factual accuracy.</div>
+      </details>
+      <div class="source">&#x1F4D6; Latan&eacute;, B. &amp; Darley, J.M. (1968), &ldquo;Bystander intervention in emergencies,&rdquo; <em>Journal of Personality and Social Psychology</em> 8(4). Manning, R. et al. (2007), &ldquo;The Kitty Genovese murder and the social psychology of helping,&rdquo; <em>American Psychologist</em> 62(6).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why a Heart Attack Can Feel Like Pain in Your Arm</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When someone has a heart attack, they often feel pain not in the chest where the actual damage is occurring, but radiating down the left arm, into the jaw, or across the back &mdash; locations nowhere near the heart itself. Before reading on, what do you think explains why damage in one organ can be felt as pain somewhere else in the body entirely?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/1506_Referred_Pain_Chart.jpg" alt="Chart illustrating referred pain patterns in the body" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A chart illustrating how pain from internal organs is commonly felt in specific, distant areas of the body. Credit: <a href="https://en.wikipedia.org/wiki/Referred_pain" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Referred pain (轉移痛) occurs when pain originating in an internal organ is perceived by the brain as coming from a different location, often a specific area of skin or muscle far from the actual site of damage &mdash; the classic example being a heart attack (心臟病發) felt as aching or tightness down the left arm, across the jaw, or between the shoulder blades rather than sharply in the chest. This isn&#x2019;t a malfunction; it reflects a genuine ambiguity built into how the nervous system wires internal organs and skin together during early development.</p>
+      <p>The mechanism traces to convergence (匯聚) in the spinal cord (脊髓): sensory nerve fibres from internal organs and sensory fibres from certain skin regions often funnel into the very same neurons in the spinal cord before that combined signal travels up to the brain. Because the brain receives pain signals from the skin far more often in everyday life than pain signals from internal organs, it defaults to interpreting an ambiguous convergent signal as skin pain from the familiar region, even when the true source is a distressed organ located somewhere else entirely inside the body.</p>
+      <p>This mapping isn&#x2019;t random: because the heart and the skin of the left arm happen to share overlapping spinal-cord entry points established in the embryo (胚胎), heart pain reliably refers to that specific arm rather than, say, the foot. Doctors rely on well-documented referral patterns &mdash; appendicitis (闌尾炎) pain often first appearing near the navel before localising to the lower right abdomen, gallbladder (膽囊) pain frequently felt in the right shoulder &mdash; as genuine diagnostic clues, meaning a symptom&#x2019;s location can matter less than understanding which internal organs quietly share its wiring.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Referred_pain" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Pain doesn&#x2019;t always come from where it hurts &mdash; your spinal cord sometimes has to guess between two organs sharing the same wire, and it usually guesses skin.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does spinal cord convergence cause the brain to interpret organ pain as coming from a specific area of skin instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Sensory nerves from certain internal organs and certain skin regions funnel into the same spinal cord neurons before travelling to the brain. Because skin pain signals are far more common in everyday experience than organ pain signals, the brain defaults to interpreting the ambiguous combined signal as coming from the familiar skin location.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, &ldquo;Referred pain.&rdquo; Sikandar, S. &amp; Dickenson, A.H. (2012), &ldquo;Visceral pain: the ins and outs, the ups and downs,&rdquo; <em>Current Opinion in Supportive and Palliative Care</em> 6(1).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Your Liver Already Runs a Better Detox Than Any Juice Cleanse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Juice cleanses and &ldquo;detox&rdquo; diets are marketed on the promise of flushing accumulated toxins from the body, often through several days of consuming only fruit and vegetable juice. Before reading on, what do you think actually happens to the body&#x2019;s real detoxification systems during one of these cleanses, and is there any specific toxin these products have ever been shown to remove?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Kale%2C_Wheat_Grass%2C_Cauliflower%2C_Broccoli%2C_Carrot%2C_Apple%2C_Lemon_Juice.jpg" alt="A green vegetable juice of the kind used in detox cleanses" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A green vegetable juice of the kind marketed for &ldquo;detox&rdquo; cleanses. Credit: <a href="https://en.wikipedia.org/wiki/Detoxification_(alternative_medicine)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Commercial detox diets and juice cleanses (排毒果汁療法) are marketed around the idea that the body accumulates harmful &ldquo;toxins&rdquo; from food, pollution, and modern living that need periodic flushing through restrictive juice-only regimens, colon cleanses, or specific &ldquo;detoxifying&rdquo; foods. The claim rests on a vague, largely undefined use of the word toxin: proponents rarely specify which actual chemical compound is being removed, and no published detox product has ever identified, measured, or demonstrated the removal of a specific toxic substance from the human body in a peer-reviewed clinical trial.</p>
+      <p>The body already runs a continuous, highly sophisticated detoxification system that operates whether or not someone drinks green juice: the liver (肝臟) chemically neutralises drugs, alcohol, and metabolic byproducts through a two-phase enzymatic process, while the kidneys (腎臟) filter blood roughly 25 times daily, removing water-soluble waste into urine. A 2015 systematic review in the <em>Journal of Human Nutrition and Dietetics</em> examined commercial detox diets and found no controlled trials demonstrating meaningful toxin elimination beyond what these organs already accomplish unassisted, in people with normal liver and kidney function.</p>
+      <p>Beyond simply not working as advertised, extended juice-only cleanses can carry genuine downsides: consuming almost no protein or fat for several days causes muscle breakdown and blood sugar instability, some cleanses have caused documented electrolyte (電解質) imbalances requiring hospitalisation, and the extreme calorie restriction typically produces the same short-term weight loss anyone would see from eating dramatically less of anything, which reliably rebounds once normal eating resumes. The genuinely helpful version of &ldquo;supporting&rdquo; detoxification is unglamorous: adequate sleep, hydration, and a liver and kidneys already doing the job.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Detoxification_(alternative_medicine)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your liver and kidneys already run a functioning detox system around the clock &mdash; no juice cleanse has ever been shown to remove a specific toxin they don&#x2019;t already handle.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2015 systematic review find when it examined commercial detox diets for evidence of actual toxin removal?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It found no controlled clinical trials demonstrating that commercial detox diets remove any specific toxin beyond what the liver and kidneys already eliminate on their own in people with normal organ function. Meanwhile, extended juice-only cleanses can cause real harms like muscle breakdown and electrolyte imbalances.</div>
+      </details>
+      <div class="source">&#x1F4D6; Klein, A.V. &amp; Kiat, H. (2015), &ldquo;Detox diets for toxin elimination and weight management: a critical review,&rdquo; <em>Journal of Human Nutrition and Dietetics</em> 28(6). NHS, &ldquo;Detox diets.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Most-Researched Supplement in Sports Science Still Gets Feared for a Myth</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Creatine monohydrate is one of the most extensively studied supplements in sports science, with hundreds of controlled trials behind it, yet it&#x2019;s still widely rumoured to damage the kidneys and cause excessive water retention. Before reading on, what do you think the actual research shows about creatine&#x2019;s safety and effectiveness &mdash; and where do you think the kidney-damage rumour originally came from?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/CreatineStructure.png" alt="Chemical structure diagram of creatine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of creatine, one of the most extensively studied supplements in sports nutrition. Credit: <a href="https://en.wikipedia.org/wiki/Creatine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Creatine (肌酸) is a compound the body already produces naturally in the liver, kidneys, and pancreas from amino acids, and stores primarily in skeletal muscle, where it helps rapidly regenerate ATP (三磷酸腺苷), the molecule muscles burn for short, explosive bursts of effort like a heavy lift or sprint. Supplementing with creatine monohydrate (肌酸一水合物) increases the muscle&#x2019;s stored creatine reserves beyond what diet alone typically provides, and it remains, by volume of published research, the most extensively studied sports supplement in existence, with several hundred controlled trials behind it spanning decades.</p>
+      <p>That research base consistently shows creatine supplementation increases strength, power output, and lean muscle mass when combined with resistance training, with the International Society of Sports Nutrition (國際運動營養學會) concluding in its 2017 position stand that creatine monohydrate is not only effective but one of the safest supplements available, showing no evidence of kidney or liver damage in healthy individuals across studies lasting up to five years. The persistent kidney-damage fear appears to trace largely to isolated case reports involving people with pre-existing kidney disease, and confusion between elevated creatinine, a normal byproduct of increased muscle creatine, and actual kidney impairment.</p>
+      <p>The water-retention concern has more basis but is often overstated: creatine does pull some water into muscle cells during the initial &ldquo;loading&rdquo; phase, a small increase in intracellular water that most research frames as beneficial to muscle function rather than problematic bloating, and total body weight increases in trials are modest, driven primarily by genuine muscle growth over subsequent weeks. For healthy adults training with resistance exercise, the evidence overwhelmingly supports creatine as both effective and safe at standard doses of 3 to 5 grams daily, making its lingering reputation as risky largely outdated.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Creatine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Creatine has more safety research behind it than almost any other supplement on the market &mdash; the kidney-damage fear traces mostly to case reports in people who already had kidney disease.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Where does the persistent fear that creatine damages the kidneys actually come from, according to the research record?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It traces largely to isolated case reports involving people with pre-existing kidney disease, plus confusion between elevated creatinine, a normal harmless byproduct of increased muscle creatine, and actual kidney impairment. Studies of healthy individuals lasting up to five years show no evidence of kidney or liver damage.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kreider, R.B. et al. (2017), &ldquo;International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation,&rdquo; <em>Journal of the International Society of Sports Nutrition</em> 14(18).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Company That Told Wall Street Exactly What It Wanted to Hear</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2000, Enron was named &ldquo;America&#x2019;s Most Innovative Company&rdquo; by Fortune magazine for the sixth consecutive year and its stock traded near an all-time high; a year later it had filed for what was then the largest bankruptcy in US history. Before reading on, what accounting technique do you think let Enron report soaring profits year after year on deals that, in reality, were often losing money?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Logo_of_Enron_Corporation_%281997%29.svg" alt="The Enron Corporation logo" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Enron Corporation logo. The company&#x2019;s 2001 collapse remains one of the largest corporate accounting scandals in US history. Credit: <a href="https://en.wikipedia.org/wiki/Enron_scandal" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Enron (安隆公司) was an energy trading company that, by the late 1990s, had transformed itself from a conventional pipeline operator into a complex trader of energy contracts and financial derivatives, reporting rapidly rising profits that made it a Wall Street darling and Fortune magazine&#x2019;s &ldquo;Most Innovative Company&rdquo; six years running. Central to that growth was mark-to-market accounting (按市值計價會計), a legitimate technique under which Enron booked the entire estimated future profit of a long-term energy contract as immediate income the moment the deal was signed, regardless of whether the cash from that profit would ever actually materialise.</p>
+      <p>This let Enron report enormous paper profits on deals that might take years to pay off or never pay off at all, and when actual results fell short of the rosy original projections, executives, led by CFO Andrew Fastow (安德魯&middot;法斯托), hid the resulting losses in an elaborate web of off-balance-sheet special purpose entities (特殊目的實體) with names like Chewco and LJM, technically separate companies that let Enron keep billions in debt and losses off its own financial statements while its reported earnings kept climbing. Auditor Arthur Andersen (安達信會計師事務所) signed off on the arrangement for years.</p>
+      <p>The structure collapsed in October 2001 when a <em>Wall Street Journal</em> investigation and short-seller scrutiny forced Enron to restate years of earnings, revealing roughly $1 billion in previously hidden losses; the stock, once worth over $90, fell below $1 within weeks, and Enron filed for bankruptcy in December 2001, then the largest in US corporate history. The scandal wiped out employees&#x2019; retirement savings heavily invested in company stock, destroyed Arthur Andersen entirely, and directly prompted the 2002 Sarbanes-Oxley Act (薩班斯-奧克斯利法案), overhauling US corporate accounting oversight.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Enron_scandal" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Enron didn&#x2019;t lie about having profits &mdash; it just booked profits from deals that hadn&#x2019;t actually happened yet, and hid the losses when they didn&#x2019;t.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What accounting technique let Enron report soaring profits, and how did executives hide the losses when actual results fell short?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mark-to-market accounting let Enron book a long-term contract&#x2019;s entire estimated future profit immediately upon signing, regardless of whether the cash ever materialised. When results fell short, executives hid the resulting losses in off-balance-sheet special purpose entities that kept billions of debt off Enron&#x2019;s own financial statements.</div>
+      </details>
+      <div class="source">&#x1F4D6; McLean, B. &amp; Elkind, P. (2003), <em>The Smartest Guys in the Room: The Amazing Rise and Scandalous Fall of Enron</em>, Portfolio. US Securities and Exchange Commission, Enron litigation release archive.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Minimum-Wage Study That Refused to Confirm the Textbook</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/20170817_AlanKrueger_FacultyPortrait_CF_0011_%28cropped%29.jpg" alt="Photograph of economist Alan Krueger" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Economist Alan Krueger, who with David Card produced the landmark 1994 New Jersey minimum-wage study. Credit: <a href="https://en.wikipedia.org/wiki/David_Card_(economist)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1992, New Jersey raised its minimum wage while neighbouring Pennsylvania didn&#x2019;t, and economists David Card (大衛&middot;卡德) and Alan Krueger (艾倫&middot;克魯格) surveyed fast-food restaurants (快餐店) on both sides of the border before and after, expecting to document the job losses standard theory predicted.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Classical competitive labour-market theory holds that a minimum wage set above the market-clearing wage functions like any price floor: employers respond to costlier labour by hiring fewer workers, so higher minimum wages should reduce low-wage employment.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Card and Krueger&#x2019;s 1994 study found New Jersey&#x2019;s employment didn&#x2019;t fall relative to Pennsylvania&#x2019;s after the wage hike &mdash; if anything, employment rose slightly, a result replicated in several subsequent studies and one classical theory could not straightforwardly explain.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Monopsony theory (買方壟斷理論), where employers hold enough wage-setting power that a moderate minimum wage increase raises employment rather than cutting it, offers one account; the dispute over which model better fits real labour markets, and how far it generalises beyond fast food, remains unresolved decades later.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A study designed to confirm Econ 101 instead became one of the most cited challenges to it &mdash; and three decades on, economists still haven&#x2019;t fully agreed why.</div>
+      <div class="source">&#x1F4D6; Card, D. &amp; Krueger, A.B. (1994), &ldquo;Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania,&rdquo; <em>American Economic Review</em> 84(4). Manning, A. (2003), <em>Monopsony in Motion</em>, Princeton University Press. Never recycles Card 10 domain (corporate accounting fraud vs. labour economics/minimum wage policy).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 11 &mdash; Trusting a Surprising Result:</strong> The Event Horizon Telescope image gained credibility because four independent teams reconstructed it separately from raw data, without comparing notes, and still converged on the same glowing ring. Card and Krueger&#x2019;s minimum-wage finding earned similar credibility only once independent follow-up studies kept replicating it, rather than it standing as one anomalous fluke.</p>
+      <p><strong>So what:</strong> The believability of any surprising result &mdash; whether a photograph of a black hole or a labour-market anomaly &mdash; rests less on how elegant the underlying theory sounds than on whether separate groups, working independently, keep landing on the same answer.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Event Horizon Telescope Collaboration (2019), <em>Astrophysical Journal Letters</em> 875(1). NASA.</li>
+      <li><strong>Card 2:</strong> 《訓民正音》(1446)；Kim-Renaud, Y-K. (1997), <em>The Korean Alphabet</em>, University of Hawaii Press。</li>
+      <li><strong>Card 3:</strong> Britannica, &ldquo;Affair of the Diamond Necklace.&rdquo; Thomas, C. (2001), <em>The Wicked Queen</em>, Zone Books.</li>
+      <li><strong>Card 4:</strong> 《韓非子》；司馬遷《史記&middot;老子韓非列傳》；Graham, A.C. (1989), <em>Disputers of the Tao</em>。</li>
+      <li><strong>Card 5:</strong> Edmonds, D. &amp; Eidinow, J. (2001), <em>Wittgenstein&#x2019;s Poker</em>, Ecco.</li>
+      <li><strong>Card 6:</strong> Latan&eacute;, B. &amp; Darley, J.M. (1968), <em>Journal of Personality and Social Psychology</em> 8(4).</li>
+      <li><strong>Card 7:</strong> Britannica, &ldquo;Referred pain.&rdquo; Sikandar, S. &amp; Dickenson, A.H. (2012), <em>Current Opinion in Supportive and Palliative Care</em> 6(1).</li>
+      <li><strong>Card 8:</strong> Klein, A.V. &amp; Kiat, H. (2015), <em>Journal of Human Nutrition and Dietetics</em> 28(6).</li>
+      <li><strong>Card 9:</strong> Kreider, R.B. et al. (2017), <em>Journal of the International Society of Sports Nutrition</em> 14(18).</li>
+      <li><strong>Card 10:</strong> McLean, B. &amp; Elkind, P. (2003), <em>The Smartest Guys in the Room</em>, Portfolio.</li>
+      <li><strong>Card 11:</strong> Card, D. &amp; Krueger, A.B. (1994), <em>American Economic Review</em> 84(4). Manning, A. (2003), <em>Monopsony in Motion</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-28: The First Image of a Black Hole (Event Horizon Telescope) &bull; 世宗大王與《訓民正音》 &bull; The Affair of the Diamond Necklace (1785) &bull; 韓非子 &bull; Wittgenstein&#x2019;s Poker &bull; The Bystander Effect / Kitty Genovese &bull; Referred Pain &bull; Detox Diets &amp; Juice Cleanses Myth &bull; Creatine &bull; Enron &bull; Minimum Wage Employment Effects (Card &amp; Krueger vs Monopsony)</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-28.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-28.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 28 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
