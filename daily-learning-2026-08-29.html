@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 29 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 29 August 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>28 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; First Image of a Black Hole</span>Four independent teams reconstructed the same glowing ring around M87&#x2019;s black hole from raw data without comparing notes.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 世宗大王與《訓民正音》</span>朝鮮世宗大王為讓百姓擺脫文盲，親自主持創製一套全新表音文字。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Affair of the Diamond Necklace</span>A con artist's forged letters implicated Marie Antoinette in a fraud she had nothing to do with, damaging the monarchy anyway.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 韓非子</span>法家集大成者深受秦王賞識，卻遭妒忌他才華的昔日同窗李斯陷害致死。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Wittgenstein&#x2019;s Poker</span>A ten-minute Cambridge seminar clash crystallised a real rift over what philosophy is actually for.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Bystander Effect</span>Believing other witnesses are present makes any single person far less likely to help in an emergency.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Referred Pain</span>A heart attack can feel like arm pain because organ and skin nerves converge on the same spinal neurons.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Detox Diets &amp; Juice Cleanses</span>No controlled trial has ever shown a detox product removes a specific toxin the liver and kidneys don&#x2019;t already handle.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Creatine Monohydrate</span>Decades of research find no kidney or liver harm in healthy adults, despite a persistent safety myth.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Enron</span>Mark-to-market accounting let Enron book future profits immediately, hiding losses until a $1B restatement triggered collapse.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Minimum Wage: Card &amp; Krueger vs Monopsony</span>A study designed to confirm textbook theory instead found employment rose slightly after a minimum-wage hike.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Moon Mission That Discovered Earth Instead</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On Christmas Eve 1968, the crew of Apollo 8 became the first humans to leave Earth orbit and circle the Moon, their cameras aimed at scouting future landing sites on the lunar surface. Before reading on, what do you think became the mission&#x2019;s single most famous photograph &mdash; and why might it not be a picture of the Moon at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/NASA-Apollo8-Dec24-Earthrise.jpg" alt="Earth rising over the lunar horizon, photographed from Apollo 8" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Earthrise, photographed by astronaut William Anders from lunar orbit on 24 December 1968. Credit: <a href="https://en.wikipedia.org/wiki/Earthrise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In December 1968, Apollo 8 (阿波羅8號) became the first crewed spacecraft to leave low Earth orbit and travel to the Moon (月球), its primary purpose being to test the flight path and photograph candidate landing sites for the Moon landings still to come. On the mission&#x2019;s fourth orbit around the far side of the Moon, astronaut William Anders (威廉&middot;安德斯) glanced up from his lunar photography checklist and saw something nobody on the mission had been assigned to capture: the small, blue Earth (地球) rising over the grey, cratered lunar horizon.</p>
+      <p>Anders scrambled for color film, since the black-and-white roll already loaded wasn&#x2019;t what the moment called for, and snapped the photograph in a rush of improvisation rather than planning &mdash; mission commander Frank Borman had, minutes earlier, been the one to first spot Earth rising and call out for a camera. Anders later summarized the irony that would define the mission&#x2019;s legacy: &ldquo;We came all this way to explore the Moon, and the most important thing is that we discovered the Earth.&rdquo;</p>
+      <p>The resulting image, later titled Earthrise (地出), became one of the most reproduced photographs in history, showing the entire planet as a fragile, self-contained blue sphere suspended in the blackness of space, with no visible borders, nations, or human structures at all. Nature photographer Galen Rowell called it &ldquo;the most influential environmental photograph ever taken&rdquo;: organizers of the first Earth Day (地球日), held in 1970, cited the image directly, and historians widely credit it with helping catalyze the modern environmental movement by making the planet&#x2019;s fragility visually undeniable for the first time.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Earthrise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most consequential photograph of a mission to the Moon turned out to be a photograph of home.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Apollo 8&#x2019;s primary photographic objective, and how did the Earthrise photo end up happening instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Apollo 8&#x2019;s cameras were meant to scout future lunar landing sites. During the fourth orbit, the crew unexpectedly saw Earth rising over the Moon&#x2019;s horizon and improvised the photograph using color film grabbed at the last moment, producing an image that became more famous than any planned lunar photograph.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA, &ldquo;Earthrise: How Apollo 8 Photo Changed the World&rdquo; (2018). Poole, R. (2008), <em>Earthrise: How Man First Saw the Earth</em>, Yale University Press.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>武則天稱帝&mdash;&mdash;一介才人如何走到改朝換代這一步？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">690年，武則天廢黜自己的親生兒子，登基稱帝，改國號為「周」，成為中國歷史上唯一被公認的女皇帝。在一個皇位傳承講究血統正統、門閥貴族勢力仍然龐大的時代，你認為她是如何一步步走到這個地步的？她的統治又為何未能延續下去？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>武則天（先為唐太宗才人，後為唐高宗皇后，終自立為帝）；唐高宗李治；唐中宗、唐睿宗（武則天親生二子）。</p>
+        <p><strong>事件：</strong>690年，武則天廢黜其子唐睿宗，自立為帝，改國號「周」，是為武周。</p>
+        <p><strong>時代背景：</strong>唐初門閥貴族勢力仍然龐大，皇位傳承講究血統正統；一名女性要坐上龍椅，須先鏟除宗室與門閥的重重反對。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/%E5%94%90%E5%90%8E%E8%A1%8C%E5%BE%9E%E5%9C%96_%28%E5%B1%80%E9%83%A8%29_-_%E6%AD%A6%E5%89%87%E5%A4%A9.png" alt="武則天畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">《唐後行從圖》局部所繪的武則天。來源：<a href="https://en.wikipedia.org/wiki/Wu_Zetian" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>武則天原為唐太宗李世民之才人（妃嬪品階之一），太宗駕崩後按制須入感業寺出家為尼，卻與繼位的唐高宗李治舊情復燃，被召回宮中，先後扳倒王皇后與蕭淑妃，於655年冊立為后。高宗晚年因風疾（頭痛目眩）難理朝政，武后遂逐步代為批閱奏章、參預朝政，與高宗並稱「二聖」，實際權力早已超越皇后名分所能容許的範圍。</p>
+      <p>高宗駕崩後，武后先後廢黜親生兒子唐中宗、唐睿宗，以太后身份臨朝稱制；她大興告密之風，任用酷吏來俊臣等以嚴刑逼供剷除宗室與反對她的大臣，又刻意扶植武氏宗親、廣開科舉取士以引入寒門官員制衡舊有門閥勢力。690年，她命人偽造「聖母臨人，永昌帝業」等祥瑞徵兆，在群臣與僧侶聯名勸進下，正式登基稱帝，改國號為「周」。</p>
+      <p>武則天在位十五年，繼續推行科舉改革、獎勵農桑，又設立銅匭鼓勵臣民密奏，藉此鞏固個人統治；但晚年因寵信男寵張易之兄弟，引發705年張柬之等大臣發動政變，逼她退位，唐中宗復辟，唐朝國號得以恢復。她死後遺命於乾陵立「無字碑」，功過任由後人評說，成為中國歷代女性參政者中極少數登上至尊帝位之人。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wu_Zetian" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 武則天證明了，通往至尊之位的最大障礙，往往不是能力不足，而是別人是否相信這個身份可以坐上這個位置。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 武則天稱帝前，如何逐步鞏固自己的實際權力？她最終因何原因被迫退位？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">她先扳倒王皇后、蕭淑妃冊立為后，因高宗風疾代為批閱奏章，與高宗並稱「二聖」；高宗死後廢黜親生兒子並任用酷吏剷除反對勢力，690年正式稱帝改國號周。705年因寵信張易之兄弟，遭張柬之等大臣發動政變逼宮退位。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《舊唐書&middot;則天皇后本紀》；《資治通鑑》唐紀；Rothschild, N.H. (2015), <em>Wu Zhao: China&#x2019;s Only Woman Emperor</em>, Pearson。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Plot That Gave England Its Favourite Excuse for Fireworks</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1605, a group of English Catholics smuggled 36 barrels of gunpowder into a cellar directly beneath the House of Lords, intending to detonate them the moment the king and Parliament gathered above. Before reading on, what do you think went wrong with the plan &mdash; and why might failed terrorism from four centuries ago still be marked every year with bonfires and fireworks?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Robert Catesby (羅伯特&middot;凱茨比), the plot&#x2019;s mastermind; Guy Fawkes (蓋伊&middot;福克斯), the explosives expert caught guarding the barrels; King James I (詹姆士一世), the intended target.</p>
+        <p><strong>Event at stake:</strong> the Gunpowder Plot (火藥陰謀) of 1605, a plan to assassinate the king and Parliament in a single explosion.</p>
+        <p><strong>Big picture:</strong> English Catholics, persecuted for decades and denied a promised religious toleration, turned to violence as legal channels for change had run out.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/GunpowderPlot.jpg" alt="Contemporary engraving of the Gunpowder Plot conspirators" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A 1605 engraving depicting eight of the Gunpowder Plot conspirators. Credit: <a href="https://en.wikipedia.org/wiki/Gunpowder_Plot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Robert Catesby (羅伯特&middot;凱茨比) and a small circle of fellow English Catholics (天主教徒) had spent decades watching their faith criminalized under Elizabeth I, and their hopes for relief revived, then dashed, when King James I (詹姆士一世) took the throne in 1603 without delivering the religious toleration many Catholics believed he had privately promised. Frustrated and increasingly desperate, Catesby concluded that legal petitioning had failed entirely, and began plotting to eliminate the king, his heir, and the Protestant political establishment in one stroke, clearing the way for a Catholic monarch.</p>
+      <p>The conspirators rented an undercroft directly beneath the House of Lords (上議院) and smuggled in 36 barrels of gunpowder (火藥), concealed under stacked firewood and coal, timed to detonate during the State Opening of Parliament (國會開幕大典) on 5 November 1605, when the king, his ministers, and much of the aristocracy would be gathered in one place. Guy Fawkes (蓋伊&middot;福克斯), an experienced soldier who had fought with the Spanish army and understood explosives, was assigned to light the fuse. The plot unraveled when an anonymous letter warned a nobleman, Lord Monteagle, to stay away from the opening; a subsequent midnight search of the cellars found Fawkes guarding the barrels.</p>
+      <p>Fawkes was tortured until he revealed his fellow conspirators; Catesby and several others died resisting arrest at Holbeche House, and the surviving plotters were convicted of treason and executed. Parliament declared 5 November an annual day of thanksgiving for the king&#x2019;s survival, marked from the outset by bonfires; over four centuries the commemoration evolved into modern Bonfire Night (篝火之夜), still celebrated across Britain today with fireworks and the burning of effigies, keeping a failed 17th-century assassination attempt alive in public memory as an occasion for celebration rather than solemnity.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Gunpowder_Plot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; England turned its most notorious failed assassination attempt into an annual fireworks display &mdash; sometimes history remembers the plot, not the grievance behind it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What ultimately exposed the Gunpowder Plot before it could be carried out?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">An anonymous letter warned Lord Monteagle to stay away from the State Opening of Parliament. The warning prompted a midnight search of the cellars beneath the House of Lords, where Guy Fawkes was discovered guarding the 36 barrels of gunpowder just hours before the planned detonation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fraser, A. (1996), <em>Faith and Treason: The Story of the Gunpowder Plot</em>, Nan A. Talese. Britannica, &ldquo;Gunpowder Plot.&rdquo;</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>鵝湖之會&mdash;&mdash;南宋兩大儒者，為何一場辯論就是數天？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1175年，南宋兩位當世大儒朱熹與陸九淵，應友人呂祖謙之邀，在江西鵝湖寺會面切磋學問。兩人同樣追求聖賢之道，卻在治學方法上針鋒相對，連續辯論數日仍互不相讓。你認為，兩位同樣真誠求道的學者，為何無法說服對方？這場爭論最終又為後世留下了甚麼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>朱熹（南宋理學集大成者）；陸九淵（字子靜，號象山，心學先驅）；呂祖謙（促成雙方會面的中間人）。</p>
+        <p><strong>事件：</strong>1175年，呂祖謙邀請朱熹與陸九淵兄弟在江西鉛山鵝湖寺會面，欲調和雙方治學方法的分歧，史稱「鵝湖之會」。</p>
+        <p><strong>時代背景：</strong>南宋儒學內部就「如何求道」出現根本分歧——是先博覽群書、格物窮理，還是先反求本心、直指良知——兩派各執一詞，爭論延續數百年。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Chiu_Yuan.jpg/330px-Chiu_Yuan.jpg" alt="陸九淵畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陸九淵畫像，南宋心學先驅，1175年鵝湖之會的主角之一。來源：<a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>南宋時期儒學復興蔚為主流，但學者對「如何達致聖賢之道」存在根本分歧：朱熹主張「道問學」，認為天理散見萬事萬物，須廣泛讀書、格物窮理，日積月累方能貫通天理；陸九淵則主張「尊德性」，認為「宇宙便是吾心，吾心即是宇宙」，人心本自具足天理，讀書博覽反而容易支離破碎，捨本逐末。1175年，呂祖謙有感於兩派長期各說各話，遂邀二人於江西鉛山鵝湖寺會面切磋，欲求調和。</p>
+      <p>會上，陸九淵兄長陸九齡先賦詩暗諷朱熹治學「支離事業竟浮沉」，陸九淵隨後更直言批評朱熹之法瑣碎支離，難以直達本心；朱熹則反駁陸氏之說過於簡易，容易流於空談，缺乏踏實工夫根基。雙方連續辯論數日，各展所長，卻始終未能說服對方放棄己見，呂祖謙從中斡旋亦未竟全功，最終不歡而散，史稱這場會面「意見不合」。</p>
+      <p>鵝湖之會雖未能達成共識，卻意外令「道問學」與「尊德性」兩條治學路徑的分野首次公開清晰化，成為此後宋明理學分流發展的重要起點；朱熹後來編定《四書章句集注》成為官方科舉定本，影響後世數百年；陸九淵一脈則經由明代王陽明發揚光大，成為心學主流。兩人晚年雖曾書信往來試圖修補歧見，卻始終未能真正調和，這場辯論的核心分歧至今仍是理解宋明儒學的重要框架。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lu_Jiuyuan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 鵝湖之會告訴我們，兩個同樣追求真理的人未必能說服對方——但這場爭論本身，往往比誰勝誰負更加重要。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 朱熹與陸九淵在鵝湖之會上，各自主張的治學方法有何根本分歧？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱熹主張「道問學」，須廣泛讀書、格物窮理，日積月累貫通天理；陸九淵主張「尊德性」，認為人心本自具足天理，讀書博覽反而支離破碎。雙方連續辯論數日仍未能說服對方，這場分歧成為此後理學與心學分流發展的重要起點。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《象山先生全集》；《朱子語類》；陳來 (2000)，《朱熹哲學研究》，商務印書館。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Question Socrates Asked on His Way to His Own Trial</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Waiting outside an Athenian court to face charges of impiety, Socrates ran into a religious expert confidently on his way to prosecute his own father. Socrates asked him a single question about the nature of piety that has puzzled philosophers for over two thousand years. Before reading on, what do you think that question was &mdash; and why might it still matter to anyone who invokes an authority to justify what&#x2019;s right?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Socrates (蘇格拉底), awaiting trial for impiety; Euthyphro (游敘弗倫), a self-assured religious expert; Plato (柏拉圖), who recorded the exchange.</p>
+        <p><strong>Problem at stake:</strong> whether something is good because a higher authority approves of it, or whether that authority approves of it because it is already good.</p>
+        <p><strong>Moment:</strong> a chance courthouse encounter became one of philosophy&#x2019;s most enduring dilemmas.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Euthyphro_Stephanus_1578_p_2.jpg" alt="A 1578 printed page of Plato's Euthyphro" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A 1578 printed edition of Plato&#x2019;s Euthyphro, the dialogue that poses the Euthyphro dilemma. Credit: <a href="https://en.wikipedia.org/wiki/Euthyphro" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Around 399 BCE, Socrates (蘇格拉底) was waiting outside the King Archon&#x2019;s court (君王執政官法庭) in Athens to face his own trial for impiety, when he encountered Euthyphro (游敘弗倫), a man confidently on his way to prosecute his own father for manslaughter, convinced this was the pious course of action. Socrates, sensing an opportunity to test a claim of certainty, pressed Euthyphro to define exactly what piety (虔誠) actually was, launching one of Plato&#x2019;s (柏拉圖) earliest and most influential dialogues.</p>
+      <p>After several failed definitions, Euthyphro proposes: &ldquo;the pious is what is loved by the gods.&rdquo; Socrates then poses the decisive question, now known as the Euthyphro dilemma (游敘弗倫困境): is an act pious because the gods love it, or do the gods love it because it is already pious? If the first, morality becomes arbitrary, resting entirely on divine preference and changeable if that preference changed; if the second, piety must be grounded in some standard independent of the gods&#x2019; approval, meaning their endorsement is not what makes an act good in the first place.</p>
+      <p>The dialogue ends without resolution, Euthyphro abruptly departing rather than confronting the puzzle, but the dilemma long outlived its original theological framing: philosophers today apply the identical structure to any claim that morality derives from a commanding authority, asking whether an act is right because a lawgiver, a sacred text, or a government declares it so, or whether that authority is itself answerable to a standard beyond its own say-so. The question remains a central fault line in ethics (倫理學) and philosophy of religion (宗教哲學), over two thousand years after Socrates first raised it in an Athenian courtyard.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Euthyphro" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Euthyphro dilemma still asks the same uncomfortable question of any authority: are they right because they say so, or do they say so because it&#x2019;s right?</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the core structure of the Euthyphro dilemma, and why does it extend beyond its original religious framing?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It asks whether something is good because an authority approves of it, or whether the authority approves of it because it&#x2019;s already good. If the former, morality is arbitrary; if the latter, goodness exists independently of that authority &mdash; a structure that applies to any claim that morality derives from a commanding power.</div>
+      </details>
+      <div class="source">&#x1F4D6; Plato, <em>Euthyphro</em> (c. 399 BCE). Stanford Encyclopedia of Philosophy, &ldquo;Divine Command Theory.&rdquo;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Doomsday Cult That Got More Confident After the World Didn&#x2019;t End</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the early 1950s, a small Chicago group believed a flood would destroy the Earth on a specific December night, with true believers rescued by flying saucer beforehand. When the night passed with no flood and no spacecraft, most outside observers expected the group to disband in embarrassment. Before reading on, what do you think actually happened to the group&#x2019;s faith once the prediction visibly failed?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/7/7d/Leon_Festinger.jpg" alt="Photograph of psychologist Leon Festinger" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Leon Festinger, whose infiltration of a failed-prophecy cult produced the theory of cognitive dissonance. Credit: <a href="https://en.wikipedia.org/wiki/Leon_Festinger" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In the early 1950s, psychologist Leon Festinger (利昂&middot;費斯廷格) infiltrated a small Chicago group led by a woman he called &ldquo;Marian Keech,&rdquo; who believed she was receiving messages from aliens predicting Earth would be destroyed by flood on a specific December night, with true believers to be rescued beforehand by flying saucer. Festinger joined not to warn anyone, but to study something else entirely: what happens to a firmly held belief, not to the believers&#x2019; safety, once a specific, falsifiable prophecy visibly fails to occur.</p>
+      <p>When the appointed night passed with no flood and no spacecraft, most outside observers expected the group to quietly disband in embarrassment. Instead, members grew more fervent: hours later, Keech announced that the group&#x2019;s faith and devotion had spared the Earth from its destined disaster entirely, and members began actively recruiting new followers and contacting newspapers, behavior they had conspicuously avoided before the failed prediction. Festinger documented the episode in his 1956 book <em>When Prophecy Fails</em>.</p>
+      <p>Festinger named the underlying mechanism cognitive dissonance (認知失調): the uncomfortable psychological tension created when a firmly held belief collides head-on with contradicting evidence. Because abandoning the belief outright, and admitting a costly, public, embarrassing mistake, is often more painful than reinterpreting the evidence, people frequently resolve that tension by doubling down instead. Later research refined the theory&#x2019;s scope, finding dissonance reduction is strongest when a decision was costly, public, and hard to reverse, but the core finding remains one of social psychology&#x2019;s (社會心理學) most replicated results.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cognitive_dissonance" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The more painful and public it would be to admit you were wrong, the more likely your mind is to rewrite the story instead of the belief.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Marian Keech&#x2019;s followers become more fervent, not less, after her flood prophecy failed to occur?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Abandoning a costly, public belief they had already committed to was more psychologically painful than reinterpreting the evidence, so most followers resolved the resulting cognitive dissonance by convincing themselves their faith had spared the Earth from disaster, rather than admitting the prediction had simply been wrong.</div>
+      </details>
+      <div class="source">&#x1F4D6; Festinger, L., Riecken, H.W. &amp; Schachter, S. (1956), <em>When Prophecy Fails</em>, University of Minnesota Press.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why the Same Broccoli Tastes Bitter to You and Bland to Your Friend</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly a quarter of people find broccoli, coffee, and dark chocolate intensely, sometimes unbearably bitter, while others barely notice any bitterness at all from the exact same food. Before reading on, what do you think physically explains this gap &mdash; and is it closer to a difference in willpower, or a difference in biology?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Illu04_tongue2.jpg" alt="Diagram of the human tongue showing papillae and taste regions" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of the human tongue, showing the papillae that house taste buds. Credit: <a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Roughly a quarter of people are &ldquo;supertasters (超級味覺者),&rdquo; a term coined by psychologist Linda Bartoshuk (琳達&middot;巴托舒克) in the 1990s to describe individuals who experience taste, particularly bitterness, far more intensely than average. The gap isn&#x2019;t pickiness or imagination: supertasters carry a measurably higher density of fungiform papillae (蕈狀乳頭), the small mushroom-shaped bumps on the tongue&#x2019;s surface that house taste buds, meaning identical food genuinely delivers a stronger sensory signal to their brain than it does to someone with fewer papillae.</p>
+      <p>Much of the variation traces to the TAS2R38 gene (TAS2R38基因), which encodes a receptor tuned to bitter compounds structurally similar to those found in cruciferous vegetables like broccoli and Brussels sprouts, as well as in coffee and dark chocolate. People carrying two sensitive copies of the gene perceive these foods as intensely bitter; those with two insensitive copies barely register the bitterness at all; and people with one of each copy fall somewhere in between &mdash; a real molecular difference in receptor structure, not a difference in willpower or repeated exposure.</p>
+      <p>This variation carries genuine consequences beyond dinner-table arguments: several studies link supertasting to lower vegetable intake and greater sensitivity to alcohol&#x2019;s harshness, while non-tasters more easily tolerate bitter medicines and stronger spirits. Crucially, this is a mechanism explaining real sensory differences, not a fixed hierarchy of discipline: supertasters aren&#x2019;t pickier or more refined eaters, and non-tasters aren&#x2019;t less discerning &mdash; both groups are working from measurably different raw sensory input arriving at the same brain regions.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Supertaster" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Someone who &ldquo;can&#x2019;t stand&rdquo; broccoli may not be picky at all &mdash; their tongue could be registering a genuinely stronger bitter signal than yours.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What anatomical and genetic factors explain why supertasters perceive bitterness more intensely than others?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Supertasters have a higher density of fungiform papillae, the taste-bud-containing bumps on the tongue, delivering a stronger sensory signal. Much of the variation also traces to the TAS2R38 gene, which encodes a receptor especially sensitive to bitter compounds found in vegetables like broccoli, coffee, and dark chocolate.</div>
+      </details>
+      <div class="source">&#x1F4D6; Bartoshuk, L.M. (2000), &ldquo;Comparing sensory experiences across individuals,&rdquo; <em>Chemical Senses</em> 25(4). Bufe, B. et al. (2005), &ldquo;The molecular basis of individual differences in PTC and PROP bitterness perception,&rdquo; <em>Current Biology</em> 15(4).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Daily Vitamin Habit That Large Trials Keep Failing to Justify</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly a third of adults in many developed countries take a daily multivitamin, largely on the belief that it provides &ldquo;insurance&rdquo; against nutritional gaps and helps prevent chronic disease. Before reading on, what do you think large, well-controlled trials have actually found when this belief was put to the test?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/B_vitamin_supplement_tablets.jpg/330px-B_vitamin_supplement_tablets.jpg" alt="A bottle of vitamin supplement tablets" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Vitamin supplement tablets of the kind taken daily by roughly a third of adults in many countries. Credit: <a href="https://en.wikipedia.org/wiki/Multivitamin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Multivitamins (綜合維他命) are among the most widely used supplements in the world, taken on the general belief that they provide &ldquo;insurance&rdquo; against nutritional gaps and help prevent chronic disease. That belief has been tested repeatedly in large, well-controlled trials over the past two decades &mdash; and the results have been strikingly consistent in failing to support it.</p>
+      <p>The Physicians&#x2019; Health Study II (醫生健康研究二期), a randomized trial following nearly 15,000 male physicians for over a decade, found daily multivitamin use produced no significant reduction in cardiovascular events or overall mortality, though it did find a modest reduction in cancer incidence. In 2022, the US Preventive Services Task Force (美國預防服務工作小組) reviewed the accumulated evidence and concluded there was insufficient evidence that multivitamins prevent cardiovascular disease or cancer in healthy, non-pregnant adults, explicitly recommending against relying on them for disease prevention.</p>
+      <p>None of this means multivitamins are harmful for most healthy people, or that vitamins themselves don&#x2019;t matter: genuine deficiencies, such as vitamin D (維他命D) in people with limited sun exposure or B12 (維他命B12) in strict vegans, are real and worth correcting, ideally identified through blood tests rather than guessed at. What the evidence undercuts is the broader premise that a daily pill compensates for an otherwise poor diet or meaningfully lowers disease risk in someone already eating adequately &mdash; a habit that persists more from marketing momentum than from the trial data itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Multivitamin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A multivitamin isn&#x2019;t insurance against a bad diet &mdash; the biggest trials keep finding it doesn&#x2019;t move the needle on the diseases people take it to prevent.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the Physicians&#x2019; Health Study II and the 2022 USPSTF review conclude about multivitamins and chronic disease prevention?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Physicians&#x2019; Health Study II found no significant reduction in cardiovascular events or overall mortality from daily multivitamin use in nearly 15,000 men, though it found a modest cancer-incidence reduction. The 2022 USPSTF review concluded there was insufficient evidence multivitamins prevent cardiovascular disease or cancer in healthy adults.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sesso, H.D. et al. (2012), &ldquo;Multivitamins in the prevention of cardiovascular disease,&rdquo; <em>JAMA</em> 308(17). US Preventive Services Task Force (2022), &ldquo;Vitamin, Mineral, and Multivitamin Supplementation to Prevent CVD and Cancer.&rdquo;</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Ice Bath That Might Be Undoing Your Muscle Gains</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Ice baths are a fixture of post-workout recovery routines, credited with reducing soreness and helping athletes bounce back faster. Before reading on, what do you think a landmark study found when it compared cold water immersion to ordinary active recovery after months of resistance training &mdash; specifically for people whose goal was building muscle and strength?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Karyn_Marshall_Ice_Bath.jpg" alt="An athlete using an ice bath for recovery" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An athlete using cold water immersion for post-training recovery. Credit: <a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Cold water immersion (冷水浸泡), commonly known as ice baths, is a fixture of post-workout recovery routines, credited with reducing soreness and helping athletes bounce back faster for the next training session. That reputation holds up reasonably well for endurance athletes and for short-term soreness relief &mdash; but a landmark study found it can actively work against a different, very common training goal: building muscle and strength.</p>
+      <p>A 2015 study by Roberts et al., published in <em>The Journal of Physiology</em>, had young men perform lower-body resistance training (阻力訓練) for 12 weeks, with one leg receiving cold water immersion after each session and the other receiving active recovery instead. The cold-water leg showed significantly smaller gains in muscle mass and strength over the study period, despite following an identical training program &mdash; the cooling appeared to blunt the very inflammatory and cellular signaling processes that resistance training relies on to trigger muscle growth.</p>
+      <p>The likely mechanism involves satellite cell activity (衛星細胞) and mTOR pathway signaling (mTOR訊號傳導路徑), both part of the cascade muscle uses to repair and grow after training stress; cold exposure appears to dampen this cascade, helpful when the goal is calming acute inflammation but counterproductive when the goal is maximizing hypertrophy. The practical takeaway for lifters chasing muscle growth: save the ice bath for a rest day or skip it after strength sessions, reserving it instead for situations demanding fast turnaround between competitive events.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cryotherapy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If your goal is building muscle, that post-workout ice bath may be quietly working against you &mdash; save it for days when speed of recovery matters more than the size of the gains.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the Roberts et al. 2015 study find when comparing cold water immersion to active recovery after resistance training?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The leg receiving cold water immersion after each session showed significantly smaller gains in muscle mass and strength over 12 weeks than the leg receiving active recovery, despite an identical training program &mdash; likely because cooling blunts the inflammatory and cellular signaling processes that trigger muscle growth.</div>
+      </details>
+      <div class="source">&#x1F4D6; Roberts, L.A. et al. (2015), &ldquo;Post-exercise cold water immersion attenuates acute anabolic signalling and long-term adaptations in muscle to strength training,&rdquo; <em>The Journal of Physiology</em> 593(18).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The 233-Year-Old Bank a Single Trader Brought Down in Weeks</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Barings Bank, founded in 1762 and prestigious enough to have financed the Louisiana Purchase, collapsed in February 1995 after one 28-year-old trader's unauthorized bets in Singapore produced losses larger than the bank's entire capital base. Before reading on, how do you think a single trader hid losses that size from his own bank's management for years?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/en/0/05/Barings.png" alt="The Barings Bank logo" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Barings Bank logo. The 233-year-old bank collapsed in 1995 after unauthorized trading losses in Singapore. Credit: <a href="https://en.wikipedia.org/wiki/Barings_Bank" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Barings Bank (霸菱銀行), founded in 1762 and once so prestigious it financed the Louisiana Purchase and counted Queen Elizabeth II among its clients, collapsed in February 1995 after losses from one trader&#x2019;s unauthorized derivatives positions in Singapore exceeded &pound;827 million &mdash; more than the bank&#x2019;s entire capital base. That trader, Nick Leeson (尼克&middot;李森), was just 28 years old.</p>
+      <p>Leeson had been hiding mounting losses since 1992 in a secret error account numbered &ldquo;88888,&rdquo; originally created to cover minor clerical mistakes, using it instead to conceal a growing pile of failed trades from his own superiors in London, who believed he was generating the bank&#x2019;s profits rather than its ruin. He kept doubling down, betting increasingly large positions on Japan&#x2019;s Nikkei 225 index (日經225指數) recovering, a bet that turned catastrophic when the January 1995 Kobe earthquake (神戶大地震) triggered a sharp market decline instead.</p>
+      <p>When the losses became impossible to hide any longer, Leeson fled Singapore, was later arrested in Frankfurt, and served over four years in a Singapore prison for fraud. Barings, unable to absorb losses larger than its total equity, was declared insolvent and sold to Dutch bank ING for a symbolic &pound;1, ending 233 years of independent history. The collapse became a textbook case for why banks separate trading (front office) from settlement and risk-checking (back office) &mdash; a separation Leeson had controlled both sides of, which is precisely how he hid the losses for so long.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Barings_Bank" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A 233-year-old bank didn&#x2019;t fall to a market crash &mdash; it fell because one trader controlled both the betting and the scorekeeping, with nobody checking either.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How was Nick Leeson able to hide over &pound;800 million in trading losses from Barings Bank&#x2019;s own management for years?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Leeson controlled both the front-office trading and the back-office settlement and risk functions in Singapore, an unusual dual role that let him funnel mounting losses into a secret error account (&ldquo;88888&rdquo;) without independent checks catching the discrepancy, while his superiors in London believed he was generating profits.</div>
+      </details>
+      <div class="source">&#x1F4D6; Leeson, N. (1996), <em>Rogue Trader</em>, Little, Brown. Bank of England (1995), <em>Report of the Board of Banking Supervision Inquiry into the Collapse of Barings</em>.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Population Trap That Britain Somehow Escaped</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Powerloom_weaving_in_1835.jpg" alt="An 1835 illustration of power loom weaving during the Industrial Revolution" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Power loom weaving in 1835, at the height of the Industrial Revolution that broke the historical link between population growth and stagnant incomes. Credit: <a href="https://en.wikipedia.org/wiki/Industrial_Revolution" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Between 1750 and 1850, Britain&#x2019;s population (英國人口) nearly tripled while, contrary to centuries of historical precedent, average living standards simultaneously rose rather than collapsed into famine.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Thomas Malthus&#x2019;s (托馬斯&middot;馬爾薩斯) 1798 <em>Essay on the Principle of Population</em> argued population grows geometrically while food supply grows only arithmetically, so any income gain triggers population growth that inevitably drags living standards back down via famine, disease, or war.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Britain&#x2019;s Industrial Revolution (工業革命) broke this pattern precisely as Malthus was describing it: population and per-capita income rose together for the first time in sustained fashion, exactly the combination his model ruled out.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Oded Galor&#x2019;s (奧德&middot;蓋勒) Unified Growth Theory attributes the escape to a demographic transition (人口轉型): rising returns to education pushed parents toward fewer, more educated children rather than maximizing numbers, breaking the ancient link between income and population growth; debate continues over what triggered that shift first.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; For most of human history, getting richer just meant more mouths to feed until the next famine &mdash; the Industrial Revolution is the first sustained case where that link broke, and economists still argue about why.</div>
+      <div class="source">&#x1F4D6; Malthus, T.R. (1798), <em>An Essay on the Principle of Population</em>. Galor, O. (2011), <em>Unified Growth Theory</em>, Princeton University Press. Never recycles Card 10 domain (bank trading fraud vs. long-run economic growth theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 9 &mdash; Looking for One Thing, Finding Another:</strong> Apollo 8&#x2019;s astronauts were sent to scout the Moon for future landing sites and instead produced a photograph of Earth that helped reshape humanity&#x2019;s environmental consciousness. Athletes reaching for an ice bath to speed up recovery instead discovered, decades later, that it can undercut the very muscle growth they were training for.</p>
+      <p><strong>So what:</strong> Before adopting any well-established routine &mdash; a research mission, a recovery protocol, a monitoring habit &mdash; it&#x2019;s worth actually measuring what it produces, since the answer can turn out to be something entirely different from what everyone assumed it was doing.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA, &ldquo;Earthrise: How Apollo 8 Photo Changed the World&rdquo; (2018). Poole, R. (2008), <em>Earthrise</em>, Yale University Press.</li>
+      <li><strong>Card 2:</strong> 《舊唐書&middot;則天皇后本紀》；Rothschild, N.H. (2015), <em>Wu Zhao: China&#x2019;s Only Woman Emperor</em>, Pearson。</li>
+      <li><strong>Card 3:</strong> Fraser, A. (1996), <em>Faith and Treason</em>, Nan A. Talese. Britannica, &ldquo;Gunpowder Plot.&rdquo;</li>
+      <li><strong>Card 4:</strong> 《象山先生全集》；《朱子語類》；陳來 (2000)，《朱熹哲學研究》。</li>
+      <li><strong>Card 5:</strong> Plato, <em>Euthyphro</em> (c. 399 BCE). Stanford Encyclopedia of Philosophy, &ldquo;Divine Command Theory.&rdquo;</li>
+      <li><strong>Card 6:</strong> Festinger, L., Riecken, H.W. &amp; Schachter, S. (1956), <em>When Prophecy Fails</em>, University of Minnesota Press.</li>
+      <li><strong>Card 7:</strong> Bartoshuk, L.M. (2000), <em>Chemical Senses</em> 25(4). Bufe, B. et al. (2005), <em>Current Biology</em> 15(4).</li>
+      <li><strong>Card 8:</strong> Sesso, H.D. et al. (2012), <em>JAMA</em> 308(17). US Preventive Services Task Force (2022).</li>
+      <li><strong>Card 9:</strong> Roberts, L.A. et al. (2015), <em>The Journal of Physiology</em> 593(18).</li>
+      <li><strong>Card 10:</strong> Leeson, N. (1996), <em>Rogue Trader</em>, Little, Brown. Bank of England (1995) inquiry report.</li>
+      <li><strong>Card 11:</strong> Malthus, T.R. (1798). Galor, O. (2011), <em>Unified Growth Theory</em>, Princeton University Press.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-29: Earthrise (Apollo 8, 1968) &bull; 武則天稱帝 &bull; The Gunpowder Plot (1605) &bull; 鵝湖之會（朱熹與陸九淵） &bull; The Euthyphro Dilemma &bull; Cognitive Dissonance / When Prophecy Fails &bull; Supertasters &bull; Multivitamins &amp; Chronic Disease Prevention &bull; Cold Water Immersion &amp; Muscle Growth &bull; Barings Bank / Nick Leeson (1995) &bull; The Malthusian Trap vs the Industrial Revolution</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-29.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-29.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 29 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
