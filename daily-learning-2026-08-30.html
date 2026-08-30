@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 30 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 30 August 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>29 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Earthrise</span>Apollo 8 was sent to scout lunar landing sites but instead produced the photograph credited with helping spark the environmental movement.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 武則天稱帝</span>武則天扳倒政敵、代夫理政多年後正式稱帝，晚年終因政變被迫退位。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Gunpowder Plot</span>An anonymous tip exposed a plan to blow up Parliament, and England still marks the failure every November.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 鵝湖之會</span>朱熹與陸九淵鵝湖論辯數日仍不歡而散，卻開啟理學與心學分流發展的先聲。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; The Euthyphro Dilemma</span>Socrates's courthouse question &mdash; good because approved, or approved because good &mdash; still frames ethics debates today.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Cognitive Dissonance</span>A doomsday cult grew more fervent, not less, after its flood prophecy visibly failed to come true.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Supertasters</span>More taste buds and a bitterness-sensitive gene make the same broccoli taste far stronger to some people than others.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Multivitamins</span>Large trials keep finding daily multivitamins don't meaningfully cut heart disease or cancer risk in healthy adults.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Cold Water Immersion</span>A 12-week study found post-workout ice baths blunted muscle and strength gains compared to active recovery.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Barings Bank</span>One 28-year-old trader hid mounting losses in a secret account, sinking a 233-year-old bank sold for a symbolic &pound;1.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Malthusian Trap</span>Britain's Industrial Revolution defied Malthus by growing population and income together instead of collapsing into famine.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Nursery You Can See With Your Naked Eye</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Look up at the middle "star" in Orion's sword on a clear night and you're actually seeing something no single star could ever be. Before reading on, what do you think that fuzzy patch of light actually turns out to be &mdash; and how far away is it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg/3840px-Orion_Nebula_-_Hubble_2006_mosaic_18000.jpg" alt="Hubble Space Telescope mosaic of the Orion Nebula, showing glowing gas clouds and embedded young stars" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Orion Nebula, imaged by the Hubble Space Telescope in a 2006 mosaic stitched from over 3,000 exposures. Credit: <a href="https://en.wikipedia.org/wiki/Orion_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The Orion Nebula (獵戶座大星雲), also catalogued as Messier 42 (梅西耶42), is visible to the naked eye as a faint, fuzzy patch in the middle of Orion's sword, roughly 1,344 light-years (光年) from Earth &mdash; making it the closest large region of active star formation to our solar system. Unlike a single star, the glow is an enormous cloud of gas and dust roughly 24 light-years across, illuminated from within by young, hot stars whose radiation makes the surrounding hydrogen gas fluoresce. Ancient observers across cultures noted the smudge without knowing what it was; Galileo's telescope in 1610 first resolved individual stars inside it.</p>
+      <p>At the nebula's heart sits the Trapezium Cluster (獵戶四邊形星團), four brilliant young stars arranged in a compact quadrilateral, whose combined ultraviolet radiation is powerful enough to carve out and light up the surrounding gas cloud visible from Earth. In the 1990s, the Hubble Space Telescope (哈勃太空望遠鏡) trained on the region and found something startling: dozens of protoplanetary disks (原行星盤), nicknamed "proplyds," each a flattened disk of dust and gas encircling a newborn star &mdash; direct visual evidence of planets in the earliest stages of formation, captured for the first time around other stars.</p>
+      <p>Hubble's 2006 mosaic of the nebula, stitched from over 3,000 individual exposures, remains one of the most detailed images ever taken of a star-forming region, revealing over 3,000 stars at different stages of birth within a single frame. Because the nebula lies close enough to study in exceptional detail, astronomers treat it as a natural laboratory for understanding how stars &mdash; and the planets that eventually orbit them &mdash; actually form, testing theories that would otherwise rely purely on computer simulation. The next clear night, the sword of Orion (獵戶座) points to a stellar nursery in progress.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Orion_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The fuzzy "star" in Orion's sword isn't a star at all &mdash; it's a nursery where thousands of stars, and their future planets, are being born right now.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Hubble discover inside the Trapezium Cluster region that gave direct visual evidence of planet formation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hubble found dozens of protoplanetary disks ("proplyds") &mdash; flattened disks of dust and gas surrounding newborn stars &mdash; providing the first direct visual evidence of planets forming around stars other than the Sun.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/Hubblesite, "Orion Nebula." O'Dell, C.R. &amp; Wen, Z. (1994), "Postrefurbishment Mission Hubble Space Telescope Images of the Core of the Orion Nebula," <em>Astrophysical Journal</em> 436.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>義和團之亂&mdash;&mdash;一場「刀槍不入」的信念，如何引來八國聯軍？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1900年，一批自稱「義和團」的民眾相信經過法術修煉便能刀槍不入，在華北大舉攻擊教堂與外國使館，最終引來英、美、法、德、俄、日、意、奧八國組成聯軍攻入北京。你認為，是甚麼樣的社會處境，會讓大批民眾相信自己真的刀槍不入？慈禧太后又為何選擇支持這場註定失敗的行動？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>慈禧太后（清朝實際掌權者）；義和團民眾（華北山東、直隸一帶的民間武裝團體）；八國聯軍（英、美、法、德、俄、日、意、奧）。</p>
+        <p><strong>事件：</strong>1900年，義和團在華北大舉攻擊教堂、外國使館及信教華人，慈禧太后其後正式向十一國宣戰，引來八國聯軍攻陷北京。</p>
+        <p><strong>時代背景：</strong>十九世紀末，華北連年旱災，民生困苦；西方傳教士在條約保護下深入內地，教會與地方社會屢生衝突，加上甲午戰敗後民族屈辱感高漲，反洋情緒一觸即發。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Taku_Forts_Landing.JPG" alt="八國聯軍在大沽炮台登陸的歷史照片" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">八國聯軍於大沽炮台登陸，1900年庚子事變期間的歷史影像。來源：<a href="https://en.wikipedia.org/wiki/Boxer_Rebellion" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>十九世紀末，華北連年大旱，山東、直隸一帶民生凋敝，加上《馬關條約》甲午戰敗的屈辱記憶未散，民間對外國勢力的不滿早已積累多時。義和團原為民間拳會組織，糅合了白蓮教、民間武術與扶乩降神等信仰，聲稱經過「神拳」修煉，配合符咒與齋戒，便可以刀槍不入、水火不侵。這套信念在山東巡撫毓賢等地方官員的默許甚至縱容下迅速蔓延，義和團打出「扶清滅洋」旗號，將矛頭指向教會、教民與所有與西方沾邊的事物，包括鐵路、電線杆等新式建設。</p>
+      <p>1900年初，義和團勢力擴散至京津一帶，大規模焚燒教堂、殺害傳教士與信教華人，並圍攻北京東交民巷使館區，各國駐華公使及僑民困守其中五十五日，史稱「庚子事變」。慈禧太后起初猶豫觀望，其後在守舊派大臣鼓動下，竟信以為真，於六月正式向英、美、法、德、俄、日、意、奧等十一國同時宣戰，成為近代史上罕見的一國向多國同時開戰之舉。八國隨即組成聯軍，自天津登陸北上，於八月攻陷北京，慈禧與光緒帝倉皇西逃至西安。</p>
+      <p>聯軍攻入北京後大肆劫掠，多處宮苑文物再遭破壞，京城百姓亦深受兵禍之苦。1901年，清廷被迫與十一國簽訂《辛丑條約》，除懲辦主戰官員外，須賠款白銀四億五千萬兩，分三十九年攤還，本息合計逾九億兩，史稱「庚子賠款」，成為壓垮清朝財政的最後重擔之一，亦加深了知識分子對清廷的失望，為十年後的辛亥革命埋下伏筆。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Boxer_Rebellion" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 當旱災、屈辱與絕望交織，刀槍不入的神話便有了市場&mdash;&mdash;義和團之亂提醒我們，信仰的力量有時比事實更難阻擋。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 義和團與清廷為何最終招致八國聯軍攻入北京？《辛丑條約》對清朝造成了甚麼樣的財政衝擊？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">義和團以「刀槍不入」號召攻擊教堂與外國使館，慈禧太后其後向十一國宣戰，八國組成聯軍攻陷北京。1901年《辛丑條約》規定清廷賠款白銀四億五千萬兩，分三十九年攤還，本息合計逾九億兩，重創清朝財政。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《清史稿》；Esherick, J.W. (1987), <em>The Origins of the Boxer Uprising</em>, University of California Press；Britannica, "Boxer Rebellion."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Famine That Happened While Ships Full of Food Sailed Away</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Between 1845 and 1852, roughly a million people in Ireland died of starvation and disease while the country continued exporting grain, meat, and other food to England throughout the crisis. Before reading on, what do you think explains a famine happening alongside continued food exports &mdash; and who decided that trade should continue?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Charles Trevelyan (查爾斯&middot;特里維廉), the British Treasury official overseeing famine relief; Ireland's (愛爾蘭) tenant farmers and absentee landlords; the potato blight fungus Phytophthora infestans (馬鈴薯晚疫病菌).</p>
+        <p><strong>Event at stake:</strong> the Great Famine (An Gorta M&oacute;r, 大饑荒), 1845&ndash;1852, in which a blight destroyed Ireland's staple food crop across successive years.</p>
+        <p><strong>Big picture:</strong> a colonial land system left much of rural Ireland dependent on a single crop, while political ideology shaped &mdash; and worsened &mdash; the response to its failure.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Skibbereen_by_James_Mahony%2C_1847.JPG" alt="An 1847 illustration of famine conditions in Skibbereen, Ireland" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Famine conditions in Skibbereen, Ireland, illustrated by James Mahony in 1847. Credit: <a href="https://en.wikipedia.org/wiki/Great_Famine_(Ireland)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1845, a fungus-like organism called Phytophthora infestans (馬鈴薯晚疫病菌) arrived in Ireland (愛爾蘭) and began destroying potato crops within days of infection, turning healthy-looking fields into blackened, rotting mush almost overnight. The blight was catastrophic because roughly a third of Ireland's population, mostly poor tenant farmers, depended on the potato as their near-exclusive food source &mdash; a dependency created by a land system in which most arable land was owned by absentee landlords and used to grow grain, dairy, and livestock for export to Britain (英國), leaving smallholders only tiny plots suited to little else but potatoes.</p>
+      <p>As the blight recurred across multiple growing seasons, mass starvation and disease, particularly typhus (斑疹傷寒) and dysentery, spread through the countryside, while Ireland continued exporting grain, butter, and livestock to Britain throughout the crisis under existing trade arrangements. Treasury official Charles Trevelyan (查爾斯&middot;特里維廉), responsible for coordinating relief, believed strongly in laissez-faire (自由放任) economic principles and viewed direct food aid as likely to create dependency and distort markets, favoring instead limited public-works programs that required starving people to labor for meager wages before receiving any assistance at all.</p>
+      <p>By the time the blight subsided around 1852, roughly one million people had died of starvation and related disease, and a further one to two million emigrated, many aboard so-called "coffin ships" (棺材船) so overcrowded and disease-ridden that significant numbers of passengers died during the Atlantic crossing itself. Ireland's population fell by an estimated 20&ndash;25 percent within a decade and kept declining for generations through sustained emigration, permanently altering Irish society and fueling a lasting nationalist grievance against British rule that echoed through Irish politics for the following century.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Great_Famine_(Ireland)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A famine and continued food exports happened in the same country at the same time &mdash; a reminder that scarcity is sometimes a policy choice, not just a crop failure.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did mass starvation occur in Ireland even as the country continued exporting food to Britain throughout the famine?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Ireland's land system left most arable land in the hands of absentee landlords who grew grain and livestock for export, while millions of poor tenant farmers depended almost entirely on the potato; when Britain's Treasury also favored limited, ideologically-driven relief over direct food aid, exports continued even as the dependent population starved.</div>
+      </details>
+      <div class="source">&#x1F4D6; &Oacute; Gr&aacute;da, C. (1999), <em>Black '47 and Beyond: The Great Irish Famine</em>, Princeton University Press; Britannica, "Great Famine."</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>梁漱溟&mdash;&mdash;在毛澤東面前拒絕認錯的「最後一個儒家」</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1953年，學者梁漱溟在中央會議上公開質疑國家政策忽略農民利益，惹來毛澤東當眾嚴詞批評，會場氣氛劍拔弩張。換作大部分人，此刻大概會選擇退讓道歉。你認為梁漱溟接下來會怎麼做？他的堅持又源自甚麼樣的思想根基？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>梁漱溟（現代新儒家代表人物，被譽為「最後一個儒家」）；毛澤東（時任中共中央主席）。</p>
+        <p><strong>事件：</strong>1953年，梁漱溟在全國政協會議上公開質疑「重工輕農」政策損害農民利益，與毛澤東當面激烈爭論，事後遭猛烈批判，卻堅拒認錯。</p>
+        <p><strong>時代背景：</strong>民國以來，中國知識分子面對西方文明衝擊，紛紛尋求傳統文化的出路；梁漱溟早年即主張儒家精神仍可回應現代問題，並身體力行投身鄉村建設運動。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Liang_Shuming.jpg" alt="梁漱溟照片" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">梁漱溟，現代新儒家代表人物，被譽為「最後一個儒家」。來源：<a href="https://en.wikipedia.org/wiki/Liang_Shuming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>梁漱溟早年並非典型的學院派儒者，他自學成才，二十多歲已憑《東西文化及其哲學》一書聲名鵲起。書中他提出人類文化有三條不同路向：西方文化「意欲向前要求」，講求征服自然與個人權利；印度文化「意欲反身向後要求」，趨向宗教與出世；中國儒家文化則走「意欲自為調和持中」的中庸之路，重視人倫關係與當下生活的和諧。他認為中國文化並非落後於西方，只是走了一條不同的道路，儒家的價值在現代社會依然有其位置。</p>
+      <p>梁漱溟並非紙上談兵之人。1931年至1937年間，他在山東鄒平縣推行「鄉村建設運動」，試圖從基層重建中國社會的倫理秩序與經濟生活，設立鄉農學校、推廣合作社，糅合儒家倫理教化與現代組織方法，希望走出一條不同於全盤西化、也不同於激進革命的中國現代化道路。這場實驗因對日抗戰爆發而被迫中斷，卻成為他畢生思想最具體的實踐印記，也奠定他日後在知識界的獨特位置&mdash;&mdash;既非保守復古，也非全盤西化。</p>
+      <p>1953年，梁漱溟在全國政協會議上公開質疑當時「重工輕農」的發展政策忽略農民福祉，與毛澤東當場爆發激烈爭論，毛更當眾嚴厲批評他。面對排山倒海的政治壓力，梁漱溟仍堅持「三軍可奪帥也，匹夫不可奪志也」，拒絕如其他知識分子般公開認錯悔過。此後他被剝奪公開發言權逾二十年，卻奇蹟般未如同期許多知識分子般遭到更嚴重的迫害，晚年仍筆耕不輟，1988年辭世，被後人譽為「中國最後一個儒家」。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Liang_Shuming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 梁漱溟證明了，真正的儒者風骨，不在於順從權威，而在於明知代價巨大，仍堅持說出自己認為正確的話。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 梁漱溟在《東西文化及其哲學》中，如何區分中、西、印三種文化的不同路向？他在1953年又因何事與毛澤東發生衝突？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">他認為西方文化「向前要求」，印度文化「向後要求」，中國儒家文化則走「調和持中」的中庸之路。1953年他在政協會議上質疑「重工輕農」政策忽略農民利益，與毛澤東當面激烈爭論，事後拒絕認錯，被剝奪公開發言權逾二十年。</div>
+      </details>
+      <div class="source">&#x1F4D6; 梁漱溟 (1921)，《東西文化及其哲學》；Alitto, G. (1979), <em>The Last Confucian</em>, University of California Press。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Thought Experiment That Still Haunts Every AI Chatbot</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine a person who doesn't understand Chinese, locked in a room with a giant rulebook that tells them exactly how to match incoming Chinese symbols to outgoing Chinese symbols. From outside, the room produces perfectly fluent Chinese responses. Before reading on, do you think the person &mdash; or the room as a whole &mdash; actually understands Chinese?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> John Searle (約翰&middot;瑟爾), the philosopher who proposed the thought experiment; proponents of "strong AI" (強人工智能), the position his argument targets.</p>
+        <p><strong>Problem at stake:</strong> whether a system that manipulates symbols according to rules can be said to genuinely "understand" anything, or merely simulate understanding.</p>
+        <p><strong>Moment:</strong> a 1980 paper written just as early artificial intelligence (人工智能) research was making bold claims about machine understanding.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/John_Searle_speaking_at_Google_4_%28cropped%29.jpg" alt="Photograph of philosopher John Searle" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Searle, whose 1980 Chinese Room thought experiment still frames debates over machine understanding. Credit: <a href="https://en.wikipedia.org/wiki/Chinese_room" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1980, philosopher John Searle (約翰&middot;瑟爾) published "Minds, Brains, and Programs," introducing a thought experiment aimed squarely at the claim, popular among some AI (人工智能) researchers at the time, that a computer running the right program could genuinely understand language the way a human does. Searle imagined a person who speaks no Chinese (中文) locked inside a room, equipped with an enormous rulebook written in English that specifies exactly which Chinese symbols to output in response to any given Chinese symbols received through a slot in the door.</p>
+      <p>By mechanically following the rulebook, the person inside can produce responses so fluent that a native Chinese speaker outside the room would be convinced they were conversing with someone who genuinely understood the language, even though the person inside has no idea what any of the symbols actually mean. Searle's point: since the person is doing exactly what a computer program does &mdash; manipulating symbols (符號) according to formal syntactic rules, without any grasp of meaning &mdash; fluent output cannot, by itself, prove genuine understanding is occurring anywhere in the system.</p>
+      <p>The most influential rebuttal, the "Systems Reply" (系統回應), argues Searle is asking the wrong component the wrong question: the person inside the room may not understand Chinese, but the entire system &mdash; person, rulebook, and paper &mdash; might understand it collectively, the same way no single neuron in a human brain understands English even though the whole brain does. Neither side has decisively won the debate, and the argument has only grown more relevant as large language models (大型語言模型) capable of fluent conversation raise the identical question Searle posed over four decades earlier: does convincing output require genuine understanding underneath it?</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Chinese_room" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Producing fluent, convincing language and genuinely understanding it may not be the same thing &mdash; a question that got a lot harder to dismiss once machines started doing the former extremely well.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Searle's central point in the Chinese Room argument, and what is the main objection to it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Searle argued that manipulating symbols according to formal rules, however fluently, doesn't by itself prove genuine understanding &mdash; the person in the room produces perfect Chinese without understanding any of it. The "Systems Reply" counters that while the person alone doesn't understand, the complete system of person, rulebook, and room might understand collectively.</div>
+      </details>
+      <div class="source">&#x1F4D6; Searle, J.R. (1980), "Minds, Brains, and Programs," <em>Behavioral and Brain Sciences</em> 3(3); Stanford Encyclopedia of Philosophy, "The Chinese Room Argument."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Facebook Study That Tried to Make 700,000 People Feel Something</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2014, researchers altered what appeared in the news feeds of nearly 700,000 Facebook users for one week, showing some people more positive posts and others more negative ones, without telling any of them they were part of an experiment. Before reading on, what do you think the study found about whether emotions can spread through a screen &mdash; and why did it spark public outrage once it became known?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Meta_HQ_2023.png" alt="Meta (Facebook) headquarters" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Meta's headquarters, home to the platform behind the 2014 emotional contagion experiment. Credit: <a href="https://en.wikipedia.org/wiki/Emotional_contagion" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Emotional contagion (情緒感染) is the tendency for one person's emotional state to spread to another simply through exposure, first studied systematically by psychologist Elaine Hatfield (伊萊恩&middot;哈特菲爾德) and colleagues in the early 1990s, who documented how people unconsciously mimic others' facial expressions, vocal tones, and postures, and how that mimicry can trigger the corresponding feeling in the observer, often without either person consciously realizing it's happening. The effect helps explain why a tense room can make an unrelated visitor feel anxious, or why a genuinely cheerful person can lift the mood of everyone around them.</p>
+      <p>In 2014, researchers from Facebook (社交媒體平台Facebook) and Cornell University published a study in the Proceedings of the National Academy of Sciences (PNAS) that had secretly manipulated the news feeds of nearly 700,000 users for one week, reducing the proportion of either positive or negative posts each group saw, without informing any participant they were part of an experiment. The study found a modest but statistically significant effect: users shown fewer positive posts subsequently wrote slightly more negative status updates themselves, and vice versa, suggesting emotional states really can spread through text on a screen, not just face-to-face contact.</p>
+      <p>The finding was scientifically interesting, but the study triggered substantial public backlash once it became widely known, centered less on the result itself than on the complete absence of informed consent (知情同意) &mdash; users had no idea their emotional state was being deliberately nudged for research purposes, raising serious ethical questions about the power large platforms hold to run psychological experiments on millions of people without their knowledge. The controversy pushed both academic journals and technology companies toward stricter ethical review requirements for large-scale behavioral experiments run on unwitting users.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emotional_contagion" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Emotions really do spread through a screen, not just a room &mdash; which is exactly why doing that deliberately, without anyone's knowledge, became a research ethics scandal.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2014 Facebook emotional contagion study find, and why did it generate ethical controversy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It found that reducing positive or negative content in users' feeds caused a corresponding, modest shift in the emotional tone of what those users posted themselves &mdash; showing emotional contagion works through text, not just face-to-face contact. The controversy centered on the lack of informed consent: nearly 700,000 users had no idea they were part of the experiment.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hatfield, E., Cacioppo, J.T. &amp; Rapson, R.L. (1993), "Emotional Contagion," <em>Current Directions in Psychological Science</em>; Kramer, A.D.I., Guillory, J.E. &amp; Hancock, J.T. (2014), "Experimental Evidence of Massive-Scale Emotional Contagion Through Social Networks," <em>PNAS</em> 111(24).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Your Fingers Turn Into Raisins in the Bath</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Soak your hands in water for a few minutes and your fingertips wrinkle into a pattern that looks almost identical every time. For decades, textbooks explained this as water simply being absorbed into the skin, like a sponge. Before reading on, what do you think actually causes the wrinkling &mdash; and why might the old "sponge" explanation be wrong?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Human_fingers_both_sides_2.jpg/3840px-Human_fingers_both_sides_2.jpg" alt="Photograph of human fingers" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Human fingers, whose skin wrinkles in a controlled, nerve-driven pattern after prolonged water exposure. Credit: <a href="https://en.wikipedia.org/wiki/Water_immersion_wrinkling" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For most of the twentieth century, the standard explanation for why fingers and toes wrinkle after prolonged water exposure was simple osmosis (滲透作用): skin, especially the thick, dead outer layer on fingertips, was assumed to passively absorb water like a sponge, swelling until it wrinkled. That explanation had a problem nobody noticed for decades &mdash; it couldn't account for a strange clinical observation: patients with damage to the median nerve (正中神經), which controls sensation and autonomic function in part of the hand, don't develop wrinkling in the affected fingers no matter how long they soak them.</p>
+      <p>That clue revealed the wrinkling is actively controlled by the autonomic nervous system (自主神經系統), not a passive, purely physical process. Prolonged water contact triggers nerve signals that cause blood vessels beneath the fingertip skin to constrict, and this vasoconstriction (血管收縮) is what pulls the skin into its characteristic wrinkled pattern &mdash; an active biological response, not simple water absorption. Because the response depends entirely on an intact nerve supply, it is now used clinically as a simple diagnostic test for certain types of nerve damage.</p>
+      <p>Researcher Mark Changizi and colleagues proposed in 2011 that the wrinkling pattern isn't random: the channels formed resemble drainage networks similar to rain treads on tires, potentially improving grip on wet surfaces by channeling water away from the fingertip's contact area rather than letting it pool. A 2013 study testing this hypothesis found people with wrinkled fingers handled wet objects modestly faster than those with smooth ones, though grip on dry objects showed no difference &mdash; suggestive support for an evolved function, though the evolutionary case remains actively debated among researchers.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Water_immersion_wrinkling" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Wrinkled fingers in the bath aren't waterlogged skin &mdash; they're your nervous system actively reshaping your fingertips, possibly to grip wet objects better.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What clinical observation revealed that finger wrinkling in water is an active nervous system response rather than passive water absorption?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Patients with damage to the median nerve don't develop wrinkling in the affected fingers no matter how long they're submerged, revealing that the effect depends on intact autonomic nerve signaling causing blood vessel constriction, not on skin simply absorbing water like a sponge.</div>
+      </details>
+      <div class="source">&#x1F4D6; Changizi, M., Weber, R., Kotecha, R. &amp; Palazzo, J. (2011), "Are Wet-Induced Wrinkled Fingers Primate Rain Treads?" <em>Brain, Behavior and Evolution</em> 77(4); Kareklas, K., Nettle, D. &amp; Smulders, T.V. (2013), <em>Biology Letters</em> 9(2).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Deodorant Cancer Scare That Refuses to Die</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A popular email chain warned that antiperspirants trap toxins near lymph nodes close to the breast, causing cancer &mdash; a claim that has circulated online for over two decades and still shapes some people's shopping habits. Before reading on, what do you think large epidemiological studies have actually found when they tested this claim directly?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Amanda_Fran%C3%A7ozo_At_The_Runner_Sports_Fragment.jpg" alt="An athlete sweating during exercise" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sweat production during exercise &mdash; the target of antiperspirants, long falsely rumored to cause breast cancer. Credit: <a href="https://en.wikipedia.org/wiki/Antiperspirant" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The claim that antiperspirants (止汗劑) or deodorants cause breast cancer (乳癌) traces largely to a chain email that spread rapidly starting around 1999, proposing that shaving the underarm creates tiny nicks allowing aluminum-based compounds (鋁化合物) in antiperspirants to enter the body and accumulate in nearby lymph nodes, eventually triggering cancerous changes in breast tissue. The theory sounded plausible enough &mdash; antiperspirants are applied daily, close to the breast, over decades &mdash; that it spread widely despite never having been tested in an actual scientific study before the claim went viral.</p>
+      <p>When researchers did test it, the evidence didn't support the theory. A 2002 case-control study published in the Journal of the National Cancer Institute, led by Dawn Mirick (道恩&middot;米里克), compared antiperspirant and shaving habits between women with breast cancer and women without, finding no association between antiperspirant or deodorant use, including use combined with underarm shaving, and breast cancer risk. The American Cancer Society (美國癌症協會) has reviewed the accumulated evidence multiple times since and reached the same conclusion: no credible study has found a link.</p>
+      <p>The underlying biology also weighs against the theory: intact skin absorbs only a very small fraction of topically applied aluminum compounds, and antiperspirants work mechanically by temporarily plugging sweat ducts rather than through meaningful systemic absorption. Genuine breast cancer risk factors &mdash; family history, certain genetic mutations, age, and reproductive history among them &mdash; remain well established through decades of research, and public health messaging increasingly emphasizes those over a scare that has been directly tested and repeatedly found unsupported.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Antiperspirant" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A plausible-sounding chain email outpaced the actual research by two decades &mdash; when scientists finally tested it, antiperspirants and breast cancer showed no connection at all.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2002 Mirick et al. case-control study find when it directly tested the antiperspirant&ndash;breast cancer theory?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Comparing antiperspirant and underarm-shaving habits between women with and without breast cancer, the study found no association between antiperspirant or deodorant use &mdash; even combined with shaving &mdash; and breast cancer risk, a finding the American Cancer Society has since reaffirmed in subsequent reviews.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mirick, D.K., Davis, S. &amp; Thomas, D.B. (2002), "Antiperspirant Use and the Risk of Breast Cancer," <em>Journal of the National Cancer Institute</em> 94(20); American Cancer Society, "Antiperspirants and Breast Cancer Risk."</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Pre-Workout Ingredient With Four Decades of Evidence Behind It</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Caffeine is one of the most widely used pre-workout supplements in the world, found in everything from coffee to specialized powders. Before reading on, what do you think caffeine actually does inside the body to improve exercise performance &mdash; and does the effect work the same way for everyone?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Latte_and_dark_coffee.jpg/330px-Latte_and_dark_coffee.jpg" alt="Cups of coffee, a common source of caffeine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Coffee, one of the most common delivery vehicles for caffeine, sports science's most-studied ergogenic aid. Credit: <a href="https://en.wikipedia.org/wiki/Caffeine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Caffeine (咖啡因) is among the most extensively researched ergogenic aids (助力性補充劑) in sports science, with decades of controlled trials supporting its ability to improve endurance performance, power output, and perceived effort during exercise. Its primary mechanism is blocking adenosine receptors (腺苷受體) in the brain and muscle tissue; adenosine normally accumulates during activity and promotes feelings of fatigue and sleepiness, so blocking its receptors delays the perception of tiredness and can also directly enhance calcium handling within muscle fibers, improving contractile force.</p>
+      <p>The International Society of Sports Nutrition's (國際運動營養學會) position stand recommends doses of roughly 3&ndash;6 milligrams per kilogram of body weight, taken 30&ndash;60 minutes before exercise, as the range most consistently associated with measurable performance benefits across endurance and resistance-training contexts alike. Individual response varies substantially, though, largely due to genetic differences in the CYP1A2 gene (CYP1A2基因), which controls how quickly the liver metabolizes caffeine &mdash; "fast metabolizers" clear it quickly and tend to see reliable performance benefits, while "slow metabolizers" retain it longer and are more prone to side effects like jitteriness or elevated heart rate at the same dose.</p>
+      <p>Habitual caffeine users do build some tolerance to its effects, but multiple studies have found the ergogenic benefit persists even in regular coffee drinkers, contrary to older assumptions that habituation eliminates it entirely. The main practical trade-off is timing: caffeine taken too late in the day can disrupt sleep quality, which itself impairs recovery and future performance, creating a net loss if used carelessly &mdash; meaning caffeine's real-world benefit depends as much on when it's taken as on how much.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Caffeine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Caffeine's performance edge comes from blocking your brain's fatigue signal, not from any mysterious energy boost &mdash; take it too late, though, and the sleep debt can cancel out the gain.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is caffeine's primary mechanism for improving exercise performance, and what genetic factor explains why people respond to it so differently?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Caffeine blocks adenosine receptors that normally promote fatigue and sleepiness, delaying perceived tiredness and improving muscle contractile force. Variation in the CYP1A2 gene, which controls how quickly the liver metabolizes caffeine, explains why "fast metabolizers" reliably benefit while "slow metabolizers" are more prone to side effects at the same dose.</div>
+      </details>
+      <div class="source">&#x1F4D6; Guest, N.S. et al. (2021), "International Society of Sports Nutrition Position Stand: Caffeine and Exercise Performance," <em>Journal of the International Society of Sports Nutrition</em> 18(1).</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The $47 Billion Company That Was Actually Worth a Fraction of That</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In January 2019, WeWork was privately valued at $47 billion by investor SoftBank, making it one of the most valuable startups in the world. Nine months later, its IPO collapsed entirely and the company's value had been slashed by more than 80%. Before reading on, what do you think a routine public-offering filing revealed that made investors flee so fast?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Coworking_Space_in_Berlin.jpg" alt="A coworking office space" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A coworking office space of the kind WeWork leased and subdivided, once privately valued at $47 billion. Credit: <a href="https://en.wikipedia.org/wiki/WeWork" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>WeWork (共享辦公室公司WeWork), a company that leased office space and subdivided it into flexible co-working spaces for rent, was privately valued at $47 billion in January 2019 following a major investment from Japanese conglomerate SoftBank (軟銀), built substantially on charismatic co-founder Adam Neumann's (亞當&middot;諾伊曼) pitch that WeWork was a transformative technology company rather than, more literally, a commercial real estate business subleasing office space at a markup.</p>
+      <p>When WeWork filed its S-1 prospectus (S-1招股說明書) ahead of a planned public offering in August 2019, the mandatory disclosures revealed problems investors hadn't previously scrutinized: the company had lost roughly $1.9 billion in the prior year with no clear path to profitability, used a self-invented, widely mocked metric called "Community Adjusted EBITDA (社區調整後EBITDA)" that excluded most standard operating costs, and disclosed extensive related-party transactions, including WeWork paying Neumann roughly $5.9 million to buy back the trademark rights to the word "We" that he had personally registered.</p>
+      <p>Public and investor backlash was swift; the planned valuation collapsed from $47 billion toward roughly $8 billion within weeks, the IPO was withdrawn entirely, and Neumann was ousted as CEO within the month, departing with a reported exit package worth hundreds of millions of dollars despite the company's near-collapse. SoftBank subsequently took a majority stake to keep WeWork afloat, but the company never recovered its earlier momentum, eventually filing for bankruptcy in 2023 &mdash; a case study in how private-market valuations, set by investors with limited public scrutiny, can diverge sharply from what public markets are willing to pay once forced to look closely.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/WeWork" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A $47 billion valuation evaporated by more than 80% the moment public markets finally got to read the fine print &mdash; private valuations only mean what the next investor is willing to believe.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specific disclosures in WeWork's 2019 IPO prospectus caused its valuation to collapse so quickly?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The S-1 filing revealed roughly $1.9 billion in annual losses with no clear path to profitability, a self-invented "Community Adjusted EBITDA" metric that excluded most operating costs, and related-party dealings including a $5.9 million payment to CEO Adam Neumann for trademark rights to the word "We."</div>
+      </details>
+      <div class="source">&#x1F4D6; WeWork S-1 Registration Statement (2019); Wiedeman, R. (2020), <em>Billion Dollar Loser</em>, Little, Brown.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Chile's Free-Market Experiment and the Crisis That Nearly Broke It</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Portrait_of_Milton_Friedman_%284x5_cropped%29.jpg" alt="Portrait of economist Milton Friedman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Milton Friedman, whose Chicago School economics inspired Chile's "Chicago Boys" reforms. Credit: <a href="https://en.wikipedia.org/wiki/Chicago_Boys" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Following the 1973 coup, Chile's (智利) military government installed a group of economists trained at the University of Chicago, known as the "Chicago Boys" (芝加哥男孩), who implemented rapid deregulation, privatization, and trade liberalization meant to produce a "Miracle of Chile" (智利奇蹟).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Milton Friedman's (米爾頓&middot;佛利民) Chicago School (芝加哥學派) held that removing state intervention and price controls quickly, rather than gradually, would swiftly unleash market efficiency and growth, with short-term pain justified by faster long-term gains.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">In 1982, Chile's economy collapsed by roughly 14% of GDP and unemployment hit nearly 30%, despite the country having followed the prescribed reforms more thoroughly than almost any other economy &mdash; the crisis stemmed from an unregulated banking sector taking on excessive foreign debt, a risk pure deregulation theory hadn't priced in.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Sustained growth only resumed after the mid-1980s, once technocrats added pragmatic banking regulation and a more gradual, sequenced approach &mdash; suggesting institutional safeguards, not deregulation speed alone, explain Chile's eventual success; economists still dispute how much credit belongs to the original 1970s reforms versus the corrections made after 1982.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Chile followed the free-market playbook about as faithfully as any country ever has &mdash; and still needed a decade of pragmatic correction before the growth story actually held.</div>
+      <div class="source">&#x1F4D6; Edwards, S. &amp; Edwards, A.C. (1987), <em>Monetarism and Liberalization: The Chilean Experiment</em>, Ballinger; Fontaine, J.A. (1996), "La Construcci&oacute;n de Instituciones Econ&oacute;micas en Chile." Never recycles Card 10 domain (private startup valuation collapse vs. macroeconomic development strategy).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; Convincing Output vs. Genuine Understanding:</strong> Searle's Chinese Room argument asks whether a system can produce perfectly fluent language without any real understanding behind it. The Facebook emotional contagion study found something like the mirror image: text alone, stripped of face-to-face contact, tone of voice, or any two-way understanding, was still enough to measurably shift almost 700,000 real readers' emotions. Neither case required genuine comprehension on one end for a real effect to land on the other.</p>
+      <p><strong>So what:</strong> The lesson cuts both ways &mdash; don't assume fluent, convincing output implies understanding behind it, and don't assume the absence of understanding on one side means nothing real is happening on the other. A chatbot's words and a stranger's algorithmically-curated post can both move you, regardless of what, if anything, is happening on the other end.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/Hubblesite, "Orion Nebula." O'Dell, C.R. &amp; Wen, Z. (1994), <em>Astrophysical Journal</em> 436.</li>
+      <li><strong>Card 2:</strong> 《清史稿》；Esherick, J.W. (1987), <em>The Origins of the Boxer Uprising</em>, University of California Press；Britannica, "Boxer Rebellion."</li>
+      <li><strong>Card 3:</strong> &Oacute; Gr&aacute;da, C. (1999), <em>Black '47 and Beyond</em>, Princeton University Press; Britannica, "Great Famine."</li>
+      <li><strong>Card 4:</strong> 梁漱溟 (1921)，《東西文化及其哲學》；Alitto, G. (1979), <em>The Last Confucian</em>, University of California Press。</li>
+      <li><strong>Card 5:</strong> Searle, J.R. (1980), <em>Behavioral and Brain Sciences</em> 3(3); Stanford Encyclopedia of Philosophy, "The Chinese Room Argument."</li>
+      <li><strong>Card 6:</strong> Hatfield, E. et al. (1993), <em>Current Directions in Psychological Science</em>; Kramer, A.D.I. et al. (2014), <em>PNAS</em> 111(24).</li>
+      <li><strong>Card 7:</strong> Changizi, M. et al. (2011), <em>Brain, Behavior and Evolution</em> 77(4); Kareklas, K. et al. (2013), <em>Biology Letters</em> 9(2).</li>
+      <li><strong>Card 8:</strong> Mirick, D.K. et al. (2002), <em>Journal of the National Cancer Institute</em> 94(20); American Cancer Society.</li>
+      <li><strong>Card 9:</strong> Guest, N.S. et al. (2021), <em>Journal of the International Society of Sports Nutrition</em> 18(1).</li>
+      <li><strong>Card 10:</strong> WeWork S-1 Registration Statement (2019); Wiedeman, R. (2020), <em>Billion Dollar Loser</em>, Little, Brown.</li>
+      <li><strong>Card 11:</strong> Edwards, S. &amp; Edwards, A.C. (1987), <em>Monetarism and Liberalization</em>, Ballinger; Fontaine, J.A. (1996).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-30: Orion Nebula (Messier 42) &bull; 義和團之亂 (Boxer Rebellion) &bull; The Irish Potato Famine (An Gorta M&oacute;r) &bull; 梁漱溟 &bull; The Chinese Room Argument (Searle) &bull; Emotional Contagion / Facebook 2014 Study &bull; Finger Wrinkling in Water (Water Immersion Wrinkling) &bull; Antiperspirant &amp; Breast Cancer Myth &bull; Caffeine as an Ergogenic Aid &bull; WeWork's Failed 2019 IPO &bull; Chicago Boys in Chile vs the 1982 Crisis</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-30.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-30.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 30 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
