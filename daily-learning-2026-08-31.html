@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 31 August 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 31 August 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>30 August 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Orion Nebula</span>Hubble&#x2019;s 3,000-exposure Orion Nebula mosaic revealed protoplanetary disks &mdash; the first direct visual evidence of planets forming around other stars.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 義和團之亂</span>義和團自信刀槍不入，終致八國聯軍攻陷北京。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Irish Potato Famine</span>Ireland kept exporting grain to Britain even as a potato blight killed roughly a million people through starvation.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 梁漱溟</span>梁漱溟拒向毛澤東認錯，被譽最後儒家。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; The Chinese Room Argument</span>Searle&#x2019;s Chinese Room argument asks whether fluent symbol manipulation can ever count as genuine understanding.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Emotional Contagion</span>A secret 2014 Facebook experiment on 700,000 users showed emotions can spread through text alone, sparking an ethics backlash.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Finger Wrinkling</span>Wrinkled fingers in water turn out to be an active nerve-driven response, not passive water absorption.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Antiperspirant Myth</span>A 2002 study found no link between antiperspirant use and breast cancer, debunking a decades-old chain-email myth.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Caffeine</span>Caffeine blocks fatigue-signaling receptors and boosts performance, but genetics and timing both shape how well it works.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Barings Bank</span>A rogue 28-year-old trader hid mounting losses in a secret account, sinking a 233-year-old bank sold for &pound;1.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Malthusian Trap</span>Britain&#x2019;s Industrial Revolution defied Malthus by growing population and income together instead of collapsing into famine.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photograph Where Everyone on Earth Knew They Were Being Watched</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On 19 July 2013, NASA announced in advance that a spacecraft over a billion kilometers away was about to turn around and photograph Earth, and invited people to go outside and wave. Before reading on, what do you think made that particular moment possible &mdash; and why would a spacecraft normally photographing Saturn suddenly be able to see Earth at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/The_Day_The_Earth_Smiled_-_Preview.jpg" alt="Cassini spacecraft mosaic of backlit Saturn with Earth visible as a tiny point of light" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">"The Day the Earth Smiled" &mdash; Saturn backlit by the Sun, imaged by Cassini on 19 July 2013, with Earth visible as a pale dot at right. Credit: <a href="https://en.wikipedia.org/wiki/The_Day_the_Earth_Smiled" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Since 2004, NASA&#x2019;s Cassini (卡西尼號) spacecraft had orbited Saturn (土星), sending back thousands of images. But on 19 July 2013, mission imaging lead Carolyn Porco (卡羅琳&middot;波爾科) planned something different: positioning Cassini directly behind Saturn so the planet eclipsed the Sun (太陽), blocking its glare entirely. With the light source hidden, Saturn&#x2019;s faint outer rings &mdash; normally washed out and invisible in ordinary reflected sunlight &mdash; suddenly glowed brilliantly, backlit like dust caught in a shaft of light through a window.</p>
+      <p>Over more than four hours, Cassini captured 141 images that were later stitched into a single sweeping mosaic of Saturn&#x2019;s entire ring system, rings within rings, some never photographed in such detail before. Tucked into one corner of the frame, barely more than a single pixel, sat Earth (地球) &mdash; roughly 1.44 billion kilometers away. Unlike Voyager 1&#x2019;s (旅行者一號) famous 1990 "Pale Blue Dot" (暗淡藍點) photo, taken without warning, NASA announced this one in advance, making it the first time humanity knew, ahead of time, it was being photographed from deep space.</p>
+      <p>Hundreds of thousands of people stepped outside that day, looked up, and smiled or waved, many sharing photos of themselves gazing skyward toward Saturn. NASA nicknamed the event "The Day the Earth Smiled." Beyond the striking image itself, the moment captured something psychologists call the "overview effect" (總觀效應) at planetary scale &mdash; the disorienting, humbling shift in perspective that comes from actually seeing how small and fragile a single pixel our entire world occupies from a billion kilometers out.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/The_Day_the_Earth_Smiled" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; For one afternoon in 2013, Earth wasn&#x2019;t just being photographed from deep space &mdash; for the first time, it knew it was smiling for the camera.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did positioning Cassini behind Saturn, eclipsing the Sun, make Saturn&#x2019;s faint outer rings and distant Earth visible in the same image?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">With Saturn blocking the Sun's glare, its faint outer rings &mdash; normally washed out by direct sunlight &mdash; glowed brightly when backlit, while the darkened sky let the camera also pick out faint, distant objects like Earth that would otherwise be lost in the Sun's glare.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL-Caltech, "The Day the Earth Smiled" press release (2013); Porco, C.C. et al., Cassini Imaging Team, Space Science Institute.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>土木堡之變&mdash;&mdash;皇帝御駕親征，為何淪為蒙古俘虜？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1449年，明朝皇帝在寵信宦官慫恿下御駕親征，率領數十萬大軍迎戰蒙古瓦剌，短短數日竟全軍潰散，皇帝本人更淪為敵軍俘虜。你認為，是甚麼樣的決策失誤，會讓一場御駕親征演變成如此徹底的災難？被俘的皇帝，最終命運又會如何？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>明英宗朱祁鎮（御駕親征的年輕皇帝）；王振（慫恿親征、專擅朝政的宦官）；也先（瓦剌部落首領）；于謙（力挽狂瀾保衛北京的兵部尚書）。</p>
+        <p><strong>事件：</strong>1449年，明英宗在宦官王振慫恿下倉促御駕親征瓦剌，大軍在土木堡遭也先擊潰，皇帝本人被俘，是為「土木之變」。</p>
+        <p><strong>時代背景：</strong>明朝中期，宦官專權漸成常態，皇帝倚重親信內臣勝於朝臣諫言；北方蒙古瓦剌部日益強盛，屢屢犯邊，朝廷內部對如何應對邊患意見分歧。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Tumu_Crisis.jpg" alt="土木堡之變示意圖，描繪1449年明軍與瓦剌交戰經過" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">描繪土木堡之變的圖像，1449年明軍在土木堡遭瓦剌擊潰、皇帝被俘。來源：<a href="https://en.wikipedia.org/wiki/Tumu_Crisis" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王振自英宗年幼時便侍奉在側，深得信任，逐步攬掌大權，排斥異己，朝中大臣敢怒不敢言。1449年，瓦剌首領也先率軍大舉犯邊，王振為建功邀寵，慫恿年僅二十二歲的英宗御駕親征，短短數日內倉促徵調五十萬大軍出征，糧草、路線與後勤全無周詳部署，沿途又逢陰雨連綿，士兵疲憊不堪，未戰已先露敗象。</p>
+      <p>大軍行至大同一帶得知前線已敗，倉皇撤退，王振卻堅持繞道其家鄉蔚州以顯威風，延誤撤軍時機。也先率瓦剌騎兵尾隨追擊，明軍退至土木堡時，當地缺水、地勢不利，被瓦剌軍團團圍困。也先佯裝議和，誘使明軍移營就水，趁機發動突襲，明軍陣腳大亂、全軍潰散，隨行護衛將王振亂刀砍死洩憤，英宗本人則被瓦剌軍俘虜，成為明朝開國以來首位被俘的皇帝。</p>
+      <p>消息傳回京城，朝野震動，兵部尚書于謙力排南遷之議，主張堅守，並擁立英宗之弟朱祁鈺即位（是為景泰帝），尊被俘的英宗為太上皇，藉此斷絕也先挾持人質要脅朝廷的籌碼。也先其後率軍進逼北京，于謙親自督戰，終於擊退瓦剌，史稱「北京保衛戰」。也先眼見英宗已失去利用價值，一年後將其釋還。豈料英宗其後透過「奪門之變」復辟，竟以「謀逆」罪名將力保社稷的于謙處死，成為這段歷史最為諷刺的結局。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tumu_Crisis" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場倉促決定的親征，足以讓半個世紀的邊防積累毀於一旦&mdash;&mdash;土木堡之變提醒後人，決策的草率往往比敵軍更致命。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王振的哪些決策失誤，直接導致明軍在土木堡潰敗？于謙其後又如何化解英宗被俘造成的政治危機？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王振倉促徵調大軍、後勤部署不周，撤軍時又堅持繞道延誤時機，最終在缺水的土木堡遭也先突襲潰敗。于謙其後擁立景泰帝繼位，斷絕也先挾英宗要脅朝廷的籌碼，並親自督戰擊退瓦剌，穩住了明朝政局。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《明史·英宗本紀》；Twitchett, D. &amp; Mote, F.W. (eds.) (1998), <em>The Cambridge History of China, Vol. 7</em>, Cambridge University Press；Britannica, "Tumu Crisis."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Window That Started a War That Killed Millions</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In May 1618, a group of Protestant nobles threw two Catholic officials and a secretary out of a third-floor window at Prague Castle &mdash; and all three survived a roughly 21-meter fall. Before reading on, what do you think explains their survival, and how did this single, almost absurd act spiral into a war that would eventually kill millions across Europe?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Count Jind&#x0159;ich Maty&#x00E1;&#x0161; Thurn (圖恩伯爵), leader of the Protestant nobles; Vil&#x00E9;m Slavata (斯拉瓦塔) and Jaroslav Bo&#x0159;ita of Martinice (馬爾提尼采), the Catholic imperial regents thrown from the window; Emperor Ferdinand II (斐迪南二世), whose religious policies triggered the revolt.</p>
+        <p><strong>Event at stake:</strong> the 1618 Defenestration of Prague (布拉格擲窗事件), which ignited the Bohemian Revolt and, within months, the Thirty Years&#x2019; War (三十年戰爭).</p>
+        <p><strong>Big picture:</strong> a fragile religious settlement between Catholic Habsburg (哈布斯堡) rulers and Protestant Bohemian nobility collapsed, triggering one of the deadliest conflicts in European history.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Prager_Fenstersturz_Wahrhafftige_Zeitung_aus_Prag.JPG" alt="Contemporary 1618 print depicting the Defenestration of Prague" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A contemporary 1618 print depicting the Defenestration of Prague. Credit: <a href="https://en.wikipedia.org/wiki/Defenestrations_of_Prague" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1609, Bohemian Protestants had secured a "Letter of Majesty" (詔書) guaranteeing their religious freedoms under Habsburg rule. When the staunchly Catholic Ferdinand II (斐迪南二世) became king and began closing and demolishing Protestant churches in violation of that guarantee, Protestant nobles led by Count Thurn (圖恩伯爵) grew convinced their rights were being systematically dismantled. On 23 May 1618, an armed group of these nobles marched into Prague Castle (布拉格城堡) and confronted two of Ferdinand&#x2019;s regents directly inside the chancellery.</p>
+      <p>After a heated argument over who bore responsibility for the church closures, the nobles seized regents Vil&#x00E9;m Slavata (斯拉瓦塔) and Jaroslav Bo&#x0159;ita of Martinice (馬爾提尼采), along with a secretary, Philip Fabricius, and threw all three out of a roughly 21-meter-high window. Remarkably, all three survived the fall largely uninjured. Catholic accounts credited divine intervention, claiming angels or the Virgin Mary had cushioned their landing; Protestant accounts more prosaically credited a large pile of refuse and dung in the moat below that broke their fall.</p>
+      <p>What might have remained a local political scandal instead ignited the Bohemian Revolt, which rapidly escalated into the continent-spanning Thirty Years&#x2019; War (三十年戰爭), eventually drawing in Sweden, France, Spain, and the Holy Roman Empire. Fought largely across German-speaking lands, the war killed an estimated 4.5 to 8 million people through combat, famine, and disease before ending with the 1648 Peace of Westphalia (西發里亞和約), which reshaped the European state system and remains a foundational reference point in international relations to this day.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Defenestrations_of_Prague" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Three men survived a 21-meter fall from a castle window &mdash; and the political shockwave from that survival still killed millions across a continent.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered the 1618 Defenestration of Prague, and what large-scale conflict did it ignite?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Protestant nobles, angered by Emperor Ferdinand II's violation of religious rights guaranteed under the 1609 Letter of Majesty, threw two Catholic regents and a secretary out of a Prague Castle window. All three survived, but the act ignited the Bohemian Revolt, which escalated into the continent-wide Thirty Years' War.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wedgwood, C.V. (1938), <em>The Thirty Years War</em>, Jonathan Cape; Britannica, "Defenestrations of Prague."</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>王陽明&mdash;&mdash;被貶至瘴癘之地，卻悟出「心即理」的謫居哲學家</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1508年，官員王守仁因得罪權宦被貶至貴州龍場，一個瘴癘橫行、隨時可能喪命的偏遠驛站。傳說他在為自己準備的石棺中靜坐度日，某夜忽然大悟。你認為，一個瀕臨絕境的人，會悟出甚麼樣的道理？這與當時盛行的儒家正統思想，又有何不同？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王守仁，字陽明（心學創始人，世稱王陽明）；劉瑾（迫害他的權宦）；朱熹（南宋理學集大成者，其學說是王陽明日後挑戰的對象）。</p>
+        <p><strong>事件：</strong>1508年，王陽明在貴州龍場驛的艱苦環境中「龍場悟道」，提出「心即理」，挑戰朱熹「格物致知」的官方正統理學。</p>
+        <p><strong>時代背景：</strong>明代中期，程朱理學早已成為科舉考試的官方正統顯學，強調透過窮究外物之理方能致知；然而這套學說在部分士人眼中漸趨繁瑣僵化，與日常實踐脫節。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王陽明畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王陽明畫像，心學創始人，因龍場悟道提出「心即理」。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王陽明早年因直言上疏，觸怒把持朝政的權宦劉瑾，遭廷杖幾乎致死，其後被貶為貴州龍場驛丞。龍場地處偏遠，瘴癘瀰漫，言語不通，形同流放待死之地。相傳他在當地為自己鑿了一副石棺，日夜靜坐其中，思索生死，做好隨時死去的準備，同時反覆叩問：若聖人處此絕境，將如何自處？</p>
+      <p>某夜，他忽然大悟，體會到「聖人之道，吾性自足」&mdash;&mdash;天理原本就具足於自己心中，不假外求，不必如朱熹所言，逐一窮究天下萬物之理，方能致知。這番體悟史稱「龍場悟道」，正是心學的起點，直接挑戰了當時作為科舉正統的程朱理學「格物致知」之說，主張向內心求理，而非向外物求理。</p>
+      <p>王陽明其後進一步提出「知行合一」，主張真知與實踐本為一體，並不存在「先知後行」的割裂&mdash;&mdash;例如見到美色便已生好感，聞到惡臭便已生厭惡，感知的當下已是知與行的合一，若真知而不行，只是未曾真知。這套學說後來與朱熹理學分庭抗禮，深遠影響明清以至日本、朝鮮的思想界。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王陽明在瀕臨絕境之處體悟到，真理不必向外苦求&mdash;&mdash;它一直都在自己心中，只待一念之間的覺醒。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王陽明在龍場悟出的「心即理」，與朱熹「格物致知」的理學主張，根本分歧在哪裡？他其後又提出了甚麼延伸學說？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">朱熹主張窮究外在事物之理方能致知，王陽明則認為天理原本具足於自己心中，不假外求。他其後提出「知行合一」，主張真知與實踐本為一體，感知的當下已是知與行的合一，不存在先知後行的割裂。</div>
+      </details>
+      <div class="source">&#x1F4D6; 王陽明，《傳習錄》；Ivanhoe, P.J. (2002), <em>Ethics in the Confucian Tradition</em>, Hackett；Britannica, "Wang Yangming."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Ring That Asks Whether You&#x2019;d Still Be Good If No One Could See</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In Plato's Republic, Glaucon describes a magic ring that makes its wearer completely invisible, then asks Socrates whether anyone &mdash; however virtuous &mdash; would remain just if they could act with total impunity. Before reading on, what do you think Socrates's answer was &mdash; and do you think you'd behave differently if you knew, with total certainty, no one would ever find out?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Glaucon (格勞孔), Plato's (柏拉圖) brother and Socrates's (蘇格拉底) interlocutor; the shepherd Gyges (吉格斯), hero of the myth Glaucon retells.</p>
+        <p><strong>Problem at stake:</strong> whether justice (正義) is something people value for its own sake, or only because they fear getting caught behaving unjustly.</p>
+        <p><strong>Moment:</strong> Book II of Plato's Republic (理想國), written roughly 375 BCE, where the myth is posed as a direct challenge Socrates spends the rest of the dialogue answering.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Politeia_beginning._Codex_Parisinus_graecus_1807.jpg/330px-Politeia_beginning._Codex_Parisinus_graecus_1807.jpg" alt="Manuscript page from Codex Parisinus graecus 1807, opening of Plato's Republic" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Opening page of Plato's Republic (Politeia) in the 9th-century Codex Parisinus graecus 1807, the manuscript source for the Ring of Gyges myth. Credit: <a href="https://en.wikipedia.org/wiki/Ring_of_Gyges" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>To challenge Socrates (蘇格拉底), Glaucon (格勞孔) retells the legend of Gyges (吉格斯), a shepherd who discovers a ring that renders its wearer completely invisible whenever the collet is turned inward. Once Gyges realizes what the ring can do, he uses it to seduce the queen, murder the king, and seize the throne of Lydia (呂底亞) entirely unseen and unpunished &mdash; ordinary desires acted on the moment consequences disappeared.</p>
+      <p>Glaucon's point is deliberately provocative: he argues that people behave justly not because justice (正義) is intrinsically good, but purely because they fear getting caught and punished for injustice. If a thoroughly just person and a thoroughly unjust person both possessed the ring, Glaucon claims, they would behave identically &mdash; indistinguishable once neither faced any social or legal consequence. He challenges Socrates to prove justice is worth choosing for its own sake, independent of reputation, reward, or punishment.</p>
+      <p>Socrates spends the rest of the Republic (理想國) constructing his answer: a just soul is inherently well-ordered and harmonious, while an unjust soul is inherently conflicted and diseased, regardless of whether anyone ever notices from outside. The thought experiment has aged remarkably well &mdash; modern research on anonymity and online disinhibition (網絡去抑制效應) keeps circling back to precisely the question Glaucon posed roughly 2,400 years ago: does removing the observer change who we really are?</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ring_of_Gyges" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Glaucon's challenge still lands: if you're only good because you might get caught, are you actually good at all?</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What point was Glaucon trying to make with the myth of the Ring of Gyges, and how did Socrates ultimately respond?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Glaucon argued people are only just out of fear of punishment, so a truly undetectable person &mdash; just or unjust &mdash; would behave identically once free of consequence. Socrates responded that a just soul is inherently well-ordered and a just life good in itself, independent of whether anyone observes it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Plato, <em>Republic</em>, Book II; Stanford Encyclopedia of Philosophy, "Plato's Ethics."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You Understand Your Toilet Far Less Than You Think</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Rate, on a scale of 1 to 7, how well you understand exactly how a zipper or a flush toilet actually works. Most people rate themselves fairly confidently &mdash; until asked to write out, step by step, precisely how the mechanism functions. Before reading on, what do you think happens to people's confidence once they actually try to explain it in detail?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Metacognition2.svg/1920px-Metacognition2.svg.png" alt="Diagram illustrating metacognition, or thinking about one's own thinking" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of metacognition &mdash; the monitoring of one's own understanding, which the illusion of explanatory depth reveals to be systematically overconfident. Credit: <a href="https://en.wikipedia.org/wiki/Metacognition" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2002, psychologists Leonid Rozenblit (羅森布利特) and Frank Keil (基爾) published a study in Cognitive Science documenting what they named the "illusion of explanatory depth" (解釋深度錯覺): participants first rated how well they understood everyday devices &mdash; zippers, toilets, ceiling fans, cylinder locks &mdash; then were asked to write a detailed, step-by-step causal explanation of how each one actually worked, and finally re-rated their understanding afterward.</p>
+      <p>Confidence collapsed almost every time. People who had rated their toilet-flushing knowledge as strong discovered, mid-explanation, that they couldn't actually trace how the water refills the tank or triggers the flush valve. Crucially, the effect was specific to causal, mechanistic understanding &mdash; the same overconfidence didn't appear nearly as strongly for recalling facts, following procedures, or retelling a story, suggesting something specific about "how machinery works" invites false confidence, likely because recognizing an object's surface features feels identical to actually understanding its hidden mechanism.</p>
+      <p>Philip Fernbach (費恩巴赫) and colleagues extended the finding in 2013 to political attitudes: asking people to explain, mechanistically, how a policy like a cap-and-trade system or a flat tax would actually work &mdash; not simply to list reasons for supporting or opposing it &mdash; reliably softened the extremity of their views. Merely being forced to confront the gap between perceived and actual understanding, it turns out, is often enough to make people less certain than they started out.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Metacognition" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Before arguing confidently about how something works &mdash; a toilet, a policy, an engine &mdash; try actually explaining it step by step first. Confidence often doesn't survive the attempt.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What specifically happened to participants' confidence in the Rozenblit &amp; Keil study, and why was the effect specific to mechanistic understanding rather than facts or procedures?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Confidence in understanding everyday devices collapsed once participants tried to write a step-by-step causal explanation. The effect was specific to mechanistic understanding because recognizing an object's surface features feels similar to understanding its hidden inner workings, an illusion that doesn't apply the same way to recalling facts or following known procedures.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rozenblit, L. &amp; Keil, F. (2002), "The Misunderstood Limits of Folk Science: An Illusion of Explanatory Depth," <em>Cognitive Science</em> 26(5); Fernbach, P.M. et al. (2013), <em>Psychological Science</em> 24(6).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Gene That Nudges Some Bodies Toward Sprinting, Others Toward Marathons</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly one in five people worldwide carries a gene variant that produces zero copies of a specific muscle protein &mdash; with no disease, disability, or symptom whatsoever. Before reading on, what do you think this protein normally does inside muscle, and why might its complete absence be linked to elite athletes clustering into either sprinting or endurance events?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Blausen_0801_SkeletalMuscle.png" alt="Diagram of skeletal muscle structure, including fast- and slow-twitch fiber composition" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Skeletal muscle structure, showing the fiber bundles whose fast- versus slow-twitch composition partly explains sprint versus endurance performance. Credit: <a href="https://en.wikipedia.org/wiki/Actinin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The ACTN3 gene (ACTN3基因) encodes alpha-actinin-3 (&#x03B1;-輔肌動蛋白-3), a structural protein found specifically inside fast-twitch (快縮肌纖維), or Type II, muscle fibers &mdash; the fibers responsible for rapid, powerful contractions used in sprinting, jumping, and lifting. A common variant of this gene, called R577X, results in a complete absence of the functional protein in roughly one in five people globally, yet causes no disease, weakness, or disability of any kind in daily life.</p>
+      <p>A landmark 2003 study by Nan Yang (楊南) and colleagues found the fully-functional "RR" genotype significantly overrepresented among elite sprinters and power athletes, including Olympic-level competitors, while the non-functional "XX" genotype was overrepresented among elite endurance athletes. The likely mechanism concerns how efficiently fast-twitch fibers generate brief, explosive force versus how efficiently muscle sustains oxygen-based effort over long durations &mdash; a genuine physiological trade-off, not merely a statistical coincidence.</p>
+      <p>Crucially, this describes a probability shift, not a verdict: enormous numbers of "XX" individuals excel at power sports and vice versa, since training quality, tendon stiffness, other genes, and psychological factors all interact heavily with this single variant. ACTN3 helps explain part of why two equally hard-training athletes can diverge physiologically over time &mdash; a mechanism shaping the odds, not a fixed ceiling determining any one person's outcome.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Actinin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single gene variant nudges the odds toward sprinting or endurance &mdash; it shifts probability, not destiny, and plenty of people excel against the grain of their own genotype.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the ACTN3 R577X gene variant actually do, and how does it relate to sprint versus endurance athletic performance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The R577X variant eliminates the functional alpha-actinin-3 protein from fast-twitch muscle fibers in about one in five people, with no disease effect. Elite sprinters and power athletes are overrepresented for the fully-functional "RR" genotype, while elite endurance athletes are overrepresented for the non-functional "XX" genotype &mdash; a probability shift, not a determinant.</div>
+      </details>
+      <div class="source">&#x1F4D6; Yang, N. et al. (2003), "ACTN3 Genotype Is Associated with Human Elite Athletic Performance," <em>American Journal of Human Genetics</em> 73(3); MacArthur, D.G. &amp; North, K.N. (2004), <em>BioEssays</em> 26(7).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The 60-Year Self-Experiment That Debunked Your Mother's Warning</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For sixty years, a physician cracked the knuckles on only his left hand and never his right &mdash; specifically to test his mother's warning that the habit causes arthritis. Before reading on, what do you think he found when he compared the two hands after six decades &mdash; and what do large population studies say about the same claim?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Cracking_knuckles.jpg/3840px-Cracking_knuckles.jpg" alt="A hand cracking its knuckles" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Cracking knuckles produces a "pop" from bubble collapse in joint fluid &mdash; long blamed for arthritis, but never confirmed by evidence. Credit: <a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Physician Donald Unger (唐納德&middot;昂格爾) spent roughly sixty years cracking the knuckles on only his left hand, deliberately leaving his right hand alone, purely to test his mother's warning that knuckle-cracking (關節彈響) causes arthritis (關節炎). In 2009, he published his results as a tongue-in-cheek "N=1" self-experiment, reporting no difference in arthritis between his two hands &mdash; a finding that won him an Ig Nobel Prize for research that "first makes people laugh, and then makes them think."</p>
+      <p>Larger studies point the same direction: a 2011 survey study by Deweber and colleagues in the Journal of the American Board of Family Medicine found no association between habitual knuckle-cracking and the prevalence of hand osteoarthritis. The characteristic popping sound itself comes from rapid bubble formation and collapse (氣泡形成與塌陷) inside the joint's synovial fluid (滑液), a mechanism directly confirmed via real-time MRI imaging in a 2015 study and dubbed "tribonucleation."</p>
+      <p>The habit isn't necessarily consequence-free at extreme frequency &mdash; some studies link very heavy, long-term cracking to modestly reduced grip strength or mild hand swelling. But the specific fear passed down across generations, that cracking your knuckles will eventually give you arthritis, has now been tested directly, repeatedly, and consistently found unsupported by the evidence.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One man spent sixty years and one hand proving a family myth wrong &mdash; and the larger studies since have only confirmed it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What actually causes the popping sound when you crack your knuckles, and what has research found about its link to arthritis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The pop comes from a rapid gas bubble forming and collapsing inside the joint's synovial fluid, confirmed via real-time MRI. Multiple studies, including a large survey by Deweber and colleagues, have found no association between habitual knuckle-cracking and the prevalence of hand osteoarthritis.</div>
+      </details>
+      <div class="source">&#x1F4D6; Deweber, K. et al. (2011), <em>Journal of the American Board of Family Medicine</em> 24(2); Kawchuk, G.N. et al. (2015), "Real-Time Visualization of Joint Cavitation," <em>PLOS ONE</em> 10(4).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Stretching Before Lifting Might Be Working Against You</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For decades, holding a long static stretch before a workout was standard advice for preventing injury and improving performance. Before reading on, what do you think happens to your maximal strength, jump height, or sprint speed immediately after holding a 30-to-60-second static stretch &mdash; and why might sports science have shifted its recommendation since?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Cycling_in_Amsterdam_%28893%29.jpg" alt="A cyclist exercising outdoors" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Physical activity of any kind benefits from an effective warm-up &mdash; sports science increasingly favors movement-based routines over long static holds beforehand. Credit: <a href="https://en.wikipedia.org/wiki/Physical_exercise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For decades, static stretching (靜態伸展) &mdash; holding a muscle in an elongated position for twenty seconds or longer &mdash; was standard pre-workout advice, believed to reduce injury risk and improve performance. Multiple meta-analyses since, including Behm and Chaouachi's influential 2011 review, instead found that static stretching performed immediately before strength or power activity acutely reduces maximal force, jump height, and sprint speed, with longer individual holds producing progressively larger reductions in output.</p>
+      <p>The likely mechanism is twofold: prolonged stretching temporarily decreases musculotendinous stiffness (肌腱僵硬度), meaning less elastic energy gets returned during an explosive movement like a jump or a heavy lift, while it may also briefly alter neural drive (神經驅動), reducing how forcefully the nervous system can recruit muscle fibers on demand. Shorter stretches, under roughly thirty to forty-five seconds total per muscle group, show much smaller or even negligible performance effects compared with longer holds.</p>
+      <p>Current guidance from bodies like the National Strength and Conditioning Association (NSCA, 國家體能協會) shifted accordingly: perform a dynamic warm-up (動態熱身) &mdash; movement-based, sport-specific motions such as leg swings or bodyweight lunges &mdash; immediately before strength or power work, and reserve static stretching for after training or dedicated flexibility sessions, where improving long-term range of motion, rather than immediate performance, is the actual goal.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Physical_exercise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Save the long static stretches for after your workout &mdash; before lifting or sprinting, move first, stretch later.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does holding a long static stretch immediately before strength or power activity tend to reduce performance, and what's now recommended instead?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Long static stretches temporarily reduce musculotendinous stiffness and may alter neural drive, both of which lower the force and elastic energy available for explosive movement. Sports science now recommends a movement-based dynamic warm-up beforehand, saving static stretching for after training or separate flexibility sessions.</div>
+      </details>
+      <div class="source">&#x1F4D6; Behm, D.G. &amp; Chaouachi, A. (2011), "A Review of the Acute Effects of Static and Dynamic Stretching on Performance," <em>European Journal of Applied Physiology</em> 111(11); NSCA position statements on warm-up protocols.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>Why Investors Sell Their Winners Too Early and Hold Their Losers Too Long</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A landmark study of roughly 10,000 real brokerage accounts found investors sold their winning stocks far more readily than their losing ones &mdash; and the winners they sold went on to outperform the losers they kept. Before reading on, what psychological pattern do you think drives investors to behave this way, even when it actively costs them money?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Daniel_Kahneman_%283283955327%29_%28cropped%29.jpg" alt="Photograph of psychologist and economist Daniel Kahneman" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Daniel Kahneman, whose prospect theory with Amos Tversky underpins the disposition effect in investor behavior. Credit: <a href="https://en.wikipedia.org/wiki/Prospect_theory" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1985, finance professors Hersh Shefrin (謝弗林) and Meir Statman (斯塔特曼) published "The Disposition to Sell Winners Too Early and Ride Losers Too Long," applying Daniel Kahneman (卡尼曼) and Amos Tversky's (特沃斯基) prospect theory (展望理論) directly to investing: because people feel losses more sharply than equivalent gains, investors turn risk-averse once sitting on a profit, selling to lock in the good feeling, while turning risk-seeking once sitting on a loss, holding on in hopes of avoiding ever having to realize it.</p>
+      <p>Economist Terrance Odean (奧登) tested this empirically in 1998, analyzing roughly 10,000 individual brokerage accounts (證券經紀帳戶). He found investors sold winning positions at a significantly higher rate, relative to opportunity, than losing positions &mdash; and, strikingly, the winning stocks they sold went on to outperform the losing stocks they stubbornly held onto, meaning the bias wasn't merely psychologically real but actively cost these investors measurable returns.</p>
+      <p>The pattern persists even against investors' own financial interest: in the United States, realizing a loss rather than a gain typically carries a tax advantage, meaning a purely rational investor should show the opposite behavior &mdash; selling losers, keeping winners. Yet the disposition effect (處置效應) dominates this straightforward tax incentive for most retail investors, a striking demonstration of psychology overriding an otherwise simple financial calculation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Prospect_theory" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Selling winners and holding losers feels emotionally satisfying in the moment &mdash; and empirically, it's been shown to cost real investors real money.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Terrance Odean's 1998 study of brokerage accounts find about how investors treat winning versus losing stocks, and why does this contradict rational tax incentives?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Odean found investors sold winning stocks at a much higher rate than losing stocks, and the winners sold went on to outperform the losers kept. This contradicts US tax incentives, which reward realizing losses rather than gains &mdash; yet the psychological disposition effect overrides that rational financial consideration for most investors.</div>
+      </details>
+      <div class="source">&#x1F4D6; Shefrin, H. &amp; Statman, M. (1985), <em>Journal of Finance</em> 40(3); Odean, T. (1998), "Are Investors Reluctant to Realize Their Losses?" <em>Journal of Finance</em> 53(5).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Why Striking Oil Can Make a Country Poorer</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Petroleum_industry.webp/3840px-Petroleum_industry.webp.png" alt="Petroleum industry infrastructure" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Oil and gas wealth doesn't automatically translate into broad prosperity &mdash; the outcome depends heavily on institutional quality. Credit: <a href="https://en.wikipedia.org/wiki/Petroleum_industry" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1959, the Netherlands discovered a massive natural gas field at Groningen (格羅寧根). Gas exports surged, but manufacturers grew so uncompetitive as the currency strengthened that <em>The Economist</em> coined the term "Dutch disease" (荷蘭病) for a resource windfall that damages the rest of an economy.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Classical trade theory holds that discovering valuable natural resources (天然資源) should be an unambiguous economic gain &mdash; more exports, more government revenue, more prosperity, with no obvious downside to a country's overall wealth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Jeffrey Sachs (薩克斯) and Andrew Warner's influential 1995 NBER study found resource-rich countries actually grew slower on average than resource-poor ones from the 1970s to 1990s; oil-rich Nigeria (奈及利亞) and Venezuela (委內瑞拉) saw stagnation or collapse despite enormous windfalls &mdash; a pattern widely replicated as the "resource curse" (資源詛咒).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Mehlum, Moene, and Torvik's 2006 institutional-quality theory argues the curse isn't automatic: it strikes only under weak, rent-seeking-friendly institutions, while strong institutions let resource wealth fund genuine growth. Botswana's (波札那) diamond-driven development versus Sierra Leone's (塞拉利昂) diamond-fueled civil war is the classic contrast; how much institutions alone explain the divergence remains disputed.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Natural resources don't determine a country's fate &mdash; the institutions managing them do, and that's proven far harder to fix than finding the resources themselves.</div>
+      <div class="source">&#x1F4D6; Sachs, J.D. &amp; Warner, A.M. (1995), "Natural Resource Abundance and Economic Growth," NBER Working Paper 5398; Mehlum, H., Moene, K. &amp; Torvik, R. (2006), "Institutions and the Resource Curse," <em>Economic Journal</em> 116(508). Never recycles Card 10 domain (individual investor trading psychology vs. macroeconomic resource-development theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 5 &mdash; Being Watched vs. Being Invisible:</strong> On 19 July 2013, hundreds of thousands of people stepped outside and smiled specifically because they knew, in advance, that a spacecraft was watching &mdash; the "Day the Earth Smiled" only worked because visibility was announced. Plato's Ring of Gyges runs the thought experiment in reverse: strip away all possibility of being seen, and Glaucon predicts even a virtuous person would act on their worst impulses.</p>
+      <p><strong>So what:</strong> Both cases suggest observation itself, not just consequence, quietly shapes behavior &mdash; we perform for the camera we know is there, and something in us may loosen when certain no camera exists at all. Worth noticing which version of yourself shows up when you genuinely believe no one is watching.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL-Caltech, "The Day the Earth Smiled" press release (2013); Porco, C.C. et al., Cassini Imaging Team.</li>
+      <li><strong>Card 2:</strong> 《明史·英宗本紀》；Twitchett, D. &amp; Mote, F.W. (eds.) (1998), <em>The Cambridge History of China, Vol. 7</em>; Britannica, "Tumu Crisis."</li>
+      <li><strong>Card 3:</strong> Wedgwood, C.V. (1938), <em>The Thirty Years War</em>, Jonathan Cape; Britannica, "Defenestrations of Prague."</li>
+      <li><strong>Card 4:</strong> 王陽明，《傳習錄》；Ivanhoe, P.J. (2002), <em>Ethics in the Confucian Tradition</em>；Britannica, "Wang Yangming."</li>
+      <li><strong>Card 5:</strong> Plato, <em>Republic</em>, Book II; Stanford Encyclopedia of Philosophy, "Plato's Ethics."</li>
+      <li><strong>Card 6:</strong> Rozenblit, L. &amp; Keil, F. (2002), <em>Cognitive Science</em> 26(5); Fernbach, P.M. et al. (2013), <em>Psychological Science</em> 24(6).</li>
+      <li><strong>Card 7:</strong> Yang, N. et al. (2003), <em>American Journal of Human Genetics</em> 73(3); MacArthur, D.G. &amp; North, K.N. (2004), <em>BioEssays</em> 26(7).</li>
+      <li><strong>Card 8:</strong> Deweber, K. et al. (2011), <em>JABFM</em> 24(2); Kawchuk, G.N. et al. (2015), <em>PLOS ONE</em> 10(4).</li>
+      <li><strong>Card 9:</strong> Behm, D.G. &amp; Chaouachi, A. (2011), <em>European Journal of Applied Physiology</em> 111(11); NSCA position statements.</li>
+      <li><strong>Card 10:</strong> Shefrin, H. &amp; Statman, M. (1985), <em>Journal of Finance</em> 40(3); Odean, T. (1998), <em>Journal of Finance</em> 53(5).</li>
+      <li><strong>Card 11:</strong> Sachs, J.D. &amp; Warner, A.M. (1995), NBER Working Paper 5398; Mehlum, H. et al. (2006), <em>Economic Journal</em> 116(508).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-08-31: The Day the Earth Smiled (Cassini) &bull; 土木堡之變 (Tumu Crisis) &bull; The Defenestration of Prague (1618) &bull; 王陽明龍場悟道 &bull; The Ring of Gyges &bull; The Illusion of Explanatory Depth &bull; ACTN3 Gene &amp; Sprint/Endurance Performance &bull; Knuckle Cracking &amp; Arthritis Myth &bull; Static Stretching Before Performance &bull; The Disposition Effect &bull; Resource Curse &amp; Dutch Disease</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-08-31.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-08-31.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 31 Aug 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
