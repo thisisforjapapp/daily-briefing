@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 3 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Thursday, 3 September 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>2 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Philae's Comet Landing</span>Philae's anchoring harpoons failed and it bounced twice across Comet 67P, yet still returned the first surface images from a comet.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 鄭和下西洋</span>鄭和七下西洋宣揚國威，晚年明朝卻轉向海禁封港。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Hannibal Crossing the Alps</span>Hannibal's army was devastated crossing the Alps, yet he still won stunning victories before ultimately losing the war.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 龍樹「空」思想</span>龍樹以拆解馬車為喻，說明萬物皆因緣和合、無獨立自性。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Zeno's Paradox</span>Zeno's airtight logic seemed to prove a runner could never overtake a tortoise, resolved only by calculus centuries later.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Marshmallow Test</span>Delayed gratification predicted success in the original marshmallow test, but a 2018 replication found family background mattered more.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Goosebumps</span>Goosebumps are a vestigial fur-fluffing reflex that also fires during emotional "aesthetic chills" via shared neural wiring.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Dietary Cholesterol &amp; Eggs Myth</span>Decades of egg-yolk cholesterol fear were reversed in 2015 once studies found the liver compensates for dietary intake.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Foam Rolling</span>Foam rolling boosts range of motion like static stretching, without stretching's temporary strength and power penalty.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Benjamin Graham's "Mr. Market"</span>Graham's Mr. Market allegory teaches investors to ignore the market's daily mood swings rather than react to them.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Lucas Paradox</span>Capital flows toward already-wealthy nations instead of poorer ones, defying classical theory that predicted the opposite.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Cliffs of Gas and Dust That Announced a New Space Telescope</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July 2022, NASA released the first full-colour science images from a new $10 billion space telescope (太空望遠鏡) &mdash; one showing what looked like craggy golden cliffs stretching across a star-forming region. Before reading on, what do you think those "cliffs" actually are, and why did this single image do more to sell the public on the telescope than any technical spec sheet?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/Carina_Nebula_by_Harel_Boren_%28151851961%2C_modified%29.jpg" alt="The Carina Nebula's 'Cosmic Cliffs' as imaged by the James Webb Space Telescope" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The "Cosmic Cliffs" of the Carina Nebula, revealed by the James Webb Space Telescope in its first released science image, July 2022. Credit: <a href="https://en.wikipedia.org/wiki/Carina_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 12 July 2022, NASA, ESA, and the Canadian Space Agency released the first full set of science images from the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡), the long-delayed, $10 billion successor to Hubble. Among them was a sweeping infrared portrait of the Carina Nebula (船底座星雲), a star-forming region roughly 7,600 light-years away, showing what appeared to be a jagged mountain range of golden-orange cliffs rising against a starry backdrop. Nicknamed the "Cosmic Cliffs," the image instantly became the mission's signature reveal, run on front pages worldwide as proof the telescope's decades of development had paid off.</p>
+      <p>Those "cliffs" are not solid rock at all &mdash; they are the edge of a vast cavity carved into a giant cloud of cold gas and dust by the ultraviolet radiation and stellar winds streaming off a cluster of massive, young stars (NGC 3324) just out of frame. Webb's infrared instruments (紅外線儀器) can see straight through dust that would completely block a visible-light telescope like Hubble, revealing dozens of previously hidden protostars and structures resembling steam rising off the ridge &mdash; actually hot ionised gas escaping the nebula's surface as stellar radiation erodes it away.</p>
+      <p>The image mattered scientifically because it captured star formation in progress at a level of detail no earlier instrument could match, letting astronomers study how radiation from newborn stars shapes and eventually destroys the very clouds that birthed them. But it mattered publicly for a simpler reason: unlike a spectrum graph or a redshift measurement, a jagged golden cliffscape needed no explanation to look extraordinary. NASA's choice to lead with the Carina Nebula (船底座星雲) over more scientifically "important" targets was a deliberate bet that wonder, not data, would justify the telescope's cost to the public.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Carina_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The "cliffs" in Webb's most famous image aren't made of rock at all &mdash; they're the glowing edge of a gas cloud being sculpted away by newborn stars.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are Webb's "Cosmic Cliffs" actually made of, and why could Webb see detail that Hubble could not?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The "cliffs" are the dust-and-gas edge of a cavity carved by ultraviolet radiation and stellar winds from young stars in the Carina Nebula, not solid rock. Webb's infrared instruments can see through the dust that blocks visible-light telescopes like Hubble, revealing hidden protostars and structures within the cloud.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA, "Webb's First Images" press release, 12 July 2022; NASA, "Cosmic Cliffs in the Carina Nebula."</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>玄奘西行&mdash;&mdash;一名僧人如何違抗朝廷禁令，獨闖萬里取經？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">公元629年，唐朝僧人玄奘不顧朝廷邊境禁令，隻身西行前往印度求法。你認為，是甚麼促使他甘冒殺頭之罪，也要踏上這條九死一生的求法之路？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>玄奘（602&ndash;664年，俗名陳禕，唐代高僧）；戒賢法師（那爛陀寺住持，玄奘在印度的授業恩師）。</p>
+        <p><strong>事件：</strong>629年玄奘違反唐朝邊境禁令，隻身西行五萬餘里，歷時十七年，遠赴印度求取佛經原典。</p>
+        <p><strong>時代背景：</strong>唐初立國未穩，邊防吃緊，朝廷嚴禁百姓私自出境；當時漢地流傳的佛經譯本錯漏參差，玄奘因鑽研經義屢生疑惑，遂立志親赴天竺（印度古稱）求證原典。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Xuanzang_w.jpg" alt="玄奘畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">玄奘畫像，唐代高僧，629年隻身西行印度求法，歷時十七年。來源：<a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>玄奘自幼出家，遍讀漢地佛經譯本，發現各家譯本對同一經義解釋歧異甚大，甚至互相矛盾，深感若不親赴天竺求證梵文原典，終究無法窮盡佛法真義。629年，適逢關中饑荒，朝廷放寬邊禁，玄奘趁機混入逃荒百姓之中，隻身西行，隨即遭遇官兵追緝，一度險被瓜州守將李昌截獲，幸得對方暗中放行。其後玄奘獨自穿越八百里莫賀延磧沙漠，四日五夜滴水未進，幾乎渴死途中，幸賴老馬識途，終於脫險抵達伊吾（今哈密），展開這趟長達十七年、橫跨五萬餘里的求法之旅。</p>
+      <p>玄奘沿絲綢之路輾轉高昌、龜茲、颯秣建等西域諸國，翻越終年積雪的凌山（今天山山脈），隨行僕從凍死者眾，糧食牲畜損失過半，方才進入印度。他在那爛陀寺師從戒賢法師，鑽研《瑜伽師地論》等唯識學經典達五年之久，更遊歷印度各地參與佛學辯論，聲名遠播。643年，戒日王在曲女城為玄奘舉辦十八日無遮大會，邀集五印度僧俗與會，玄奘立論「真唯識量」，十八日間無人能予辯倒，聲譽因而傳遍五印度，獲尊稱為「大乘天」。</p>
+      <p>645年玄奘返抵長安，唐太宗雖對他當年違禁出境一事既往不咎，反而親自接見，甚至有意延攬他還俗輔政，玄奘婉拒，專注譯經事業。此後十九年間，他在朝廷支持下主持譯場，率弟子譯出佛經一千三百餘卷，並口述西行見聞，由弟子辯機筆錄成《大唐西域記》，記錄西域及印度百餘國的地理風俗，成為後世研究中亞、南亞古代史地的重要文獻，其取經事蹟更成為明代小說《西遊記》的創作藍本。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xuanzang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 玄奘違抗禁令踏上求法之路時，並不知道自己終將帶回改變漢傳佛教的經典&mdash;&mdash;有時最深遠的成就，始於一項當下看似魯莽的抉擇。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 玄奘西行的起因是甚麼？他在印度那爛陀寺的無遮大會上有何成就？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">玄奘因見漢地佛經譯本歧異紛陳，決意親赴天竺求證原典，遂違反邊禁隻身西行。他在曲女城十八日無遮大會上立論「真唯識量」，遍邀五印度僧俗辯論而無人能予辯倒，聲譽因而傳遍五印度。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《大唐西域記》；《大慈恩寺三藏法師傳》；Wriggins, S. (1996), <em>Xuanzang: A Buddhist Pilgrim on the Silk Road</em>, Westview Press.</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Invasion Fleet That Was Beaten by Fireships and a Storm</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1588, Spain (西班牙) launched a massive fleet of 130 ships to invade Protestant England (英格蘭) and depose Queen Elizabeth I (伊利沙伯一世) &mdash; one of the largest naval forces Europe had ever assembled. Before reading on, what do you think went wrong for the Spanish, and why is the English victory still celebrated as one of history's great underdog naval stories?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Philip II of Spain (西班牙國王腓力二世), who ordered the invasion partly to end English support for Dutch Protestant rebels and English piracy against Spanish treasure ships; Francis Drake (法蘭西斯&middot;德雷克), English vice-admiral and former privateer central to the fleet's defence.</p>
+        <p><strong>Event at stake:</strong> the 1588 Spanish Armada (西班牙無敵艦隊), a fleet of roughly 130 ships sent to escort an invasion force from the Spanish Netherlands (西屬尼德蘭) into England.</p>
+        <p><strong>Big picture:</strong> decades of religious and colonial rivalry between Catholic Spain, the era's dominant power, and Protestant England, sharpened by England's 1585 intervention in the Dutch Revolt (荷蘭起義) and English raids on Spanish shipping.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Portrait_of_Philip_II_of_Spain_by_Sofonisba_Anguissola_-_002b.jpg/330px-Portrait_of_Philip_II_of_Spain_by_Sofonisba_Anguissola_-_002b.jpg" alt="Portrait of Philip II of Spain" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Philip II of Spain, who ordered the 1588 Armada's invasion of England. Credit: <a href="https://en.wikipedia.org/wiki/Philip_II_of_Spain" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Philip II of Spain (腓力二世) assembled the Spanish Armada (無敵艦隊) &mdash; some 130 ships carrying roughly 30,000 men &mdash; intending not to fight a decisive sea battle but to escort a separate invasion army under the Duke of Parma (帕爾馬公爵) across the English Channel (英倫海峽) from the Spanish Netherlands. Years of provocation had built toward this moment: English privateers, including Francis Drake (德雷克), had raided Spanish treasure fleets and colonies for years, and Elizabeth I's 1585 decision to openly support the Protestant Dutch rebels against Spanish rule convinced Philip that only outright invasion could secure Catholic control of the Channel and, he hoped, England itself.</p>
+      <p>The Armada sailed in a tight defensive crescent formation up the Channel in July 1588, difficult for the smaller, faster English ships to break. Unable to dent the formation directly, the English commanders sent eight unmanned fireships (火船) drifting into the anchored Spanish fleet off Calais (加來) at night, forcing panicked captains to cut their anchor cables and scatter in disorder. The following battle off Gravelines (格拉沃利訥) inflicted only modest Spanish losses, but it broke the Armada's formation entirely and cut it off from its planned rendezvous with Parma's invasion barges, ending any real chance of a landing in England.</p>
+      <p>With a direct return south blocked by hostile winds and English ships, the scattered Armada was forced to sail all the way around Scotland (蘇格蘭) and Ireland (愛爾蘭) to get home, straight into a series of violent Atlantic storms later mythologised in England as a "Protestant wind." Dozens of ships wrecked on the Irish coast, and roughly half the fleet never returned to Spain, with thousands of sailors and soldiers dead from combat, disease, and shipwreck. England's survival, more than any decisive naval kill count, marked the moment English sea power began to be taken seriously as a match for Spain's.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Spanish_Armada" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Spanish Armada wasn't beaten in one decisive battle &mdash; a handful of fireships broke its formation, and a storm most historians remember more vividly than any cannon fire finished the job.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What tactic broke the Spanish Armada's defensive formation, and what ultimately caused most of its losses?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">English commanders sent unmanned fireships into the anchored Spanish fleet off Calais at night, forcing captains to scatter their tight defensive formation in panic. The subsequent battle off Gravelines cut the Armada off from its invasion force, and violent Atlantic storms during its forced retreat around Scotland and Ireland caused most of its eventual losses.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Spanish Armada"; Martin, C. &amp; Parker, G. (1988), <em>The Spanish Armada</em>, Hamish Hamilton.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>墨子止楚攻宋&mdash;&mdash;一名布衣哲人如何憑一張嘴阻止一場戰爭？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國初年，楚國準備動用當時最先進的攻城器械攻打弱小的宋國。墨子聞訊，徒步十日十夜趕赴楚國都城，隻身勸阻這場戰爭。你認為，一介布衣墨子，憑甚麼能說服楚王收回成命？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>墨子（約公元前470&ndash;391年，本名墨翟，墨家創始人）；公輸班（即魯班，楚國聘用的攻城器械發明家）。</p>
+        <p><strong>事件：</strong>墨子徒步十日十夜趕赴楚國，與公輸班進行攻防推演，成功阻止楚國攻打宋國。</p>
+        <p><strong>時代背景：</strong>戰國初年諸侯兼併頻仍，強國恃強凌弱乃屬常態；墨子出身平民，其學說「兼愛」「非攻」正是針對當時盛行的兼併戰爭而提出的正面挑戰。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/%D0%A4%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84_%D0%9C%D0%BE-%D0%A6%D0%B7%D1%8B.jpg" alt="墨子畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">墨子畫像，墨家創始人，主張「兼愛」「非攻」，曾徒步十日十夜阻止楚國攻宋。來源：<a href="https://en.wikipedia.org/wiki/Mozi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>墨子出身平民，與孔子出身貴族沒落之家不同，其學說更貼近庶民疾苦，核心主張「兼愛」&mdash;&mdash;不分親疏遠近，一視同仁地愛護天下所有人；並由此推導出「非攻」&mdash;&mdash;反對一切以掠奪土地人口為目的的侵略戰爭。當他得悉楚國已聘得能工巧匠公輸班（即後世尊為木匠祖師的魯班）製造雲梯等攻城器械，準備出兵攻打弱小的宋國，墨子認為此舉正是「虧人自利」的不義之戰，遂立即動身，徒步十日十夜，趕至楚國都城郢，途中磨破鞋履，撕布纏足繼續趕路。</p>
+      <p>墨子抵楚後，先以言辭遊說公輸班：若有人殺一人可獲重利卻仍屬不義，何況殺宋國無數百姓以奪其地？公輸班無言以對，卻辯稱已向楚王承諾出兵，難以反悔，墨子遂轉而求見楚王。楚王雖認同墨子「非攻」之理，卻仍捨不得放棄公輸班的攻城器械。墨子於是解下衣帶作城牆，以木片為守城器械，與公輸班當場演練九次攻城與九次守城，公輸班九次攻城器械用盡，墨子的守禦之法卻仍綽綽有餘，公輸班攻勢盡出而墨子守勢未窮。</p>
+      <p>公輸班技窮之際暗示：他還有一計可勝墨子，卻不明言，墨子當場識破其意&mdash;&mdash;公輸班意欲殺墨子以絕宋國守禦之策，遂坦言早已派遣三百名弟子攜帶守城器械駐守宋國城牆，即使殺他一人，宋國防禦仍固若金湯。楚王聞言，自知攻宋已無勝算，只得放棄出兵計劃。墨子憑一介布衣之身，以邏輯論辯與周密部署代替武力威嚇，止息一場戰爭於未發，其「非攻」思想與其身體力行的救世精神，成為後世墨家「摩頂放踵，利天下為之」的最佳寫照。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mozi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 墨子沒有一兵一卒，卻憑一場推演與周密部署，讓楚王明白：真正能阻止戰爭的，往往不是更強的武力，而是讓對方看清勝算已失。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 墨子如何說服楚王放棄攻打宋國？他的「非攻」思想與「兼愛」有何關連？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">墨子先以言辭指出攻宋是「虧人自利」的不義之舉，再與公輸班當場演練九次攻守，證明宋國守禦有餘，最後揭露自己早已部署三百弟子守城，令楚王自知攻宋無望而作罷。「非攻」正是「兼愛」&mdash;&mdash;視天下人如己&mdash;&mdash;在戰爭議題上的具體實踐。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《墨子&middot;公輸》；《墨子&middot;兼愛》；Stanford Encyclopedia of Philosophy, "Mozi."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Doubted Everything to Find One Thing He Couldn't</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">French philosopher Ren&eacute; Descartes (笛卡兒) set out to doubt literally everything he believed &mdash; his senses, the physical world, even mathematics &mdash; searching for one belief that could survive total doubt. Before reading on, what do you think was the one thing Descartes decided he could not possibly doubt, no matter how hard he tried?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Ren&eacute; Descartes (笛卡兒), 17th-century French philosopher and mathematician, often called the father of modern philosophy.</p>
+        <p><strong>Problem at stake:</strong> whether any belief can survive radical, systematic doubt (懷疑論) &mdash; including the possibility that an all-powerful deceiver is manipulating every one of our perceptions.</p>
+        <p><strong>Moment:</strong> Descartes composed his <em>Meditations on First Philosophy</em> (第一哲學沉思錄, 1641) while living in relative isolation in the Dutch Republic, seeking a foundation for knowledge secure against the era's growing sceptical challenges to scholastic certainty.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg" alt="Portrait of René Descartes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Ren&eacute; Descartes, whose 1641 <em>Meditations</em> used radical doubt to arrive at "I think, therefore I am." Credit: <a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his <em>Meditations on First Philosophy</em> (第一哲學沉思錄, 1641), Ren&eacute; Descartes (笛卡兒) set himself an extreme project: to doubt every belief he held, no matter how obvious, until he found something so certain that no possible doubt could shake it. He first dismissed the senses, since they had deceived him before, then even mathematics and logic, imagining a hypothetical "evil demon" (惡魔) of immense power devoted entirely to deceiving him about everything &mdash; making even 2+2=4 potentially a lie implanted in his mind by this malicious deceiver.</p>
+      <p>Descartes found that even under this most extreme sceptical scenario, one thing remained undeniable: the very act of doubting required a thinker doing the doubting. Even if the demon deceived him about literally everything else, it could not deceive him into believing he existed while he did not, because the doubting itself proved a mind was present to be deceived. He captured this in the famous formulation <em>cogito, ergo sum</em> (我思故我在) &mdash; "I think, therefore I am" &mdash; the one belief that survived total doubt, because doubting it only proved it true.</p>
+      <p>From this single certain foundation, Descartes attempted to rebuild all other knowledge, arguing that a benevolent God, whose existence he tried to prove, would not allow systematic deception about clearly and distinctly perceived truths. Critics from his own era onward, including later empiricists, challenged whether Descartes's proofs of God and the external world (外在世界) were as airtight as his cogito, but the method itself &mdash; building knowledge from a single indubitable starting point through radical doubt &mdash; became a foundational template for modern philosophy's approach to certainty and knowledge.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Descartes doubted literally everything he could imagine &mdash; and the one thing that survived was the doubting itself.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was Descartes's "evil demon" thought experiment meant to test, and what single belief survived it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The evil demon thought experiment imagined an all-powerful deceiver manipulating every perception, testing whether any belief could survive total radical doubt. Descartes concluded that the act of doubting itself proved a thinking mind must exist to do the doubting, captured in "I think, therefore I am."</div>
+      </details>
+      <div class="source">&#x1F4D6; Descartes, R. (1641), <em>Meditations on First Philosophy</em>; Stanford Encyclopedia of Philosophy, "Descartes' Epistemology."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why the Least Skilled People Are Often the Most Confident</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1999, two Cornell University (康奈爾大學) psychologists ran a study measuring how well people could judge their own skill at grammar, logic, and humour. Before reading on, what do you think they found about the relationship between how good someone actually was at a task and how good they believed they were?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Dunning%E2%80%93Kruger_Effect2.svg" alt="Diagram of the Dunning–Kruger effect showing confidence versus competence" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram illustrating the Dunning&ndash;Kruger effect, where low performers overestimate their competence. Credit: <a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1999, Cornell University (康奈爾大學) psychologists David Dunning (大衛&middot;鄧寧) and Justin Kruger (賈斯汀&middot;克魯格) tested undergraduates on grammar, logical reasoning, and a sense of humour, then asked each participant to estimate how their performance ranked against their peers. Participants who scored in the bottom quartile on the actual tests consistently rated themselves as above average, often estimating they had outperformed roughly two-thirds of their peers when they had, in reality, outperformed almost no one &mdash; a striking mismatch between perceived and actual competence (能力) that the researchers set out to explain.</p>
+      <p>Dunning and Kruger's proposed explanation was that the very skills required to perform well at a task, such as recognising a logically valid argument or a grammatically correct sentence, are often the same skills required to recognise good performance in the first place. A person who lacks competence in an area is frequently unaware they lack it, because the metacognitive ability to judge quality is itself part of the missing skill &mdash; meaning the least competent participants weren't being arrogant so much as genuinely unable to accurately assess their own output.</p>
+      <p>A common but inaccurate pop-culture retelling frames the "Dunning-Kruger effect" (鄧寧-克魯格效應) as showing that confidence and competence are simply inversely related across the board, but the original study's key finding was narrower: bottom performers overestimated themselves the most, while top performers, in a separate quirk, slightly underestimated their own relative standing, assuming tasks that felt easy to them must feel similarly easy to everyone else. Later replications have refined and debated statistical aspects of the original study, but its core lesson about self-assessment blind spots (自我評估盲點) remains widely cited across education and workplace training.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The people most confidently wrong about a skill are often missing the exact ability needed to notice they're wrong.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Dunning and Kruger's 1999 study find about the relationship between actual skill and self-assessed skill, and why?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Bottom-quartile performers on grammar, logic, and humour tests consistently rated their performance as above average, while top performers slightly underestimated their relative standing. The explanation is that the metacognitive skill needed to judge one's own performance accurately is often the same skill that's lacking in low performers.</div>
+      </details>
+      <div class="source">&#x1F4D6; Kruger, J. &amp; Dunning, D. (1999), "Unskilled and Unaware of It," <em>Journal of Personality and Social Psychology</em> 77(6).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Gene Variant That Makes One Drink Feel Like Five</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly a third of people of East Asian descent (東亞裔) turn visibly red, feel their heart race, and feel nauseated after just one alcoholic drink, while others can drink the same amount with no visible reaction at all. Before reading on, what do you think causes this dramatic difference, and is it just a matter of "tolerance" that can be trained away?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/The_Alcohol_Flushing_Response.png" alt="Diagram of the alcohol flush reaction pathway" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The alcohol flush reaction pathway, driven by a common ALDH2 gene variant. Credit: <a href="https://en.wikipedia.org/wiki/Alcohol_flush_reaction" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When the body metabolises alcohol (酒精), the liver first converts it into a toxic intermediate compound called acetaldehyde (乙醛), which is normally broken down quickly into harmless acetate by an enzyme called aldehyde dehydrogenase 2 (乙醛脫氫酶2, ALDH2). A common genetic variant of the ALDH2 gene, present in an estimated 30&ndash;50% of people of East Asian descent (東亞裔), produces a version of the enzyme that is dramatically less effective at this second step, allowing toxic acetaldehyde to build up in the bloodstream (血液) after even modest alcohol intake.</p>
+      <p>This buildup causes the flushing, rapid heartbeat, headache, and nausea widely known as "Asian flush" (亞洲紅暈) or alcohol flush reaction, a genuine physiological toxic reaction rather than a simple matter of low alcohol tolerance that improves with practice. Unlike ordinary tolerance, which reflects the brain and body adapting to alcohol's effects over repeated exposure, the flush reaction stems from a fixed inherited enzyme deficiency that does not meaningfully change with habitual drinking &mdash; meaning frequent drinkers with the variant continue accumulating the same toxic acetaldehyde buildup each time, regardless of experience.</p>
+      <p>The variant carries a documented health consequence beyond immediate discomfort: because acetaldehyde is itself a recognised carcinogen (致癌物), multiple epidemiological studies have found that ALDH2-deficient individuals who continue drinking regularly face substantially elevated risk of oesophageal cancer (食道癌) compared to both non-drinkers and drinkers without the variant. Public health researchers in affected populations increasingly cite the flush reaction not as a mild inconvenience to push through, but as the body's own accurate warning signal that continued regular drinking carries disproportionate risk for the roughly one in three people who carry it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Alcohol_flush_reaction" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The "Asian flush" isn't a weak tolerance to train away &mdash; it's a genetic enzyme deficiency, and the discomfort is the body correctly signalling elevated cancer risk from continued drinking.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What causes the alcohol flush reaction mechanically, and why is it different from ordinary alcohol tolerance?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A common ALDH2 gene variant, especially prevalent in East Asian populations, produces a less effective enzyme for breaking down toxic acetaldehyde, causing it to build up after drinking. Unlike ordinary tolerance, which improves with repeated exposure, this enzyme deficiency is fixed and doesn't change with habitual drinking, and it's linked to elevated oesophageal cancer risk.</div>
+      </details>
+      <div class="source">&#x1F4D6; Brooks, P.J. et al. (2009), "The Alcohol Flushing Response," <em>PLOS Medicine</em> 6(3); NIH/NIAAA overview of ALDH2 genetics.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Sugar-Fuelled Meltdown That Science Can't Actually Find</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many parents are convinced that sugary snacks and drinks (含糖飲食) make children hyperactive, especially at birthday parties and holidays. Before reading on, what do you think decades of controlled research have actually found about the link between sugar intake and children's hyperactive behaviour?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Sucre_blanc_cassonade_complet_rapadura.jpg" alt="Different forms of sugar" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sugar, long blamed for causing hyperactivity in children despite decades of controlled studies finding no such link. Credit: <a href="https://en.wikipedia.org/wiki/Sugar" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The belief that sugar (糖分) causes hyperactivity (過度活躍) in children traces back partly to a 1970s hypothesis proposed by allergist Benjamin Feingold, who linked sugar and food additives to behavioural problems, and it spread rapidly through parenting culture despite thin original evidence. By the 1990s, the claim had become so widely accepted that researchers began running rigorous double-blind studies specifically designed to test it directly, giving children sugar or a sugar-free substitute under conditions where neither the children, parents, nor observers knew which substance had actually been given.</p>
+      <p>An influential 1995 meta-analysis by Wolraich, Wilson, and White, published in the <em>Journal of the American Medical Association</em>, pooled the results of 23 such controlled studies and found no significant effect of sugar intake on children's behaviour or cognitive performance, even in studies specifically involving children already labelled as sensitive to sugar by their parents. The researchers found sugar consumption made no measurable difference in objectively observed activity levels, contradicting decades of confident parental and popular belief in a direct causal link.</p>
+      <p>A separate line of research helps explain why the myth persists so strongly despite the evidence: a 1994 study by Hoover and Milich found that parents who believed their child had just consumed sugar rated the child's behaviour as significantly more hyperactive, even when the child had actually received a sugar-free placebo &mdash; showing the expectation itself, not the sugar, was shaping the parent's perception. Sugary snacks are still often served at high-stimulation events like birthday parties, where excitement, novelty, and social chaos are the more likely drivers of hyperactive-looking behaviour.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sugar" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Decades of controlled studies found no link between sugar and hyperactivity &mdash; but believing a child just had sugar was enough to make parents see hyperactivity that wasn't there.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 1995 meta-analysis find about sugar and children's behaviour, and what did the Hoover &amp; Milich study reveal about why the myth persists?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The 1995 meta-analysis of 23 controlled studies found no significant effect of sugar intake on children's behaviour or cognition. The 1994 Hoover &amp; Milich study found parents who merely believed their child had eaten sugar rated them as more hyperactive, even when the child had received a placebo, showing expectation rather than sugar was driving perceived behaviour.</div>
+      </details>
+      <div class="source">&#x1F4D6; Wolraich, M.L., Wilson, D.B. &amp; White, J.W. (1995), <em>JAMA</em> 274(20); Hoover, D.W. &amp; Milich, R. (1994), <em>Journal of Abnormal Child Psychology</em> 22(4).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why Elite Athletes Don't Train the Same Way Every Week</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Elite strength and endurance athletes don't simply lift heavier or run farther every single week in a straight line toward their goal. Before reading on, what do you think a structured system of deliberately varying training intensity and volume over time &mdash; called periodisation &mdash; is actually designed to prevent?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Small_group_fitness_sessions_bundall.jpg" alt="A strength training session" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Strength training, where periodised programmes structure intensity and volume into planned cycles. Credit: <a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Periodisation (週期化訓練) is the practice of systematically varying training volume, intensity, and focus over defined blocks of time, rather than training at a constant maximal effort week after week. The concept was formalised by Soviet sports scientist Leo Matveyev (列夫&middot;馬特維耶夫) in the 1960s, based partly on observations of Soviet Olympic athletes, and organises training into nested cycles: a macrocycle (大週期) spanning months toward a major competition, broken into mesocycles (中週期) of weeks each with a specific focus, further broken into individual microcycles (小週期) of daily and weekly sessions.</p>
+      <p>The core problem periodisation addresses is that training at maximal intensity continuously produces diminishing returns and rising injury risk, because muscles, tendons, and the nervous system need planned lower-intensity phases to fully recover and adapt to previous stress before the next high-intensity block. A typical strength-focused mesocycle might build from higher-volume, lower-intensity work toward lower-volume, higher-intensity peak work timed to align with a competition date, deliberately trading some fatigue accumulation for a later performance peak rather than trying to be simultaneously fresh and maximally strong at all times.</p>
+      <p>Research comparing periodised training programmes to non-periodised programmes of equal total volume has generally found periodised approaches produce superior strength and hypertrophy (肌肉肥大) outcomes over multi-month timeframes, particularly for intermediate and advanced trainees whose bodies have already adapted to the stimulus of constant, unvaried training. For beginners, whose bodies respond well to almost any consistent stimulus, the advantage of periodisation is smaller, but as an athlete's training age increases, deliberately planned variation becomes increasingly necessary just to keep producing measurable progress at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Strength_training" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Elite athletes don't get stronger by always training as hard as possible &mdash; they get stronger by deliberately varying how hard they train.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What problem does periodisation solve, and how does a typical strength mesocycle structure its progression?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Periodisation solves the diminishing returns and rising injury risk of constant maximal-intensity training by deliberately varying volume and intensity over planned cycles. A typical mesocycle builds from higher-volume, lower-intensity work toward lower-volume, higher-intensity peak work timed to align with a competition or goal date.</div>
+      </details>
+      <div class="source">&#x1F4D6; Matveyev, L.P. (1964/1981), <em>Fundamentals of Sports Training</em>; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Stock Scheme That Convinced Isaac Newton He'd Lost His Mind</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1720, shares of the South Sea Company (南海公司) &mdash; a British trading company with almost no actual trading business &mdash; rose nearly tenfold in a matter of months, drawing in investors from every level of English society, including one of history's greatest scientists. Before reading on, what do you think the company was actually selling to justify such extraordinary share price gains?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Arms_of_the_South_Sea_Company.svg" alt="Coat of arms of the South Sea Company" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The coat of arms of the South Sea Company, whose 1720 share collapse became one of history's most famous financial bubbles. Credit: <a href="https://en.wikipedia.org/wiki/South_Sea_Company" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The South Sea Company (南海公司) was founded in 1711 with a monopoly on British trade with Spanish South America, a market that in practice barely existed due to ongoing Spanish restrictions, meaning the company's actual trading revenue was negligible from the start. In 1719, company director John Blunt (約翰&middot;布倫特) proposed a scheme in which the company would take over a large portion of Britain's national debt (國債) in exchange for government bonds, paying bondholders in South Sea Company shares instead of cash &mdash; a plan that depended entirely on the company's share price staying high or rising further.</p>
+      <p>To keep the price climbing, the company spread wildly exaggerated rumours of future South American trading riches, bribed members of Parliament with free shares, and allowed investors to buy shares on credit with minimal upfront payment, fuelling a speculative frenzy that dozens of copycat companies rushed to imitate, some with laughably vague business plans openly advertised as pursuing "a project of great advantage, but nobody to know what it is." South Sea Company shares rose from around &pound;128 in January 1720 to nearly &pound;1,000 by August, drawing in investors across English society, including physicist Isaac Newton (艾薩克&middot;牛頓), who had already sold an early stake at a profit before buying back in near the peak.</p>
+      <p>The bubble collapsed within months as insiders began quietly selling and confidence evaporated, crashing shares back toward their original value by year's end and wiping out fortunes across the country, including an estimated &pound;20,000 loss for Newton himself, a sum reportedly equivalent to years of his salary as Master of the Mint. Parliament's subsequent Bubble Act (泡沫法案) restricted the formation of new joint-stock companies for decades afterward, and Newton is often quoted as remarking that he "could calculate the motions of the heavenly bodies, but not the madness of people" &mdash; though the precise wording's origin is debated by historians.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/South_Sea_Company" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Isaac Newton could calculate planetary orbits with total precision, but the South Sea Bubble cost him a fortune anyway &mdash; brilliance in one domain offers no immunity to a crowd's momentum in another.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was the South Sea Company's actual business, and what scheme drove its share price to such extreme heights?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The South Sea Company held a largely unusable monopoly on trade with Spanish South America and generated negligible real trading revenue. Its 1719 debt-conversion scheme, paying government bondholders in company shares, combined with exaggerated trade rumours and credit-fuelled buying, drove the share price up nearly tenfold before collapsing months later.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "South Sea Bubble"; Balen, M. (2002), <em>A Very English Deceit</em>, Fourth Estate.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Richer Country Where Nobody Got Any Happier</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/World_Happiness_Report_2026.svg" alt="World Happiness Report map" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A World Happiness Report map, part of the ongoing research into the relationship between income and self-reported well-being. Credit: <a href="https://en.wikipedia.org/wiki/World_Happiness_Report" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Between 1946 and 1970, US real GDP per capita nearly tripled, yet national surveys of self-reported life satisfaction (生活滿意度) stayed essentially flat &mdash; a widening gap between rising material wealth and stagnant well-being that demanded explanation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Standard economic theory treats rising income as straightforwardly raising utility (效用), assuming a wealthier population should, all else equal, report greater happiness.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Richard Easterlin's (伊斯特林) 1974 paper, "Does Economic Growth Improve the Human Lot?", found that within any country richer individuals report more happiness than poorer ones, yet across countries and over time, rising average income failed to raise average happiness &mdash; a contradiction later named the Easterlin Paradox (伊斯特林悖論).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Justin Wolfers and Betsey Stevenson's 2008 reanalysis, using far more cross-country data than Easterlin had, found a robust log-linear income-happiness link after all; whether the original flat-trend finding still holds over very long time horizons remains an open, unresolved dispute among economists.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; More money bought Americans almost nothing in reported happiness for 25 straight years &mdash; and economists still can't fully agree on why, or whether it's even still true.</div>
+      <div class="source">&#x1F4D6; Easterlin, R.A. (1974), "Does Economic Growth Improve the Human Lot?"; Stevenson, B. &amp; Wolfers, J. (2008), "Economic Growth and Subjective Well-Being," <em>Brookings Papers on Economic Activity</em>. Never recycles Card 10 domain (18th-century stock speculation bubble vs. modern happiness-income economics).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 5 &amp; 6 &mdash; The Doubt That Reveals, The Confidence That Hides:</strong> Ren&eacute; Descartes deliberately doubted absolutely everything he could imagine &mdash; his senses, mathematics, even the outside world &mdash; and found that the discipline of radical doubt led him to the one truth immune to it: the fact of his own thinking. Dunning and Kruger's least-skilled participants faced the opposite problem: lacking the very metacognitive skill needed to judge their own performance, they had no internal doubt to draw on, and mistook confidence for competence, rating themselves as above average when they were not.</p>
+      <p><strong>So what:</strong> Doubt applied deliberately, as Descartes showed, can be the sturdiest path to real certainty &mdash; while the people most in need of doubting their own judgment are often, per Dunning-Kruger, the very ones least equipped to generate it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA, "Webb's First Images" press release, 12 July 2022; NASA, "Cosmic Cliffs in the Carina Nebula."</li>
+      <li><strong>Card 2:</strong> 《大唐西域記》；《大慈恩寺三藏法師傳》；Wriggins, S. (1996), <em>Xuanzang: A Buddhist Pilgrim on the Silk Road</em>, Westview Press.</li>
+      <li><strong>Card 3:</strong> Britannica, "Spanish Armada"; Martin, C. &amp; Parker, G. (1988), <em>The Spanish Armada</em>, Hamish Hamilton.</li>
+      <li><strong>Card 4:</strong> 《墨子&middot;公輸》；《墨子&middot;兼愛》；Stanford Encyclopedia of Philosophy, "Mozi."</li>
+      <li><strong>Card 5:</strong> Descartes, R. (1641), <em>Meditations on First Philosophy</em>; Stanford Encyclopedia of Philosophy, "Descartes' Epistemology."</li>
+      <li><strong>Card 6:</strong> Kruger, J. &amp; Dunning, D. (1999), <em>Journal of Personality and Social Psychology</em> 77(6).</li>
+      <li><strong>Card 7:</strong> Brooks, P.J. et al. (2009), <em>PLOS Medicine</em> 6(3); NIH/NIAAA overview of ALDH2 genetics.</li>
+      <li><strong>Card 8:</strong> Wolraich, M.L. et al. (1995), <em>JAMA</em> 274(20); Hoover, D.W. &amp; Milich, R. (1994), <em>Journal of Abnormal Child Psychology</em> 22(4).</li>
+      <li><strong>Card 9:</strong> Matveyev, L.P. (1964/1981), <em>Fundamentals of Sports Training</em>; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</li>
+      <li><strong>Card 10:</strong> Britannica, "South Sea Bubble"; Balen, M. (2002), <em>A Very English Deceit</em>, Fourth Estate.</li>
+      <li><strong>Card 11:</strong> Easterlin, R.A. (1974); Stevenson, B. &amp; Wolfers, J. (2008), <em>Brookings Papers on Economic Activity</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-03: Webb's "Cosmic Cliffs" (Carina Nebula) &bull; 玄奘西行 (Xuanzang's Journey to India) &bull; The Spanish Armada &bull; 墨子止楚攻宋 (Mozi Stops the Attack on Song) &bull; Descartes' Evil Demon &amp; Cogito &bull; The Dunning&ndash;Kruger Effect &bull; Alcohol Flush Reaction / ALDH2 &bull; Sugar &amp; Hyperactivity Myth &bull; Periodisation in Sports Training &bull; The South Sea Bubble &bull; The Easterlin Paradox</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-03.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-03.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 3 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
