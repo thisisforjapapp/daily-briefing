@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 4 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 4 September 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>3 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Webb's "Cosmic Cliffs"</span>NASA's first JWST image revealed the Carina Nebula's golden "cliffs" are dust-and-gas edges carved by starlight, not rock.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 玄奘西行</span>玄奘違禁西行取經，於曲女城十八日大會舌戰群僧無人能勝。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Spanish Armada</span>English fireships broke the Armada's formation off Calais, and Atlantic storms destroyed roughly half the retreating fleet.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 墨子止楚攻宋</span>墨子演練九次攻守證明宋國防禦有餘，說服楚王放棄攻打宋國。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Descartes' Cogito</span>Descartes doubted everything imaginable and found the act of doubting itself proved his own mind existed.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Dunning&ndash;Kruger Effect</span>Bottom-quartile performers rated themselves above average, since judging one's own competence needs the very skill they lacked.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Alcohol Flush / ALDH2</span>A common ALDH2 gene variant causes toxic buildup after drinking, not just low tolerance, raising cancer risk.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Sugar &amp; Hyperactivity Myth</span>Decades of controlled studies found no sugar-hyperactivity link; parents' own expectations shaped what behaviour they perceived.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Periodisation</span>Elite athletes deliberately vary training intensity in planned cycles rather than always training at maximum effort.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The South Sea Bubble</span>A debt-conversion scheme and credit-fuelled buying sent shares tenfold before collapsing, costing Newton a fortune.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Easterlin Paradox</span>US income nearly tripled 1946&ndash;1970 while happiness stayed flat, a paradox economists still debate.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Photograph That Turned Earth Into a Speck of Dust</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">On Valentine's Day, 1990, NASA's Voyager 1 spacecraft, already about six billion kilometres away and well past Neptune's (海王星) orbit with all its planetary flybys long finished, was turned around at astronomer Carl Sagan's (卡爾&middot;薩根) request to take one more photograph before its cameras shut down for good. Before reading on, what do you think that final photograph showed, and why would anyone spend fuel turning a departing spacecraft around just to take it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Pale_Blue_Dot.png" alt="The Pale Blue Dot photograph of Earth taken by Voyager 1 in 1990" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Earth as a single pixel of light, photographed by Voyager 1 from six billion kilometres away, 14 February 1990. Credit: <a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On 14 February 1990, NASA's Voyager 1 (航海者一號) probe, already about six billion kilometres from the Sun and far beyond Neptune's (海王星) orbit, turned its cameras back toward the inner solar system on commands radioed from Earth. The manoeuvre had been championed for years by astronomer and science communicator Carl Sagan (卡爾&middot;薩根), over the objections of mission engineers who saw no scientific value in it and worried about wasting the spacecraft's limited remaining power. Voyager 1 captured a mosaic of 60 images spanning the Sun and six planets, then shut its cameras down for good to conserve energy for its journey into interstellar space (星際空間).</p>
+      <p>In one of those frames, Earth (地球) appears as a single point of light less than a pixel across, caught inside a scattered band of sunlight reflecting off the camera's own optics &mdash; a coincidence of glare, not a technical flaw, that makes the image oddly poignant. Sagan later named it the "Pale Blue Dot," and in a 1994 book of the same title wrote that this "mote of dust suspended in a sunbeam" was the only home humanity had ever known, home to every human being who had ever lived, fought a war, or fallen in love.</p>
+      <p>The photograph carried no new scientific data about Earth itself; its value was entirely perspectival, reframing an entire planet's worth of history as a barely visible speck against the vastness of space. It remains the most distant photograph of Earth ever taken, and Voyager 1, more than three decades after its cameras went dark, continues transmitting data from beyond the solar system today as humanity's most distant human-made object (人造物體) still in contact with Earth.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pale_Blue_Dot" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The most humbling photo of Earth ever taken carries no data at all &mdash; its power is entirely in what it makes you feel looking at a speck of light.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does Earth appear as a point of light inside a band of light in the Pale Blue Dot photo, and who championed taking it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Earth appears as a sub-pixel point of light caught within a scattered band of sunlight reflecting off Voyager 1's camera optics. Astronomer Carl Sagan championed the photograph for years despite engineers' objections that it had no scientific value.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/JPL, "Pale Blue Dot"; Sagan, C. (1994), <em>Pale Blue Dot: A Vision of the Human Future in Space</em>, Random House.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>王安石變法&mdash;&mdash;一場救國新政，為何在他死前一年被推倒重來？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1069年，北宋神宗皇帝任命王安石為宰相，推行一連串前所未有的變法新政。你認為，是甚麼樣的危機，逼使朝廷甘冒觸怒既得利益者的風險，也要大刀闊斧推行改革？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王安石（1021&ndash;1086年，北宋政治家、文學家）；宋神宗（在位1067&ndash;1085年，力主變法的皇帝）；司馬光（保守派領袖，變法最激烈的反對者）。</p>
+        <p><strong>事件：</strong>1069年王安石拜相，推行「青苗法」「免役法」「保甲法」等一系列新法，史稱「王安石變法」或「熙寧變法」。</p>
+        <p><strong>時代背景：</strong>北宋中期國庫空虛，冗官冗兵耗費龐大，加上每年向遼、西夏繳納鉅額歲幣，財政瀕臨崩潰；土地兼併嚴重，農民深受高利貸盤剝，朝廷亟需一套徹底的財政與軍事改革方案。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Wang_Anshi.jpg" alt="王安石畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王安石畫像，北宋政治家，1069年拜相推行變法，史稱「熙寧變法」。來源：<a href="https://en.wikipedia.org/wiki/Wang_Anshi" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>宋神宗即位之初，北宋已深陷財政危機：官僚體系冗員充斥、禁軍耗費驚人，加上每年須向遼國與西夏繳納數十萬兩歲幣以換取和平，國庫年年虧空。神宗久聞王安石在地方任內政績卓著，遂於1069年破格拜其為參知政事，翌年更擢升宰相，全力支持其變法主張。王安石上任後即設「制置三司條例司」，繞過原有財政官僚體系，直接統籌新法的擬定與推行，展現變法的迫切與決心。</p>
+      <p>新法之中，「青苗法」規定官府於青黃不接時，向農民放貸低息貸款，取代民間高利貸盤剝；「免役法」容許百姓繳錢代替勞役，改由官府僱人應役；「保甲法」則將農戶編組為民兵單位，寓兵於農以節省軍費。這些新法雖旨在減輕百姓負擔、增加國庫收入，但執行過程中地方官員為求政績，往往強迫農民借貸青苗錢，反成新的擾民弊政，引發保守派官員猛烈抨擊。</p>
+      <p>以司馬光為首的保守派官員認為新法違背祖宗成法、與民爭利，雙方在朝堂上激烈交鋒，王安石兩度罷相又復職，變法斷斷續續推行逾十五年。1085年神宗駕崩，年幼的哲宗即位，由反對變法的高太后垂簾聽政，隨即起用司馬光為相，短短數月間幾乎盡廢新法。王安石聞訊後鬱鬱寡歡，翌年病逝於江寧，其畢生心血付諸東流，變法功過至今仍為史家爭論不休。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Anshi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 王安石傾盡半生推行新法，卻在他死前一年，被昔日政敵一紙詔令幾乎盡數推翻&mdash;&mdash;變法的興衰，往往繫於一人的生死與朝局的更迭。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王安石推行新法的財政背景是甚麼？「青苗法」原意為何，實際執行時出現甚麼問題？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">北宋中期冗官冗兵耗費龐大，加上向遼、西夏繳納歲幣，財政瀕臨崩潰，神宗遂支持王安石變法。「青苗法」原意是由官府以低息貸款取代民間高利貸盤剝農民，但地方官員為求政績強迫農民借貸，反成擾民弊政。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《宋史&middot;王安石傳》；Levine, A. (2008), <em>Divided by a Common Language: Factional Conflict in Late Northern Song China</em>, Harvard University Asia Center; Britannica, "Wang Anshi."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Cannon That Ended a Thousand-Year Empire</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the spring of 1453, the Byzantine Empire (拜占庭帝國) &mdash; the last surviving fragment of the Roman Empire &mdash; had shrunk to little more than the walled city of Constantinople (君士坦丁堡) itself, protected by fortifications that had turned back every siege for over a thousand years. Before reading on, what do you think finally broke through walls that had withstood invaders for a millennium?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Mehmed II (穆罕默德二世), the 21-year-old Ottoman Sultan (鄂圖曼蘇丹) determined to capture the city his predecessors had failed to take; Constantine XI Palaiologos (君士坦丁十一世), the last Byzantine emperor, who died defending the walls.</p>
+        <p><strong>Event at stake:</strong> the 53-day Ottoman siege of Constantinople (君士坦丁堡), April&ndash;May 1453, which ended the roughly 1,100-year-old Byzantine Empire (拜占庭帝國).</p>
+        <p><strong>Big picture:</strong> a fading empire reduced to a single fortified city, facing a rising Ottoman state (鄂圖曼帝國) determined to complete a conquest earlier sultans had repeatedly attempted and failed.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Siege_of_Constantinople_fresco%2C_Moldovi%C8%9Ba_monastery%2C_Vatra_Moldovi%C8%9Bei%2C_2017.jpg" alt="Fresco depicting the Siege of Constantinople" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A monastery fresco depicting the 1453 Ottoman siege of Constantinople. Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 1453, the Byzantine Empire (拜占庭帝國) &mdash; the direct continuation of the Eastern Roman Empire &mdash; had dwindled to little beyond Constantinople (君士坦丁堡) itself, kept safe for centuries by the massive Theodosian Walls (狄奧多西城牆). Twenty-one-year-old Sultan Mehmed II (穆罕默德二世) resolved to finally take the city, and commissioned a Hungarian engineer named Orban (奧爾班), who had first offered his cannon-casting skills to the cash-strapped Byzantines before the Ottomans hired him instead, to build siege guns (攻城砲) far larger than any used before, including one bronze cannon roughly 8 metres long.</p>
+      <p>Mehmed's roughly 80,000 troops besieged the city's roughly 7,000 defenders, including Genoese soldiers under Giovanni Giustiniani (朱斯蒂尼亞尼), from April 1453 onward. When a defensive chain blocked Ottoman ships from entering the Golden Horn (金角灣) harbour, Mehmed had dozens of ships hauled overland at night on greased wooden rollers, launching them directly into the harbour and outflanking the city's naval defences entirely &mdash; a manoeuvre the defenders had considered strategically impossible.</p>
+      <p>On 29 May 1453, after weeks of relentless cannon bombardment finally breached the ancient walls, Ottoman troops poured into the city; Emperor Constantine XI (君士坦丁十一世) reportedly discarded his imperial regalia and died fighting alongside his soldiers rather than surrender. The fall ended the Byzantine Empire (拜占庭帝國) after roughly 1,100 years, sent Greek scholars fleeing westward with classical manuscripts that helped fuel the Renaissance (文藝復興), and is conventionally used by historians to mark the end of the Middle Ages (中世紀).</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Constantinople" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Walls that had turned back invaders for a thousand years fell not to a bigger army, but to a single engineer's new cannon design &mdash; and a fleet dragged overland at night.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two innovations helped Mehmed II break Constantinople's defences, and what happened to the last Byzantine emperor?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Mehmed II used massive custom-built cannons designed by the engineer Orban to breach the city's ancient walls, and hauled ships overland at night to bypass the chain blocking the Golden Horn. Emperor Constantine XI died fighting in the final assault rather than surrender.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Fall of Constantinople"; Crowley, R. (2005), <em>Constantinople: The Last Great Siege, 1453</em>, Faber &amp; Faber.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>六祖惠能&mdash;&mdash;一個不識字的樵夫，如何贏得禪宗衣缽？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">唐代弘忍禪師欲傳衣缽予繼承人，命門下弟子各作一偈以表悟境。寺中首座神秀作偈，眾人皆以為必得衣缽；然而一名不識字、在廚房舂米的行者卻請人代寫另一偈，結果衣缽反落其手。你認為，這名行者憑甚麼一偈勝過寺中學問最深的首座？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>惠能（638&ndash;713年，禪宗六祖，原為嶺南樵夫）；弘忍（禪宗五祖，湖北黃梅東山寺住持）；神秀（弘忍門下首座，北宗禪創始人）。</p>
+        <p><strong>事件：</strong>弘忍以作偈選拔衣缽傳人，神秀與惠能各作一偈，弘忍最終密傳衣缽予惠能，命其連夜南逃。</p>
+        <p><strong>時代背景：</strong>禪宗自達摩東渡以來，歷經數代單傳，弘忍門下數百僧眾，首座神秀學問淵博，本被視為理所當然的繼承人選，惠能以樵夫出身、不識字之身份參與競逐，格外引人側目。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Huineng.jpg" alt="惠能畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">惠能畫像，禪宗六祖，以「本來無一物，何處惹塵埃」一偈贏得衣缽。來源：<a href="https://en.wikipedia.org/wiki/Huineng" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>惠能出身嶺南貧寒樵夫之家，一日賣柴途中偶聞客人誦讀《金剛經》，心有所悟，遂北上黃梅參謁五祖弘忍。弘忍見他雖是嶺南「獦獠」（南方蠻夷），出言卻不凡，遂命他到後院舂米、劈柴，暗中考驗。數月後，弘忍為選定衣缽傳人，命門下弟子各作一偈呈上，以驗證各人悟境深淺，寺中僧眾皆屬意學問淵博的首座神秀，無人敢與之爭鋒。</p>
+      <p>神秀作偈：「身是菩提樹，心如明鏡台，時時勤拂拭，勿使惹塵埃」，主張透過持續修行、時刻拂拭心鏡以求清淨，代表漸悟法門。惠能雖不識字，聽聞此偈後認為未見本性，遂請人代寫另一偈於壁上：「菩提本無樹，明鏡亦非台，本來無一物，何處惹塵埃」，直指萬法本空、佛性本自清淨，無需外求拂拭，代表頓悟法門。弘忍夜半密召惠能，為其講解《金剛經》，惠能言下大悟，弘忍遂將衣缽密傳予他。</p>
+      <p>弘忍恐惠能因得衣缽而遭同門嫉恨加害，命他連夜南逃隱居，待時機成熟方可出山弘法。惠能其後於韶州曹溪寶林寺開壇說法，門人記錄其言行成《六祖壇經》，是中國佛教史上唯一一部由本土僧人著作、卻獲尊稱為「經」的典籍。惠能所創南宗頓悟法門其後廣傳天下，成為禪宗主流，而神秀所傳北宗漸悟一脈則於數代之後逐漸式微。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Huineng" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一個不識字的舂米行者，僅憑一首偈語便贏過寺中學問最深的首座&mdash;&mdash;禪宗要驗證的從來不是學問，而是悟性本身。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 神秀與惠能的偈語分別代表甚麼修行主張？弘忍為何要惠能連夜南逃？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">神秀之偈主張時時拂拭心鏡以求清淨，代表漸悟；惠能之偈主張萬法本空、佛性本自清淨，代表頓悟。弘忍恐惠能因得衣缽而遭同門嫉恨加害，故命他連夜南逃隱居避禍。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《六祖壇經》；Yampolsky, P.B. (1967), <em>The Platform Sutra of the Sixth Patriarch</em>, Columbia University Press; Stanford Encyclopedia of Philosophy, "Chan Buddhism."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Thought Experiment That Asks You to Forget Who You Are</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine you had to design the rules for an entire society, but with one catch: you wouldn't know in advance whether you'd be born rich or poor, healthy or disabled, into a majority or a persecuted minority. Before reading on, what kind of society do you think people would actually choose to build under that condition &mdash; and would it look like the one we live in now?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> John Rawls (羅爾斯), 20th-century American political philosopher at Harvard University (哈佛大學).</p>
+        <p><strong>Problem at stake:</strong> how to design principles of justice (正義原則) that are genuinely fair, rather than simply favouring whoever already holds power when the rules are written.</p>
+        <p><strong>Moment:</strong> Rawls published <em>A Theory of Justice</em> (正義論) in 1971, reviving normative political philosophy at a time when the field had been dominated for decades by utilitarianism (功利主義).</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/John_Rawls_%281971_photo_portrait%29.jpg" alt="Portrait of John Rawls" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Rawls, whose 1971 <em>A Theory of Justice</em> introduced the "veil of ignorance." Credit: <a href="https://en.wikipedia.org/wiki/John_Rawls" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>A Theory of Justice</em> (正義論, 1971), John Rawls (羅爾斯) proposed a thought experiment he called the "original position" (原始狀態): imagine a group of rational people tasked with designing the basic rules of a society, but placed behind a "veil of ignorance" (無知之幕) that hides from them their own race, sex, class, talents, and religion, as well as which position in that society they personally would occupy once the veil lifted. Rawls argued this forces genuinely impartial reasoning, since no one could rig the rules in their own favour without knowing who "their own favour" even referred to.</p>
+      <p>Rawls argued that rational people behind the veil, uncertain whether they might end up among society's least advantaged, would not gamble on rules that risked leaving them destitute or oppressed. Instead, they would choose two guiding principles: equal basic liberties (基本自由) for everyone, and any social or economic inequalities structured so that they benefit the worst-off members of society and attach to positions genuinely open to all through fair equality of opportunity &mdash; a standard now known as the "difference principle" (差異原則).</p>
+      <p>The framework directly challenged utilitarianism (功利主義), which could in principle justify sacrificing a minority's wellbeing for a larger aggregate gain; Rawls insisted justice requires protections that hold even when violating them would raise total welfare. Philosopher Robert Nozick (諾齊克) mounted an influential libertarian counter-argument in <em>Anarchy, State, and Utopia</em> (1974), contending that Rawls's redistributive implications violated individuals' rights to what they justly acquired, launching a debate over distributive justice (分配正義) that remains central to political philosophy today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/John_Rawls" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Rawls's test for a fair rule isn't whether you'd accept it as you are now &mdash; it's whether you'd still accept it not knowing who you'd turn out to be.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the "veil of ignorance," and what two principles did Rawls argue people would choose behind it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The veil of ignorance is a thought experiment in which people design society's rules without knowing their own race, class, talents, or position in that society. Rawls argued they would choose equal basic liberties for all, plus a "difference principle" allowing inequalities only if they benefit society's least advantaged.</div>
+      </details>
+      <div class="source">&#x1F4D6; Rawls, J. (1971), <em>A Theory of Justice</em>, Harvard University Press; Stanford Encyclopedia of Philosophy, "Original Position."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>The Experiment That Made Ordinary People Deliver "Lethal" Shocks</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1961, a Yale University (耶魯大學) psychologist recruited ordinary volunteers for what he told them was a memory study, and asked them to deliver increasingly painful electric shocks to another participant every time that person got a question wrong. Before reading on, what percentage of ordinary people do you think were willing to keep going, shock after shock, all the way to a switch labelled a lethal 450 volts?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Milgram_experiment_v2.svg" alt="Diagram of the Milgram obedience experiment setup" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of Stanley Milgram's 1961 obedience experiment setup. Credit: <a href="https://en.wikipedia.org/wiki/Milgram_experiment" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1961, Yale University (耶魯大學) psychologist Stanley Milgram (斯坦利&middot;米爾格拉姆) began a series of experiments partly inspired by the trial of Nazi official Adolf Eichmann (艾希曼), whose defence rested on simply "following orders." Volunteer participants were told they were assisting a study on learning and memory, and were instructed by a stern experimenter in a lab coat to administer escalating electric shocks, from 15 up to a labelled lethal 450 volts, to another participant every time that person answered a word-pairing question incorrectly.</p>
+      <p>In reality, no shocks were ever delivered &mdash; the "learner" was an actor following a script of protests, screaming, and eventually ominous silence as the labelled voltage climbed. Before running the study, Milgram had polled psychiatrists, who predicted fewer than 1&ndash;3% of participants would go all the way to the maximum voltage. Instead, when the experimenter simply repeated firm prods like "the experiment requires that you continue," roughly 65% of participants (26 of 40 in the original run) administered the full 450-volt shock.</p>
+      <p>The findings, published in 1963, became one of psychology's most cited and most ethically contested studies, since participants experienced genuine, visible distress believing they might be seriously harming someone. The results reshaped modern research-ethics standards, including informed consent (知情同意) and institutional review boards (機構審查委員會) that now vet psychological studies before they run. Later partial replications, including one by Jerry Burger (伯格) in 2009 using stricter ethical safeguards, found obedience rates to authority remarkably similar to Milgram's originals decades earlier.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Milgram_experiment" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nearly two-thirds of ordinary volunteers delivered what they believed were lethal shocks to a stranger &mdash; not because they were cruel, but because someone in a lab coat kept telling them to continue.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did psychiatrists predict before Milgram's study, and what percentage of participants actually delivered the maximum shock?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Psychiatrists polled beforehand predicted fewer than 1&ndash;3% of participants would administer the maximum 450-volt shock. In the actual experiment, roughly 65% of participants went all the way to the maximum voltage when firmly prompted by the experimenter.</div>
+      </details>
+      <div class="source">&#x1F4D6; Milgram, S. (1963), "Behavioral Study of Obedience," <em>Journal of Abnormal and Social Psychology</em> 67(4); APA PsycNet overview of the Milgram obedience studies.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Eating Ice Cream Too Fast Can Feel Like a Stabbing Headache</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Eating ice cream (雪糕) too quickly, or gulping an ice-cold drink, can trigger a sudden stabbing pain behind the forehead within seconds &mdash; even though nothing has touched your head at all. Before reading on, what do you think is actually causing "brain freeze," and why does the pain show up so far from where the cold actually touched you?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/Grant_1962_654.png" alt="Anatomical diagram of the trigeminal nerve" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The trigeminal nerve, the pathway believed to be responsible for "brain freeze" pain. Credit: <a href="https://en.wikipedia.org/wiki/Trigeminal_nerve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>"Brain freeze," clinically called sphenopalatine ganglioneuralgia (蝶腭神經節痛) or an ice-cream headache, happens when something very cold touches the roof of the mouth, an area richly supplied by branches of the trigeminal nerve (三叉神經) &mdash; the same nerve responsible for most sensation in the face and head. The sudden cold triggers a rapid response in the blood vessels supplying that region and the brain's anterior circulation, setting off a pain signal within seconds of the cold contact, well before most people have even swallowed their second spoonful.</p>
+      <p>Research using imaging and Doppler ultrasound, including a 2012 study led by physiologist Jorge Serrador (塞拉多) at Harvard-affiliated institutions, tracked blood flow to the brain (腦血流) during induced brain freeze and found the anterior cerebral artery (前腦動脈) rapidly dilates right as the pain begins, then constricts again as the pain fades &mdash; suggesting the headache tracks a genuine, measurable vascular event rather than a purely exaggerated reaction to cold.</p>
+      <p>Because trigeminal nerve pathways from the mouth and forehead converge on shared neurons before reaching the brain, the brain misattributes the pain's true location, projecting it onto the forehead through the same referred-pain mechanism (轉移痛機制) responsible for other confusing pain locations elsewhere in the body. One leading hypothesis holds the reflex may be protective, rapidly boosting blood flow to warm the brain's most exposed vessels before dangerous cooling can occur &mdash; meaning the "stabbing" sensation may actually be the brain defending itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ice_cream_headache" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The stabbing pain of brain freeze doesn't come from your head being cold &mdash; it's a rapid blood-vessel reflex in your mouth's roof, misread by your brain as forehead pain.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does brain freeze pain show up in the forehead when the cold only touched the roof of your mouth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Cold on the palate triggers rapid dilation of the anterior cerebral artery via the trigeminal nerve, the same nerve that senses most facial and head pain. Because trigeminal pathways from the mouth and forehead converge before reaching the brain, the pain is misattributed to the forehead &mdash; a referred-pain effect.</div>
+      </details>
+      <div class="source">&#x1F4D6; Serrador, J.M. et al. (2012), "Cerebral Vascular Blood Flow Changes During 'Brain Freeze'," <em>FASEB Journal</em> 26(S1); Hulihan, J. (1997), <em>British Medical Journal</em> 315.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Hydration Advice Built on a Misquoted Sentence</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone has heard the advice to "drink eight glasses of water a day" (每日八杯水) &mdash; it appears on posters, apps, and well-meaning advice from doctors and parents alike. Before reading on, where do you think this specific number actually came from, and do you think the science behind it holds up?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Clean_water_for_a_village_in_West_Lombok_%2810686572086%29.jpg" alt="A person drinking clean water" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Drinking water, the subject of decades-old advice whose scientific basis has been repeatedly challenged. Credit: <a href="https://en.wikipedia.org/wiki/Drinking_water" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The "eight glasses a day" rule (八杯水法則) traces back to a 1945 recommendation from the US Food and Nutrition Board (美國食物與營養委員會), which advised adults consume roughly 2.5 litres of water daily &mdash; but the original guidance included a crucial qualifying clause: "most of this quantity is contained in prepared foods." That clause was dropped almost entirely from the advice as it filtered into popular culture over subsequent decades, leaving only the simplified instruction to drink eight glasses from a cup, with no mention that food already supplies a large share of that total.</p>
+      <p>A widely cited 2002 review by physiologist Heinz Valtin (瓦爾丁), published in the <em>American Journal of Physiology</em>, searched extensively for scientific studies supporting the specific "8x8" figure and found none, concluding the recommendation appeared to be based more on repetition than evidence. Actual hydration needs vary enormously depending on body size, activity level, climate, and diet &mdash; fruits, vegetables, and soups can each supply substantial water, meaning a person eating a water-rich diet needs far less from drinking alone than someone eating mostly dry, processed food.</p>
+      <p>Later guidance from the US National Academies of Medicine (美國國家醫學院) set broader "Adequate Intake" targets &mdash; roughly 3.7 litres total daily for men and 2.7 litres for women &mdash; but explicitly counted water from all sources combined, not drinking water alone, with roughly one-fifth typically coming from food. For most healthy adults in temperate climates, thirst remains a reliable natural guide; only specific groups, including elderly people, athletes, and those in hot climates or illness, generally need to consciously track and increase intake beyond what thirst alone prompts.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Drinking_water" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The "eight glasses a day" rule came from a 1945 recommendation whose most important clause &mdash; that food already supplies most of it &mdash; got quietly dropped along the way.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Where did the "eight glasses a day" rule originate, and what did the 2002 Valtin review find?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It traces to a 1945 US recommendation that included a clause noting most water needs are met through food &mdash; a clause later dropped from popular retellings. Heinz Valtin's 2002 review found no scientific studies supporting the specific "8x8" figure as evidence-based.</div>
+      </details>
+      <div class="source">&#x1F4D6; Valtin, H. (2002), "Drink at Least Eight Glasses of Water a Day," <em>American Journal of Physiology</em> 283(5); National Academies of Sciences, <em>Dietary Reference Intakes for Water</em> (2004).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Wartime Rehab Trick That Became Gym Science's First Law</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Nearly every modern strength-training program, from a beginner's gym routine to an Olympic lifter's plan, is built on a single core principle: the load has to keep increasing over time. Before reading on, do you know where this idea &mdash; called progressive overload &mdash; actually came from, and why the military once cared about it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Physical_Therapists_at_work.jpg" alt="Physical therapists assisting a patient with rehabilitation exercise" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Physical therapy, the rehabilitation setting where physician Thomas DeLorme developed the progressive resistance protocol underlying modern strength training. Credit: <a href="https://en.wikipedia.org/wiki/Physical_therapy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Progressive overload (漸進超負荷) is the principle that resistance training must involve gradually increasing weight, repetitions, or intensity over time, since muscles, tendons, and the nervous system only adapt to a demand greater than what they are already handling. The concept was formalised scientifically by US Army physician Thomas L. DeLorme (德洛姆) during the mid-1940s, who was tasked with rehabilitating injured soldiers faster than the era's standard low-repetition physical therapy methods allowed.</p>
+      <p>DeLorme's "Progressive Resistance Exercise" (漸進阻力運動) protocol had patients perform three sets of ten repetitions, increasing the weight in each successive set rather than keeping it constant, and increasing the overall load again as strength improved week to week. Published in the <em>Journal of Bone and Joint Surgery</em>, his results showed soldiers regained functional strength significantly faster than under prior rehabilitation approaches, and the method quickly spread beyond military hospitals into general strength-training and physical therapy practice worldwide.</p>
+      <p>The underlying logic, now often summarised by exercise scientists as the "SAID principle" (specific adaptation to imposed demands, 特定適應原則), explains why lifters who repeat the exact same weights and reps indefinitely eventually plateau: the body has no further stimulus prompting it to keep adapting. Overload can be increased in several ways beyond simply adding weight, including more repetitions, more sets, reduced rest between sets, or improved range of motion, and its absence is a leading reason many gym-goers stop progressing after their initial months of rapid "newbie gains."</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Physical_therapy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The rule that built modern strength training wasn't invented by a bodybuilder &mdash; it came from a WWII army doctor trying to get injured soldiers back on their feet faster.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Who formalised the concept of progressive overload, in what context, and what is the "SAID principle"?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">US Army physician Thomas DeLorme formalised progressive overload in the mid-1940s while developing faster rehabilitation methods for injured soldiers. The SAID principle (specific adaptation to imposed demands) explains why muscles only keep adapting when the training stimulus keeps increasing beyond what the body has already adapted to.</div>
+      </details>
+      <div class="source">&#x1F4D6; DeLorme, T.L. &amp; Watkins, A.L. (1948), "Techniques of Progressive Resistance Exercise," <em>Archives of Physical Medicine</em>; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Nobel-Winning Trade That Nearly Broke Wall Street</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1998, a hedge fund (對沖基金) run partly by two Nobel Prize-winning economists &mdash; using some of the most sophisticated financial models (金融模型) ever built &mdash; came within days of collapsing so badly that the Federal Reserve (聯儲局) itself stepped in to organise an emergency rescue. Before reading on, what do you think went wrong with models built by some of the smartest people in finance?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Myron_Scholes_2008_in_Lindau.png" alt="Photograph of Myron Scholes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Myron Scholes, Nobel laureate economist and LTCM partner, pictured in 2008. Credit: <a href="https://en.wikipedia.org/wiki/Myron_Scholes" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Long-Term Capital Management (長期資本管理公司, LTCM) was founded in 1994 by former Salomon Brothers bond trader John Meriwether (梅里韋瑟), whose team included Myron Scholes (斯科爾斯) and Robert C. Merton (默頓) &mdash; economists who would jointly win the 1997 Nobel Prize in Economic Sciences (諾貝爾經濟學獎) for pioneering options-pricing theory the very year LTCM's positions began unravelling. The fund used enormously leveraged bets, often 25 times its actual capital or more, wagering that historically related bond prices would converge back toward their statistically typical relationship.</p>
+      <p>In August 1998, Russia's government defaulted on its domestic debt and devalued the rouble, triggering a global "flight to quality" (資金避險潮) in which investors abandoned anything perceived as risky, regardless of its underlying fundamentals. This broke the historical price correlations LTCM's models depended on entirely; instead of converging as predicted, the spreads LTCM had bet on widened dramatically, and within weeks the fund's roughly $126 billion balance sheet, built on only about $4.7 billion in actual capital, had lost over $4 billion.</p>
+      <p>Fearing LTCM's collapse could trigger a broader financial crisis given its enormous derivatives exposure across major banks, the Federal Reserve Bank of New York (紐約聯邦儲備銀行) organised &mdash; without direct taxpayer funding &mdash; a $3.6 billion rescue by a consortium of Wall Street banks in September 1998. The episode became a foundational case study in model risk (模型風險): even Nobel Prize-winning theory could not account for a crisis where markets stopped behaving anything like their historical patterns.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Myron_Scholes" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Two Nobel Prize-winning economists helped build LTCM's models &mdash; and still couldn't predict a crisis where markets simply stopped acting like their own history.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered LTCM's 1998 collapse, and why did it break the fund's trading models?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Russia's August 1998 debt default and rouble devaluation triggered a global "flight to quality" that broke the historical price correlations LTCM's leveraged bets depended on. Instead of converging as the models predicted, the spreads widened sharply, causing catastrophic losses on a highly leveraged balance sheet.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lowenstein, R. (2000), <em>When Genius Failed: The Rise and Fall of Long-Term Capital Management</em>, Random House; Federal Reserve Bank of New York, historical accounts of the 1998 LTCM intervention.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Dollar Problem an Economist Warned About Before It Happened</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/USDnotesNew.png" alt="US dollar banknotes" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US dollar banknotes, the reserve currency at the centre of the Triffin Dilemma. Credit: <a href="https://en.wikipedia.org/wiki/Triffin_dilemma" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In August 1971, President Nixon suspended the US dollar's convertibility into gold (黃金兌換), ending the Bretton Woods system (布雷頓森林體系) &mdash; an event Belgian-American economist Robert Triffin (特里芬) had warned Congress was coming over a decade earlier.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Triffin's 1960 testimony argued that a country issuing the world's reserve currency (儲備貨幣) must run persistent deficits to supply enough dollars for global trade and reserves, while those same deficits gradually erode confidence in the currency's value.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Contrary to Triffin's implied prediction of collapsing confidence, the dollar has remained the world's dominant reserve currency for over 50 years since 1971, with the US running enormous, sustained deficits without the sharp crisis Triffin's framework anticipated &mdash; a pattern economists call the dollar's "exorbitant privilege" (囂張特權).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economists including Barry Eichengreen (艾肯格林) argue deep, liquid US Treasury markets and network effects, not just reserve-currency mechanics, explain the dollar's persistence; whether rising US debt or "de-dollarisation" pressure will eventually validate Triffin's original warning remains an open question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; An economist warned Congress the dollar's reserve-currency status was unsustainable in 1960 &mdash; the system he predicted would break did break, yet the currency he worried about has only grown more dominant since.</div>
+      <div class="source">&#x1F4D6; Triffin, R. (1960), <em>Gold and the Dollar Crisis</em>, Yale University Press; Eichengreen, B. (2011), <em>Exorbitant Privilege: The Rise and Fall of the Dollar</em>, Oxford University Press. Never recycles Card 10 domain (leveraged hedge-fund derivatives collapse vs. international reserve-currency theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 1 &amp; 5 &mdash; The View From Nowhere:</strong> Voyager 1's "Pale Blue Dot" photograph achieved its emotional power by showing every human rank, nation, and fortune ever won as a barely visible speck of light from six billion kilometres away, erasing any sense of which speck mattered more than another. John Rawls's veil of ignorance performs a strikingly similar erasure through pure thought rather than distance: it asks you to design society's rules without knowing whether you would be the speck born wealthy or the speck born destitute.</p>
+      <p><strong>So what:</strong> Both suggest that the surest way to judge fairly &mdash; whether weighing a civilisation's importance or its rules &mdash; is to first strip away the accident of exactly where you personally happen to stand in it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/JPL, "Pale Blue Dot"; Sagan, C. (1994), <em>Pale Blue Dot: A Vision of the Human Future in Space</em>, Random House.</li>
+      <li><strong>Card 2:</strong> 《宋史&middot;王安石傳》；Levine, A. (2008), <em>Divided by a Common Language</em>, Harvard University Asia Center; Britannica, "Wang Anshi."</li>
+      <li><strong>Card 3:</strong> Britannica, "Fall of Constantinople"; Crowley, R. (2005), <em>Constantinople: The Last Great Siege, 1453</em>, Faber &amp; Faber.</li>
+      <li><strong>Card 4:</strong> 《六祖壇經》；Yampolsky, P.B. (1967), <em>The Platform Sutra of the Sixth Patriarch</em>, Columbia University Press; Stanford Encyclopedia of Philosophy, "Chan Buddhism."</li>
+      <li><strong>Card 5:</strong> Rawls, J. (1971), <em>A Theory of Justice</em>, Harvard University Press; Stanford Encyclopedia of Philosophy, "Original Position."</li>
+      <li><strong>Card 6:</strong> Milgram, S. (1963), <em>Journal of Abnormal and Social Psychology</em> 67(4); APA PsycNet overview of the Milgram obedience studies.</li>
+      <li><strong>Card 7:</strong> Serrador, J.M. et al. (2012), <em>FASEB Journal</em> 26(S1); Hulihan, J. (1997), <em>British Medical Journal</em> 315.</li>
+      <li><strong>Card 8:</strong> Valtin, H. (2002), <em>American Journal of Physiology</em> 283(5); National Academies of Sciences, <em>Dietary Reference Intakes for Water</em> (2004).</li>
+      <li><strong>Card 9:</strong> DeLorme, T.L. &amp; Watkins, A.L. (1948), <em>Archives of Physical Medicine</em>; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</li>
+      <li><strong>Card 10:</strong> Lowenstein, R. (2000), <em>When Genius Failed</em>, Random House; Federal Reserve Bank of New York, historical accounts of the 1998 LTCM intervention.</li>
+      <li><strong>Card 11:</strong> Triffin, R. (1960), <em>Gold and the Dollar Crisis</em>, Yale University Press; Eichengreen, B. (2011), <em>Exorbitant Privilege</em>, Oxford University Press.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-04: Pale Blue Dot (Voyager 1) &bull; 王安石變法 (Wang Anshi's Reforms) &bull; The Fall of Constantinople &bull; 六祖惠能 (Huineng, Sixth Patriarch) &bull; Rawls' Veil of Ignorance &bull; The Milgram Obedience Experiment &bull; Brain Freeze / Trigeminal Nerve &bull; The "8 Glasses of Water" Myth &bull; Progressive Overload &bull; Long-Term Capital Management Collapse &bull; The Triffin Dilemma</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-04.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-04.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 4 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
