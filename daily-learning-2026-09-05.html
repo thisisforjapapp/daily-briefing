@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 5 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 5 September 2026 &nbsp;&middot;&nbsp; ~23 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>4 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Pale Blue Dot</span>Voyager 1's 1990 photo, championed by Carl Sagan, shrank Earth to a single pixel of light six billion km away.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 王安石變法</span>王安石推行新法救國，卻在他死前一年幾乎被政敵盡數推翻。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Fall of Constantinople</span>Mehmed II's custom cannons and a fleet dragged overland ended the 1,100-year Byzantine Empire in 1453.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 六祖惠能</span>不識字的舂米行者惠能，以一首悟性偈語贏過寺中首座，成為禪宗六祖。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Rawls' Veil of Ignorance</span>Rawls argued fair rules are ones you'd accept without knowing which position in society you'd occupy.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Milgram Obedience Experiment</span>About 65% of ordinary volunteers delivered a believed-lethal shock simply because an authority figure told them to continue.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Brain Freeze</span>Cold on the palate triggers a rapid blood-vessel reflex that the brain misreads as forehead pain.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The "8 Glasses of Water" Myth</span>The famous rule dropped its own original clause that most water needs are already met through food.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Progressive Overload</span>A WWII army doctor's rehab protocol for injured soldiers became modern strength training's founding principle.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Long-Term Capital Management</span>Two Nobel-winning economists' hedge fund collapsed in 1998 once markets stopped behaving like their own history.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The Triffin Dilemma</span>An economist warned in 1960 the dollar's reserve status was unsustainable, yet it has only grown more dominant since.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The First Photograph of a World Beyond Our Solar System</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2004, astronomers turned one of the world's most powerful ground-based telescopes toward a faint, dim little object nearly 170 light-years away &mdash; not to look at it directly, but at something faint and reddish sitting right beside it. Every planet found before this had been detected only indirectly, through a star's wobble or a tiny dip in its light. Before reading on, what do you think made this particular object different, and why had no one ever managed to actually photograph a planet outside our solar system before?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Exoplanet_Comparison_2M1207_b.png" alt="Comparison image of the exoplanet 2M1207b beside its brown dwarf host" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">2M1207b, the first exoplanet ever directly photographed, beside its brown dwarf host star. Credit: <a href="https://en.wikipedia.org/wiki/2M1207b" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2004, a team led by French astronomer Ga&euml;l Chauvin (夏文), using the European Southern Observatory's (歐洲南方天文台) Very Large Telescope (甚大望遠鏡) in Chile's Atacama Desert (阿他加馬沙漠), captured something no one had ever managed before: an actual photograph of a planet (行星) orbiting a star (恆星) outside our solar system. Every exoplanet (系外行星) found up to that point had been inferred only indirectly, detected through the faint gravitational wobble it induced in its host star or a barely perceptible dip in starlight as it passed in front. This object, a faint reddish point of light beside a much dimmer body called 2M1207, was different: it was actually visible.</p>
+      <p>Direct imaging like this is extraordinarily difficult because a star vastly outshines any planet orbiting it &mdash; light reflected off a planet is typically a billion times fainter than its star, hopelessly lost in the glare. Chauvin's team had an advantage: their target, 2M1207, was not an ordinary star but a brown dwarf (棕矮星), a dim, failed star too small to sustain the nuclear fusion (核聚變) that powers true stars, making its glare far weaker and its faint companion easier to separate out. Using adaptive optics (自適應光學) to cancel atmospheric blurring and a coronagraph (日冕儀) to block the brown dwarf's remaining light, the team resolved the companion, later named 2M1207b, as a distinct point of light nearby.</p>
+      <p>The discovery was not without controversy. Because direct imaging reveals only an object's brightness and estimated temperature rather than its mass, astronomers relied on theoretical evolutionary models to estimate 2M1207b weighed roughly four to eight times Jupiter's (木星) mass, close enough to the traditional dividing line between "planet" and "brown dwarf" to spark genuine debate. Follow-up observations in 2005 and 2006 confirmed the two objects shared the same motion through space, proving they were gravitationally bound companions rather than an unrelated chance alignment. The image opened the modern era of direct planet imaging, soon followed by similarly captured worlds like Beta Pictoris b (皮克托座&beta;星b) and the HR&nbsp;8799 system.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/2M1207b" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The first-ever photograph of a planet beyond our solar system was possible only because its star was a dim, failed one &mdash; a brown dwarf too weak to drown out its companion's faint light.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why was 2M1207, the star hosting the first directly photographed exoplanet, an unusually favourable target for direct imaging?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">2M1207 is a brown dwarf, a dim failed star too small to sustain full nuclear fusion, so its glare was far weaker than an ordinary star's. That made it possible for adaptive optics and a coronagraph to isolate its faint planetary companion, 2M1207b, as a separate point of light.</div>
+      </details>
+      <div class="source">&#x1F4D6; Chauvin, G. et al. (2004), "A Giant Planet Candidate Near a Young Brown Dwarf," <em>Astronomy &amp; Astrophysics</em> 425(2); European Southern Observatory press materials.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>辛亥革命&mdash;&mdash;一場意外爆炸，如何終結中國兩千年帝制？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1911年10月10日夜晚，湖北武昌一支新式軍隊裡的革命組織，原定計劃仍未成熟，卻因為一場意外事故而被迫倉促起事。你認為，究竟是甚麼樣的意外，逼使這群士兵在準備尚未完成之際就要冒險舉兵，結果竟一舉推翻了統治中國兩千餘年的帝制？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>孫中山（革命派領袖，事發時正在海外籌款）；黎元洪（新軍將領，起義後被迫出任湖北軍政府都督）；袁世凱（清廷最具實力的北洋軍統帥，後成為民國首任大總統）。</p>
+        <p><strong>事件：</strong>1911年10月10日武昌起義爆發，各省紛紛宣布獨立，清帝於1912年2月12日退位，中華民國成立。</p>
+        <p><strong>時代背景：</strong>清廷因鐵路國有化政策激起四川保路運動，加上長年積弱、屢遭列強欺凌，新軍及知識分子對朝廷失望日深，革命思想在軍中暗中蔓延。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/%E5%AD%99%E4%B8%AD%E5%B1%B1%E8%82%96%E5%83%8F.jpg" alt="孫中山肖像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">孫中山肖像，1912年就任中華民國臨時大總統。來源：<a href="https://en.wikipedia.org/wiki/Sun_Yat-sen" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>踏入二十世紀，清廷積弱已久：甲午戰敗、庚子賠款掏空國庫，朝廷卻仍大興土木、揮霍無度；1911年更推行「鐵路國有化」政策，強行收回原由民間集資興建的鐵路，轉售予外國銀行團換取貸款，激起四川民眾發起「保路運動」，各地示威此起彼伏。與此同時，革命思想早已滲入清廷賴以自保的新式軍隊：湖北新軍之中，文學社與共進會等革命團體暗中發展會員，士兵日間操練效忠朝廷，夜裡卻密謀推翻帝制，一場大規模起事的種子早已埋下，只待時機成熟。</p>
+      <p>1911年10月9日，革命黨人在漢口俄租界機關內試製炸彈時意外引爆，驚動俄國巡捕，搜出黨人名冊及旗幟，眼見身份即將暴露、性命難保，湖北新軍中的革命士兵決定不再等待原定計劃，翌日夜晚在武昌倉促舉兵，攻佔楚望台軍械庫，取得大批槍械彈藥。起義士兵隨即包圍湖廣總督衙門，總督倉皇棄城逃走。由於革命黨重要領袖多不在現場，士兵們竟以槍指嚇，強迫本無意造反的新軍將領黎元洪出任湖北軍政府都督，一場意外事故引爆的兵變，就此意外地拉開了辛亥革命的序幕。</p>
+      <p>武昌起義的消息傳開後，各省新軍與地方士紳紛紛回應，短短兩個月內，湖南、陝西、江西等十餘省相繼宣布脫離清廷獨立，清廷統治瞬間土崩瓦解。當時正在美國各地為革命籌款的孫中山聞訊趕回，於1912年1月1日在南京就任中華民國臨時大總統。清廷則被迫起用手握精銳北洋軍的袁世凱議和，袁世凱一面向革命黨示好，一面向清室施壓，最終促成年幼的宣統帝溥儀於1912年2月12日頒布退位詔書，統治中國兩千餘年的帝制正式終結，袁世凱隨即依約接任民國大總統。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sun_Yat-sen" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場趕製炸彈時的意外爆炸，逼使一群尚未準備就緒的士兵倉促舉兵&mdash;&mdash;卻意外終結了中國兩千餘年的帝制。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 武昌起義為何會提前爆發？黎元洪為何會成為起義後的軍政府都督？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">革命黨人在漢口俄租界試製炸彈時意外引爆，身份暴露的士兵擔心性命不保，遂提前於武昌倉促舉兵。由於革命黨重要領袖不在現場，士兵們以槍指嚇，強迫本無意造反的新軍將領黎元洪出任都督。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《清史稿》；Esherick, J.W. (1976), <em>Reform and Revolution in China: The 1911 Revolution in Hunan and Hubei</em>, University of California Press; Britannica, "Chinese Revolution of 1911."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Meeting That Decided What Christians Must Believe</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the year 325, Roman Emperor Constantine (君士坦丁大帝), who had only recently converted to Christianity (基督教) himself, summoned roughly 300 bishops from across his empire to a single town to settle a furious theological dispute threatening to split the young church in two. Before reading on, what do you think that dispute was actually about, and why would a Roman emperor personally involve himself in what looks like an internal religious argument?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Constantine the Great (君士坦丁大帝), Roman emperor and recent convert to Christianity (基督教); Arius (阿里烏), an Alexandrian priest whose teaching sparked the crisis; Athanasius (阿他那修), the young deacon who became Arius's fiercest opponent.</p>
+        <p><strong>Event at stake:</strong> the First Council of Nicaea (尼西亞公會議), convened in May 325 in the town of Nicaea (尼西亞, present-day &#304;znik, Turkey), to resolve the Arian controversy (阿里烏派爭議) over the nature of Christ.</p>
+        <p><strong>Big picture:</strong> a newly Christian-tolerant Roman Empire (羅馬帝國), still finding its political footing after decades of persecution, facing a theological rift serious enough that Constantine feared it threatened the empire's own unity.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Nicaea_icon.jpg/330px-Nicaea_icon.jpg" alt="Icon depicting the First Council of Nicaea" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A traditional icon depicting the First Council of Nicaea, 325 CE. Credit: <a href="https://en.wikipedia.org/wiki/First_Council_of_Nicaea" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 325, the Roman Empire (羅馬帝國) had only recently stopped persecuting Christians (基督教徒), after Emperor Constantine (君士坦丁大帝) issued the Edict of Milan (米蘭敕令) in 313 granting religious tolerance and converted to the faith himself. Christianity, however, was far from unified: an Alexandrian priest named Arius (阿里烏) had begun teaching that Jesus Christ (耶穌基督), as the Son of God, must have been created by God the Father at some point and was therefore not co-eternal with him, nor of identical divine substance. A young deacon named Athanasius (阿他那修) fiercely opposed this view, and the dispute split churches across the empire into hostile camps.</p>
+      <p>Alarmed that a theological quarrel was fracturing the religious unity he hoped Christianity could provide his empire, Constantine (君士坦丁大帝) summoned roughly 300 bishops from across the Roman world to the town of Nicaea (尼西亞), paying their travel costs through the imperial postal system (帝國驛站) and personally presiding over the opening session in an unprecedented blending of imperial and church authority. Over several weeks of fierce debate in the summer of 325, the assembled bishops overwhelmingly rejected Arius's position, ruling that the Son was "homoousios" (同質), of the very same substance as the Father, not merely similar to or created by him.</p>
+      <p>The council produced the Nicene Creed (尼西亞信經), a formal statement of Christian belief still recited in churches today, and Arius (阿里烏) was condemned and exiled. Yet the theological victory proved far from final: Arianism (阿里烏教派) persisted for decades afterward, particularly among Germanic tribes converted by Arian missionaries, and several later Roman emperors themselves favoured Arian positions, reopening the controversy repeatedly. The creed was later expanded at the First Council of Constantinople (君士坦丁堡公會議) in 381, and Nicaea's precedent, an emperor convening bishops to legislate binding doctrine, shaped the relationship between political and religious authority for over a thousand years.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/First_Council_of_Nicaea" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; An argument over a single point of theology was serious enough for a Roman emperor to personally convene 300 bishops &mdash; and it still wasn't fully settled for decades.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Arius teach about the nature of Christ, and what verdict did the Council of Nicaea reach against him?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Arius taught that Christ, as the Son of God, was created by the Father and therefore not co-eternal or of the same substance as him. The Council of Nicaea ruled against Arius, declaring the Son "homoousios," of the same substance as the Father, and exiled Arius.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Council of Nicaea"; Ayres, L. (2004), <em>Nicaea and Its Legacy: An Approach to Fourth-Century Trinitarian Theology</em>, Oxford University Press.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>熊十力&mdash;&mdash;一個革命黨人，為何要向自己的佛學老師宣戰？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">熊十力年輕時曾投身反清革命，出生入死；中年以後卻棄武從文，鑽研佛學，拜入南京支那內學院歐陽竟無門下。豈料多年之後，他竟公開發表著作，直斥恩師所傳的唯識學根本方向錯誤，引來師門群起攻之。你認為，一個曾經以武力推翻朝廷的革命者，為何後來會選擇向自己的老師發動一場思想上的「革命」？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>熊十力（1885&ndash;1968年，湖北黃岡人，早年參與辛亥革命，後轉治佛學哲學）；歐陽竟無（南京支那內學院創辦人，熊十力的唯識學老師）；劉定權（呂澂，支那內學院學者，公開撰文批評熊十力）。</p>
+        <p><strong>事件：</strong>熊十力1932年出版《新唯識論》，以《易經》「體用不二」思想重新詮釋唯識學，遭其師門猛烈抨擊為背叛正統。</p>
+        <p><strong>時代背景：</strong>民國初年新舊思潮激盪，知識分子紛紛從西方哲學、傳統儒學及佛學典籍中尋求救國新思路，支那內學院是當時研習唯識學最重要的學術重鎮之一。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/%E7%86%8A%E5%8D%81%E5%8A%9B_1960s.jpg/330px-%E7%86%8A%E5%8D%81%E5%8A%9B_1960s.jpg" alt="熊十力照片" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">熊十力，1930年代出版《新唯識論》，晚年被視為現代新儒家奠基人之一。來源：<a href="https://en.wikipedia.org/wiki/Xiong_Shili" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>熊十力早年投身反清革命，曾親歷武昌起義前後的腥風血雨，其後又參與討伐袁世凱的軍事行動，深感僅憑政治與軍事手段，難以真正改造國人心性、救亡圖存，遂決心棄武從文，轉而鑽研哲學與佛學。他先後研讀儒家經典及佛教典籍，其後慕名投入南京支那內學院，拜於當代唯識學（法相宗）大家歐陽竟無門下，潛心研習《成唯識論》等經典多年，一度被視為歐陽竟無最器重的弟子之一，眾人皆以為他將會繼承師門、發揚正統唯識之學。</p>
+      <p>然而熊十力越是深入鑽研，越對唯識學的核心主張感到不安：唯識學主張萬法唯識所變，本應否定外在世界的獨立實有性，但其「阿賴耶識」種子學說，在熊十力看來，卻仍不免將心識本身當作一種近乎實體的存在，未能真正貫徹「即用顯體」的哲學徹底性。他轉而借鑑《易經》「翕闢成變」的宇宙生成觀，主張宇宙本體（他稱之為「本心」）刹那刹那之間，一面凝聚收斂而顯現為物質現象（「翕」），一面舒展開發而顯現為精神生機（「闢」），兩者相反相成、不可分割，1932年將此思想寫成《新唯識論》一書出版。</p>
+      <p>《新唯識論》甫一出版，即在佛學界掀起軒然大波：歐陽竟無認為熊十力名為闡發唯識，實則暗中夾雜儒家《易經》思想，根本背離唯識學正統，斥之為「滅棄聖言，唯子真為戎首」；同門學者劉定權（呂澂）更公開撰文逐條駁斥，雙方展開長達數年的激烈論戰，成為近代中國佛學史上最著名的思想公案之一。儘管遭受師門猛烈批評，熊十力始終未曾退讓，晚年更被公認為現代新儒家的奠基人物之一，其融合儒佛易理的思想體系，深刻影響了牟宗三、唐君毅等後輩新儒家學者。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Xiong_Shili" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 熊十力曾以武力革命推翻朝廷，晚年卻選擇向自己的授業恩師發動一場思想革命&mdash;&mdash;真正的破舊立新，往往比想像中更接近自己出發的原點。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 熊十力對唯識學的「阿賴耶識」學說有何不滿？他提出「翕闢成變」是想解決甚麼問題？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">熊十力認為唯識學的阿賴耶識種子學說，仍不免將心識當作近乎實體的存在，未能徹底貫徹「即用顯體」。他借鑑《易經》，提出本體刹那間「翕」（凝聚成物質）與「闢」（開發精神）交替變化，以解決這個哲學徹底性的問題。</div>
+      </details>
+      <div class="source">&#x1F4D6; 熊十力《新唯識論》；郭齊勇《熊十力哲學研究》；Makeham, J. (2003), <em>New Confucianism: A Critical Examination</em>, Palgrave Macmillan.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Logical Gap Hiding Inside Almost Every Moral Argument</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Try to derive a single moral conclusion, such as "you ought to help someone in need," purely from a factual description of the world, with no value judgment sneaked in anywhere along the way. Before reading on, do you think that's actually possible &mdash; and if a Scottish philosopher writing in 1739 argued it wasn't, what do you think that would mean for how most people actually argue about ethics?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> David Hume (大衛&middot;休謨), Scottish Enlightenment (蘇格蘭啟蒙運動) philosopher.</p>
+        <p><strong>Problem at stake:</strong> whether moral conclusions about what people "ought" to do can ever be logically derived purely from factual statements about what "is" the case.</p>
+        <p><strong>Moment:</strong> Hume raised the objection in a short but famous passage of <em>A Treatise of Human Nature</em> (1739), challenging rationalist moral philosophers who assumed morality could be read directly off the facts of nature.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/David_Hume_Ramsay.jpg/330px-David_Hume_Ramsay.jpg" alt="Portrait of David Hume" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">David Hume, whose 1739 <em>A Treatise of Human Nature</em> raised the is-ought problem. Credit: <a href="https://en.wikipedia.org/wiki/David_Hume" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>A Treatise of Human Nature</em> (1739), Scottish philosopher David Hume (大衛&middot;休謨) made a small observation that would trouble moral philosophy for centuries afterward. He noticed that writers on ethics routinely proceed for pages using ordinary descriptive language, establishing what "is" the case about God, human nature, or society, and then, without any explanation, suddenly switch to claims about what "ought" to be done. Hume insisted this transition needed justifying, since no set of purely factual premises seemed capable of logically entailing a prescriptive conclusion, a gap later writers nicknamed "Hume's Guillotine" (休謨的鍘刀) for how cleanly it appeared to sever fact from value.</p>
+      <p>The objection directly challenged rationalist moral philosophers (理性主義倫理學家) of Hume's era, such as Samuel Clarke (克拉克) and William Wollaston (沃拉斯頓), who argued that moral truths were discoverable through reason alone, in much the same way one might discover a mathematical or geometric truth, simply by carefully examining the facts of a situation. Hume rejected this entirely, arguing instead that morality originates from sentiment and passion (情感) rather than reason, famously declaring that "reason is, and ought only to be, the slave of the passions." On this view, reason can tell us how to achieve our goals, but it can never, by itself, tell us what our goals ought to be.</p>
+      <p>The is-ought problem (實然與應然問題) resurfaced powerfully in 1903 when philosopher G.E. Moore (摩爾) accused ethical theories that defined "good" in terms of natural properties, such as pleasure or evolutionary fitness, of committing a related error he called the "naturalistic fallacy" (自然主義謬誤). Not everyone accepts the gap is truly unbridgeable: philosopher John Searle (約翰&middot;希爾勒) argued in a 1964 paper that certain factual claims, such as "X promised to pay Y," already carry built-in obligations once we understand what a promise institutionally is, suggesting some "ought" conclusions may be smuggled into facts after all. Whether Hume's gap can ever really be closed remains unresolved in philosophy today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/David_Hume" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Hume's simple observation still catches out modern arguments: pointing out what "is" natural, traditional, or common never by itself proves what anyone "ought" to do.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the is-ought problem, and which two rival views does it put in tension?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The is-ought problem is Hume's observation that purely factual "is" statements can never by themselves logically justify a prescriptive "ought" conclusion. It challenges rationalists who thought moral truths could be derived from reason and facts, in favour of Hume's view that morality stems from sentiment, not reason.</div>
+      </details>
+      <div class="source">&#x1F4D6; Hume, D. (1739), <em>A Treatise of Human Nature</em>, Book III; Stanford Encyclopedia of Philosophy, "Hume's Moral Philosophy."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why One Good Impression Quietly Rewrites Everything Else You Think</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine rating a stranger's intelligence, kindness, and honesty after knowing only one thing about them: that they are physically attractive. Before reading on, do you think that single unrelated trait would actually shift your judgment of totally separate qualities like intelligence or honesty &mdash; and if a psychologist first documented this bias among military officers rating soldiers back in 1920, what do you think he found?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/66/PSM_V80_D211_Edward_Lee_Thorndike.png" alt="Photograph of psychologist Edward Thorndike" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Edward Thorndike, who first documented the "halo effect" in a 1920 study of military ratings. Credit: <a href="https://en.wikipedia.org/wiki/Edward_Thorndike" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1920, psychologist Edward Thorndike (愛德華&middot;桑代克) published a study asking military commanding officers to rate soldiers on a range of entirely separate qualities, including physique, intelligence, leadership, and character. He expected these ratings to vary independently, since a soldier's physical fitness has nothing logically to do with his honesty. Instead, Thorndike found suspiciously high correlations across every trait: officers who rated a soldier highly on one quality tended to rate him highly on all the others too, regardless of whether any actual evidence supported it. Thorndike named this tendency the "halo effect" (光環效應), a single global impression bleeding into judgments of unrelated specific traits.</p>
+      <p>The effect was demonstrated even more vividly in 1972, when psychologists Karen Dion, Ellen Berscheid, and Elaine Walster (迪翁、伯希德與沃斯特) published "What Is Beautiful Is Good," showing that participants who viewed photographs of physically attractive strangers, with zero other information available, consistently rated them as more intelligent, kind, sociable, and likely to be successful than less attractive strangers. Nothing about appearance logically implies anything about character or competence, yet the assumption proved remarkably automatic and consistent. The finding helped explain why physical attractiveness quietly correlates with real-world outcomes in hiring decisions, jury verdicts, and teacher evaluations, despite having no genuine bearing on any of them.</p>
+      <p>The halo effect (光環效應) extends well beyond appearance: a 1977 study by Richard Nisbett and Timothy Wilson (尼斯貝特與威爾遜) found that students who liked a lecturer's warmth rated his unrelated physical mannerisms and even his accent more favourably too, purely because their overall impression of him was positive. The bias can also run in reverse, called the "horn effect" (惡魔效應), where one negative trait unfairly drags down judgments of entirely unrelated qualities. Simply knowing about the halo effect does not reliably protect against it, since the bias operates automatically and below conscious awareness, which is why structured, criteria-based evaluation is often recommended over open-ended overall impressions in hiring and grading.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Edward_Thorndike" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; One good (or bad) first impression doesn't just colour how you see a person overall &mdash; it quietly reshapes your judgment of qualities that have nothing to do with it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Thorndike's 1920 military study reveal, and what did the 1972 "What Is Beautiful Is Good" study add to it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Thorndike found that officers' ratings of soldiers on entirely unrelated traits like physique and character were suspiciously correlated, suggesting one overall impression drove them all. The 1972 study showed physical attractiveness alone caused people to assume unrelated positive traits like intelligence and kindness, with zero supporting evidence.</div>
+      </details>
+      <div class="source">&#x1F4D6; Thorndike, E.L. (1920), "A Constant Error in Psychological Ratings," <em>Journal of Applied Psychology</em> 4(1); Dion, K., Berscheid, E. &amp; Walster, E. (1972), <em>Journal of Personality and Social Psychology</em> 24(3).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Most Adults on Earth Can't Actually Digest Milk Properly</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly two-thirds of adults worldwide experience some degree of bloating, cramping, or discomfort after drinking a full glass of milk, while a smaller share can drink it their entire lives with no trouble at all. Before reading on, which group do you think represents the biological default for adult mammals, including humans, and which group is actually the evolutionary exception?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/1jyn.jpg/330px-1jyn.jpg" alt="Molecular structure image related to lactase" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A structural model related to lactase, the enzyme behind lactase persistence. Credit: <a href="https://en.wikipedia.org/wiki/Lactase" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Every mammal, including humans, produces an enzyme called lactase (乳糖酶) as an infant, which breaks down lactose (乳糖), the primary sugar in milk, so it can be digested. In the vast majority of mammals, and in most humans worldwide, the gene producing lactase, called LCT, switches off sometime after weaning, typically between ages two and five, since there is normally no further biological need to digest milk after infancy. Once lactase production drops, undigested lactose passes into the large intestine, where gut bacteria ferment it, producing gas and drawing in water, causing the bloating, cramping, and diarrhoea commonly labelled "lactose intolerance" (乳糖不耐症) in adulthood.</p>
+      <p>A genetic mutation near the LCT gene, however, allows some people to keep producing lactase well into adulthood, a trait called lactase persistence (乳糖酶持續性). This mutation is not evenly distributed: it appears in over 90% of people of Northern European descent, but in only a small minority of people across much of East Asia and parts of Africa and South America, meaning the "lactose intolerant" adult is, biologically speaking, the global human default, not a disorder. Genetic studies have identified several entirely different mutations that independently produce the same lactase-persistence effect in different populations, including variants found among Northern Europeans, certain East African pastoralist groups, and Middle Eastern Bedouin communities.</p>
+      <p>This pattern is now understood as one of the clearest documented cases of recent human evolution driven by culture: populations with a long history of dairy farming appear to have independently evolved lactase persistence multiple separate times, a phenomenon called convergent evolution (趨同演化), because keeping the ability to digest milk into adulthood offered a genuine survival advantage wherever dairy animals were domesticated. Ancient DNA studies show the lactase-persistence mutation was still rare among early European farmers several thousand years ago and spread rapidly only afterward, suggesting cultural dairying practices came first and drove the genetic change, rather than the reverse.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Lactase" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; "Lactose intolerance" is a misleading name &mdash; being unable to digest milk as an adult is the biological default for most of humanity; persistent milk-digesters are the evolutionary exception.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does lactase persistence vary so dramatically between different populations around the world?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Several different genetic mutations near the LCT gene independently evolved in populations with long histories of dairy farming, since keeping the ability to digest milk into adulthood offered a real survival advantage. Populations without a dairying history largely retain the mammalian default of losing lactase production after weaning.</div>
+      </details>
+      <div class="source">&#x1F4D6; Ingram, C.J.E. et al. (2009), "Lactose Digestion and the Evolutionary Genetics of Lactase Persistence," <em>Human Genetics</em> 124(6); NIH, "Lactose Intolerance."</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does a Cold Shower Really Boost Your Immune System?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Cold showers and ice baths have become a popular wellness trend, with enthusiasts claiming the practice boosts the immune system, prevents colds, and burns fat. Before reading on, do you think there's solid scientific evidence behind these claims, or is something else going on when people report feeling less sick after taking up cold showers?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Rhinovirus_isosurface.png" alt="Molecular model of rhinovirus, the most common cause of the common cold" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Rhinovirus, the virus most often responsible for the common cold &mdash; not low body temperature. Credit: <a href="https://en.wikipedia.org/wiki/Common_cold" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Advocates of cold showers and cold-water immersion (冷水浸泡), popularised by figures such as Wim Hof (韋姆&middot;霍夫), often claim the practice strengthens the immune system, prevents illness, and burns fat. The most frequently cited scientific support comes from a large 2016 randomised controlled trial published in <em>PLOS ONE</em> by Dutch researcher Geert Buijze (拜澤) and colleagues, which followed over 3,000 participants who either took cold showers of 30 to 90 seconds daily or continued their normal routine. Participants in the cold-shower groups reported taking roughly 29% fewer sick days from work over the following month compared to the control group, a striking figure that spread widely online.</p>
+      <p>The study's fine print, however, tells a more complicated story: the researchers found no significant difference in the actual number of separate illness episodes between the groups, only in the number of days participants chose to take off work while sick. The result relied entirely on self-reported sick leave, not laboratory-confirmed illness or measured immune markers, raising the possibility that people who had committed to a challenging daily routine simply felt more reluctant to call in sick afterward, a behavioural effect rather than proof of a strengthened immune system. The researchers themselves acknowledged this limitation directly in their published conclusions.</p>
+      <p>Physiologically, brief cold exposure does trigger a release of norepinephrine (去甲腎上腺素) and a mild, temporary inflammatory response, but no solid evidence shows this meaningfully strengthens the adaptive immune system's ability to fight off viral infections. The common cold (普通感冒) itself is caused by viruses, most often rhinovirus (鼻病毒), transmitted through contact and airborne droplets, not by low body temperature, a folk conflation baked directly into the illness's misleading name. Cold exposure may offer other genuine benefits, including mood elevation and stress-response training, but the claim that it directly prevents infections remains scientifically unproven.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Common_cold" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A cold shower might make you less likely to call in sick, but the best evidence available doesn't show it makes you less likely to actually get sick.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2016 Buijze cold-shower study actually find, and what important limitation did the researchers acknowledge?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The study found cold-shower participants took about 29% fewer sick days from work, but no significant difference in the actual number of illness episodes. Because the result relied on self-reported sick leave rather than confirmed illness, it may reflect reluctance to call in sick rather than a stronger immune system.</div>
+      </details>
+      <div class="source">&#x1F4D6; Buijze, G.A. et al. (2016), "The Effect of Cold Showering on Health and Work," <em>PLOS ONE</em> 11(9); CDC, "Common Cold."</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Do You Really Need to Lift Until You Can't Lift Anymore?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A long-running debate in strength training asks whether pushing every set to the absolute point of muscular failure, the moment you physically cannot complete another repetition, is necessary for building maximum size and strength, or whether stopping a few reps short gets you nearly the same result with far less wear and tear. Before reading on, which approach do you think the current research actually favours?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Arnold_Schwarzenegger_1974.jpg" alt="Arnold Schwarzenegger competing in bodybuilding, 1974" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Arnold Schwarzenegger in 1974, from the bodybuilding tradition that popularised training to failure. Credit: <a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Training to failure (力竭訓練) means performing a set of an exercise until your muscles can no longer complete another repetition with proper form, a practice long associated with serious bodybuilding (健美運動) culture and popularised by figures like Arnold Schwarzenegger (阿諾&middot;施瓦辛格). The underlying logic seemed intuitive: since muscles only grow in response to sufficient mechanical stress, pushing all the way to failure should recruit the maximum number of muscle fibres and therefore maximise growth. For decades this assumption went largely untested directly, with failure training simply treated as the gold standard against which other, presumably inferior, approaches were measured.</p>
+      <p>A 2022 systematic review and meta-analysis by Grgic and colleagues (格爾吉奇), synthesising results across numerous controlled trials, found that training to failure and stopping short of failure, commonly measured using "reps in reserve" (保留次數, RIR), produced statistically similar gains in muscle hypertrophy (肌肉肥大) when total training volume was matched between the two approaches. What differed sharply was the cost: sets taken to true failure consistently produced substantially greater fatigue, required longer recovery time between sessions, and carried a higher perceived exertion and injury risk, particularly on heavy compound lifts (複合動作) like the squat and deadlift, where form typically deteriorates before a clean failure point is reached.</p>
+      <p>The practical consequence reshaped how many strength coaches now programme training: chronic failure training on heavy compound lifts can actually reduce total useful volume across a week, since the extended recovery it demands often forces lifters to skip or weaken subsequent sessions, a pattern researchers sometimes call accumulating fatigue without matching benefit. Current guidance generally reserves training to failure for occasional use, particularly on the final set of an exercise or on lower-risk isolation movements, while recommending most working sets stop one to three reps short of failure, preserving enough recoverable capacity to sustain the high total volume that multiple studies show matters more than any single set's absolute intensity.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bodybuilding" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Grinding every set to complete failure doesn't build more muscle than stopping a few reps short &mdash; it just costs you more recovery time to get there.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Grgic's 2022 meta-analysis find when comparing training to failure versus stopping short of failure?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It found similar muscle hypertrophy gains between the two approaches when total training volume was equated, but failure training caused significantly more fatigue and longer recovery needs. This makes chronic failure training on heavy compound lifts potentially counterproductive across a full week's training.</div>
+      </details>
+      <div class="source">&#x1F4D6; Grgic, J. et al. (2022), "Effect of Resistance Training to Muscular Failure on Muscle Hypertrophy," <em>Sports Medicine</em> 52; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Investing Advice That's Statistically Wrong But Still Often Right</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Suppose you suddenly receive a large sum of money, an inheritance or a bonus, and want to invest it in the stock market. Common wisdom says to spread it out gradually over many months rather than investing it all immediately. Before reading on, do you think spreading it out actually produces better returns on average, or is something other than pure investment performance really driving that advice?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/New_York_Stock_Exchange_Facade_2015.jpg/3840px-New_York_Stock_Exchange_Facade_2015.jpg" alt="Facade of the New York Stock Exchange" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The New York Stock Exchange, where decades of historical price data underpin the lump-sum-versus-DCA debate. Credit: <a href="https://en.wikipedia.org/wiki/New_York_Stock_Exchange" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Dollar-cost averaging (定額定期投資法, DCA) is the practice of investing a lump sum gradually in equal instalments over time, for instance splitting an inheritance into twelve equal monthly investments, rather than investing the entire amount immediately. The strategy is widely recommended by financial advisors as a way to reduce the risk of poor timing, since spreading purchases across many months means you buy at a mix of higher and lower prices rather than gambling everything on a single day's market level. It has become one of the most commonly repeated pieces of retail investing advice, often presented as an almost universally safer choice.</p>
+      <p>A widely cited 2012 research paper by Vanguard (先鋒集團), titled "Dollar-Cost Averaging Just Means Taking Risk Later," tested this assumption against historical market data across the United States, United Kingdom, and Australia. The analysis found that investing a lump sum immediately outperformed dollar-cost averaging roughly two-thirds of the time, a direct consequence of stock markets (股票市場) trending upward over most long periods, meaning that any strategy delaying market exposure statistically tends to sacrifice returns rather than protect them. In other words, the "safer-sounding" gradual approach was, on average, the mathematically weaker one across the historical record the researchers examined.</p>
+      <p>Yet dollar-cost averaging (定額定期投資法) is not necessarily poor advice once psychology (心理因素) enters the picture. Behavioural finance research shows investors who commit a large lump sum immediately and then experience a market downturn shortly afterward are considerably more prone to panic-selling at a loss or abandoning their investment plan altogether, permanently damaging their real-world returns in a way a backtested historical average cannot capture. For an investor genuinely likely to make an emotional error after a poorly timed lump-sum investment, dollar-cost averaging's statistically "worse" expected return may still be the better real-world choice, since a strategy that gets followed consistently usually beats an optimal one abandoned halfway.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/New_York_Stock_Exchange" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Investing a lump sum all at once usually beats spreading it out &mdash; but if spreading it out is what keeps you from panic-selling later, the "worse" strategy can still be the right one for you.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Vanguard's 2012 research find when comparing lump-sum investing to dollar-cost averaging, and why might DCA still make sense for some investors?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Vanguard found lump-sum investing outperformed dollar-cost averaging roughly two-thirds of the time historically, since markets tend to rise over long periods. DCA can still suit investors prone to panic-selling after a poorly timed lump sum, since it may improve the odds they stick with their plan.</div>
+      </details>
+      <div class="source">&#x1F4D6; Vanguard Research (2012), "Dollar-Cost Averaging Just Means Taking Risk Later"; <em>Journal of Financial Planning</em>, behavioural finance literature on investor loss aversion.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Tax Cut That Was Supposed to Change Nothing</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/16/Official_Portrait_of_President_Reagan_1981.jpg" alt="Official portrait of President Ronald Reagan, 1981" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">President Ronald Reagan, whose 1981 tax cuts became a real-world test of Ricardian equivalence. Credit: <a href="https://en.wikipedia.org/wiki/Ronald_Reagan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In 1981, the Reagan administration's Economic Recovery Tax Act cut income tax rates while government spending kept rising, producing large, sustained federal budget deficits (聯邦財政赤字) through the 1980s &mdash; yet consumer spending kept climbing rather than falling in anticipation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Ricardian equivalence (李嘉圖等價定理), tracing to economist David Ricardo (大衛&middot;李嘉圖) and formalised by Robert Barro's (羅伯特&middot;巴羅) 1974 paper, argues rational taxpayers anticipate that deficit-financed tax cuts must be repaid through higher future taxes, so they save the windfall rather than spend it, leaving total demand unchanged.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Contrary to the theory's prediction, US household savings rates did not rise to offset the 1980s deficits; consumption instead increased following the tax cuts, suggesting households were not fully internalising the future tax burden the deficits implied.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economists including Robert Hall and Frederic Mishkin (霍爾與米甚金) point to liquidity-constrained households (流動性受限家庭) unable to borrow against future income, who spend a tax cut immediately regardless of later implications; whether any degree of Ricardian equivalence holds in practice remains actively disputed.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A theory said a 1981 tax cut should leave total spending unchanged because people would save it for future tax bills &mdash; instead they spent it, and economists still argue over exactly why.</div>
+      <div class="source">&#x1F4D6; Barro, R.J. (1974), "Are Government Bonds Net Wealth?" <em>Journal of Political Economy</em> 82(6); NBER working papers on Ricardian equivalence and liquidity constraints. Never recycles Card 10 domain (individual dollar-cost-averaging psychology vs. macroeconomic fiscal policy theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 2 &amp; 4 &mdash; From Battlefield to Blackboard:</strong> The Xinhai Revolution's young fighters, including future philosopher Xiong Shili (熊十力), toppled a two-thousand-year-old political order through direct armed uprising, believing overturning the emperor would be enough to remake China. Xiong later concluded that political revolution alone hadn't reached deep enough, and turned the same restless refusal to accept inherited authority against his own Buddhist teacher's orthodox doctrine, producing an intellectual rupture nearly as controversial as the one he had once fought for with a rifle.</p>
+      <p><strong>So what:</strong> Both cards suggest the hardest authority to overthrow often isn't the one furthest away &mdash; it's the one you were personally trained to trust.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Chauvin, G. et al. (2004), <em>Astronomy &amp; Astrophysics</em> 425(2); European Southern Observatory press materials.</li>
+      <li><strong>Card 2:</strong> 《清史稿》；Esherick, J.W. (1976), <em>Reform and Revolution in China</em>, University of California Press; Britannica, "Chinese Revolution of 1911."</li>
+      <li><strong>Card 3:</strong> Britannica, "Council of Nicaea"; Ayres, L. (2004), <em>Nicaea and Its Legacy</em>, Oxford University Press.</li>
+      <li><strong>Card 4:</strong> 熊十力《新唯識論》；郭齊勇《熊十力哲學研究》；Makeham, J. (2003), <em>New Confucianism: A Critical Examination</em>, Palgrave Macmillan.</li>
+      <li><strong>Card 5:</strong> Hume, D. (1739), <em>A Treatise of Human Nature</em>, Book III; Stanford Encyclopedia of Philosophy, "Hume's Moral Philosophy."</li>
+      <li><strong>Card 6:</strong> Thorndike, E.L. (1920), <em>Journal of Applied Psychology</em> 4(1); Dion, K., Berscheid, E. &amp; Walster, E. (1972), <em>Journal of Personality and Social Psychology</em> 24(3).</li>
+      <li><strong>Card 7:</strong> Ingram, C.J.E. et al. (2009), <em>Human Genetics</em> 124(6); NIH, "Lactose Intolerance."</li>
+      <li><strong>Card 8:</strong> Buijze, G.A. et al. (2016), <em>PLOS ONE</em> 11(9); CDC, "Common Cold."</li>
+      <li><strong>Card 9:</strong> Grgic, J. et al. (2022), <em>Sports Medicine</em> 52; NSCA, <em>Essentials of Strength Training and Conditioning</em>.</li>
+      <li><strong>Card 10:</strong> Vanguard Research (2012), "Dollar-Cost Averaging Just Means Taking Risk Later"; <em>Journal of Financial Planning</em>.</li>
+      <li><strong>Card 11:</strong> Barro, R.J. (1974), <em>Journal of Political Economy</em> 82(6); NBER working papers on Ricardian equivalence.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-05: First Direct Image of an Exoplanet (2M1207b) &bull; 辛亥革命 (Xinhai Revolution) &bull; The Council of Nicaea &bull; 熊十力與《新唯識論》 &bull; Hume's Guillotine / Is-Ought Problem &bull; The Halo Effect &bull; Lactase Persistence &bull; Cold Showers &amp; Immunity Myth &bull; Training to Failure &bull; Dollar-Cost Averaging vs Lump-Sum Investing &bull; Ricardian Equivalence</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-05.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-05.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 5 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
