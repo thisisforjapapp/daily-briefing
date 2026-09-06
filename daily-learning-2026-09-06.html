@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 6 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Sunday, 6 September 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>5 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; First Exoplanet Photo</span>ESO's Very Large Telescope captured the first direct photo of a planet beyond our solar system, 2M1207b, sparking a planet-vs-brown-dwarf debate.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 辛亥革命</span>漢口意外爆炸提前引爆武昌起義，終結兩千年帝制。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Council of Nicaea</span>Constantine convened 300 bishops to settle whether Christ was divine, producing the Nicene Creed and exiling the dissenter Arius.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 熊十力</span>熊十力提出「體用不二」，公然挑戰恩師唯識學正統，掀起近代佛學論戰。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Hume's Guillotine</span>David Hume showed moral writers illicitly slide from "is" to "ought" with no logical bridge between them.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Halo Effect</span>One good trait, like attractiveness, quietly biases how we judge someone's totally unrelated qualities.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Lactase Persistence</span>Losing the ability to digest milk as an adult is the human default; only some populations evolved genes to keep drinking it.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Cold Showers & Immunity</span>Cold showers cut how often people call in sick, but not how often they're actually ill &mdash; no real immunity boost found.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Training to Failure</span>Training to complete failure builds similar muscle to stopping a few reps short, but costs far more recovery time.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; DCA vs Lump Sum</span>Lump-sum investing wins more often historically, but dollar-cost averaging can still beat it for panic-prone investors.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Ricardian Equivalence</span>Reagan-era tax cuts should have left spending unchanged if households saved for future taxes, but consumption rose anyway.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Baby Planets We Weren&#x2019;t Supposed to See Yet</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2014, a network of radio dishes spread across a Chilean desert pointed at a faint, young star only about a million years old &mdash; barely a newborn by cosmic standards. Standard theory said any planets there should still be nothing more than scattered dust and pebbles, far too young to have taken shape. Before reading on, what do you think the resulting image actually showed, and why did it stun the astronomers who saw it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/HL_Tau_protoplanetary_disk.jpg" alt="ALMA image of the protoplanetary disk around the young star HL Tauri, showing concentric bright and dark rings" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The protoplanetary disk around the young star HL Tauri, imaged by ALMA in 2014 &mdash; the sharpest picture ever taken of planet-forming rings this early. Credit: <a href="https://en.wikipedia.org/wiki/HL_Tauri" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 2014, astronomers pointed the Atacama Large Millimeter/submillimeter Array (阿塔卡瑪大型毫米/次毫米波陣列, ALMA) &mdash; 66 linked dish antennas spread across Chile's (智利) high desert &mdash; at a faint, young star called HL Tauri (金牛座HL), roughly 450 light-years away. Instead of the smooth, featureless haze most astronomers expected around a star only about a million years old, the resulting image stunned the field: a crisp series of concentric bright and dark rings, like grooves on a vinyl record, carved into the disk of gas and dust (原行星盤) surrounding the newborn star. It was the sharpest picture ever taken of a planet-forming disk, and nobody had expected this much structure this early.</p>
+      <p>The gaps between the rings were the real surprise. Standard models held that planets take many millions of years to fully form, growing slowly as dust grains stick together, clump, and eventually sweep up material along their orbits. But HL Tauri's disk showed several distinct gaps already carved out at an age when, by that timeline, planets had no business existing yet. The leading explanation was that unseen protoplanets (原行星), still forming, were already massive enough to gravitationally clear lanes of debris out of their paths &mdash; essentially bulldozing grooves into the surrounding material the same way Saturn's (土星) moons carve gaps into its rings.</p>
+      <p>The image forced planetary scientists to rethink how quickly planet formation actually begins. If ALMA's resolution could catch gaps this defined around a star as young as HL Tauri, then either planets assemble far faster than existing models predicted, or some other unseen mechanism &mdash; magnetic effects, or instabilities within the disk itself &mdash; was carving the rings before planets even existed. Follow-up observations of other young star systems have since found similar ringed structures, suggesting HL Tauri wasn't a fluke but a first glimpse of a much more common, and much faster, process than anyone had modelled.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/HL_Tauri" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A single radio-telescope image of a million-year-old star forced astronomers to rethink how fast planets actually form.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did the gaps in HL Tauri's disk surprise astronomers, given the star's young age?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Standard models said planets take many millions of years to form, but HL Tauri was only about a million years old &mdash; too young for planets to already be massive enough to clear gaps in its disk. This implies planet formation happens much faster than believed, or another mechanism carves the rings.</div>
+      </details>
+      <div class="source">&#x1F4D6; Brogan, C.L. et al. (2015), "First Results from High Angular Resolution ALMA Observations Toward HL Tau," <em>Astrophysical Journal Letters</em> 808(1); ALMA/ESO press release, 2014.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>東京審判&mdash;&mdash;戰勝國審判戰敗國，為何有一位法官投下無罪票？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1946年，同盟國在東京設立軍事法庭，審判二十八名日本戰時軍政要員，包括三度出任首相的東條英機。大多數參與審判的法官都認為證據確鑿，判處多人死刑。然而，來自印度的一位法官卻獨排眾議，撰寫長篇異議書，主張全部被告一律無罪。你認為，這位法官提出的理據會是甚麼？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>東條英機（日本戰時首相兼陸軍大臣，被列為甲級戰犯首要人物）；澳洲大法官威廉&middot;韋伯（遠東國際軍事法庭首席法官）；印度法官拉達賓諾德&middot;帕爾（唯一主張全體被告無罪的法官）。</p>
+        <p><strong>事件：</strong>1946年5月至1948年11月，同盟國於東京市谷設立遠東國際軍事法庭，審判日本二十八名甲級戰犯。</p>
+        <p><strong>時代背景：</strong>日本戰敗投降後由盟軍最高統帥麥克阿瑟主導佔領，仿照紐倫堡審判模式，追究日本發動侵略戰爭及戰爭罪行的最高責任。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cc/IMTFE_court_chamber_2.jpg" alt="遠東國際軍事法庭審判庭內部" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">遠東國際軍事法庭審判庭內部，東京市谷，1946年至1948年。來源：<a href="https://en.wikipedia.org/wiki/International_Military_Tribunal_for_the_Far_East" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1945年8月，日本宣布無條件投降，結束十四年侵略戰爭。盟軍最高統帥麥克阿瑟隨即主導對日佔領，仿照紐倫堡審判納粹戰犯之先例，於1946年5月在東京市谷（戰前日本陸軍士官學校舊址）設立遠東國際軍事法庭，由十一個同盟國各派一名法官組成合議庭，追究日本發動戰爭的最高責任。二十八名被列為「甲級戰犯」的日本軍政要員遭起訴，當中最矚目者，正是曾三度出任首相兼陸軍大臣、被視為太平洋戰爭主要策動者的東條英機。</p>
+      <p>審訊歷時逾兩年半，傳召大批證人，整理出浩繁的證物記錄。1948年11月，法庭以多數意見裁定包括東條英機在內的七名被告死刑，其餘則判處無期徒刑或有期徒刑。然而，來自印度的法官拉達賓諾德&middot;帕爾卻獨排眾議，撰寫長篇異議書，主張全部被告一律無罪。帕爾質疑法庭援引的「反和平罪」屬審訊後才制訂的新罪名，違反「法無明文不為罪」的法治原則，並指控審判實為戰勝國對戰敗國的「勝利者的正義」，未有一併檢視同盟國自身於戰時的行為，包括美軍向廣島、長崎投下原子彈。</p>
+      <p>1948年12月23日，東條英機等七名甲級戰犯在巢鴨監獄被處以絞刑。帕爾法官的異議雖未能左右判決，卻在戰後日本國內引發長久迴響，部分右翼團體至今仍援引其論點，質疑東京審判的正當性；而支持審判者則反駁，帕爾的異議忽略了日本軍方在戰爭期間犯下的具體暴行證據。東京審判連同紐倫堡審判，共同確立了「反和平罪」與「反人道罪」等現代國際法原則，成為往後審判戰爭罪行的重要先例。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/International_Military_Tribunal_for_the_Far_East" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 東京審判判處七名甲級戰犯死刑，卻有一位法官全程異議，認為戰勝者審判戰敗者本身，正正違反了法治精神。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 印度法官帕爾為何主張所有被告一律無罪？他的異議理據是甚麼？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">帕爾質疑法庭援引的「反和平罪」是審訊後才制訂的新罪名，違反「法無明文不為罪」原則；他又指控審判只是戰勝國對戰敗國的「勝利者的正義」，未有一併檢視同盟國自身於戰時的行為。</div>
+      </details>
+      <div class="source">&#x1F4D6; Boister, N. &amp; Cryer, R. (2008), <em>The Tokyo International Military Tribunal: A Reappraisal</em>, Oxford University Press; Britannica, "Tokyo Trials."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Ship That Was Never Supposed to Sink</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In April 1912, the largest passenger ship ever built at the time set out on its very first voyage, widely advertised as practically unsinkable. Before reading on, what do you think went wrong on the night it struck an iceberg &mdash; and why do you think so many people died even though the ship took nearly three hours to fully sink?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Captain Edward Smith (愛德華&middot;史密夫), the ship's veteran commander; Bruce Ismay (伊斯梅), managing director of the White Star Line (白星航運公司); wireless operator Jack Phillips (菲利普斯), who kept sending distress signals until the last possible moment.</p>
+        <p><strong>Event at stake:</strong> the sinking of the RMS Titanic (鐵達尼號) on the night of 14&ndash;15 April 1912, after striking an iceberg (冰山) during its maiden voyage from Southampton (南安普敦) to New York.</p>
+        <p><strong>Big picture:</strong> the height of the transatlantic ocean-liner rivalry (跨大西洋郵輪競賽) between Britain and Germany, an era of supreme confidence in industrial engineering, where outdated safety regulations had not kept pace with ship size.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/RMS_Titanic_3_%28cropped_to_ship%29.jpg/3840px-RMS_Titanic_3_%28cropped_to_ship%29.jpg" alt="The RMS Titanic departing on its maiden voyage in 1912" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The RMS Titanic, the largest passenger ship afloat at the time of its 1912 maiden voyage. Credit: <a href="https://en.wikipedia.org/wiki/RMS_Titanic" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>On the night of 14 April 1912, the RMS Titanic (鐵達尼號), the largest passenger ship afloat at the time, was steaming at close to full speed through the North Atlantic (北大西洋) on its maiden voyage, despite having received multiple ice warnings from other ships earlier that day. Captain Edward Smith (愛德華&middot;史密夫), a veteran White Star Line (白星航運公司) commander nearing retirement, had not slowed the vessel significantly, a common practice at the time given the era's confidence in large ships' ability to withstand collisions. At 11:40pm, lookouts spotted an iceberg (冰山) directly ahead, too late for the ship to turn fully clear; it struck a glancing blow along its starboard side.</p>
+      <p>The collision buckled the hull's steel plates and popped rivets along roughly 90 metres of the ship's side, flooding five of its watertight compartments (水密隔艙) &mdash; one more than the ship's design could survive while staying afloat. Fatally, the compartment walls did not extend high enough, so water simply spilled over the top of each one into the next as the bow sank lower, a design flaw that made the ship's celebrated "unsinkable" reputation catastrophically misleading. Wireless operator Jack Phillips (菲利普斯) began transmitting distress calls, but the nearest ship close enough to help, the SS Californian (加州人號), had its radio operator off duty and asleep, and never received the message.</p>
+      <p>Because outdated British Board of Trade (英國貿易委員會) regulations calculated lifeboat requirements by a ship's tonnage rather than its actual passenger capacity, the Titanic carried lifeboats for barely half of the roughly 2,224 people aboard, and several boats were launched only partially full amid the confusion. Of those aboard, more than 1,500 died, mostly from hypothermia (體溫過低) in the near-freezing water rather than drowning outright. The disaster's scale directly led to the first International Convention for the Safety of Life at Sea (國際海上人命安全公約, SOLAS) in 1914, mandating lifeboat space for every passenger, round-the-clock wireless watches, and a permanent international ice patrol (國際冰情監察) that continues today.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/RMS_Titanic" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Titanic's lifeboat shortage wasn't an oversight in its design &mdash; it was fully legal under regulations that had never anticipated a ship this large.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What design flaw let water spill from one flooded compartment into the next aboard the Titanic, and why were there so few lifeboats?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The watertight compartment walls didn't extend high enough, so water simply overflowed the top of each one as the bow sank, flooding compartments in sequence. Lifeboat numbers were legal under regulations that sized them to a ship's tonnage rather than its actual passenger count.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Titanic"; Ballard, R.D. (1987), <em>The Discovery of the Titanic</em>; International Convention for the Safety of Life at Sea (SOLAS), 1914 origins.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>譚嗣同&mdash;&mdash;變法失敗後，他為何選擇留下來赴死？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1898年戊戌變法失敗，慈禧太后發動政變，多名維新派人士連夜出走避禍。譚嗣同卻拒絕師友勸他一同出逃的安排，甘願留在北京等候被捕。你認為，一個本可安然逃生的讀書人，為何寧願選擇留下赴死？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>譚嗣同（1865&ndash;1898年，湖南瀏陽人，維新派思想家，著有《仁學》）；康有為、梁啟超（維新變法主要領袖，政變後成功出逃）；慈禧太后（發動政變，幽禁光緒帝，下令捕殺維新黨人）。</p>
+        <p><strong>事件：</strong>1898年戊戌變法（百日維新）失敗後，譚嗣同拒絕逃亡，被捕後與其餘五人同被處斬，史稱「戊戌六君子」。</p>
+        <p><strong>時代背景：</strong>甲午戰敗後民族危機加深，光緒帝支持康有為、梁啟超等推行新政，觸動保守勢力既得利益，變法僅推行一百零三日即被慈禧太后政變推翻。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Tansitong.jpg" alt="譚嗣同肖像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">譚嗣同肖像，戊戌變法失敗後拒絕出逃，慷慨就義，年僅三十三歲。來源：<a href="https://en.wikipedia.org/wiki/Tan_Sitong" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>譚嗣同出身湖南官宦世家，早年博覽群書，遊歷四方，深感甲午戰敗、國勢日蹙，遂投身維新變法運動。他所著的《仁學》一書，糅合儒家「仁」的觀念、佛教慈悲思想與西方科學新知（他借用「以太」概念比附貫通萬物的仁），主張衝破束縛人心的「三綱五常」倫理枷鎖，倡言變法圖強、伸張民權。1898年，光緒帝起用康有為、梁啟超等推行新政，譚嗣同亦奉召入京，參與軍機處「軍機四卿」，協助推動改革，變法運動一度轟轟烈烈展開。</p>
+      <p>然而新政觸動了以慈禧太后為首的保守勢力既得利益，維新僅推行一百零三日，慈禧太后即於同年九月發動政變，幽禁光緒帝於瀛台，下令搜捕維新黨人。康有為、梁啟超等聞訊連夜出走，分別經由香港、日本協助逃亡避難，並力勸譚嗣同同行避禍。譚嗣同卻斷然拒絕，聲言「各國變法，無不從流血而成，今日中國未聞有因變法而流血者，有之，請自嗣同始」，堅持留在北京，希望以自身的犧牲喚醒國人變革的決心。</p>
+      <p>譚嗣同旋即被捕入獄，未經正式審訊，即與楊銳、林旭、劉光第、楊深秀、康廣仁五人一同被押赴北京菜市口斬首，史稱「戊戌六君子」。臨刑前，他留下絕命詩「我自橫刀向天笑，去留肝膽兩崑崙」，從容就義，年僅三十三歲。譚嗣同以死明志的抉擇，令戊戌變法的悲劇色彩更添沉重，其《仁學》所倡議衝破綱常束縛的思想，其後亦深刻影響了辛亥革命一代的知識分子。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tan_Sitong" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 譚嗣同相信變法必須有人流血才能喚醒國人，於是選擇親自成為那第一滴血。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 譚嗣同為何拒絕康有為、梁啟超勸他一同出逃避難？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">譚嗣同認為各國變法從來都要經歷流血犧牲才能成功，而中國從未有人因變法而流血，他希望以自身犧牲喚醒國人變革的決心，故堅持留在北京，最終與其餘五人一同就義，史稱「戊戌六君子」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 譚嗣同《仁學》；黃彰健《戊戌變法史研究》；Britannica, "Hundred Days' Reform."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Waiter Who Was Performing at Being a Waiter</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine a waiter in a caf&eacute; who moves a little too smoothly, speaks a little too eagerly, and seems almost to be playing the role of "a waiter" rather than simply being one. Before reading on, what do you think a 20th-century French philosopher meant by arguing that this kind of behaviour reveals something dishonest that almost everyone does about their own freedom?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Jean-Paul Sartre (讓-保羅&middot;沙特), French existentialist (存在主義) philosopher and writer.</p>
+        <p><strong>Problem at stake:</strong> whether people can honestly deny their own radical freedom (自由) by pretending they are simply "being" a fixed social role or identity, rather than actively choosing it moment to moment.</p>
+        <p><strong>Moment:</strong> Sartre developed the concept of "bad faith" (自欺) in his 1943 philosophical work <em>Being and Nothingness</em> (《存在與虛無》), using the vivid example of a Parisian caf&eacute; waiter.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Jean_Paul_Sartre_1965.jpg" alt="Jean-Paul Sartre in 1965" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Jean-Paul Sartre in 1965, whose 1943 <em>Being and Nothingness</em> introduced the concept of "bad faith." Credit: <a href="https://en.wikipedia.org/wiki/Jean-Paul_Sartre" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In <em>Being and Nothingness</em> (《存在與虛無》, 1943), French philosopher Jean-Paul Sartre (讓-保羅&middot;沙特) argued that human beings are radically free (自由) &mdash; condensed into his famous claim that "existence precedes essence" (存在先於本質), meaning we are not born with a fixed nature but must continually create ourselves through our own choices. This freedom, Sartre insisted, is inescapable and often unsettling, producing a background anxiety he called "anguish" (焦慮). To escape that anxiety, Sartre argued, people frequently practise what he called "bad faith" (自欺, <em>mauvaise foi</em>): a form of self-deception where someone denies their own freedom by pretending they are simply, fixedly, "being" some role or identity rather than actively choosing it at every moment.</p>
+      <p>Sartre's most famous illustration is a Parisian caf&eacute; waiter (侍應) whose movements are just slightly too precise, whose voice is just slightly too eager, as though he is performing the role of "waiter" rather than simply working as one. The waiter, Sartre argued, is play-acting at being a fixed "thing," a waiter-in-itself, precisely because fully acknowledging that he is freely choosing this role moment to moment, and could always choose otherwise, is uncomfortable. The same self-deception, Sartre suggested, appears whenever anyone hides behind a fixed social identity &mdash; "I'm just a shy person," "that's not who I am" &mdash; to avoid confronting the freedom to have acted differently.</p>
+      <p>Critics have questioned whether bad faith (自欺) is even logically coherent: if deceiving yourself requires simultaneously knowing and not knowing the truth, it seems to demand a strange kind of doubled consciousness that is hard to explain. Sartre's existentialism (存在主義) more broadly emerged from, and responded to, the moral urgency of Nazi-occupied France (納粹佔領下的法國), where he argued that claiming "I had no choice" was itself always a choice, however painful. The bad faith concept remains widely applied today, well beyond philosophy, in discussions of authenticity and why people cling so tightly to fixed labels about who they supposedly "really are."</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Jean-Paul_Sartre" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Hiding behind "that's just who I am" is, for Sartre, its own quiet act of choosing &mdash; just one dressed up to look like it wasn't a choice at all.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Sartre mean by "bad faith," and what does his caf&eacute; waiter example illustrate about it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Bad faith is a form of self-deception where someone denies their own radical freedom by pretending they are fixedly "being" a role rather than actively choosing it. The caf&eacute; waiter's exaggerated movements show him performing the role of "waiter" to avoid acknowledging he is freely choosing it moment to moment.</div>
+      </details>
+      <div class="source">&#x1F4D6; Sartre, J.-P. (1943), <em>Being and Nothingness</em>; Stanford Encyclopedia of Philosophy, "Jean-Paul Sartre."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why People Will Pay Money Just to Punish an Unfair Offer</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine a stranger is given $100 and told to offer you any split they like &mdash; if you accept, you both keep your shares; if you reject, you both get nothing. Purely rational self-interest says you should accept literally any amount above $0, since something is better than nothing. Before reading on, do you think that's actually how most people behave &mdash; and if not, what do you think they do instead?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Ultimatum_Game_Extensive_Form.svg/500px-Ultimatum_Game_Extensive_Form.svg.png" alt="Extensive-form diagram of the Ultimatum Game" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">An extensive-form diagram of the Ultimatum Game, first tested experimentally by G&uuml;th, Schmittberger &amp; Schwarze in 1982. Credit: <a href="https://en.wikipedia.org/wiki/Ultimatum_game" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1982, German economists Werner G&uuml;th (古斯), Rolf Schmittberger, and Bernd Schwarze designed a deceptively simple experiment called the Ultimatum Game (最後通牒博弈). One participant, the "proposer," is given a sum of money and must offer any split of it to a second participant, the "responder." If the responder accepts, both keep their agreed shares; if they reject, both get nothing. Classical economic theory (古典經濟學理論), built on the assumption of a purely self-interested "homo economicus" (理性經濟人), predicted responders should accept any offer above zero, since even one dollar beats nothing, and proposers should therefore offer close to the smallest possible amount.</p>
+      <p>Real players did not behave this way at all. G&uuml;th's original experiment, and hundreds of replications since, consistently found that offers below roughly 20 to 30% of the total are rejected around half the time, even though rejecting means both players walk away with nothing. Responders appeared willing to sacrifice their own guaranteed payoff purely to punish an offer they perceived as unfair, a finding that directly contradicted the assumption that people act as purely self-interested rational calculators. Proposers, anticipating this, typically offered close to an even split rather than the bare minimum theory predicted, suggesting fairness concerns shape behaviour on both sides of the table.</p>
+      <p>A landmark 2001 cross-cultural study led by anthropologist Joseph Henrich (亨里希) tested the Ultimatum Game across fifteen small-scale societies worldwide and found striking variation tied to each culture's economic life. The Machiguenga (馬奇根加人) of the Peruvian Amazon, who have relatively little economic interdependence, offered and accepted far smaller, more "self-interested" splits close to theory's prediction, while the Lamalera (拉馬萊拉人) whale-hunting communities of Indonesia, whose survival depends on large cooperative group efforts, frequently offered more than half. The results suggested fairness norms in the Ultimatum Game are not hardwired human universals, but reflect the cooperative structures each society actually depends on.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ultimatum_game" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; People will pay a real cost just to punish an offer that feels unfair &mdash; proof that fairness, not just self-interest, is doing genuine work in the human mind.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did G&uuml;th's Ultimatum Game reveal that contradicted classical economic theory, and what did Henrich's 2001 cross-cultural study add?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Responders frequently rejected low offers even though rejecting meant both players got nothing, showing people punish perceived unfairness at a real cost to themselves &mdash; contradicting purely self-interested rational-actor models. Henrich's study found this fairness norm varies by culture, tracking how economically interdependent each society's daily life actually is.</div>
+      </details>
+      <div class="source">&#x1F4D6; G&uuml;th, W., Schmittberger, R. &amp; Schwarze, B. (1982), "An Experimental Analysis of Ultimatum Bargaining," <em>Journal of Economic Behavior &amp; Organization</em> 3(4); Henrich, J. et al. (2001), <em>American Economic Review</em> 91(2).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Real Reason Your Stomach Growls (It's Not Just Hunger)</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most people assume a loudly growling stomach simply means "I'm hungry" and the stomach is empty. Before reading on, do you think an empty stomach is actually the loudest state your gut can be in &mdash; or is there a different, noisier combination going on inside you at that moment?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stomach_colon_rectum_diagram-en.svg/960px-Stomach_colon_rectum_diagram-en.svg.png" alt="Diagram of the human stomach, colon and rectum" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of the human digestive tract, where peristalsis and gas movement produce the sounds known as borborygmi. Credit: <a href="https://en.wikipedia.org/wiki/Borborygmus" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The rumbling sound doctors call borborygmi (腸鳴音) is produced by peristalsis (蠕動), the rhythmic muscular contractions that push food, fluid, and gas through the stomach (胃) and small intestine (小腸). The sound itself is essentially plumbing noise: as muscular waves squeeze a mixture of liquid and gas through the narrow, winding tube of the gut, the gas pockets get compressed and released unevenly, producing the gurgles and growls audible from outside the body. Contrary to popular belief, the loudest growling doesn't necessarily happen when the stomach is completely empty &mdash; it happens when there's a specific mix of both gas and liquid present for the contractions to churn.</p>
+      <p>Roughly two hours after a meal has fully cleared the stomach, the gut switches into a distinct pattern called the migrating motor complex (移行性運動複合波, MMC), a powerful "housekeeping" wave of contractions that sweeps down the length of the small intestine roughly every 90 to 120 minutes, clearing out leftover debris and bacteria between meals. Because there's little food left to muffle or absorb the sound, and because these MMC waves are unusually strong, this is actually when stomach growling tends to be loudest and most noticeable &mdash; not simply because the stomach is "empty," but because this specific, powerful contraction pattern is actively running with less material around to dampen it.</p>
+      <p>The instinctive link between a growling stomach and felt hunger isn't entirely a myth: the migrating motor complex is partly coordinated by the hormone motilin (胃動素), whose levels rise during fasting between meals, meaning the loud noises and the sensation of hunger do tend to arrive together, just not because one directly causes the other. Eating even a small amount of food interrupts the MMC pattern and quiets the noise temporarily, regardless of whether a person still feels hungry afterward &mdash; which is why a few crackers can silence a growling stomach without meaningfully addressing genuine hunger at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Borborygmus" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Your stomach growls loudest between meals, not because it's empty, but because a powerful "housekeeping" wave of contractions has nothing left to muffle the noise.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the migrating motor complex, and why does it make stomach growling louder between meals rather than during them?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The migrating motor complex is a powerful housekeeping wave of contractions that sweeps through the small intestine roughly every 90&ndash;120 minutes between meals, clearing leftover debris. It produces louder growling between meals because there's little food left to muffle the sound, not simply because the stomach is empty.</div>
+      </details>
+      <div class="source">&#x1F4D6; NIH, "Gastrointestinal Motility"; Sanger, G.J. &amp; Lee, K. (2008), "Hormones of the Gut-Brain Axis as Targets for the Treatment of Upper GI Disorders," <em>Nature Reviews Drug Discovery</em> 7(3).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Does the "Five-Second Rule" Actually Hold Up?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Almost everyone has picked up dropped food off the floor within a few seconds and eaten it anyway, reassured by the popular belief that bacteria need more than five seconds to transfer onto it. Before reading on, do you think contact time actually matters that much for whether dropped food picks up harmful bacteria &mdash; or does something else determine it far more?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Spilled_strawberries.jpg" alt="Spilled strawberries on the ground" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Spilled food &mdash; the moment at the centre of the "five-second rule" debate. Credit: <a href="https://en.wikipedia.org/wiki/Five-second_rule" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The idea that food is safe to eat if picked up within five seconds of hitting the floor has no real scientific origin. It's often traced informally to a 2003 project by then-high-school-intern Jillian Clarke (克拉克) at the University of Illinois, whose small study, presented at an outreach event rather than published as peer-reviewed research, actually found many people believed and followed the rule, not that it was scientifically valid. The catchy "rule" spread through popular culture largely detached from any rigorous evidence about how bacteria actually behave on surfaces and food.</p>
+      <p>A more rigorous 2016 study by food scientists Donald Schaffner (沙夫納) and Robyn Miranda at Rutgers University (羅格斯大學), published in <em>Applied and Environmental Microbiology</em>, tested bacterial transfer across four surfaces and four contact times, from under one second up to 300 seconds. The study found that bacterial transfer to food happens essentially instantaneously on contact &mdash; measurable amounts of bacteria moved onto food in under one second &mdash; meaning the five-second window offers close to no real protection at all. Longer contact time did increase the total bacteria transferred somewhat, but the bulk of the risk was already present the instant food touched a contaminated surface.</p>
+      <p>What mattered far more than timing, the study found, was moisture: wetter foods like watermelon picked up dramatically more bacteria than dry foods like gummy candy, because moisture on the food's surface helps bacteria adhere far more effectively than a dry surface does. The type of flooring also affected transfer rates, with carpet transferring the least bacteria and tile or stainless steel transferring the most. In practice, this means a dropped piece of dry toast on a clean tile floor carries a genuinely different risk profile than a wet slice of fruit on the same floor &mdash; timing barely enters the equation at all.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Five-second_rule" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Bacteria don't wait five seconds to jump onto dropped food &mdash; what actually matters is how wet the food is and what surface it lands on.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to the 2016 Rutgers study, what actually determines how much bacteria transfers to dropped food, if not the five-second window?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Bacterial transfer happens almost instantaneously on contact, so the five-second window offers little real protection. What matters far more is the food's moisture level and the type of surface it falls on &mdash; wetter foods and harder surfaces like tile transfer significantly more bacteria than dry foods or carpet.</div>
+      </details>
+      <div class="source">&#x1F4D6; Miranda, R.C. &amp; Schaffner, D.W. (2016), "Longer Contact Times Increase Cross-Contamination of Enterobacter aerogenes from Surfaces to Food," <em>Applied and Environmental Microbiology</em> 82(21); Rutgers University press materials.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why 1,000 Sit-Ups a Day Won't Give You a Flat Stomach</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A huge share of gym-goers believe that doing targeted exercises for a specific body part &mdash; endless sit-ups for belly fat, for instance &mdash; will burn fat from that exact spot faster than from anywhere else. Before reading on, do you think working one muscle group actually burns fat preferentially from the skin covering it, or does fat loss work in a completely different way?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/FloorCrunch.JPG" alt="A person performing a floor crunch abdominal exercise" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A floor crunch &mdash; a classic targeted abdominal exercise at the centre of the spot-reduction debate. Credit: <a href="https://en.wikipedia.org/wiki/Crunch_(exercise)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The belief that exercising a specific muscle burns fat preferentially from the skin covering that exact muscle, commonly called "spot reduction" (局部減脂), has been tested directly and repeatedly rejected by exercise science. When the body needs energy during exercise, it primarily mobilises fat via the hormone-sensitive lipase (激素敏感脂肪酶) pathway, releasing stored fat from adipose tissue (脂肪組織) throughout the entire body into the bloodstream to be used wherever it's needed, not preferentially from the specific muscle being worked. Which subcutaneous fat deposits (皮下脂肪) shrink first is instead governed mostly by genetics, sex hormones, and overall body fat percentage, none of which any single exercise can selectively target.</p>
+      <p>A frequently cited controlled study trained one group of participants' abdominal muscles intensively for six weeks using targeted sit-ups and crunches (仰臥起坐), while measuring both abdominal strength and abdominal subcutaneous fat thickness via skinfold measurements before and after. Abdominal muscular endurance improved substantially, confirming the exercise itself worked as intended &mdash; but abdominal fat thickness showed no significant reduction compared to a non-exercising control group, directly contradicting the spot-reduction assumption. Similar unilateral-training studies, where only one arm or leg is trained, have found fat loss occurring roughly equally across trained and untrained limbs, reinforcing that fat mobilisation is a whole-body process.</p>
+      <p>The practical implication is that visible abdominal muscles (腹肌) depend far more on overall body fat percentage, achieved through a sustained caloric deficit (熱量赤字) across diet and total exercise volume, than on which specific exercises someone performs. Ab-focused exercises are genuinely valuable for building core strength (核心肌力), improving posture, and supporting the spine during other lifts, but they should be understood as strengthening exercises rather than fat-burning shortcuts for a specific area. Someone hoping to see visible abs is, in practice, better served by total-body training plus dietary changes than by adding more targeted sit-ups.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Crunch_(exercise)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Fat comes off your whole body based on overall energy balance &mdash; no single exercise can reach in and burn fat from just one spot.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What actually determines which fat deposits shrink first during weight loss, if not which specific muscle you exercise?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Fat is mobilised from adipose tissue throughout the entire body via the hormone-sensitive lipase pathway, not preferentially from the muscle being worked. Which deposits shrink first is governed mainly by genetics, sex hormones, and overall body fat percentage, not by targeting specific exercises at that body part.</div>
+      </details>
+      <div class="source">&#x1F4D6; Vispute, S.S. et al. (2011), "The Effect of Abdominal Exercise on Abdominal Fat," <em>Journal of Strength and Conditioning Research</em> 25(9); NSCA position statements on training program design.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Bubble So Big, Tokyo's Palace Grounds Were "Worth" More Than California</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">At the peak of Japan's asset bubble in the late 1980s, a commonly repeated calculation claimed the land under the Imperial Palace in Tokyo was theoretically worth more than the entire real estate value of the U.S. state of California. Before reading on, what do you think drove Japanese real estate and stock valuations to such extremes, and what do you think eventually happened when the bubble burst?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Nikkei_225_Index.webp/3840px-Nikkei_225_Index.webp.png" alt="Chart of the Nikkei 225 index showing its late-1980s peak and collapse" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Nikkei 225 index, whose late-1980s surge and early-1990s collapse defined Japan's asset price bubble. Credit: <a href="https://en.wikipedia.org/wiki/Japanese_asset_price_bubble" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Following the 1985 Plaza Accord (廣場協議), an international agreement that deliberately pushed the Japanese yen (日圓) sharply higher against the U.S. dollar to ease American trade deficits, Japan's export-driven economy slowed, prompting the Bank of Japan (日本銀行) to slash interest rates aggressively to stimulate domestic demand. Cheap, abundant credit flowed instead into real estate and stock speculation rather than productive investment, sending the Nikkei 225 (日經225指數) stock index and urban land prices soaring to extraordinary levels between 1986 and 1989. By 1989, the combined value of Japanese real estate alone was estimated at several times the entire land value of the United States, despite Japan's far smaller physical land area.</p>
+      <p>Convinced the boom had spun dangerously out of control, the Bank of Japan sharply raised interest rates starting in 1989, and the Ministry of Finance (大藏省) imposed direct restrictions on bank lending to the real estate sector. The Nikkei 225, which had peaked at nearly 39,000 points on the very last trading day of 1989, began an extended collapse, ultimately losing well over half its value within a few years and continuing to decline for years afterward. Property prices, especially in central Tokyo (東京), fell just as sharply, leaving banks holding enormous volumes of loans secured against real estate now worth a fraction of its former value.</p>
+      <p>Rather than recognising the losses immediately, many Japanese banks quietly rolled over bad loans to insolvent borrowers for years, a practice later dubbed keeping "zombie companies" (殭屍企業) artificially alive, which delayed the necessary economic restructuring and deepened Japan's subsequent stagnation. The resulting period, commonly called the "Lost Decade" (失落的十年) and later extended to the "Lost Decades" (失落的數十年) as growth remained weak into the 2000s and beyond, became a widely studied cautionary case in economic history of how cheap credit, currency shock, and delayed loss recognition can combine to trap an advanced economy in prolonged stagnation.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Japanese_asset_price_bubble" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Japan's bubble didn't burst because the economy failed &mdash; it burst because central-bank-driven cheap credit had nowhere productive left to go but speculation.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What role did the 1985 Plaza Accord play in setting up Japan's asset price bubble, and why did the eventual crash lead to such prolonged stagnation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Plaza Accord pushed the yen sharply higher, slowing Japan's exports; the Bank of Japan responded by cutting interest rates, and the resulting cheap credit flowed into real estate and stock speculation instead of productive investment. Stagnation was prolonged because banks rolled over bad loans to insolvent "zombie" borrowers instead of recognising losses, delaying necessary restructuring.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Japanese asset price bubble"; Federal Reserve Bank of San Francisco and IMF working papers on Japan's Lost Decade; Bank of Japan historical monetary policy records.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Trade Theory That Promised Painless Change</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Bethlehem_Steel_%281%29.JPG/330px-Bethlehem_Steel_%281%29.JPG" alt="A former steel plant in the American Rust Belt" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A former steel plant in the American Rust Belt, the region most concentrated by the "China Shock" manufacturing job losses. Credit: <a href="https://en.wikipedia.org/wiki/Rust_Belt" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">After China's (中國) 2001 accession to the World Trade Organization (世界貿易組織), a surge of low-cost Chinese manufacturing imports hit the United States; between 1999 and 2011, an estimated 2 to 2.4 million U.S. jobs were displaced, heavily concentrated in specific manufacturing-dependent local labour markets rather than spread evenly nationwide.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Comparative advantage (比較優勢), formalised by David Ricardo (大衛&middot;李嘉圖) in 1817, predicts that trade with a lower-cost producer benefits both countries overall, with displaced workers smoothly reallocating to other, more competitive industries and regions as the economy adjusts.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Economists David Autor, David Dorn, and Gordon Hanson's influential "China Shock" (中國衝擊) research (2013, 2016) found affected U.S. regions saw depressed wages and employment persist for over a decade, with little of the predicted worker reallocation to new industries or migration to healthier local labour markets.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Newer trade and economic-geography models emphasising local labour-market frictions and the real costs of retraining and relocating workers better explain the slow adjustment; how much trade-adjustment-assistance policy can actually fix versus merely cushion the transition remains an open, actively debated question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; Trade theory promised painlessly reallocated workers &mdash; reality showed entire towns absorbing the shock for over a decade with nowhere obvious to go.</div>
+      <div class="source">&#x1F4D6; Autor, D., Dorn, D. &amp; Hanson, G. (2013), "The China Syndrome," <em>American Economic Review</em> 103(6); Autor, D. et al. (2016), "The China Shock," <em>Annual Review of Economics</em> 8. Never recycles Card 10 domain (Japanese real-estate/stock bubble macro history vs. international trade and labour-market theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 9 &amp; 11 &mdash; Where You'd Expect Localised Effects, and Where You Wouldn't:</strong> The spot-reduction myth assumes that effort applied to one specific body part should produce fat loss right at that spot &mdash; but the body actually draws down fat as a systemic, whole-body process with no local shortcut available. The "China Shock" research found almost the opposite pattern: trade theory predicted the costs of import competition would spread out and dissolve smoothly across the whole economy, yet the damage instead landed hard on specific, geographically concentrated manufacturing towns that took over a decade to recover, if they ever fully did.</p>
+      <p><strong>So what:</strong> Whether it's a body or an economy, assuming a system will distribute change exactly where common sense expects it to is often exactly backwards &mdash; the real distribution has to be measured, not assumed.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Brogan, C.L. et al. (2015), <em>Astrophysical Journal Letters</em> 808(1); ALMA/ESO press release, 2014.</li>
+      <li><strong>Card 2:</strong> Boister, N. &amp; Cryer, R. (2008), <em>The Tokyo International Military Tribunal: A Reappraisal</em>, Oxford University Press; Britannica, "Tokyo Trials."</li>
+      <li><strong>Card 3:</strong> Britannica, "Titanic"; Ballard, R.D. (1987), <em>The Discovery of the Titanic</em>; SOLAS 1914 origins.</li>
+      <li><strong>Card 4:</strong> 譚嗣同《仁學》；黃彰健《戊戌變法史研究》；Britannica, "Hundred Days' Reform."</li>
+      <li><strong>Card 5:</strong> Sartre, J.-P. (1943), <em>Being and Nothingness</em>; Stanford Encyclopedia of Philosophy, "Jean-Paul Sartre."</li>
+      <li><strong>Card 6:</strong> G&uuml;th, W. et al. (1982), <em>Journal of Economic Behavior &amp; Organization</em> 3(4); Henrich, J. et al. (2001), <em>American Economic Review</em> 91(2).</li>
+      <li><strong>Card 7:</strong> NIH, "Gastrointestinal Motility"; Sanger, G.J. &amp; Lee, K. (2008), <em>Nature Reviews Drug Discovery</em> 7(3).</li>
+      <li><strong>Card 8:</strong> Miranda, R.C. &amp; Schaffner, D.W. (2016), <em>Applied and Environmental Microbiology</em> 82(21); Rutgers University press materials.</li>
+      <li><strong>Card 9:</strong> Vispute, S.S. et al. (2011), <em>Journal of Strength and Conditioning Research</em> 25(9); NSCA position statements.</li>
+      <li><strong>Card 10:</strong> Britannica, "Japanese asset price bubble"; Federal Reserve Bank of San Francisco / IMF working papers.</li>
+      <li><strong>Card 11:</strong> Autor, D., Dorn, D. &amp; Hanson, G. (2013, 2016), <em>American Economic Review</em> 103(6); <em>Annual Review of Economics</em> 8.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-06: First Ringed Protoplanetary Disk Image (HL Tauri, ALMA) &bull; 東京審判 (Tokyo Trials) &bull; The Sinking of the Titanic &bull; 譚嗣同與戊戌變法殉難 &bull; Sartre's Bad Faith &bull; The Ultimatum Game &bull; Stomach Growling / Borborygmi &bull; The Five-Second Rule &bull; The Spot Reduction Myth &bull; The Japanese Asset Price Bubble &bull; The "China Shock"</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-06.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-06.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 6 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
