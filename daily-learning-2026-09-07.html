@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 7 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Monday, 7 September 2026 &nbsp;&middot;&nbsp; ~24 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>6 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; HL Tauri's Rings</span>ALMA's 2014 image of a million-year-old star showed planet-clearing rings far earlier than theory predicted planets could exist.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 東京審判</span>印度法官帕爾獨排眾議，質疑戰勝者審判戰敗者本身違反法治精神。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Titanic</span>Outdated tonnage-based lifeboat rules, not just the iceberg, explain why so many died that night.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 譚嗣同</span>他拒絕出逃，甘願以死喚醒國人變法圖強的決心。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Sartre's Bad Faith</span>Sartre's café waiter performs "being a waiter" to hide from his own uncomfortable freedom to choose otherwise.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Ultimatum Game</span>People reject unfair money offers roughly half the time, even when rejecting means both sides get nothing.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Stomach Growling</span>Growling peaks between meals, not from an empty stomach, but from a powerful housekeeping contraction wave.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Five-Second Rule</span>Bacteria transfer to dropped food almost instantly &mdash; moisture and surface type matter far more than timing.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Spot Reduction Myth</span>Six weeks of targeted sit-ups built ab strength but didn't preferentially burn ab fat at all.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Japan's Asset Bubble</span>Cheap post-Plaza-Accord credit inflated Tokyo land and stocks to absurd highs, then decades of "zombie" bank loans delayed the recovery.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The "China Shock"</span>Trade theory promised smooth worker reallocation; instead, specific US manufacturing towns bore the cost for over a decade.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Rings Nobody Had Seen Clearly in 33 Years</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1989, Voyager 2 flew past Neptune and sent back a blurry, dusty smudge where its rings should be &mdash; nothing like Saturn's dazzling bands. In 2022, a new space telescope pointed at Neptune again. Before reading on, what do you think changed about the picture, and why would simply looking in a different kind of light make such a famously faint set of rings suddenly easy to see?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fe/New_Webb_Image_Captures_Clearest_View_of_Neptune%E2%80%99s_Rings_in_Decades.png" alt="JWST near-infrared image of Neptune showing crisp, bright rings and several moons" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Neptune's rings and dust bands, imaged by the James Webb Space Telescope in July 2022 &mdash; the clearest view since Voyager 2 in 1989. Credit: <a href="https://en.wikipedia.org/wiki/Rings_of_Neptune" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When Voyager 2 flew past Neptune (海王星) in 1989, the only spacecraft ever to visit it, its cameras returned faint, grainy views of a ring system so dusty and dim that scientists nicknamed one arc structure a puzzle in itself. For over three decades afterward, no instrument matched that level of detail. Then in July 2022, the James Webb Space Telescope (詹姆斯&middot;韋伯太空望遠鏡, JWST) turned its near-infrared (近紅外線) camera toward Neptune and returned an image so sharp that narrow, crisp rings and softer dust bands, invisible together in any photo since Voyager 2, suddenly stood out clearly against the planet's dark disk.</p>
+      <p>The trick was choosing the right wavelength of light rather than building a bigger mirror alone. Methane gas (甲烷) in Neptune's atmosphere absorbs strongly at the near-infrared wavelengths JWST observes, so the planet itself appears almost black in the image, starved of reflected sunlight. Neptune's icy, rocky ring particles don't contain methane and barely absorb this light at all, so they shine by comparison against the darkened planet &mdash; the same principle that makes a dim streetlamp suddenly visible once the surrounding sky goes properly dark.</p>
+      <p>The image held a bonus discovery: Neptune's largest moon, Triton (海衛一，特里同), appeared as a brilliant point of light, brighter than the planet itself, because its frozen nitrogen (氮) surface reflects roughly 70% of incoming sunlight back into space. Several of Neptune's fainter, smaller moons also turned up clearly for the first time in a single image. Astronomers now use JWST for repeated seasonal monitoring of the ice giant, tracking how its rings and thin, high-altitude clouds shift over Neptune's 165-year orbit.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Rings_of_Neptune" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Sometimes the breakthrough isn't a bigger telescope &mdash; it's choosing the one wavelength of light where your dark subject suddenly can't hide.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Neptune's rings become clearly visible in JWST's near-infrared image, when the planet itself appeared almost black?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Methane in Neptune's atmosphere strongly absorbs near-infrared light, making the planet appear dark, while the icy ring particles contain no methane and barely absorb it, so they reflect brightly by contrast against the darkened planet.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA James Webb Space Telescope press release, 21 September 2022, "Webb Images Capture Clearest View of Neptune's Rings in Decades"; STScI.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>隋煬帝三征高句麗&mdash;&mdash;一場遠征，如何斷送整個盛世王朝？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">隋煬帝繼位之初，國庫充盈，又開鑿大運河貫通南北，國力一時無兩。他卻先後三次御駕親征遼東的高句麗，甚至一次徵調逾百萬大軍。你認為，這場看似穩操勝券的遠征，最終為何反而拖垮了整個隋朝？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>隋煬帝楊廣（隋朝第二代皇帝，好大喜功，先後開鑿大運河及三征高句麗）；高句麗大臣乙支文德（誘敵深入，於薩水大破隋軍）；楊玄感（禮部尚書之子，趁二征之際於黎陽起兵叛變）。</p>
+        <p><strong>事件：</strong>612年至614年，隋煬帝三度御駕親征遼東高句麗，首征即徵調逾百萬大軍，卻於薩水（清川江）遭遇慘敗。</p>
+        <p><strong>時代背景：</strong>隋煬帝甫繼位即大興土木開鑿大運河，徭役沉重；同時欲藉征服高句麗彰顯天朝威嚴，鞏固統治正當性，卻因此耗盡開國以來累積的國力。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Sui_Yangdi_Tang.jpg" alt="隋煬帝楊廣畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">隋煬帝楊廣畫像。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Yang_of_Sui" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>隋煬帝繼位後，先後徵調數以百萬計民伕開鑿貫通南北的大運河，又於河北大量集結糧草兵員，籌備征討遼東的高句麗。612年，隋煬帝御駕親征，徵發大軍逾百萬，號稱二百萬，分為二十四軍，旌旗綿延數百里，聲勢浩大。大軍圍攻遼東城久攻不下，隋煬帝竟下令前線將領遇高句麗求降必須先奏報朝廷，不得擅自決斷，一再貽誤戰機，令守軍屢次假降拖延時間，重新修築城防。</p>
+      <p>隋煬帝其後另遣一路三十餘萬大軍渡鴨綠江，直撲高句麗都城平壤。高句麗大臣乙支文德將計就計，佯裝敗退，誘使隋軍深入補給線過長之地，待隋軍疲憊糧盡撤退之際，於薩水（今清川江）半渡設伏，隋軍全軍潰散，三十餘萬大軍最終僅得二千七百人生還遼東，是為中國戰爭史上著名慘敗之一。613年，隋煬帝二度親征，圍攻遼東城之際，後方負責督運糧草的禮部尚書之子楊玄感，竟乘機於黎陽起兵叛變，隋煬帝被迫倉皇撤軍平亂，二征無功而還。</p>
+      <p>614年，隋煬帝三度親征，高句麗因連年征戰亦已國力耗損，遣使奉表請降，隋煬帝遂順勢撤軍，三征同樣未竟全功。三次遠征加上大運河工程的沉重徭役，令民不聊生，天下饑民紛紛揭竿而起，瓦崗軍等各路反隋勢力四起，617年李淵於太原起兵，618年隋煬帝被叛將宇文化及縊殺於江都，隋朝隨即滅亡。唐朝繼起後，雖徹底否定隋煬帝的統治，卻沿用其開鑿的大運河及創立的科舉制度，成為往後千年帝制中國的重要基石。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Yang_of_Sui" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 隋煬帝並非敗於高句麗的城牆，而是敗於三征耗盡國力後，天下饑民再也無法承受的沉重徭役。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 薩水之戰隋軍為何全軍潰散？楊玄感又為何能夠乘機起兵叛變？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">乙支文德佯裝敗退，誘使隋軍深入補給線過長之地，待隋軍糧盡疲憊撤退時於薩水半渡設伏，隋軍因而全軍潰散。楊玄感則趁隋煬帝二征遠在遼東、後方督運糧草空虛之際，乘機於黎陽起兵叛變。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《隋書&middot;煬帝紀》；《資治通鑑》卷一百八十一至一百八十二；Britannica, "Sui dynasty."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Tomb That Waited 3,000 Years to Be Found</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">By 1922, a British archaeologist had spent five fruitless years and his patron's fortune searching Egypt's Valley of the Kings for one last undiscovered royal tomb, and the funding was about to be pulled. Before reading on, what do you think his team actually found once digging resumed &mdash; and why do you think it turned out to matter more than almost any other tomb ever opened, despite belonging to a minor, largely forgotten king?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Howard Carter (霍華德&middot;卡特), British archaeologist; George Herbert, 5th Earl of Carnarvon (卡納馮伯爵), his wealthy financial backer.</p>
+        <p><strong>Event at stake:</strong> the November 1922 discovery of the largely intact tomb of the boy-pharaoh Tutankhamun (圖坦卡門) in Egypt's Valley of the Kings (帝王谷).</p>
+        <p><strong>Big picture:</strong> after decades of excavation, most Egyptologists believed the Valley of the Kings was fully explored and looted; Carnarvon had nearly withdrawn funding after years of no results.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/CairoEgMuseumTaaMaskMostlyPhotographed.jpg" alt="The golden death mask of Tutankhamun" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Tutankhamun's golden death mask, among the treasures found virtually undisturbed in his 1922-discovered tomb. Credit: <a href="https://en.wikipedia.org/wiki/Tutankhamun" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>By 1922, Howard Carter (霍華德&middot;卡特) had spent roughly five years digging in Egypt's Valley of the Kings (帝王谷) funded by George Herbert, 5th Earl of Carnarvon (卡納馮伯爵), a wealthy English aristocrat, without a single major find to justify the expense. Carnarvon, ready to cut off funding, agreed to one final season. On 4 November 1922, a water boy on Carter's team stumbled on a step cut into the rock, leading down to a sealed doorway still bearing ancient royal seals &mdash; a sign the tomb behind it might never have been properly opened at all.</p>
+      <p>On 26 November, with Carnarvon now present, Carter made a small breach in the doorway, held up a candle, and peered into the darkness. When Carnarvon anxiously asked if he could see anything, Carter's famous, understated reply was "yes, wonderful things." His candlelight had fallen across gilded couches, dismantled chariots, statues, and cases of jewellery, all in astonishing disarray but almost entirely intact &mdash; unlike nearly every other pharaoh's tomb in the valley, which had been stripped by looters in antiquity, this one had escaped serious plunder.</p>
+      <p>Tutankhamun (圖坦卡門) himself was a minor, short-lived pharaoh who died around age nineteen, yet his modestly sized tomb held over 5,000 objects, including the iconic solid-gold death mask now among the most recognisable artefacts on Earth. The discovery triggered a worldwide wave of "Egyptomania" (埃及熱) in fashion, film, and architecture. Carnarvon died just months later from an infected mosquito bite, a coincidence the press inflated into the enduring legend of the pharaoh's curse (法老的詛咒), even though most excavation team members lived on for decades afterward.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Tutankhamun" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Tutankhamun mattered to history not because he was a great king, but because he was the rare one nobody got around to looting.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why did Tutankhamun's tomb become archaeologically significant despite his being a minor, short-lived pharaoh?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Unlike nearly every other pharaoh's tomb in the Valley of the Kings, which had been stripped by looters in antiquity, Tutankhamun's tomb was found largely intact, preserving thousands of original objects, including its iconic gold death mask, offering an unmatched window into royal burial practice.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "Tutankhamun"; Carter, H. &amp; Mace, A.C. (1923), <em>The Tomb of Tut.ankh.Amen</em>; Smithsonian Magazine, "Egyptomania."</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>大雄與耆那教&mdash;&mdash;為何寧願赤身裸體，也不肯踩死一隻螞蟻？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">古印度有一位苦行者，出身王室卻捨棄一切財富與衣物，赤身裸體苦修十二年；他的追隨者出門時會隨身攜帶拂塵輕掃地面，說話時甚至用布掩住口鼻。你認為，是甚麼樣的信念，會讓人連踩死一隻螞蟻、吸入一隻飛蟲都視為不可饒恕的罪過？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>筏馱摩那（大雄，Mahavira，約公元前599年至前527年，耆那教第二十四代祖師）。</p>
+        <p><strong>事件／思想：</strong>大雄捨棄王室生活出家苦行，證悟後倡導「不害」（अहिंसा，ahimsa）作為貫穿一切生活細節的最高戒律。</p>
+        <p><strong>時代背景：</strong>公元前六世紀印度恆河流域，婆羅門教繁複的祭祀傳統受到各路沙門思潮挑戰，佛教亦於同一時代、同一地域興起。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Mahavir.jpg" alt="大雄（筏馱摩那）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">耆那教第二十四代祖師大雄（筏馱摩那）畫像。來源：<a href="https://en.wikipedia.org/wiki/Mahavira" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>大雄出身印度剎帝利貴族武士家庭，本可承襲王位，卻在約三十歲時毅然捨棄王室的財富、家眷與衣物，出家修行。此後十二年間，他終年赤身裸體，四處遊方乞食，忍受飢餓、嚴寒與旁人的嘲弄侮辱，以極端苦行磨練心志。相傳他在一棵娑羅樹下靜坐冥想，終於突破一切束縛，證得「全知」（kevala jnana，即完全解脫的智慧），此後被尊為耆那教第二十四代、亦是最後一代「渡津者」（Tirthankara，意指引領眾生渡過生死輪迴苦海之人）。</p>
+      <p>「不害」是大雄教義的核心戒律，要求對一切有生命的存在，無論人類、動物，甚至最微小的昆蟲、植物，皆絕不施加任何傷害。耆那教僧侶出門時隨身攜帶一柄拂塵，行走前輕輕拂掃地面，以免無意間踩死路上的螞蟻或小蟲；部分教派的僧侶更以白布掩住口鼻，防止不慎吸入飛蟲而致其死亡。飲食方面，耆那教徒嚴格奉行素食，部分虔誠信眾甚至避免食用洋蔥、大蒜等根莖類蔬菜，理由是拔起植株的動作，同時會傷及依附在泥土中的微小生物。</p>
+      <p>除「不害」外，大雄同時強調「不執」（aparigraha，即不貪戀佔有）與嚴格苦行，主張唯有徹底斷除業力（karma）對靈魂的束縛，方能達致最終解脫。他身後，耆那教因對戒律鬆緊的理解分歧，分裂為堅持裸身苦修的「天衣派」與披著白衣的「白衣派」兩大主流支系，延續至今。大雄「不害」一切生命的思想，其後亦深刻啟發了近代印度政治領袖甘地，成為其非暴力抗爭哲學的重要思想根源。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mahavira" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 對大雄而言，真正的解脫不在於克服敵人，而在於連一隻螞蟻的性命，也不願意用自己的方便去換取。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 耆那教僧侶隨身攜帶拂塵、以布掩口的具體做法，背後反映哪一項核心戒律？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">這些做法反映耆那教「不害」（ahimsa）的核心戒律：拂塵輕掃地面是為免踩死路上的螞蟻或小蟲，以布掩口鼻則是防止不慎吸入並害死飛蟲，兩者皆體現對一切微小生命絕不傷害的極致實踐。</div>
+      </details>
+      <div class="source">&#x1F4D6; Stanford Encyclopedia of Philosophy, "Jain Philosophy"; Britannica, "Mahavira"; Jaini, P.S. (1979), <em>The Jaina Path of Purification</em>, University of California Press.</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Said Kings Don't Rule by God's Will</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">For centuries, European monarchs claimed their authority came directly from God, making rebellion against them not just illegal but sinful. Then in 1689, an English philosopher published a book arguing government's only real legitimacy came from the people it governed. Before reading on, what do you think his alternative foundation for political authority actually was &mdash; and why might it have been dangerous enough to publish anonymously at first?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> John Locke (約翰&middot;洛克), English philosopher.</p>
+        <p><strong>Problem at stake:</strong> whether a monarch's authority comes from divine right (君權神授) or from the consent of the people being governed.</p>
+        <p><strong>Moment:</strong> Locke published <em>Two Treatises of Government</em> (《政府論兩篇》) in 1689, partly to justify England's 1688 Glorious Revolution (光榮革命), which had just deposed King James II.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/db/Godfrey_Kneller_-_Portrait_of_John_Locke_%28Hermitage%29.jpg" alt="Portrait of John Locke by Godfrey Kneller" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">John Locke, whose 1689 <em>Two Treatises of Government</em> grounded political legitimacy in the consent of the governed. Credit: <a href="https://en.wikipedia.org/wiki/John_Locke" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>English philosopher John Locke (約翰&middot;洛克) wrote his <em>Two Treatises of Government</em> (《政府論兩篇》) directly against Robert Filmer's popular argument that kings inherit an unbroken, God-given authority traceable back to Adam, making obedience a religious duty and rebellion a sin. Locke instead imagined a "state of nature" (自然狀態) &mdash; a condition before any government existed &mdash; in which individuals already possess natural rights (自然權利) to life, liberty, and property (生命、自由與財產) simply by virtue of being rational human beings, not because any ruler granted these rights to them.</p>
+      <p>Because the state of nature lacks any neutral authority to fairly judge disputes or punish violations, Locke argued, people voluntarily form a social contract (社會契約), agreeing to create a government whose sole legitimate purpose is protecting the natural rights they already held beforehand. Crucially, this made government's authority conditional rather than absolute: it rests entirely on the continuing consent of the governed (被統治者的同意), and if a government instead violates the very rights it exists to protect, the people retain the right to resist and ultimately replace it &mdash; the argument Locke used to justify the 1688 Glorious Revolution (光榮革命) against James II.</p>
+      <p>Locke's optimistic state of nature stood in sharp contrast to Thomas Hobbes's (霍布斯) earlier <em>Leviathan</em> (《利維坦》, 1651), which portrayed life without government as a brutal "war of every man against every man," justifying only an all-powerful, unaccountable sovereign to keep the peace. Locke's rights-based, consent-driven theory travelled far beyond England: it profoundly shaped Thomas Jefferson's (傑佛遜) language in the American Declaration of Independence (《獨立宣言》, 1776), whose "life, liberty, and the pursuit of happiness" directly echoes Locke's own triad of natural rights.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/John_Locke" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Locke's radical move wasn't inventing rights &mdash; it was insisting government exists to serve rights people already had, not the other way round.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> According to Locke, where does government's legitimate authority ultimately come from, and what happens if it violates that basis?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Government's legitimacy comes from the consent of the governed, granted through a social contract formed to protect natural rights to life, liberty, and property that people already held in the state of nature. If government violates those rights instead of protecting them, the people retain the right to resist and replace it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Locke, J. (1689), <em>Two Treatises of Government</em>; Stanford Encyclopedia of Philosophy, "John Locke."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Everything Looks "Obvious" Once It's Already Happened</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">After any major surprise event &mdash; a market crash, an election result, a sports upset &mdash; it's common to hear people say "I knew that was going to happen all along." Before reading on, do you think most of these people are simply lying to look smart after the fact, or is something stranger going on with how memory itself actually works?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Baruch_Fischhoff.png" alt="Psychologist Baruch Fischhoff" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Baruch Fischhoff, whose 1975 study named the phenomenon "creeping determinism," better known as hindsight bias. Credit: <a href="https://en.wikipedia.org/wiki/Baruch_Fischhoff" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1975, psychologist Baruch Fischhoff (巴魯克&middot;菲舍霍夫) ran an experiment that gave rise to what's now called hindsight bias (後見之明偏誤). Participants first read about a historical event whose outcome was genuinely uncertain at the time and gave probability estimates for several possible results. Some were then told which outcome had actually occurred, and later asked to recall the probability estimate they had given originally. Those told the real outcome consistently misremembered themselves as having predicted it with far higher confidence than they actually had &mdash; a phenomenon Fischhoff labelled "creeping determinism" (漸進決定論).</p>
+      <p>The distortion isn't dishonesty; it's a genuine failure of memory reconstruction. Once a person learns an outcome, that knowledge automatically reshapes how easily related facts and reasons come to mind, making the actual result feel like it was the only plausible one all along, even though the same person, before learning the outcome, would have rated it as far from certain. This same warping happens whether the outcome is a coin flip, a diagnosis, a war, or a stock's price, and it persists even when people are explicitly warned about the bias beforehand and instructed to try to ignore what they now know.</p>
+      <p>The practical costs are significant: doctors, generals, and executives often get judged in hindsight as though a bad outcome must reflect an obviously poor decision at the time, when the original choice may have been entirely reasonable given what was actually known then. This fuels overconfidence about one's own predictive skill and distorts legal judgements about what a defendant "should have foreseen." The clearest documented countermeasure is deliberately writing down predictions and the reasoning behind them in advance, creating a record that resists the mind's later urge to rewrite its own past certainty.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Baruch_Fischhoff" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If a past decision looks obviously right or wrong to you now, ask whether you'd have called it before you knew how it turned out.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Is hindsight bias mainly a form of dishonesty, or something else &mdash; and what's the clearest documented countermeasure against it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hindsight bias is a genuine memory-reconstruction failure, not dishonesty: learning an outcome reshapes what feels like it "was always obvious," even in people warned about the bias in advance. The clearest countermeasure is writing predictions and reasoning down beforehand, creating a record the mind can't later quietly rewrite.</div>
+      </details>
+      <div class="source">&#x1F4D6; Fischhoff, B. (1975), "Hindsight &#x2260; Foresight," <em>Journal of Experimental Psychology: Human Perception and Performance</em> 1(3); APA PsycNet.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Divers Have to Come Up Slowly, Even When They Feel Fine</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Scuba divers who feel completely fine at depth are still trained to ascend slowly, often pausing at set depths on the way up, even when they're eager to surface. Before reading on, what do you think is actually happening inside a diver's blood and tissue at depth, and why would rising too quickly turn that invisible process into a medical emergency?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Naval_Base_Guam_dive_locker_%28150225-N-ZB122-002%29.jpg/3840px-Naval_Base_Guam_dive_locker_%28150225-N-ZB122-002%29.jpg" alt="Scuba diving equipment at a naval dive locker" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Scuba diving equipment; ascent rate and decompression stops are central to preventing decompression sickness. Credit: <a href="https://en.wikipedia.org/wiki/Decompression_sickness" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Underwater, the surrounding water pressure (壓力) rises rapidly with depth, forcing gases in a diver's breathing air, mainly nitrogen (氮氣), to dissolve into the blood and body tissues far more heavily than they would at the surface, following a principle called Henry's Law (亨利定律): the higher the pressure, the more gas dissolves into a liquid. As long as a diver stays at depth, this extra dissolved nitrogen causes no problem at all. The danger appears only during ascent, when falling pressure allows that same dissolved nitrogen to come back out of solution.</p>
+      <p>If a diver rises too quickly, the dissolved nitrogen doesn't have time to travel back to the lungs and be exhaled gradually; instead it forms actual gas bubbles directly inside blood vessels and tissue, much like the fizz that suddenly appears when a shaken soda bottle is opened too fast. These bubbles cause decompression sickness (減壓病), commonly called "the bends" (潛水夫病) after the joint pain that often bends sufferers double; more seriously, bubbles can block blood flow entirely, causing paralysis, stroke-like symptoms, or a life-threatening arterial gas embolism (動脈氣體栓塞) if they lodge somewhere critical.</p>
+      <p>Dive tables (潛水減壓表) and modern dive computers calculate ascent schedules, including deliberate pauses called decompression stops, that let nitrogen migrate back out of tissue gradually and safely rather than all at once. The condition's earliest recorded cases weren't even divers: 19th-century bridge and tunnel workers who laboured inside pressurised caissons (沉箱), including on the Brooklyn Bridge, suffered identical joint pain after resurfacing too fast, originally dubbed "caisson disease" (沉箱病) before the shared mechanism with diving was understood. Severe modern cases are treated in a hyperbaric oxygen chamber (高壓氧艙), which recompresses the patient to shrink the bubbles before decompressing them safely and slowly.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Decompression_sickness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The danger of diving isn't the depth itself &mdash; it's how fast you leave it, giving dissolved gas no time to escape your body safely.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Why does decompression sickness occur specifically during ascent rather than while a diver is stationary at depth?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">At depth, high pressure keeps extra nitrogen safely dissolved in blood and tissue. Ascending too quickly drops pressure faster than the nitrogen can be exhaled gradually, so it forms gas bubbles directly in the blood and tissue instead &mdash; the mechanism behind decompression sickness, or "the bends."</div>
+      </details>
+      <div class="source">&#x1F4D6; NIH/National Library of Medicine, "Decompression Sickness"; Divers Alert Network (DAN) medical references; Britannica, "Decompression sickness."</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>Should You Actually Be Fighting That Fever?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Most people reach for fever-reducing medication the moment a thermometer reads above normal, treating any fever as a problem the body needs help correcting. Before reading on, do you think a moderate fever is actually working against you while you're sick &mdash; or could it be doing something genuinely useful that reducing it too eagerly might undermine?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Symptoms-fever.jpg" alt="Illustration of common fever symptoms" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Fever is a regulated, evolved response to infection, not simply a malfunction to suppress on sight. Credit: <a href="https://en.wikipedia.org/wiki/Fever" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>A fever (發燒) isn't the body losing control of its temperature; it's the hypothalamus (下丘腦), the brain's internal thermostat, deliberately raising its own target temperature in response to signals from the immune system fighting an infection. This is a genuinely old evolutionary adaptation, found not just in mammals but in reptiles and fish, which strongly suggests raising body temperature during infection offers a real survival advantage rather than being an unfortunate side effect of illness that evolution simply never bothered to fix.</p>
+      <p>The advantage comes from two directions at once. Many common bacteria and viruses (細菌與病毒) replicate measurably less efficiently at temperatures a few degrees above normal, while several components of the immune system, including certain white blood cells (白血球), become more active and effective at these same elevated temperatures. Animal studies that artificially suppress fever during infection have in some cases found slower recovery or worse outcomes compared to animals whose fever was left to run its natural course, suggesting the fever itself is doing genuine defensive work rather than simply signalling that work is happening elsewhere.</p>
+      <p>None of this means fever should always be left untreated: very high fevers, generally above about 40.5&deg;C (105&deg;F), or fever accompanied by other warning signs, especially in infants, the elderly, or people with chronic illness, warrant real medical attention regardless of any theoretical benefit. But for a typical, moderate fever in an otherwise healthy adult, most guidance now treats medication as being mainly for comfort rather than medical necessity, since a fever left to run its course within safe limits is doing useful, evolved work rather than simply causing needless suffering.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fever" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A moderate fever isn't your body malfunctioning &mdash; it's your immune system turning up the heat on purpose to fight harder.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two mechanisms explain why a moderate fever can actually help the body fight infection, rather than just being a symptom to eliminate?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Elevated body temperature slows the replication of many common bacteria and viruses, while also making certain immune cells, such as white blood cells, more active and effective &mdash; both mechanisms working together as an evolved defence rather than a malfunction to suppress on sight.</div>
+      </details>
+      <div class="source">&#x1F4D6; NIH, "Fever: MedlinePlus"; Evans, S.S., Repasky, E.A. &amp; Fisher, D.T. (2015), "Fever and the Thermal Regulation of Immunity," <em>Nature Reviews Immunology</em> 15(6).</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Basketball Study That Made Sleep a Performance Tool</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">A 2011 Stanford study asked college basketball players to do just one thing differently for several weeks: sleep roughly ten hours a night instead of their usual amount, with no other change to training or diet. Before reading on, how much of an effect do you think extra sleep alone had on their actual on-court shooting accuracy and sprint speed?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/2023_CDC_recommendations_for_amount_of_sleep_needed%2C_by_age.svg/1280px-2023_CDC_recommendations_for_amount_of_sleep_needed%2C_by_age.svg.png" alt="CDC chart of recommended sleep duration by age" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Recommended sleep duration by age; Cheri Mah's 2011 study extended basketball players well beyond typical amounts, with measurable performance gains. Credit: <a href="https://en.wikipedia.org/wiki/Sleep_deprivation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In a 2011 study, sleep researcher Cheri Mah (瑪爾) had Stanford University's (史丹福大學) men's basketball players extend their nightly sleep to around ten hours for five to seven weeks, up from their typical baseline, with no other change to training, diet, or coaching. The results were striking for such a simple intervention: sprint times improved, free-throw shooting accuracy rose by about 9%, three-point shooting accuracy rose by roughly 9.2%, reaction times sharpened, and players reported improved mood and reduced daytime fatigue throughout the study period.</p>
+      <p>The mechanism runs through distinct sleep stages doing different jobs. Slow-wave sleep (慢波睡眠), the deepest stage, coincides with the body's largest pulses of growth hormone (生長激素) release, which supports muscle repair and physical recovery from training load. Rapid eye movement sleep (快速動眼睡眠, REM), meanwhile, appears to help consolidate motor-skill learning, the kind of fine muscle-memory refinement that shooting accuracy depends on. Chronic sleep restriction degrades both processes simultaneously, and researchers note that staying awake for 17 to 19 hours produces reaction-time and coordination impairment roughly comparable to a blood alcohol concentration of about 0.05%.</p>
+      <p>The findings have visibly changed professional sports practice: several NBA (美國職業籃球聯賽) teams now employ dedicated sleep coaches, adjust travel and game schedules specifically to protect players' sleep windows, and treat sleep tracking as seriously as strength or nutrition data. The broader implication reframes sleep not as passive downtime to be minimised around training, but as an active, trainable performance lever in its own right &mdash; one that, in Mah's study, moved shooting percentages by margins most players would otherwise chase through additional practice hours alone.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sleep_deprivation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Extra sleep alone moved these players' shooting percentages by margins most athletes chase for months through practice.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two distinct sleep stages does Mah's research link to athletic recovery and skill performance, and what does each one support?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Slow-wave sleep coincides with the body's largest growth-hormone pulses, supporting muscle repair and physical recovery. REM sleep helps consolidate motor-skill learning, the fine muscle-memory refinement that shooting accuracy and coordination depend on.</div>
+      </details>
+      <div class="source">&#x1F4D6; Mah, C.D. et al. (2011), "The Effects of Sleep Extension on the Athletic Performance of Collegiate Basketball Players," <em>Sleep</em> 34(7); Stanford Sleep Disorders Clinic.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Retail Trade That Broke Wall Street's Rules</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In January 2021, a struggling brick-and-mortar video game retailer that professional hedge funds had bet heavily would collapse suddenly saw its stock price rocket over twenty-fold in a matter of weeks, driven largely by ordinary retail traders coordinating online. Before reading on, what mechanism do you think let a coordinated crowd of small individual investors inflict such outsized damage on sophisticated professional short-sellers?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Short_%28finance%29.png" alt="Diagram illustrating the mechanics of short selling" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The mechanics of short selling, the strategy behind Melvin Capital's 2021 GameStop losses. Credit: <a href="https://en.wikipedia.org/wiki/Short_(finance)" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Hedge fund Melvin Capital (梅爾文資本) held a short position (放空) on GameStop (遊戲驛站), a struggling brick-and-mortar video game retailer, that at one point exceeded 100% of the company's available public shares, betting heavily that competition from digital game downloads would keep driving the stock toward zero. Retail traders (散戶) organised largely through the Reddit (紅迪網) community r/WallStreetBets identified this unusually large short position and began coordinating aggressive buying, partly to profit and partly, explicitly, to punish what they saw as predatory institutional betting against a struggling company.</p>
+      <p>As GameStop's price began climbing in January 2021, short-sellers like Melvin Capital were forced to buy back borrowed shares to limit mounting losses, and that forced buying itself pushed the price even higher, triggering further rounds of forced buying in a self-reinforcing feedback loop known as a short squeeze (軋空). GameStop's stock, trading around $20 at the start of January, briefly touched an intraday high above $480 later that month. Melvin Capital lost an estimated 53% of its value in January alone, required an emergency $2.75 billion capital infusion from other investors mid-crisis, and ultimately shut down entirely in 2022.</p>
+      <p>Brokerage app Robinhood (羅賓漢) restricted retail traders' ability to buy GameStop shares mid-squeeze, citing sudden clearinghouse collateral requirements, a decision that triggered intense public backlash and multiple U.S. congressional hearings into market structure and the episode's fairness. The saga raised lasting questions about payment-for-order-flow brokerage revenue, the risks of extremely large short positions relative to available float, and the genuine collective market power retail investors can wield once coordinated at scale through social media.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Short_(finance)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A short squeeze doesn't need the crowd to be right about the company &mdash; it only needs the short-sellers to be forced into buying at exactly the wrong moment.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is a short squeeze, and why did Melvin Capital's large short position make GameStop especially vulnerable to one?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A short squeeze occurs when rising prices force short-sellers to buy back borrowed shares to limit losses, and that forced buying pushes the price higher still, triggering further forced buying. Melvin Capital's short position exceeding 100% of GameStop's available shares meant an unusually large volume of forced buying was required once the price started rising.</div>
+      </details>
+      <div class="source">&#x1F4D6; U.S. Securities and Exchange Commission (2021), "Staff Report on Equity and Options Market Structure Conditions in Early 2021"; Reuters/Bloomberg reporting on the GameStop short squeeze.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Theory That Said Protecting Industries Would Backfire</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Friedrich_List_1845_crop.jpg" alt="Portrait of economist Friedrich List" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Friedrich List, whose infant industry argument challenged free-trade orthodoxy for developing economies. Credit: <a href="https://en.wikipedia.org/wiki/Friedrich_List" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Under President Park Chung-hee (朴正熙) from the 1960s to 1980s, South Korea (南韓) rejected free-trade orthodoxy, instead protecting and subsidising a handful of state-favoured conglomerates, or chaebol (財閥, e.g. Hyundai 現代, Samsung 三星), producing the export-driven "Miracle on the Han River" (漢江奇蹟).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">David Ricardo's (大衛&middot;李嘉圖) comparative advantage (比較優勢) theory predicts nations prosper fastest by specialising according to their current cost advantages and trading freely, with government-directed industrial protection generally misallocating resources and slowing growth.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">South Korea, like the protectionist 19th-century United States and Germany before it, achieved historically exceptional industrialisation and eventual global export dominance precisely by violating free-trade prescriptions for decades before liberalising, defying the expectation that protection would simply entrench inefficiency.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Friedrich List's (弗里德里希&middot;李斯特) 1841 infant industry argument holds that emerging economies need temporary protection to build competitive scale before facing established foreign rivals; economist Ha-Joon Chang's (張夏準) "Kicking Away the Ladder" thesis argues today's rich nations used protection then, but how much of Korea's growth reflects protection itself versus land reform, education investment, and aid remains an open, disputed question.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; South Korea didn't get rich by following free-trade theory &mdash; it got rich breaking it, then joined the free-trade club only once it could compete.</div>
+      <div class="source">&#x1F4D6; List, F. (1841), <em>The National System of Political Economy</em>; Chang, H-J. (2002), <em>Kicking Away the Ladder</em>, Anthem Press; World Bank, "The East Asian Miracle" (1993). Never recycles Card 10 domain (retail short-squeeze market mechanics vs. macroeconomic development/trade theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 6 &amp; 11 &mdash; What Only Looks Obvious in the Rearview Mirror:</strong> Hindsight bias explains why, now that we know Park Chung-hee's protectionist chaebol strategy produced the "Miracle on the Han River," South Korea's approach can feel like it was obviously the right call all along. But at the time, mainstream economists confidently expected government-directed industrial protection to misallocate resources and entrench inefficiency, exactly as it did in many other countries that tried similar policies and failed. Friedrich List's challenge to free-trade orthodoxy only looks self-evidently correct in retrospect; in the 1960s it was a contested, high-risk bet, not a foregone conclusion.</p>
+      <p><strong>So what:</strong> Before crediting any past decision, policy, or person as having "obviously" been right, ask honestly whether you'd have predicted the outcome beforehand &mdash; that gap is exactly what hindsight bias quietly erases.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA James Webb Space Telescope press release, 21 September 2022; STScI.</li>
+      <li><strong>Card 2:</strong> 《隋書&middot;煬帝紀》；《資治通鑑》卷一百八十一至一百八十二；Britannica, "Sui dynasty."</li>
+      <li><strong>Card 3:</strong> Britannica, "Tutankhamun"; Carter, H. &amp; Mace, A.C. (1923), <em>The Tomb of Tut.ankh.Amen</em>; Smithsonian Magazine.</li>
+      <li><strong>Card 4:</strong> Stanford Encyclopedia of Philosophy, "Jain Philosophy"; Britannica, "Mahavira"; Jaini, P.S. (1979), <em>The Jaina Path of Purification</em>.</li>
+      <li><strong>Card 5:</strong> Locke, J. (1689), <em>Two Treatises of Government</em>; Stanford Encyclopedia of Philosophy, "John Locke."</li>
+      <li><strong>Card 6:</strong> Fischhoff, B. (1975), <em>Journal of Experimental Psychology: Human Perception and Performance</em> 1(3); APA PsycNet.</li>
+      <li><strong>Card 7:</strong> NIH/National Library of Medicine, "Decompression Sickness"; Divers Alert Network; Britannica.</li>
+      <li><strong>Card 8:</strong> NIH, "Fever: MedlinePlus"; Evans, S.S. et al. (2015), <em>Nature Reviews Immunology</em> 15(6).</li>
+      <li><strong>Card 9:</strong> Mah, C.D. et al. (2011), <em>Sleep</em> 34(7); Stanford Sleep Disorders Clinic.</li>
+      <li><strong>Card 10:</strong> U.S. SEC (2021), "Staff Report on Equity and Options Market Structure Conditions in Early 2021"; Reuters/Bloomberg reporting.</li>
+      <li><strong>Card 11:</strong> List, F. (1841), <em>The National System of Political Economy</em>; Chang, H-J. (2002), <em>Kicking Away the Ladder</em>; World Bank (1993).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-07: Webb's Clearest View of Neptune's Rings in Decades &bull; 隋煬帝三征高句麗 &bull; The Discovery of Tutankhamun's Tomb &bull; 大雄與耆那教不害思想 &bull; John Locke's Social Contract &bull; Hindsight Bias &bull; Decompression Sickness / The Bends &bull; Fever as Adaptive Defence &bull; Sleep &amp; Athletic Performance (Cheri Mah) &bull; The GameStop Short Squeeze &bull; Infant Industry Protection: List vs Ricardo (South Korea's Chaebol)</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-07.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-07.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 7 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
