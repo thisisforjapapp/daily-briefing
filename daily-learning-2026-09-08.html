@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 8 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Tuesday, 8 September 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>7 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; Neptune's Rings</span>JWST's near-infrared imaging made Neptune's rings suddenly crisp and clear, the sharpest view since Voyager 2 in 1989.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 隋煬帝三征高句麗</span>三征耗盡國力，加上運河徭役，終致隋朝二世而亡。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; Tutankhamun's Tomb</span>Nearly abandoned after years of failure, Carter's dig found the one royal tomb looters never touched.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 大雄與耆那教</span>大雄捨王位苦修，倡「不害」戒律及於螞蟻飛蟲。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Locke's Social Contract</span>Locke argued government's authority comes only from the people's consent, not divine right.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Hindsight Bias</span>People consistently misremember their own past uncertainty once they learn how an event actually turned out.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Decompression Sickness</span>Rising too fast lets nitrogen dissolved in a diver's blood form dangerous bubbles instead of escaping safely.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Fever as Defence</span>A moderate fever is the immune system deliberately raising its own thermostat to fight infection harder.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Sleep &amp; Performance</span>Ten hours of nightly sleep alone raised Stanford basketball players' shooting accuracy by roughly 9%.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The GameStop Squeeze</span>Coordinated retail buying forced hedge fund Melvin Capital into ruinous, self-reinforcing short-covering.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Infant Industry Protection</span>South Korea's protectionist chaebol strategy defied free-trade theory and produced the "Miracle on the Han River."</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Dying Star That Left Eleven Perfect Rings Behind</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1786, William Herschel spotted a small, strikingly round, glassy-green glow in the constellation Draco &mdash; so planet-like through his telescope that he coined a name for this entire class of object, one that still confuses people 240 years later. When Hubble later photographed it in far greater detail, it revealed something like eleven separate, perfectly nested rings radiating outward like a target. Before reading on: what could make a dying star throw off its outer layers in such precise, repeating pulses &mdash; and why is that pattern still not fully explained?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Looking_at_the_Cat%E2%80%99s_Eye_Nebula_with_Hubble_%28potm2602b%29.jpg" alt="Hubble Space Telescope image of the Cat's Eye Nebula showing nested concentric rings" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Cat's Eye Nebula (NGC 6543), imaged by the Hubble Space Telescope, showing its nested concentric ring structure around a dying, Sun-like star. Credit: <a href="https://en.wikipedia.org/wiki/Cat%27s_Eye_Nebula" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1786, astronomer William Herschel (威廉&middot;赫歇爾) discovered a small, round, glowing patch of gas in the constellation Draco (天龍座), roughly 3,300 light-years from Earth. Its bluish-green disc looked so much like a planet through his telescope that Herschel coined the term "planetary nebula" (行星狀星雲) for the whole class of object, a name that still confuses people today, since these objects have nothing to do with planets. What Herschel was actually seeing was the outer layers of a dying, Sun-like star, blown outward into space as its core collapses toward becoming a white dwarf (白矮星).</p>
+      <p>It took over two centuries of better instruments to reveal what makes this particular nebula, catalogued as NGC 6543 and nicknamed the Cat's Eye Nebula (貓眼星雲) for its resemblance to a slit pupil, so unusual. A detailed 2004 Hubble Space Telescope image using its Advanced Camera for Surveys (先進巡天照相機) revealed roughly eleven separate concentric rings nested around the central star like the growth rings of a tree, each apparently ejected in a distinct pulse roughly 1,500 years apart. No fully agreed explanation exists for why a dying star would shed material in such regular pulses; leading proposals include cycles of stellar magnetic activity, physical pulsations of the star itself, or gravitational tugging from an unseen companion star.</p>
+      <p>Whatever the precise cause, this ring pattern isn't unique to the Cat's Eye &mdash; astronomers now consider shell structures like these the rule rather than the exception among planetary nebulae, suggesting most dying stars shed mass in irregular pulses rather than one smooth outflow. The nebula also offers a preview of our own solar system's distant future: roughly five billion years (五十億年) from now, the Sun itself will exhaust its core hydrogen, swell into a red giant (紅巨星), and eventually shed its own outer layers in much the same way, leaving behind a slowly cooling white dwarf at the center of its own glowing nebula.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cat%27s_Eye_Nebula" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A "planetary nebula" has nothing to do with planets &mdash; it's what our own Sun will eventually become.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What causes the roughly eleven concentric rings visible in the Cat's Eye Nebula, and how often does the pattern suggest they were ejected?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The precise cause remains debated &mdash; leading theories include cycles of the star's magnetic activity, stellar pulsations, or tugging from an unseen companion star. The rings appear to have been ejected in discrete pulses roughly 1,500 years apart, rather than as one continuous outflow.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA Hubble Space Telescope, "The Cat's Eye Nebula" (Advanced Camera for Surveys imagery, 2004); ESA Hubble; Britannica, "planetary nebula."</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一味中藥「龍骨」，如何證明了一個王朝真實存在過？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1899年，晚清學者王懿榮身染瘧疾，家人依方到藥店抓來一味名為「龍骨」的藥材煎服。王懿榮無意中發現，這些碎骨碎甲上竟刻有一些似字非字的奇怪符號。在他之前，這些骨頭已經被歷代藥商磨粉入藥、當作止血療傷的尋常藥材賣了不知多少年。你認為，王懿榮這一眼，最終如何改寫了整個中國上古史的可信程度？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王懿榮（晚清金石學家，時任國子監祭酒）；劉鶚（王懿榮友人，其後收藏甲骨並著錄成書）；羅振玉（其後考證出甲骨真正出土地點）。</p>
+        <p><strong>事件：</strong>1899年，王懿榮從北京藥店所購「龍骨」藥材上，發現刻有上古文字，遂重金搜求收購。</p>
+        <p><strong>時代背景：</strong>晚清學界正值疑古思潮興起，部分學者質疑商朝僅屬後世傳說虛構，並無實證；甲骨文的發現及其後安陽殷墟的科學發掘，最終為商朝提供確鑿的同時代文字證據。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Shang_Inscribed_Ox_Scapula_%28for_divination%29.jpg" alt="商代刻字牛肩胛骨" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">商代刻字牛肩胛骨，即「甲骨」的其中一種，用於占卜記事。來源：<a href="https://en.wikipedia.org/wiki/Oracle_bone_script" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王懿榮出身山東富家，精研金石學及古文字，晚清時官至國子監祭酒。1899年，他身染瘧疾，家人依中醫藥方，到北京藥店購來一味名為「龍骨」的藥材煎服，相傳這類藥材有止血、治瘧之效，歷來由農民自地下掘出後賣給藥商磨粉入藥，鮮少有人細看骨片本身。王懿榮偶然留意到，藥材碎片上竟刻有一些排列規整、絕非天然裂紋的符號，與他熟悉的商周青銅器銘文隱約相似，卻更為古樸。他當即斷定這絕非尋常藥材，遂命家人到藥店重金搜購一切帶字龍骨，並透過古董商多方蒐集，短短一年間累積逾千片。</p>
+      <p>王懿榮其後仔細研究這批「龍骨」上的刻痕，確認並非天然裂紋或人為偽刻，而是一套前所未見的古老文字系統，其筆劃結構與商周青銅器銘文一脈相承，年代甚至更早。惜1900年八國聯軍攻陷北京，王懿榮身為京師團練大臣，兵敗之際投井殉國，未及深入考證便撒手人寰。其甲骨收藏其後輾轉落入好友劉鶚手中，劉鶚繼續蒐集並精選拓印五千餘片，於1903年編成《鐵雲藏龜》一書，是為甲骨文首部著錄專書，甲骨文自此正式進入學術研究視野，吸引羅振玉、王國維等學者相繼投入考釋。</p>
+      <p>其後學者羅振玉多方查訪，方確認這些帶字龍骨真正出土地點，並非藥商所稱的其他地方，而是河南安陽小屯村一帶，即古代文獻所載的殷墟。1928年，中央研究院歷史語言研究所在此展開系統性科學發掘，歷時多年出土逾十萬片甲骨，並確證小屯正是商朝晚期都城所在。在此之前，西方及部分中國學者仍質疑商朝僅屬後世附會的傳說王朝，缺乏同時代直接文字證據；甲骨文的系統出土及釋讀，終於為商朝的真實存在提供確鑿無疑的同時代第一手文字證明，中國信史的起點亦因而向前推進至少數百年。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Oracle_bone_script" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一味被藥商磨碎入藥的「龍骨」，最終為三千年前的商朝，寫下了自己存在過的鐵證。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王懿榮最初是如何發現甲骨文的？他去世後，這批甲骨收藏經歷了甚麼轉折，才確立了甲骨文的學術地位？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王懿榮因身染瘧疾，家人購得中藥材「龍骨」煎服，他偶然發現骨片上刻有規整符號，遂重金搜購。王懿榮於1900年八國聯軍破城時投井殉國，其收藏輾轉落入劉鶚手中，劉鶚著《鐵雲藏龜》著錄成書，甲骨文自此正式進入學術研究視野。</div>
+      </details>
+      <div class="source">&#x1F4D6; 羅振玉《殷虛書契考釋》；李學勤《殷墟甲骨學》；Britannica, "oracle bone."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Pandemic That Stopped an Empire From Putting Itself Back Together</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 541 CE, Emperor Justinian I was in the middle of an ambitious military campaign to reconquer the lost western half of the Roman Empire, retaking Italy and North Africa with stunning early success. Then a mysterious illness arrived through the empire's grain trade and began killing thousands of people a day in the capital alone. Before reading on, what do you think this disease actually was, and how badly do you think it derailed Justinian's dream of restoring the old Roman Empire?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Justinian I (查士丁尼一世), Byzantine emperor; Procopius (普羅科匹厄斯), court historian and eyewitness.</p>
+        <p><strong>Event at stake:</strong> the arrival of a devastating plague in Constantinople (君士坦丁堡) in 541 CE, later confirmed as bubonic plague (鼠疫).</p>
+        <p><strong>Big picture:</strong> the plague struck while Justinian's general Belisarius (貝利撒留) was mid-campaign reconquering Italy and North Africa, at the height of Justinian's ambitions to restore the old Roman Empire.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Plaguet03.jpg" alt="Period depiction associated with the Plague of Justinian" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A period depiction associated with the Plague of Justinian, the first pandemic in recorded history confirmed to have been caused by Yersinia pestis. Credit: <a href="https://en.wikipedia.org/wiki/Plague_of_Justinian" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The plague first appeared around 541 CE in the Egyptian port of Pelusium (佩魯西烏姆), most likely carried by fleas riding on rats that infested the grain ships (穀物運輸船) supplying Constantinople (君士坦丁堡), the Byzantine Empire's (拜占庭帝國) capital, with Egyptian wheat under its state grain-distribution system. From there it spread rapidly along Mediterranean shipping routes. Court historian Procopius (普羅科匹厄斯), who lived through the outbreak in Constantinople, recorded that the city lost an estimated 10,000 people a day at the epidemic's peak, a figure modern historians treat cautiously but which still conveys how overwhelming the mortality felt to eyewitnesses on the ground.</p>
+      <p>Modern genetic analysis of ancient DNA (古代DNA) extracted from plague-era burial sites has confirmed what Procopius's grim symptom descriptions long suggested: the culprit was Yersinia pestis (鼠疫桿菌), the same bacterium behind the later medieval Black Death (黑死病). Estimates for Constantinople's death toll during the first wave alone range between 20 and 40% of the city's population, and further waves recurred across the Mediterranean world roughly every decade or so for the next two centuries, a recurring cycle now called the First Pandemic (第一次鼠疫大流行) to distinguish it from the later medieval outbreak.</p>
+      <p>The timing proved politically devastating. Emperor Justinian I (查士丁尼一世) himself contracted the plague and survived, but his general Belisarius's (貝利撒留) campaign to reconquer Italy and North Africa from Germanic kingdoms, intended to restore the old unified Roman Empire, lost momentum as plague deaths gutted the tax base, army recruitment pools, and administrative manpower needed to sustain it. Many historians now regard the plague as a significant, underappreciated factor in why Justinian's reconquest ultimately proved unsustainable, and more broadly in the empire's long-term economic and military decline in the centuries that followed.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Plague_of_Justinian" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; An empire's grain ships carried more than wheat to Constantinople in 541 &mdash; they carried the disease that helped unravel Justinian's dream of a restored Rome.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> How did the plague likely reach Constantinople, and what modern evidence confirmed what disease it actually was?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The plague likely arrived via fleas on rats infesting grain ships supplying Constantinople from Egypt. Modern ancient-DNA analysis of plague-era burial sites confirmed the culprit was Yersinia pestis, the same bacterium behind the later medieval Black Death.</div>
+      </details>
+      <div class="source">&#x1F4D6; Procopius, <em>History of the Wars</em>, Book II; Britannica, "plague of Justinian"; genomic studies confirming Yersinia pestis in 6th-century burial sites, Nature/PNAS.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>五德終始說&mdash;&mdash;鄒衍如何說服秦始皇相信自己的江山命中注定？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">戰國末年，稷下學宮的學者鄒衍提出一套理論：木、火、土、金、水五行相生相剋，每個朝代都對應其中一「德」，當某一德氣數已盡，必然被剋制它的下一德所取代，如此循環不息。這套理論後來甚至說服了秦始皇，令他相信自己開創的秦朝命中注定要以某種特定顏色、特定數字治國。你認為，鄒衍這套五行循環的說法，如何能夠說服一位剛統一天下的皇帝，去按照理論改變朝廷的服色與制度？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>鄒衍（約公元前305年至前240年，戰國末期齊國稷下學宮學者，陰陽家代表人物）。</p>
+        <p><strong>事件／思想：</strong>鄒衍提出「五德終始說」，以五行相勝循環解釋朝代興替的天命規律，又倡「大九州說」，主張中國只是天下八十一州之一。</p>
+        <p><strong>時代背景：</strong>戰國末年七雄爭霸，各國君主亟需為自身政權尋求超越武力的正當性依據，稷下學宮匯聚百家學者，陰陽五行之說應運而生。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Yin_and_Yang_symbol.svg/250px-Yin_and_Yang_symbol.svg.png" alt="陰陽符號" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">陰陽符號，象徵陰陽家學說核心的相生相剋循環觀念，鄒衍即以此推演「五德終始說」。來源：<a href="https://en.wikipedia.org/wiki/Zou_Yan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>鄒衍活躍於戰國末年的齊國稷下學宮，與孟子等諸子同時，以善辯著稱，尤精於天文曆法及陰陽五行之學。他綜合當時流行的五行（木、火、土、金、水）觀念，提出「五德終始說」：五行之間存在相勝（相剋）的固定順序&mdash;&mdash;木克土、金克木、火克金、水克火、土克水&mdash;&mdash;每個朝代皆對應其中一「德」，當一朝氣數將盡，必然由能夠剋制其德的另一德所取代，新朝代亦須相應改易服色、曆法、器物制度，以順應天命循環。</p>
+      <p>鄒衍的學說在當時各國君主之間廣受禮遇，相傳他遊歷燕國時，燕昭王親自出郊迎接，並手持掃帚為其清道，禮遇之隆，時人罕見。他又提出「大九州說」，主張中國（他稱之為「赤縣神州」）僅是天下八十一州之中的一州，四周更有大瀛海環繞，這種超越中原本位的宏大地理想像，在當時堪稱石破天驚，遠遠超出時人對天下疆域的既有認知。</p>
+      <p>鄒衍身後逾百年，秦始皇統一六國後，正式採納五德終始說作為新朝正當性的理論依據：周朝以火德自居，水能克火，故秦以水德代周，因此崇尚黑色為朝服正色，數字以六為紀（如符璽六寸、車軌六尺），並將黃河改稱「德水」。此後漢朝、以至歷代王朝，皆延續以五德學說解釋自身政權的天命所歸，直到西漢劉向、劉歆父子改以五行相生（而非相剋）順序重新排列歷代德運，五德終始說才逐漸讓位於另一套解釋框架，但其「朝代更替自有天命規律」的核心觀念，仍深刻影響了其後兩千年中國政治思想。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Zou_Yan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 鄒衍不是靠武力說服秦始皇，而是靠一套朝代必然循環的理論，讓皇帝相信自己的江山早已寫在天意之中。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 鄒衍「五德終始說」的核心邏輯是甚麼？秦始皇又如何據此改易秦朝制度？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">五德終始說主張五行（木火土金水）之間存在固定相剋順序，每個朝代對應一德，舊德氣數已盡必被能剋制它的新德取代。秦始皇據此認為水克火，秦以水德代周之火德，故秦朝崇尚黑色，數字以六為紀，並將黃河改稱「德水」。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《史記&middot;孟子荀卿列傳》；顧頡剛《五德終始說下的政治和歷史》；Britannica, "Zou Yan."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Thought Experiment That Turned Muddy Shoes Into a Moral Argument</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1971, during the famine following the Bangladesh Liberation War, an Australian philosopher published an essay built around a simple scenario: you're walking past a shallow pond and see a small child drowning in it. Saving the child would ruin your clothes and cost you nothing more serious than that. Before reading on, do you think most people would agree they're morally obligated to save the child &mdash; and if so, what does that obligation imply about donating money to strangers on the other side of the world?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Peter Singer (彼得&middot;辛格), Australian moral philosopher.</p>
+        <p><strong>Problem at stake:</strong> whether physical distance and personal relationship change our moral obligation to prevent suffering we're capable of preventing.</p>
+        <p><strong>Moment:</strong> Singer published "Famine, Affluence, and Morality" in 1972, prompted by the famine among refugees of the 1971 Bangladesh Liberation War (孟加拉解放戰爭).</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Peter_Singer_2017_%28cropped%29.jpg" alt="Photograph of philosopher Peter Singer" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Peter Singer, whose 1972 drowning-child thought experiment became a foundational argument for the effective altruism movement. Credit: <a href="https://en.wikipedia.org/wiki/Famine,_Affluence,_and_Morality" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Philosopher Peter Singer (彼得&middot;辛格) opens his 1972 essay "Famine, Affluence, and Morality" with a simple scenario: while walking past a shallow pond, you notice a small child drowning in it. Wading in would ruin your clothes and shoes, but you could easily save the child's life at essentially no real cost to yourself. Singer argues almost everyone immediately agrees that walking past without helping would be seriously wrong, and that "getting my clothes muddy" is obviously not a good enough reason to let a child die when saving them costs you so little.</p>
+      <p>Singer's real target is the assumption that this obligation somehow disappears once distance and anonymity enter the picture. He formulates his general principle: if it is in our power to prevent something very bad from happening, without sacrificing anything of comparable moral importance, we are morally obligated to do it. He argues this holds regardless of whether the person we could help is a stranger drowning in front of us or a stranger starving thousands of miles away (千里之外) whom we will never meet, since neither distance nor unfamiliarity changes how bad their death actually is.</p>
+      <p>Singer's argument directly challenges the common intuition that we owe far more to people physically or socially close to us than to distant strangers, a view philosophers call the "distance principle" that Singer considers morally arbitrary. Taken seriously, his conclusion implies most people in wealthy countries have a strong ongoing obligation to donate significant sums to effective famine and poverty relief, not merely as an optional act of charity but as something closer to a moral requirement. The argument became foundational to the modern effective altruism (效益主義利他運動) movement, which tries to direct charitable giving toward the interventions that save the most lives per dollar.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Famine,_Affluence,_and_Morality" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; If letting a child drown to keep your shoes clean is obviously wrong, Singer asks, why does the same logic stop applying once the child is far away?</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is Singer's general moral principle, and why does he think physical distance shouldn't change how it applies?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Singer's principle: if we can prevent something very bad without sacrificing anything of comparable moral importance, we're obligated to do so. He argues distance and unfamiliarity don't reduce how bad a death actually is, so the same obligation to help applies whether the person suffering is right in front of us or thousands of miles away.</div>
+      </details>
+      <div class="source">&#x1F4D6; Singer, P. (1972), "Famine, Affluence, and Morality," <em>Philosophy &amp; Public Affairs</em> 1(3); Stanford Encyclopedia of Philosophy, "The Limits of Ethics."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why You Deserve the Win, But the Referee Cost You the Loss</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Listen to how athletes and coaches explain a game's outcome in post-match interviews: after a win, credit tends to go to the team's skill and hard work; after a loss, blame tends to shift toward the referee, bad luck, or an unfair schedule. Before reading on, do you think this pattern is unique to sports, or is it closer to a universal habit of mind that shows up in how you personally explain your own successes and failures?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Fundamental_attribution_error.svg/960px-Fundamental_attribution_error.svg.png" alt="Diagram illustrating attribution of behavior to disposition versus situation" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram illustrating attribution &mdash; how people explain behavior as caused by disposition versus situation, the same explanatory machinery behind self-serving bias. Credit: <a href="https://en.wikipedia.org/wiki/Self-serving_bias" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Self-serving bias (自利偏誤) describes a consistent, well-documented pattern in how people explain their own outcomes: successes get attributed to internal, stable factors like skill, effort, and ability, while failures get attributed to external, unstable factors like bad luck, unfair circumstances, or other people's incompetence. A classic 1980 study by Richard Lau and Dan Russell (勞氏與羅素), "Attributions in the Sports Pages," analysed newspaper quotes from athletes and coaches after games and found exactly this asymmetry: winners overwhelmingly credited their own team's skill and preparation, while losers disproportionately blamed referees, injuries, or bad luck rather than their own performance.</p>
+      <p>The bias shows up far beyond sports: students who do well on an exam tend to credit their own intelligence or hard work, while students who do poorly are more likely to blame an unfair test, a bad teacher, or simple bad luck, even when reviewing identical objective results. A 2004 meta-analysis by Amy Mezulis (梅祖利斯) and colleagues, reviewing decades of studies, confirmed the pattern is remarkably widespread across ages and contexts, though notably weaker, and sometimes reversed, in more collectivist (集體主義) cultures where group harmony and modesty are more socially rewarded than individual credit-taking.</p>
+      <p>Psychologists debate exactly why the bias exists: one account frames it as motivated self-esteem protection, since crediting yourself for wins while blaming circumstances for losses keeps your self-image intact; another frames it as a more neutral consequence of how people differentially process expected versus unexpected outcomes. Either way, the practical cost is real: consistently externalising your own failures blocks the honest self-assessment needed to actually improve, while consistently internalising only your successes quietly distorts how much credit you assign to luck, timing, and other people's contributions along the way.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Self-serving_bias" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Before crediting a win to skill and a loss to bad luck, ask whether you'd accept that same explanation from someone else.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Lau and Russell's 1980 sports-pages study find about how athletes explain wins versus losses, and what does self-serving bias predict more generally?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The study found winners overwhelmingly credited their own team's skill and preparation, while losers disproportionately blamed referees, injuries, or bad luck. Self-serving bias predicts this pattern generally: internal, stable factors like skill get credit for success, while external, unstable factors like luck get blamed for failure.</div>
+      </details>
+      <div class="source">&#x1F4D6; Lau, R.R. &amp; Russell, D. (1980), "Attributions in the Sports Pages," <em>Journal of Personality and Social Psychology</em> 39(1); Mezulis, A.H. et al. (2004), <em>Psychological Bulletin</em> 130(5), APA PsycNet.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Genetic Shortcut That Lets Tibetans Breathe Easy Where Others Struggle</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">When most lowlanders spend extended time at very high altitude, their bodies eventually produce noticeably thicker blood, packed with extra red blood cells to compensate for thin air &mdash; a response that can backfire into dangerous chronic mountain sickness. Tibetans living permanently above 4,000 metres largely don't show this same blood-thickening response, yet function normally at altitudes that would leave most people gasping. Before reading on, what do you think explains the difference &mdash; training, lung size, or something written into their DNA?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Zhongdian_festival_%286169776821%29.jpg" alt="Tibetans at a festival on the Tibetan Plateau" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Tibetans on the high Tibetan Plateau, where a distinctive genetic adaptation changes how the body responds to chronically low oxygen. Credit: <a href="https://en.wikipedia.org/wiki/High-altitude_adaptation_in_humans" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>When most lowlanders spend extended time at very high altitude, their bodies respond to thin air by ramping up production of hemoglobin (血紅蛋白), the oxygen-carrying protein in red blood cells, thickening the blood to carry more oxygen per litre. This response works in the short term, but sustained over years it can backfire into chronic mountain sickness (慢性高山症), thickened blood that strains the heart and raises stroke risk. Tibetans (藏族) whose ancestors have lived on the Tibetan Plateau (青藏高原), much of it above 4,000 metres, for thousands of years show a strikingly different, more blunted version of this response, without the same downsides.</p>
+      <p>The explanation traces to a single gene, EPAS1 (低氧誘導因子2&alpha;基因), part of the body's core oxygen-sensing pathway. A 2014 study published in <em>Nature</em> found that the Tibetan variant of EPAS1 carries an unusual genetic signature matching sequences found in Denisovans (丹尼索瓦人), an extinct human relative known mainly from ancient DNA, suggesting modern Tibetans' ancestors interbred with Denisovans tens of thousands of years ago and inherited this advantageous variant. The gene helps keep hemoglobin levels closer to normal even at extreme altitude, avoiding the dangerous over-thickening lowlanders often develop, while still supporting adequate oxygen delivery to tissues.</p>
+      <p>This isn't a story about one population simply being biologically superior at altitude in some general sense; it's a specific evolutionary trade-off, refined by natural selection over many generations of high infant and maternal mortality among those without the advantageous variant, that solves one particular physiological problem. Han Chinese (漢族) populations living at lower elevations carry the ancestral, non-adapted version of the gene at far higher frequency, and lowlanders who relocate to altitude, however extensively trained, cannot simply acquire the Tibetan variant through acclimatization alone &mdash; a clear case where training and genetics operate on entirely different timescales.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/High-altitude_adaptation_in_humans" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Tibetans don't out-train the thin air at altitude &mdash; a gene inherited from an extinct human relative quietly rewired how their blood responds to it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does the Tibetan variant of the EPAS1 gene actually do differently, and where did it likely come from?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Tibetan EPAS1 variant keeps hemoglobin levels closer to normal at high altitude, avoiding the dangerous over-thickening of blood that lowlanders often develop when acclimatizing. Genetic evidence suggests it was inherited through ancient interbreeding with Denisovans, an extinct human relative known mainly from ancient DNA.</div>
+      </details>
+      <div class="source">&#x1F4D6; Huerta-S&aacute;nchez, E. et al. (2014), "Altitude Adaptation in Tibetans Caused by Introgression of Denisovan-like DNA," <em>Nature</em> 512; NIH/PubMed.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>What Chiropractic Neck Adjustments Can and Can't Tell You About Stroke Risk</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Chiropractic neck adjustments are extremely common, and the audible "crack" makes them feel similar to cracking your own knuckles, a sensation many patients experience as immediate relief. Yet a small number of stroke cases have been documented shortly after high-velocity neck manipulation, prompting years of medical debate. Before reading on, do you think the evidence shows neck manipulation clearly causes these strokes, or is the real picture more uncertain than either the alarming headlines or the reassuring dismissals suggest?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Kiropraktisk_ledd-korreksjon_av_rygg.jpg" alt="A cervical spine manipulation being performed" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A cervical spine manipulation being performed; the rare association with vertebral artery dissection remains genuinely debated among researchers. Credit: <a href="https://en.wikipedia.org/wiki/Vertebral_artery_dissection" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>High-velocity, low-amplitude neck manipulation (頸椎矯正), the sharp rotational thrust behind the audible "pop" in many chiropractic (脊骨神經科) adjustments, has been documented in case reports occurring shortly before or after vertebral artery dissection (椎動脈剝離), a tear in one of the arteries supplying blood to the brain that can trigger a stroke. Estimates of how often this actually happens vary enormously across studies, from roughly 1 in 20,000 manipulations on the higher end to figures closer to 1 in several million on the lower end, reflecting how genuinely difficult this rare event is to measure precisely and consistently.</p>
+      <p>The central scientific debate isn't really about whether the association exists in the data, it clearly does in some studies, but about causation (因果關係). A large case-control study found no significantly elevated stroke risk specifically tied to chiropractic visits once compared against equivalent visits to primary-care physicians for neck pain, suggesting a key confounding explanation: patients with an artery dissection already silently underway often experience neck pain and headache as early symptoms, and seek out a chiropractor for that very pain, only to have the stroke unfold shortly afterward regardless of any treatment received, a pattern researchers call protopathic bias (先兆偏誤).</p>
+      <p>The honest, evidence-based position sits between the two extremes: neck manipulation is not risk-free in the way cracking your own knuckles appears to be, since it applies far more targeted rotational force to arteries running directly through the neck, but the absolute risk for any individual patient during a single adjustment is very low, and much of the observed association may reflect patients already developing symptoms rather than the manipulation causing them outright. Professional guidelines increasingly recommend informed discussion of this small, genuinely uncertain risk before high-velocity cervical manipulation specifically, rather than either dismissing it outright or treating it as a common danger.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Vertebral_artery_dissection" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The real evidence on neck manipulation and stroke isn't "totally safe" or "clearly dangerous" &mdash; it's a rare, still-debated association that's genuinely hard to disentangle from cause.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is protopathic bias, and why does it complicate proving that chiropractic neck manipulation actually causes vertebral artery dissection?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Protopathic bias occurs when a condition is already silently developing and causing early symptoms, here, neck pain from an undetected arterial tear, that lead a patient to seek treatment before the condition's full effects appear regardless of that treatment. This makes it hard to tell whether manipulation caused the dissection or the patient sought treatment because the dissection had already begun.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cassidy, J.D. et al., case-control studies on chiropractic care and vertebrobasilar stroke, <em>Spine</em>; NIH/PubMed.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>Why "Warming Up" Isn't Just About Raising Your Body Temperature</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many gym-goers still warm up with five minutes of generic slow cardio, like light jogging or cycling, before moving on to their actual workout, regardless of what that workout involves. Before reading on, do you think this kind of generic warm-up prepares the body just as well as one built specifically around the movements the athlete is about to perform, and if not, what exactly is generic cardio failing to do?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Squats.svg/1920px-Squats.svg.png" alt="Diagram of a squat movement pattern" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A squat movement pattern, the kind of sport-specific rehearsal that modern warm-up protocols emphasise over generic cardio alone. Credit: <a href="https://en.wikipedia.org/wiki/Warming_up" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>For decades, "warming up" (熱身) was treated mainly as a matter of raising muscle temperature through generic light cardio, on the theory that warmer muscle tissue is simply more pliable and less injury-prone. Sports scientists now generally regard this as an incomplete picture: raising temperature is only one part of preparing the body, and a purely generic warm-up does little to prime the specific neuromuscular (神經肌肉) patterns, joint ranges of motion, and movement coordination that a given sport or lift actually demands, leaving a real preparation gap even after the body feels physically warm.</p>
+      <p>The widely adopted RAMP protocol (RAMP暖身法), developed by sports scientist Ian Jeffreys (伊恩&middot;傑弗里斯), structures warm-ups around four sequential goals: Raise (提升) body temperature and heart rate through light general movement; Activate (激活) key stabilising muscles that tend to stay dormant during daily life, like the glutes and core; Mobilise (鬆動) the specific joints under the greatest demand in the coming session; and finally Potentiate (增能), rehearsing lighter, sport-specific versions of the actual movements to come, such as bodyweight squats before a heavy squat session, priming the exact neural pathways about to be used under load.</p>
+      <p>This specificity matters most for the final Potentiate phase: research consistently shows that sport-specific movement rehearsal at progressively increasing intensity improves both immediate performance output and injury-prevention markers more reliably than generic cardio alone, since it directly primes the coordination patterns, joint angles, and muscle activation sequences the actual activity requires. Static stretching (靜態伸展) held for long durations, once a warm-up staple, is now generally reserved for after training instead, since research has found it can temporarily reduce power output when performed immediately before high-intensity or explosive effort.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Warming_up" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Warming up isn't just about getting hot &mdash; it's about rehearsing, at low stakes, the exact movement your body is about to be asked to do under load.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What are the four phases of the RAMP warm-up protocol, and which phase most directly explains why sport-specific movement matters more than generic cardio?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">RAMP stands for Raise, Activate, Mobilise, and Potentiate. The Potentiate phase, which rehearses lighter, sport-specific versions of the actual upcoming movements, most directly explains the advantage of specific warm-ups: it primes the exact coordination patterns and muscle activation sequences the activity will demand, which generic cardio alone does not.</div>
+      </details>
+      <div class="source">&#x1F4D6; Jeffreys, I. (2007), "Warm-Up Revisited: The RAMP Method of Optimising Performance Preparation," UKSCA; NSCA position statements on warm-up protocols.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Investing Edge That Comes From Knowing What You Don't Know</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Warren Buffett has spent decades publicly avoiding entire categories of seemingly lucrative investments, including, for years, most technology stocks, even during periods when they delivered spectacular returns to other investors. Before reading on, do you think this reflects Buffett being simply overly cautious and missing opportunities, or a deliberate, disciplined investing framework that has more to do with honestly assessing his own limits than predicting the future?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Warren_Buffett_at_the_2015_SelectUSA_Investment_Summit_%28cropped%29.jpg" alt="Photograph of Warren Buffett" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Warren Buffett, whose "circle of competence" framework treats knowing the boundaries of your own expertise as a core investing discipline. Credit: <a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Warren Buffett (華倫&middot;巴菲特) and his longtime business partner Charlie Munger (查理&middot;蒙格) popularised the idea of a "circle of competence" (能力圈): the specific, honestly bounded set of businesses and industries an investor genuinely understands well enough to judge their long-term prospects with real confidence. The framework's core discipline isn't about maximising the size of that circle, but about rigorously respecting its edges, refusing to invest in businesses that fall outside it no matter how promising they might appear, since confident-sounding analysis of an unfamiliar industry is often just confidence without genuine understanding underneath it.</p>
+      <p>Buffett's own famous decades-long avoidance of most technology stocks illustrates the principle in action rather than contradicting it: he repeatedly explained that he couldn't reliably judge which technology companies would still hold durable competitive advantages a decade later, an area of genuine uncertainty even for many technology specialists themselves, and chose to sit out entirely rather than guess. Berkshire Hathaway (伯克希爾&middot;哈撒韋) instead concentrated for decades on businesses with more predictable long-term economics, like insurance, consumer brands, and railroads, industries where Buffett judged his own understanding to be genuinely deep rather than merely confident-sounding.</p>
+      <p>The circle of competence framework is less about raw intelligence and more about intellectual honesty: Munger frequently argued that knowing the boundary of what you don't understand is itself a form of edge, since most investment mistakes come not from wrong analysis within a genuinely understood area, but from confidently misjudging something outside it. The discipline requires actively resisting the pull of missing out on trends everyone else seems to be profiting from, a psychologically uncomfortable position that explains why so few investors, even ones capable of the analysis, actually maintain it consistently over a full career.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Warren_Buffett" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The edge isn't knowing more than everyone else &mdash; it's knowing exactly where your own real understanding stops, and stopping there too.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the "circle of competence," and what does Buffett's long avoidance of most technology stocks illustrate about how the framework actually works?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The circle of competence is the bounded set of businesses an investor genuinely understands well enough to judge confidently. Buffett's avoidance of most technology stocks illustrates the discipline of respecting that boundary: he judged he couldn't reliably assess which tech companies would keep their advantages long-term, and chose not to invest rather than guess.</div>
+      </details>
+      <div class="source">&#x1F4D6; Buffett, W., Berkshire Hathaway Shareholder Letters (various years); Munger, C., <em>Poor Charlie's Almanack</em>; Berkshire Hathaway annual meeting transcripts.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Used-Car Lot That Explained Why Insurance Markets Can Collapse</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/George_Akerlof_%28cropped%29.jpg" alt="Photograph of economist George Akerlof" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">George Akerlof, whose 1970 "Market for Lemons" paper founded the economics of information asymmetry and adverse selection. Credit: <a href="https://en.wikipedia.org/wiki/The_Market_for_Lemons" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In markets from used cars to health insurance, sellers routinely know far more about what they're offering than buyers do &mdash; a used-car seller knows a specific vehicle's hidden defects; a health-insurance applicant knows more about their own health than any insurer ever fully can.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">George Akerlof's (喬治&middot;阿克洛夫) 1970 paper "The Market for Lemons" formalised this: when buyers can't distinguish low-quality goods ("lemons," 檸檬車) from good ones, they rationally offer only an average price. Honest sellers of good products, unable to prove their quality, exit the market, leaving it disproportionately full of lemons, a self-reinforcing spiral called adverse selection (逆向選擇).</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Real used-car lots and insurance markets persist and function reasonably well despite this logic, without collapsing entirely into pure-lemon markets the way Akerlof's simplest model would predict.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Michael Spence's (邁克爾&middot;斯彭斯) 1973 signalling theory and Joseph Stiglitz's (約瑟夫&middot;斯蒂格利茨) screening theory show markets evolve costly signals and screens, warranties, brand reputation, medical underwriting, vehicle inspections, that partially resolve the information gap. All three economists shared the 2001 Nobel Memorial Prize in Economics for this joint body of work on information asymmetry.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A used-car warranty isn't just a sales tactic &mdash; it's the market's evolved answer to a problem economists once thought could collapse the whole exchange.</div>
+      <div class="source">&#x1F4D6; Akerlof, G.A. (1970), "The Market for 'Lemons': Quality Uncertainty and the Market Mechanism," <em>Quarterly Journal of Economics</em> 84(3); Spence, M. (1973), "Job Market Signaling," QJE; Nobel Prize in Economics 2001 citation. Never recycles Card 10 domain (Buffett's circle-of-competence investing framework vs. information-asymmetry market theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 9 &amp; 10 &mdash; The Power of Staying Specific:</strong> The RAMP warm-up protocol and Buffett's circle of competence come from entirely different worlds, yet reward the same underlying discipline: precise, narrow preparation beats broad, generic effort. A five-minute jog raises your heart rate but doesn't rehearse the exact squat pattern your body needs; reading broadly about "the market" doesn't replace genuinely understanding one specific business well enough to judge its future. In both cases, the temptation is to substitute generic activity, cardio, headlines, diversified guessing, for the narrower, harder work of specifically preparing for the one thing actually at stake.</p>
+      <p><strong>So what:</strong> Before your next workout or investment decision, ask not whether you've generally prepared, but whether you've specifically rehearsed or understood the exact thing you're about to do.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA Hubble Space Telescope, "The Cat's Eye Nebula"; ESA Hubble; Britannica, "planetary nebula."</li>
+      <li><strong>Card 2:</strong> 羅振玉《殷虛書契考釋》；李學勤《殷墟甲骨學》；Britannica, "oracle bone."</li>
+      <li><strong>Card 3:</strong> Procopius, <em>History of the Wars</em>, Book II; Britannica, "plague of Justinian"; Nature/PNAS genomic studies.</li>
+      <li><strong>Card 4:</strong> 《史記&middot;孟子荀卿列傳》；顧頡剛《五德終始說下的政治和歷史》；Britannica, "Zou Yan."</li>
+      <li><strong>Card 5:</strong> Singer, P. (1972), <em>Philosophy &amp; Public Affairs</em> 1(3); Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Lau, R.R. &amp; Russell, D. (1980), <em>JPSP</em> 39(1); Mezulis, A.H. et al. (2004), <em>Psychological Bulletin</em> 130(5).</li>
+      <li><strong>Card 7:</strong> Huerta-S&aacute;nchez, E. et al. (2014), <em>Nature</em> 512; NIH/PubMed.</li>
+      <li><strong>Card 8:</strong> Cassidy, J.D. et al., case-control studies on chiropractic care and vertebrobasilar stroke, <em>Spine</em>; NIH/PubMed.</li>
+      <li><strong>Card 9:</strong> Jeffreys, I. (2007), UKSCA; NSCA position statements.</li>
+      <li><strong>Card 10:</strong> Buffett, W., Berkshire Hathaway Shareholder Letters; Munger, C., <em>Poor Charlie's Almanack</em>.</li>
+      <li><strong>Card 11:</strong> Akerlof, G.A. (1970), <em>Quarterly Journal of Economics</em> 84(3); Spence, M. (1973), QJE; Nobel Prize 2001.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-08: The Cat's Eye Nebula's Concentric Rings &bull; 甲骨文與殷墟的發現 &bull; The Plague of Justinian &bull; 鄒衍與五德終始說 &bull; Peter Singer's Drowning Child Argument &bull; Self-Serving Bias &bull; EPAS1 &amp; Tibetan High-Altitude Adaptation &bull; Chiropractic Neck Manipulation &amp; Stroke Risk &bull; Warm-Up Specificity (RAMP Protocol) &bull; Circle of Competence (Buffett/Munger) &bull; Akerlof's Market for Lemons / Adverse Selection</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-08.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-08.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 8 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
