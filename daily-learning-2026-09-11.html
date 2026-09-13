@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 11 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Friday, 11 September 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>10 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; New Horizons Pluto Flyby</span>After a nine-year journey, New Horizons found young ice mountains and a resurfaced plain on a "dead" world.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 陳橋兵變</span>黃袍加身，趙匡胤兵不血刃奪後周江山，建立宋朝。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Berlin Airlift</span>Allies flew supplies into blockaded West Berlin for 15 months until Stalin lifted the siege.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 慧遠形盡神不滅論</span>慧遠以薪火為喻，論證形滅而神不滅，支撐輪迴報應說。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Kant's Categorical Imperative</span>Kant judged actions by whether their underlying reasoning could survive becoming a universal law.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; The Illusory Truth Effect</span>Simply repeating a claim, true or false, makes people rate it as more believable over time.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; Hiccups</span>A diaphragm spasm plus an epiglottis snap cause hiccups, which fetuses perform months before their first breath.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; MSG Myth</span>"Chinese restaurant syndrome" traces to one unproven 1968 letter; double-blind tests found no reliable MSG effect.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; BCAA Supplements</span>BCAAs supply only 3 of ~20 amino acids needed, making them largely redundant next to complete protein.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Tulip Mania</span>Speculative 17th-century tulip-bulb contracts collapsed over 90% within weeks once a routine auction failed.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; The US Sugar Quota</span>A tiny, well-organised industry has preserved a 1934-era trade quota for nine decades against diffuse public opposition.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Collision That Left Gravity Behind</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 2006, astronomers combined X-ray and optical images of two colliding galaxy clusters 3.7 billion light-years away, revealing something that shouldn't have been possible if all matter in the universe were the kind we can see and touch. Before reading on: what do you think a picture of a giant cosmic collision could possibly prove about a mysterious substance no telescope has ever directly detected?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Bullet_cluster.jpg/330px-Bullet_cluster.jpg" alt="Composite image of the Bullet Cluster showing X-ray gas in pink and gravitational mass in blue" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Bullet Cluster: pink shows X-ray-emitting gas (ordinary matter); blue shows where gravitational lensing found most of the mass. Credit: <a href="https://en.wikipedia.org/wiki/Bullet_Cluster" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In August 2006, a team led by astronomer Douglas Clowe and Maxim Markevitch (馬克西姆&middot;馬克維奇) released images of the Bullet Cluster (子彈星系團), the aftermath of a spectacular collision between two galaxy clusters roughly 3.7 billion light-years away, moving at a combined speed of several million kilometres per hour. NASA's Chandra X-ray Observatory (錢卓拉X射線天文台) mapped hot, X-ray-emitting gas, the substance making up most of a galaxy cluster's ordinary, visible mass, and found it concentrated in the middle of the collision, dragged backward and slowed by friction between the two colliding gas clouds, much like two swimmers colliding head-on in a pool.</p>
+      <p>Separately, astronomers used gravitational lensing (重力透鏡), the bending of background light by the gravity of unseen mass in the foreground, to map where the cluster's actual gravitational mass was concentrated. If gravity came only from the visible gas, the lensing map should have overlapped almost exactly with the X-ray gas. Instead, the two maps diverged sharply: the bulk of each cluster's gravitational mass had sailed straight through the collision essentially undisturbed, well ahead of the slowed-down visible gas, as if most of the mass simply didn't feel the friction that slowed the ordinary matter down at all.</p>
+      <p>This separation is widely considered the most direct empirical evidence for dark matter (暗物質): an invisible substance that interacts through gravity but passes through ordinary matter, and even through other dark matter, almost without friction. Alternative theories proposing modified gravity laws instead of unseen matter have struggled to explain why the gravitational centre of mass would physically separate from the visible matter this way. The Bullet Cluster remains one of astronomy's clearest single images for demonstrating a phenomenon no instrument has ever detected directly, only through its gravitational shadow.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Bullet_Cluster" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Bullet Cluster's mass and its matter parted ways mid-collision &mdash; the clearest snapshot yet of dark matter's gravity acting alone.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> In the Bullet Cluster, why did the X-ray gas and the gravitational mass end up in different places after the collision?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The X-ray-emitting gas, which makes up most of the visible mass, was slowed and dragged backward by friction between the two colliding gas clouds. The gravitational mass, mostly dark matter, passed through largely undisturbed since dark matter barely interacts with itself or ordinary matter, leaving the two maps in different places.</div>
+      </details>
+      <div class="source">&#x1F4D6; Clowe, D. et al. (2006), <em>Astrophysical Journal Letters</em>; NASA/Chandra X-ray Observatory press release (2006); Markevitch, M. et al. (2004), <em>Astrophysical Journal</em>.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一口大鐘，如何點燃德川家康剷除豐臣家的最後戰役？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1614年，日本已無大規模戰事十餘年，德川家康表面上已將政權移交幕府，豐臣秀吉之子豐臣秀賴仍居於固若金湯的大坂城中，坐擁龐大財富與舊臣人脈。這時，家康卻突然對一口新鑄銅鐘上的八個漢字大做文章，指控其暗藏詛咒之意。你認為，這件看似荒謬的「鐘銘事件」，將如何被家康利用，成為挑起戰爭、徹底剷除豐臣家的藉口？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>德川家康（江戶幕府創立者，時已隱居駿府任「大御所」）；豐臣秀賴（豐臣秀吉之子，時年二十一歲，居大坂城）；淀殿（豐臣秀賴生母，豐臣家實際掌權者）；真田幸村（豐臣方名將，大坂夏之陣血戰而死）。</p>
+        <p><strong>事件：</strong>1614–1615年，德川家康藉方廣寺鐘銘事件為由，兩度出兵圍攻大坂城，最終於1615年夏之陣攻陷城池，豐臣秀賴與淀殿自盡，豐臣氏滅亡。</p>
+        <p><strong>時代背景：</strong>1600年關原之戰後，德川家康已掌握天下實權，1603年獲封征夷大將軍，1605年讓位於子德川秀忠，自任「大御所」幕後操控；然而豐臣秀賴仍居大坂城，坐擁龐大黃金儲備及舊豐臣系大名效忠，家康年事已高，急欲在有生之年徹底根除豐臣氏東山再起的可能，為德川幕府兩百餘年統治掃除最後障礙。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/79/Osakarakuzyou_%28cropped%29.jpg/960px-Osakarakuzyou_%28cropped%29.jpg" alt="大坂城天守閣" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">大坂城，豐臣氏根據地，1615年夏之陣中陷落焚毀。來源：<a href="https://en.wikipedia.org/wiki/Siege_of_Osaka" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1614年，豐臣秀賴為告慰亡父豐臣秀吉冥福，斥資重建京都方廣寺，鑄造一口巨大梵鐘，鐘身刻有「國家安康，君臣豐樂」八字祈福銘文。德川家康的謀臣以心崇傳等人卻從中挑出文章，指「國家安康」一句將家康之名「家」與「康」二字拆開，暗藏詛咒家康身首異處之意；又稱「君臣豐樂」隱含盼望「豐臣」家獨自繁榮昌盛、暗指德川氏覆滅的野心。豐臣方多次遣使赴駿府解釋澄清，家康卻拒不接見，堅持追究責任，雙方關係迅速惡化，戰爭一觸即發。</p>
+      <p>1614年冬，家康親率大軍圍攻大坂城，是為「大坂冬之陣」。大坂城由豐臣秀吉一手督造，城池堅固，加上真田幸村在城南增築「真田丸」出城要塞頑強抵抗，德川軍久攻不下，傷亡慘重。家康遂改採議和之策，開出條件包括拆除大坂城外城與二之丸城牆、填平護城河，豐臣方接受議和。詎料議和達成後，德川軍卻趁機將原本承諾只填平外壕的協議擴大解釋，連內壕與二之丸城牆也一併拆毀填平，令固若金湯的大坂城頓時淪為無險可守的空城。</p>
+      <p>1615年夏，德川家康再度興兵，是為「大坂夏之陣」，此時大坂城已失去護城河與外城屏障，豐臣方只能出城野戰。真田幸村率部在天王寺、岡山一帶死戰，一度突擊逼近家康本陣，令家康幾乎棄陣而逃，然終因兵力懸殊，幸村戰死沙場，豐臣軍全線潰敗。大坂城隨即陷落焚毀，豐臣秀賴與生母淀殿在城中自盡，豐臣氏至此滅亡。此役史稱「大坂の陣」，標誌著日本戰國時代的終結，德川幕府自此開啟長達兩百六十餘年的「元和偃武」太平盛世。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Siege_of_Osaka" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 家康以一口鐘銘小題大做，實為剷除豐臣家、終結戰國亂世的最後一步棋。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 方廣寺鐘銘事件的爭議點是甚麼？德川家康如何利用冬之陣議和條款削弱大坂城防禦？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">鐘銘事件爭議在於「國家安康」被指拆開家康之名以咒詛之，「君臣豐樂」則被指暗喻豐臣家獨自昌盛。冬之陣議和後，德川軍藉機將原本只填平外壕的協議擴大至內壕與二之丸城牆一併拆除，使大坂城喪失防禦屏障，為夏之陣一舉攻陷埋下伏筆。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《大坂御陣覚書》；《徳川実紀》；Britannica, "Siege of Osaka."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Fourteen-Year-Old King Who Talked Down an Army of Rebels</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In June 1381, tens of thousands of English peasants and townsfolk, furious over a hated new tax, marched on London, broke open its prisons, and beheaded the Archbishop of Canterbury on Tower Hill. Before reading on: facing a mob that had just executed his own chancellor, what do you think 14-year-old King Richard II could possibly have done to end the uprising without a pitched battle?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Wat Tyler (瓦特&middot;泰勒), rebel leader from Kent; John Ball (約翰&middot;鮑爾), radical preacher; King Richard II (理查二世), aged 14; William Walworth (威廉&middot;沃爾沃思), Lord Mayor of London.</p>
+        <p><strong>Event at stake:</strong> the 1381 Peasants' Revolt (農民起義), England's largest medieval popular uprising, triggered by a deeply unpopular poll tax.</p>
+        <p><strong>Big picture:</strong> decades after the Black Death (黑死病) had wiped out roughly a third of England's population, surviving labourers found their wages rising and lords desperate for workers, only for Parliament to respond with wage caps and a regressive new tax, pushing long-simmering resentment past breaking point.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Jean_Froissart%2C_Chroniques%2C_154v%2C_12148_btv1b8438605hf336%2C_crop.jpg/960px-Jean_Froissart%2C_Chroniques%2C_154v%2C_12148_btv1b8438605hf336%2C_crop.jpg" alt="Medieval illumination of the 1381 Peasants' Revolt from Froissart's Chronicles" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A medieval illumination from Froissart's Chronicles depicting the 1381 Peasants' Revolt. Credit: <a href="https://en.wikipedia.org/wiki/Peasants%27_Revolt" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1381, the English Parliament imposed a third poll tax (人頭稅) within four years, a flat charge per person regardless of income, to fund an unpopular war with France. Coming just a generation after the Black Death had killed roughly a third of England's population, the tax landed on a peasantry that had briefly gained real bargaining power over scarce labour, only to watch Parliament's 1351 Statute of Labourers (勞工法令) cap their wages at pre-plague levels by law. When royal tax collectors pushed into Essex and Kent demanding payment, violent resistance broke out almost immediately, and the revolt spread with startling speed.</p>
+      <p>Rebel forces led by Wat Tyler (瓦特&middot;泰勒) and inspired by radical preacher John Ball (約翰&middot;鮑爾), who reportedly asked crowds "when Adam delved and Eve span, who was then the gentleman?", marched on London in mid-June, opening the city's prisons and burning the Savoy Palace (薩伏依宮) of the widely hated John of Gaunt (岡特的約翰). On 14 June, rebels stormed the Tower of London (倫敦塔) itself and dragged out and beheaded Archbishop Simon Sudbury (西蒙&middot;薩德伯里), the king's chancellor, along with the royal treasurer, mounting their heads on London Bridge.</p>
+      <p>The following day, 14-year-old King Richard II (理查二世) rode out to meet the rebels at Smithfield in person, a remarkably risky move for a boy king facing an armed mob that had just executed two of his ministers. When Lord Mayor William Walworth (威廉&middot;沃爾沃思) killed Wat Tyler during a tense confrontation, sensing the moment could collapse into a massacre of his own escort, Richard rode forward alone and declared "I will be your leader," persuading the leaderless crowd to disperse peacefully. Royal promises made that day were quietly revoked within weeks, though the hated poll tax itself was never repeated.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Peasants%27_Revolt" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A teenage king ended England's largest medieval uprising with a bluff, not a battle &mdash; then broke every promise he made.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered the 1381 Peasants' Revolt, and how did 14-year-old Richard II defuse the crisis at Smithfield?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A deeply resented flat poll tax, arriving soon after the Black Death had given surviving labourers new bargaining power that Parliament tried to suppress by law, triggered the revolt. After the Lord Mayor killed Wat Tyler, Richard II rode forward alone and declared himself the rebels' leader, persuading the crowd to disperse without further bloodshed.</div>
+      </details>
+      <div class="source">&#x1F4D6; Dobson, R.B., <em>The Peasants' Revolt of 1381</em> (1970); Britannica, "Peasants' Revolt"; Froissart's <em>Chronicles</em>.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>親鸞為何說「惡人比善人更易得救」？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">淨土宗一般教導，行善積德的人死後更容易往生極樂淨土，作惡多端者則較難獲救——這是最直觀的因果邏輯。然而，日本鎌倉時代高僧親鸞卻反其道而行，提出「惡人正機」之說，主張連自認為善良之人尚且能夠往生，何況自知罪業深重的惡人？你認為，親鸞將如何為這個看似顛倒因果的說法自圓其說？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>親鸞（1173–1263年，鎌倉時代僧人，淨土真宗開創者）；法然（親鸞之師，淨土宗開創者）；惠信尼（親鸞妻子）。</p>
+        <p><strong>事件／思想：</strong>親鸞在其語錄《歎異抄》中提出「善人尚且往生，況惡人乎」的「惡人正機」說，主張自覺罪業深重、無法憑自力修行得救之人，才是阿彌陀佛本願拯救的真正對象。</p>
+        <p><strong>時代背景：</strong>鎌倉時代武家掌權，戰亂頻仍，民不聊生，傳統佛教強調戒律苦修，非一般平民百姓所能企及；親鸞之師法然倡「專修念佛」，主張只需一心稱念「南無阿彌陀佛」即可往生，卻因觸怒舊教團勢力而遭朝廷流放，親鸞亦受牽連被逐至越後，在庶民與流放生活中深刻反思「他力」信仰對凡夫俗子的真正意義。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/Shinran_%28Nara_National_Museum%29.jpg/960px-Shinran_%28Nara_National_Museum%29.jpg" alt="親鸞畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">親鸞畫像，淨土真宗開創者，提出「惡人正機」說。來源：<a href="https://en.wikipedia.org/wiki/Shinran" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>親鸞早年於比叡山出家修習天台宗，二十年苦修卻始終未能斷除煩惱，深感僅憑自身修行力量（自力）根本無法達至解脫。二十九歲時，他轉投法然門下，接受「專修念佛」法門，主張眾生毋須艱苦戒律或高深義理，只需一心稱念阿彌陀佛名號，仰賴佛之本願力（他力），便能往生西方極樂淨土。1207年，法然的念佛法門觸怒了朝廷與舊教團勢力，法然與親鸞先後被判流放，親鸞被逐至越後（今新潟縣），期間更公然娶妻惠信尼、食用肉類，公開打破傳統僧侶戒律，其後創立淨土真宗，主張出家與在家並無本質差別。</p>
+      <p>親鸞晚年由弟子唯圓筆錄其語錄《歎異抄》，其中最著名的一段提出「善人尚且往生，況惡人乎」的「惡人正機」說，表面看似顛倒常理。親鸞解釋，所謂「善人」往往自恃能憑自身修行積德而得救，這種自力心態恰恰是通往阿彌陀佛本願的最大障礙；反之，「惡人」自知罪業深重、無力自救，才會真正徹底放下自力、全心仰賴佛之他力救度，故此惡人才是阿彌陀佛「本願」——即拯救一切眾生、尤其是無力自救者——真正要拯救的對象。</p>
+      <p>這套學說並非鼓勵眾生為惡，而是徹底顛覆「行善積德換取救贖」的功利式修行觀，將往生的關鍵完全歸於阿彌陀佛的無條件慈悲本願，而非個人修為高低。親鸞逝世後，其教法由後人整理發展為淨土真宗，成為日本佛教信眾人數最多的宗派之一，深刻影響日本庶民的宗教生活；「惡人正機」說至今仍是東亞佛教史上最具爭議、也最常被討論的教義之一，挑戰了「善有善報」的直觀因果觀念。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Shinran" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 親鸞認為，自恃行善才是修行路上最大的障礙，徹底放下自力的「惡人」反而更貼近阿彌陀佛的救度本願。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 親鸞「惡人正機」說的核心論點是甚麼？他為何認為「善人」在往生路上反而較為不利？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">親鸞主張自知罪業深重、無力自救的「惡人」才是阿彌陀佛本願真正拯救的對象，因為他們能徹底放下自力、全心仰賴他力救度。「善人」則往往自恃修行積德而得救，這種自力心態反而成為仰賴佛之本願的障礙。</div>
+      </details>
+      <div class="source">&#x1F4D6; 親鸞《歎異抄》（唯圓筆錄）；親鸞《教行信証》；Britannica, "Shinran."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Explained Why a Copy Can Never Feel Like the Original</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine standing in front of an actual centuries-old painting in a museum, then looking at a perfect, pixel-for-pixel digital photograph of that same painting on your phone. Before reading on: even if the copy were visually indistinguishable, do you think something intangible would still be missing from it, and if so, what?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Walter Benjamin (華特&middot;班雅明), German-Jewish cultural critic and philosopher.</p>
+        <p><strong>Problem at stake:</strong> what mechanical reproduction, photography and film, does to the value and experience of an original work of art.</p>
+        <p><strong>Moment:</strong> Benjamin wrote "The Work of Art in the Age of Mechanical Reproduction" (機械複製時代的藝術作品) in 1935, while living as a refugee from Nazi Germany (納粹德國) in Paris, associated with the Frankfurt School (法蘭克福學派).</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/Walter_Benjamin_vers_1928.jpg/330px-Walter_Benjamin_vers_1928.jpg" alt="Photograph of Walter Benjamin, circa 1928" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Walter Benjamin, c. 1928, whose essay on mechanical reproduction introduced the concept of an artwork's "aura." Credit: <a href="https://en.wikipedia.org/wiki/Walter_Benjamin" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Walter Benjamin (華特&middot;班雅明), a German-Jewish philosopher and cultural critic loosely associated with the Frankfurt School (法蘭克福學派), argued in his 1935 essay that mechanical reproduction, photography, printing, and especially film, strips an artwork of what he called its "aura" (靈光): the unique presence of an original object rooted in a specific place and moment in history, carrying the accumulated weight of its own tradition and ritual origins. A painting in a church once demanded physical pilgrimage to view; a photograph of it can be seen anywhere, infinitely duplicated, and Benjamin argued something essential is inevitably lost in that multiplication, however perfect the copy.</p>
+      <p>Unlike many contemporaries who mourned this loss purely as cultural decline, Benjamin treated it with cautious ambivalence: reproduction also democratises (民主化) art, freeing it from being viewable only by the wealthy few who could travel to see an original, and shifting art's basis from ritual and cult value toward political and exhibition value accessible to the masses. He worried, however, that fascist movements like Nazism (納粹主義) could exploit this same mass-reproducible power, weaponising film and mass rallies to manufacture a false "aura" around political spectacle itself, a concern that proved grimly prescient.</p>
+      <p>Benjamin's own life ended in the shadow of the danger he warned against: fleeing occupied France in September 1940 toward neutral Spain, he reached the border town of Portbou (波爾特沃) only to learn Spanish authorities had just closed the crossing to refugees without French exit visas, threatening to hand his group back to the Gestapo. That night, believing escape was hopeless, Benjamin took a fatal overdose of morphine tablets; the group was permitted to cross the very next day. His unfinished <em>Arcades Project</em> (拱廊街計畫) and this essay remain foundational texts in modern media theory and cultural criticism.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Walter_Benjamin" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A perfect copy can multiply an image infinitely, but Benjamin argued it can never carry the "aura" of the one original.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Walter Benjamin mean by an artwork's "aura," and why did he believe mechanical reproduction destroys it?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Benjamin's "aura" refers to an original artwork's unique presence, rooted in a specific place, time, and history of ritual use. Mechanical reproduction destroys it because a reproduced image can be endlessly duplicated and viewed anywhere, detaching it entirely from the one-of-a-kind original's specific historical context.</div>
+      </details>
+      <div class="source">&#x1F4D6; Benjamin, W., "The Work of Art in the Age of Mechanical Reproduction" (1935); Stanford Encyclopedia of Philosophy, "Walter Benjamin."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Checking Your Portfolio Every Day Might Be Costing You Money</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine two investors with the exact same portfolio: one checks its value once a year, the other checks it every single day. Before reading on: do you think simply checking more often, with no actual change in the underlying investments, could make someone more likely to sell good long-term investments too early?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Richard_Thaler_Chatham.jpg/330px-Richard_Thaler_Chatham.jpg" alt="Photograph of economist Richard Thaler" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Economist Richard Thaler, who with Shlomo Benartzi identified myopic loss aversion in investor behaviour. Credit: <a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Myopic loss aversion (短視損失規避) describes a decision-making trap identified by economists Shlomo Benartzi (施羅默&middot;貝納茨) and Richard Thaler (理查&middot;塞勒) in 1995: because losses feel psychologically far more painful than equivalent gains feel good (loss aversion, 損失規避), and because checking an investment more frequently increases the odds of catching it during a temporary dip, frequent portfolio-checking makes investors feel more pain relative to pleasure over time, even when the investment's long-run expected return hasn't changed at all. The "myopic" part refers to this short-sighted evaluation window overriding what should be a much longer-term perspective.</p>
+      <p>Benartzi and Thaler originally proposed this mechanism to help explain the equity premium puzzle (股票溢價之謎): the long-standing finding that stocks have historically outperformed government bonds by a much wider margin than standard risk models can explain, given how modestly more volatile stocks actually are. Their model showed that if investors evaluate their portfolios roughly once a year, a fairly typical real-world checking frequency, the pain of loss aversion applied to that yearly window can rationally justify demanding almost exactly the extra return premium stocks have historically delivered, without requiring investors to be irrationally risk-averse.</p>
+      <p>The practical takeaway runs against a common instinct: checking your investments constantly, though it feels responsible and informed, statistically increases your exposure to painful-feeling short-term losses, potentially triggering panic-selling of assets that were performing perfectly well over any longer horizon. Financial advisors increasingly cite this research to recommend deliberately infrequent portfolio reviews, sometimes just once or twice a year, as a behavioural countermeasure, treating limited information not as a risk to manage but as a shield against one's own psychology.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Richard_Thaler" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Checking your portfolio less often isn't laziness &mdash; it's a documented defence against your own loss-averse brain.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is myopic loss aversion, and how did Benartzi and Thaler use it to help explain the equity premium puzzle?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Myopic loss aversion is the tendency for frequent portfolio-checking to amplify the pain of loss aversion, since more frequent checks increase the odds of observing a temporary dip. Benartzi and Thaler showed that a roughly one-year checking interval could rationally justify the historical size of the extra return stocks pay over bonds.</div>
+      </details>
+      <div class="source">&#x1F4D6; Benartzi, S. &amp; Thaler, R.H. (1995), <em>Quarterly Journal of Economics</em>; Thaler, R.H. et al. (1997), <em>Quarterly Journal of Economics</em> (experimental follow-up).</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why Redheads Sometimes Need More Anaesthetic on the Operating Table</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly 1-2% of people worldwide have naturally red hair, caused by a specific gene variant that also affects skin tone and freckling. Before reading on: could that same pigmentation gene plausibly affect something that seems completely unrelated to hair colour, like how much anaesthetic a person needs during surgery?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Woman_redhead_natural_portrait_1.jpg/330px-Woman_redhead_natural_portrait_1.jpg" alt="Portrait of a woman with natural red hair" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Red hair is caused by MC1R gene variants, which also affect pain and anaesthetic sensitivity via the brain. Credit: <a href="https://en.wikipedia.org/wiki/Red_hair" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Red hair (紅髮) arises from variants in the MC1R gene (黑素皮質素1受體基因), which normally instructs melanocytes (黑色素細胞) to produce dark eumelanin (真黑素); loss-of-function variants shift production toward reddish pheomelanin (褐黑素) instead, producing red hair, fair skin, and a tendency to freckle rather than tan. For decades, redheads anecdotally reported needing unusually large doses of local anaesthetic at the dentist, and some anaesthesiologists (麻醉科醫生) noticed a similar pattern in the operating room, though the claim went untested for years, dismissed by some as folklore about a group already stereotyped in other ways.</p>
+      <p>A landmark 2004 study by Edwin Liem and colleagues, published in the journal <em>Anesthesiology</em>, put the claim to a controlled test: comparing redheaded women carrying MC1R variants against dark-haired women, redheads required approximately 20% more of the inhaled general anaesthetic desflurane (地氟醚) to reach the same level of unconsciousness. Crucially, the mechanism is not simply about skin or pigmentation, since general anaesthesia acts on the brain, not the skin; the same MC1R gene turns out to also be expressed in the periaqueductal grey (導水管周圍灰質), a brainstem region central to processing pain and modulating opioid receptor (類鴉片受體) sensitivity.</p>
+      <p>This means the MC1R variant likely alters pain and anaesthetic sensitivity directly through its action in the brain and nervous system, entirely independent of the pigmentation change happening in the skin, rather than pigmentation itself somehow interfering with drug delivery. Follow-up research has also found redheads may be more sensitive to certain types of pain and require higher doses of some other analgesics, reinforcing that one gene variant can quietly influence multiple, seemingly unconnected physiological systems at once.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Red_hair" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The same gene that gives some people red hair also dials up how much anaesthetic their brain needs to switch off.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the 2004 Liem study find about redheads and general anaesthesia, and why does the MC1R gene affect this?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The study found redheaded women needed roughly 20% more inhaled general anaesthetic to reach the same level of unconsciousness as dark-haired women. This happens because the MC1R gene, beyond controlling skin pigmentation, is also expressed in a brainstem region that modulates pain and opioid receptor sensitivity.</div>
+      </details>
+      <div class="source">&#x1F4D6; Liem, E.B. et al. (2004), <em>Anesthesiology</em>; Mogil, J.S. et al. (2005), <em>Proceedings of the National Academy of Sciences</em>.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Retracted Study That Still Shapes Vaccine Fears Decades Later</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1998, a study published in one of the world's most prestigious medical journals claimed to find a link between a childhood vaccine and autism, sparking a wave of parental fear that persists to this day. Before reading on: do you think that original study has since been confirmed by later research, or discredited &mdash; and if discredited, what actually went wrong with it?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/MMR_vaccine.jpg/330px-MMR_vaccine.jpg" alt="A vial of MMR vaccine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The MMR vaccine, wrongly linked to autism by a fraudulent, later-retracted 1998 study. Credit: <a href="https://en.wikipedia.org/wiki/MMR_vaccine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1998, British physician Andrew Wakefield (安德魯&middot;韋克菲爾德) and colleagues published a study in <em>The Lancet</em> (刺胳針), a leading medical journal, examining just twelve children and suggesting a possible link between the MMR vaccine (麻疹腮腺炎德國麻疹混合疫苗), which protects against measles, mumps, and rubella, and the onset of autism (自閉症). The paper triggered an immediate, sustained collapse in MMR uptake across the United Kingdom and beyond, contributing to measles outbreaks in communities that had previously all but eliminated the disease through high vaccination coverage.</p>
+      <p>Investigative journalist Brian Deer (布萊恩&middot;迪爾) later revealed that Wakefield had undisclosed financial conflicts of interest, including payments from lawyers seeking evidence for lawsuits against vaccine manufacturers, and that the children's case histories had been selectively altered to fit the claimed pattern. The General Medical Council (英國醫學總會) found Wakefield guilty of serious professional misconduct and struck him from the medical register in 2010; <em>The Lancet</em> fully retracted the paper the same year, an unusually severe and rare outcome for a published scientific study.</p>
+      <p>Since then, large-scale studies dwarfing Wakefield's original twelve cases have consistently found no link: a 2002 Danish study in the <em>New England Journal of Medicine</em> followed over 537,000 children and found no elevated autism risk among the vaccinated, and a 2019 Danish follow-up study tracking over 650,000 children reached the same conclusion. Despite this overwhelming evidence, the original claim's cultural impact has proven remarkably durable, illustrating how a single fraudulent, thoroughly retracted study can shape public fear for a generation, far outlasting the science that discredited it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/MMR_vaccine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The study behind the vaccine-autism myth was retracted and its author stripped of his medical licence, yet the fear it created still lingers.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What was found to be wrong with Andrew Wakefield's original 1998 study, and what have much larger studies since found?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Wakefield's study was based on just twelve children, involved undisclosed financial conflicts of interest, and altered case histories to fit the claimed pattern, leading to its retraction and his loss of medical licence. Later studies following over 500,000 children each found no elevated autism risk linked to the MMR vaccine.</div>
+      </details>
+      <div class="source">&#x1F4D6; Deer, B., "How the Case Against the MMR Vaccine Was Fixed," <em>BMJ</em> (2011); Madsen, K.M. et al. (2002), <em>New England Journal of Medicine</em>; Hviid, A. et al. (2019), <em>Annals of Internal Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Supplement That Makes Your Skin Tingle &mdash; and Might Actually Work</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Some gym-goers take a supplement that causes a harmless tingling, prickling sensation on the skin within minutes of swallowing it, a side effect so distinctive it has its own name. Before reading on: do you think this odd tingling side effect is a sign the supplement is doing something useless, or could it actually be linked to a genuine performance benefit?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Carnosine.svg/960px-Carnosine.svg.png" alt="Chemical structure of carnosine" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The chemical structure of carnosine, the muscle-buffering compound raised by beta-alanine supplementation. Credit: <a href="https://en.wikipedia.org/wiki/Carnosine" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Beta-alanine (&beta;-丙氨酸) is a non-essential amino acid that, unlike most supplements marketed to athletes, doesn't build muscle directly but instead raises levels of carnosine (肌肽), a dipeptide stored in skeletal muscle that acts as an intracellular buffer against acid buildup during intense exercise. When muscles work anaerobically at high intensity, hydrogen ions (氫離子) accumulate and lower muscle pH, contributing to the burning fatigue familiar from any hard 1-4 minute sprint, and carnosine helps buffer that acidity, delaying the point at which fatigue forces the muscle to stop.</p>
+      <p>Roger Harris (羅傑&middot;哈里斯) and colleagues demonstrated in the 2000s that several weeks of beta-alanine supplementation, typically 3.2 to 6.4 grams daily for at least four weeks, can raise muscle carnosine concentrations by 20-80%, a substantially larger and more reliable increase than dietary carnosine intake alone achieves. A widely cited 2012 meta-analysis by Jozo Hobson and colleagues in the journal <em>Amino Acids</em> found beta-alanine supplementation produced a small but consistent performance benefit specifically in high-intensity exercise lasting between roughly one and four minutes, precisely the window in which acid buildup is the dominant limiting factor.</p>
+      <p>The supplement's most distinctive side effect, a harmless tingling or prickling sensation called paraesthesia (感覺異常) felt in the face, neck, and hands within 15-20 minutes of a large dose, results from beta-alanine directly activating certain sensory nerve receptors, unrelated to its actual muscle-buffering mechanism; splitting doses into smaller amounts throughout the day reduces the sensation without reducing effectiveness. Unlike creatine, which benefits nearly all forms of resistance and power training broadly, beta-alanine's proven benefit is comparatively narrow, mattering most for repeated sprints, rowing, and similar sustained high-intensity efforts.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Beta-Alanine" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; That tingling feeling is a harmless side effect, not a sign of anything &mdash; the real benefit shows up in your muscles' acid tolerance, not your skin.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What does beta-alanine actually do in the muscle, and in what type of exercise does research show it helps most?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Beta-alanine raises muscle carnosine levels, which buffer the acid buildup from hydrogen ions that causes burning fatigue during intense exercise. Research shows its clearest benefit in high-intensity exercise lasting roughly one to four minutes, where acid buildup is the main factor limiting performance.</div>
+      </details>
+      <div class="source">&#x1F4D6; Harris, R.C. et al. (2006), <em>Amino Acids</em>; Hobson, R.M. et al. (2012), <em>Amino Acids</em> (meta-analysis); ISSN 2015 position stand on beta-alanine.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Retirement Fund Bet That Bankrupted a Wealthy County</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In December 1994, Orange County, California, one of the wealthiest counties in the United States, shocked the financial world by filing for the largest municipal bankruptcy in American history at the time. Before reading on: what kind of financial decision do you think a county treasurer could have made with public money that was risky enough to bankrupt an entire, affluent county government?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/58/North_Laguna_Aerial_photo_by_Don_Ramey_Logan.jpg_alt.jpg/3840px-North_Laguna_Aerial_photo_by_Don_Ramey_Logan.jpg_alt.jpg" alt="Aerial photo of the Orange County, California coastline" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Orange County, California, whose public investment pool collapsed into the largest municipal bankruptcy in US history at the time. Credit: <a href="https://en.wikipedia.org/wiki/1994_Orange_County_bankruptcy" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Robert Citron (羅伯特&middot;西特倫), Orange County's elected treasurer for over two decades, managed a public investment pool holding roughly $7.5 billion on behalf of the county, local school districts, and municipalities, and had built a reputation for consistently outperforming other municipal funds by using leverage (槓桿) most public treasurers avoided. Citron borrowed heavily through reverse repurchase agreements (逆回購協議), pledging the pool's existing bond holdings as collateral to borrow more money, then used that borrowed money to buy still more bonds, at one point leveraging roughly $7.5 billion in actual capital into over $20 billion in total holdings.</p>
+      <p>Much of that borrowed money went into structured notes (結構性票據) and inverse floaters (反向浮動利率票據), securities whose returns rise when interest rates fall and fall sharply when rates rise, essentially betting the entire strategy on rates staying low or falling further. When the US Federal Reserve (美國聯邦儲備局) unexpectedly raised interest rates repeatedly through 1994 to cool an overheating economy, both the leveraged bond portfolio and the inverse floaters moved sharply against Citron simultaneously, and the pool's paper losses mounted every time rates ticked up again.</p>
+      <p>By December 1994, the fund had lost approximately $1.6 billion, and on 6 December, Orange County (橙縣) filed for Chapter 9 municipal bankruptcy, the largest such filing in US history at the time, forcing painful cuts to local government services and lawsuits against Wall Street brokers who had sold Citron the risky securities. Citron pleaded guilty to securities fraud; the episode prompted California and other states to tighten oversight of municipal treasurers and restrict leverage in public investment pools.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/1994_Orange_County_bankruptcy" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Orange County's treasurer bet an entire public investment pool on interest rates never rising &mdash; then they did.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What investment strategy caused Orange County's 1994 bankruptcy, and what triggered the losses?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Treasurer Robert Citron used borrowed money, via reverse repurchase agreements, to leverage the county's investment pool into securities like inverse floaters that bet on interest rates staying low or falling. Repeated Federal Reserve rate hikes through 1994 moved against this bet, causing roughly $1.6 billion in losses and forcing bankruptcy.</div>
+      </details>
+      <div class="source">&#x1F4D6; Jorion, P., <em>Big Bets Gone Bad: Derivatives and Bankruptcy in Orange County</em> (1995); Baldassare, M., <em>When Government Fails: The Orange County Bankruptcy</em> (1998); Britannica.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The Recovery That Broke a 50-Year-Old Economic Rule</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/en/thumb/8/84/Arthur_Melvin_Okun.jpg/330px-Arthur_Melvin_Okun.jpg" alt="Photograph of economist Arthur Okun" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Economist Arthur Okun, whose 1962 rule linking GDP growth to unemployment broke down during the 2009-2011 US recovery. Credit: <a href="https://en.wikipedia.org/wiki/Arthur_Okun" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">Following the 2008-09 financial crisis, US GDP growth resumed by mid-2009, yet unemployment (失業率) stayed above 9% well into 2011 &mdash; a "jobless recovery" (無就業復甦) defying decades of prior growth-to-hiring experience.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Arthur Okun's (阿瑟&middot;奧肯) 1962 rule, Okun's Law (奧肯定律), held that roughly every extra 2 percentage points of GDP growth above trend yields about 1 percentage point less unemployment &mdash; a relationship that had reliably held across most of post-war America.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">The 2009-2011 recovery needed far more growth than Okun's coefficient predicted to cut unemployment by the same amount. Ball, Leigh &amp; Loungani's 2013 IMF study found the Okun coefficient itself shifts meaningfully across countries and time periods, undermining its use as a stable, universal rule of thumb.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Explanations include firms squeezing more output from existing staff via productivity gains rather than rehiring, "labour hoarding" reversing differently across recessions, and skills mismatch between laid-off workers and available jobs; which factor dominates in any given recovery remains genuinely disputed.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; A 50-year-old rule linking growth to jobs held up fine for decades &mdash; until one recovery quietly rewrote its own coefficient.</div>
+      <div class="source">&#x1F4D6; Okun, A.M. (1962), <em>Proceedings of the Business and Economics Statistics Section</em>; Ball, L., Leigh, D. &amp; Loungani, P. (2013), IMF Working Paper "Okun's Law: Fit at 50?"; Federal Reserve Bank research on the 2009-2011 jobless recovery. Never recycles Card 10 domain (municipal derivatives bankruptcy vs. macroeconomic labour-output theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 7 &amp; 9 &mdash; When the Felt Effect Isn't the Real Effect:</strong> the MC1R gene that gives some people red hair affects their anaesthetic needs through an entirely separate brainstem pathway, not through the skin pigmentation you can actually see; beta-alanine's tingling skin sensation is likewise caused by a nerve reaction unrelated to the muscle-buffering effect that actually improves performance. In both cases, the sensation you can notice has nothing to do with the mechanism doing the real work underneath it.</p>
+      <p><strong>So what:</strong> the next time a supplement, treatment, or trait produces a noticeable sensation, resist assuming that sensation is proof it's working, or not working. The visible or felt signal and the actual causal mechanism are often two entirely separate stories.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Clowe, D. et al. (2006), <em>Astrophysical Journal Letters</em>; NASA/Chandra X-ray Observatory (2006); Markevitch, M. et al. (2004).</li>
+      <li><strong>Card 2:</strong> 《大坂御陣覚書》；《徳川実紀》；Britannica, "Siege of Osaka."</li>
+      <li><strong>Card 3:</strong> Dobson, R.B., <em>The Peasants' Revolt of 1381</em> (1970); Britannica; Froissart's <em>Chronicles</em>.</li>
+      <li><strong>Card 4:</strong> 親鸞《歎異抄》（唯圓筆錄）；親鸞《教行信証》；Britannica, "Shinran."</li>
+      <li><strong>Card 5:</strong> Benjamin, W. (1935); Stanford Encyclopedia of Philosophy, "Walter Benjamin."</li>
+      <li><strong>Card 6:</strong> Benartzi, S. &amp; Thaler, R.H. (1995), <em>QJE</em>; Thaler, R.H. et al. (1997), <em>QJE</em>.</li>
+      <li><strong>Card 7:</strong> Liem, E.B. et al. (2004), <em>Anesthesiology</em>; Mogil, J.S. et al. (2005), <em>PNAS</em>.</li>
+      <li><strong>Card 8:</strong> Deer, B. (2011), <em>BMJ</em>; Madsen, K.M. et al. (2002), <em>NEJM</em>; Hviid, A. et al. (2019), <em>Annals of Internal Medicine</em>.</li>
+      <li><strong>Card 9:</strong> Harris, R.C. et al. (2006); Hobson, R.M. et al. (2012), <em>Amino Acids</em>; ISSN 2015 position stand.</li>
+      <li><strong>Card 10:</strong> Jorion, P. (1995); Baldassare, M. (1998); Britannica.</li>
+      <li><strong>Card 11:</strong> Okun, A.M. (1962); Ball, L., Leigh, D. &amp; Loungani, P. (2013), IMF Working Paper.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-11: The Bullet Cluster &bull; 大坂の陣 &bull; The Peasants' Revolt of 1381 &bull; 親鸞・惡人正機 &bull; Walter Benjamin's "Aura" &bull; Myopic Loss Aversion &bull; MC1R / Redheads &amp; Anaesthesia &bull; The Vaccines-Autism Myth &bull; Beta-Alanine &amp; Carnosine Loading &bull; The Orange County Bankruptcy &bull; Okun's Law</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-11.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-11.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 11 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

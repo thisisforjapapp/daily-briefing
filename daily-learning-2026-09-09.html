@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 9 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Wednesday, 9 September 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>8 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Cat's Eye Nebula</span>Hubble revealed roughly eleven nested rings around a dying star, ejected in pulses about 1,500 years apart for reasons still debated.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 甲骨文與殷墟的發現</span>王懿榮從藥材「龍骨」上，意外發現甲骨文的存在。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Plague of Justinian</span>A plague carried by grain-ship rats killed up to 40% of Constantinople, undercutting Justinian's reconquest of Rome.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 五德終始說</span>鄒衍以五行相剋之說，說服秦始皇改易服色數制。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Singer's Drowning Child</span>Peter Singer argued letting a distant stranger die of poverty is as wrong as ignoring a drowning child.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Self-Serving Bias</span>Winners credit their own skill for victories while losers blame referees or bad luck for defeats, studies found.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; EPAS1 &amp; Tibetan Adaptation</span>A gene possibly inherited from Denisovans lets Tibetans avoid the dangerous blood-thickening lowlanders develop at high altitude.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; Chiropractic &amp; Stroke Risk</span>Neck-manipulation strokes are rare and their true cause is genuinely debated, not clearly "safe" or "dangerous."</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; RAMP Warm-Up</span>The RAMP protocol's "Potentiate" phase, rehearsing sport-specific movement, beats generic cardio at preventing injury.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; Circle of Competence</span>Buffett's decades of avoiding tech stocks reflected disciplined respect for the limits of his own understanding.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Akerlof's Lemons</span>Buyers unable to judge quality lowball prices, pushing honest sellers out until only "lemons" remain in a market.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Star Nursery Hubble and Webb Photographed 27 Years Apart</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In April 1995, the newly repaired Hubble Space Telescope photographed three towering columns of gas and dust in the Eagle Nebula, an image so striking it became one of the most reproduced photographs in the history of astronomy. In 2022, the James Webb Space Telescope pointed at the exact same structure, using an entirely different kind of light. Before reading on: what do you think a second, differently equipped telescope could possibly find in a target already photographed in exhaustive detail almost three decades earlier?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eagle_nebula_pillars.jpg/960px-Eagle_nebula_pillars.jpg" alt="Hubble Space Telescope image of the Pillars of Creation in the Eagle Nebula" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Pillars of Creation in the Eagle Nebula (M16), photographed by the Hubble Space Telescope in 1995. Credit: <a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In April 1995, astronomers Jeff Hester and Paul Scowen pointed the newly repaired Hubble Space Telescope (哈勃太空望遠鏡) at a patch of the Eagle Nebula (鷹狀星雲), roughly 6,500 light-years away in the constellation Serpens (巨蛇座). What came back became one of the most reproduced astronomical images ever taken: three towering columns of cold gas and dust, later nicknamed the Pillars of Creation (創生之柱), each several light-years tall, silhouetted against a glowing backdrop of ionised hydrogen. The image looked less like a scientific instrument's output than a piece of art, and it reshaped how the public imagined deep space.</p>
+      <p>The pillars are not solid rock but dense clouds of cold molecular hydrogen (分子氫) and dust, eroded into their finger-like shape by ultraviolet radiation (紫外線輻射) and fierce stellar winds pouring out of a cluster of young, massive stars just outside the frame. That same radiation is also the reason the pillars exist as stellar nurseries: it compresses pockets of gas dense enough to collapse under their own gravity, igniting new stars inside, even as the surrounding material is slowly stripped away by the very radiation triggering the birth.</p>
+      <p>In 2022, the James Webb Space Telescope (JWST, 詹姆斯&middot;韋伯太空望遠鏡) re-photographed the same pillars in near-infrared light, which passes through dust that blocks Hubble's visible-light view. The new image revealed something the original couldn't show: hundreds of newly formed stars and protostars (原恒星) glowing directly inside the pillars themselves, previously hidden behind the very dust that gave the structure its shape. Comparing the two images 27 years apart let astronomers watch, layer by layer, exactly how a dust cloud becomes a nursery, and then a cluster of stars.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Pillars_of_Creation" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The Pillars of Creation aren't just beautiful &mdash; they're stellar nurseries being sculpted and destroyed by starlight at the same time.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What made the Pillars of Creation famous, and what did JWST's 2022 near-infrared image reveal that Hubble's original 1995 image couldn't?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Hubble's 1995 optical-light image became iconic for its dramatic three-column silhouette of gas and dust in the Eagle Nebula. JWST's 2022 near-infrared image penetrated that same dust, revealing hundreds of newly formed stars and protostars glowing directly inside the pillars, invisible in the original photograph.</div>
+      </details>
+      <div class="source">&#x1F4D6; NASA/ESA/CSA, "Webb's Pillars of Creation" (2022); Hester, J. &amp; Scowen, P., Hubble Space Telescope imagery (1995); Britannica, "Eagle Nebula."</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>一場清晨的宮門伏擊，如何換來「貞觀之治」？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">武德九年（626年），秦王李世民戰功彪炳，卻眼見兄長太子步步進逼，多番謀害於他。某天清晨，他率領心腹伏兵於長安宮城北門玄武門。你認為，李世民這場伏擊，最終會如何改寫大唐皇位的繼承，又會為其後的「貞觀之治」埋下怎樣的伏筆？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>李世民（秦王，唐高祖次子，其後之唐太宗）；李建成（太子，李世民長兄）；李元吉（齊王，李世民四弟）；尉遲敬德（李世民心腹將領）。</p>
+        <p><strong>事件：</strong>626年，李世民於長安太極宮玄武門設伏，親手射殺兄長太子李建成，部將尉遲敬德誅殺四弟李元吉。</p>
+        <p><strong>時代背景：</strong>唐朝開國未久，李世民統軍平定天下群雄，戰功遠超太子建成，兄弟間猜忌日深，多次互相構陷謀害，終釀成骨肉相殘的宮廷政變。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/TangTaizong.jpg/3840px-TangTaizong.jpg" alt="唐太宗李世民畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">唐太宗李世民畫像，即玄武門之變的主角及其後開創貞觀之治的唐朝皇帝。來源：<a href="https://en.wikipedia.org/wiki/Emperor_Taizong_of_Tang" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>唐朝建立後，開國皇帝李淵按嫡長子繼承制，立長子李建成為太子，留守長安處理朝政；次子李世民則統率大軍南征北討，先後平定薛仁杲、劉武周、竇建德、王世充等群雄，戰功之盛，遠超太子建成。李世民麾下秦王府網羅房玄齡、杜如晦、尉遲敬德、長孫無忌等文武人才，聲望與實力日益坐大，令太子建成及四弟齊王李元吉深感忌憚，兄弟三人明爭暗鬥漸趨白熱化，甚至傳出建成元吉多次密謀鴆殺世民之事。</p>
+      <p>武德九年六月初四（626年7月2日），李世民先發制人，密奏高祖建成元吉淫亂後宮，並暗中買通玄武門守將常何。翌日建成元吉入朝途經玄武門，察覺氣氛有異欲回頭撤退，世民縱馬追上，親手射殺建成；元吉逃入樹林，為尉遲敬德率兵追及射殺。東宮及齊王府衛隊聞訊猛攻玄武門欲為主報仇，尉遲敬德持建成、元吉首級示眾，衛隊隨即潰散。</p>
+      <p>尉遲敬德隨即身披血甲，持槊闖入太極宮，向正在湖上泛舟的高祖「宿衛」，實則以武力逼宮，要求高祖將軍國大事悉數委託秦王處置。李淵在既成事實下被迫下詔立世民為太子，三日後正式禪位，世民即位是為唐太宗，翌年改元貞觀。世民即位後誅殺建成、元吉諸子以絕後患，卻也開創其後長達二十三年、被譽為中國歷史盛世典範的「貞觀之治」，兄弟鬩牆的血腥開端與其後的清明治世，成為後世史家爭論不休的話題。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Emperor_Taizong_of_Tang" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 玄武門之變證明，唐太宗的貞觀盛世，是踏著兄弟的鮮血才登上皇位換來的。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 李世民在玄武門之變中，如何部署伏兵除去太子建成與齊王元吉？政變後他又如何逼使高祖讓位？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">李世民密奏建成元吉淫亂後宮，並收買玄武門守將常何，於城門設伏親手射殺建成，尉遲敬德則追殺元吉。其後尉遲敬德身披血甲持槊入宮，向高祖「宿衛」逼宮，迫使高祖下詔立世民為太子，三日後禪位。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《舊唐書&middot;太宗本紀》；《資治通鑑&middot;唐紀七》；Britannica, "Tang Taizong."</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>How 500 Spaniards Toppled an Empire of Millions in Two Years</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In February 1519, a Spanish force of roughly 500 men landed on the coast of Mexico, facing an Aztec capital with a population above 200,000, one of the largest cities on Earth at the time. Within two and a half years, that empire had fallen. Before reading on: do you think Spanish weapons and horses alone could explain a victory this lopsided, or was something else doing most of the real work?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Hern&aacute;n Cort&eacute;s (埃爾南&middot;科爾特斯), Spanish conquistador; Moctezuma II (蒙特蘇馬二世), Aztec emperor; La Malinche (瑪林切), Cort&eacute;s's indigenous interpreter and strategic advisor; Cuauht&eacute;moc (誇烏特莫克), the last Aztec emperor.</p>
+        <p><strong>Event at stake:</strong> the 1519&ndash;1521 campaign that destroyed the Aztec Empire (阿茲特克帝國) and its capital, Tenochtitlan (特諾奇提特蘭).</p>
+        <p><strong>Big picture:</strong> Cort&eacute;s's few hundred men could never have won alone; the outcome hinged on indigenous alliances, epidemic disease, and the collapse of Aztec authority from within.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Conquista-de-M%C3%A9xico-por-Cort%C3%A9s-Tenochtitlan-Painting.png/960px-Conquista-de-M%C3%A9xico-por-Cort%C3%A9s-Tenochtitlan-Painting.png" alt="Painting depicting the Spanish conquest of Tenochtitlan" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A depiction of the Spanish conquest of Tenochtitlan, the Aztec Empire's capital, which fell after a 93-day siege in 1521. Credit: <a href="https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In February 1519, Spanish conquistador Hern&aacute;n Cort&eacute;s (埃爾南&middot;科爾特斯) landed on the coast of Mexico with roughly 500 men, a force absurdly small next to Tenochtitlan (特諾奇提特蘭), the Aztec Empire's (阿茲特克帝國) capital, then one of the largest cities on Earth with a population estimated above 200,000. Cort&eacute;s secured a critical advantage almost immediately: an enslaved Nahua woman given to him, later known as La Malinche (瑪林切), became his interpreter and strategic advisor, and helped him recruit thousands of warriors from the Tlaxcala (特拉斯卡拉) people and other subject nations who deeply resented paying tribute and supplying sacrificial captives to the dominant Aztecs.</p>
+      <p>Aztec emperor Moctezuma II (蒙特蘇馬二世) initially allowed Cort&eacute;s into Tenochtitlan and was soon taken hostage inside his own palace; he died in 1520 under disputed circumstances during a violent uprising that forced the Spanish to flee the city on the disastrous "Night of Sorrows," losing more than half their men. What actually broke Aztec resistance in the months that followed wasn't Spanish steel alone but smallpox (天花), a disease against which Indigenous Americans had no prior immunity: it swept through Tenochtitlan in 1520, killing an estimated 40% of the city's population, including Moctezuma's successor, and devastating the army the Aztecs needed to defend the capital.</p>
+      <p>Cort&eacute;s regrouped with his Tlaxcalan allies and laid siege to a smallpox-weakened Tenochtitlan for 93 days, cutting off its fresh water and food supply while building small ships to control the surrounding lake. The city fell on 13 August 1521 under its last emperor, Cuauht&eacute;moc (誇烏特莫克), captured attempting to flee by canoe. The Spanish razed much of Tenochtitlan and built Mexico City directly on its ruins, and the campaign became the template Spain repeated across the Americas: small European forces exploiting local political divisions and devastating epidemic disease to topple empires far larger than their own.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Fall_of_Tenochtitlan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 500 Spaniards didn't conquer an empire of millions alone &mdash; thousands of resentful Aztec subjects and an unseen epidemic did most of the work.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What two factors, beyond Spanish weapons, were decisive in Tenochtitlan's fall?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Indigenous alliances were decisive: Cort&eacute;s recruited thousands of Tlaxcalan and other warriors who resented Aztec tribute demands. Smallpox was equally decisive: introduced by the Spanish, it killed roughly 40% of Tenochtitlan's population in 1520, including Moctezuma's successor, gutting the city's ability to defend itself before the final siege.</div>
+      </details>
+      <div class="source">&#x1F4D6; D&iacute;az del Castillo, B., <em>The True History of the Conquest of New Spain</em> (16th-c. eyewitness account); Britannica, "fall of Tenochtitlan"; Smithsonian, coverage of Aztec&ndash;Spanish conquest epidemiology.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>格竹七日格出一場病，王陽明如何在絕境龍場悟道？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">明武宗正德元年，年輕官員王守仁因上疏彈劾權宦劉瑾，被廷杖四十幾乎斃命，其後貶謫至貴州龍場——當時尚屬未開化的蠻荒之地，蟲蛇瘴癘遍佈，語言不通。某夜，他在石棺中靜坐沉思多年懸而未決的問題：「聖人處此，更有何道？」你認為，這段近乎絕境的貶謫經歷，最終會如何催生出影響其後五百年東亞思想的「心學」？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>王陽明（王守仁，1472&ndash;1529，明代思想家，心學集大成者）；劉瑾（權宦，將王陽明貶謫至貴州龍場）。</p>
+        <p><strong>事件／思想：</strong>王陽明因彈劾權宦劉瑾遭廷杖下獄，貶謫至貴州龍場驛丞，在窮山惡水間頓悟「聖人之道，吾性自足」，提出「知行合一」學說。</p>
+        <p><strong>時代背景：</strong>明代中葉宦官專權，正德年間劉瑾把持朝政，打壓異己；王陽明所學程朱理學「格物致知」之法窮盡多年仍未能致聖，貶謫龍場的絕境反成其思想突破的契機。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7a/%E7%8E%8B%E5%AE%88%E4%BB%81.jpg/330px-%E7%8E%8B%E5%AE%88%E4%BB%81.jpg" alt="王陽明（王守仁）畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">王陽明（王守仁）畫像，其「龍場悟道」奠定明代心學的思想基礎。來源：<a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>王守仁，號陽明，早年篤信程朱理學「格物致知」之說，相傳曾依朱熹之法「格」竹七日七夜，欲窮究竹子之理以致良知，結果一無所得，反而病倒，自此對程朱理學的方法心生懷疑。正德元年（1506年），王陽明因上疏營救因反對權宦劉瑾而下獄的官員，觸怒劉瑾，被廷杖四十，幾乎當場斃命，其後更遭貶謫至貴州龍場（今貴州修文縣）擔任驛丞，一個當時尚未開化、蟲蛇瘴癘遍佈、言語不通的邊陲蠻荒之地。</p>
+      <p>王陽明抵達龍場後，處境極為艱難，隨行僕從相繼病倒，他索性親自劈柴挑水、煮粥餵食，又自製石棺，日夜端坐其中靜思，反覆自問：「聖人處此，更有何道？」正德三年（1508年）某夜，他忽然大悟，史稱「龍場悟道」，體悟到聖人之道並非向外物一一窮格所能求得，而是「吾性自足」——天理本已具足於每個人的本心之中，無須外求，只需「致良知」，將本心的良知推致擴充於萬事萬物之上即可。</p>
+      <p>龍場悟道後，王陽明進一步提出「知行合一」之說，反對程朱理學將「知」與「行」割裂為先後兩截的做法，主張真知必然表現於行動之中，「未有知而不行者，知而不行，只是未知」。這套心學體系其後由弟子王艮、錢德洪等發揚光大，形成陽明學派，深刻影響明末清初思想界，甚至遠播日本、朝鮮，日本德川時代的陽明學及近代維新志士，多受其「知行合一」思想啟發。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Wang_Yangming" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 一場幾乎致命的廷杖與貶謫，反而把王陽明逼進了「聖人之道，吾性自足」的頓悟之中。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 王陽明「龍場悟道」的核心體悟是甚麼？他其後又據此提出了甚麼學說？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">王陽明體悟到「聖人之道，吾性自足」——天理本已具足於本心，無須向外物一一窮格求得。他其後據此提出「知行合一」學說，主張真知必然表現於行動，反對將知與行割裂為先後兩截。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《王陽明全集&middot;年譜》；黃宗羲《明儒學案》；Stanford Encyclopedia of Philosophy, "Wang Yangming."</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Demon's Question: Would You Live This Exact Life Again, Forever?</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Imagine a demon whispers to you one night that you must live your exact life again, down to every joy and every pain, an infinite number of times, with nothing changed. Friedrich Nietzsche called facing this idea "the heaviest weight" a person could carry. Before reading on: would this thought crush you with despair, or is there a way it could actually change how you live today?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Friedrich Nietzsche (弗里德里希&middot;尼采), German philosopher.</p>
+        <p><strong>Problem at stake:</strong> whether life has meaning without a God or fixed cosmic purpose, and how to face that possibility without despair.</p>
+        <p><strong>Moment:</strong> Nietzsche introduced the eternal recurrence (永恆輪迴) thought experiment in <em>The Gay Science</em> (1882) and developed it further in <em>Thus Spoke Zarathustra</em> (1883&ndash;85).</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Nietzsche187a.jpg/330px-Nietzsche187a.jpg" alt="Photograph of Friedrich Nietzsche, circa 1875" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Friedrich Nietzsche, c. 1875, whose eternal recurrence thought experiment challenges readers to affirm their life without appeal to God or cosmic purpose. Credit: <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In his 1882 book <em>The Gay Science</em> (歡愉的智慧), Friedrich Nietzsche (弗里德里希&middot;尼采) poses a striking thought experiment: imagine a demon telling you that you must live your exact life again, in precisely the same sequence, down to every joy and every pain, an infinite number of times, with nothing new added or removed. Nietzsche asks whether this idea would crush you with despair, or whether you could greet it as the greatest possible affirmation of your life exactly as it is. He calls this hypothetical "the heaviest weight" (最沉重的負荷), a test not of whether the theory is literally true, but of how deeply you actually love your own existence.</p>
+      <p>The eternal recurrence (永恆輪迴) sits alongside Nietzsche's more famous declaration, delivered by a madman in the same book, that "God is dead" (上帝已死). This wasn't a triumphant atheist boast but a diagnosis: European civilisation had built its entire sense of meaning, morality, and cosmic purpose on Christian belief, and that foundation was quietly collapsing under modern science and scepticism, whether people had noticed yet or not. Nietzsche worried this vacuum would produce nihilism (虛無主義), a corrosive sense that nothing ultimately matters, unless people found some other way to affirm meaning and value in a universe with no built-in purpose.</p>
+      <p>Nietzsche's proposed answer arrives through his later work <em>Thus Spoke Zarathustra</em> (查拉圖斯特拉如是說, 1883&ndash;85): the &Uuml;bermensch (超人), an ideal figure who creates their own values from scratch rather than inheriting them from religion or social convention, and who could genuinely say "yes" to eternal recurrence without flinching. Critics from Bertrand Russell (伯特蘭&middot;羅素) onward have questioned whether this vision offers real ethical guidance or merely aesthetic self-assertion, but the challenge it poses, whether you could truly affirm your life without appeal to any higher purpose, remains a defining question of modern existentialist thought.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Nietzsche's real question isn't whether life repeats forever &mdash; it's whether you love your life enough that you'd want it to.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is Nietzsche's eternal recurrence thought experiment testing, and how does it relate to his claim that "God is dead"?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It tests whether you could affirm living your exact life again, unchanged, for eternity, without despair &mdash; a measure of how deeply you value your existence as it is. It connects to "God is dead" because Nietzsche believed the loss of religious meaning left a vacuum that eternal recurrence, and self-created values, were meant to help fill without collapsing into nihilism.</div>
+      </details>
+      <div class="source">&#x1F4D6; Nietzsche, F., <em>The Gay Science</em> (1882), &sect;341; Nietzsche, F., <em>Thus Spoke Zarathustra</em> (1883&ndash;85); Stanford Encyclopedia of Philosophy, "Friedrich Nietzsche."</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Nobody Remembers Your Embarrassing Shirt as Much as You Think</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Think back to a moment you had a stain on your shirt, tripped in public, or said something slightly awkward. It probably felt like everyone in the room noticed and remembered it. Before reading on: do you think that feeling reflects how much other people actually noticed, or is your own self-consciousness inflating the number?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Gilovich_%28fr_Feist%29.jpg/330px-Gilovich_%28fr_Feist%29.jpg" alt="Photograph of psychologist Thomas Gilovich" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Thomas Gilovich, whose 2000 study with Medvec and Savitsky quantified how strongly people overestimate others' attention to them. Credit: <a href="https://en.wikipedia.org/wiki/Spotlight_effect" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The spotlight effect (聚光燈效應) describes people's persistent tendency to overestimate how much other people notice and remember their appearance, mistakes, and behaviour. In a landmark 2000 study, Cornell psychologists Thomas Gilovich (托馬斯&middot;吉洛維奇), Victoria Medvec, and Kenneth Savitsky (肯尼斯&middot;薩維茨基) had college students wear an embarrassing Barry Manilow T-shirt into a room full of strangers, then guess what percentage of the group would later recall what shirt they were wearing. Students guessed roughly 50%; the actual number who remembered was closer to 25%, less than half what participants themselves predicted.</p>
+      <p>The researchers traced the bias to a basic asymmetry in perspective: each of us is intensely aware of our own appearance and actions because we're the constant centre of our own experience, and we mistakenly project that same intensity of attention onto everyone else, who are, in reality, mostly absorbed in their own concerns rather than scrutinising ours. Follow-up experiments found the same overestimation pattern held not just for embarrassing clothing but for perceived awkward comments and visible mistakes during a group task, people vastly overestimate how much anyone else registers or remembers any of it.</p>
+      <p>The spotlight effect helps explain a specific, common form of social anxiety (社交焦慮): the paralysing fear of embarrassment before a presentation or social event, a fear built largely on an inflated estimate of how closely other people are actually watching and judging in the first place. Recognising the gap between how observed you feel and how observed you actually are doesn't eliminate self-consciousness entirely, but it gives a concrete, evidence-based reason to discount it: the room is rarely paying nearly as much attention as it feels like it is.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Spotlight_effect" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Before assuming everyone noticed your mistake, remember: they're too busy worrying about their own spotlight to watch yours.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Gilovich, Medvec, and Savitsky's 2000 T-shirt study find about how much people overestimate others' attention to them?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Students wearing an embarrassing T-shirt predicted about 50% of onlookers would later recall it, but only about 25% actually did &mdash; roughly half the predicted rate. The gap illustrates the spotlight effect: people project their own intense self-focus onto others, who are actually far less attentive to them than they assume.</div>
+      </details>
+      <div class="source">&#x1F4D6; Gilovich, T., Medvec, V.H. &amp; Savitsky, K. (2000), "The Spotlight Effect in Social Judgment," <em>Journal of Personality and Social Psychology</em> 78(2), APA PsycNet.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>Why a Cold Breeze and a Chill-Inducing Song Give You the Same Bumps</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Cold air can give you goosebumps, and so can a chilling piece of music or a deeply moving scene in a film, even in a perfectly warm room. Before reading on: why do you think a purely mechanical skin reflex, meant to deal with temperature, also fires in response to something as abstract as an emotion?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/2003-09-17_Goose_bumps.jpg/330px-2003-09-17_Goose_bumps.jpg" alt="Close-up photograph of goosebumps on human skin" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Goosebumps (piloerection), caused by the arrector pili muscle contracting at the base of each hair follicle. Credit: <a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Goosebumps (雞皮疙瘩), medically called piloerection (豎毛反應) or the pilomotor reflex, happen when a tiny muscle attached to the base of each hair follicle, the arrector pili muscle (豎毛肌), contracts and pulls the hair upright, puckering the skin around it into a small bump. The reflex is controlled by the sympathetic nervous system (交感神經系統), the same "fight or flight" (戰鬥或逃跑反應) circuitry that governs other automatic stress responses, which is why goosebumps arrive instantly and involuntarily, without any conscious decision to trigger them.</p>
+      <p>In fur-covered mammals, this reflex still serves its original purpose: raising the hair traps a thicker insulating layer of air against the skin for warmth in the cold, and makes an animal look larger and more threatening when frightened, a genuinely useful defensive bluff. Humans retain the same muscle and nerve pathway despite having lost most of our body hair over evolutionary time, which is why the reflex still fires reliably, even though raising a few millimetres of fine human body hair provides essentially no meaningful insulation or size increase anymore, a functional vestige (功能性遺跡) of a trait that mattered far more to our hairier ancestors.</p>
+      <p>What makes goosebumps unusual is that the same reflex also fires in response to something entirely non-physical: powerful emotional experiences like a stirring piece of music or an intensely moving scene in a film, or a moment of awe (敬畏感), even with the room at a perfectly comfortable temperature. Researchers studying this "emotional piloerection," or frisson (寒顫感), believe it reflects how deeply the sympathetic nervous system is wired into emotional processing, not just physical threat and cold, essentially reusing an old thermoregulatory circuit to physically mark moments the brain judges intensely significant.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Goose_bumps" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Goosebumps from cold and goosebumps from a chill-inducing song use the exact same ancient muscle reflex, just triggered by different alarms.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What muscle causes goosebumps, and why does the same reflex fire for both cold temperatures and powerful emotional moments?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The arrector pili muscle at the base of each hair follicle contracts, pulling the hair upright and puckering the skin. Both cold and strong emotion trigger it because the reflex runs through the sympathetic nervous system, the same "fight or flight" circuitry that governs stress and arousal responses generally, not just temperature regulation.</div>
+      </details>
+      <div class="source">&#x1F4D6; Britannica, "goose bumps"; NIH/PubMed research on piloerection and sympathetic nervous system function; studies on music-induced frisson response.</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>One Man Cracked Only His Left Hand's Knuckles for 60 Years. Here's What Happened.</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many people were warned as kids that cracking their knuckles would give them arthritis later in life. Before reading on: do you think that warning has solid scientific backing, and what do you imagine happens inside a joint to make that popping sound in the first place?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Hand%2C_fingers_-_back.jpg/960px-Hand%2C_fingers_-_back.jpg" alt="Photograph of a human hand" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A human hand &mdash; the site of the joint cavitation responsible for the "pop" sound of knuckle cracking. Credit: <a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The claim that habitually cracking your knuckles causes arthritis (關節炎) is one of the most widely repeated pieces of health folklore, warned against by generations of parents despite never having strong scientific backing. The audible "pop" itself comes from gas bubbles, mostly carbon dioxide, forming and collapsing within the synovial fluid (滑液) that lubricates the joint capsule as it's stretched beyond its normal range, a phenomenon called cavitation (空穴現象), not from bones grinding, cracking, or any structural damage occurring inside the joint.</p>
+      <p>The most memorable piece of evidence against the myth comes from an unusually dedicated self-experiment: physician Donald Unger cracked the knuckles on only his left hand, deliberately leaving his right hand alone, every day for over 60 years, then compared the two hands for any difference in arthritis. He found none, and published the results, earning a tongue-in-cheek 2009 Ig Nobel Prize (搞笑諾貝爾獎) in medicine, an award the Ig Nobels specifically reserve for real research that first makes people laugh, then makes them think.</p>
+      <p>Larger, more rigorous studies have generally reached the same conclusion as Unger's decades-long personal experiment: research comparing habitual knuckle-crackers against non-crackers has found no statistically significant difference in arthritis rates between the two groups. Chronic knuckle-cracking has occasionally been associated with reduced grip strength or mild hand swelling in some studies, so it isn't entirely consequence-free, but the specific fear that it causes arthritis appears to be a myth that outlived the evidence needed to support it decades ago.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Cracking_joints" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Six decades of one man cracking only his left hand's knuckles found exactly zero evidence for the arthritis myth your parents warned you about.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What actually causes the "pop" sound when you crack a knuckle, and what did Donald Unger's 60-year self-experiment find?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The pop comes from gas bubbles forming and collapsing in the synovial fluid as the joint capsule stretches (cavitation), not from any structural damage. Unger cracked only his left hand's knuckles daily for over 60 years and found no difference in arthritis between his two hands, earning a 2009 Ig Nobel Prize.</div>
+      </details>
+      <div class="source">&#x1F4D6; Unger, D.L. (1998), "Does knuckle cracking lead to arthritis of the fingers?", <em>Arthritis &amp; Rheumatism</em>; Ig Nobel Prize 2009 citation; NIH/PubMed reviews on joint cavitation.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Two-Day-Later Soreness Isn't Lactic Acid. Here's What It Actually Is.</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many gym-goers believe the burning soreness felt one or two days after a hard workout is caused by lactic acid lingering in the muscle. Before reading on: given that lactate is normally cleared from a muscle within about an hour of finishing exercise, does that timeline actually fit the delayed soreness you feel a day or two later?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Types_of_muscle.webp?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled" alt="Diagram of human muscle tissue types" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A diagram of muscle tissue; delayed onset muscle soreness traces to microscopic tearing within muscle fibres, not lactic acid. Credit: <a href="https://en.wikipedia.org/wiki/Delayed_onset_muscle_soreness" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Delayed onset muscle soreness (延遲性肌肉痠痛, DOMS), the stiff, tender ache that typically peaks 24 to 72 hours after unfamiliar or unusually intense exercise, is still widely blamed on lactic acid (乳酸) lingering in the muscle. This explanation is essentially outdated: lactate produced during intense effort is normally cleared from the muscle within about an hour of finishing exercise, long before soreness even begins to set in, making it physiologically impossible for lactic acid buildup to be the actual cause of pain appearing a full day or two later.</p>
+      <p>The current leading explanation instead centres on eccentric contractions (離心收縮), the lengthening phase of a muscle under load, such as lowering a weight slowly or running downhill, which creates microscopic tears (微撕裂) in muscle fibres and their surrounding connective tissue. This microtrauma triggers a localised inflammatory response (發炎反應) as the immune system moves in to clear damaged tissue and begin repair, and it's this inflammatory and repair process itself, not the initial tearing or any lactic acid, that researchers believe produces the delayed, sensitised soreness felt over the following days.</p>
+      <p>DOMS is not, by itself, a reliable measure of how effective a workout was, since novel or heavily eccentric movements reliably produce more soreness than familiar ones regardless of actual training quality, and the soreness fades substantially with repeated exposure to the same movement, a well-documented adaptation researchers call the "repeated bout effect" (重複回合效應). Popular remedies like foam rolling and light active recovery show modest evidence for slightly reducing perceived soreness, but no intervention reliably prevents DOMS outright, since it is a normal, expected part of how muscle adapts to unfamiliar mechanical stress.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Delayed_onset_muscle_soreness" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The burn you feel two days after leg day isn't leftover lactic acid &mdash; it's your muscle fibres' inflammatory repair response to microscopic tearing.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What actually causes delayed onset muscle soreness, and why can't lactic acid be the real explanation?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">DOMS is caused by microscopic tears in muscle fibres from eccentric (lengthening) contractions, followed by a localised inflammatory repair response. Lactic acid can't be the cause because it's cleared from the muscle within about an hour of exercise, long before soreness typically appears a day or two later.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cheung, K., Hume, P. &amp; Maxwell, L. (2003), "Delayed Onset Muscle Soreness: Treatment Strategies and Performance Factors," <em>Sports Medicine</em>; NSCA position statements on eccentric training and recovery.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The Sock Puppet That Symbolised a $5 Trillion Collapse</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In the late 1990s, internet start-ups with barely any revenue or profit reached billion-dollar valuations largely on the strength of their website traffic. Before reading on: what do you think happened when investors finally stopped valuing companies on "eyeballs" instead of earnings?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Nasdaq_Composite_dot-com_bubble.svg/500px-Nasdaq_Composite_dot-com_bubble.svg.png" alt="Chart of the Nasdaq Composite index during the dot-com bubble" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">The Nasdaq Composite index's rise and collapse during the dot-com bubble, peaking in March 2000 before losing roughly 78% of its value. Credit: <a href="https://en.wikipedia.org/wiki/Dot-com_bubble" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Between 1995 and its peak in March 2000, the Nasdaq Composite index (納斯達克綜合指數) rose roughly fivefold, driven by a wave of internet start-ups going public with sky-high valuations despite minimal revenue and, in many cases, no realistic path to profitability. Investors judged many of these companies not on earnings but on "eyeballs" (瀏覽量), the number of website visitors, on the theory that market share today would eventually convert into overwhelming profits later, an assumption Wall Street analysts and venture capitalists alike largely stopped questioning during the mania's final, most speculative years.</p>
+      <p>Pets.com (寵物用品網站) became the bubble's most-cited cautionary symbol: it spent heavily on a Super Bowl advertisement featuring a sock-puppet mascot, burned through investor cash on below-cost shipping for heavy items like dog food, and collapsed within roughly 268 days of its February 2000 IPO, a spectacular flame-out that later became shorthand for the entire era's disconnect between marketing spend and business fundamentals. Hundreds of similarly unprofitable "dot-com" companies followed a nearly identical arc: rapid public listing, aggressive cash burn, and collapse once investor sentiment turned.</p>
+      <p>The Nasdaq peaked at 5,048.62 on 10 March 2000, then lost roughly 78% of its value over the following two and a half years as the bubble unwound, wiping out an estimated $5 trillion in market value across technology stocks. Yet the crash didn't discredit the internet itself, only the indiscriminate valuations attached to it: companies with genuinely durable business models, most notably Amazon (亞馬遜), survived the crash despite a roughly 90% stock-price decline and went on to become dominant global companies, illustrating that the underlying technology thesis was sound even though most individual bets on it during the mania were not.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Dot-com_bubble" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The dot-com crash didn't prove the internet was a bad bet &mdash; it proved that "eyeballs" alone were never a substitute for an actual business model.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What metric did dot-com era investors often prioritise over profitability, and what happened to the Nasdaq between its March 2000 peak and the bottom of the crash?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Investors often prioritised "eyeballs" &mdash; website visitor numbers &mdash; over actual profitability, betting current market share would eventually convert to earnings. The Nasdaq peaked at 5,048.62 in March 2000, then fell roughly 78% over the following two and a half years, wiping out an estimated $5 trillion in technology-stock market value.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cassidy, J., <em>Dot.con: The Greatest Story Ever Sold</em>; Federal Reserve Bank research on the dot-com bubble; Nasdaq historical index data.</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>The 1970s Decade That Broke a Nobel-Winning Economic Trade-Off</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/West_Texas_Intermediate_oil_prices_1950%E2%80%932000_%28with_1973_highlight%29.svg/960px-West_Texas_Intermediate_oil_prices_1950%E2%80%932000_%28with_1973_highlight%29.svg.png" alt="Chart of US oil prices 1950-2000 highlighting the 1973 oil crisis" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">US oil prices, 1950&ndash;2000, highlighting the 1973 shock that helped trigger 1970s stagflation. Credit: <a href="https://en.wikipedia.org/wiki/Phillips_curve" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">In the 1970s, the United States and other advanced economies experienced stagflation (滯脹): high inflation (通脹) and high unemployment (失業率) rising together, most visibly after the 1973 oil crisis (石油危機) sent energy prices soaring across an already slowing economy.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Economist A.W. Phillips's (菲利普斯) 1958 study of UK wage data found an apparent stable trade-off between unemployment and inflation, formalised into the Phillips curve (菲利普斯曲線): policymakers, it suggested, could choose lower unemployment by tolerating somewhat higher inflation, or vice versa.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">1970s stagflation directly violated this trade-off: unemployment and inflation rose together for years rather than moving in opposite directions, making the simple Phillips curve's policy menu look actively wrong rather than merely imprecise.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Milton Friedman (米爾頓&middot;佛利民) and Edmund Phelps (埃德蒙&middot;費爾普斯) had already predicted this breakdown, arguing the trade-off only holds temporarily: once workers and firms adjust their inflation expectations (通脹預期) upward, the trade-off vanishes, leaving only a stable "natural rate" of unemployment unaffected by monetary policy in the long run &mdash; a framework now central to modern central banking, though economists still debate how quickly and completely expectations actually adjust.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; The Phillips curve wasn't wrong so much as incomplete &mdash; it forgot that people eventually catch on to inflation and adjust their expectations accordingly.</div>
+      <div class="source">&#x1F4D6; Phillips, A.W. (1958), <em>Economica</em>; Friedman, M. (1968), "The Role of Monetary Policy," <em>American Economic Review</em>; Phelps, E. (1967), <em>Economica</em>; Federal Reserve research on the Great Inflation. Never recycles Card 10 domain (dot-com equity bubble mechanics vs. macroeconomic inflation-unemployment theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 10 &amp; 11 &mdash; When "Everyone Knows" Stops Being True:</strong> Dot-com investors extrapolated recent growth into an assumed permanent trend, betting that today's "eyeballs" would surely become tomorrow's profits; 1970s policymakers extrapolated the Phillips curve's historical trade-off into an assumed permanent rule, betting that accepting a bit more inflation would reliably buy less unemployment. Both broke the same way: once the underlying assumption stopped matching reality, whether growth expectations for a sock-puppet pet-supply site or inflation expectations baked into 1970s wage contracts, the old relationship collapsed, and both mistakes required painful, multi-year unwindings to correct.</p>
+      <p><strong>So what:</strong> When any modelled relationship, a stock valuation or an economic trade-off, looks too clean and stable, ask what happens once everyone starts expecting it to continue; that expectation itself is often what breaks it.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> NASA/ESA/CSA, "Webb's Pillars of Creation" (2022); Hester, J. &amp; Scowen, P., Hubble imagery (1995); Britannica, "Eagle Nebula."</li>
+      <li><strong>Card 2:</strong> 《舊唐書&middot;太宗本紀》；《資治通鑑&middot;唐紀七》；Britannica, "Tang Taizong."</li>
+      <li><strong>Card 3:</strong> D&iacute;az del Castillo, B., <em>The True History of the Conquest of New Spain</em>; Britannica, "fall of Tenochtitlan"; Smithsonian.</li>
+      <li><strong>Card 4:</strong> 《王陽明全集&middot;年譜》；黃宗羲《明儒學案》；Stanford Encyclopedia of Philosophy, "Wang Yangming."</li>
+      <li><strong>Card 5:</strong> Nietzsche, F., <em>The Gay Science</em> (1882); <em>Thus Spoke Zarathustra</em> (1883&ndash;85); Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Gilovich, T., Medvec, V.H. &amp; Savitsky, K. (2000), <em>JPSP</em> 78(2), APA PsycNet.</li>
+      <li><strong>Card 7:</strong> Britannica, "goose bumps"; NIH/PubMed research on piloerection.</li>
+      <li><strong>Card 8:</strong> Unger, D.L. (1998), <em>Arthritis &amp; Rheumatism</em>; Ig Nobel Prize 2009 citation; NIH/PubMed.</li>
+      <li><strong>Card 9:</strong> Cheung, K., Hume, P. &amp; Maxwell, L. (2003), <em>Sports Medicine</em>; NSCA position statements.</li>
+      <li><strong>Card 10:</strong> Cassidy, J., <em>Dot.con: The Greatest Story Ever Sold</em>; Federal Reserve Bank research; Nasdaq historical index data.</li>
+      <li><strong>Card 11:</strong> Phillips, A.W. (1958), <em>Economica</em>; Friedman, M. (1968), <em>American Economic Review</em>; Phelps, E. (1967), <em>Economica</em>.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-09: The Pillars of Creation (Hubble &amp; JWST) &bull; 玄武門之變 &bull; The Fall of Tenochtitlan &bull; 王陽明龍場悟道 &bull; Nietzsche's Eternal Recurrence &amp; "God is Dead" &bull; The Spotlight Effect &bull; Goosebumps / Piloerection &bull; Knuckle-Cracking &amp; Arthritis Myth &bull; Delayed Onset Muscle Soreness (DOMS) &bull; The Dot-com Bubble &bull; The Phillips Curve &amp; 1970s Stagflation</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-09.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-09.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 9 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>

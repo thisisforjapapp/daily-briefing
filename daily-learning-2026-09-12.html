@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edward&#x2019;s Daily Learning &mdash; 12 September 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+HK:wght@400;700&family=Noto+Serif:wght@400;700&display=swap');
+:root{--bg:#0f0f0f;--surface:#191919;--surface2:#1e1e2e;--border:#2e2e2e;--text:#e8e6e0;--muted:#888;--accent:#7eb8d4;--accent-dim:#3a6a9a;--amber:#e8a84c;--amber-bg:#1c1508;--amber-border:#3a2a08;--green:#6db86d;--steel:#7a9ab8;--spark:#1a0f2e;--spark-border:#3a1f6e;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Georgia,'Noto Serif','Noto Serif HK',serif;font-size:16px;line-height:1.75;}
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:200;background:var(--bg);border-bottom:1px solid var(--border);}
+.back-bar{display:flex !important;align-items:center !important;justify-content:space-between !important;padding:.3rem 1rem;}
+.back-bar>a{color:var(--muted);text-decoration:none;font-size:.75rem;background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .7rem;transition:color .18s,border-color .18s,background .18s;letter-spacing:.01em;}
+.back-bar>a:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.header-toolbar{display:flex;align-items:center;gap:.35rem;}
+.toolbar-btn{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:.22rem .55rem;font-size:.68rem;color:var(--muted);cursor:pointer;transition:color .18s,border-color .18s,background .18s;font-family:inherit;white-space:nowrap;line-height:1.5;text-decoration:none;}
+.toolbar-btn:hover{color:var(--text);border-color:var(--accent-dim);background:var(--surface2);}
+.sticky-top .site-header{padding:.45rem 1.2rem;text-align:left;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;}
+.sticky-top h1{font-size:.97rem;color:#fff;font-weight:700;}
+.sticky-top .meta{font-size:.72rem;margin-top:0;opacity:.75;color:var(--muted);}
+.toc-bar{display:flex;overflow-x:auto;gap:.4rem;padding:.28rem .8rem;scrollbar-width:none;}
+.toc-bar::-webkit-scrollbar{display:none;}
+.toc-pill{flex-shrink:0;font-size:.7rem;padding:.2rem .65rem;border:1px solid var(--border);border-radius:20px;color:var(--muted);text-decoration:none;white-space:nowrap;transition:color .18s,border-color .18s;}
+.toc-pill:hover{color:var(--text);border-color:var(--accent-dim);}
+.page-layout{display:flex;max-width:1100px;margin:0 auto;padding:1.5rem 1rem 4rem;gap:2rem;}
+.side-nav{display:none;}
+@media(min-width:900px){
+  .side-nav{display:block;width:175px;flex-shrink:0;position:sticky;top:5.5rem;height:fit-content;}
+  .side-nav ul{list-style:none;margin:0;padding:0;}
+  .side-nav li{margin-bottom:.35rem;}
+  .side-nav a{display:block;font-size:.73rem;color:var(--muted);text-decoration:none;padding:.28rem .65rem;border:1px solid transparent;border-radius:6px;transition:color .18s,border-color .18s,background .18s;line-height:1.4;}
+  .side-nav a:hover{color:var(--text);border-color:var(--border);background:var(--surface);}
+  .toc-bar{display:none;}
+}
+.content{flex:1;min-width:0;}
+.spark-section{background:var(--spark);border:1px solid var(--spark-border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.6rem;}
+.spark-section h2{font-size:1rem;color:#c09aff;margin-bottom:.3rem;}
+.spark-meta{font-size:.78rem;color:var(--muted);margin-bottom:1rem;font-style:italic;}
+.spark-item{padding:.65rem 0;border-bottom:1px solid var(--spark-border);font-size:.88rem;}
+.spark-item:last-child{border-bottom:none;}
+.spark-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#c09aff;margin-bottom:.3rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.5rem;margin-bottom:1.4rem;scroll-margin-top:52px;}
+.card-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);margin-bottom:.5rem;}
+.card.amber .card-label{color:var(--amber);}
+.card.green .card-label{color:var(--green);}
+.card.steel .card-label{color:var(--steel);}
+.card h2{font-size:1.2rem;line-height:1.35;margin-bottom:.9rem;color:var(--accent);}
+.card.amber h2{color:var(--amber);}
+.card.green h2{color:var(--green);}
+.card.steel h2{color:var(--steel);}
+.predict-box{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:.65rem .9rem;margin-bottom:1rem;font-size:.88rem;}
+.predict-box summary{cursor:pointer;color:var(--muted);font-size:.82rem;}
+.predict-box[open] summary{color:var(--accent);}
+.card.amber .predict-box[open] summary{color:var(--amber);}
+.predict-q{padding-top:.4rem;color:var(--text);}
+.intro-box{border-left:3px solid var(--accent-dim);background:rgba(126,184,212,.06);border-radius:0 6px 6px 0;padding:.7rem 1rem;margin-bottom:1rem;font-size:.88rem;}
+.card.amber .intro-box{border-left-color:var(--amber);background:rgba(232,168,76,.06);}
+.intro-box p{margin-bottom:.3rem;}
+.intro-box p:last-child{margin-bottom:0;}
+.intro-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:.4rem;display:block;}
+.card-img-wrap{margin-bottom:1rem;text-align:center;}
+.card-img-wrap img{max-width:100%;max-height:260px;object-fit:contain;border-radius:6px;}
+.img-caption{font-size:.72rem;color:var(--muted);margin-top:.3rem;}
+.card p{margin-bottom:.95rem;font-size:.93rem;line-height:1.8;}
+.read-more{font-size:.85rem !important;margin-top:-.4rem !important;}
+.takeaway{background:rgba(126,184,212,.08);border-left:3px solid var(--accent-dim);border-radius:0 6px 6px 0;padding:.65rem 1rem;margin:1rem 0;font-size:.88rem;font-style:italic;}
+.card.amber .takeaway{border-left-color:var(--amber);background:rgba(232,168,76,.08);}
+.card.green .takeaway{border-left-color:var(--green);background:rgba(109,184,109,.08);}
+.card.steel .takeaway{border-left-color:var(--steel);background:rgba(122,154,184,.08);}
+.retrieval-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px 8px 0 0;border-bottom:none;padding:.6rem .9rem .5rem;margin:1rem 0 0;font-size:.88rem;color:var(--muted);font-style:italic;}
+.answer-reveal{background:var(--surface2);border:1px solid var(--border);border-radius:0 0 8px 8px;padding:.25rem .9rem .55rem;margin-bottom:1rem;font-size:.85rem;}
+.answer-reveal summary{cursor:pointer;color:var(--muted);padding:.25rem 0;}
+.answer-reveal[open] summary{color:var(--accent);}
+.card.amber .answer-reveal[open] summary{color:var(--amber);}
+.answer-body{padding:.4rem 0 .2rem;color:var(--text);line-height:1.65;}
+.source{font-size:.74rem;color:var(--muted);margin-top:.8rem;border-top:1px solid var(--border);padding-top:.6rem;}
+.pe-section{margin-bottom:.9rem;}
+.pe-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--steel);margin-bottom:.3rem;}
+.pe-body{font-size:.9rem;line-height:1.75;}
+.connection-section{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;margin-bottom:1.4rem;}
+.connection-section h2{font-size:1rem;color:var(--accent);margin-bottom:.6rem;}
+.connection-section p{font-size:.9rem;line-height:1.75;margin-bottom:.6rem;}
+footer{background:var(--surface);border-top:1px solid var(--border);padding:1.5rem 1.5rem 3rem;font-size:.78rem;color:var(--muted);max-width:1100px;margin:0 auto;}
+footer details{margin-bottom:1rem;}
+footer summary{cursor:pointer;color:var(--accent);margin-bottom:.4rem;}
+footer ul{padding-left:1.2rem;margin-top:.4rem;}
+footer li{margin-bottom:.25rem;line-height:1.55;}
+@media(max-width:899px){.page-layout{padding:1rem .75rem 3rem;}.card{padding:1.1rem 1.1rem;}.card h2{font-size:1.05rem;}}
+.bm-btn{float:right;background:none;border:0;cursor:pointer;font-size:1.15rem;line-height:1;opacity:.32;filter:grayscale(1);transition:opacity .18s,filter .18s,transform .18s;padding:.1rem .25rem;margin:-.15rem -.25rem .2rem .5rem;}
+.bm-btn:hover{opacity:.75;transform:scale(1.08);}
+.bm-btn.on{opacity:1;filter:grayscale(0);}
+.bm-flash{position:fixed;left:50%;bottom:1.4rem;transform:translateX(-50%);background:var(--surface2,#1e1e2e);border:1px solid var(--border,#2e2e2e);color:var(--text,#e8e6e0);font-size:.8rem;padding:.5rem .9rem;border-radius:8px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none;}
+.bm-flash.show{opacity:1;}
+.nav-left{display:flex;align-items:center;gap:.35rem;}
+.nav-disabled{opacity:.32;pointer-events:none;}
+</style>
+</head>
+<body>
+<div class="sticky-top">
+  <div class="back-bar">
+    <div class="nav-left"><a href="index.html">&larr; All Briefings</a><a class="toolbar-btn nav-disabled" id="navPrev" aria-label="Previous briefing">&#x2039; Prev</a></div>
+    <div class="header-toolbar"><a class="toolbar-btn nav-disabled" id="navNext" aria-label="Next briefing">Next &#x203A;</a>
+      <button class="toolbar-btn" onclick="window.print()">&#x1F4C4; PDF</button>
+      <button class="toolbar-btn" onclick="briefingSave()">&#x1F4E5; Save</button>
+      <button class="toolbar-btn" onclick="briefingShare()">&#x1F4F1; Send</button>
+      <a class="toolbar-btn" href="bookmarks.html">&#x1F516;&nbsp;Saved</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <h1>Edward&#x2019;s Daily Learning</h1>
+    <span class="meta">Saturday, 12 September 2026 &nbsp;&middot;&nbsp; ~25 min read</span>
+  </header>
+  <nav class="toc-bar" aria-label="Jump to card">
+    <a class="toc-pill" href="#card-1">&#x1F52D; Astronomy</a>
+    <a class="toc-pill" href="#card-2">&#x26E9; 東方歷史</a>
+    <a class="toc-pill" href="#card-3">&#x1F3DB; Western History</a>
+    <a class="toc-pill" href="#card-4">&#x262F; 東方哲學</a>
+    <a class="toc-pill" href="#card-5">&#x1F33F; W. Philosophy</a>
+    <a class="toc-pill" href="#card-6">&#x1F9E0; Psychology</a>
+    <a class="toc-pill" href="#card-7">&#x1FAC0; Physiology</a>
+    <a class="toc-pill" href="#card-8">&#x1F48A; Health</a>
+    <a class="toc-pill" href="#card-9">&#x1F3CB; Sports Science</a>
+    <a class="toc-pill" href="#card-10">&#x1F4C8; Investing</a>
+    <a class="toc-pill" href="#card-11">&#x2696;&#xFE0F; Political Econ</a>
+  </nav>
+</div>
+
+<div class="page-layout">
+  <nav class="side-nav" aria-label="Cards">
+    <ul>
+      <li><a href="#card-1">&#x1F52D; Astronomy</a></li>
+      <li><a href="#card-2">&#x26E9; 東方歷史</a></li>
+      <li><a href="#card-3">&#x1F3DB; Western History</a></li>
+      <li><a href="#card-4">&#x262F; 東方哲學</a></li>
+      <li><a href="#card-5">&#x1F33F; W. Philosophy</a></li>
+      <li><a href="#card-6">&#x1F9E0; Psychology</a></li>
+      <li><a href="#card-7">&#x1FAC0; Physiology</a></li>
+      <li><a href="#card-8">&#x1F48A; Health</a></li>
+      <li><a href="#card-9">&#x1F3CB; Sports Science</a></li>
+      <li><a href="#card-10">&#x1F4C8; Investing</a></li>
+      <li><a href="#card-11">&#x2696;&#xFE0F; Political Econ</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+
+    <div class="spark-section">
+      <h2>&#x1F501; Yesterday&#x2019;s Spark</h2>
+      <p class="spark-meta">Quick recap from <em>11 September 2026</em>:</p>
+      <div class="spark-list">
+        <div class="spark-item"><span class="spark-label">&#x1F52D; Astronomy &mdash; The Bullet Cluster</span>X-ray gas and gravitational mass split apart after a galaxy-cluster collision, the clearest sign yet of dark matter.</div>
+        <div class="spark-item"><span class="spark-label">&#x26E9; 東方歷史 &mdash; 大坂の陣</span>家康藉鐘銘生事，攻陷大坂城，豐臣氏滅亡。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3DB; Western History &mdash; The Peasants&#x2019; Revolt</span>A 14-year-old king personally faced down rebel forces at Smithfield to end England&#x2019;s 1381 uprising.</div>
+        <div class="spark-item"><span class="spark-label">&#x262F; 東方哲學 &mdash; 親鸞・惡人正機</span>親鸞倡「惡人正機」，謂自知罪業者更蒙彌陀本願拯救。</div>
+        <div class="spark-item"><span class="spark-label">&#x1F33F; W. Philosophy &mdash; Walter Benjamin&#x2019;s &#x201C;Aura&#x201D;</span>Benjamin argued mechanical reproduction strips an artwork of its unique &#x201C;aura&#x201D; rooted in time and place.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F9E0; Psychology &mdash; Myopic Loss Aversion</span>Frequent portfolio-checking amplifies loss aversion&#x2019;s sting, helping explain why stocks pay a bigger risk premium than bonds.</div>
+        <div class="spark-item"><span class="spark-label">&#x1FAC0; Physiology &mdash; MC1R &amp; Redheads</span>The gene behind red hair also raises how much general anaesthetic someone needs during surgery.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F48A; Health &mdash; The Vaccines-Autism Myth</span>Andrew Wakefield&#x2019;s fraudulent, retracted 1998 study wrongly linked the MMR vaccine to autism, fuelling decades of fear.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F3CB; Sports Science &mdash; Beta-Alanine</span>Beta-alanine raises muscle carnosine, buffering fatigue-causing acid in high-intensity efforts lasting one to four minutes.</div>
+        <div class="spark-item"><span class="spark-label">&#x1F4C8; Investing &mdash; The Orange County Bankruptcy</span>Leveraged bets on falling interest rates bankrupted Orange County in 1994 when the Fed raised rates instead.</div>
+        <div class="spark-item"><span class="spark-label">&#x2696;&#xFE0F; Political Econ &mdash; Okun&#x2019;s Law</span>The 2009-2011 recovery needed far more growth than Okun&#x2019;s Law predicted to meaningfully lower unemployment.</div>
+      </div>
+    </div>
+
+    <!-- CARD 1 -->
+    <article class="card" id="card-1">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F52D; Astronomy &amp; Cosmos</div>
+      <h2>The Asteroid With a Mountain Taller Than Everest</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In July 2011, NASA&#x2019;s Dawn spacecraft arrived at Vesta, an unremarkable-looking lump of rock in the asteroid belt between Mars and Jupiter, barely 525 km across. Before reading on: what do you think a small, misshapen space rock like this could possibly have in common with a fully formed planet like Earth or Mars?</div>
+      </details>
+      <div class="card-img-wrap" id="card-1-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Vesta_from_Dawn%2C_July_17.jpg/330px-Vesta_from_Dawn%2C_July_17.jpg" alt="Vesta imaged by NASA's Dawn spacecraft in July 2011" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Vesta (灶神星), imaged by NASA&#x2019;s Dawn spacecraft in July 2011, showing the giant Rheasilvia impact basin at its south pole. Credit: <a href="https://en.wikipedia.org/wiki/4_Vesta" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>NASA&#x2019;s Dawn spacecraft (黎明號探測器) arrived at Vesta (灶神星) in July 2011, becoming the first probe ever to orbit an object in the main asteroid belt (小行星帶) between Mars and Jupiter. Vesta looked, from a distance, like an unremarkable lump of rock barely 525 km across, roughly the size of Arizona. But Dawn&#x2019;s images revealed something unexpected: Vesta is not simple rubble like most asteroids, but a genuine protoplanet (原行星), a body that began differentiating into a metallic core, rocky mantle, and crust just like Earth or Mars did, before its growth was abruptly interrupted partway through.</p>
+      <p>What interrupted it stares back from Vesta&#x2019;s south pole: the Rheasilvia basin (瑞亞西爾維婭撞擊盆地), a crater roughly 500 km wide, nearly as wide as Vesta itself, gouged out by a colossal impact around a billion years ago. At its centre rises a mountain about 20-25 km tall, rivalling Mars&#x2019;s Olympus Mons (奧林帕斯山) and dwarfing Mount Everest&#x2019;s (珠穆朗瑪峰) 8.8 km by more than double. Scientists believe the impact that carved this crater came astonishingly close to shattering Vesta entirely, leaving both the scar and the mountain as evidence of a near-catastrophic collision.</p>
+      <p>The Rheasilvia impact also blasted debris into space that eventually fell to Earth as howardite-eucrite-diogenite meteorites (HED隕石), a well-studied meteorite family whose chemical signatures scientists had long suspected, but never confirmed, came from Vesta. Dawn&#x2019;s visit matched the meteorites&#x2019; mineral fingerprints directly to Vesta&#x2019;s surface, making it one of the only asteroids whose specific rocks sat in laboratories years before a spacecraft ever arrived. Because Vesta essentially froze mid-formation, it offers a rare, intact window into the earliest chapter of how rocky planets actually came to be built.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/4_Vesta" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A lump of rock barely bigger than Arizona hides a mountain that outclasses Everest, frozen mid-way through becoming a planet.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the Rheasilvia basin on Vesta, and why is it scientifically significant?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">Rheasilvia is a roughly 500 km-wide impact basin at Vesta&#x2019;s south pole with a central peak about 20-25 km tall, among the solar system&#x2019;s tallest mountains. It is significant because the impact&#x2019;s ejecta match HED meteorites found on Earth, directly linking a known meteorite family to its actual parent body.</div>
+      </details>
+      <div class="source">&#x1F4D6; Russell, C.T. et al. (2012), <em>Science</em>; Jaumann, R. et al. (2012), <em>Science</em>; NASA/JPL Dawn mission press materials.</div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card amber" id="card-2">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x26E9; 東方歷史</div>
+      <h2>為何一個蒙古部族甘冒近八成傷亡，也要逃離俄國東返故土？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">1771年初，遊牧於伏爾加河下游、臣屬俄國沙皇逾百年的土爾扈特部，忽然焚燒營帳、拋棄家財，率全族十七萬人踏上東返清朝故土的漫漫長路，明知沿途將遭俄軍追擊、水草匱乏。你認為，是甚麼樣的壓迫，讓一整個民族甘願冒著近乎滅族的風險，也要離開已經定居逾百年的家園？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>渥巴錫（土爾扈特汗，率部東歸之領袖）；乾隆帝（清高宗，接納東歸部眾）。</p>
+        <p><strong>事件：</strong>1771年，土爾扈特部眾自伏爾加河流域出走，跋涉萬里東歸清朝新疆伊犁。</p>
+        <p><strong>時代背景：</strong>17世紀初，衛拉特蒙古土爾扈特部因與準噶爾部不合，西遷至伏爾加河下游游牧，臣屬俄國沙皇；至18世紀中葉，俄國強徵土爾扈特青壯年參與對外戰爭，又干預其宗教信仰及汗位繼承，渥巴錫遂決意率全族東歸故土。</p>
+      </div>
+      <div class="card-img-wrap" id="card-2-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/78/Ubasi.jpg/330px-Ubasi.jpg" alt="渥巴錫畫像" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">渥巴錫，土爾扈特汗，1771年率全族東歸清朝。來源：<a href="https://en.wikipedia.org/wiki/Ubashi_Khan" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>1771年1月，渥巴錫率領約十七萬土爾扈特部眾，趁伏爾加河尚未完全結冰、河西部眾尚可渡河、河東部眾卻無法隨行阻攔之機，焚燒營帳、拋棄大量財物家當，倉促踏上東歸之路。此舉早有預謀：俄國沙皇近年不斷徵召土爾扈特青壯年遠赴他鄉作戰，傷亡慘重；又干預土爾扈特汗位繼承及宗教事務，強令部眾改宗東正教，令渥巴錫深感民族存續危在旦夕，決意冒險東遷返回準噶爾故地，投奔清朝。</p>
+      <p>東歸路途橫跨中亞草原逾萬里，歷時逾半年，土爾扈特部眾必須且戰且行，沿途遭俄國哥薩克騎兵追擊，又與哈薩克、吉爾吉斯等游牧部族爆發激烈衝突爭奪水源牧草，酷暑嚴寒交替、飢荒瘟疫肆虐，傷亡枕藉。史料記載，出發時全族約三十三萬人，抵達清朝邊境伊犁時僅餘約七萬人，折損近八成，堪稱人類歷史上代價最慘重的集體遷徙之一。</p>
+      <p>1771年秋，渥巴錫率殘部抵達伊犁，乾隆帝聞訊大喜，親赴承德避暑山莊接見渥巴錫一行，冊封其為「卓里克圖汗」，並下令調撥糧食、牲畜、氈廬安置歸附部眾，又立《土爾扈特全部歸順記》及《優恤土爾扈特部眾記》兩碑於承德普陀宗乘之廟，紀念此事。土爾扈特部眾其後編入清朝八旗建制，安置於新疆巴音布魯克草原一帶游牧，其東歸壯舉至今仍是蒙古民族史上最悲壯的集體記憶之一。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Ubashi_Khan" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 渥巴錫寧可犧牲近八成部眾，也要換取民族在祖先故土上延續的自由。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 土爾扈特部東歸的根本原因是甚麼？東歸途中傷亡為何如此慘重？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">俄國強徵土爾扈特青壯年參戰、干預汗位繼承及強令改宗東正教，令渥巴錫決意率全族東歸清朝故土。東歸途中遭俄軍追擊、與沿途游牧部族爭戰，加上飢荒瘟疫，全族三十三萬人抵達伊犁時僅餘約七萬人。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《土爾扈特全部歸順記》（乾隆御製碑文）；《清史稿·藩部傳》；Perdue, P.C., <em>China Marches West</em> (2005)。</div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card" id="card-3">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3DB; History &mdash; Western</div>
+      <h2>The Supreme Court Ruled in Their Favour. The Army Marched Them Out Anyway.</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In 1832, the US Supreme Court ruled that the Cherokee Nation was a sovereign nation entitled to protection from state interference. Before reading on: what do you think happened next when the sitting US president simply disagreed with the Court&#x2019;s ruling?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figures:</strong> Andrew Jackson (安德魯&middot;傑克遜), US President; Chief John Ross (約翰&middot;羅斯), Principal Chief of the Cherokee Nation (切羅基族); Chief Justice John Marshall (約翰&middot;馬歇爾).</p>
+        <p><strong>Event at stake:</strong> the 1838-1839 forced removal of the Cherokee Nation from their ancestral homeland in the southeastern United States to Indian Territory (印第安領地, present-day Oklahoma).</p>
+        <p><strong>Big picture:</strong> the 1830 Indian Removal Act (印第安人遷移法案) authorised the federal government to negotiate removal treaties with Native American nations, driven partly by pressure from white settlers after gold was discovered on Cherokee land in Georgia (喬治亞州) in 1829.</p>
+      </div>
+      <div class="card-img-wrap" id="card-3-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/TrailofTearsMemorial-3.jpg/330px-TrailofTearsMemorial-3.jpg" alt="Trail of Tears memorial" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">A memorial to the Trail of Tears, the 1838-39 forced removal of the Cherokee Nation. Credit: <a href="https://en.wikipedia.org/wiki/Trail_of_Tears" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>In 1830, President Andrew Jackson (安德魯&middot;傑克遜) signed the Indian Removal Act (印第安人遷移法案) into law, authorising the federal government to exchange Native American land in the southeastern United States for territory west of the Mississippi River (密西西比河). The Cherokee Nation had adopted a written constitution, a printing press, and a formal legal system, and fought removal through the courts rather than by force. In <em>Worcester v. Georgia</em> (伍斯特訴喬治亞州案, 1832), Chief Justice John Marshall (約翰&middot;馬歇爾) ruled the Cherokee Nation a sovereign entity outside Georgia&#x2019;s state jurisdiction, a resounding legal victory.</p>
+      <p>Jackson is widely reported to have responded by ignoring the ruling entirely, reportedly remarking that Marshall could enforce his own decision, since the executive branch controlled the army the Court had none of. In 1835, a small, unauthorised faction of Cherokee leaders signed the Treaty of New Echota (新埃科塔條約), ceding all Cherokee land in the east, despite fierce opposition from Principal Chief John Ross (約翰&middot;羅斯) and roughly 16,000 Cherokee who signed a petition rejecting the treaty&#x2019;s legitimacy. The US Senate ratified it anyway by a single vote.</p>
+      <p>In 1838, federal troops under General Winfield Scott (溫菲爾德&middot;斯科特) rounded up around 16,000 Cherokee into hastily built stockades before marching them roughly 1,200 km west along what became known as the Trail of Tears (血淚之路), during the brutal winter of 1838-39. Disease, exposure, and starvation killed an estimated 4,000 or more people along the route, roughly a quarter of those forced to march. The Cherokee Nation rebuilt itself in Indian Territory, but the removal remains one of history&#x2019;s starkest instances of executive power overriding a Supreme Court ruling outright.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Trail_of_Tears" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; A Supreme Court ruling protected the Cherokee Nation on paper &mdash; raw executive and military power removed them anyway.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did the Supreme Court rule in <em>Worcester v. Georgia</em>, and how did the Trail of Tears happen despite that ruling?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The Court ruled the Cherokee Nation was a sovereign entity beyond Georgia&#x2019;s jurisdiction. President Jackson effectively ignored the ruling, a minority faction signed an unauthorised removal treaty, and federal troops forcibly marched roughly 16,000 Cherokee west in 1838-39, killing an estimated 4,000 along the way.</div>
+      </details>
+      <div class="source">&#x1F4D6; Perdue, T. &amp; Green, M.D., <em>The Cherokee Removal: A Brief History with Documents</em> (2005); <em>Worcester v. Georgia</em>, 31 U.S. 515 (1832); Smithsonian National Museum of the American Indian.</div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card amber" id="card-4">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x262F; 東方哲學</div>
+      <h2>「盡人事」還是「聽天命」？《列子》如何調解這場千年爭論？</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; 閱讀前先猜猜</summary>
+        <div class="predict-q">如果「力」（人的努力）與「命」（既定的天命）在你面前展開一場辯論，各自宣稱自己才是決定人生成敗的真正力量，你認為最終誰會勝出，抑或根本沒有勝負可言？</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">背景速覽</span>
+        <p><strong>核心人物：</strong>列子（列禦寇，傳為戰國時期道家人物，《列子》一書託名之作者）。</p>
+        <p><strong>事件／思想：</strong>《列子·力命篇》以「力」與「命」二者對話寓言形式，探討人的主觀努力與命定天數之間的關係。</p>
+        <p><strong>時代背景：</strong>戰國時期百家爭鳴，儒家強調「盡人事」的道德實踐與修身，墨家倡「非命」力主人為可改變命運，道家則傾向「安時處順」順應自然；《列子》成書年代雖有爭議，但〈力命篇〉集中回應了這場貫穿先秦的「力」與「命」之辯。</p>
+      </div>
+      <div class="card-img-wrap" id="card-4-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Brooklyn_Museum_-_Calligraphy_Lieh_Tzu_Yang-chu_Chapter_-_Kojima_Soshin.jpg/330px-Brooklyn_Museum_-_Calligraphy_Lieh_Tzu_Yang-chu_Chapter_-_Kojima_Soshin.jpg" alt="《列子》楊朱篇書法" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">日本書家所書《列子·楊朱篇》書法作品。來源：<a href="https://en.wikipedia.org/wiki/Liezi_(book)" target="_blank" rel="noopener">維基媒體共享資源</a></div>
+      </div>
+      <p>〈力命篇〉開篇即設「力」與「命」二者對話：力自誇曰，凡壽夭、窮達、貴賤、貧富，皆是我之所能致；命則反駁，彭祖之智不出堯舜之上而壽八百，顏淵之德不出眾人之下而壽僅十八，仲尼之德不出諸侯之下而困於陳蔡，紂之行不出三仁之上而居君位——凡此種種，皆非「力」所能致，實乃「命」使然。力自知理屈，終不能答。</p>
+      <p>篇中另有一則著名寓言「北宮子與西門子」對照：西門子出身富貴，事事順遂；北宮子出身寒微，屢遭挫折，卻仍勤力不懈。北宮子質疑天道不公，東郭先生解釋，二人命數本有差異，非努力多寡所能扭轉，然「自壽自天，自窮自達」——重點不在於怨天尤人，而在於安於自身命限之內盡力而為，不因命之既定而全然放棄人為。</p>
+      <p>《列子》看似消極的「命定論」，實際上並非教人完全放棄努力，而是提出一種「知命而不怨命」的處世態度：一方面承認人力有其邊界，壽夭窮達未必盡如人願；另一方面仍主張在既定命限之內，「達則兼濟，窮則獨善」，盡力而為方能心安理得。這種調和「力」與「命」的思路，深刻影響後世士人面對仕途困頓、命運坎坷時的處世哲學，成為道家「安命」思想的重要文本依據。</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Liezi_(book)" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; 《列子》不教人棄努力就命，而教人在命之邊界內，仍盡力而為、心安理得。</div>
+      <div class="retrieval-q">&#x1F9E0; <em>嘗試不翻閱作答：</em> 〈力命篇〉如何論證「命」勝於「力」？北宮子與西門子的寓言帶出甚麼處世態度？</div>
+      <details class="answer-reveal">
+        <summary>對照答案</summary>
+        <div class="answer-body">篇中以彭祖、顏淵、孔子、紂王等人壽夭貴賤不合常理的例子，論證窮達壽夭非人力所能全然掌控。北宮子與西門子的寓言則帶出「知命而不怨命」的態度：承認命數有別，但仍應在自身命限之內盡力而為。</div>
+      </details>
+      <div class="source">&#x1F4D6; 《列子·力命篇》；楊伯峻《列子集釋》；Graham, A.C., <em>The Book of Lieh-tzu</em> (1960)。</div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card" id="card-5">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F33F; Philosophy &mdash; Western</div>
+      <h2>The Philosopher Who Starved Herself to Match Occupied France&#x2019;s Rations</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Simone Weil was a brilliant French philosopher who chose to work in a car factory despite a prestigious academic career being available to her, and later died in 1943 after limiting her own food to occupied France&#x2019;s rations. Before reading on: what do you think drove a philosopher to treat physical hardship as central to moral understanding, rather than something to think about from a safe distance?</div>
+      </details>
+      <div class="intro-box">
+        <span class="intro-label">Context</span>
+        <p><strong>Key figure:</strong> Simone Weil (西蒙娜&middot;韋伊), French philosopher, mystic, and political activist.</p>
+        <p><strong>Problem at stake:</strong> how a person can genuinely attend to another&#x2019;s suffering (affliction) rather than merely observing or theorising about it from a distance.</p>
+        <p><strong>Moment:</strong> Weil wrote and acted between the 1930s labour movements and Nazi-occupied France (納粹佔領下的法國) in the early 1940s, dying in England in 1943 at age 34.</p>
+      </div>
+      <div class="card-img-wrap" id="card-5-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Simone_Weil_1943.jpg/330px-Simone_Weil_1943.jpg" alt="Photograph of Simone Weil, 1943" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Simone Weil, 1943, the year she died in England after limiting her own food intake in solidarity with occupied France. Credit: <a href="https://en.wikipedia.org/wiki/Simone_Weil" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Simone Weil (西蒙娜&middot;韋伊), despite graduating near the top of her class at the elite &Eacute;cole Normale Sup&eacute;rieure (巴黎高等師範學院), a pedigree comparable to classmate Simone de Beauvoir&#x2019;s (西蒙&middot;波娃), insisted on working as an unskilled labourer in a Renault (雷諾) car factory in 1934-35, deliberately experiencing the exhaustion and physical pain of industrial labour firsthand rather than theorising about workers&#x2019; conditions from a university post. She described the experience as breaking something in her, yet foundational to everything she later wrote about affliction (malheur, 苦難).</p>
+      <p>Weil&#x2019;s central concept of attention (專注) held that truly perceiving another person&#x2019;s suffering requires an almost self-emptying discipline, setting aside one&#x2019;s own concerns, theories, and even the urge to immediately act or explain, in order to fully receive the reality of what another person is experiencing. She distinguished this from mere pity or intellectual analysis, arguing that affliction is not simply intense suffering but a state that crushes a person&#x2019;s dignity so thoroughly that most observers instinctively look away rather than truly attend to it.</p>
+      <p>After fleeing occupied France for London in 1942 to work with the Free French (自由法國) resistance, Weil deliberately limited her own food intake to match the rations she believed occupied French civilians were surviving on, despite already suffering from tuberculosis (肺結核). She died in August 1943 at age 34; her death certificate cited self-starvation as a contributing factor, an ending as controversial among philosophers as it was consistent with her insistence that real ethical understanding could not be separated from bodily solidarity with those who suffer.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Simone_Weil" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Weil insisted that truly understanding someone else&#x2019;s suffering demands more than sympathy from a safe distance &mdash; it demands attention that costs you something.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What did Simone Weil mean by &#x201C;attention,&#x201D; and how did her factory work and wartime rationing choice relate to her philosophy?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">For Weil, attention meant a self-emptying discipline of fully receiving another&#x2019;s suffering without immediately theorising, judging, or acting. Her factory labour and her decision to limit her own food to occupied France&#x2019;s rations were attempts to physically embody that same principle rather than just write about it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Weil, S., <em>Gravity and Grace</em> (1947, posthumous); Weil, S., &#x201C;Reflections on the Right Use of School Studies&#x201D; (1942); Stanford Encyclopedia of Philosophy, &#x201C;Simone Weil.&#x201D;</div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card" id="card-6">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F9E0; Psychology</div>
+      <h2>Why Losing Track of Time at Work Might Be a Measurable State, Not Just a Feeling</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Rock climbers, chess players, and surgeons sometimes describe becoming so absorbed in a difficult task that hours pass without their noticing, and the activity itself feels effortless despite requiring intense skill. Before reading on: do you think psychologists have found a common, measurable set of conditions that reliably produces this state, or is it just random luck?</div>
+      </details>
+      <div class="card-img-wrap" id="card-6-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Mihaly_Csikszentmihalyi.jpg/330px-Mihaly_Csikszentmihalyi.jpg" alt="Photograph of psychologist Mihaly Csikszentmihalyi" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Psychologist Mihaly Csikszentmihalyi, who coined the term &#x201C;flow&#x201D; after studying deeply absorbed states of concentration. Credit: <a href="https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>Psychologist Mihaly Csikszentmihalyi (米哈里&middot;契克森米哈伊) began studying this absorbed state in the 1970s by interviewing artists, athletes, musicians, and chess players about their most rewarding experiences, coining the term &#x201C;flow&#x201D; (心流) because so many described the feeling using metaphors of being carried along by a current. He later used the experience sampling method (經驗取樣法), paging research subjects at random points during their ordinary day and asking them to report their activity, mood, and concentration in the moment, rather than relying on people&#x2019;s often-unreliable memories of past experiences.</p>
+      <p>Csikszentmihalyi&#x2019;s data pointed to a specific, replicable condition: flow reliably emerges in a narrow zone where a task&#x2019;s challenge closely matches a person&#x2019;s skill level, not too easy to bore them, not so hard it triggers anxiety, often visualised as a &#x201C;flow channel&#x201D; running diagonally between those two failure states. Within that channel, people report clear goals, immediate feedback on their performance, a loss of self-conscious rumination, and a distorted, usually compressed, sense of time passing, all occurring together rather than as separate, unrelated experiences.</p>
+      <p>Later research, including cross-cultural studies replicating the experience-sampling method across different countries and occupations, has broadly supported the challenge-skill balance as central, though some psychologists note the original studies relied heavily on self-report and that flow&#x2019;s neural basis remains actively debated rather than settled. Even so, the finding that deliberately adjusting task difficulty to match one&#x2019;s current skill can reliably increase reported engagement has influenced workplace design, education, and sports training.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Flow isn&#x2019;t random luck &mdash; it shows up reliably in the narrow zone where a task&#x2019;s difficulty closely matches your current skill.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is the &#x201C;flow channel,&#x201D; and what method did Csikszentmihalyi use to study flow in real time rather than from memory?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">The flow channel is the narrow zone where a task&#x2019;s challenge closely matches a person&#x2019;s skill, avoiding both boredom and anxiety. Csikszentmihalyi used the experience sampling method, paging subjects at random moments during the day to report their real-time activity and concentration, rather than relying on retrospective memory.</div>
+      </details>
+      <div class="source">&#x1F4D6; Csikszentmihalyi, M., <em>Flow: The Psychology of Optimal Experience</em> (1990); Csikszentmihalyi, M. &amp; Larson, R. (1987), <em>Journal of Nervous and Mental Disease</em>.</div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card steel" id="card-7">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1FAC0; Physiology</div>
+      <h2>The Familiar Feeling Your Brain Generates About a Moment You&#x2019;ve Never Lived</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Roughly two-thirds of people report having experienced a strange moment where an entirely new situation feels intensely, inexplicably familiar, as though they&#x2019;ve lived through it before. Before reading on: do you think this feeling means something genuinely happened before, or could your brain be capable of generating a false sense of familiarity out of nothing at all?</div>
+      </details>
+      <div class="card-img-wrap" id="card-7-img">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/58/Memory.gif" alt="Diagram illustrating memory processes in the brain" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">D&eacute;j&agrave; vu is thought to arise from a brief mismatch between the brain&#x2019;s memory and familiarity-processing systems, centred on the temporal lobe. Credit: <a href="https://en.wikipedia.org/wiki/D%C3%A9j%C3%A0_vu" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>D&eacute;j&agrave; vu (既視感), French for &#x201C;already seen,&#x201D; describes the unsettling sensation that a completely new experience feels intensely familiar, as though it has happened before, even while the person remains fully aware that it hasn&#x2019;t. Studies suggest 60-70% of people experience it at some point, most often in young adulthood, and frequency tends to decline with age, an odd pattern that has made d&eacute;j&agrave; vu difficult to study directly, since it strikes unpredictably and vanishes within seconds, leaving researchers unable to simply ask someone to have one on command in a lab.</p>
+      <p>The leading explanation centres on the temporal lobe (顳葉), particularly the rhinal cortex (鼻周皮質) and hippocampus (海馬體), brain structures responsible for generating a feeling of familiarity separately from actually retrieving a specific memory. Researchers studying epilepsy patients (癲癇患者) found that mild, brief electrical misfiring in these temporal lobe regions, similar to what happens just before some seizures, can generate a pure &#x201C;familiarity signal&#x201D; completely disconnected from any real memory, essentially tricking the brain into feeling recognition where none is warranted.</p>
+      <p>Psychologist Anne Cleary (安&middot;克利里) tested this experimentally using virtual reality (虛擬實境), building scenes spatially similar in layout to earlier scenes participants had viewed but consciously unrecognised as such, and found participants reliably reported stronger d&eacute;j&agrave; vu in these spatially similar-but-unrecalled scenes. This supports a &#x201C;gestalt familiarity&#x201D; theory: the brain may be matching the overall spatial layout of a new scene to a past one too vague to consciously recall, producing the eerie feeling of familiarity without any specific memory ever surfacing to explain it.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/D%C3%A9j%C3%A0_vu" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; D&eacute;j&agrave; vu may not signal a real memory at all &mdash; just your temporal lobe briefly generating a pure feeling of familiarity with nothing behind it.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What brain region is most associated with d&eacute;j&agrave; vu, and what did Anne Cleary&#x2019;s virtual reality experiments suggest about its cause?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">D&eacute;j&agrave; vu is most associated with the temporal lobe, particularly the rhinal cortex and hippocampus. Cleary&#x2019;s VR experiments found people felt stronger d&eacute;j&agrave; vu in scenes spatially similar to ones they&#x2019;d seen before but couldn&#x2019;t consciously recall, suggesting the brain matches overall scene layout to vague past memories without full recognition.</div>
+      </details>
+      <div class="source">&#x1F4D6; Cleary, A.M. et al. (2012), <em>Consciousness and Cognition</em>; Spatt, J. (2002), <em>Journal of Neuropsychiatry and Clinical Neurosciences</em>; Brown, A.S., <em>The D&eacute;j&agrave; Vu Experience</em> (2004).</div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card green" id="card-8">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F48A; Health</div>
+      <h2>The Myth That Started With Soldiers Wearing Everything Except Hats</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many people believe you lose most of your body heat through your bare head, a claim often used to justify wearing a hat in cold weather above almost anything else. Before reading on: do you think this claim came from careful scientific measurement of the whole human body, or from something narrower that got generalised far beyond what it actually showed?</div>
+      </details>
+      <div class="card-img-wrap" id="card-8-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Passivhaus_thermogram_gedaemmt_ungedaemmt.png/330px-Passivhaus_thermogram_gedaemmt_ungedaemmt.png" alt="Thermographic image comparing heat loss from an insulated and uninsulated building" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Thermal imaging (熱成像), the technology later used to properly test heat loss from different body parts, shows heat escaping unevenly &mdash; a principle long oversimplified into the head-heat myth. Credit: <a href="https://en.wikipedia.org/wiki/Thermography" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The claim that humans lose 40-45% of their body heat through the head traces back informally to a 1950s US Army (美國陸軍) research report testing soldiers in Arctic survival gear. Crucially, the test subjects were dressed head-to-toe in cold-weather survival suits covering their entire bodies, except their heads, which were left bare; unsurprisingly, in that setup, most of the measurable heat loss occurred through the one uncovered body part, since virtually everywhere else was already well insulated.</p>
+      <p>The finding was never intended to describe how heat loss works from a normally, evenly dressed body, yet it was widely generalised and repeated in popular science writing and even some field manuals over subsequent decades, eventually hardening into the specific, often-cited &#x201C;40-45%&#x201D; figure despite the original context around it disappearing entirely. A 2008 review by physician Rachel Vreeman (瑞秋&middot;弗里曼) and colleagues in the <em>British Medical Journal</em> (英國醫學期刊) formally traced and debunked the specific percentage claim, noting that no rigorous whole-body study actually supported it.</p>
+      <p>In reality, the head, when uncovered while the rest of the body is also uncovered or similarly exposed, loses heat roughly proportional to its share of the body&#x2019;s total surface area, around 7-10%, not dramatically more than any other exposed body part of similar size. Covering any large area of exposed skin, not specifically the head, meaningfully reduces heat loss in cold conditions; a hat still helps because heads are commonly left bare while everything else is covered, not because the head has any unique physiological heat-loss advantage.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Thermography" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; Bundle up more broadly in the cold &mdash; not because your head is special, but because it&#x2019;s usually the one part everyone forgets to cover.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> Where did the &#x201C;you lose 40-45% of heat through your head&#x201D; claim come from, and why was it misleading?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It traced to a 1950s US Army test where soldiers wore full-body arctic survival gear except on their heads, so nearly all measurable heat loss occurred through the one uncovered area. The finding was never about normally dressed bodies, yet the specific percentage was repeated for decades until a 2008 BMJ review debunked it.</div>
+      </details>
+      <div class="source">&#x1F4D6; Vreeman, R.C. &amp; Carroll, A.E. (2008), <em>BMJ</em>, &#x201C;Medical myths&#x201D;; Pretorius, T. et al. (2006), <em>Journal of Applied Physiology</em>.</div>
+    </article>
+
+    <!-- CARD 9 -->
+    <article class="card green" id="card-9">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F3CB; Sports Science</div>
+      <h2>The Gym Chart That Tells You to Exercise Less Hard Than You Should</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">Many gym cardio machines display a &#x201C;fat-burning zone,&#x201D; typically around 60-70% of your maximum heart rate, suggesting this lower intensity burns more fat than working out harder. Before reading on: if a higher-intensity workout burns more total calories in the same time, could it still end up burning less fat overall &mdash; or is the fat-burning zone chart simply wrong?</div>
+      </details>
+      <div class="card-img-wrap" id="card-9-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/MatteoTosatto2.jpg/330px-MatteoTosatto2.jpg" alt="A cyclist training outdoors" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Exercise intensity changes the ratio of fat to carbohydrate burned, but not necessarily the total fat burned. Credit: <a href="https://en.wikipedia.org/wiki/Aerobic_exercise" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>The &#x201C;fat-burning zone&#x201D; (燃脂區間) concept is built on a real physiological fact: at lower exercise intensities, roughly 60-70% of maximum heart rate, the body draws a higher percentage of its energy from fat rather than carbohydrate stores, compared to high-intensity effort, which shifts the fuel mix more heavily toward glycogen (肝醣) and carbohydrates. This percentage-based fact is accurate and measurable in a lab using indirect calorimetry (間接量熱法), which is exactly why the chart persists on cardio equipment and in older exercise science textbooks.</p>
+      <p>The flaw is what the chart leaves out: total calories burned. Because higher-intensity exercise burns substantially more total calories per minute, even though a smaller percentage of those calories come from fat, the absolute amount of fat burned during and after a harder workout is often equal to or greater than a longer, lower-intensity session, especially once &#x201C;afterburn,&#x201D; the elevated calorie burn from excess post-exercise oxygen consumption (運動後過耗氧量), is factored in. Comparing percentages instead of absolute totals is the exact statistical trap the chart falls into.</p>
+      <p>Exercise physiologists now generally recommend choosing intensity based on sustainability, enjoyment, and training goals rather than chasing a specific heart-rate percentage, since for most people trying to lose fat, total weekly calorie expenditure and adherence over months matter far more than which fuel source powered any single session. High-intensity interval training (高強度間歇訓練) in particular has repeatedly matched or outperformed steady low-intensity &#x201C;fat-burning zone&#x201D; cardio for actual fat loss in controlled trials, despite technically burning a lower percentage of fat calories during the workout itself.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Aerobic_exercise" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; The fat-burning zone isn&#x2019;t wrong about percentages &mdash; it&#x2019;s misleading about what actually matters: total calories and fat burned, not the fuel-source ratio.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What is technically true about the &#x201C;fat-burning zone,&#x201D; and what key flaw does the popular advice built on it overlook?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">It is true that lower-intensity exercise burns a higher percentage of calories from fat compared to carbohydrates. The flaw is that higher-intensity exercise burns far more total calories per minute, so the absolute amount of fat burned is often just as high or higher, especially once post-exercise calorie burn is included.</div>
+      </details>
+      <div class="source">&#x1F4D6; Achten, J. &amp; Jeukendrup, A.E. (2003), <em>Sports Medicine</em>; Astorino, T.A. et al. (2013), <em>Journal of Sports Science and Medicine</em>.</div>
+    </article>
+
+    <!-- CARD 10 -->
+    <article class="card steel" id="card-10">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x1F4C8; Investing &amp; Economic Thinking</div>
+      <h2>The $32 Billion Exchange That Collapsed in Ten Days</h2>
+      <details class="predict-box">
+        <summary>&#x1F914; Predict Before You Read</summary>
+        <div class="predict-q">In November 2022, FTX, once the world&#x2019;s third-largest cryptocurrency exchange, valued at roughly $32 billion just months earlier, collapsed into bankruptcy within about ten days after a single news report raised questions about its finances. Before reading on: what kind of internal problem do you think could destroy a business that large that quickly, once it became public?</div>
+      </details>
+      <div class="card-img-wrap" id="card-10-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6a/Sam_Bankman-Fried_%28cropped%29.png/330px-Sam_Bankman-Fried_%28cropped%29.png" alt="Photograph of Sam Bankman-Fried" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sam Bankman-Fried, founder of FTX, convicted of fraud after the exchange&#x2019;s November 2022 collapse. Credit: <a href="https://en.wikipedia.org/wiki/Sam_Bankman-Fried" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <p>FTX (FTX交易所), founded by Sam Bankman-Fried (山姆&middot;班克曼-弗里德) in 2019, grew rapidly into one of the world&#x2019;s largest cryptocurrency exchanges (加密貨幣交易所), reaching a peak valuation of roughly $32 billion by early 2022 and attracting high-profile endorsements and celebrity advertising. Bankman-Fried also ran a separate trading firm, Alameda Research (阿拉米達研究), which the public understood to be a distinct company, though the two were, in reality, far more financially intertwined than either firm publicly disclosed.</p>
+      <p>On 2 November 2022, news outlet CoinDesk published a leaked balance sheet showing a large portion of Alameda Research&#x2019;s assets consisted of FTT (FTX交易所自身發行的代幣), a token FTX itself had created and controlled, rather than independent, liquid assets. The report triggered a rapid loss of confidence; rival exchange Binance (幣安) announced it would sell its FTT holdings, customers rushed to withdraw funds, and within roughly ten days FTX halted withdrawals and filed for bankruptcy, revealing an estimated $8 billion shortfall in customer funds.</p>
+      <p>Investigations later confirmed that FTX had improperly used customer deposits (客戶存款), funds users believed were simply being held for trading, to cover Alameda Research&#x2019;s trading losses and risky bets, a direct violation of the segregation between customer funds and company assets that regulated financial institutions are legally required to maintain. Bankman-Fried was convicted of fraud and conspiracy in November 2023 and sentenced to 25 years in prison, triggering wider scrutiny of exchange transparency and proof-of-reserves practices (儲備證明) across the industry.</p>
+      <p class="read-more"><a href="https://en.wikipedia.org/wiki/Sam_Bankman-Fried" target="_blank" rel="noopener">Read more &#x2192;</a></p>
+      <div class="takeaway">&#x1F4A1; FTX&#x2019;s downfall wasn&#x2019;t a market crash &mdash; it was customer money quietly used to prop up a sister company&#x2019;s bad bets.</div>
+      <div class="retrieval-q">&#x1F9E0; <em>Answer this without looking back:</em> What triggered FTX&#x2019;s collapse in November 2022, and what core problem did the bankruptcy investigation reveal?</div>
+      <details class="answer-reveal">
+        <summary>Check your answer</summary>
+        <div class="answer-body">A leaked balance sheet showing Alameda Research&#x2019;s assets were largely FTX&#x2019;s own FTT token triggered a rapid loss of confidence and a wave of withdrawals. The investigation revealed FTX had improperly used customer deposits to cover Alameda Research&#x2019;s trading losses, violating the required separation between customer funds and company assets.</div>
+      </details>
+      <div class="source">&#x1F4D6; US Department of Justice, <em>United States v. Bankman-Fried</em> (2023); <em>Financial Times</em> and Reuters reporting, November 2022; Yaffe-Bellany, D., <em>The New York Times</em> (2023).</div>
+    </article>
+
+    <!-- CARD 11 -->
+    <article class="card steel" id="card-11">
+      <button class="bm-btn" onclick="toggleBookmark(this)" aria-label="Bookmark" title="Bookmark this card">&#x1F516;</button>
+      <div class="card-label">&#x2696;&#xFE0F; Political Economics &mdash; Theory in the Wild</div>
+      <h2>Gresham&#x2019;s Law and the Rule That Runs Backwards</h2>
+      <div class="card-img-wrap" id="card-11-img">
+        <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Portretten_van_Sir_Thomas_Gresham_en_Anne_Fernely_Rijksmuseum_SK-A-3118.jpeg/330px-Portretten_van_Sir_Thomas_Gresham_en_Anne_Fernely_Rijksmuseum_SK-A-3118.jpeg" alt="Portrait of Sir Thomas Gresham" loading="lazy" onerror="this.style.display='none'">
+        <div class="img-caption">Sir Thomas Gresham (1519-1579), the London financier and namesake of Gresham&#x2019;s Law, an economic rule put to an unusual real-world reversal test during Zimbabwe&#x2019;s 2000s hyperinflation. Credit: <a href="https://en.wikipedia.org/wiki/Thomas_Gresham" target="_blank" rel="noopener">Wikimedia Commons</a></div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F30D; Event</div>
+        <div class="pe-body">During Zimbabwe&#x2019;s 2007-2009 hyperinflation (辛巴威惡性通脹), when monthly inflation peaked near 80 billion percent, ordinary Zimbabweans increasingly refused Zimbabwean dollars (辛巴威元) for everyday transactions, informally switching to US dollars and South African rand even while the local currency remained official legal tender.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F4D6; Theory</div>
+        <div class="pe-body">Gresham&#x2019;s Law (格雷欣法則), classically summarised as &#x201C;bad money drives out good,&#x201D; holds that when a government fixes an official exchange rate between two forms of money, people hoard the undervalued &#x201C;good&#x201D; money and spend the overvalued &#x201C;bad&#x201D; money instead, so the weaker currency dominates circulation.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x26A0;&#xFE0F; Anomaly</div>
+        <div class="pe-body">Zimbabwe&#x2019;s collapse showed the opposite pattern: once the local currency&#x2019;s value fell so fast that legal tender laws became practically unenforceable at the market level, people voluntarily abandoned the &#x201C;bad,&#x201D; rapidly depreciating Zimbabwean dollar for the &#x201C;good,&#x201D; stable US dollar, precisely reversing Gresham&#x2019;s predicted direction.</div>
+      </div>
+      <div class="pe-section">
+        <div class="pe-label">&#x1F9EA; Challenger</div>
+        <div class="pe-body">Economist Peter Bernholz (彼得&middot;伯恩霍茲) formalised this reversal as Thiers&#x2019; Law (蒂耶爾法則), named after 19th-century French statesman Adolphe Thiers (阿道夫&middot;蒂耶爾), who first observed it: once legal tender coercion breaks down badly enough, good money drives out bad instead, regardless of what the law technically requires.</div>
+      </div>
+      <div class="takeaway">&#x1F4A1; When a currency depreciates fast enough, the law loses its grip &mdash; and people quietly enforce the opposite of what Gresham predicted.</div>
+      <div class="source">&#x1F4D6; Bernholz, P., <em>Monetary Regimes and Inflation</em> (2003); Hanke, S.H. &amp; Kwok, A.K.F. (2009), <em>Cato Journal</em>, &#x201C;On the Measurement of Zimbabwe&#x2019;s Hyperinflation&#x201D;; Selgin, G. (1996), <em>Journal of Money, Credit and Banking</em>, &#x201C;Salvaging Gresham&#x2019;s Law.&#x201D; Never recycles Card 10 domain (crypto-exchange fraud vs. monetary/currency-substitution theory).</div>
+    </article>
+
+    <div class="connection-section">
+      <h2>&#x1F517; Connection of the Day</h2>
+      <p><strong>Cards 3 &amp; 5 &mdash; What Attention Actually Requires:</strong> Simone Weil argued that truly attending to another&#x2019;s affliction means resisting the urge to abstract it into statistics or policy debate; the Trail of Tears offers exactly the kind of suffering Weil warned observers instinctively look away from, roughly a quarter of a forcibly marched nation dying along a single winter route. Reading history well, Weil&#x2019;s framework suggests, means refusing to let the scale of a number erase the specific people inside it.</p>
+      <p><strong>So what:</strong> the next time a historical or contemporary tragedy is summarised in a death toll or percentage, pause on at least one specific, named life inside that number before moving on.</p>
+    </div>
+
+  </div><!-- end .content -->
+</div><!-- end .page-layout -->
+
+<footer>
+  <details>
+    <summary>&#x1F4CB; All Sources</summary>
+    <ul>
+      <li><strong>Card 1:</strong> Russell, C.T. et al. (2012), <em>Science</em>; Jaumann, R. et al. (2012), <em>Science</em>; NASA/JPL Dawn mission press materials.</li>
+      <li><strong>Card 2:</strong> 《土爾扈特全部歸順記》；《清史稿·藩部傳》；Perdue, P.C. (2005)。</li>
+      <li><strong>Card 3:</strong> Perdue, T. &amp; Green, M.D. (2005); <em>Worcester v. Georgia</em> (1832); Smithsonian NMAI.</li>
+      <li><strong>Card 4:</strong> 《列子·力命篇》；楊伯峻《列子集釋》；Graham, A.C. (1960)。</li>
+      <li><strong>Card 5:</strong> Weil, S. (1947, posthumous); Weil, S. (1942); Stanford Encyclopedia of Philosophy.</li>
+      <li><strong>Card 6:</strong> Csikszentmihalyi, M. (1990); Csikszentmihalyi, M. &amp; Larson, R. (1987), <em>JNMD</em>.</li>
+      <li><strong>Card 7:</strong> Cleary, A.M. et al. (2012); Spatt, J. (2002); Brown, A.S. (2004).</li>
+      <li><strong>Card 8:</strong> Vreeman, R.C. &amp; Carroll, A.E. (2008), <em>BMJ</em>; Pretorius, T. et al. (2006).</li>
+      <li><strong>Card 9:</strong> Achten, J. &amp; Jeukendrup, A.E. (2003); Astorino, T.A. et al. (2013).</li>
+      <li><strong>Card 10:</strong> US DOJ, <em>United States v. Bankman-Fried</em> (2023); <em>FT</em>/Reuters (2022); <em>NYT</em> (2023).</li>
+      <li><strong>Card 11:</strong> Bernholz, P. (2003); Hanke, S.H. &amp; Kwok, A.K.F. (2009), <em>Cato Journal</em>; Selgin, G. (1996).</li>
+    </ul>
+  </details>
+  <details>
+    <summary>&#x1F6AB; Do-Not-Repeat Log (today)</summary>
+    <p style="font-size:.78rem;margin-top:.4rem;">2026-09-12: Vesta &amp; the Rheasilvia Basin &bull; 土爾扈特東歸 &bull; The Trail of Tears &bull; 列子・力命篇 &bull; Simone Weil &bull; Flow (Csikszentmihalyi) &bull; D&eacute;j&agrave; Vu &bull; The Heat-Through-the-Head Myth &bull; The Fat-Burning Zone Myth &bull; The FTX Collapse &bull; Gresham&#x2019;s Law vs Thiers&#x2019; Law</p>
+  </details>
+</footer>
+
+<div class="bm-flash" id="bm-flash"></div>
+<script src="bm.js"></script>
+<script>
+function briefingSave() {
+  const a = document.createElement('a');
+  a.href = window.location.href;
+  a.download = 'daily-learning-2026-09-12.html';
+  a.click();
+}
+function briefingShare() {
+  const url = 'https://thisisforjapapp.github.io/daily-briefing/daily-learning-2026-09-12.html';
+  if (navigator.share) {
+    navigator.share({ title: "Edward's Daily Learning — 12 Sep 2026", url });
+  } else {
+    navigator.clipboard.writeText(url).then(() => alert('Link copied: ' + url));
+  }
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 56;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+<script>
+(function(){
+  var here=location.pathname.split('/').pop();
+  var prev=document.getElementById('navPrev'),next=document.getElementById('navNext');
+  function enable(el,url){if(el){el.href=url;el.classList.remove('nav-disabled');}}
+  fetch('briefings.json',{cache:'no-cache'}).then(function(r){return r.json();}).then(function(list){
+    var i=-1;for(var k=0;k<list.length;k++){if(list[k].url===here){i=k;break;}}
+    if(i===-1)return;
+    if(i>0)enable(prev,list[i-1].url);
+    if(i<list.length-1)enable(next,list[i+1].url);
+  }).catch(function(){});
+})();
+</script>
+</body>
+</html>
