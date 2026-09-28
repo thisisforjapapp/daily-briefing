@@ -118,18 +118,20 @@
     if (syncing) { pending = true; return Promise.resolve({ ok: false, reason: "busy" }); }
     syncing = true;
     var url = WORKER_URL + "/?code=" + encodeURIComponent(getCode());
-    return fetch(url, { method: "GET" })
-      .then(function (r) { return r.json(); })
+    return fetch(url, { method: "GET", signal: AbortSignal.timeout(12000) })
+      .then(function (r) { if (!r.ok) throw new Error("Sync unavailable"); return r.json(); })
       .then(function (remote) {
-        if (!remote || !Array.isArray(remote.items)) remote = blank();
+        if (!remote || !Array.isArray(remote.items)) throw new Error("Invalid sync response");
         var merged = merge(load(), remote);
         save(merged);
-        return fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(merged) });
+        return fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(merged), signal: AbortSignal.timeout(12000) });
       })
-      .then(function () { return { ok: true }; })
-      .catch(function (e) { return { ok: false, reason: String(e) }; })
+      .then(function (r) { if (!r.ok) throw new Error("Sync unavailable"); return r.json(); })
+      .then(function (body) { if (!body || body.ok !== true) throw new Error("Sync not acknowledged"); return { ok: true }; })
+      .catch(function () { return { ok: false, reason: "server-unavailable" }; })
       .then(function (res) {
         syncing = false;
+        document.dispatchEvent(new CustomEvent("dl:sync", { detail: res }));
         if (pending) { pending = false; scheduleSync(); }
         return res;
       });
