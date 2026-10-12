@@ -14,13 +14,7 @@ let toastTimer;
 function toast(text){let n=$('.dl-toast');if(!n){n=el('div',{class:'dl-toast',role:'status'});document.body.append(n);}n.textContent=text;n.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>n.hidden=true,6500);}
 function applyPrefs(){document.documentElement.dataset.theme=['light','dark','system'].includes(prefs.theme)?prefs.theme:'system';document.documentElement.style.setProperty('--dl-font',([18,20,22].includes(+prefs.font)?prefs.font:18)+'px');if(!store.set('dl_preferences_v1',prefs))toast('Preferences work for this visit; browser storage is unavailable.');}
 let registration,acceptUpdate=false;
-async function worker(){if(!('serviceWorker'in navigator)||!isSecureContext)throw new Error('Offline downloads need HTTPS or a local preview.');
-const ready=await Promise.race([navigator.serviceWorker.ready,new Promise((_,reject)=>setTimeout(()=>reject(new Error('Offline support is not ready. Reconnect and retry.')),12000))]);return ready.active;}
-async function message(type,file){const target=await worker();return new Promise((resolve,reject)=>{const channel=new MessageChannel(),timer=setTimeout(()=>reject(new Error('Download timed out. Please retry.')),25000);channel.port1.onmessage=e=>{clearTimeout(timer);channel.port1.close();e.data.ok?resolve(e.data):reject(new Error(e.data.message));};target.postMessage({type,file},[channel.port2]);});}
-async function downloads(){try{return (await message('LIST_DOWNLOADS')).rows;}catch(_){return [];}}
-async function download(file,button){const original=button?.textContent;if(button){button.disabled=true;button.textContent='Downloading…';}
-try{const result=await message('DOWNLOAD',file);toast('Text downloaded for offline reading. Images need internet.'+(result.removed.length?' Oldest download removed (7-edition limit).':''));document.dispatchEvent(new Event('dl:downloads'));return result;}catch(e){toast(e.message);throw e;}finally{if(button){button.disabled=false;button.textContent=original;}}}
-function connectivity(cached){const n=$('#dl-network');if(!n)return;if(!navigator.onLine||cached){n.textContent='Offline / connection unavailable · showing saved content';n.dataset.offline='true';}else{n.textContent='Online';n.dataset.offline='false';}}
+function connectivity(cached){const n=$('#dl-network');if(!n)return;if(!navigator.onLine||cached){n.textContent='Connection unavailable · reconnect to check for new editions';n.dataset.offline='true';}else{n.textContent='Online';n.dataset.offline='false';}}
 async function publicationData(){
  try{const response=await fetch(new URL('briefings.json',base),{cache:'no-cache',signal:AbortSignal.timeout(6500)});if(!response.ok)throw 0;
  const data=await response.json();if(!Array.isArray(data))throw 0;
@@ -36,7 +30,7 @@ function renderFeatured(doc,file,target){
  try{const rows=JSON.parse(doc.querySelector('#dl-featured-data')?.textContent||'null');
   if(!Array.isArray(rows)||rows.length!==3||new Set(rows.map(r=>r.id)).size!==3)return;
   if(!rows.every(r=>/^card-(?:[1-9]|10|11)$/.test(r.id)&&doc.getElementById(r.id)?.querySelector('h2')&&typeof r.reason==='string'&&r.reason.trim()&&r.reason.length<=220))return;
-  target.append(el('h2',{},'Start with these three'),el('p',{class:'dl-featured-note'},'An invitation, not an assignment. All topics are below.'));
+  target.append(el('h2',{},'Choose a starting point'),el('p',{class:'dl-featured-note'},'Read one story, follow these three, or explore all eleven topics. One good question is enough for a sitting.'));
   const list=el('ol',{class:'dl-featured-list'});for(const r of rows){const li=el('li'),a=el('a',{href:(file||'')+'#'+r.id});a.append(el('strong',{},doc.getElementById(r.id).querySelector('h2').textContent.trim()),el('span',{},r.reason));li.append(a);list.append(li);}target.append(list);target.hidden=false;
  }catch(_){} // Older editions have no featured metadata; keep their normal opening.
 }
@@ -126,34 +120,34 @@ function init(){
  const panel=el('div',{class:'dl-menu-panel'});
  const theme=el('label',{},'Appearance');const select=el('select',{'aria-label':'Appearance'});for(const t of ['system','light','dark'])select.append(el('option',{value:t},t[0].toUpperCase()+t.slice(1)));select.value=prefs.theme||'system';select.onchange=()=>{prefs.theme=select.value;applyPrefs();};theme.append(select);panel.append(theme);
  const size=el('label',{},'Reading text');const sizes=el('select',{'aria-label':'Reading text size'});for(const n of [18,20,22])sizes.append(el('option',{value:n},n+' px'+(n===18?' · Standard':n===20?' · Larger':' · Largest')));sizes.value=prefs.font||18;sizes.onchange=()=>{prefs.font=+sizes.value;applyPrefs();};size.append(sizes);panel.append(size);
- if(isEdition){panel.append(el('hr'));const dl=el('button',{type:'button'},'Download text for offline');dl.onclick=()=>download(filename,dl).catch(()=>{});panel.append(dl,el('p',{},'Keeps text and reading controls on this device. Images need internet. Up to 7 editions; oldest replaced first.'));
+ if(isEdition){panel.append(el('hr'));
  const pdf=el('button',{type:'button'},'Export PDF');pdf.onclick=()=>{menu.open=false;expandPrint();window.print();};const send=el('button',{type:'button'},'Share this edition');send.onclick=share;panel.append(pdf,send);
  }
- panel.append(el('a',{href:'bookmarks.html#sync-settings'},'Bookmark sync & backups'),el('a',{href:'index.html#install'},'Install on your phone'),el('p',{},'Reading position, preferences and downloads stay on this device. Only bookmarks use optional cross-device sync.'));
+ panel.append(el('a',{href:'bookmarks.html#sync-settings'},'Bookmark sync & backups'),el('a',{href:'index.html#install'},'Install on your phone'),el('p',{},'Reading position and appearance stay on this device. Bookmarks and card feedback can use your optional sync code.'));
  menu.append(panel);actions.append(menu);bar.append(actions);document.body.prepend(bar);
  const skip=el('a',{class:'dl-skip',href:'#dl-main'},'Skip to content');document.body.prepend(skip);
  const main=$('main')||$('.content')||$('.container');if(main&&!main.id)main.id='dl-main';
- const status=el('div',{class:'dl-statusbar'});status.append(el('p',{class:'dl-state',id:'dl-network','aria-live':'polite'},navigator.onLine?'Online':'Offline · downloaded text available'));
- const update=el('button',{id:'dl-update',type:'button',hidden:''},'Update available · Reload');update.onclick=()=>{if(registration?.waiting){acceptUpdate=true;registration.waiting.postMessage({type:'ACTIVATE_UPDATE'});}};status.append(el('p',{class:'dl-state',id:'dl-download-state'}),update);bar.after(status);
+ const status=el('div',{class:'dl-statusbar'});status.append(el('p',{class:'dl-state',id:'dl-network','aria-live':'polite'},navigator.onLine?'Online':'Connection unavailable · reconnect to read'));
+ const update=el('button',{id:'dl-update',type:'button',hidden:''},'Update available · Reload');update.onclick=()=>{if(registration?.waiting){acceptUpdate=true;registration.waiting.postMessage({type:'ACTIVATE_UPDATE'});}};status.append(update);bar.after(status);
  const observer=new ResizeObserver(()=>document.documentElement.style.setProperty('--dl-header',bar.getBoundingClientRect().height+'px'));observer.observe(bar);
  document.addEventListener('click',e=>{if(!menu.contains(e.target))menu.open=false;});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.open){menu.open=false;$('summary',menu).focus();}});
  if(isEdition){
-  const date=filename.match(/\d{4}-\d{2}-\d{2}/)[0];const title=el('div',{class:'dl-edition-title'});title.append(el('p',{class:'dl-eyebrow'},'THE DAILY EDITION'),el('h1',{},dateLabel(date)),el('p',{},'Explore at your own pace. Your place is remembered on this device.'));status.after(title);
+  const date=filename.match(/\d{4}-\d{2}-\d{2}/)[0];const title=el('div',{class:'dl-edition-title'});title.append(el('p',{class:'dl-eyebrow'},'THE LEARNING EDITION'),el('h1',{},dateLabel(date)),el('p',{},'Follow your curiosity. Stop after a story and return when you like; your place is remembered on this device.'));status.after(title);
   const cards=Array.from(document.querySelectorAll('.card[id]')).sort((a,b)=>Number(a.id.replace('card-',''))-Number(b.id.replace('card-','')));
   const topicbar=el('nav',{class:'dl-topicbar','aria-label':'Edition navigation'});
   topicbar.append(el('a',{href:'index.html#archive'},'Archive'));title.after(topicbar);
   topicNavigation(cards);
   const featured=el('section',{class:'dl-featured','aria-label':'Suggested starting points',hidden:''});topicbar.after(featured);renderFeatured(document,'',featured);
   const spark=$('.spark-section');if(spark){const fold=el('details',{class:'dl-spark-fold'});fold.append(el('summary',{},'Revisit the previous edition'));spark.before(fold);fold.append(spark);}
-  cards.forEach(card=>{const b=$('.bm-btn',card);if(b){b.title='Bookmark this card';b.setAttribute('aria-label','Bookmark: '+($('h2',card)?.textContent.trim()||'card'));}card.querySelectorAll('img').forEach(img=>{
-   const fallback=()=>{img.style.display='none';img.closest('.card-img-wrap')?.classList.add('dl-image-unavailable');if(!img.nextElementSibling?.classList.contains('dl-image-note'))img.after(el('p',{class:'dl-image-note'},'Image unavailable'+(!navigator.onLine?' offline':'')+'. Article text remains available.'));};img.addEventListener('error',fallback);if(img.complete&&!img.naturalWidth)fallback();
+  cards.forEach(card=>{const eastern=['card-2','card-4'].includes(card.id);if(eastern)card.setAttribute('lang','zh-HK');const b=$('.bm-btn',card);if(b){b.title=eastern?'收藏這篇文章':'Bookmark this card';b.setAttribute('aria-label',(eastern?'收藏：':'Bookmark: ')+($('h2',card)?.textContent.trim()||'card'));}card.querySelectorAll('img').forEach(img=>{
+   const fallback=()=>{img.style.display='none';img.closest('.card-img-wrap')?.classList.add('dl-image-unavailable');if(!img.nextElementSibling?.classList.contains('dl-image-note'))img.after(el('p',{class:'dl-image-note'},eastern?'圖片暫時無法顯示，仍可閱讀文章。':'Image unavailable. Article text remains available.'));};img.addEventListener('error',fallback);if(img.complete&&!img.naturalWidth)fallback();
   });});
   readingPosition(cards);
-  window.briefingSave=()=>download(filename).catch(()=>{});window.briefingShare=share;
+  window.briefingSave=()=>toast('Use Bookmark to save a card or Export PDF to keep a copy.');window.briefingShare=share;
+  const feedback=el('script',{src:new URL('feedback.js',base).href});feedback.onload=()=>window.DLFeedback?.attach(cards);document.head.append(feedback);
   const adjacent=el('span',{class:'dl-adjacent'});topicbar.append(adjacent);
   publicationData().then(({list})=>{const i=list.findIndex(e=>e.url===filename);if(i>0)adjacent.append(el('a',{href:list[i-1].url},'← Previous'));if(i>=0&&i<list.length-1)adjacent.append(el('a',{href:list[i+1].url},'Next →'));});
-  const downloadState=()=>downloads().then(rows=>{$('#dl-download-state').textContent=rows.some(r=>r.file===filename)?'Text downloaded on this device':'';});
-  document.addEventListener('dl:worker',downloadState);document.addEventListener('dl:downloads',downloadState);
+
  }
  if(filename==='bookmarks.html'){
   const sync=$('.sync');if(sync){const fold=el('details',{id:'sync-settings'});fold.append(el('summary',{},'Sync settings'));sync.before(fold);fold.append(sync);const reveal=()=>{if(location.hash==='#sync-settings')fold.open=true;};reveal();addEventListener('hashchange',reveal);}
@@ -163,10 +157,10 @@ function init(){
  if('serviceWorker'in navigator&&isSecureContext){
   navigator.serviceWorker.register(new URL('sw.js',base),{scope:base.pathname,updateViaCache:'none'}).then(reg=>{
    registration=reg;const show=()=>{update.hidden=!(reg.waiting&&navigator.serviceWorker.controller);};show();reg.addEventListener('updatefound',()=>{reg.installing?.addEventListener('statechange',show);});document.dispatchEvent(new Event('dl:worker'));
-  }).catch(()=>{toast('Offline setup unavailable. Reading online still works.');});
+  }).catch(()=>{/* Reading works without the update helper. */});
   navigator.serviceWorker.addEventListener('controllerchange',()=>{if(acceptUpdate)location.reload();else update.hidden=true;});
  }
 }
-window.DL={el,store,hktDate,dateLabel,publicationData,savedPosition,downloads,download,message,toast,renderFeatured};
+window.DL={el,store,hktDate,dateLabel,publicationData,savedPosition,toast,renderFeatured};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();

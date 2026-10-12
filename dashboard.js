@@ -14,9 +14,9 @@ const cards=Array.from(doc.querySelectorAll('.card[id]'));if(!cards.length)throw
 DL.renderFeatured(doc,file,$('#featured-latest'));
 for(const [i,card]of cards.entries()){const heading=card.querySelector('h2');if(!heading)continue;const li=el('li'),a=el('a',{href:file+'#'+encodeURIComponent(card.id)}),text=el('span');text.append(el('small',{},card.querySelector('.card-label')?.textContent.trim()||'Topic '+(i+1)),el('strong',{},heading.textContent.trim()));a.append(el('span',{class:'dl-number'},String(i+1).padStart(2,'0')),text);li.append(a);list.append(li);}
 $('#topics-note').textContent=cards.length+' topics · choose where to begin';
-}catch(_){$('#topics-note').textContent='Topic titles are unavailable offline until this edition is downloaded. You can still open an available edition.';}}
+}catch(_){$('#topics-note').textContent='Could not load the topic titles. Reconnect and try opening the edition.';}}
 function render(data,cached){entries=ordered(data);const today=hktDate(),available=entries.filter(e=>e.date<=today),latest=available.at(-1);
-$('#freshness').textContent=latest?(latest.date===today?'Today’s edition · '+dateLabel(latest.date):'No new edition today · Latest: '+dateLabel(latest.date)):'No published editions available.';
+$('#freshness').textContent=latest?(latest.date===today?'New edition · '+dateLabel(latest.date):'Latest edition · '+dateLabel(latest.date)):'No published editions available.';
 if(cached)$('#freshness').textContent+=' · Saved listing; reconnect to check for newer editions.';
 const checked=store.get('dl_last_checked',null);$('#last-checked').textContent=checked?'Last checked '+new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Hong_Kong',day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'}).format(new Date(checked))+' HKT':'Publication status has not been checked online.';
 if(latest){$('#read-latest').hidden=false;$('#read-latest').href=latest.url+'?start=1';$('#read-latest').textContent='Start edition →';$('#stamp-day').textContent=latest.date.slice(8);$('#stamp-month').textContent=new Intl.DateTimeFormat('en-GB',{month:'long',year:'numeric',timeZone:'Asia/Hong_Kong'}).format(new Date(latest.date+'T12:00:00+08:00'));
@@ -32,12 +32,10 @@ for(let d=1;d<=days;d++){const date=month+'-'+String(d).padStart(2,'0'),matches=
 if(matches.length){const a=el('a',{href:matches.at(-1).url,'aria-label':dateLabel(date)+(matches.length>1?' · '+matches.length+' editions':'')},String(d));cell.append(a);if(matches.length>1){cell.append(el('small',{},'×'+matches.length));a.onclick=e=>{e.preventDefault();const choice=$('#edition-choice');choice.hidden=false;choice.replaceChildren(el('strong',{},dateLabel(date)));for(const item of matches)choice.append(el('a',{href:item.url},'Edition '+(item.edition||1)));choice.focus();};}}else{cell.classList.add('blank');cell.textContent=d;}grid.append(cell);}
 }
 function step(amount){const [y,m]=month.split('-').map(Number),d=new Date(Date.UTC(y,m-1+amount,1));month=d.toISOString().slice(0,7);renderCalendar();}
-async function offlineList(){const rows=await DL.downloads();const target=$('#offline-list');target.replaceChildren();if(!rows.length){target.append(el('p',{},'No downloaded editions on this device. Open an edition and choose Settings → Download text for offline.'));return;}
-for(const row of rows.slice().reverse()){const item=el('div',{class:'dl-offline-row'}),a=el('a',{href:row.file},dateLabel(row.date));a.append(el('small',{},'Text & reading controls · images online'));const remove=el('button',{type:'button','aria-label':'Remove download for '+dateLabel(row.date)},'Remove');remove.onclick=async()=>{try{await DL.message('REMOVE_DOWNLOAD',row.file);DL.toast('Offline copy removed. Bookmarks are unchanged.');offlineList();}catch(e){DL.toast(e.message);}};item.append(a,remove);target.append(item);}}
 function revealHash(){if(['#archive','#install'].includes(location.hash)){$(location.hash).open=true;requestAnimationFrame(()=>$(location.hash).scrollIntoView());}}
 async function refresh(){const result=await DL.publicationData();if(result.list.length)render(result.list,result.cached);}
 try{render(JSON.parse($('#bdata').textContent),true);}catch(_){render([],true);}
 $('#previous-month').onclick=()=>step(-1);$('#next-month').onclick=()=>step(1);
 addEventListener('hashchange',revealHash);revealHash();
-document.addEventListener('dl:downloads',offlineList);document.addEventListener('dl:worker',offlineList);document.addEventListener('dl:refresh',refresh);addEventListener('pageshow',refresh);refresh();offlineList();
+document.addEventListener('dl:refresh',refresh);addEventListener('pageshow',refresh);refresh();
 })();

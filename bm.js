@@ -166,7 +166,8 @@
       date: meta ? meta.textContent.trim() : ""
     });
     if (added) btn.classList.add("on"); else btn.classList.remove("on");
-    flash(added ? "Saved to bookmarks" : "Removed from bookmarks");
+    var eastern = card.id === "card-2" || card.id === "card-4";
+    flash(eastern ? (added ? "已收藏" : "已取消收藏") : (added ? "Saved to bookmarks" : "Removed from bookmarks"));
   };
 
   // ---- toolbar Save / Send (kept here so every page shares one copy) ----
