@@ -1,7 +1,7 @@
 /* Online-only migration. No requests are intercepted or cached.
    The update still waits for reader consent; localStorage is untouched. */
 'use strict';
-const SHELL = 'dl-shell-20261013-2';
+const SHELL = 'dl-shell-20261013-3';
 self.addEventListener('install',event=>{ /* Do not skipWaiting automatically. */ });
 self.addEventListener('message',event=>{
  if(event.data?.type==='ACTIVATE_UPDATE')self.skipWaiting();

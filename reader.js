@@ -7,12 +7,21 @@ const filename=location.pathname.split('/').pop()||'index.html';
 const isEdition=/^daily-learning-\d{4}-\d{2}-\d{2}(?:-\d+)?\.html$/.test(filename);
 const base=new URL('./',location.href);
 const prefs=store.get('dl_preferences_v1',{theme:'system',font:18});
+const fontSizes=[16,18,20,22];
 function el(tag,attrs={},text){const n=document.createElement(tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}
 function hktDate(now=new Date()){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Hong_Kong',year:'numeric',month:'2-digit',day:'2-digit'}).format(now);}
 function dateLabel(date){return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric',timeZone:'Asia/Hong_Kong'}).format(new Date(date+'T12:00:00+08:00'));}
 let toastTimer;
 function toast(text){let n=$('.dl-toast');if(!n){n=el('div',{class:'dl-toast',role:'status'});document.body.append(n);}n.textContent=text;n.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>n.hidden=true,6500);}
-function applyPrefs(){document.documentElement.dataset.theme=['light','dark','system'].includes(prefs.theme)?prefs.theme:'system';document.documentElement.style.setProperty('--dl-font',([18,20,22].includes(+prefs.font)?prefs.font:18)+'px');if(!store.set('dl_preferences_v1',prefs))toast('Preferences work for this visit; browser storage is unavailable.');}
+function applyPrefs(){document.documentElement.dataset.theme=['light','dark','system'].includes(prefs.theme)?prefs.theme:'system';document.documentElement.style.setProperty('--dl-font',(fontSizes.includes(+prefs.font)?prefs.font:18)+'px');if(!store.set('dl_preferences_v1',prefs))toast('Preferences work for this visit; browser storage is unavailable.');}
+function changeFont(size){
+ // Keep the visible paragraph in place as text above it reflows.
+ const header=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--dl-header'))||70;
+ const anchor=Array.from(document.querySelectorAll('.card h2,.card p,.pe-body')).find(n=>{const r=n.getBoundingClientRect();return r.height>0&&r.bottom>header+16&&r.top<innerHeight;});
+ const top=anchor?.getBoundingClientRect().top;
+ prefs.font=size;applyPrefs();
+ if(anchor)requestAnimationFrame(()=>window.scrollBy({top:anchor.getBoundingClientRect().top-top,behavior:'instant'}));
+}
 let registration,acceptUpdate=false;
 function connectivity(cached){const n=$('#dl-network');if(!n)return;if(!navigator.onLine||cached){n.textContent='Connection unavailable · reconnect to check for new editions';n.dataset.offline='true';}else{n.textContent='Online';n.dataset.offline='false';}}
 async function publicationData(){
@@ -119,7 +128,7 @@ function init(){
  const menu=el('details',{class:'dl-menu'});menu.append(el('summary',{},'Settings'));
  const panel=el('div',{class:'dl-menu-panel'});
  const theme=el('label',{},'Appearance');const select=el('select',{'aria-label':'Appearance'});for(const t of ['system','light','dark'])select.append(el('option',{value:t},t[0].toUpperCase()+t.slice(1)));select.value=prefs.theme||'system';select.onchange=()=>{prefs.theme=select.value;applyPrefs();};theme.append(select);panel.append(theme);
- const size=el('label',{},'Reading text');const sizes=el('select',{'aria-label':'Reading text size'});for(const n of [18,20,22])sizes.append(el('option',{value:n},n+' px'+(n===18?' · Standard':n===20?' · Larger':' · Largest')));sizes.value=prefs.font||18;sizes.onchange=()=>{prefs.font=+sizes.value;applyPrefs();};size.append(sizes);panel.append(size);
+ const size=el('label',{class:isEdition?'dl-font-control':''},'Text size');const sizes=el('select',{'aria-label':'Reading text size'});for(const n of fontSizes)sizes.append(el('option',{value:n},n+' px'+(n===16?' · Smaller':n===18?' · Standard':n===20?' · Larger':' · Largest')));sizes.value=fontSizes.includes(+prefs.font)?+prefs.font:18;sizes.onchange=()=>changeFont(+sizes.value);size.append(sizes);if(isEdition)bar.append(size);else panel.append(size);
  if(isEdition){panel.append(el('hr'));
  const pdf=el('button',{type:'button'},'Export PDF');pdf.onclick=()=>{menu.open=false;expandPrint();window.print();};const send=el('button',{type:'button'},'Share this edition');send.onclick=share;panel.append(pdf,send);
  }
