@@ -1,0 +1,48 @@
+name: Qimen EP01 Cantonese ASR 45s safe test
+on:
+  push:
+    branches:
+      - qimen-ep01-asr-safe-test
+    paths:
+      - .github/workflows/qimen-ep01-asr-safe.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qimen-ep01-asr-safe-test
+  cancel-in-progress: true
+jobs:
+  qwen-cantonese-preview:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout test branch only
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install ASR dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install qwen-asr yt-dlp
+      - name: Download public EP01 sample and transcribe
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+          PYTHONUNBUFFERED: '1'
+        run: python qimen_ep01_trial/ep01_github_actions.py
+      - name: Upload text result only, no audio
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ep01-asr-45s
+          path: |
+            qimen_ep01_results/*.txt
+            qimen_ep01_results/*.json
+          if-no-files-found: ignore
+          retention-days: 1
