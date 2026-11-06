@@ -1,0 +1,35 @@
+name: Qimen EP01 public captions probe
+on:
+  push:
+    branches:
+      - qimen-ep01-asr-safe-test
+    paths:
+      - .github/workflows/qimen-ep01-captions.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qimen-ep01-captions
+  cancel-in-progress: true
+jobs:
+  captions:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test no-key public caption endpoints
+        run: python qimen_ep01_trial/try_public_captions.py
+      - name: Attach source caption responses if present
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qimen-ep01-public-captions
+          path: qimen_ep01_results/
+          if-no-files-found: ignore
+          retention-days: 1
