@@ -1,0 +1,27 @@
+name: Qimen EP01 public caption metadata
+on:
+  push:
+    branches:
+      - qimen-ep01-asr-safe-test
+    paths:
+      - .github/workflows/qimen-ep01-caption-metadata.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qimen-ep01-caption-metadata
+  cancel-in-progress: true
+jobs:
+  metadata:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Probe public captions metadata
+        run: python qimen_ep01_trial/check_public_caption_metadata.py
