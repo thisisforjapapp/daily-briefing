@@ -1,0 +1,27 @@
+name: Qimen missing episode IDs channel search
+on:
+  push:
+    branches: [qimen-ep01-asr-safe-test]
+    paths: [.github/workflows/qimen-fill-episode-ids.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  index:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Channel search missing episode numbers
+        run: python qimen_ep01_trial/supplement_episode_ids.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qimen-series-missing-episode-ids
+          path: qimen_series_index/missing_ep_checks.json
+          retention-days: 1
