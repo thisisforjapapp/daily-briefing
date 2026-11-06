@@ -1,0 +1,51 @@
+name: Qwen Cantonese CPU smoke test (independent public audio)
+on:
+  push:
+    branches:
+      - qimen-ep01-asr-safe-test
+    paths:
+      - .github/workflows/qimen-cantonese-smoke.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qimen-cantonese-smoke
+  cancel-in-progress: true
+jobs:
+  qwen-asr-public-sample:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Ensure FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            python -m pip install imageio-ffmpeg
+            FFMPEG_BIN=$(python -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())")
+            sudo ln -s "$FFMPEG_BIN" /usr/local/bin/ffmpeg
+          fi
+      - name: Install CPU Qwen ASR
+        run: |
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install qwen-asr
+      - name: Transcribe 20 seconds of CC-licensed Cantonese sample
+        env:
+          HF_HUB_DISABLE_TELEMETRY: '1'
+          PYTHONUNBUFFERED: '1'
+        run: python qimen_ep01_trial/verify_qwen_cantonese.py
+      - name: Upload text only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cantonese-asr-smoke-text
+          path: |
+            qimen_cantonese_smoketest/*.txt
+            qimen_cantonese_smoketest/*.json
+          if-no-files-found: ignore
+          retention-days: 1
