@@ -1,0 +1,32 @@
+name: Qimen series episode index (metadata only)
+on:
+  push:
+    branches: [qimen-ep01-asr-safe-test]
+    paths: [.github/workflows/qimen-series-index.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qimen-series-index
+  cancel-in-progress: true
+jobs:
+  index:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch public series metadata
+        run: python qimen_ep01_trial/collect_series_index.py
+      - name: Save episode index
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qimen-series-index
+          path: qimen_series_index/public_series_index.json
+          retention-days: 1
