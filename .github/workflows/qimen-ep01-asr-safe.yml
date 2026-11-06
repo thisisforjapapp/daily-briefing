@@ -14,7 +14,7 @@ concurrency:
 jobs:
   qwen-cantonese-preview:
     if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: Checkout test branch only
@@ -25,8 +25,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: FFmpeg
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: FFmpeg check and fallback
+        run: |
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            python -m pip install imageio-ffmpeg
+            FFMPEG_BIN=$(python -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())")
+            sudo ln -s "$FFMPEG_BIN" /usr/local/bin/ffmpeg
+          fi
+          ffmpeg -version | head -n 1
       - name: Install ASR dependencies
         run: |
           python -m pip install --upgrade pip
