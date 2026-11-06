@@ -1,0 +1,22 @@
+name: Qimen alternate public platform metadata
+on:
+  push:
+    branches: [qimen-ep01-asr-safe-test]
+    paths: [.github/workflows/qimen-alt-source-search.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-search:
+    if: github.ref == 'refs/heads/qimen-ep01-asr-safe-test'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Look for public alternate source metadata
+        run: python qimen_ep01_trial/search_bili_mirror.py
